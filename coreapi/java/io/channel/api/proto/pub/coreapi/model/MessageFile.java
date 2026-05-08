@@ -365,7 +365,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="file-001"
+   * +kubebuilder:example="6606508ec1dd00001a2b"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -388,7 +388,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique file identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="file-001"
+   * +kubebuilder:example="6606508ec1dd00001a2b"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -895,7 +895,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID that owns this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -918,7 +918,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID that owns this private file.
    * Derived from the storage key pattern.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -945,7 +945,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -968,7 +968,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager ID that owns this private file.
    * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -1045,7 +1045,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -1068,7 +1068,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat ID for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -1709,7 +1709,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="file-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1731,7 +1731,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="file-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1754,7 +1754,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="file-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1775,7 +1775,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="file-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1791,7 +1791,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique file identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="file-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -2926,7 +2926,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -2948,7 +2948,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -2971,7 +2971,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -2992,7 +2992,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -3008,7 +3008,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID that owns this private file.
      * Derived from the storage key pattern.
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 16 [json_name = "channelId"];</code>
@@ -3032,7 +3032,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3054,7 +3054,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3077,7 +3077,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3098,7 +3098,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3114,7 +3114,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager ID that owns this private file.
      * Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string manager_id = 17 [json_name = "managerId"];</code>
@@ -3244,7 +3244,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="6606508eaa71575f1e8c"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3266,7 +3266,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="6606508eaa71575f1e8c"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3289,7 +3289,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="6606508eaa71575f1e8c"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3310,7 +3310,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="6606508eaa71575f1e8c"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>
@@ -3326,7 +3326,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat ID for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="uc-abc123"
+     * +kubebuilder:example="6606508eaa71575f1e8c"
      * </pre>
      *
      * <code>string chat_id = 19 [json_name = "chatId"];</code>

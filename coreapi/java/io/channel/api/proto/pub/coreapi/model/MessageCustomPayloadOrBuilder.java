@@ -10,6 +10,7 @@ public interface MessageCustomPayloadOrBuilder extends
   /**
    * <pre>
    * Arbitrary JSON payload conforming to the external messenger's message schema.
+   * +kubebuilder:example={"type":"customCard","title":"Order Update","body":"Your order has shipped."}
    * </pre>
    *
    * <code>.google.protobuf.Struct data = 1 [json_name = "data"];</code>
@@ -19,6 +20,7 @@ public interface MessageCustomPayloadOrBuilder extends
   /**
    * <pre>
    * Arbitrary JSON payload conforming to the external messenger's message schema.
+   * +kubebuilder:example={"type":"customCard","title":"Order Update","body":"Your order has shipped."}
    * </pre>
    *
    * <code>.google.protobuf.Struct data = 1 [json_name = "data"];</code>
@@ -28,6 +30,7 @@ public interface MessageCustomPayloadOrBuilder extends
   /**
    * <pre>
    * Arbitrary JSON payload conforming to the external messenger's message schema.
+   * +kubebuilder:example={"type":"customCard","title":"Order Update","body":"Your order has shipped."}
    * </pre>
    *
    * <code>.google.protobuf.Struct data = 1 [json_name = "data"];</code>
@@ -38,6 +41,7 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
+   * +kubebuilder:example={"customer_name":"{{user.profile.name}}","order_id":"{{event.orderId}}"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -47,6 +51,7 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
+   * +kubebuilder:example={"customer_name":"{{user.profile.name}}","order_id":"{{event.orderId}}"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -63,6 +68,7 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
+   * +kubebuilder:example={"customer_name":"{{user.profile.name}}","order_id":"{{event.orderId}}"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -73,6 +79,7 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
+   * +kubebuilder:example={"customer_name":"{{user.profile.name}}","order_id":"{{event.orderId}}"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>
@@ -85,6 +92,7 @@ public interface MessageCustomPayloadOrBuilder extends
    * <pre>
    * Key-value mapping for template variable substitution within the custom payload.
    * Keys are placeholder names and values are the replacement strings.
+   * +kubebuilder:example={"customer_name":"{{user.profile.name}}","order_id":"{{event.orderId}}"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; param_mapper = 2 [json_name = "paramMapper"];</code>

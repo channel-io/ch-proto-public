@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="wp-001"
+   * +kubebuilder:example="6606508ec1dd00001a2b"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -208,7 +208,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique web page preview identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="wp-001"
+   * +kubebuilder:example="6606508ec1dd00001a2b"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1326,7 +1326,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="wp-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1348,7 +1348,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="wp-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1371,7 +1371,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="wp-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1392,7 +1392,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="wp-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1408,7 +1408,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique web page preview identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="wp-001"
+     * +kubebuilder:example="6606508ec1dd00001a2b"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>

@@ -38,7 +38,7 @@ public interface ImageFileOrBuilder extends
    * Storage object key used to locate the image within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="uploads/image-001.png"
+   * +kubebuilder:example="uploads/6606508ec1dd00001a2b.png"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -50,7 +50,7 @@ public interface ImageFileOrBuilder extends
    * Storage object key used to locate the image within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="uploads/image-001.png"
+   * +kubebuilder:example="uploads/6606508ec1dd00001a2b.png"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>

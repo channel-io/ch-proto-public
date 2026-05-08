@@ -32,24 +32,24 @@ type CampaignMsg struct {
 	// Client-assigned on creation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="cm-001"
+	// +kubebuilder:example="2015"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Campaign ID this message variant belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="cpn-001"
+	// +kubebuilder:example="4461"
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Channel ID this campaign message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for this message variant.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="Welcome Message"
+	// +kubebuilder:example="메시지 본문"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Channel through which this message is delivered.
 	// Cannot be changed after creation.
@@ -58,23 +58,23 @@ type CampaignMsg struct {
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
-	// +kubebuilder:example="sms-001"
+	// +kubebuilder:example="sms-sender-201"
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
+	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
 	Settings *structpb.Struct `protobuf:"bytes,7,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Campaign message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Campaign message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered for this variant.
 	//

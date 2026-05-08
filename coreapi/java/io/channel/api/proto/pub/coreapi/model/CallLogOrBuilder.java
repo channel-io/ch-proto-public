@@ -11,7 +11,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Channel ID where the call occurred.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 1 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -93,7 +93,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Originating phone number or caller identifier.
-   * +kubebuilder:example="+821012345678"
+   * +kubebuilder:example="+821098761234"
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -103,7 +103,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Originating phone number or caller identifier.
-   * +kubebuilder:example="+821012345678"
+   * +kubebuilder:example="+821098761234"
    * </pre>
    *
    * <code>string from = 5 [json_name = "from"];</code>
@@ -115,7 +115,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Destination phone number or callee identifier.
-   * +kubebuilder:example="+821098765432"
+   * +kubebuilder:example="+821055667788"
    * </pre>
    *
    * <code>string to = 6 [json_name = "to"];</code>
@@ -125,7 +125,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * Destination phone number or callee identifier.
-   * +kubebuilder:example="+821098765432"
+   * +kubebuilder:example="+821055667788"
    * </pre>
    *
    * <code>string to = 6 [json_name = "to"];</code>
@@ -138,6 +138,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Call creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -148,6 +149,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Call creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -158,6 +160,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Call creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -168,6 +171,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Call last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -178,6 +182,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Call last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -188,6 +193,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Call last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -198,6 +204,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -208,6 +215,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -218,6 +226,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Timestamp when the call was answered and the conversation began.
    * Absent if the call was never answered.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp engaged_at = 9 [json_name = "engagedAt"];</code>
@@ -228,6 +237,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
+   * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -238,6 +248,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
+   * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -248,6 +259,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * Timestamp when the call ended and the connection was terminated.
    * Absent if the call is still active or was never connected.
+   * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp closed_at = 10 [json_name = "closedAt"];</code>
@@ -258,7 +270,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -269,7 +281,7 @@ public interface CallLogOrBuilder extends
    * <pre>
    * User chat ID linked to this call.
    * Present when the call is associated with a user chat conversation.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string user_chat_id = 11 [json_name = "userChatId"];</code>
@@ -281,6 +293,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -291,6 +304,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -300,6 +314,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>
@@ -310,6 +325,7 @@ public interface CallLogOrBuilder extends
   /**
    * <pre>
    * List of manager IDs who participated in or handled the call.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 12 [json_name = "managerIds"];</code>

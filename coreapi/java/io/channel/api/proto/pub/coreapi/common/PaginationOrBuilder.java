@@ -19,11 +19,19 @@ public interface PaginationOrBuilder extends
   io.channel.api.proto.pub.coreapi.common.SortOrder getSortOrder();
 
   /**
+   * <pre>
+   * +kubebuilder:example="1704067200000"
+   * </pre>
+   *
    * <code>string since = 2 [json_name = "since"];</code>
    * @return The since.
    */
   java.lang.String getSince();
   /**
+   * <pre>
+   * +kubebuilder:example="1704067200000"
+   * </pre>
+   *
    * <code>string since = 2 [json_name = "since"];</code>
    * @return The bytes for since.
    */
@@ -31,6 +39,10 @@ public interface PaginationOrBuilder extends
       getSinceBytes();
 
   /**
+   * <pre>
+   * +kubebuilder:example="25"
+   * </pre>
+   *
    * <code>int32 limit = 3 [json_name = "limit", (.buf.validate.field) = { ... }</code>
    * @return The limit.
    */

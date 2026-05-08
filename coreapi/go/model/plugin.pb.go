@@ -386,16 +386,16 @@ type Plugin struct {
 	// Unique plugin identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="plg-001"
+	// +kubebuilder:example="93417"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Plugin API key in UUID format.
 	//
-	// +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+	// +kubebuilder:example="76202436-0c71-4903-a402-3f16d265673a"
 	Key string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
 	// Channel ID this plugin belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activation lifecycle state.
 	//
@@ -407,12 +407,12 @@ type Plugin struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:example="Support Widget"
+	// +kubebuilder:example="채널톡 데모샵"
 	Name string `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
 	// Plugin creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-21T07:12:21.773038Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Color theme of the widget.
 	// Defaults to LIGHT.
@@ -430,7 +430,7 @@ type Plugin struct {
 	//
 	// +kubebuilder:validation:MinLength=4
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:example="Chat with us"
+	// +kubebuilder:example="상담하기"
 	LabelButtonText string `protobuf:"bytes,9,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
 	// Localized label button text, keyed by locale code (e.g., "en", "ko").
 	// Overrides label_button_text for matching locales.
@@ -455,11 +455,11 @@ type Plugin struct {
 	DeskImage *TinyFile `protobuf:"bytes,14,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
 	// Horizontal offset of the desktop widget from its anchored edge, in pixels.
 	//
-	// +kubebuilder:example="20"
+	// +kubebuilder:example="24"
 	DeskMarginX int32 `protobuf:"varint,15,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
 	// Vertical offset of the desktop widget from the bottom edge, in pixels.
 	//
-	// +kubebuilder:example="20"
+	// +kubebuilder:example="24"
 	DeskMarginY int32 `protobuf:"varint,16,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
 	// Whether the desktop launcher button is hidden while the widget remains accessible.
 	//
@@ -490,7 +490,7 @@ type Plugin struct {
 	// When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
 	//
 	// +kubebuilder:validation:MaxItems=5
-	// +kubebuilder:example=["https://channel.io","https://*.channel.io"]
+	// +kubebuilder:example=["https://zoyi.cafe24.com","https://*.cafe24.com"]
 	UrlWhitelist []string `protobuf:"bytes,25,rep,name=url_whitelist,json=urlWhitelist,proto3" json:"url_whitelist,omitempty"`
 	// Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
 	//
@@ -505,17 +505,17 @@ type Plugin struct {
 	// Resolved URL of the custom launcher button image.
 	// Automatically derived from custom_image.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
+	// +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/custom.png"
 	CustomImageUrl string `protobuf:"bytes,28,opt,name=custom_image_url,json=customImageUrl,proto3" json:"custom_image_url,omitempty"`
 	// Resolved URL of the desktop launcher image.
 	// Automatically derived from desk_image.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
+	// +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/desk.png"
 	DeskImageUrl string `protobuf:"bytes,29,opt,name=desk_image_url,json=deskImageUrl,proto3" json:"desk_image_url,omitempty"`
 	// Resolved URL of the mobile launcher image.
 	// Automatically derived from mobile_image.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
+	// +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/mobile.png"
 	MobileImageUrl string `protobuf:"bytes,30,opt,name=mobile_image_url,json=mobileImageUrl,proto3" json:"mobile_image_url,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache

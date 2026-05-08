@@ -186,6 +186,7 @@ message Plugin {
   // Horizontal offset of the desktop widget from its anchored edge, in pixels.
   //
   // +kubebuilder:example="24"
+  int32 desk_margin_x = 15;
 
   // Vertical offset of the desktop widget from the bottom edge, in pixels.
   //

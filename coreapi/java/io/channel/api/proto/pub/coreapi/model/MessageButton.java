@@ -368,6 +368,7 @@ private static final long serialVersionUID = 0L;
    * Action payload executed when the button is clicked.
    * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -382,6 +383,7 @@ private static final long serialVersionUID = 0L;
    * Action payload executed when the button is clicked.
    * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -396,6 +398,7 @@ private static final long serialVersionUID = 0L;
    * Action payload executed when the button is clicked.
    * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -961,6 +964,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -974,6 +978,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -991,6 +996,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1013,6 +1019,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1033,6 +1040,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1057,6 +1065,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1077,6 +1086,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1091,6 +1101,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>
@@ -1108,6 +1119,7 @@ private static final long serialVersionUID = 0L;
      * Action payload executed when the button is clicked.
      * Contains the action type and its attributes (e.g. URL to open, WAM to launch).
      * +kubebuilder:validation:Required
+     * +kubebuilder:example={"type":"web","attributes":{"url":"https://channel.io"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct action = 3 [json_name = "action", (.buf.validate.field) = { ... }</code>

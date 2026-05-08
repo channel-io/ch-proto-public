@@ -361,7 +361,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
-   * +kubebuilder:example="Hello, world!"
+   * +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>
@@ -384,7 +384,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
-   * +kubebuilder:example="Hello, world!"
+   * +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>
@@ -1057,7 +1057,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
-     * +kubebuilder:example="Hello, world!"
+     * +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1079,7 +1079,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
-     * +kubebuilder:example="Hello, world!"
+     * +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1102,7 +1102,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
-     * +kubebuilder:example="Hello, world!"
+     * +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1123,7 +1123,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
-     * +kubebuilder:example="Hello, world!"
+     * +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>
@@ -1139,7 +1139,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Text content of the block.
      * Applicable for TEXT and CODE block types; ignored for BULLETS.
-     * +kubebuilder:example="Hello, world!"
+     * +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
      * </pre>
      *
      * <code>string value = 3 [json_name = "value"];</code>

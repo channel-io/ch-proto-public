@@ -76,7 +76,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Name of the host application embedding the Channel SDK.
-   * +kubebuilder:example="MyApp"
+   * +kubebuilder:example="Channel Shop"
    * </pre>
    *
    * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -86,7 +86,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Name of the host application embedding the Channel SDK.
-   * +kubebuilder:example="MyApp"
+   * +kubebuilder:example="Channel Shop"
    * </pre>
    *
    * <code>string app_name = 4 [json_name = "appName"];</code>
@@ -176,6 +176,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent mobile session start.
+   * +kubebuilder:example="2025-10-30T09:12:49Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 9 [json_name = "lastSeenAt"];</code>
@@ -185,6 +186,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent mobile session start.
+   * +kubebuilder:example="2025-10-30T09:12:49Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 9 [json_name = "lastSeenAt"];</code>
@@ -194,6 +196,7 @@ public interface MobileInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent mobile session start.
+   * +kubebuilder:example="2025-10-30T09:12:49Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 9 [json_name = "lastSeenAt"];</code>

@@ -33,12 +33,12 @@ type NameDesc struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
-	// +kubebuilder:example="Support Bot"
+	// +kubebuilder:example="Channel-bot"
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Short description of the entity.
 	//
 	// +kubebuilder:validation:MaxLength=180
-	// +kubebuilder:example="Handles customer inquiries"
+	// +kubebuilder:example="고객 문의를 응대하는 봇입니다"
 	Description   string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

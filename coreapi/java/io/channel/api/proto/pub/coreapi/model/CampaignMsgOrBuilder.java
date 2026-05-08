@@ -12,7 +12,7 @@ public interface CampaignMsgOrBuilder extends
    * Unique campaign message identifier.
    * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="cm-001"
+   * +kubebuilder:example="2015"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -24,7 +24,7 @@ public interface CampaignMsgOrBuilder extends
    * Unique campaign message identifier.
    * Client-assigned on creation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="cm-001"
+   * +kubebuilder:example="2015"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -38,7 +38,7 @@ public interface CampaignMsgOrBuilder extends
    * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="4461"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -50,7 +50,7 @@ public interface CampaignMsgOrBuilder extends
    * Campaign ID this message variant belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="4461"
    * </pre>
    *
    * <code>string campaign_id = 2 [json_name = "campaignId", (.buf.validate.field) = { ... }</code>
@@ -63,7 +63,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -74,7 +74,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Channel ID this campaign message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -88,7 +88,7 @@ public interface CampaignMsgOrBuilder extends
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="Welcome Message"
+   * +kubebuilder:example="메시지 본문"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -100,7 +100,7 @@ public interface CampaignMsgOrBuilder extends
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="Welcome Message"
+   * +kubebuilder:example="메시지 본문"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -135,7 +135,7 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="sms-sender-201"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -145,7 +145,7 @@ public interface CampaignMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="sms-sender-201"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -159,6 +159,7 @@ public interface CampaignMsgOrBuilder extends
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -170,6 +171,7 @@ public interface CampaignMsgOrBuilder extends
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -181,6 +183,7 @@ public interface CampaignMsgOrBuilder extends
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -191,6 +194,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -201,6 +205,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -211,6 +216,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Campaign message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -221,6 +227,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -231,6 +238,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -241,6 +249,7 @@ public interface CampaignMsgOrBuilder extends
    * <pre>
    * Campaign message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>

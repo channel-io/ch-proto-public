@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="100"
+   * +kubebuilder:example="205"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -214,7 +214,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique webhook identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="100"
+   * +kubebuilder:example="205"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -241,7 +241,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this webhook belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -293,7 +293,7 @@ private static final long serialVersionUID = 0L;
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="Order Webhook"
+   * +kubebuilder:example="cht-user-chat-analysis-poc"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -318,7 +318,7 @@ private static final long serialVersionUID = 0L;
    * Unique within the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="Order Webhook"
+   * +kubebuilder:example="cht-user-chat-analysis-poc"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -346,7 +346,7 @@ private static final long serialVersionUID = 0L;
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://example.com/webhook"
+   * +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -370,7 +370,7 @@ private static final long serialVersionUID = 0L;
    * Destination URL that receives webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://example.com/webhook"
+   * +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
    * </pre>
    *
    * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -398,7 +398,7 @@ private static final long serialVersionUID = 0L;
    * Auto-generated HMAC token for verifying webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="whk_abc123xyz789"
+   * +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
    * </pre>
    *
    * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -422,7 +422,7 @@ private static final long serialVersionUID = 0L;
    * Auto-generated HMAC token for verifying webhook payloads.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="whk_abc123xyz789"
+   * +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
    * </pre>
    *
    * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -449,6 +449,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-06-13T05:11:29Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -462,6 +463,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-06-13T05:11:29Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -475,6 +477,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Webhook creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-06-13T05:11:29Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -501,6 +504,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -516,6 +520,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -530,6 +535,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -545,6 +551,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -560,6 +567,7 @@ private static final long serialVersionUID = 0L;
    * Event scopes that trigger this webhook.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -629,6 +637,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2024-06-13T05:11:29Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -641,6 +650,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2024-06-13T05:11:29Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -653,6 +663,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the webhook was last blocked due to consecutive failures.
+   * +kubebuilder:example="2024-06-13T05:11:29Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -1197,7 +1208,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="205"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1219,7 +1230,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="205"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1242,7 +1253,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="205"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1263,7 +1274,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="205"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1279,7 +1290,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique webhook identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="100"
+     * +kubebuilder:example="205"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -1303,7 +1314,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1325,7 +1336,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1348,7 +1359,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1369,7 +1380,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1385,7 +1396,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this webhook belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1411,7 +1422,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="Order Webhook"
+     * +kubebuilder:example="cht-user-chat-analysis-poc"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1435,7 +1446,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="Order Webhook"
+     * +kubebuilder:example="cht-user-chat-analysis-poc"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1460,7 +1471,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="Order Webhook"
+     * +kubebuilder:example="cht-user-chat-analysis-poc"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1483,7 +1494,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="Order Webhook"
+     * +kubebuilder:example="cht-user-chat-analysis-poc"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1501,7 +1512,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="Order Webhook"
+     * +kubebuilder:example="cht-user-chat-analysis-poc"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1526,7 +1537,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://example.com/webhook"
+     * +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1549,7 +1560,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://example.com/webhook"
+     * +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1573,7 +1584,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://example.com/webhook"
+     * +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1595,7 +1606,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://example.com/webhook"
+     * +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1612,7 +1623,7 @@ private static final long serialVersionUID = 0L;
      * Destination URL that receives webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://example.com/webhook"
+     * +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
      * </pre>
      *
      * <code>string url = 4 [json_name = "url", (.buf.validate.field) = { ... }</code>
@@ -1637,7 +1648,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="whk_abc123xyz789"
+     * +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1660,7 +1671,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="whk_abc123xyz789"
+     * +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1684,7 +1695,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="whk_abc123xyz789"
+     * +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1706,7 +1717,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="whk_abc123xyz789"
+     * +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1723,7 +1734,7 @@ private static final long serialVersionUID = 0L;
      * Auto-generated HMAC token for verifying webhook payloads.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="whk_abc123xyz789"
+     * +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
      * </pre>
      *
      * <code>string token = 5 [json_name = "token", (.buf.validate.field) = { ... }</code>
@@ -1749,6 +1760,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1761,6 +1773,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1777,6 +1790,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1798,6 +1812,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1817,6 +1832,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1840,6 +1856,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1859,6 +1876,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1872,6 +1890,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1888,6 +1907,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Webhook creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1919,6 +1939,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1933,6 +1954,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1946,6 +1968,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1960,6 +1983,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -1982,6 +2006,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2002,6 +2027,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2022,6 +2048,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2038,6 +2065,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2052,6 +2080,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2066,6 +2095,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2085,6 +2115,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2102,6 +2133,7 @@ private static final long serialVersionUID = 0L;
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (WebhookScope); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.WebhookScope scopes = 7 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -2235,6 +2267,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2246,6 +2279,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2261,6 +2295,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2281,6 +2316,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2299,6 +2335,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2321,6 +2358,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2339,6 +2377,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2351,6 +2390,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>
@@ -2366,6 +2406,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the webhook was last blocked due to consecutive failures.
+     * +kubebuilder:example="2024-06-13T05:11:29Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_blocked_at = 9 [json_name = "lastBlockedAt"];</code>

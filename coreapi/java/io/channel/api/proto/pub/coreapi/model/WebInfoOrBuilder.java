@@ -10,7 +10,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
-   * +kubebuilder:example="desktop"
+   * +kubebuilder:example="Apple Macintosh"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -20,7 +20,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Device form factor (e.g. "desktop", "tablet", "mobile").
-   * +kubebuilder:example="desktop"
+   * +kubebuilder:example="Apple Macintosh"
    * </pre>
    *
    * <code>string device = 1 [json_name = "device"];</code>
@@ -54,7 +54,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system name (e.g. "Windows", "macOS", "Linux").
-   * +kubebuilder:example="macOS"
+   * +kubebuilder:example="Mac OS"
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -64,7 +64,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Operating system name (e.g. "Windows", "macOS", "Linux").
-   * +kubebuilder:example="macOS"
+   * +kubebuilder:example="Mac OS"
    * </pre>
    *
    * <code>string os_name = 3 [json_name = "osName"];</code>
@@ -76,7 +76,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
-   * +kubebuilder:example="120.0.6099.109"
+   * +kubebuilder:example="141"
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>
@@ -86,7 +86,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Browser version string (e.g. "120.0.6099.109").
-   * +kubebuilder:example="120.0.6099.109"
+   * +kubebuilder:example="141"
    * </pre>
    *
    * <code>string browser = 4 [json_name = "browser"];</code>
@@ -121,7 +121,7 @@ public interface WebInfoOrBuilder extends
    * <pre>
    * Cumulative number of web sessions recorded for this user.
    * Incremented on each new session.
-   * +kubebuilder:example="5"
+   * +kubebuilder:example="1"
    * </pre>
    *
    * <code>int32 sessions_count = 6 [json_name = "sessionsCount"];</code>
@@ -132,6 +132,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent web session start.
+   * +kubebuilder:example="2025-10-30T09:12:49Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 7 [json_name = "lastSeenAt"];</code>
@@ -141,6 +142,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent web session start.
+   * +kubebuilder:example="2025-10-30T09:12:49Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 7 [json_name = "lastSeenAt"];</code>
@@ -150,6 +152,7 @@ public interface WebInfoOrBuilder extends
   /**
    * <pre>
    * Timestamp of the user's most recent web session start.
+   * +kubebuilder:example="2025-10-30T09:12:49Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_seen_at = 7 [json_name = "lastSeenAt"];</code>

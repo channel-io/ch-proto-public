@@ -30,18 +30,18 @@ type Redirection struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="https://channel.io/blog/post-123"
+	// +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
 	OriginalUrl string `protobuf:"bytes,1,opt,name=original_url,json=originalUrl,proto3" json:"original_url,omitempty"`
 	// The shortened redirect URL.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="https://ch.io/s/abc123"
+	// +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
 	ShortUrl string `protobuf:"bytes,2,opt,name=short_url,json=shortUrl,proto3" json:"short_url,omitempty"`
 	// Redirection expiration timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-12-31T23:59:59Z"
 	ExpireAt      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

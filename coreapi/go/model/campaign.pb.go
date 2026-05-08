@@ -250,19 +250,19 @@ type Campaign struct {
 	// Unique campaign identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="cpn-001"
+	// +kubebuilder:example="3360"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this campaign belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for the campaign.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="Welcome Campaign"
+	// +kubebuilder:example="자주 방문한 고객에게 앱 설치 안내하기"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Current lifecycle state of the campaign.
 	//
@@ -275,7 +275,7 @@ type Campaign struct {
 	MediumType MediumType `protobuf:"varint,5,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
-	// +kubebuilder:example="sms-001"
+	// +kubebuilder:example="sms-sender-201"
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
@@ -363,33 +363,33 @@ type Campaign struct {
 	// Channel operation schedule used to determine delivery timing.
 	// Applicable when send_mode is IN_OPERATION or AWAY.
 	//
-	// +kubebuilder:example="op-001"
+	// +kubebuilder:example="op-6263-default"
 	ChannelOperationId string `protobuf:"bytes,26,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Custom time windows for delivery scheduling.
 	// Applicable when send_mode is CUSTOM, CUSTOM_USING_SENDER_TIME, or CUSTOM_USING_RECEIVER_TIME.
 	SendTimeRanges []*TimeRange `protobuf:"bytes,27,rep,name=send_time_ranges,json=sendTimeRanges,proto3" json:"send_time_ranges,omitempty"`
 	// Timestamp when the campaign becomes eligible to trigger.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Timestamp when the campaign automatically stops.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	EndAt *timestamppb.Timestamp `protobuf:"bytes,29,opt,name=end_at,json=endAt,proto3" json:"end_at,omitempty"`
 	// Snapshot of the campaign configuration captured before activation.
 	// Represented as a free-form JSON object.
 	//
-	// +kubebuilder:example={"campaign":{"name":"Welcome Campaign","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
+	// +kubebuilder:example={"campaign":{"name":"자주 방문한 고객에게 앱 설치 안내하기","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
 	Draft *structpb.Struct `protobuf:"bytes,30,opt,name=draft,proto3" json:"draft,omitempty"`
 	// Campaign creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-22T02:16:44.306092Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Campaign last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
 	//
@@ -414,7 +414,7 @@ type Campaign struct {
 	UserChatExpireDuration *durationpb.Duration `protobuf:"bytes,37,opt,name=user_chat_expire_duration,json=userChatExpireDuration,proto3" json:"user_chat_expire_duration,omitempty"`
 	// Manager assigned to handle user responses from this campaign.
 	//
-	// +kubebuilder:example="m-001"
+	// +kubebuilder:example="9187"
 	ManagerId     string `protobuf:"bytes,38,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

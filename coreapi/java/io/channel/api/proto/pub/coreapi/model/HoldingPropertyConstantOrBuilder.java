@@ -63,6 +63,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Query expression applied to the held property value for matching.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct event_query = 3 [json_name = "eventQuery"];</code>
@@ -73,6 +74,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Query expression applied to the held property value for matching.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct event_query = 3 [json_name = "eventQuery"];</code>
@@ -83,6 +85,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Query expression applied to the held property value for matching.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct event_query = 3 [json_name = "eventQuery"];</code>
@@ -114,6 +117,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Comparison operator schema used to evaluate the held property value.
    * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:example={"operator":"$in"}
    * </pre>
    *
    * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
@@ -124,6 +128,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Comparison operator schema used to evaluate the held property value.
    * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:example={"operator":"$in"}
    * </pre>
    *
    * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
@@ -134,6 +139,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Comparison operator schema used to evaluate the held property value.
    * Represented as a structured object describing the operator type and configuration.
+   * +kubebuilder:example={"operator":"$in"}
    * </pre>
    *
    * <code>.google.protobuf.Struct operator = 5 [json_name = "operator"];</code>
@@ -144,6 +150,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Property values captured from the base event at trigger time.
    * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:example={"category":"product","sku":"ABC-123"}
    * </pre>
    *
    * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
@@ -154,6 +161,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Property values captured from the base event at trigger time.
    * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:example={"category":"product","sku":"ABC-123"}
    * </pre>
    *
    * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>
@@ -164,6 +172,7 @@ public interface HoldingPropertyConstantOrBuilder extends
    * <pre>
    * Property values captured from the base event at trigger time.
    * Represented as a structured object holding the snapshot values.
+   * +kubebuilder:example={"category":"product","sku":"ABC-123"}
    * </pre>
    *
    * <code>.google.protobuf.Struct values = 6 [json_name = "values"];</code>

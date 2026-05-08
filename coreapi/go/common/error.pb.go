@@ -205,7 +205,7 @@ type ErrorDetail struct {
 	// e.g., "name", "scopes[0]"
 	// +kubebuilder:example="default_domain"
 	Field string `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
-	// +kubebuilder:example="invalid-domain!"
+	// +kubebuilder:example="channel-shop-exp!"
 	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
 	// +kubebuilder:example="must match pattern ^[a-z0-9-]+$"
 	Message string `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`

@@ -10,7 +10,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Unique meet session identifier.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="6606508ec1dd0000000a"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -20,7 +20,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Unique meet session identifier.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="6606508ec1dd0000000a"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -54,7 +54,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Channel ID this meet belongs to.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -64,7 +64,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Channel ID this meet belongs to.
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId"];</code>
@@ -115,6 +115,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187","bot-223339"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -126,6 +127,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187","bot-223339"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -136,6 +138,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187","bot-223339"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -147,6 +150,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Person keys of all participants who have ever joined this meet,
    * in the format "{personType}-{personId}" (e.g. "manager-abc123").
+   * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187","bot-223339"]
    * </pre>
    *
    * <code>repeated string amassed_persons = 6 [json_name = "amassedPersons"];</code>
@@ -159,6 +163,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -168,6 +173,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -177,6 +183,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet room was first opened.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp room_started_at = 7 [json_name = "roomStartedAt"];</code>
@@ -187,6 +194,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
+   * +kubebuilder:example={"callId":"6606508ec1dd00aa1234","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -197,6 +205,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
+   * +kubebuilder:example={"callId":"6606508ec1dd00aa1234","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -207,6 +216,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Phone call session details.
    * Present only when `meet_type` is CALL.
+   * +kubebuilder:example={"callId":"6606508ec1dd00aa1234","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct call = 8 [json_name = "call"];</code>
@@ -217,6 +227,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
+   * +kubebuilder:example={"sessionId":"6606508efd1d00aa5678","videoEnabled":true}
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -227,6 +238,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
+   * +kubebuilder:example={"sessionId":"6606508efd1d00aa5678","videoEnabled":true}
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -237,6 +249,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Video/audio front session details.
    * Present only when `meet_type` is FRONT.
+   * +kubebuilder:example={"sessionId":"6606508efd1d00aa5678","videoEnabled":true}
    * </pre>
    *
    * <code>.google.protobuf.Struct front = 9 [json_name = "front"];</code>
@@ -247,6 +260,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
+   * +kubebuilder:example={"url":"https://storage.channel.io/recordings/6606508ec1dd00aa1234.mp4","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -257,6 +271,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
+   * +kubebuilder:example={"url":"https://storage.channel.io/recordings/6606508ec1dd00aa1234.mp4","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -267,6 +282,7 @@ public interface MessageMeetOrBuilder extends
    * <pre>
    * Recording details for the meet session.
    * Present only when the session was recorded.
+   * +kubebuilder:example={"url":"https://storage.channel.io/recordings/6606508ec1dd00aa1234.mp4","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct recording = 10 [json_name = "recording"];</code>
@@ -298,6 +314,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -307,6 +324,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -316,6 +334,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Timestamp when the meet session ended.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp meet_ended_at = 12 [json_name = "meetEndedAt"];</code>
@@ -325,6 +344,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -335,6 +355,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -344,6 +365,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -354,6 +376,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Manager IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 13 [json_name = "managerIds"];</code>
@@ -385,6 +408,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["223338","223339"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -395,6 +419,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["223338","223339"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -404,6 +429,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["223338","223339"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>
@@ -414,6 +440,7 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Bot IDs extracted from `amassed_persons`.
+   * +kubebuilder:example=["223338","223339"]
    * </pre>
    *
    * <code>repeated string bot_ids = 15 [json_name = "botIds"];</code>

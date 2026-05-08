@@ -457,7 +457,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -480,7 +480,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique manager identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -507,7 +507,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -530,7 +530,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this manager belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -558,7 +558,7 @@ private static final long serialVersionUID = 0L;
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="a-xyz789"
+   * +kubebuilder:example="1724"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -582,7 +582,7 @@ private static final long serialVersionUID = 0L;
    * Account ID of the person linked to this manager.
    * Unique per channel among non-removed managers.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="a-xyz789"
+   * +kubebuilder:example="1724"
    * </pre>
    *
    * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -612,7 +612,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="John Doe"
+   * +kubebuilder:example="김민준"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -638,7 +638,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="John Doe"
+   * +kubebuilder:example="김민준"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -666,7 +666,7 @@ private static final long serialVersionUID = 0L;
    * Free-text summary displayed on the manager profile.
    * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Product team lead"
+   * +kubebuilder:example="Customer Success team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -690,7 +690,7 @@ private static final long serialVersionUID = 0L;
    * Free-text summary displayed on the manager profile.
    * Visible to end users only when show_description_to_front is true.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="Product team lead"
+   * +kubebuilder:example="Customer Success team lead"
    * </pre>
    *
    * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -757,6 +757,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -779,6 +780,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -791,6 +793,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -808,6 +811,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -830,6 +834,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom profile data as key-value pairs for additional manager information.
+   * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -842,6 +847,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom profile data as key-value pairs for additional manager information.
+   * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -854,6 +860,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Custom profile data as key-value pairs for additional manager information.
+   * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -869,7 +876,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager email address.
    * Unique per channel among non-removed managers.
-   * +kubebuilder:example="manager&#64;example.com"
+   * +kubebuilder:example="minjun.kim&#64;example.com"
    * </pre>
    *
    * <code>string email = 9 [json_name = "email"];</code>
@@ -892,7 +899,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager email address.
    * Unique per channel among non-removed managers.
-   * +kubebuilder:example="manager&#64;example.com"
+   * +kubebuilder:example="minjun.kim&#64;example.com"
    * </pre>
    *
    * <code>string email = 9 [json_name = "email"];</code>
@@ -935,7 +942,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:example="+821012345678"
+   * +kubebuilder:example="+821098761234"
    * </pre>
    *
    * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -957,7 +964,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:example="+821012345678"
+   * +kubebuilder:example="+821098761234"
    * </pre>
    *
    * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -1066,6 +1073,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1079,6 +1087,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1092,6 +1101,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1107,6 +1117,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1120,6 +1131,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1133,6 +1145,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -1148,6 +1161,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -1161,6 +1175,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -1174,6 +1189,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamp when the manager was soft-deleted.
    * Present only when removed is true.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -1385,7 +1401,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Performance score reflecting the manager's conversation handling efficiency.
    * Decays over time when the manager is inactive.
-   * +kubebuilder:example="0.85"
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
@@ -1402,7 +1418,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Engagement score reflecting the frequency of customer interactions.
    * Decays over time when the manager is inactive.
-   * +kubebuilder:example="0.75"
+   * +kubebuilder:example="0"
    * </pre>
    *
    * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -1504,7 +1520,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether this manager is currently active as an operator handling customer conversations.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="false"
+   * +kubebuilder:example="true"
    * </pre>
    *
    * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -1520,7 +1536,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -1542,7 +1558,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -1602,6 +1618,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:example=["sync","async"]
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -1614,6 +1631,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:example=["sync","async"]
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -1625,6 +1643,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:example=["sync","async"]
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -1637,6 +1656,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * +kubebuilder:example=["sync","async"]
    * </pre>
    *
    * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -1790,6 +1810,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -1802,6 +1823,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -1814,6 +1836,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the custom status (emoji + text) automatically clears.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -1845,6 +1868,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -1857,6 +1881,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -1869,6 +1894,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -1900,6 +1926,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -1912,6 +1939,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -1924,6 +1952,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when account-level do-not-disturb mode automatically deactivates.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -1938,6 +1967,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -1950,6 +1980,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -1962,6 +1993,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the operator status was last toggled on or off.
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -1977,7 +2009,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
    * </pre>
    *
    * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -2000,7 +2032,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Manager avatar image URL.
    * Falls back to a system-generated default when no custom avatar is set.
-   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+   * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
    * </pre>
    *
    * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -3303,7 +3335,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3325,7 +3357,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3348,7 +3380,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3369,7 +3401,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3385,7 +3417,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique manager identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -3409,7 +3441,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3431,7 +3463,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3454,7 +3486,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3475,7 +3507,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3491,7 +3523,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this manager belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -3516,7 +3548,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="a-xyz789"
+     * +kubebuilder:example="1724"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3539,7 +3571,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="a-xyz789"
+     * +kubebuilder:example="1724"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3563,7 +3595,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="a-xyz789"
+     * +kubebuilder:example="1724"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3585,7 +3617,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="a-xyz789"
+     * +kubebuilder:example="1724"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3602,7 +3634,7 @@ private static final long serialVersionUID = 0L;
      * Account ID of the person linked to this manager.
      * Unique per channel among non-removed managers.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="a-xyz789"
+     * +kubebuilder:example="1724"
      * </pre>
      *
      * <code>string account_id = 3 [json_name = "accountId", (.buf.validate.field) = { ... }</code>
@@ -3629,7 +3661,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="김민준"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3654,7 +3686,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="김민준"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3680,7 +3712,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="김민준"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3704,7 +3736,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="김민준"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3723,7 +3755,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="John Doe"
+     * +kubebuilder:example="김민준"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3748,7 +3780,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the manager profile.
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Product team lead"
+     * +kubebuilder:example="Customer Success team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3771,7 +3803,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the manager profile.
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Product team lead"
+     * +kubebuilder:example="Customer Success team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3795,7 +3827,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the manager profile.
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Product team lead"
+     * +kubebuilder:example="Customer Success team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3817,7 +3849,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the manager profile.
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Product team lead"
+     * +kubebuilder:example="Customer Success team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3834,7 +3866,7 @@ private static final long serialVersionUID = 0L;
      * Free-text summary displayed on the manager profile.
      * Visible to end users only when show_description_to_front is true.
      * +kubebuilder:validation:MaxLength=180
-     * +kubebuilder:example="Product team lead"
+     * +kubebuilder:example="Customer Success team lead"
      * </pre>
      *
      * <code>string description = 5 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -3931,6 +3963,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -3953,6 +3986,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -3965,6 +3999,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -3982,6 +4017,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4007,6 +4043,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4030,6 +4067,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4049,6 +4087,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4067,6 +4106,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4078,6 +4118,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4093,6 +4134,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4113,6 +4155,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4131,6 +4174,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4153,6 +4197,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4171,6 +4216,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4183,6 +4229,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4198,6 +4245,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Custom profile data as key-value pairs for additional manager information.
+     * +kubebuilder:example={"slackId":"customer-success","department":"Customer Success"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 8 [json_name = "profile"];</code>
@@ -4221,7 +4269,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager email address.
      * Unique per channel among non-removed managers.
-     * +kubebuilder:example="manager&#64;example.com"
+     * +kubebuilder:example="minjun.kim&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4243,7 +4291,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager email address.
      * Unique per channel among non-removed managers.
-     * +kubebuilder:example="manager&#64;example.com"
+     * +kubebuilder:example="minjun.kim&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4266,7 +4314,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager email address.
      * Unique per channel among non-removed managers.
-     * +kubebuilder:example="manager&#64;example.com"
+     * +kubebuilder:example="minjun.kim&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4287,7 +4335,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager email address.
      * Unique per channel among non-removed managers.
-     * +kubebuilder:example="manager&#64;example.com"
+     * +kubebuilder:example="minjun.kim&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4303,7 +4351,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager email address.
      * Unique per channel among non-removed managers.
-     * +kubebuilder:example="manager&#64;example.com"
+     * +kubebuilder:example="minjun.kim&#64;example.com"
      * </pre>
      *
      * <code>string email = 9 [json_name = "email"];</code>
@@ -4375,7 +4423,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821012345678"
+     * +kubebuilder:example="+821098761234"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4396,7 +4444,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821012345678"
+     * +kubebuilder:example="+821098761234"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4418,7 +4466,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821012345678"
+     * +kubebuilder:example="+821098761234"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4438,7 +4486,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821012345678"
+     * +kubebuilder:example="+821098761234"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4453,7 +4501,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821012345678"
+     * +kubebuilder:example="+821098761234"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4678,6 +4726,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4690,6 +4739,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4706,6 +4756,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4727,6 +4778,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4746,6 +4798,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4769,6 +4822,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4788,6 +4842,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4801,6 +4856,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4817,6 +4873,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -4842,6 +4899,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4854,6 +4912,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4870,6 +4929,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4891,6 +4951,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4910,6 +4971,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4933,6 +4995,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4952,6 +5015,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4965,6 +5029,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -4981,6 +5046,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager last update timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp updated_at = 16 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -5006,6 +5072,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5018,6 +5085,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5034,6 +5102,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5055,6 +5124,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5074,6 +5144,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5097,6 +5168,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5116,6 +5188,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5129,6 +5202,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5145,6 +5219,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamp when the manager was soft-deleted.
      * Present only when removed is true.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
@@ -5710,7 +5785,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Performance score reflecting the manager's conversation handling efficiency.
      * Decays over time when the manager is inactive.
-     * +kubebuilder:example="0.85"
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
@@ -5724,7 +5799,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Performance score reflecting the manager's conversation handling efficiency.
      * Decays over time when the manager is inactive.
-     * +kubebuilder:example="0.85"
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
@@ -5741,7 +5816,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Performance score reflecting the manager's conversation handling efficiency.
      * Decays over time when the manager is inactive.
-     * +kubebuilder:example="0.85"
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>float operator_score = 26 [json_name = "operatorScore"];</code>
@@ -5759,7 +5834,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
      * Decays over time when the manager is inactive.
-     * +kubebuilder:example="0.75"
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -5773,7 +5848,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
      * Decays over time when the manager is inactive.
-     * +kubebuilder:example="0.75"
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -5790,7 +5865,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
      * Decays over time when the manager is inactive.
-     * +kubebuilder:example="0.75"
+     * +kubebuilder:example="0"
      * </pre>
      *
      * <code>float touch_score = 27 [json_name = "touchScore"];</code>
@@ -6053,7 +6128,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="false"
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -6067,7 +6142,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="false"
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -6084,7 +6159,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether this manager is currently active as an operator handling customer conversations.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="false"
+     * +kubebuilder:example="true"
      * </pre>
      *
      * <code>bool operator = 33 [json_name = "operator", (.buf.validate.field) = { ... }</code>
@@ -6101,7 +6176,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6122,7 +6197,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6144,7 +6219,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6164,7 +6239,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6179,7 +6254,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
-     * +kubebuilder:example="m-abc123"
+     * +kubebuilder:example="9187"
      * </pre>
      *
      * <code>string operator_status_id = 34 [json_name = "operatorStatusId"];</code>
@@ -6306,6 +6381,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6318,6 +6394,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6329,6 +6406,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6341,6 +6419,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6354,6 +6433,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6374,6 +6454,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6393,6 +6474,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6410,6 +6492,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6424,6 +6507,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * +kubebuilder:example=["sync","async"]
      * </pre>
      *
      * <code>repeated string assignable_user_chat_types = 37 [json_name = "assignableUserChatTypes"];</code>
@@ -6766,6 +6850,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6777,6 +6862,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6792,6 +6878,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6812,6 +6899,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6830,6 +6918,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6852,6 +6941,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6870,6 +6960,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6882,6 +6973,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6897,6 +6989,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the custom status (emoji + text) automatically clears.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp status_clear_at = 42 [json_name = "statusClearAt"];</code>
@@ -6970,6 +7063,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -6981,6 +7075,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -6996,6 +7091,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -7016,6 +7112,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -7034,6 +7131,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -7056,6 +7154,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -7074,6 +7173,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -7086,6 +7186,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -7101,6 +7202,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp do_not_disturb_clear_at = 44 [json_name = "doNotDisturbClearAt"];</code>
@@ -7174,6 +7276,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7185,6 +7288,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7200,6 +7304,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7220,6 +7325,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7238,6 +7344,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7260,6 +7367,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7278,6 +7386,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7290,6 +7399,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7305,6 +7415,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when account-level do-not-disturb mode automatically deactivates.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp account_do_not_disturb_clear_at = 46 [json_name = "accountDoNotDisturbClearAt"];</code>
@@ -7329,6 +7440,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7340,6 +7452,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7355,6 +7468,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7375,6 +7489,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7393,6 +7508,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7415,6 +7531,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7433,6 +7550,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7445,6 +7563,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7460,6 +7579,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the operator status was last toggled on or off.
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp operator_updated_at = 47 [json_name = "operatorUpdatedAt"];</code>
@@ -7483,7 +7603,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7505,7 +7625,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7528,7 +7648,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7549,7 +7669,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>
@@ -7565,7 +7685,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Manager avatar image URL.
      * Falls back to a system-generated default when no custom avatar is set.
-     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+     * +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
      * </pre>
      *
      * <code>string avatar_url = 48 [json_name = "avatarUrl"];</code>

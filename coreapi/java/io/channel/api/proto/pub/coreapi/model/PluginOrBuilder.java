@@ -11,7 +11,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="plg-001"
+   * +kubebuilder:example="93417"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Unique plugin identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="plg-001"
+   * +kubebuilder:example="93417"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -34,7 +34,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+   * +kubebuilder:example="76202436-0c71-4903-a402-3f16d265673a"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -44,7 +44,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Plugin API key in UUID format.
-   * +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+   * +kubebuilder:example="76202436-0c71-4903-a402-3f16d265673a"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key"];</code>
@@ -57,7 +57,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -68,7 +68,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Channel ID this plugin belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 3 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -105,7 +105,7 @@ public interface PluginOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Support Widget"
+   * +kubebuilder:example="채널톡 데모샵"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -119,7 +119,7 @@ public interface PluginOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Support Widget"
+   * +kubebuilder:example="채널톡 데모샵"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -132,6 +132,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -142,6 +143,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -152,6 +154,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Plugin creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 6 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -200,7 +203,7 @@ public interface PluginOrBuilder extends
    * Applicable when label_button is true.
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Chat with us"
+   * +kubebuilder:example="상담하기"
    * </pre>
    *
    * <code>string label_button_text = 9 [json_name = "labelButtonText", (.buf.validate.field) = { ... }</code>
@@ -213,7 +216,7 @@ public interface PluginOrBuilder extends
    * Applicable when label_button is true.
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="Chat with us"
+   * +kubebuilder:example="상담하기"
    * </pre>
    *
    * <code>string label_button_text = 9 [json_name = "labelButtonText", (.buf.validate.field) = { ... }</code>
@@ -226,6 +229,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -235,6 +239,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -251,6 +256,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -261,6 +267,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -273,6 +280,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
+   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -390,7 +398,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Horizontal offset of the desktop widget from its anchored edge, in pixels.
-   * +kubebuilder:example="20"
+   * +kubebuilder:example="24"
    * </pre>
    *
    * <code>int32 desk_margin_x = 15 [json_name = "deskMarginX"];</code>
@@ -401,7 +409,7 @@ public interface PluginOrBuilder extends
   /**
    * <pre>
    * Vertical offset of the desktop widget from the bottom edge, in pixels.
-   * +kubebuilder:example="20"
+   * +kubebuilder:example="24"
    * </pre>
    *
    * <code>int32 desk_margin_y = 16 [json_name = "deskMarginY"];</code>
@@ -545,6 +553,7 @@ public interface PluginOrBuilder extends
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://zoyi.cafe24.com","https://&#42;.cafe24.com"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -557,6 +566,7 @@ public interface PluginOrBuilder extends
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://zoyi.cafe24.com","https://&#42;.cafe24.com"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -568,6 +578,7 @@ public interface PluginOrBuilder extends
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://zoyi.cafe24.com","https://&#42;.cafe24.com"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -580,6 +591,7 @@ public interface PluginOrBuilder extends
    * URL patterns that restrict where the plugin is displayed.
    * When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
    * +kubebuilder:validation:MaxItems=5
+   * +kubebuilder:example=["https://zoyi.cafe24.com","https://&#42;.cafe24.com"]
    * </pre>
    *
    * <code>repeated string url_whitelist = 25 [json_name = "urlWhitelist", (.buf.validate.field) = { ... }</code>
@@ -628,7 +640,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the custom launcher button image.
    * Automatically derived from custom_image.
-   * +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
+   * +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/custom.png"
    * </pre>
    *
    * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -639,7 +651,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the custom launcher button image.
    * Automatically derived from custom_image.
-   * +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
+   * +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/custom.png"
    * </pre>
    *
    * <code>string custom_image_url = 28 [json_name = "customImageUrl"];</code>
@@ -652,7 +664,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the desktop launcher image.
    * Automatically derived from desk_image.
-   * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
+   * +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/desk.png"
    * </pre>
    *
    * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -663,7 +675,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the desktop launcher image.
    * Automatically derived from desk_image.
-   * +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
+   * +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/desk.png"
    * </pre>
    *
    * <code>string desk_image_url = 29 [json_name = "deskImageUrl"];</code>
@@ -676,7 +688,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the mobile launcher image.
    * Automatically derived from mobile_image.
-   * +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
+   * +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/mobile.png"
    * </pre>
    *
    * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
@@ -687,7 +699,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Resolved URL of the mobile launcher image.
    * Automatically derived from mobile_image.
-   * +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
+   * +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/mobile.png"
    * </pre>
    *
    * <code>string mobile_image_url = 30 [json_name = "mobileImageUrl"];</code>
