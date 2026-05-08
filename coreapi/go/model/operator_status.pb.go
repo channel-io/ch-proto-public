@@ -123,18 +123,18 @@ type OperatorStatus struct {
 	// Unique operator status identifier, matching the associated manager ID.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="9187"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Manager ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="9187"
 	ManagerId string `protobuf:"bytes,2,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Channel ID this operator status belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current activity state of the manager, used for chat routing and workload management.
 	OperatorStatusType OperatorStatusType `protobuf:"varint,4,opt,name=operator_status_type,json=operatorStatusType,proto3,enum=coreapi.model.OperatorStatusType" json:"operator_status_type,omitempty"`
@@ -147,17 +147,17 @@ type OperatorStatus struct {
 	// Operator status creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Operator status last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-03-29T03:28:35Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Timestamp when `operator_status_type` was last changed.
 	// Differs from `updated_at` which tracks any field update.
 	//
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-03-29T03:28:35Z"
 	TypeUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=type_updated_at,json=typeUpdatedAt,proto3" json:"type_updated_at,omitempty"`
 	// Optimistic locking version for concurrent update detection.
 	//

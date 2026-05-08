@@ -18,7 +18,7 @@ message NameDesc {
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
-  // +kubebuilder:example="Support Bot"
+  // +kubebuilder:example="Channel-bot"
   string name = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"

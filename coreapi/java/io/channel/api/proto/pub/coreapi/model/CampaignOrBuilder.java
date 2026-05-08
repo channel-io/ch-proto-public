@@ -11,7 +11,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Unique campaign identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="3360"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Unique campaign identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="3360"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel ID this campaign belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel ID this campaign belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -61,7 +61,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="Welcome Campaign"
+   * +kubebuilder:example="App install invite for frequent visitors"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -74,7 +74,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="Welcome Campaign"
+   * +kubebuilder:example="App install invite for frequent visitors"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -130,7 +130,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="sms-sender-201"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -140,7 +140,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="sms-sender-201"
    * </pre>
    *
    * <code>string medium_id = 6 [json_name = "mediumId"];</code>
@@ -153,6 +153,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 7 [json_name = "userQuery"];</code>
@@ -163,6 +164,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 7 [json_name = "userQuery"];</code>
@@ -173,6 +175,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 7 [json_name = "userQuery"];</code>
@@ -251,6 +254,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to further filter matching trigger events by their properties.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.url","type":"string","operator":"$in","values":["/signup"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct trigger_event_query = 10 [json_name = "triggerEventQuery"];</code>
@@ -261,6 +265,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to further filter matching trigger events by their properties.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.url","type":"string","operator":"$in","values":["/signup"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct trigger_event_query = 10 [json_name = "triggerEventQuery"];</code>
@@ -271,6 +276,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to further filter matching trigger events by their properties.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.url","type":"string","operator":"$in","values":["/signup"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct trigger_event_query = 10 [json_name = "triggerEventQuery"];</code>
@@ -282,7 +288,7 @@ public interface CampaignOrBuilder extends
    * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -294,7 +300,7 @@ public interface CampaignOrBuilder extends
    * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -306,7 +312,7 @@ public interface CampaignOrBuilder extends
    * Delay between the trigger event and message delivery, in ISO 8601 duration format.
    * Maximum 90 days.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration waiting_time = 11 [json_name = "waitingTime", (.buf.validate.field) = { ... }</code>
@@ -341,6 +347,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter the additional filter events by their properties.
    * Represented as a structured filter object. Applicable when filter_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$in","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct filter_event_query = 13 [json_name = "filterEventQuery"];</code>
@@ -351,6 +358,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter the additional filter events by their properties.
    * Represented as a structured filter object. Applicable when filter_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$in","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct filter_event_query = 13 [json_name = "filterEventQuery"];</code>
@@ -361,6 +369,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter the additional filter events by their properties.
    * Represented as a structured filter object. Applicable when filter_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$in","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct filter_event_query = 13 [json_name = "filterEventQuery"];</code>
@@ -422,6 +431,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -431,6 +441,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -447,6 +458,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -457,6 +469,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -469,6 +482,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 16 [json_name = "conversionWindows"];</code>
@@ -503,6 +517,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.totalPrice","type":"number","operator":"$gte","values":[50000]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 18 [json_name = "goalEventQuery"];</code>
@@ -513,6 +528,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.totalPrice","type":"number","operator":"$gte","values":[50000]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 18 [json_name = "goalEventQuery"];</code>
@@ -523,6 +539,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.totalPrice","type":"number","operator":"$gte","values":[50000]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 18 [json_name = "goalEventQuery"];</code>
@@ -533,7 +550,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
@@ -544,7 +561,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
@@ -555,7 +572,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 19 [json_name = "goalEventDuration"];</code>
@@ -630,7 +647,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
    * Between 0 seconds and 30 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
@@ -641,7 +658,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
    * Between 0 seconds and 30 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
@@ -652,7 +669,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Minimum interval between repeated deliveries to the same user, in ISO 8601 duration format.
    * Between 0 seconds and 30 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration cooldown = 24 [json_name = "cooldown"];</code>
@@ -684,7 +701,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel operation schedule used to determine delivery timing.
    * Applicable when send_mode is IN_OPERATION or AWAY.
-   * +kubebuilder:example="op-001"
+   * +kubebuilder:example="op-6263-default"
    * </pre>
    *
    * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
@@ -695,7 +712,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Channel operation schedule used to determine delivery timing.
    * Applicable when send_mode is IN_OPERATION or AWAY.
-   * +kubebuilder:example="op-001"
+   * +kubebuilder:example="op-6263-default"
    * </pre>
    *
    * <code>string channel_operation_id = 26 [json_name = "channelOperationId"];</code>
@@ -756,6 +773,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign becomes eligible to trigger.
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 28 [json_name = "startAt"];</code>
@@ -765,6 +783,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign becomes eligible to trigger.
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 28 [json_name = "startAt"];</code>
@@ -774,6 +793,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign becomes eligible to trigger.
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 28 [json_name = "startAt"];</code>
@@ -783,6 +803,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign automatically stops.
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp end_at = 29 [json_name = "endAt"];</code>
@@ -792,6 +813,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign automatically stops.
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp end_at = 29 [json_name = "endAt"];</code>
@@ -801,6 +823,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Timestamp when the campaign automatically stops.
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp end_at = 29 [json_name = "endAt"];</code>
@@ -811,6 +834,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"campaign":{"name":"App install invite for frequent visitors","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -821,6 +845,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"campaign":{"name":"App install invite for frequent visitors","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -831,6 +856,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"campaign":{"name":"App install invite for frequent visitors","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -841,6 +867,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Campaign creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 31 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -851,6 +878,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Campaign creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 31 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -861,6 +889,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Campaign creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 31 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -871,6 +900,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Campaign last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 32 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -881,6 +911,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Campaign last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 32 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -891,6 +922,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Campaign last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-09-19T02:07:40Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 32 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -945,7 +977,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
@@ -956,7 +988,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
@@ -967,7 +999,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 37 [json_name = "userChatExpireDuration"];</code>
@@ -977,7 +1009,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Manager assigned to handle user responses from this campaign.
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string manager_id = 38 [json_name = "managerId"];</code>
@@ -987,7 +1019,7 @@ public interface CampaignOrBuilder extends
   /**
    * <pre>
    * Manager assigned to handle user responses from this campaign.
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string manager_id = 38 [json_name = "managerId"];</code>

@@ -11,7 +11,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Unique one-time message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="otm-001"
+   * +kubebuilder:example="7734"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Unique one-time message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="otm-001"
+   * +kubebuilder:example="7734"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Channel ID this one-time message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Channel ID this one-time message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -61,7 +61,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="Spring Sale"
+   * +kubebuilder:example="One Time Msg 20240726"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -74,7 +74,7 @@ public interface OneTimeMsgOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="Spring Sale"
+   * +kubebuilder:example="One Time Msg 20240726"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -128,7 +128,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Channel operation schedule referenced for delivery timing.
-   * +kubebuilder:example="op-001"
+   * +kubebuilder:example="op-6263-default"
    * </pre>
    *
    * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -138,7 +138,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Channel operation schedule referenced for delivery timing.
-   * +kubebuilder:example="op-001"
+   * +kubebuilder:example="op-6263-default"
    * </pre>
    *
    * <code>string channel_operation_id = 6 [json_name = "channelOperationId"];</code>
@@ -173,7 +173,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="sms-sender-201"
    * </pre>
    *
    * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -183,7 +183,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
-   * +kubebuilder:example="sms-001"
+   * +kubebuilder:example="sms-sender-201"
    * </pre>
    *
    * <code>string medium_id = 8 [json_name = "mediumId"];</code>
@@ -195,7 +195,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Key for selecting the message topic template within the medium.
-   * +kubebuilder:example="topic-001"
+   * +kubebuilder:example="topic-welcome-2024"
    * </pre>
    *
    * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
@@ -205,7 +205,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Key for selecting the message topic template within the medium.
-   * +kubebuilder:example="topic-001"
+   * +kubebuilder:example="topic-welcome-2024"
    * </pre>
    *
    * <code>string medium_topic_build_key = 9 [json_name = "mediumTopicBuildKey"];</code>
@@ -217,6 +217,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -227,6 +228,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -236,6 +238,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -246,6 +249,7 @@ public interface OneTimeMsgOrBuilder extends
   /**
    * <pre>
    * Labels for categorizing the message topic within the medium.
+   * +kubebuilder:example=["welcome","onboarding"]
    * </pre>
    *
    * <code>repeated string medium_topic_build_labels = 10 [json_name = "mediumTopicBuildLabels"];</code>
@@ -259,6 +263,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -269,6 +274,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -279,6 +285,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -289,6 +296,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -299,6 +307,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -309,6 +318,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression that defines the target user segment.
    * Represented as a structured filter object.
+   * +kubebuilder:example={"and":[{"or":[{"key":"user.profile.mobileNumberQualified","type":"boolean","operator":"$eq","values":[true]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct user_query = 12 [json_name = "userQuery"];</code>
@@ -363,6 +373,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -372,6 +383,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -388,6 +400,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -398,6 +411,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -410,6 +424,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Attribution windows keyed by event feature name, each value in ISO 8601 duration format.
    * Defines how long after delivery each conversion event is counted.
+   * +kubebuilder:example={"signup":"PT24H","purchase":"PT168H"}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; conversion_windows = 14 [json_name = "conversionWindows"];</code>
@@ -444,6 +459,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -454,6 +470,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -464,6 +481,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Query expression to filter goal events by their properties.
    * Represented as a structured filter object. Applicable when goal_event_name is set.
+   * +kubebuilder:example={"and":[{"or":[{"key":"event.property.category","type":"string","operator":"$eq","values":["product"]}]}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct goal_event_query = 16 [json_name = "goalEventQuery"];</code>
@@ -474,7 +492,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -485,7 +503,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -496,7 +514,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Time window for attributing goal events after delivery, in ISO 8601 duration format.
    * Between 1 and 30 days. Defaults to 7 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration goal_event_duration = 17 [json_name = "goalEventDuration"];</code>
@@ -541,6 +559,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -551,6 +570,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -561,6 +581,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send timestamp in UTC.
    * Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp start_at = 21 [json_name = "startAt"];</code>
@@ -571,7 +592,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
    * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:example="2026-03-25T09:00:00"
+   * +kubebuilder:example="2024-07-26T10:00:00"
    * </pre>
    *
    * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -582,7 +603,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
    * Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
-   * +kubebuilder:example="2026-03-25T09:00:00"
+   * +kubebuilder:example="2024-07-26T10:00:00"
    * </pre>
    *
    * <code>string local_start_at = 22 [json_name = "localStartAt"];</code>
@@ -595,6 +616,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -605,6 +627,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -615,6 +638,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
+   * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -625,6 +649,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * One-time message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -635,6 +660,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * One-time message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -645,6 +671,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * One-time message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 24 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -655,6 +682,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * One-time message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -665,6 +693,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * One-time message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -675,6 +704,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * One-time message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-07-26T04:55:22Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 25 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -729,7 +759,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -740,7 +770,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>
@@ -751,7 +781,7 @@ public interface OneTimeMsgOrBuilder extends
    * <pre>
    * Duration before the user chat created by this message expires, in ISO 8601 format.
    * Defaults to 31 days.
-   * +kubebuilder:example="PT23H50M"
+   * +kubebuilder:example="PT1H30M"
    * </pre>
    *
    * <code>.google.protobuf.Duration user_chat_expire_duration = 30 [json_name = "userChatExpireDuration"];</code>

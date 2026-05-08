@@ -11,7 +11,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
    * Encodes the parent chat context and the root message that started the thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -22,7 +22,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
    * Encodes the parent chat context and the root message that started the thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id"];</code>
@@ -35,6 +35,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -46,6 +47,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -56,6 +58,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -67,6 +70,7 @@ public interface MessageThreadOrBuilder extends
    * <pre>
    * Manager IDs assigned to handle this thread.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 2 [json_name = "managerIds", (.buf.validate.field) = { ... }</code>
@@ -79,6 +83,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -89,6 +94,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -98,6 +104,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -108,6 +115,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Manager IDs who have posted replies in this thread, ordered by first reply time.
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string replied_manager_ids = 3 [json_name = "repliedManagerIds"];</code>
@@ -155,7 +163,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat ID component extracted from the thread `id`.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 6 [json_name = "chatId"];</code>
@@ -165,7 +173,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * Chat ID component extracted from the thread `id`.
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 6 [json_name = "chatId"];</code>
@@ -177,7 +185,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * ID of the root message that started this thread, extracted from the thread `id`.
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>
@@ -187,7 +195,7 @@ public interface MessageThreadOrBuilder extends
   /**
    * <pre>
    * ID of the root message that started this thread, extracted from the thread `id`.
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string root_message_id = 7 [json_name = "rootMessageId"];</code>

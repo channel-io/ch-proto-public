@@ -18,14 +18,14 @@ message CampaignMsg {
   // Client-assigned on creation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="cm-001"
+  // +kubebuilder:example="2015"
   string id = 1 [(buf.validate.field).required = true];
 
   // Campaign ID this message variant belongs to.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="cpn-001"
+  // +kubebuilder:example="4461"
   string campaign_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -38,14 +38,14 @@ message CampaignMsg {
   // Channel ID this campaign message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 3 [(buf.validate.field).required = true];
 
   // Human-readable label for this message variant.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="Welcome Message"
+  // +kubebuilder:example="Message body"
   string name = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -63,26 +63,26 @@ message CampaignMsg {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
-  // +kubebuilder:example="sms-001"
+  // +kubebuilder:example="sms-sender-201"
   string medium_id = 6;
 
   // Message content and medium-specific delivery configuration.
   // Structure varies by medium_type.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot"}
+  // +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
   google.protobuf.Struct settings = 7 [(buf.validate.field).required = true];
 
   // Campaign message creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
 
   // Campaign message last update timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp updated_at = 9 [(buf.validate.field).required = true];
 
   // Cumulative count of messages delivered for this variant.

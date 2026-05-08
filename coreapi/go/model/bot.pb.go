@@ -30,12 +30,12 @@ type Bot struct {
 	// Unique bot identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="100"
+	// +kubebuilder:example="223337"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this bot belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Bot display name.
 	// Unique within the channel.
@@ -44,23 +44,23 @@ type Bot struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
-	// +kubebuilder:example="Support Bot"
+	// +kubebuilder:example="Tutorial-bot"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Bot description.
 	//
 	// +kubebuilder:validation:MaxLength=180
-	// +kubebuilder:example="Handles billing and payment inquiries."
+	// +kubebuilder:example="Guides new users through the onboarding flow."
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// Internationalized name and description map.
 	// Keyed by locale.
 	//
-	// +kubebuilder:example={"ko":{"name":"주문봇","description":"주문 조회를 도와드립니다."},"en":{"name":"Order Bot","description":"Handles order inquiries."}}
+	// +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="#fac484"
+	// +kubebuilder:example="#d8e082"
 	Color string `protobuf:"bytes,6,opt,name=color,proto3" json:"color,omitempty"`
 	// Bot avatar image URL.
 	//
@@ -69,7 +69,7 @@ type Bot struct {
 	// Bot creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-21T07:12:58.499989Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Uploaded bot avatar image.
 	Avatar        *TinyFile `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`

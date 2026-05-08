@@ -12,7 +12,7 @@ public interface MessageOrBuilder extends
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -24,7 +24,7 @@ public interface MessageOrBuilder extends
    * Composite key identifying the parent conversation.
    * Format: "{chatType}-{chatId}".
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_key = 1 [json_name = "chatKey", (.buf.validate.field) = { ... }</code>
@@ -37,7 +37,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -48,7 +48,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="msg-001"
+   * +kubebuilder:example="6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -61,7 +61,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -72,7 +72,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the main (top-level) message stream.
    * Same value as chat_key when the message appears in the main stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string main_key = 3 [json_name = "mainKey"];</code>
@@ -87,7 +87,7 @@ public interface MessageOrBuilder extends
    * For thread root messages: same value as chat_key.
    * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message does not belong to a thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -100,7 +100,7 @@ public interface MessageOrBuilder extends
    * For thread root messages: same value as chat_key.
    * For thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message does not belong to a thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string thread_key = 4 [json_name = "threadKey"];</code>
@@ -115,7 +115,7 @@ public interface MessageOrBuilder extends
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -128,7 +128,7 @@ public interface MessageOrBuilder extends
    * For meet root messages: same value as chat_key.
    * For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not associated with a meet session.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string meet_key = 5 [json_name = "meetKey"];</code>
@@ -141,7 +141,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the front (user-facing) message stream.
    * Same value as chat_key when the message appears in the front stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -152,7 +152,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Index key for the front (user-facing) message stream.
    * Same value as chat_key when the message appears in the front stream.
-   * +kubebuilder:example="userChat-uc-abc123"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string front_key = 6 [json_name = "frontKey"];</code>
@@ -167,7 +167,7 @@ public interface MessageOrBuilder extends
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -180,7 +180,7 @@ public interface MessageOrBuilder extends
    * For ALF thread root messages: same value as chat_key.
    * For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
    * Absent when the message is not part of an ALF thread.
-   * +kubebuilder:example="userChat-uc-abc123-msg-001"
+   * +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string alf_thread_key = 7 [json_name = "alfThreadKey"];</code>
@@ -193,7 +193,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -204,7 +204,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 8 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -241,7 +241,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -252,7 +252,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 10 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -289,7 +289,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -300,7 +300,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-abc123"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string person_id = 12 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -314,7 +314,7 @@ public interface MessageOrBuilder extends
    * Client-generated identifier for deduplication.
    * Allows matching a locally pre-rendered message with the server response.
    * Immutable after creation.
-   * +kubebuilder:example="req-12345"
+   * +kubebuilder:example="req-6606508ec1dd00aa1234"
    * </pre>
    *
    * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -326,7 +326,7 @@ public interface MessageOrBuilder extends
    * Client-generated identifier for deduplication.
    * Allows matching a locally pre-rendered message with the server response.
    * Immutable after creation.
-   * +kubebuilder:example="req-12345"
+   * +kubebuilder:example="req-6606508ec1dd00aa1234"
    * </pre>
    *
    * <code>string request_id = 13 [json_name = "requestId"];</code>
@@ -361,6 +361,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -371,6 +372,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -381,6 +383,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 15 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -475,6 +478,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -484,6 +488,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -493,6 +498,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Message last update timestamp.
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 19 [json_name = "updatedAt"];</code>
@@ -534,6 +540,7 @@ public interface MessageOrBuilder extends
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
+   * +kubebuilder:example={"sessionId":"6606508ec1dd0000000a","participants":["user-660640f04f4065f2161a","manager-9187"]}
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -545,6 +552,7 @@ public interface MessageOrBuilder extends
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
+   * +kubebuilder:example={"sessionId":"6606508ec1dd0000000a","participants":["user-660640f04f4065f2161a","manager-9187"]}
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -556,6 +564,7 @@ public interface MessageOrBuilder extends
    * Meet session metadata for messages associated with a video/voice meet.
    * Contains session ID, participants, and call state.
    * Present only on meet-related messages.
+   * +kubebuilder:example={"sessionId":"6606508ec1dd0000000a","participants":["user-660640f04f4065f2161a","manager-9187"]}
    * </pre>
    *
    * <code>.google.protobuf.Struct meet = 21 [json_name = "meet"];</code>
@@ -566,6 +575,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -576,6 +586,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -586,6 +597,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
+   * +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -596,6 +608,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
+   * +kubebuilder:example={"sessionId":"alf-6606508eb200dc6ed962","state":"active"}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -606,6 +619,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
+   * +kubebuilder:example={"sessionId":"alf-6606508eb200dc6ed962","state":"active"}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -616,6 +630,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * ALF (AI agent) thread metadata for AI-assisted conversation threads.
    * Contains ALF session state and context.
+   * +kubebuilder:example={"sessionId":"alf-6606508eb200dc6ed962","state":"active"}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_thread = 23 [json_name = "alfThread"];</code>
@@ -626,6 +641,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -636,6 +652,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -646,6 +663,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Timestamp when the message content was last edited by a person.
    * Absent if the message has never been edited.
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp edited_at = 24 [json_name = "editedAt"];</code>
@@ -866,6 +884,7 @@ public interface MessageOrBuilder extends
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -877,6 +896,7 @@ public interface MessageOrBuilder extends
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -888,6 +908,7 @@ public interface MessageOrBuilder extends
    * Progress indicator for an ALF AI response being streamed.
    * Contains the partial content generated so far.
    * Transient; replaced by the final message content when streaming completes.
+   * +kubebuilder:example={"content":"Analyzing your request...","complete":false}
    * </pre>
    *
    * <code>.google.protobuf.Struct alf_progress = 30 [json_name = "alfProgress"];</code>
@@ -897,6 +918,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -906,6 +928,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -915,6 +938,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Interactive form (e.g., input fields, dropdowns) attached to the message.
+   * +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct form = 31 [json_name = "form"];</code>
@@ -946,6 +970,7 @@ public interface MessageOrBuilder extends
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -959,6 +984,7 @@ public interface MessageOrBuilder extends
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -971,6 +997,7 @@ public interface MessageOrBuilder extends
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -984,6 +1011,7 @@ public interface MessageOrBuilder extends
    * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
    * Some options are only applicable in user chats.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["doNotSearch","immutable","private"]
    * </pre>
    *
    * <code>repeated string options = 33 [json_name = "options"];</code>
@@ -997,6 +1025,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
+   * +kubebuilder:example={"campaignId":"1461","campaignType":"promotion","trackingId":"1461-660640f04f4065f2161a"}
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -1007,6 +1036,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
+   * +kubebuilder:example={"campaignId":"1461","campaignType":"promotion","trackingId":"1461-660640f04f4065f2161a"}
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -1017,6 +1047,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Marketing campaign metadata for outbound promotional messages.
    * Contains campaign type and tracking attributes.
+   * +kubebuilder:example={"campaignId":"1461","campaignType":"promotion","trackingId":"1461-660640f04f4065f2161a"}
    * </pre>
    *
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
@@ -1027,6 +1058,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
+   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -1037,6 +1069,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
+   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -1047,6 +1080,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Legacy support bot metadata.
    * Retained for backward compatibility with older workflow implementations.
+   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
    * </pre>
    *
    * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
@@ -1057,6 +1091,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:example={"workflowId":"2612","stepId":"A","status":"pending"}
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -1067,6 +1102,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:example={"workflowId":"2612","stepId":"A","status":"pending"}
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -1077,6 +1113,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Workflow automation metadata linking this message to a workflow step.
    * Contains workflow ID, step ID, and button submission context.
+   * +kubebuilder:example={"workflowId":"2612","stepId":"A","status":"pending"}
    * </pre>
    *
    * <code>.google.protobuf.Struct workflow = 36 [json_name = "workflow"];</code>
@@ -1106,6 +1143,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -1116,6 +1154,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -1126,6 +1165,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * IVR (Interactive Voice Response) call metadata for phone-based messages.
    * Contains DTMF input, call routing state, and voice prompt context.
+   * +kubebuilder:example={"dtmfInput":"1","callReason":"customer-support","duration":"PT2M30S"}
    * </pre>
    *
    * <code>.google.protobuf.Struct ivr = 38 [json_name = "ivr"];</code>
@@ -1136,6 +1176,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1146,6 +1187,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1156,6 +1198,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1205,7 +1248,7 @@ public interface MessageOrBuilder extends
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
-   * +kubebuilder:example="msg-root-001"
+   * +kubebuilder:example="6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>
@@ -1217,7 +1260,7 @@ public interface MessageOrBuilder extends
    * ID of the root message when this message belongs to a thread, meet, or ALF thread.
    * Parsed from thread_key, meet_key, or alf_thread_key respectively.
    * Absent for root messages and standalone messages.
-   * +kubebuilder:example="msg-root-001"
+   * +kubebuilder:example="6606508eb200dc6ed962"
    * </pre>
    *
    * <code>string root_message_id = 42 [json_name = "rootMessageId"];</code>

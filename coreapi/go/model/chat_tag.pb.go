@@ -100,12 +100,12 @@ type ChatTag struct {
 	// Unique chat tag identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="tag-001"
+	// +kubebuilder:example="56161"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this chat tag belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Color theme of the chat tag.
 	ColorVariant ChatTagColorVariant `protobuf:"varint,3,opt,name=color_variant,json=colorVariant,proto3,enum=coreapi.model.ChatTagColorVariant" json:"color_variant,omitempty"`
@@ -115,14 +115,14 @@ type ChatTag struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="billing"
+	// +kubebuilder:example="billing/general"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Lowercase representation of name.
 	// Unique within the channel (case-insensitive).
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="billing"
+	// +kubebuilder:example="billing/general"
 	Key string `protobuf:"bytes,5,opt,name=key,proto3" json:"key,omitempty"`
 	// Short description of the chat tag.
 	//
@@ -132,7 +132,7 @@ type ChatTag struct {
 	// Chat tag creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-21T07:12:21.773038Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

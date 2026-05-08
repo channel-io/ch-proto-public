@@ -11,7 +11,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="6912e53c0b958678c533"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Unique message identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="6912e53c0b958678c533"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Channel ID this message belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -83,7 +83,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -94,7 +94,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Chat ID of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="uc-abc123"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string chat_id = 4 [json_name = "chatId", (.buf.validate.field) = { ... }</code>
@@ -131,7 +131,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -142,7 +142,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Entity ID of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="m-001"
+   * +kubebuilder:example="9187"
    * </pre>
    *
    * <code>string person_id = 6 [json_name = "personId", (.buf.validate.field) = { ... }</code>
@@ -198,7 +198,7 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:example="Hello, this is a transcription."
+   * +kubebuilder:example="Hello, I have an order inquiry."
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>
@@ -208,7 +208,7 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:example="Hello, this is a transcription."
+   * +kubebuilder:example="Hello, I have an order inquiry."
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>
@@ -221,6 +221,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -231,6 +232,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -241,6 +243,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -251,6 +254,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -261,6 +265,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -271,6 +276,7 @@ public interface MeetMessageOrBuilder extends
    * <pre>
    * Message last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-29T03:28:35Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>

@@ -100,36 +100,36 @@ type Webhook struct {
 	// Unique webhook identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="100"
+	// +kubebuilder:example="205"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this webhook belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Webhook display name.
 	// Unique within the channel.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="Order Webhook"
+	// +kubebuilder:example="cht-user-chat-analysis-poc"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Destination URL that receives webhook payloads.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="https://example.com/webhook"
+	// +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
 	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
 	// Auto-generated HMAC token for verifying webhook payloads.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="whk_abc123xyz789"
+	// +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
 	Token string `protobuf:"bytes,5,opt,name=token,proto3" json:"token,omitempty"`
 	// Webhook creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-06-13T05:11:29Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Event scopes that trigger this webhook.
 	//
@@ -145,7 +145,7 @@ type Webhook struct {
 	ApiVersion string `protobuf:"bytes,8,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
 	// Timestamp when the webhook was last blocked due to consecutive failures.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-06-13T05:11:29Z"
 	LastBlockedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_blocked_at,json=lastBlockedAt,proto3" json:"last_blocked_at,omitempty"`
 	// Whether the webhook is currently blocked due to excessive delivery failures.
 	//

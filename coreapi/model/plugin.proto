@@ -77,18 +77,18 @@ message Plugin {
   // Unique plugin identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="plg-001"
+  // +kubebuilder:example="93417"
   string id = 1 [(buf.validate.field).required = true];
 
   // Plugin API key in UUID format.
   //
-  // +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+  // +kubebuilder:example="76202436-0c71-4903-a402-3f16d265673a"
   string key = 2;
 
   // Channel ID this plugin belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 3 [(buf.validate.field).required = true];
 
   // Current activation lifecycle state.
@@ -102,7 +102,7 @@ message Plugin {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
-  // +kubebuilder:example="Support Widget"
+  // +kubebuilder:example="Channel Demo Shop"
   string name = 5 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -120,7 +120,7 @@ message Plugin {
   // Plugin creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-21T07:12:21.773038Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Color theme of the widget.
@@ -158,7 +158,7 @@ message Plugin {
   // Localized label button text, keyed by locale code (e.g., "en", "ko").
   // Overrides label_button_text for matching locales.
   //
-  // +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
+  // +kubebuilder:example={"ko":"Contact Us","en":"Contact Us","ja":"Contact Us"}
   map<string, string> label_button_text_i18n_map = 10;
 
   // Determines how the launcher button is rendered.
@@ -185,12 +185,12 @@ message Plugin {
 
   // Horizontal offset of the desktop widget from its anchored edge, in pixels.
   //
-  // +kubebuilder:example="20"
+  // +kubebuilder:example="24"
   int32 desk_margin_x = 15;
 
   // Vertical offset of the desktop widget from the bottom edge, in pixels.
   //
-  // +kubebuilder:example="20"
+  // +kubebuilder:example="24"
   int32 desk_margin_y = 16;
 
   // Whether the desktop launcher button is hidden while the widget remains accessible.
@@ -234,7 +234,7 @@ message Plugin {
   // When empty, the plugin is displayed on all pages. Protocol prefixes are stripped before matching.
   //
   // +kubebuilder:validation:MaxItems=5
-  // +kubebuilder:example=["https://channel.io","https://*.channel.io"]
+  // +kubebuilder:example=["https://zoyi.cafe24.com","https://*.cafe24.com"]
   repeated string url_whitelist = 25 [(buf.validate.field).repeated = {max_items: 5}];
 
   // Probability of showing the plugin to a given visitor, where 0.0 means never shown and 1.0 means always shown.
@@ -263,18 +263,18 @@ message Plugin {
   // Resolved URL of the custom launcher button image.
   // Automatically derived from custom_image.
   //
-  // +kubebuilder:example="https://cdn.channel.io/plugin/custom.png"
+  // +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/custom.png"
   string custom_image_url = 28;
 
   // Resolved URL of the desktop launcher image.
   // Automatically derived from desk_image.
   //
-  // +kubebuilder:example="https://cdn.channel.io/plugin/desk.png"
+  // +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/desk.png"
   string desk_image_url = 29;
 
   // Resolved URL of the mobile launcher image.
   // Automatically derived from mobile_image.
   //
-  // +kubebuilder:example="https://cdn.channel.io/plugin/mobile.png"
+  // +kubebuilder:example="https://cdn.channel.io/plugin/76202436-0c71-4903-a402-3f16d265673a/mobile.png"
   string mobile_image_url = 30;
 }

@@ -56,7 +56,7 @@ public interface BlockOrBuilder extends
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
-   * +kubebuilder:example="Hello, world!"
+   * +kubebuilder:example="Hello, please confirm my order."
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>
@@ -67,7 +67,7 @@ public interface BlockOrBuilder extends
    * <pre>
    * Text content of the block.
    * Applicable for TEXT and CODE block types; ignored for BULLETS.
-   * +kubebuilder:example="Hello, world!"
+   * +kubebuilder:example="Hello, please confirm my order."
    * </pre>
    *
    * <code>string value = 3 [json_name = "value"];</code>

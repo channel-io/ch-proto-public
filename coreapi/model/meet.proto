@@ -34,7 +34,7 @@ message CallLog {
   // Channel ID where the call occurred.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Reason the call was missed.
@@ -57,42 +57,42 @@ message CallLog {
 
   // Destination phone number or callee identifier.
   //
-  // +kubebuilder:example="+821098765432"
+  // +kubebuilder:example="+821012345678"
   string to = 6;
 
   // Call creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-03-29T03:24:30Z"
   google.protobuf.Timestamp created_at = 7 [(buf.validate.field).required = true];
 
   // Call last update timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2024-03-29T03:28:35Z"
   google.protobuf.Timestamp updated_at = 8 [(buf.validate.field).required = true];
 
   // Timestamp when the call was answered and the conversation began.
   // Absent if the call was never answered.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-03-29T03:24:30Z"
   google.protobuf.Timestamp engaged_at = 9;
 
   // Timestamp when the call ended and the connection was terminated.
   // Absent if the call is still active or was never connected.
   //
-  // +kubebuilder:example="2026-04-28T10:30:00Z"
+  // +kubebuilder:example="2024-03-29T03:30:00Z"
   google.protobuf.Timestamp closed_at = 10;
 
   // User chat ID linked to this call.
   // Present when the call is associated with a user chat conversation.
   //
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="6606508eaa71575f1e8c"
   string user_chat_id = 11;
 
   // List of manager IDs who participated in or handled the call.
   //
-  // +kubebuilder:example=["1234","5678"]
+  // +kubebuilder:example=["9187","9189"]
   repeated string manager_ids = 12;
 }
 
@@ -101,13 +101,13 @@ message MeetMessage {
   // Unique message identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="meet-001"
+  // +kubebuilder:example="6912e53c0b958678c533"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this message belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Chat type of the parent conversation.
@@ -119,7 +119,7 @@ message MeetMessage {
   // Chat ID of the parent conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="6606508eaa71575f1e8c"
   string chat_id = 4 [(buf.validate.field).required = true];
 
   // Entity type of the message author (e.g., "manager", "user").
@@ -131,7 +131,7 @@ message MeetMessage {
   // Entity ID of the message author.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="m-001"
+  // +kubebuilder:example="9187"
   string person_id = 6 [(buf.validate.field).required = true];
 
   // Structured content blocks of the message.
@@ -140,18 +140,18 @@ message MeetMessage {
 
   // Plain text representation of the message.
   //
-  // +kubebuilder:example="Hello, this is a transcription."
+  // +kubebuilder:example="Hello, I have an order inquiry."
   string plain_text = 8;
 
   // Message creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-03-29T03:24:30Z"
   google.protobuf.Timestamp created_at = 9 [(buf.validate.field).required = true];
 
   // Message last update timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2024-03-29T03:28:35Z"
   google.protobuf.Timestamp updated_at = 10 [(buf.validate.field).required = true];
 }

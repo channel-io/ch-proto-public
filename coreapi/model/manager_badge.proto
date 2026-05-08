@@ -16,7 +16,7 @@ message ManagerBadge {
   // Uses the same value as the owning manager's ID.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="9187"
   string id = 1 [(buf.validate.field).required = true];
 
   // Alert-level unread count in team chat main conversations.
@@ -57,7 +57,7 @@ message ManagerBadge {
 
   // Badge last update timestamp.
   //
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2024-03-29T03:28:35Z"
   google.protobuf.Timestamp updated_at = 8;
 
   // Optimistic locking version.
@@ -69,7 +69,7 @@ message ManagerBadge {
   // Manager ID this badge belongs to.
   // Same value as the badge id.
   //
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="9187"
   string manager_id = 10;
 
   // Aggregated alert count across all chat types.

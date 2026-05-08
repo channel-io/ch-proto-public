@@ -143,19 +143,19 @@ type OneTimeMsg struct {
 	// Unique one-time message identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="otm-001"
+	// +kubebuilder:example="7734"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this one-time message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Human-readable label for the one-time message.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="Spring Sale"
+	// +kubebuilder:example="One Time Msg 20240726"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Current lifecycle state of the one-time message.
 	//
@@ -166,7 +166,7 @@ type OneTimeMsg struct {
 	SendMode OneTimeMsgSendMode `protobuf:"varint,5,opt,name=send_mode,json=sendMode,proto3,enum=coreapi.model.OneTimeMsgSendMode" json:"send_mode,omitempty"`
 	// Channel operation schedule referenced for delivery timing.
 	//
-	// +kubebuilder:example="op-001"
+	// +kubebuilder:example="op-6263-default"
 	ChannelOperationId string `protobuf:"bytes,6,opt,name=channel_operation_id,json=channelOperationId,proto3" json:"channel_operation_id,omitempty"`
 	// Channel through which the message is delivered.
 	// Cannot be changed after creation.
@@ -175,11 +175,11 @@ type OneTimeMsg struct {
 	MediumType MediumType `protobuf:"varint,7,opt,name=medium_type,json=mediumType,proto3,enum=coreapi.model.MediumType" json:"medium_type,omitempty"`
 	// Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
 	//
-	// +kubebuilder:example="sms-001"
+	// +kubebuilder:example="sms-sender-201"
 	MediumId string `protobuf:"bytes,8,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	// Key for selecting the message topic template within the medium.
 	//
-	// +kubebuilder:example="topic-001"
+	// +kubebuilder:example="topic-welcome-2024"
 	MediumTopicBuildKey string `protobuf:"bytes,9,opt,name=medium_topic_build_key,json=mediumTopicBuildKey,proto3" json:"medium_topic_build_key,omitempty"`
 	// Labels for categorizing the message topic within the medium.
 	//
@@ -188,7 +188,7 @@ type OneTimeMsg struct {
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
 	//
-	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Support Bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
 	Settings *structpb.Struct `protobuf:"bytes,11,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
@@ -232,27 +232,27 @@ type OneTimeMsg struct {
 	// Scheduled send timestamp in UTC.
 	// Applicable when send_mode is RESERVED_WITH_SENDER_TIME.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-07-26T04:55:22Z"
 	StartAt *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=start_at,json=startAt,proto3" json:"start_at,omitempty"`
 	// Scheduled send date-time interpreted in each receiver's local timezone, in ISO 8601 format without timezone offset.
 	// Applicable when send_mode is RESERVED_WITH_RECEIVER_TIME.
 	//
-	// +kubebuilder:example="2026-03-25T09:00:00"
+	// +kubebuilder:example="2024-07-26T10:00:00"
 	LocalStartAt string `protobuf:"bytes,22,opt,name=local_start_at,json=localStartAt,proto3" json:"local_start_at,omitempty"`
 	// Snapshot of the message configuration captured before sending.
 	// Represented as a free-form JSON object.
 	//
-	// +kubebuilder:example={"oneTimeMsg":{"name":"Welcome OTM","sendMedium":"inAppChat","mediumType":"native"}}
+	// +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
 	Draft *structpb.Struct `protobuf:"bytes,23,opt,name=draft,proto3" json:"draft,omitempty"`
 	// One-time message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-22T02:17:56.008491Z"
+	// +kubebuilder:example="2024-07-26T04:55:22Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// One-time message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-07-26T04:55:22Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Cumulative count of messages delivered.
 	//

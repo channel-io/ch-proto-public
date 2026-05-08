@@ -33,7 +33,7 @@ type NameDesc struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
-	// +kubebuilder:example="Support Bot"
+	// +kubebuilder:example="Channel-bot"
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Short description of the entity.
 	//

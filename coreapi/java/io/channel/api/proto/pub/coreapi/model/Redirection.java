@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
    * The original URL that this redirection points to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://channel.io/blog/post-123"
+   * +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
    * </pre>
    *
    * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -142,7 +142,7 @@ private static final long serialVersionUID = 0L;
    * The original URL that this redirection points to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://channel.io/blog/post-123"
+   * +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
    * </pre>
    *
    * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -170,7 +170,7 @@ private static final long serialVersionUID = 0L;
    * The shortened redirect URL.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://ch.io/s/abc123"
+   * +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
    * </pre>
    *
    * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -194,7 +194,7 @@ private static final long serialVersionUID = 0L;
    * The shortened redirect URL.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="https://ch.io/s/abc123"
+   * +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
    * </pre>
    *
    * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -221,6 +221,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-12-31T23:59:59Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -234,6 +235,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-12-31T23:59:59Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -247,6 +249,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Redirection expiration timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-12-31T23:59:59Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -615,7 +618,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://channel.io/blog/post-123"
+     * +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -638,7 +641,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://channel.io/blog/post-123"
+     * +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -662,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://channel.io/blog/post-123"
+     * +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -684,7 +687,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://channel.io/blog/post-123"
+     * +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -701,7 +704,7 @@ private static final long serialVersionUID = 0L;
      * The original URL that this redirection points to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://channel.io/blog/post-123"
+     * +kubebuilder:example="https://zoyi.cafe24.com/product/sample/12345/"
      * </pre>
      *
      * <code>string original_url = 1 [json_name = "originalUrl", (.buf.validate.field) = { ... }</code>
@@ -726,7 +729,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://ch.io/s/abc123"
+     * +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -749,7 +752,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://ch.io/s/abc123"
+     * +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -773,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://ch.io/s/abc123"
+     * +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -795,7 +798,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://ch.io/s/abc123"
+     * +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -812,7 +815,7 @@ private static final long serialVersionUID = 0L;
      * The shortened redirect URL.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="https://ch.io/s/abc123"
+     * +kubebuilder:example="https://ch.io/s/634e3501993b9da89682"
      * </pre>
      *
      * <code>string short_url = 2 [json_name = "shortUrl", (.buf.validate.field) = { ... }</code>
@@ -838,6 +841,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -850,6 +854,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -866,6 +871,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -887,6 +893,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -906,6 +913,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -929,6 +937,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -948,6 +957,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -961,6 +971,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>
@@ -977,6 +988,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Redirection expiration timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-12-31T23:59:59Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_at = 3 [json_name = "expireAt", (.buf.validate.field) = { ... }</code>

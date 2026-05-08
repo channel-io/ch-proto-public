@@ -310,7 +310,7 @@ type Block struct {
 	// Text content of the block.
 	// Applicable for TEXT and CODE block types; ignored for BULLETS.
 	//
-	// +kubebuilder:example="Hello, world!"
+	// +kubebuilder:example="Hello, please confirm my order."
 	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
 	// Nested child blocks that form a hierarchical list structure.
 	// Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
@@ -458,7 +458,7 @@ type MessageFile struct {
 	// Unique file identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="file-001"
+	// +kubebuilder:example="6606508ec1dd00001a2b"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// High-level media category derived from the MIME type (e.g. "image", "video", "audio").
 	//
@@ -529,12 +529,12 @@ type MessageFile struct {
 	// Channel ID that owns this private file.
 	// Derived from the storage key pattern.
 	//
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,16,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Manager ID that owns this private file.
 	// Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
 	//
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="9187"
 	ManagerId string `protobuf:"bytes,17,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Chat type for chat-scoped private files.
 	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
@@ -544,7 +544,7 @@ type MessageFile struct {
 	// Chat ID for chat-scoped private files.
 	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
 	//
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="6606508eaa71575f1e8c"
 	ChatId        string `protobuf:"bytes,19,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -720,7 +720,7 @@ type MessageWebPage struct {
 	// Unique web page preview identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="wp-001"
+	// +kubebuilder:example="6606508ec1dd00001a2b"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Target URL of the linked web page.
 	//
@@ -915,7 +915,7 @@ type MessageContent struct {
 	Blocks []*Block `protobuf:"bytes,1,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//
-	// +kubebuilder:example="Hello, how can I help you?"
+	// +kubebuilder:example="Hello, I have a question."
 	PlainText string `protobuf:"bytes,2,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Interactive buttons attached to the message.
 	//

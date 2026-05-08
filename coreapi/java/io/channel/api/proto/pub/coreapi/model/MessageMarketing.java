@@ -301,7 +301,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="1461"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -323,7 +323,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Identifier of the originating campaign or one-time message.
-   * +kubebuilder:example="cpn-001"
+   * +kubebuilder:example="1461"
    * </pre>
    *
    * <code>string id = 2 [json_name = "id"];</code>
@@ -425,7 +425,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Clickthrough URL for the marketing image.
    * Present only when the message includes an in-app image with a link.
-   * +kubebuilder:example="https://example.com/image.jpg"
+   * +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
    * </pre>
    *
    * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -448,7 +448,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Clickthrough URL for the marketing image.
    * Present only when the message includes an in-app image with a link.
-   * +kubebuilder:example="https://example.com/image.jpg"
+   * +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
    * </pre>
    *
    * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -985,7 +985,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="1461"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1006,7 +1006,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="1461"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1028,7 +1028,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="1461"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1048,7 +1048,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="1461"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1063,7 +1063,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Identifier of the originating campaign or one-time message.
-     * +kubebuilder:example="cpn-001"
+     * +kubebuilder:example="1461"
      * </pre>
      *
      * <code>string id = 2 [json_name = "id"];</code>
@@ -1299,7 +1299,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:example="https://example.com/image.jpg"
+     * +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1321,7 +1321,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:example="https://example.com/image.jpg"
+     * +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1344,7 +1344,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:example="https://example.com/image.jpg"
+     * +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1365,7 +1365,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:example="https://example.com/image.jpg"
+     * +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>
@@ -1381,7 +1381,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Clickthrough URL for the marketing image.
      * Present only when the message includes an in-app image with a link.
-     * +kubebuilder:example="https://example.com/image.jpg"
+     * +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
      * </pre>
      *
      * <code>string image_link_url = 7 [json_name = "imageLinkUrl"];</code>

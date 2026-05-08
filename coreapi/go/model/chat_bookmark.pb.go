@@ -31,31 +31,31 @@ type ChatBookmark struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="manager-m001-userChat"
+	// +kubebuilder:example="manager-9187-userChat"
 	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	// Chat ID this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="6606508eaa71575f1e8c"
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Composite key for the associated chat.
 	// Format: "{chatType}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="userChat-uc-abc123"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c"
 	ChatKey string `protobuf:"bytes,3,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Opaque key representing the reading position in the chat.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="bk-001"
+	// +kubebuilder:example="634e3501993b9da89682"
 	BookmarkKey string `protobuf:"bytes,4,opt,name=bookmark_key,json=bookmarkKey,proto3" json:"bookmark_key,omitempty"`
 	// Channel ID this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,5,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Entity version number for optimistic concurrency control.
 	//
@@ -71,7 +71,7 @@ type ChatBookmark struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="m-001"
+	// +kubebuilder:example="9187"
 	PersonId string `protobuf:"bytes,8,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Chat type this bookmark belongs to (e.g. "group", "userChat").
 	//

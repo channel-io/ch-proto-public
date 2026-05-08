@@ -133,7 +133,7 @@ type CallLog struct {
 	// Channel ID where the call occurred.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Reason the call was missed.
 	// Only present when the call ended without being answered.
@@ -148,36 +148,36 @@ type CallLog struct {
 	From string `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
 	// Destination phone number or callee identifier.
 	//
-	// +kubebuilder:example="+821098765432"
+	// +kubebuilder:example="+821012345678"
 	To string `protobuf:"bytes,6,opt,name=to,proto3" json:"to,omitempty"`
 	// Call creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Call last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-03-29T03:28:35Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Timestamp when the call was answered and the conversation began.
 	// Absent if the call was never answered.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	EngagedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=engaged_at,json=engagedAt,proto3" json:"engaged_at,omitempty"`
 	// Timestamp when the call ended and the connection was terminated.
 	// Absent if the call is still active or was never connected.
 	//
-	// +kubebuilder:example="2026-04-28T10:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:30:00Z"
 	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
 	// User chat ID linked to this call.
 	// Present when the call is associated with a user chat conversation.
 	//
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="6606508eaa71575f1e8c"
 	UserChatId string `protobuf:"bytes,11,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// List of manager IDs who participated in or handled the call.
 	//
-	// +kubebuilder:example=["1234","5678"]
+	// +kubebuilder:example=["9187","9189"]
 	ManagerIds    []string `protobuf:"bytes,12,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -303,12 +303,12 @@ type MeetMessage struct {
 	// Unique message identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="meet-001"
+	// +kubebuilder:example="6912e53c0b958678c533"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Chat type of the parent conversation.
 	//
@@ -318,7 +318,7 @@ type MeetMessage struct {
 	// Chat ID of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="6606508eaa71575f1e8c"
 	ChatId string `protobuf:"bytes,4,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Entity type of the message author (e.g., "manager", "user").
 	//
@@ -328,23 +328,23 @@ type MeetMessage struct {
 	// Entity ID of the message author.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="m-001"
+	// +kubebuilder:example="9187"
 	PersonId string `protobuf:"bytes,6,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Structured content blocks of the message.
 	Blocks []*Block `protobuf:"bytes,7,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//
-	// +kubebuilder:example="Hello, this is a transcription."
+	// +kubebuilder:example="Hello, I have an order inquiry."
 	PlainText string `protobuf:"bytes,8,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Message last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-03-29T03:28:35Z"
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

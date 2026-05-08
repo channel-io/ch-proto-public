@@ -645,48 +645,48 @@ type Message struct {
 	// Format: "{chatType}-{chatId}".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="userChat-uc-abc123"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c"
 	ChatKey string `protobuf:"bytes,1,opt,name=chat_key,json=chatKey,proto3" json:"chat_key,omitempty"`
 	// Unique message identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="msg-001"
+	// +kubebuilder:example="6606508eb200dc6ed962"
 	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Index key for the main (top-level) message stream.
 	// Same value as chat_key when the message appears in the main stream.
 	//
-	// +kubebuilder:example="userChat-uc-abc123"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c"
 	MainKey string `protobuf:"bytes,3,opt,name=main_key,json=mainKey,proto3" json:"main_key,omitempty"`
 	// Index key for the thread message stream.
 	// For thread root messages: same value as chat_key.
 	// For thread replies: "{chatType}-{chatId}-{rootMessageId}".
 	// Absent when the message does not belong to a thread.
 	//
-	// +kubebuilder:example="userChat-uc-abc123-msg-001"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
 	ThreadKey string `protobuf:"bytes,4,opt,name=thread_key,json=threadKey,proto3" json:"thread_key,omitempty"`
 	// Index key for the meet message stream.
 	// For meet root messages: same value as chat_key.
 	// For meet child messages: "{chatType}-{chatId}-{rootMessageId}".
 	// Absent when the message is not associated with a meet session.
 	//
-	// +kubebuilder:example="userChat-uc-abc123-msg-001"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
 	MeetKey string `protobuf:"bytes,5,opt,name=meet_key,json=meetKey,proto3" json:"meet_key,omitempty"`
 	// Index key for the front (user-facing) message stream.
 	// Same value as chat_key when the message appears in the front stream.
 	//
-	// +kubebuilder:example="userChat-uc-abc123"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c"
 	FrontKey string `protobuf:"bytes,6,opt,name=front_key,json=frontKey,proto3" json:"front_key,omitempty"`
 	// Index key for the ALF AI-assisted thread stream.
 	// For ALF thread root messages: same value as chat_key.
 	// For ALF thread replies: "{chatType}-{chatId}-{rootMessageId}".
 	// Absent when the message is not part of an ALF thread.
 	//
-	// +kubebuilder:example="userChat-uc-abc123-msg-001"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
 	AlfThreadKey string `protobuf:"bytes,7,opt,name=alf_thread_key,json=alfThreadKey,proto3" json:"alf_thread_key,omitempty"`
 	// Channel ID this message belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,8,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
 	//
@@ -696,7 +696,7 @@ type Message struct {
 	// Chat ID of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="6606508eaa71575f1e8c"
 	ChatId string `protobuf:"bytes,10,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// Entity type of the message author (e.g., "manager", "user", "bot").
 	//
@@ -706,13 +706,13 @@ type Message struct {
 	// Entity ID of the message author.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="m-abc123"
+	// +kubebuilder:example="9187"
 	PersonId string `protobuf:"bytes,12,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
 	// Client-generated identifier for deduplication.
 	// Allows matching a locally pre-rendered message with the server response.
 	// Immutable after creation.
 	//
-	// +kubebuilder:example="req-12345"
+	// +kubebuilder:example="req-6606508ec1dd00aa1234"
 	RequestId string `protobuf:"bytes,13,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	// Detected language of the message content (e.g., "ko", "en", "ja").
 	//
@@ -721,7 +721,7 @@ type Message struct {
 	// Message creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Optimistic locking version.
 	// Incremented on every update.
@@ -738,7 +738,7 @@ type Message struct {
 	PlainText string `protobuf:"bytes,18,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Message last update timestamp.
 	//
-	// +kubebuilder:example="2026-04-28T09:35:00Z"
+	// +kubebuilder:example="2024-03-29T03:28:35Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Thread metadata present only on thread root messages.
 	// Contains reply count, last reply timestamp, and participant summary.
@@ -747,22 +747,22 @@ type Message struct {
 	// Contains session ID, participants, and call state.
 	// Present only on meet-related messages.
 	//
-	// +kubebuilder:example={"sessionId":"meet-abc123","participants":["user-0001","manager-1234"]}
+	// +kubebuilder:example={"sessionId":"6606508ec1dd0000000a","participants":["user-660640f04f4065f2161a","manager-9187"]}
 	Meet *structpb.Struct `protobuf:"bytes,21,opt,name=meet,proto3" json:"meet,omitempty"`
 	// Email metadata for messages sent or received via email integration.
 	// Contains email subject, recipients, and direction (inbound/outbound).
 	//
-	// +kubebuilder:example={"subject":"Order Inquiry","from":"customer@example.com"}
+	// +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer@example.com"}
 	Email *structpb.Struct `protobuf:"bytes,22,opt,name=email,proto3" json:"email,omitempty"`
 	// ALF (AI agent) thread metadata for AI-assisted conversation threads.
 	// Contains ALF session state and context.
 	//
-	// +kubebuilder:example={"sessionId":"alf-abc123","state":"active"}
+	// +kubebuilder:example={"sessionId":"alf-6606508eb200dc6ed962","state":"active"}
 	AlfThread *structpb.Struct `protobuf:"bytes,23,opt,name=alf_thread,json=alfThread,proto3" json:"alf_thread,omitempty"`
 	// Timestamp when the message content was last edited by a person.
 	// Absent if the message has never been edited.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	EditedAt *timestamppb.Timestamp `protobuf:"bytes,24,opt,name=edited_at,json=editedAt,proto3" json:"edited_at,omitempty"`
 	// Interactive action buttons displayed below the message.
 	//
@@ -803,17 +803,17 @@ type Message struct {
 	// Marketing campaign metadata for outbound promotional messages.
 	// Contains campaign type and tracking attributes.
 	//
-	// +kubebuilder:example={"campaignId":"camp-123","campaignType":"promotion","trackingId":"mkt-001"}
+	// +kubebuilder:example={"campaignId":"1461","campaignType":"promotion","trackingId":"1461-660640f04f4065f2161a"}
 	Marketing *structpb.Struct `protobuf:"bytes,34,opt,name=marketing,proto3" json:"marketing,omitempty"`
 	// Legacy support bot metadata.
 	// Retained for backward compatibility with older workflow implementations.
 	//
-	// +kubebuilder:example={"botId":"bot-legacy-001","workflowId":"wf-legacy"}
+	// +kubebuilder:example={"botId":"2840","workflowId":"2612"}
 	SupportBot *structpb.Struct `protobuf:"bytes,35,opt,name=support_bot,json=supportBot,proto3" json:"support_bot,omitempty"`
 	// Workflow automation metadata linking this message to a workflow step.
 	// Contains workflow ID, step ID, and button submission context.
 	//
-	// +kubebuilder:example={"workflowId":"wf-abc","stepId":"step-01","status":"pending"}
+	// +kubebuilder:example={"workflowId":"2612","stepId":"A","status":"pending"}
 	Workflow *structpb.Struct `protobuf:"bytes,36,opt,name=workflow,proto3" json:"workflow,omitempty"`
 	// Notification priority level controlling client-side popup behavior.
 	AlertLevel AlertLevel `protobuf:"varint,37,opt,name=alert_level,json=alertLevel,proto3,enum=coreapi.model.AlertLevel" json:"alert_level,omitempty"`
@@ -825,7 +825,7 @@ type Message struct {
 	// Custom rendering payload for third-party integrations.
 	// Structure and content are defined by the integration provider.
 	//
-	// +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order Confirmation","orderId":"ORD-123"}}
+	// +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
 	CustomPayload *structpb.Struct `protobuf:"bytes,39,opt,name=custom_payload,json=customPayload,proto3" json:"custom_payload,omitempty"`
 	// Composition method that determines how clients render this message.
 	// Automatically derived from the message content when not explicitly set:
@@ -842,7 +842,7 @@ type Message struct {
 	// Parsed from thread_key, meet_key, or alf_thread_key respectively.
 	// Absent for root messages and standalone messages.
 	//
-	// +kubebuilder:example="msg-root-001"
+	// +kubebuilder:example="6606508eb200dc6ed962"
 	RootMessageId string `protobuf:"bytes,42,opt,name=root_message_id,json=rootMessageId,proto3" json:"root_message_id,omitempty"`
 	// Whether this message is the root of a thread.
 	// True when the thread field is present.
@@ -1218,16 +1218,16 @@ type MessageThread struct {
 	// Composite thread identifier in the format "{chatType}-{chatId}-{rootMessageId}".
 	// Encodes the parent chat context and the root message that started the thread.
 	//
-	// +kubebuilder:example="userChat-uc-abc123-msg-001"
+	// +kubebuilder:example="userChat-6606508eaa71575f1e8c-6606508eb200dc6ed962"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Manager IDs assigned to handle this thread.
 	//
 	// +kubebuilder:validation:MinItems=1
-	// +kubebuilder:example=["1234","5678"]
+	// +kubebuilder:example=["9187","9189"]
 	ManagerIds []string `protobuf:"bytes,2,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Manager IDs who have posted replies in this thread, ordered by first reply time.
 	//
-	// +kubebuilder:example=["1234","5678"]
+	// +kubebuilder:example=["9187","9189"]
 	RepliedManagerIds []string `protobuf:"bytes,3,rep,name=replied_manager_ids,json=repliedManagerIds,proto3" json:"replied_manager_ids,omitempty"`
 	// Total number of replies in this thread.
 	// Defaults to 0.
@@ -1241,11 +1241,11 @@ type MessageThread struct {
 	ChatType string `protobuf:"bytes,5,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	// Chat ID component extracted from the thread `id`.
 	//
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="6606508eaa71575f1e8c"
 	ChatId string `protobuf:"bytes,6,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	// ID of the root message that started this thread, extracted from the thread `id`.
 	//
-	// +kubebuilder:example="msg-001"
+	// +kubebuilder:example="6606508eb200dc6ed962"
 	RootMessageId string `protobuf:"bytes,7,opt,name=root_message_id,json=rootMessageId,proto3" json:"root_message_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1349,7 +1349,7 @@ type MessageLog struct {
 	TriggerType string `protobuf:"bytes,3,opt,name=trigger_type,json=triggerType,proto3" json:"trigger_type,omitempty"`
 	// Identifier of the entity that triggered this action.
 	//
-	// +kubebuilder:example="wf-001"
+	// +kubebuilder:example="2840"
 	TriggerId     string `protobuf:"bytes,4,opt,name=trigger_id,json=triggerId,proto3" json:"trigger_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1426,7 +1426,7 @@ type MessageReaction struct {
 	// Person keys of everyone who reacted with this emoji,
 	// in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
 	//
-	// +kubebuilder:example=["user-abcd1234","manager-5678"]
+	// +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
 	PersonKeys    []string `protobuf:"bytes,2,rep,name=person_keys,json=personKeys,proto3" json:"person_keys,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1481,7 +1481,7 @@ type MessageMeet struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Unique meet session identifier.
 	//
-	// +kubebuilder:example="meet-001"
+	// +kubebuilder:example="6606508ec1dd0000000a"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
 	//
@@ -1489,7 +1489,7 @@ type MessageMeet struct {
 	ChatType string `protobuf:"bytes,2,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
 	// Channel ID this meet belongs to.
 	//
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Current lifecycle state of the meet session.
 	State MessageMeet_MeetState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.MessageMeet_MeetState" json:"state,omitempty"`
@@ -1498,26 +1498,26 @@ type MessageMeet struct {
 	// Person keys of all participants who have ever joined this meet,
 	// in the format "{personType}-{personId}" (e.g. "manager-abc123").
 	//
-	// +kubebuilder:example=["user-abcd1234","manager-5678","bot-001"]
+	// +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187","bot-223339"]
 	AmassedPersons []string `protobuf:"bytes,6,rep,name=amassed_persons,json=amassedPersons,proto3" json:"amassed_persons,omitempty"`
 	// Timestamp when the meet room was first opened.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	RoomStartedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=room_started_at,json=roomStartedAt,proto3" json:"room_started_at,omitempty"`
 	// Phone call session details.
 	// Present only when `meet_type` is CALL.
 	//
-	// +kubebuilder:example={"callId":"call-abc123","duration":"PT2M30S"}
+	// +kubebuilder:example={"callId":"6606508ec1dd00aa1234","duration":"PT2M30S"}
 	Call *structpb.Struct `protobuf:"bytes,8,opt,name=call,proto3" json:"call,omitempty"`
 	// Video/audio front session details.
 	// Present only when `meet_type` is FRONT.
 	//
-	// +kubebuilder:example={"sessionId":"front-abc123","videoEnabled":true}
+	// +kubebuilder:example={"sessionId":"6606508efd1d00aa5678","videoEnabled":true}
 	Front *structpb.Struct `protobuf:"bytes,9,opt,name=front,proto3" json:"front,omitempty"`
 	// Recording details for the meet session.
 	// Present only when the session was recorded.
 	//
-	// +kubebuilder:example={"url":"https://storage.channel.io/recordings/rec-abc123.mp4","duration":"PT2M30S"}
+	// +kubebuilder:example={"url":"https://storage.channel.io/recordings/6606508ec1dd00aa1234.mp4","duration":"PT2M30S"}
 	Recording *structpb.Struct `protobuf:"bytes,10,opt,name=recording,proto3" json:"recording,omitempty"`
 	// ISO 3166-1 alpha-2 country code of the meet origin (e.g. "KR", "US").
 	//
@@ -1525,17 +1525,17 @@ type MessageMeet struct {
 	Country string `protobuf:"bytes,11,opt,name=country,proto3" json:"country,omitempty"`
 	// Timestamp when the meet session ended.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	MeetEndedAt *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=meet_ended_at,json=meetEndedAt,proto3" json:"meet_ended_at,omitempty"`
 	// Manager IDs extracted from `amassed_persons`.
 	//
-	// +kubebuilder:example=["1234","5678"]
+	// +kubebuilder:example=["9187","9189"]
 	ManagerIds []string `protobuf:"bytes,13,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Computed meet category determined by the presence of `call` or `front` data.
 	MeetType MessageMeet_MeetType `protobuf:"varint,14,opt,name=meet_type,json=meetType,proto3,enum=coreapi.model.MessageMeet_MeetType" json:"meet_type,omitempty"`
 	// Bot IDs extracted from `amassed_persons`.
 	//
-	// +kubebuilder:example=["231306","231307"]
+	// +kubebuilder:example=["223338","223339"]
 	BotIds        []string `protobuf:"bytes,15,rep,name=bot_ids,json=botIds,proto3" json:"bot_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1682,11 +1682,11 @@ type MessageAlf struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Identifier of the handling session that triggered this ALF response.
 	//
-	// +kubebuilder:example="handling-001"
+	// +kubebuilder:example="6606518303f422514125"
 	HandlingId string `protobuf:"bytes,1,opt,name=handling_id,json=handlingId,proto3" json:"handling_id,omitempty"`
 	// Identifier of the ALF conversation session spanning multiple turns.
 	//
-	// +kubebuilder:example="alf-sess-001"
+	// +kubebuilder:example="alf-6606518303f42d42c07c"
 	AlfSessionId string `protobuf:"bytes,2,opt,name=alf_session_id,json=alfSessionId,proto3" json:"alf_session_id,omitempty"`
 	// Source documents or articles cited by ALF in its response.
 	// Each entry contains reference metadata such as title, URL, and relevance score.
@@ -1828,7 +1828,7 @@ type MessageEmail struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Corresponding Email entity identifier.
 	//
-	// +kubebuilder:example="email-001"
+	// +kubebuilder:example="1234"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Whether this email was sent to or received from an external party.
 	Direction MessageEmail_EmailDirection `protobuf:"varint,2,opt,name=direction,proto3,enum=coreapi.model.MessageEmail_EmailDirection" json:"direction,omitempty"`
@@ -1863,7 +1863,7 @@ type MessageEmail struct {
 	HasHistory bool `protobuf:"varint,9,opt,name=has_history,json=hasHistory,proto3" json:"has_history,omitempty"`
 	// Message ID of the email this is a reply to, forming the email thread chain.
 	//
-	// +kubebuilder:example="msg-001"
+	// +kubebuilder:example="6606508eb200dc6ed962"
 	ReplyToMessageId string `protobuf:"bytes,10,opt,name=reply_to_message_id,json=replyToMessageId,proto3" json:"reply_to_message_id,omitempty"`
 	// Channel email address that received this inbound email.
 	// Present only when `direction` is INBOUND.
@@ -1872,7 +1872,7 @@ type MessageEmail struct {
 	ReceivedFor string `protobuf:"bytes,11,opt,name=received_for,json=receivedFor,proto3" json:"received_for,omitempty"`
 	// Email creation timestamp.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -2060,7 +2060,7 @@ type MessageMarketing struct {
 	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
 	// Identifier of the originating campaign or one-time message.
 	//
-	// +kubebuilder:example="cpn-001"
+	// +kubebuilder:example="1461"
 	Id string `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Whether this message is classified as advertising content subject to opt-out regulations.
 	//
@@ -2079,7 +2079,7 @@ type MessageMarketing struct {
 	// Clickthrough URL for the marketing image.
 	// Present only when the message includes an in-app image with a link.
 	//
-	// +kubebuilder:example="https://example.com/image.jpg"
+	// +kubebuilder:example="https://cdn.channel.io/marketing/promo-20240329.jpg"
 	ImageLinkUrl  string `protobuf:"bytes,7,opt,name=image_link_url,json=imageLinkUrl,proto3" json:"image_link_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -2170,15 +2170,15 @@ type MessageSupportBot struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Support bot identifier that owns this flow.
 	//
-	// +kubebuilder:example="wf-001"
+	// +kubebuilder:example="2840"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Published revision of the support bot being executed.
 	//
-	// +kubebuilder:example="rev-001"
+	// +kubebuilder:example="2612"
 	RevisionId string `protobuf:"bytes,2,opt,name=revision_id,json=revisionId,proto3" json:"revision_id,omitempty"`
 	// Current section within the support bot flow (e.g. a route or action section).
 	//
-	// +kubebuilder:example="sec-001"
+	// +kubebuilder:example="A"
 	SectionId string `protobuf:"bytes,3,opt,name=section_id,json=sectionId,proto3" json:"section_id,omitempty"`
 	// Zero-based step position within the current section.
 	//
@@ -2276,15 +2276,15 @@ type MessageWorkflow struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Workflow identifier being executed.
 	//
-	// +kubebuilder:example="bot-001"
+	// +kubebuilder:example="223339"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Published revision of the workflow being executed.
 	//
-	// +kubebuilder:example="rev-001"
+	// +kubebuilder:example="2612"
 	RevisionId string `protobuf:"bytes,2,opt,name=revision_id,json=revisionId,proto3" json:"revision_id,omitempty"`
 	// Current section within the workflow.
 	//
-	// +kubebuilder:example="sec-001"
+	// +kubebuilder:example="A"
 	SectionId string `protobuf:"bytes,3,opt,name=section_id,json=sectionId,proto3" json:"section_id,omitempty"`
 	// Zero-based action position within the current section.
 	//
@@ -2293,7 +2293,7 @@ type MessageWorkflow struct {
 	// Identifier of the button the user selected to submit a response.
 	// Present only on messages recording the user's button selection.
 	//
-	// +kubebuilder:example="btn-001"
+	// +kubebuilder:example="btn-feedback"
 	SubmitButtonId string `protobuf:"bytes,5,opt,name=submit_button_id,json=submitButtonId,proto3" json:"submit_button_id,omitempty"`
 	// Whether this message was generated by a button action triggered
 	// from an external messenger integration.

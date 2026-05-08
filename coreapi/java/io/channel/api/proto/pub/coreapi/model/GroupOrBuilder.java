@@ -11,7 +11,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Unique group identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="g-abc123"
+   * +kubebuilder:example="14199"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -22,7 +22,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Unique group identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="g-abc123"
+   * +kubebuilder:example="14199"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -35,7 +35,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Channel ID this group belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Channel ID this group belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -65,7 +65,7 @@ public interface GroupOrBuilder extends
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-   * +kubebuilder:example="General"
+   * +kubebuilder:example="customer-feedback"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -82,7 +82,7 @@ public interface GroupOrBuilder extends
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-   * +kubebuilder:example="General"
+   * +kubebuilder:example="customer-feedback"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -116,6 +116,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -127,6 +128,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -137,6 +139,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -148,6 +151,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * IDs of managers who are members of this group.
    * +kubebuilder:validation:MinItems=1
+   * +kubebuilder:example=["9187","9189"]
    * </pre>
    *
    * <code>repeated string manager_ids = 5 [json_name = "managerIds"];</code>
@@ -162,7 +166,7 @@ public interface GroupOrBuilder extends
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Pattern="&#92;S+"
-   * +kubebuilder:example="star"
+   * +kubebuilder:example="rainbow"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -174,7 +178,7 @@ public interface GroupOrBuilder extends
    * Icon identifier or emoji representing the group visually.
    * Must not contain whitespace.
    * +kubebuilder:validation:Pattern="&#92;S+"
-   * +kubebuilder:example="star"
+   * +kubebuilder:example="rainbow"
    * </pre>
    *
    * <code>string icon = 6 [json_name = "icon", (.buf.validate.field) = { ... }</code>
@@ -186,7 +190,7 @@ public interface GroupOrBuilder extends
   /**
    * <pre>
    * ID of the active live meet session in this group.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -196,7 +200,7 @@ public interface GroupOrBuilder extends
   /**
    * <pre>
    * ID of the active live meet session in this group.
-   * +kubebuilder:example="meet-001"
+   * +kubebuilder:example="6606508eaa71575f1e8c"
    * </pre>
    *
    * <code>string live_meet_id = 7 [json_name = "liveMeetId"];</code>
@@ -209,7 +213,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:MaxLength=200
-   * +kubebuilder:example="General discussion"
+   * +kubebuilder:example="Customer feedback and improvement discussion"
    * </pre>
    *
    * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -220,7 +224,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:MaxLength=200
-   * +kubebuilder:example="General discussion"
+   * +kubebuilder:example="Customer feedback and improvement discussion"
    * </pre>
    *
    * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -233,6 +237,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Group creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -243,6 +248,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Group creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -253,6 +259,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Group creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 9 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -263,6 +270,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Group last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -273,6 +281,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Group last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
@@ -283,6 +292,7 @@ public interface GroupOrBuilder extends
    * <pre>
    * Group last update timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp updated_at = 10 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>

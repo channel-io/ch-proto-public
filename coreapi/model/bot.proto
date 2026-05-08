@@ -17,13 +17,13 @@ message Bot {
   // Unique bot identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="100"
+  // +kubebuilder:example="223337"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this bot belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Bot display name.
@@ -33,7 +33,7 @@ message Bot {
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
-  // +kubebuilder:example="Support Bot"
+  // +kubebuilder:example="Tutorial-bot"
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -52,7 +52,7 @@ message Bot {
   // Bot description.
   //
   // +kubebuilder:validation:MaxLength=180
-  // +kubebuilder:example="Handles billing and payment inquiries."
+  // +kubebuilder:example="Guides new users through the onboarding flow."
   string description = 4 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"
@@ -62,14 +62,14 @@ message Bot {
   // Internationalized name and description map.
   // Keyed by locale.
   //
-  // +kubebuilder:example={"ko":{"name":"주문봇","description":"주문 조회를 도와드립니다."},"en":{"name":"Order Bot","description":"Handles order inquiries."}}
+  // +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 5;
 
   // Bot color in hex format.
   // Randomly assigned if not specified on creation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="#fac484"
+  // +kubebuilder:example="#d8e082"
   string color = 6 [(buf.validate.field).required = true];
 
   // Bot avatar image URL.
@@ -80,7 +80,7 @@ message Bot {
   // Bot creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-21T07:12:58.499989Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
 
   // Uploaded bot avatar image.

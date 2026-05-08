@@ -202,41 +202,41 @@ type Channel struct {
 	// Unique channel identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Default welcome message shown to end users when a new conversation starts.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example={"blocks":[{"type":"text","value":"Welcome! How can we help you today?"}]}
+	// +kubebuilder:example={"blocks":[{"type":"text","value":"Thanks for visiting! How can we help you today?"}]}
 	WelcomeMessage *structpb.Struct `protobuf:"bytes,2,opt,name=welcome_message,json=welcomeMessage,proto3" json:"welcome_message,omitempty"`
 	// Internationalized welcome message overrides keyed by locale (e.g., en, ko).
 	//
-	// +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
+	// +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
 	WelcomeMessageI18NMap map[string]*structpb.Struct `protobuf:"bytes,3,rep,name=welcome_message_i18n_map,json=welcomeMessageI18nMap,proto3" json:"welcome_message_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Channel creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-02-12T08:41:20.392099Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Channel last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-02-12T08:41:20.392099Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Webhook URL called to retrieve additional user information from your server.
 	//
-	// +kubebuilder:example="https://example.com/api/user-info"
+	// +kubebuilder:example="https://zoyi.cafe24.com/api/user-info"
 	UserInfoUrl string `protobuf:"bytes,6,opt,name=user_info_url,json=userInfoUrl,proto3" json:"user_info_url,omitempty"`
 	// Channel display name visible to end users.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:example="Channel Corp"
+	// +kubebuilder:example="Channel Shop Exp"
 	Name string `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	//
-	// +kubebuilder:example={"ko":{"name":"Channel Guide","description":"고객 문의 응대 채널"},"en":{"name":"Channel Guide","description":"Customer support channel"}}
+	// +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,8,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
 	//
@@ -245,18 +245,18 @@ type Channel struct {
 	// Default bot display name shown to end users in conversations.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="Support Bot"
+	// +kubebuilder:example="Channel-bot"
 	BotName string `protobuf:"bytes,10,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
 	// Channel theme color in hex format (e.g., #3B82F6).
 	// Used to derive border, gradient, text, and plugin icon colors.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="#3B82F6"
+	// +kubebuilder:example="#5c4ef3"
 	Color string `protobuf:"bytes,11,opt,name=color,proto3" json:"color,omitempty"`
 	// Free-text summary displayed on the channel profile.
 	//
 	// +kubebuilder:validation:MaxLength=180
-	// +kubebuilder:example="We help businesses connect with customers."
+	// +kubebuilder:example="Customer Driven"
 	Description string `protobuf:"bytes,12,opt,name=description,proto3" json:"description,omitempty"`
 	// ISO 3166-1 alpha-2 country code (e.g., KR, US).
 	//
@@ -265,16 +265,16 @@ type Channel struct {
 	// Custom domain slug for the channel.
 	// Globally unique across all channels.
 	//
-	// +kubebuilder:example="my-company"
+	// +kubebuilder:example="channel-shop-exp"
 	Domain string `protobuf:"bytes,14,opt,name=domain,proto3" json:"domain,omitempty"`
 	// System-assigned default domain.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	DefaultDomain string `protobuf:"bytes,15,opt,name=default_domain,json=defaultDomain,proto3" json:"default_domain,omitempty"`
 	// Business homepage URL associated with the channel.
 	//
-	// +kubebuilder:example="https://channel.io"
+	// +kubebuilder:example="https://zoyi.cafe24.com/"
 	HomepageUrl string `protobuf:"bytes,16,opt,name=homepage_url,json=homepageUrl,proto3" json:"homepage_url,omitempty"`
 	// Business contact phone number in E.164 format (e.g., +821012345678).
 	//
@@ -330,27 +330,27 @@ type Channel struct {
 	EntVerified bool `protobuf:"varint,27,opt,name=ent_verified,json=entVerified,proto3" json:"ent_verified,omitempty"`
 	// Default plugin identifier used by the messenger widget.
 	//
-	// +kubebuilder:example="plg-001"
+	// +kubebuilder:example="104"
 	DefaultPluginId string `protobuf:"bytes,28,opt,name=default_plugin_id,json=defaultPluginId,proto3" json:"default_plugin_id,omitempty"`
 	// Industry or business category of the channel (e.g., "E-commerce", "SaaS").
 	//
-	// +kubebuilder:example="E-commerce"
+	// +kubebuilder:example="lowEndShoppingMall"
 	BizCategory string `protobuf:"bytes,29,opt,name=biz_category,json=bizCategory,proto3" json:"biz_category,omitempty"`
 	// Number of staff members in the organization.
 	//
-	// +kubebuilder:example="10"
+	// +kubebuilder:example="50"
 	Staffs int32 `protobuf:"varint,30,opt,name=staffs,proto3" json:"staffs,omitempty"`
 	// Integrated e-commerce platform app identifier.
 	//
-	// +kubebuilder:example="commerce-001"
+	// +kubebuilder:example="2"
 	AppCommerceId string `protobuf:"bytes,31,opt,name=app_commerce_id,json=appCommerceId,proto3" json:"app_commerce_id,omitempty"`
 	// Integrated e-commerce platform type (e.g., Shopify, Cafe24).
 	//
-	// +kubebuilder:example="Shopify"
+	// +kubebuilder:example="Cafe24"
 	AppCommerceType string `protobuf:"bytes,32,opt,name=app_commerce_type,json=appCommerceType,proto3" json:"app_commerce_type,omitempty"`
 	// Domain of the integrated e-commerce platform.
 	//
-	// +kubebuilder:example="myshop.myshopify.com"
+	// +kubebuilder:example="zoyi.cafe24.com"
 	AppCommerceDomain string `protobuf:"bytes,33,opt,name=app_commerce_domain,json=appCommerceDomain,proto3" json:"app_commerce_domain,omitempty"`
 	// Whether member identity hash verification is enabled.
 	// When enabled, member logins require an HMAC hash to prevent impersonation.
@@ -359,7 +359,7 @@ type Channel struct {
 	EnableMemberHash bool `protobuf:"varint,34,opt,name=enable_member_hash,json=enableMemberHash,proto3" json:"enable_member_hash,omitempty"`
 	// Default email domain identifier used for outbound emails sent from this channel.
 	//
-	// +kubebuilder:example="domain-001"
+	// +kubebuilder:example="1"
 	DefaultEmailDomainId string `protobuf:"bytes,35,opt,name=default_email_domain_id,json=defaultEmailDomainId,proto3" json:"default_email_domain_id,omitempty"`
 	// Whether multi-factor authentication is required for managers in this channel.
 	//
@@ -407,7 +407,7 @@ type Channel struct {
 	// Channel avatar image URL.
 	// Falls back to a system-generated default when no custom avatar is set.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/ch-12345"
+	// +kubebuilder:example="https://cdn.channel.io/thumb/200x200/6263"
 	AvatarUrl string `protobuf:"bytes,44,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	// Expected response delay indicator shown to end users.
 	// Derived from the channel operating configuration.
@@ -427,12 +427,12 @@ type Channel struct {
 	// Timestamp when the next operating period starts.
 	// Present only when the channel is currently outside operating hours.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	NextWorkingTime *timestamppb.Timestamp `protobuf:"bytes,48,opt,name=next_working_time,json=nextWorkingTime,proto3" json:"next_working_time,omitempty"`
 	// Timestamp when the next away (non-operating) period starts.
 	// Present only when the channel is currently within operating hours.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	NextAwayTime *timestamppb.Timestamp `protobuf:"bytes,49,opt,name=next_away_time,json=nextAwayTime,proto3" json:"next_away_time,omitempty"`
 	// Recurring weekly time ranges that define the channel operating hours.
 	OperationTimeRanges []*TimeRange `protobuf:"bytes,50,rep,name=operation_time_ranges,json=operationTimeRanges,proto3" json:"operation_time_ranges,omitempty"`
@@ -468,7 +468,7 @@ type Channel struct {
 	// Resolved domain for the channel.
 	// Returns the custom domain if set, otherwise a system-generated default derived from the channel ID.
 	//
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	SystemDomain string `protobuf:"bytes,58,opt,name=system_domain,json=systemDomain,proto3" json:"system_domain,omitempty"`
 	// Icon color for the messenger plugin widget, derived from the theme color, in hex format.
 	//
@@ -481,7 +481,7 @@ type Channel struct {
 	Brightness float32 `protobuf:"fixed32,60,opt,name=brightness,proto3" json:"brightness,omitempty"`
 	// Cover image URL for the channel profile page.
 	//
-	// +kubebuilder:example="https://cdn.channel.io/cover/ch-12345.jpg"
+	// +kubebuilder:example="https://cdn.channel.io/cover/6263.jpg"
 	CoverImageUrl string `protobuf:"bytes,61,opt,name=cover_image_url,json=coverImageUrl,proto3" json:"cover_image_url,omitempty"`
 	// Whether the cover image has a bright tone.
 	// Derived from the cover_image_color field.

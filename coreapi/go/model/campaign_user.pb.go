@@ -86,46 +86,46 @@ type CampaignUser struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="u-abc123"
+	// +kubebuilder:example="67776a4781a5fff12ecb"
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// Campaign that delivered the message.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="cpn-001"
+	// +kubebuilder:example="4461"
 	CampaignId string `protobuf:"bytes,2,opt,name=campaign_id,json=campaignId,proto3" json:"campaign_id,omitempty"`
 	// Message variant that was delivered to this user.
 	//
-	// +kubebuilder:example="cm-001"
+	// +kubebuilder:example="2015"
 	MsgId string `protobuf:"bytes,3,opt,name=msg_id,json=msgId,proto3" json:"msg_id,omitempty"`
 	// User chat conversation created by the campaign delivery.
 	//
-	// +kubebuilder:example="uc-abc123"
+	// +kubebuilder:example="68218603ba2aec12b158"
 	UserChatId string `protobuf:"bytes,4,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
 	// Timestamp when the campaign message was delivered to the user.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	Sent *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=sent,proto3" json:"sent,omitempty"`
 	// Timestamp when the user first viewed the delivered message.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	View *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=view,proto3" json:"view,omitempty"`
 	// Timestamp when the user first clicked a link in the message.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	Click *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=click,proto3" json:"click,omitempty"`
 	// Timestamp when the user completed the campaign goal event.
 	//
-	// +kubebuilder:example="2026-04-28T09:30:00Z"
+	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	Goal *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=goal,proto3" json:"goal,omitempty"`
 	// Cumulative revenue attributed to this user from the campaign.
 	//
-	// +kubebuilder:example="100.50"
+	// +kubebuilder:example="0"
 	Revenue string `protobuf:"bytes,9,opt,name=revenue,proto3" json:"revenue,omitempty"`
 	// Composite identifier in the format "{campaign_id}-{user_id}".
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="cpn-001-u-abc123"
+	// +kubebuilder:example="4461-67776a4781a5fff12ecb"
 	Id            string `protobuf:"bytes,10,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique chat tag identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="tag-001"
+   * +kubebuilder:example="56161"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -168,7 +168,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Unique chat tag identifier.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="tag-001"
+   * +kubebuilder:example="56161"
    * </pre>
    *
    * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -195,7 +195,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this chat tag belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -218,7 +218,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Channel ID this chat tag belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="ch-12345"
+   * +kubebuilder:example="6263"
    * </pre>
    *
    * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -275,7 +275,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="billing"
+   * +kubebuilder:example="billing/general"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -301,7 +301,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="billing"
+   * +kubebuilder:example="billing/general"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -330,7 +330,7 @@ private static final long serialVersionUID = 0L;
    * Unique within the channel (case-insensitive).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="billing"
+   * +kubebuilder:example="billing/general"
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -355,7 +355,7 @@ private static final long serialVersionUID = 0L;
    * Unique within the channel (case-insensitive).
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="billing"
+   * +kubebuilder:example="billing/general"
    * </pre>
    *
    * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -432,6 +432,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat tag creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -445,6 +446,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat tag creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -458,6 +460,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Chat tag creation timestamp.
    * +kubebuilder:validation:Required
+   * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -892,7 +895,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique chat tag identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="tag-001"
+     * +kubebuilder:example="56161"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -914,7 +917,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique chat tag identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="tag-001"
+     * +kubebuilder:example="56161"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -937,7 +940,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique chat tag identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="tag-001"
+     * +kubebuilder:example="56161"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -958,7 +961,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique chat tag identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="tag-001"
+     * +kubebuilder:example="56161"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -974,7 +977,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Unique chat tag identifier.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="tag-001"
+     * +kubebuilder:example="56161"
      * </pre>
      *
      * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
@@ -998,7 +1001,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this chat tag belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1020,7 +1023,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this chat tag belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1043,7 +1046,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this chat tag belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1064,7 +1067,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this chat tag belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1080,7 +1083,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Channel ID this chat tag belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="ch-12345"
+     * +kubebuilder:example="6263"
      * </pre>
      *
      * <code>string channel_id = 2 [json_name = "channelId", (.buf.validate.field) = { ... }</code>
@@ -1181,7 +1184,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1206,7 +1209,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1232,7 +1235,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1256,7 +1259,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1275,7 +1278,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1301,7 +1304,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1325,7 +1328,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1350,7 +1353,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1373,7 +1376,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1391,7 +1394,7 @@ private static final long serialVersionUID = 0L;
      * Unique within the channel (case-insensitive).
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="billing"
+     * +kubebuilder:example="billing/general"
      * </pre>
      *
      * <code>string key = 5 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -1523,6 +1526,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1535,6 +1539,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1551,6 +1556,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1572,6 +1578,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1591,6 +1598,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1614,6 +1622,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1633,6 +1642,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1646,6 +1656,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
@@ -1662,6 +1673,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat tag creation timestamp.
      * +kubebuilder:validation:Required
+     * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>

@@ -306,6 +306,7 @@ private static final long serialVersionUID = 0L;
    * Days of the week this time range applies to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -321,6 +322,7 @@ private static final long serialVersionUID = 0L;
    * Days of the week this time range applies to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -335,6 +337,7 @@ private static final long serialVersionUID = 0L;
    * Days of the week this time range applies to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -350,6 +353,7 @@ private static final long serialVersionUID = 0L;
    * Days of the week this time range applies to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -365,6 +369,7 @@ private static final long serialVersionUID = 0L;
    * Days of the week this time range applies to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinItems=1
+   * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
    * </pre>
    *
    * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -798,6 +803,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -812,6 +818,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -825,6 +832,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -839,6 +847,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -861,6 +870,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -881,6 +891,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -901,6 +912,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -917,6 +929,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -931,6 +944,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -945,6 +959,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -964,6 +979,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>
@@ -981,6 +997,7 @@ private static final long serialVersionUID = 0L;
      * Days of the week this time range applies to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinItems=1
+     * no-example: repeated enum (DayOfWeek); OpenAPI array-example emission not yet supported by harness (iter5 abstention)
      * </pre>
      *
      * <code>repeated .coreapi.model.TimeRange.DayOfWeek day_of_weeks = 1 [json_name = "dayOfWeeks", (.buf.validate.field) = { ... }</code>

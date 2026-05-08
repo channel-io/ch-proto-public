@@ -168,7 +168,7 @@ private static final long serialVersionUID = 0L;
    * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="thumb/avatar-001.png"
+   * +kubebuilder:example="thumb/9187/avatar.png"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -192,7 +192,7 @@ private static final long serialVersionUID = 0L;
    * Storage object key used to locate the file within the bucket.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="thumb/avatar-001.png"
+   * +kubebuilder:example="thumb/9187/avatar.png"
    * </pre>
    *
    * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -722,7 +722,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="thumb/avatar-001.png"
+     * +kubebuilder:example="thumb/9187/avatar.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -745,7 +745,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="thumb/avatar-001.png"
+     * +kubebuilder:example="thumb/9187/avatar.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -769,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="thumb/avatar-001.png"
+     * +kubebuilder:example="thumb/9187/avatar.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -791,7 +791,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="thumb/avatar-001.png"
+     * +kubebuilder:example="thumb/9187/avatar.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>
@@ -808,7 +808,7 @@ private static final long serialVersionUID = 0L;
      * Storage object key used to locate the file within the bucket.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="thumb/avatar-001.png"
+     * +kubebuilder:example="thumb/9187/avatar.png"
      * </pre>
      *
      * <code>string key = 2 [json_name = "key", (.buf.validate.field) = { ... }</code>

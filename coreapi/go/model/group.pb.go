@@ -85,12 +85,12 @@ type Group struct {
 	// Unique group identifier.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="g-abc123"
+	// +kubebuilder:example="14199"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Channel ID this group belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="ch-12345"
+	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Display title of the group.
 	// Unique within the channel (case-insensitive).
@@ -101,7 +101,7 @@ type Group struct {
 	// +kubebuilder:validation:MinLength=2
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
-	// +kubebuilder:example="고객피드백"
+	// +kubebuilder:example="customer-feedback"
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
 	// Visibility scope determining who can discover and access the group.
 	//
@@ -110,32 +110,32 @@ type Group struct {
 	// IDs of managers who are members of this group.
 	//
 	// +kubebuilder:validation:MinItems=1
-	// +kubebuilder:example=["1234","5678"]
+	// +kubebuilder:example=["9187","9189"]
 	ManagerIds []string `protobuf:"bytes,5,rep,name=manager_ids,json=managerIds,proto3" json:"manager_ids,omitempty"`
 	// Icon identifier or emoji representing the group visually.
 	// Must not contain whitespace.
 	//
 	// +kubebuilder:validation:Pattern="\S+"
-	// +kubebuilder:example="star"
+	// +kubebuilder:example="rainbow"
 	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	// ID of the active live meet session in this group.
 	//
-	// +kubebuilder:example="meet-001"
+	// +kubebuilder:example="6606508eaa71575f1e8c"
 	LiveMeetId string `protobuf:"bytes,7,opt,name=live_meet_id,json=liveMeetId,proto3" json:"live_meet_id,omitempty"`
 	// Free-text description explaining the group's purpose or topic.
 	//
 	// +kubebuilder:validation:MaxLength=200
-	// +kubebuilder:example="General discussion"
+	// +kubebuilder:example="Customer feedback and improvement discussion"
 	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
 	// Group creation timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-21T07:12:21.773038Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Group last update timestamp.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="2026-04-22T06:51:15.752436Z"
+	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
