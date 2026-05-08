@@ -35,7 +35,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Default welcome message shown to end users when a new conversation starts.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example={"blocks":[{"type":"text","value":"방문해주셔서 감사합니다 :) 어떻게 도와드릴까요?"}]}
+   * +kubebuilder:example={"blocks":[{"type":"text","value":"Thanks for visiting! How can we help you today?"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -46,7 +46,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Default welcome message shown to end users when a new conversation starts.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example={"blocks":[{"type":"text","value":"방문해주셔서 감사합니다 :) 어떻게 도와드릴까요?"}]}
+   * +kubebuilder:example={"blocks":[{"type":"text","value":"Thanks for visiting! How can we help you today?"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -57,7 +57,7 @@ public interface ChannelOrBuilder extends
    * <pre>
    * Default welcome message shown to end users when a new conversation starts.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example={"blocks":[{"type":"text","value":"방문해주셔서 감사합니다 :) 어떻게 도와드릴까요?"}]}
+   * +kubebuilder:example={"blocks":[{"type":"text","value":"Thanks for visiting! How can we help you today?"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct welcome_message = 2 [json_name = "welcomeMessage", (.buf.validate.field) = { ... }</code>
@@ -67,7 +67,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -76,7 +76,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -92,7 +92,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -102,7 +102,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -114,7 +114,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
+   * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; welcome_message_i18n_map = 3 [json_name = "welcomeMessageI18nMap"];</code>
@@ -489,7 +489,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Business contact phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:example="+821098761234"
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>
@@ -499,7 +499,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Business contact phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:example="+821098761234"
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string phone_number = 17 [json_name = "phoneNumber"];</code>

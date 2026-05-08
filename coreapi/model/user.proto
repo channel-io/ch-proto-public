@@ -115,7 +115,7 @@ message User {
   // Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
   // arbitrary keys are also supported.
   //
-  // +kubebuilder:example={"name":"김민준","email":"minjun.kim@example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+  // +kubebuilder:example={"name":"John Doe","email":"minjun.kim@example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
   google.protobuf.Struct profile = 17;
 
   // Classification tags attached to the user for segmentation and filtering.
@@ -198,7 +198,7 @@ message User {
 
   // Display name of the user, derived from the profile's name field.
   //
-  // +kubebuilder:example="김민준"
+  // +kubebuilder:example="John Doe"
   string name = 31;
 
   // Whether the user has at least one managed chat conversation.
@@ -215,12 +215,12 @@ message User {
 
   // Province or state name derived from IP geolocation.
   //
-  // +kubebuilder:example="서울시"
+  // +kubebuilder:example="Seoul"
   string province = 34;
 
   // City name derived from IP geolocation.
   //
-  // +kubebuilder:example="서울시 강남구"
+  // +kubebuilder:example="Gangnam-gu, Seoul"
   string city = 35;
 
   // Latitude coordinate derived from IP geolocation.
@@ -282,12 +282,12 @@ message User {
 
   // Mobile phone number extracted from the user's profile data.
   //
-  // +kubebuilder:example="+821098761234"
+  // +kubebuilder:example="+821012345678"
   string mobile_number = 47;
 
   // Landline phone number extracted from the user's profile data.
   //
-  // +kubebuilder:example="+8222345678"
+  // +kubebuilder:example="+82212345678"
   string landline_number = 48;
 }
 

@@ -43,7 +43,7 @@ message Group {
   // +kubebuilder:validation:MinLength=2
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
-  // +kubebuilder:example="고객피드백"
+  // +kubebuilder:example="customer-feedback"
   string title = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -85,7 +85,7 @@ message Group {
   // Free-text description explaining the group's purpose or topic.
   //
   // +kubebuilder:validation:MaxLength=200
-  // +kubebuilder:example="고객 피드백 및 개선사항 논의"
+  // +kubebuilder:example="Customer feedback and improvement discussion"
   string description = 8 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 200 characters"

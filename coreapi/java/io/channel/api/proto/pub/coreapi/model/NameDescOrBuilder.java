@@ -43,7 +43,7 @@ public interface NameDescOrBuilder extends
    * <pre>
    * Short description of the entity.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="고객 문의를 응대하는 봇입니다"
+   * +kubebuilder:example="Handles customer inquiries"
    * </pre>
    *
    * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -54,7 +54,7 @@ public interface NameDescOrBuilder extends
    * <pre>
    * Short description of the entity.
    * +kubebuilder:validation:MaxLength=180
-   * +kubebuilder:example="고객 문의를 응대하는 봇입니다"
+   * +kubebuilder:example="Handles customer inquiries"
    * </pre>
    *
    * <code>string description = 2 [json_name = "description", (.buf.validate.field) = { ... }</code>

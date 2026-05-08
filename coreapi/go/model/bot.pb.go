@@ -54,7 +54,7 @@ type Bot struct {
 	// Internationalized name and description map.
 	// Keyed by locale.
 	//
-	// +kubebuilder:example={"ko":{"name":"튜토리얼봇","description":"신규 사용자 온보딩 안내"},"ja":{"name":"チュートリアルボット","description":"新規ユーザーのオンボーディング案内"}}
+	// +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,5,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Bot color in hex format.
 	// Randomly assigned if not specified on creation.

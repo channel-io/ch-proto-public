@@ -310,7 +310,7 @@ type Block struct {
 	// Text content of the block.
 	// Applicable for TEXT and CODE block types; ignored for BULLETS.
 	//
-	// +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
+	// +kubebuilder:example="Hello, please confirm my order."
 	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
 	// Nested child blocks that form a hierarchical list structure.
 	// Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
@@ -915,7 +915,7 @@ type MessageContent struct {
 	Blocks []*Block `protobuf:"bytes,1,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//
-	// +kubebuilder:example="안녕하세요, 문의드립니다."
+	// +kubebuilder:example="Hello, I have a question."
 	PlainText string `protobuf:"bytes,2,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Interactive buttons attached to the message.
 	//

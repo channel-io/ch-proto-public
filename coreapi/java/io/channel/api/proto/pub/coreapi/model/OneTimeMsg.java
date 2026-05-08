@@ -473,7 +473,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="일회성240726"
+   * +kubebuilder:example="One Time Msg 20240726"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -498,7 +498,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="일회성240726"
+   * +kubebuilder:example="One Time Msg 20240726"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -813,7 +813,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -827,7 +827,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -841,7 +841,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Message content and medium-specific delivery configuration.
    * Structure varies by medium_type.
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -1345,7 +1345,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
-   * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+   * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -1359,7 +1359,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
-   * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+   * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -1373,7 +1373,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Snapshot of the message configuration captured before sending.
    * Represented as a free-form JSON object.
-   * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+   * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -2803,7 +2803,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="일회성240726"
+     * +kubebuilder:example="One Time Msg 20240726"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2827,7 +2827,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="일회성240726"
+     * +kubebuilder:example="One Time Msg 20240726"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2852,7 +2852,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="일회성240726"
+     * +kubebuilder:example="One Time Msg 20240726"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2875,7 +2875,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="일회성240726"
+     * +kubebuilder:example="One Time Msg 20240726"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -2893,7 +2893,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=128
-     * +kubebuilder:example="일회성240726"
+     * +kubebuilder:example="One Time Msg 20240726"
      * </pre>
      *
      * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3619,7 +3619,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3632,7 +3632,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3649,7 +3649,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3671,7 +3671,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3691,7 +3691,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3715,7 +3715,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3735,7 +3735,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3749,7 +3749,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3766,7 +3766,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Message content and medium-specific delivery configuration.
      * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -5317,7 +5317,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5330,7 +5330,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5347,7 +5347,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5369,7 +5369,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5389,7 +5389,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5413,7 +5413,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5433,7 +5433,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5447,7 +5447,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>
@@ -5464,7 +5464,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Snapshot of the message configuration captured before sending.
      * Represented as a free-form JSON object.
-     * +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+     * +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
      * </pre>
      *
      * <code>.google.protobuf.Struct draft = 23 [json_name = "draft"];</code>

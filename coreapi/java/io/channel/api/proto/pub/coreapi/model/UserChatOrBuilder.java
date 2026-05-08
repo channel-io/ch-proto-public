@@ -226,7 +226,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Display name of this chat shown to managers in the Desk.
-   * +kubebuilder:example="채널1"
+   * +kubebuilder:example="Main"
    * </pre>
    *
    * <code>string name = 11 [json_name = "name"];</code>
@@ -236,7 +236,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Display name of this chat shown to managers in the Desk.
-   * +kubebuilder:example="채널1"
+   * +kubebuilder:example="Main"
    * </pre>
    *
    * <code>string name = 11 [json_name = "name"];</code>
@@ -248,7 +248,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Title of the chat conversation displayed in the Desk inbox list.
-   * +kubebuilder:example="상담 요청"
+   * +kubebuilder:example="Billing inquiry"
    * </pre>
    *
    * <code>string title = 12 [json_name = "title"];</code>
@@ -258,7 +258,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Title of the chat conversation displayed in the Desk inbox list.
-   * +kubebuilder:example="상담 요청"
+   * +kubebuilder:example="Billing inquiry"
    * </pre>
    *
    * <code>string title = 12 [json_name = "title"];</code>
@@ -271,7 +271,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Free-text note or summary attached to this chat by a manager.
    * +kubebuilder:validation:MaxLength=1000
-   * +kubebuilder:example="구매 전 상담"
+   * +kubebuilder:example="Pre-purchase inquiry"
    * </pre>
    *
    * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -282,7 +282,7 @@ public interface UserChatOrBuilder extends
    * <pre>
    * Free-text note or summary attached to this chat by a manager.
    * +kubebuilder:validation:MaxLength=1000
-   * +kubebuilder:example="구매 전 상담"
+   * +kubebuilder:example="Pre-purchase inquiry"
    * </pre>
    *
    * <code>string description = 13 [json_name = "description", (.buf.validate.field) = { ... }</code>

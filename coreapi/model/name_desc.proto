@@ -37,7 +37,7 @@ message NameDesc {
   // Short description of the entity.
   //
   // +kubebuilder:validation:MaxLength=180
-  // +kubebuilder:example="고객 문의를 응대하는 봇입니다"
+  // +kubebuilder:example="Handles customer inquiries"
   string description = 2 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"

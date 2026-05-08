@@ -115,7 +115,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:example={"ko":{"name":"튜토리얼봇","description":"신규 사용자 온보딩 안내"},"ja":{"name":"チュートリアルボット","description":"新規ユーザーのオンボーディング案内"}}
+   * +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -125,7 +125,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:example={"ko":{"name":"튜토리얼봇","description":"신규 사용자 온보딩 안내"},"ja":{"name":"チュートリアルボット","description":"新規ユーザーのオンボーディング案内"}}
+   * +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -142,7 +142,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:example={"ko":{"name":"튜토리얼봇","description":"신규 사용자 온보딩 안내"},"ja":{"name":"チュートリアルボット","description":"新規ユーザーのオンボーディング案内"}}
+   * +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -153,7 +153,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:example={"ko":{"name":"튜토리얼봇","description":"신규 사용자 온보딩 안내"},"ja":{"name":"チュートリアルボット","description":"新規ユーザーのオンボーディング案内"}}
+   * +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>
@@ -166,7 +166,7 @@ public interface BotOrBuilder extends
    * <pre>
    * Internationalized name and description map.
    * Keyed by locale.
-   * +kubebuilder:example={"ko":{"name":"튜토리얼봇","description":"신규 사용자 온보딩 안내"},"ja":{"name":"チュートリアルボット","description":"新規ユーザーのオンボーディング案内"}}
+   * +kubebuilder:example={"ko":{"name":"Tutorial-bot","description":"Guides new users through onboarding"},"en":{"name":"Tutorial-bot","description":"Guides new users through onboarding"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 5 [json_name = "nameDescI18nMap"];</code>

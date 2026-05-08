@@ -61,7 +61,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="자주 방문한 고객에게 앱 설치 안내하기"
+   * +kubebuilder:example="App install invite for frequent visitors"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -74,7 +74,7 @@ public interface CampaignOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=128
-   * +kubebuilder:example="자주 방문한 고객에게 앱 설치 안내하기"
+   * +kubebuilder:example="App install invite for frequent visitors"
    * </pre>
    *
    * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -834,7 +834,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
-   * +kubebuilder:example={"campaign":{"name":"자주 방문한 고객에게 앱 설치 안내하기","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
+   * +kubebuilder:example={"campaign":{"name":"App install invite for frequent visitors","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -845,7 +845,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
-   * +kubebuilder:example={"campaign":{"name":"자주 방문한 고객에게 앱 설치 안내하기","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
+   * +kubebuilder:example={"campaign":{"name":"App install invite for frequent visitors","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>
@@ -856,7 +856,7 @@ public interface CampaignOrBuilder extends
    * <pre>
    * Snapshot of the campaign configuration captured before activation.
    * Represented as a free-form JSON object.
-   * +kubebuilder:example={"campaign":{"name":"자주 방문한 고객에게 앱 설치 안내하기","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
+   * +kubebuilder:example={"campaign":{"name":"App install invite for frequent visitors","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
    * </pre>
    *
    * <code>.google.protobuf.Struct draft = 30 [json_name = "draft"];</code>

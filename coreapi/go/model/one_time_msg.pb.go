@@ -155,7 +155,7 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="일회성240726"
+	// +kubebuilder:example="One Time Msg 20240726"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Current lifecycle state of the one-time message.
 	//
@@ -188,7 +188,7 @@ type OneTimeMsg struct {
 	// Message content and medium-specific delivery configuration.
 	// Structure varies by medium_type.
 	//
-	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"안녕하세요!"}]}}
+	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
 	Settings *structpb.Struct `protobuf:"bytes,11,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.
@@ -242,7 +242,7 @@ type OneTimeMsg struct {
 	// Snapshot of the message configuration captured before sending.
 	// Represented as a free-form JSON object.
 	//
-	// +kubebuilder:example={"oneTimeMsg":{"name":"일회성240726","sendMedium":"inAppChat","mediumType":"native"}}
+	// +kubebuilder:example={"oneTimeMsg":{"name":"One Time Msg 20240726","sendMedium":"inAppChat","mediumType":"native"}}
 	Draft *structpb.Struct `protobuf:"bytes,23,opt,name=draft,proto3" json:"draft,omitempty"`
 	// One-time message creation timestamp.
 	//

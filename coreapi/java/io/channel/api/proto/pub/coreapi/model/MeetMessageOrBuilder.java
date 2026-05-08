@@ -198,7 +198,7 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:example="안녕하세요, 주문 문의입니다."
+   * +kubebuilder:example="Hello, I have an order inquiry."
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>
@@ -208,7 +208,7 @@ public interface MeetMessageOrBuilder extends
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:example="안녕하세요, 주문 문의입니다."
+   * +kubebuilder:example="Hello, I have an order inquiry."
    * </pre>
    *
    * <code>string plain_text = 8 [json_name = "plainText"];</code>

@@ -229,7 +229,7 @@ type Manager struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
-	// +kubebuilder:example="김민준"
+	// +kubebuilder:example="John Doe"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Free-text summary displayed on the manager profile.
 	// Visible to end users only when show_description_to_front is true.
@@ -244,7 +244,7 @@ type Manager struct {
 	ShowDescriptionToFront bool `protobuf:"varint,6,opt,name=show_description_to_front,json=showDescriptionToFront,proto3" json:"show_description_to_front,omitempty"`
 	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
 	//
-	// +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+	// +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,7,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Custom profile data as key-value pairs for additional manager information.
 	//
@@ -262,7 +262,7 @@ type Manager struct {
 	ShowEmailToFront bool `protobuf:"varint,10,opt,name=show_email_to_front,json=showEmailToFront,proto3" json:"show_email_to_front,omitempty"`
 	// Manager mobile phone number in E.164 format (e.g., +821012345678).
 	//
-	// +kubebuilder:example="+821098761234"
+	// +kubebuilder:example="+821012345678"
 	MobileNumber string `protobuf:"bytes,11,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
 	// Whether the mobile number is visible to end-user visitors.
 	//

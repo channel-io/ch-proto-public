@@ -262,7 +262,7 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="자주 방문한 고객에게 앱 설치 안내하기"
+	// +kubebuilder:example="App install invite for frequent visitors"
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Current lifecycle state of the campaign.
 	//
@@ -379,7 +379,7 @@ type Campaign struct {
 	// Snapshot of the campaign configuration captured before activation.
 	// Represented as a free-form JSON object.
 	//
-	// +kubebuilder:example={"campaign":{"name":"자주 방문한 고객에게 앱 설치 안내하기","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
+	// +kubebuilder:example={"campaign":{"name":"App install invite for frequent visitors","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
 	Draft *structpb.Struct `protobuf:"bytes,30,opt,name=draft,proto3" json:"draft,omitempty"`
 	// Campaign creation timestamp.
 	//

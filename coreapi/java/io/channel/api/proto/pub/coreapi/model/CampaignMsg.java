@@ -347,7 +347,7 @@ private static final long serialVersionUID = 0L;
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="메시지 본문"
+   * +kubebuilder:example="Message body"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -371,7 +371,7 @@ private static final long serialVersionUID = 0L;
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="메시지 본문"
+   * +kubebuilder:example="Message body"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1553,7 +1553,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="메시지 본문"
+     * +kubebuilder:example="Message body"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1576,7 +1576,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="메시지 본문"
+     * +kubebuilder:example="Message body"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1600,7 +1600,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="메시지 본문"
+     * +kubebuilder:example="Message body"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1622,7 +1622,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="메시지 본문"
+     * +kubebuilder:example="Message body"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -1639,7 +1639,7 @@ private static final long serialVersionUID = 0L;
      * Human-readable label for this message variant.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="메시지 본문"
+     * +kubebuilder:example="Message body"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>

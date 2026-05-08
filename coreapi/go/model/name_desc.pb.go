@@ -38,7 +38,7 @@ type NameDesc struct {
 	// Short description of the entity.
 	//
 	// +kubebuilder:validation:MaxLength=180
-	// +kubebuilder:example="고객 문의를 응대하는 봇입니다"
+	// +kubebuilder:example="Handles customer inquiries"
 	Description   string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

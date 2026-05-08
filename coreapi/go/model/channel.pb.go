@@ -207,11 +207,11 @@ type Channel struct {
 	// Default welcome message shown to end users when a new conversation starts.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example={"blocks":[{"type":"text","value":"방문해주셔서 감사합니다 :) 어떻게 도와드릴까요?"}]}
+	// +kubebuilder:example={"blocks":[{"type":"text","value":"Thanks for visiting! How can we help you today?"}]}
 	WelcomeMessage *structpb.Struct `protobuf:"bytes,2,opt,name=welcome_message,json=welcomeMessage,proto3" json:"welcome_message,omitempty"`
 	// Internationalized welcome message overrides keyed by locale (e.g., en, ko).
 	//
-	// +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"방문해주셔서 감사합니다"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
+	// +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
 	WelcomeMessageI18NMap map[string]*structpb.Struct `protobuf:"bytes,3,rep,name=welcome_message_i18n_map,json=welcomeMessageI18nMap,proto3" json:"welcome_message_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Channel creation timestamp.
 	//
@@ -278,7 +278,7 @@ type Channel struct {
 	HomepageUrl string `protobuf:"bytes,16,opt,name=homepage_url,json=homepageUrl,proto3" json:"homepage_url,omitempty"`
 	// Business contact phone number in E.164 format (e.g., +821012345678).
 	//
-	// +kubebuilder:example="+821098761234"
+	// +kubebuilder:example="+821012345678"
 	PhoneNumber string `protobuf:"bytes,17,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
 	// IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
 	//

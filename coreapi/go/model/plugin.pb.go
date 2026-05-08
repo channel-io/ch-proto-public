@@ -407,7 +407,7 @@ type Plugin struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:example="채널톡 데모샵"
+	// +kubebuilder:example="Channel Demo Shop"
 	Name string `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
 	// Plugin creation timestamp.
 	//
@@ -430,12 +430,12 @@ type Plugin struct {
 	//
 	// +kubebuilder:validation:MinLength=4
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:example="상담하기"
+	// +kubebuilder:example="Chat with us"
 	LabelButtonText string `protobuf:"bytes,9,opt,name=label_button_text,json=labelButtonText,proto3" json:"label_button_text,omitempty"`
 	// Localized label button text, keyed by locale code (e.g., "en", "ko").
 	// Overrides label_button_text for matching locales.
 	//
-	// +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
+	// +kubebuilder:example={"ko":"Contact Us","en":"Contact Us","ja":"Contact Us"}
 	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,10,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Determines how the launcher button is rendered.
 	// Defaults to ICON_BUTTON. When set to CUSTOM_IMAGE, the custom_image field must be provided.

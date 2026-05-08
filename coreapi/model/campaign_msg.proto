@@ -45,7 +45,7 @@ message CampaignMsg {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="메시지 본문"
+  // +kubebuilder:example="Message body"
   string name = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"

@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-   * +kubebuilder:example="고객피드백"
+   * +kubebuilder:example="customer-feedback"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -314,7 +314,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=2
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-   * +kubebuilder:example="고객피드백"
+   * +kubebuilder:example="customer-feedback"
    * </pre>
    *
    * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -529,7 +529,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:MaxLength=200
-   * +kubebuilder:example="고객 피드백 및 개선사항 논의"
+   * +kubebuilder:example="Customer feedback and improvement discussion"
    * </pre>
    *
    * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -552,7 +552,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Free-text description explaining the group's purpose or topic.
    * +kubebuilder:validation:MaxLength=200
-   * +kubebuilder:example="고객 피드백 및 개선사항 논의"
+   * +kubebuilder:example="Customer feedback and improvement discussion"
    * </pre>
    *
    * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1387,7 +1387,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="고객피드백"
+     * +kubebuilder:example="customer-feedback"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1415,7 +1415,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="고객피드백"
+     * +kubebuilder:example="customer-feedback"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1444,7 +1444,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="고객피드백"
+     * +kubebuilder:example="customer-feedback"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1471,7 +1471,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="고객피드백"
+     * +kubebuilder:example="customer-feedback"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1493,7 +1493,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=2
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="[&#92;p{L}&#92;p{N}&#92;-_()]+"
-     * +kubebuilder:example="고객피드백"
+     * +kubebuilder:example="customer-feedback"
      * </pre>
      *
      * <code>string title = 3 [json_name = "title", (.buf.validate.field) = { ... }</code>
@@ -1972,7 +1972,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
-     * +kubebuilder:example="고객 피드백 및 개선사항 논의"
+     * +kubebuilder:example="Customer feedback and improvement discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -1994,7 +1994,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
-     * +kubebuilder:example="고객 피드백 및 개선사항 논의"
+     * +kubebuilder:example="Customer feedback and improvement discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -2017,7 +2017,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
-     * +kubebuilder:example="고객 피드백 및 개선사항 논의"
+     * +kubebuilder:example="Customer feedback and improvement discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -2038,7 +2038,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
-     * +kubebuilder:example="고객 피드백 및 개선사항 논의"
+     * +kubebuilder:example="Customer feedback and improvement discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -2054,7 +2054,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Free-text description explaining the group's purpose or topic.
      * +kubebuilder:validation:MaxLength=200
-     * +kubebuilder:example="고객 피드백 및 개선사항 논의"
+     * +kubebuilder:example="Customer feedback and improvement discussion"
      * </pre>
      *
      * <code>string description = 8 [json_name = "description", (.buf.validate.field) = { ... }</code>

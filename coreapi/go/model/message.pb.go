@@ -752,7 +752,7 @@ type Message struct {
 	// Email metadata for messages sent or received via email integration.
 	// Contains email subject, recipients, and direction (inbound/outbound).
 	//
-	// +kubebuilder:example={"subject":"Re: 주문 문의","from":"customer@example.com"}
+	// +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer@example.com"}
 	Email *structpb.Struct `protobuf:"bytes,22,opt,name=email,proto3" json:"email,omitempty"`
 	// ALF (AI agent) thread metadata for AI-assisted conversation threads.
 	// Contains ALF session state and context.
@@ -825,7 +825,7 @@ type Message struct {
 	// Custom rendering payload for third-party integrations.
 	// Structure and content are defined by the integration provider.
 	//
-	// +kubebuilder:example={"renderType":"customCard","payload":{"title":"주문 확인","orderId":"20240329-001"}}
+	// +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
 	CustomPayload *structpb.Struct `protobuf:"bytes,39,opt,name=custom_payload,json=customPayload,proto3" json:"custom_payload,omitempty"`
 	// Composition method that determines how clients render this message.
 	// Automatically derived from the message content when not explicitly set:

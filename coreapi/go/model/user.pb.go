@@ -158,7 +158,7 @@ type User struct {
 	// Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
 	// arbitrary keys are also supported.
 	//
-	// +kubebuilder:example={"name":"김민준","email":"minjun.kim@example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+	// +kubebuilder:example={"name":"John Doe","email":"minjun.kim@example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
 	Profile *structpb.Struct `protobuf:"bytes,17,opt,name=profile,proto3" json:"profile,omitempty"`
 	// Classification tags attached to the user for segmentation and filtering.
 	// Supports hierarchical tags using "/" as a depth separator.
@@ -227,7 +227,7 @@ type User struct {
 	EmailQualified bool `protobuf:"varint,30,opt,name=email_qualified,json=emailQualified,proto3" json:"email_qualified,omitempty"`
 	// Display name of the user, derived from the profile's name field.
 	//
-	// +kubebuilder:example="김민준"
+	// +kubebuilder:example="John Doe"
 	Name string `protobuf:"bytes,31,opt,name=name,proto3" json:"name,omitempty"`
 	// Whether the user has at least one managed chat conversation.
 	//
@@ -241,11 +241,11 @@ type User struct {
 	HasPushToken bool `protobuf:"varint,33,opt,name=has_push_token,json=hasPushToken,proto3" json:"has_push_token,omitempty"`
 	// Province or state name derived from IP geolocation.
 	//
-	// +kubebuilder:example="서울시"
+	// +kubebuilder:example="Seoul"
 	Province string `protobuf:"bytes,34,opt,name=province,proto3" json:"province,omitempty"`
 	// City name derived from IP geolocation.
 	//
-	// +kubebuilder:example="서울시 강남구"
+	// +kubebuilder:example="Gangnam-gu, Seoul"
 	City string `protobuf:"bytes,35,opt,name=city,proto3" json:"city,omitempty"`
 	// Latitude coordinate derived from IP geolocation.
 	//
@@ -293,11 +293,11 @@ type User struct {
 	Email string `protobuf:"bytes,46,opt,name=email,proto3" json:"email,omitempty"`
 	// Mobile phone number extracted from the user's profile data.
 	//
-	// +kubebuilder:example="+821098761234"
+	// +kubebuilder:example="+821012345678"
 	MobileNumber string `protobuf:"bytes,47,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
 	// Landline phone number extracted from the user's profile data.
 	//
-	// +kubebuilder:example="+8222345678"
+	// +kubebuilder:example="+82212345678"
 	LandlineNumber string `protobuf:"bytes,48,opt,name=landline_number,json=landlineNumber,proto3" json:"landline_number,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache

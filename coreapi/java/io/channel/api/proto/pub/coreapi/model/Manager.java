@@ -612,7 +612,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="김민준"
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -638,7 +638,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
    * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-   * +kubebuilder:example="김민준"
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -757,7 +757,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+   * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -780,7 +780,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+   * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -793,7 +793,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+   * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -811,7 +811,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-   * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+   * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
    * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -942,7 +942,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:example="+821098761234"
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -964,7 +964,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Manager mobile phone number in E.164 format (e.g., +821012345678).
-   * +kubebuilder:example="+821098761234"
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -3661,7 +3661,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3686,7 +3686,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3712,7 +3712,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3736,7 +3736,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3755,7 +3755,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
      * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -3963,7 +3963,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+     * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -3986,7 +3986,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+     * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -3999,7 +3999,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+     * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4017,7 +4017,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+     * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4043,7 +4043,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+     * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4067,7 +4067,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+     * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4087,7 +4087,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Internationalized name and description overrides keyed by locale (e.g., en, ko).
-     * +kubebuilder:example={"ko":{"name":"고객 성공 매니저","description":"고객 문의 응대"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
+     * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
      * <code>map&lt;string, .coreapi.model.NameDesc&gt; name_desc_i18n_map = 7 [json_name = "nameDescI18nMap"];</code>
@@ -4423,7 +4423,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4444,7 +4444,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4466,7 +4466,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4486,7 +4486,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>
@@ -4501,7 +4501,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Manager mobile phone number in E.164 format (e.g., +821012345678).
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 11 [json_name = "mobileNumber"];</code>

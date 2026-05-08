@@ -105,7 +105,7 @@ public interface PluginOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="채널톡 데모샵"
+   * +kubebuilder:example="Channel Demo Shop"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -119,7 +119,7 @@ public interface PluginOrBuilder extends
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="채널톡 데모샵"
+   * +kubebuilder:example="Channel Demo Shop"
    * </pre>
    *
    * <code>string name = 5 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -203,7 +203,7 @@ public interface PluginOrBuilder extends
    * Applicable when label_button is true.
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="상담하기"
+   * +kubebuilder:example="Chat with us"
    * </pre>
    *
    * <code>string label_button_text = 9 [json_name = "labelButtonText", (.buf.validate.field) = { ... }</code>
@@ -216,7 +216,7 @@ public interface PluginOrBuilder extends
    * Applicable when label_button is true.
    * +kubebuilder:validation:MinLength=4
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:example="상담하기"
+   * +kubebuilder:example="Chat with us"
    * </pre>
    *
    * <code>string label_button_text = 9 [json_name = "labelButtonText", (.buf.validate.field) = { ... }</code>
@@ -229,7 +229,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
+   * +kubebuilder:example={"ko":"Contact Us","en":"Contact Us","ja":"Contact Us"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -239,7 +239,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
+   * +kubebuilder:example={"ko":"Contact Us","en":"Contact Us","ja":"Contact Us"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -256,7 +256,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
+   * +kubebuilder:example={"ko":"Contact Us","en":"Contact Us","ja":"Contact Us"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -267,7 +267,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
+   * +kubebuilder:example={"ko":"Contact Us","en":"Contact Us","ja":"Contact Us"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>
@@ -280,7 +280,7 @@ public interface PluginOrBuilder extends
    * <pre>
    * Localized label button text, keyed by locale code (e.g., "en", "ko").
    * Overrides label_button_text for matching locales.
-   * +kubebuilder:example={"ko":"문의하기","en":"Contact Us","ja":"お問い合わせ"}
+   * +kubebuilder:example={"ko":"Contact Us","en":"Contact Us","ja":"Contact Us"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; label_button_text_i18n_map = 10 [json_name = "labelButtonTextI18nMap"];</code>

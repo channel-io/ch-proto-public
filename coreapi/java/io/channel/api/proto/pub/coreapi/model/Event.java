@@ -560,7 +560,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
-   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+   * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -584,7 +584,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
-   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+   * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -598,7 +598,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
-   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+   * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -617,7 +617,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
-   * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+   * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2166,7 +2166,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
-     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+     * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2190,7 +2190,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
-     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+     * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2204,7 +2204,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
-     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+     * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2223,7 +2223,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
-     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+     * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2250,7 +2250,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
-     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+     * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2275,7 +2275,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
-     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+     * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>
@@ -2296,7 +2296,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Internationalized event name map keyed by locale (e.g., en, ko).
      * Populated only for system-defined events; custom events return no entries.
-     * +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+     * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; name_i18n_map = 9 [json_name = "nameI18nMap"];</code>

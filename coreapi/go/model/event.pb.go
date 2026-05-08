@@ -71,7 +71,7 @@ type Event struct {
 	// Internationalized event name map keyed by locale (e.g., en, ko).
 	// Populated only for system-defined events; custom events return no entries.
 	//
-	// +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+	// +kubebuilder:example={"ko":"PageView","en":"PageView"}
 	NameI18NMap   map[string]string `protobuf:"bytes,9,rep,name=name_i18n_map,json=nameI18nMap,proto3" json:"name_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

@@ -76,6 +76,6 @@ message Event {
   // Internationalized event name map keyed by locale (e.g., en, ko).
   // Populated only for system-defined events; custom events return no entries.
   //
-  // +kubebuilder:example={"ko":"페이지뷰","en":"PageView"}
+  // +kubebuilder:example={"ko":"PageView","en":"PageView"}
   map<string, string> name_i18n_map = 9;
 }

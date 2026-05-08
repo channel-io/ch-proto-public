@@ -113,7 +113,7 @@ private static final long serialVersionUID = 0L;
    * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="commerce"
+   * +kubebuilder:example="cafe24"
    * </pre>
    *
    * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -137,7 +137,7 @@ private static final long serialVersionUID = 0L;
    * App that owns the segment definition.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="commerce"
+   * +kubebuilder:example="cafe24"
    * </pre>
    *
    * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -165,7 +165,7 @@ private static final long serialVersionUID = 0L;
    * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="commerceSegments"
+   * +kubebuilder:example="cafe24Segment"
    * </pre>
    *
    * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -189,7 +189,7 @@ private static final long serialVersionUID = 0L;
    * Extension within the app that provides the segmentation logic.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="commerceSegments"
+   * +kubebuilder:example="cafe24Segment"
    * </pre>
    *
    * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -609,7 +609,7 @@ private static final long serialVersionUID = 0L;
      * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerce"
+     * +kubebuilder:example="cafe24"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -632,7 +632,7 @@ private static final long serialVersionUID = 0L;
      * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerce"
+     * +kubebuilder:example="cafe24"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -656,7 +656,7 @@ private static final long serialVersionUID = 0L;
      * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerce"
+     * +kubebuilder:example="cafe24"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -678,7 +678,7 @@ private static final long serialVersionUID = 0L;
      * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerce"
+     * +kubebuilder:example="cafe24"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -695,7 +695,7 @@ private static final long serialVersionUID = 0L;
      * App that owns the segment definition.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerce"
+     * +kubebuilder:example="cafe24"
      * </pre>
      *
      * <code>string app_id = 1 [json_name = "appId", (.buf.validate.field) = { ... }</code>
@@ -720,7 +720,7 @@ private static final long serialVersionUID = 0L;
      * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerceSegments"
+     * +kubebuilder:example="cafe24Segment"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -743,7 +743,7 @@ private static final long serialVersionUID = 0L;
      * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerceSegments"
+     * +kubebuilder:example="cafe24Segment"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -767,7 +767,7 @@ private static final long serialVersionUID = 0L;
      * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerceSegments"
+     * +kubebuilder:example="cafe24Segment"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -789,7 +789,7 @@ private static final long serialVersionUID = 0L;
      * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerceSegments"
+     * +kubebuilder:example="cafe24Segment"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>
@@ -806,7 +806,7 @@ private static final long serialVersionUID = 0L;
      * Extension within the app that provides the segmentation logic.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="commerceSegments"
+     * +kubebuilder:example="cafe24Segment"
      * </pre>
      *
      * <code>string extension_id = 2 [json_name = "extensionId", (.buf.validate.field) = { ... }</code>

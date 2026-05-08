@@ -88,7 +88,7 @@ public interface CampaignMsgOrBuilder extends
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="메시지 본문"
+   * +kubebuilder:example="Message body"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
@@ -100,7 +100,7 @@ public interface CampaignMsgOrBuilder extends
    * Human-readable label for this message variant.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="메시지 본문"
+   * +kubebuilder:example="Message body"
    * </pre>
    *
    * <code>string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>

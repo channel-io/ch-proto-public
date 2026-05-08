@@ -30,13 +30,13 @@ type AppSegment struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="commerce"
+	// +kubebuilder:example="cafe24"
 	AppId string `protobuf:"bytes,1,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	// Extension within the app that provides the segmentation logic.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="commerceSegments"
+	// +kubebuilder:example="cafe24Segment"
 	ExtensionId string `protobuf:"bytes,2,opt,name=extension_id,json=extensionId,proto3" json:"extension_id,omitempty"`
 	// Specific segment within the extension that users must belong to.
 	//

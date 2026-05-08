@@ -52,12 +52,12 @@ message CallLog {
 
   // Originating phone number or caller identifier.
   //
-  // +kubebuilder:example="+821098761234"
+  // +kubebuilder:example="+821012345678"
   string from = 5;
 
   // Destination phone number or callee identifier.
   //
-  // +kubebuilder:example="+821055667788"
+  // +kubebuilder:example="+821012345678"
   string to = 6;
 
   // Call creation timestamp.
@@ -140,7 +140,7 @@ message MeetMessage {
 
   // Plain text representation of the message.
   //
-  // +kubebuilder:example="안녕하세요, 주문 문의입니다."
+  // +kubebuilder:example="Hello, I have an order inquiry."
   string plain_text = 8;
 
   // Message creation timestamp.

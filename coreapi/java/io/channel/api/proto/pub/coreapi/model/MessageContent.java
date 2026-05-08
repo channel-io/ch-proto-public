@@ -256,7 +256,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:example="안녕하세요, 문의드립니다."
+   * +kubebuilder:example="Hello, I have a question."
    * </pre>
    *
    * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -278,7 +278,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Plain text representation of the message.
-   * +kubebuilder:example="안녕하세요, 문의드립니다."
+   * +kubebuilder:example="Hello, I have a question."
    * </pre>
    *
    * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -1550,7 +1550,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plain text representation of the message.
-     * +kubebuilder:example="안녕하세요, 문의드립니다."
+     * +kubebuilder:example="Hello, I have a question."
      * </pre>
      *
      * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -1571,7 +1571,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plain text representation of the message.
-     * +kubebuilder:example="안녕하세요, 문의드립니다."
+     * +kubebuilder:example="Hello, I have a question."
      * </pre>
      *
      * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -1593,7 +1593,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plain text representation of the message.
-     * +kubebuilder:example="안녕하세요, 문의드립니다."
+     * +kubebuilder:example="Hello, I have a question."
      * </pre>
      *
      * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -1613,7 +1613,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plain text representation of the message.
-     * +kubebuilder:example="안녕하세요, 문의드립니다."
+     * +kubebuilder:example="Hello, I have a question."
      * </pre>
      *
      * <code>string plain_text = 2 [json_name = "plainText"];</code>
@@ -1628,7 +1628,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Plain text representation of the message.
-     * +kubebuilder:example="안녕하세요, 문의드립니다."
+     * +kubebuilder:example="Hello, I have a question."
      * </pre>
      *
      * <code>string plain_text = 2 [json_name = "plainText"];</code>

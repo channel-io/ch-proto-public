@@ -401,16 +401,16 @@ type UserChat struct {
 	XerId string `protobuf:"bytes,10,opt,name=xer_id,json=xerId,proto3" json:"xer_id,omitempty"`
 	// Display name of this chat shown to managers in the Desk.
 	//
-	// +kubebuilder:example="채널1"
+	// +kubebuilder:example="Main"
 	Name string `protobuf:"bytes,11,opt,name=name,proto3" json:"name,omitempty"`
 	// Title of the chat conversation displayed in the Desk inbox list.
 	//
-	// +kubebuilder:example="상담 요청"
+	// +kubebuilder:example="Billing inquiry"
 	Title string `protobuf:"bytes,12,opt,name=title,proto3" json:"title,omitempty"`
 	// Free-text note or summary attached to this chat by a manager.
 	//
 	// +kubebuilder:validation:MaxLength=1000
-	// +kubebuilder:example="구매 전 상담"
+	// +kubebuilder:example="Pre-purchase inquiry"
 	Description string `protobuf:"bytes,13,opt,name=description,proto3" json:"description,omitempty"`
 	// Type of subtext shown below the chat title in the Desk inbox list.
 	SubtextType UserChatSubtextType `protobuf:"varint,14,opt,name=subtext_type,json=subtextType,proto3,enum=coreapi.model.UserChatSubtextType" json:"subtext_type,omitempty"`

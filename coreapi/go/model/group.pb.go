@@ -101,7 +101,7 @@ type Group struct {
 	// +kubebuilder:validation:MinLength=2
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:validation:Pattern="[\p{L}\p{N}\-_()]+"
-	// +kubebuilder:example="고객피드백"
+	// +kubebuilder:example="customer-feedback"
 	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
 	// Visibility scope determining who can discover and access the group.
 	//
@@ -125,7 +125,7 @@ type Group struct {
 	// Free-text description explaining the group's purpose or topic.
 	//
 	// +kubebuilder:validation:MaxLength=200
-	// +kubebuilder:example="고객 피드백 및 개선사항 논의"
+	// +kubebuilder:example="Customer feedback and improvement discussion"
 	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
 	// Group creation timestamp.
 	//

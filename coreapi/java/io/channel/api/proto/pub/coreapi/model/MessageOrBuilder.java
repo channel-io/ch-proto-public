@@ -575,7 +575,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
-   * +kubebuilder:example={"subject":"Re: 주문 문의","from":"customer&#64;example.com"}
+   * +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -586,7 +586,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
-   * +kubebuilder:example={"subject":"Re: 주문 문의","from":"customer&#64;example.com"}
+   * +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -597,7 +597,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Email metadata for messages sent or received via email integration.
    * Contains email subject, recipients, and direction (inbound/outbound).
-   * +kubebuilder:example={"subject":"Re: 주문 문의","from":"customer&#64;example.com"}
+   * +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer&#64;example.com"}
    * </pre>
    *
    * <code>.google.protobuf.Struct email = 22 [json_name = "email"];</code>
@@ -1176,7 +1176,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
-   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"주문 확인","orderId":"20240329-001"}}
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1187,7 +1187,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
-   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"주문 확인","orderId":"20240329-001"}}
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>
@@ -1198,7 +1198,7 @@ public interface MessageOrBuilder extends
    * <pre>
    * Custom rendering payload for third-party integrations.
    * Structure and content are defined by the integration provider.
-   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"주문 확인","orderId":"20240329-001"}}
+   * +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
    * </pre>
    *
    * <code>.google.protobuf.Struct custom_payload = 39 [json_name = "customPayload"];</code>

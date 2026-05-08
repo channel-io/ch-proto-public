@@ -1123,7 +1123,7 @@ private static final long serialVersionUID = 0L;
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
-   * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+   * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -1138,7 +1138,7 @@ private static final long serialVersionUID = 0L;
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
-   * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+   * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -1153,7 +1153,7 @@ private static final long serialVersionUID = 0L;
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.
-   * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+   * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
    * </pre>
    *
    * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -1608,7 +1608,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of the user, derived from the profile's name field.
-   * +kubebuilder:example="김민준"
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 31 [json_name = "name"];</code>
@@ -1630,7 +1630,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Display name of the user, derived from the profile's name field.
-   * +kubebuilder:example="김민준"
+   * +kubebuilder:example="John Doe"
    * </pre>
    *
    * <code>string name = 31 [json_name = "name"];</code>
@@ -1690,7 +1690,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Province or state name derived from IP geolocation.
-   * +kubebuilder:example="서울시"
+   * +kubebuilder:example="Seoul"
    * </pre>
    *
    * <code>string province = 34 [json_name = "province"];</code>
@@ -1712,7 +1712,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Province or state name derived from IP geolocation.
-   * +kubebuilder:example="서울시"
+   * +kubebuilder:example="Seoul"
    * </pre>
    *
    * <code>string province = 34 [json_name = "province"];</code>
@@ -1738,7 +1738,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * City name derived from IP geolocation.
-   * +kubebuilder:example="서울시 강남구"
+   * +kubebuilder:example="Gangnam-gu, Seoul"
    * </pre>
    *
    * <code>string city = 35 [json_name = "city"];</code>
@@ -1760,7 +1760,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * City name derived from IP geolocation.
-   * +kubebuilder:example="서울시 강남구"
+   * +kubebuilder:example="Gangnam-gu, Seoul"
    * </pre>
    *
    * <code>string city = 35 [json_name = "city"];</code>
@@ -2100,7 +2100,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Mobile phone number extracted from the user's profile data.
-   * +kubebuilder:example="+821098761234"
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -2122,7 +2122,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Mobile phone number extracted from the user's profile data.
-   * +kubebuilder:example="+821098761234"
+   * +kubebuilder:example="+821012345678"
    * </pre>
    *
    * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -2148,7 +2148,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Landline phone number extracted from the user's profile data.
-   * +kubebuilder:example="+8222345678"
+   * +kubebuilder:example="+82212345678"
    * </pre>
    *
    * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
@@ -2170,7 +2170,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Landline phone number extracted from the user's profile data.
-   * +kubebuilder:example="+8222345678"
+   * +kubebuilder:example="+82212345678"
    * </pre>
    *
    * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
@@ -5127,7 +5127,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5141,7 +5141,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5159,7 +5159,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5182,7 +5182,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5203,7 +5203,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5228,7 +5228,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5249,7 +5249,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5264,7 +5264,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -5282,7 +5282,7 @@ private static final long serialVersionUID = 0L;
      * Custom key-value profile data.
      * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
      * arbitrary keys are also supported.
-     * +kubebuilder:example={"name":"김민준","email":"minjun.kim&#64;example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
+     * +kubebuilder:example={"name":"John Doe","email":"minjun.kim&#64;example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
      * </pre>
      *
      * <code>.google.protobuf.Struct profile = 17 [json_name = "profile"];</code>
@@ -6588,7 +6588,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6609,7 +6609,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6631,7 +6631,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6651,7 +6651,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6666,7 +6666,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Display name of the user, derived from the profile's name field.
-     * +kubebuilder:example="김민준"
+     * +kubebuilder:example="John Doe"
      * </pre>
      *
      * <code>string name = 31 [json_name = "name"];</code>
@@ -6787,7 +6787,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Province or state name derived from IP geolocation.
-     * +kubebuilder:example="서울시"
+     * +kubebuilder:example="Seoul"
      * </pre>
      *
      * <code>string province = 34 [json_name = "province"];</code>
@@ -6808,7 +6808,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Province or state name derived from IP geolocation.
-     * +kubebuilder:example="서울시"
+     * +kubebuilder:example="Seoul"
      * </pre>
      *
      * <code>string province = 34 [json_name = "province"];</code>
@@ -6830,7 +6830,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Province or state name derived from IP geolocation.
-     * +kubebuilder:example="서울시"
+     * +kubebuilder:example="Seoul"
      * </pre>
      *
      * <code>string province = 34 [json_name = "province"];</code>
@@ -6850,7 +6850,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Province or state name derived from IP geolocation.
-     * +kubebuilder:example="서울시"
+     * +kubebuilder:example="Seoul"
      * </pre>
      *
      * <code>string province = 34 [json_name = "province"];</code>
@@ -6865,7 +6865,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Province or state name derived from IP geolocation.
-     * +kubebuilder:example="서울시"
+     * +kubebuilder:example="Seoul"
      * </pre>
      *
      * <code>string province = 34 [json_name = "province"];</code>
@@ -6888,7 +6888,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * City name derived from IP geolocation.
-     * +kubebuilder:example="서울시 강남구"
+     * +kubebuilder:example="Gangnam-gu, Seoul"
      * </pre>
      *
      * <code>string city = 35 [json_name = "city"];</code>
@@ -6909,7 +6909,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * City name derived from IP geolocation.
-     * +kubebuilder:example="서울시 강남구"
+     * +kubebuilder:example="Gangnam-gu, Seoul"
      * </pre>
      *
      * <code>string city = 35 [json_name = "city"];</code>
@@ -6931,7 +6931,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * City name derived from IP geolocation.
-     * +kubebuilder:example="서울시 강남구"
+     * +kubebuilder:example="Gangnam-gu, Seoul"
      * </pre>
      *
      * <code>string city = 35 [json_name = "city"];</code>
@@ -6951,7 +6951,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * City name derived from IP geolocation.
-     * +kubebuilder:example="서울시 강남구"
+     * +kubebuilder:example="Gangnam-gu, Seoul"
      * </pre>
      *
      * <code>string city = 35 [json_name = "city"];</code>
@@ -6966,7 +6966,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * City name derived from IP geolocation.
-     * +kubebuilder:example="서울시 강남구"
+     * +kubebuilder:example="Gangnam-gu, Seoul"
      * </pre>
      *
      * <code>string city = 35 [json_name = "city"];</code>
@@ -7955,7 +7955,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Mobile phone number extracted from the user's profile data.
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -7976,7 +7976,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Mobile phone number extracted from the user's profile data.
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -7998,7 +7998,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Mobile phone number extracted from the user's profile data.
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -8018,7 +8018,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Mobile phone number extracted from the user's profile data.
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -8033,7 +8033,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Mobile phone number extracted from the user's profile data.
-     * +kubebuilder:example="+821098761234"
+     * +kubebuilder:example="+821012345678"
      * </pre>
      *
      * <code>string mobile_number = 47 [json_name = "mobileNumber"];</code>
@@ -8056,7 +8056,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Landline phone number extracted from the user's profile data.
-     * +kubebuilder:example="+8222345678"
+     * +kubebuilder:example="+82212345678"
      * </pre>
      *
      * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
@@ -8077,7 +8077,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Landline phone number extracted from the user's profile data.
-     * +kubebuilder:example="+8222345678"
+     * +kubebuilder:example="+82212345678"
      * </pre>
      *
      * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
@@ -8099,7 +8099,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Landline phone number extracted from the user's profile data.
-     * +kubebuilder:example="+8222345678"
+     * +kubebuilder:example="+82212345678"
      * </pre>
      *
      * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
@@ -8119,7 +8119,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Landline phone number extracted from the user's profile data.
-     * +kubebuilder:example="+8222345678"
+     * +kubebuilder:example="+82212345678"
      * </pre>
      *
      * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>
@@ -8134,7 +8134,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Landline phone number extracted from the user's profile data.
-     * +kubebuilder:example="+8222345678"
+     * +kubebuilder:example="+82212345678"
      * </pre>
      *
      * <code>string landline_number = 48 [json_name = "landlineNumber"];</code>

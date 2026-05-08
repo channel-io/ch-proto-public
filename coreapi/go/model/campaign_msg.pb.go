@@ -49,7 +49,7 @@ type CampaignMsg struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="메시지 본문"
+	// +kubebuilder:example="Message body"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Channel through which this message is delivered.
 	// Cannot be changed after creation.

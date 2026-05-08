@@ -182,7 +182,7 @@ message Message {
   // Email metadata for messages sent or received via email integration.
   // Contains email subject, recipients, and direction (inbound/outbound).
   //
-  // +kubebuilder:example={"subject":"Re: 주문 문의","from":"customer@example.com"}
+  // +kubebuilder:example={"subject":"Re: Order inquiry","from":"customer@example.com"}
   google.protobuf.Struct email = 22;
 
   // ALF (AI agent) thread metadata for AI-assisted conversation threads.
@@ -277,7 +277,7 @@ message Message {
   // Custom rendering payload for third-party integrations.
   // Structure and content are defined by the integration provider.
   //
-  // +kubebuilder:example={"renderType":"customCard","payload":{"title":"주문 확인","orderId":"20240329-001"}}
+  // +kubebuilder:example={"renderType":"customCard","payload":{"title":"Order confirmation","orderId":"20240329-001"}}
   google.protobuf.Struct custom_payload = 39;
 
   // Composition method that determines how clients render this message.

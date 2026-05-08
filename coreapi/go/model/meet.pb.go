@@ -144,11 +144,11 @@ type CallLog struct {
 	State CallState `protobuf:"varint,4,opt,name=state,proto3,enum=coreapi.model.CallState" json:"state,omitempty"`
 	// Originating phone number or caller identifier.
 	//
-	// +kubebuilder:example="+821098761234"
+	// +kubebuilder:example="+821012345678"
 	From string `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
 	// Destination phone number or callee identifier.
 	//
-	// +kubebuilder:example="+821055667788"
+	// +kubebuilder:example="+821012345678"
 	To string `protobuf:"bytes,6,opt,name=to,proto3" json:"to,omitempty"`
 	// Call creation timestamp.
 	//
@@ -334,7 +334,7 @@ type MeetMessage struct {
 	Blocks []*Block `protobuf:"bytes,7,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	// Plain text representation of the message.
 	//
-	// +kubebuilder:example="안녕하세요, 주문 문의입니다."
+	// +kubebuilder:example="Hello, I have an order inquiry."
 	PlainText string `protobuf:"bytes,8,opt,name=plain_text,json=plainText,proto3" json:"plain_text,omitempty"`
 	// Message creation timestamp.
 	//

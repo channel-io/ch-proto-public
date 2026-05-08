@@ -115,19 +115,19 @@ type ChatTag struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="결제/일반"
+	// +kubebuilder:example="billing/general"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Lowercase representation of name.
 	// Unique within the channel (case-insensitive).
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="결제/일반"
+	// +kubebuilder:example="billing/general"
 	Key string `protobuf:"bytes,5,opt,name=key,proto3" json:"key,omitempty"`
 	// Short description of the chat tag.
 	//
 	// +kubebuilder:validation:MaxLength=128
-	// +kubebuilder:example="결제 관련 문의"
+	// +kubebuilder:example="Billing related inquiries"
 	Description string `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
 	// Chat tag creation timestamp.
 	//

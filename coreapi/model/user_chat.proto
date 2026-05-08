@@ -149,18 +149,18 @@ message UserChat {
 
   // Display name of this chat shown to managers in the Desk.
   //
-  // +kubebuilder:example="채널1"
+  // +kubebuilder:example="Main"
   string name = 11;
 
   // Title of the chat conversation displayed in the Desk inbox list.
   //
-  // +kubebuilder:example="상담 요청"
+  // +kubebuilder:example="Billing inquiry"
   string title = 12;
 
   // Free-text note or summary attached to this chat by a manager.
   //
   // +kubebuilder:validation:MaxLength=1000
-  // +kubebuilder:example="구매 전 상담"
+  // +kubebuilder:example="Pre-purchase inquiry"
   string description = 13 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 1000 characters"
