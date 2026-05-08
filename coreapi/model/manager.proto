@@ -47,20 +47,20 @@ message Manager {
   // Unique manager identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="9187"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this manager belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Account ID of the person linked to this manager.
   // Unique per channel among non-removed managers.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="1471"
+  // +kubebuilder:example="1724"
   string account_id = 3 [(buf.validate.field).required = true];
 
   // Manager display name shown to end users and teammates.
@@ -69,7 +69,7 @@ message Manager {
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=30
   // +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
-  // +kubebuilder:example="John Doe"
+  // +kubebuilder:example="김민준"
   string name = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -89,7 +89,7 @@ message Manager {
   // Visible to end users only when show_description_to_front is true.
   //
   // +kubebuilder:validation:MaxLength=180
-  // +kubebuilder:example="Product team lead"
+  // +kubebuilder:example="Customer Success team lead"
   string description = 5 [(buf.validate.field).cel = {
     id: "string.maxLen"
     message: "value must be no more than 180 characters"
@@ -115,7 +115,7 @@ message Manager {
   // Manager email address.
   // Unique per channel among non-removed managers.
   //
-  // +kubebuilder:example="manager@example.com"
+  // +kubebuilder:example="minjun.kim@example.com"
   string email = 9;
 
   // Whether the email address is visible to end-user visitors.
@@ -126,7 +126,7 @@ message Manager {
 
   // Manager mobile phone number in E.164 format (e.g., +821012345678).
   //
-  // +kubebuilder:example="+821012345678"
+  // +kubebuilder:example="+821098761234"
   string mobile_number = 11;
 
   // Whether the mobile number is visible to end-user visitors.
@@ -149,19 +149,19 @@ message Manager {
   // Manager creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-21T07:12:21.773038Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp created_at = 15 [(buf.validate.field).required = true];
 
   // Manager last update timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp updated_at = 16 [(buf.validate.field).required = true];
 
   // Timestamp when the manager was soft-deleted.
   // Present only when removed is true.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp removed_at = 17;
 
   // Whether this manager appears as the channel identity instead of their personal profile.
@@ -210,13 +210,13 @@ message Manager {
   // Performance score reflecting the manager's conversation handling efficiency.
   // Decays over time when the manager is inactive.
   //
-  // +kubebuilder:example="0.85"
+  // +kubebuilder:example="0"
   float operator_score = 26;
 
   // Engagement score reflecting the frequency of customer interactions.
   // Decays over time when the manager is inactive.
   //
-  // +kubebuilder:example="0.75"
+  // +kubebuilder:example="0"
   float touch_score = 27;
 
   // Whether periodic email reminders for unhandled conversations are enabled.
@@ -252,12 +252,12 @@ message Manager {
   // Whether this manager is currently active as an operator handling customer conversations.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="false"
+  // +kubebuilder:example="true"
   bool operator = 33 [(buf.validate.field).required = true];
 
   // Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
   //
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="9187"
   string operator_status_id = 34;
 
   // Whether @all mentions in conversations are automatically marked as important.
@@ -313,7 +313,7 @@ message Manager {
 
   // Timestamp when the custom status (emoji + text) automatically clears.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp status_clear_at = 42;
 
   // Whether do-not-disturb mode is active, suppressing all notifications for this manager.
@@ -324,7 +324,7 @@ message Manager {
 
   // Timestamp when do-not-disturb mode automatically deactivates.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp do_not_disturb_clear_at = 44;
 
   // Whether account-level do-not-disturb mode is active across all channels.
@@ -335,17 +335,17 @@ message Manager {
 
   // Timestamp when account-level do-not-disturb mode automatically deactivates.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp account_do_not_disturb_clear_at = 46;
 
   // Timestamp when the operator status was last toggled on or off.
   //
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp operator_updated_at = 47;
 
   // Manager avatar image URL.
   // Falls back to a system-generated default when no custom avatar is set.
   //
-  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/m-abc123"
+  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/9187"
   string avatar_url = 48;
 }

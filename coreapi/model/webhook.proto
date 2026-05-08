@@ -28,13 +28,13 @@ message Webhook {
   // Unique webhook identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="100"
+  // +kubebuilder:example="205"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this webhook belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Webhook display name.
@@ -42,7 +42,7 @@ message Webhook {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="Order Webhook"
+  // +kubebuilder:example="cht-user-chat-analysis-poc"
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -56,7 +56,7 @@ message Webhook {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="https://example.com/webhook"
+  // +kubebuilder:example="https://user-chat-analysis.exp.ch.dev/user-chats/messages"
   string url = 4 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -70,7 +70,7 @@ message Webhook {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="whk_abc123xyz789"
+  // +kubebuilder:example="4f8a97213f536d23661053991339f9f8"
   string token = 5 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -83,7 +83,7 @@ message Webhook {
   // Webhook creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-06-13T05:11:29Z"
   google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Event scopes that trigger this webhook.
@@ -102,7 +102,7 @@ message Webhook {
 
   // Timestamp when the webhook was last blocked due to consecutive failures.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-06-13T05:11:29Z"
   google.protobuf.Timestamp last_blocked_at = 9;
 
   // Whether the webhook is currently blocked due to excessive delivery failures.

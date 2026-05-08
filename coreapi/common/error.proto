@@ -81,7 +81,7 @@ message ErrorDetail {
   // +kubebuilder:example="default_domain"
   string field = 2;
 
-  // +kubebuilder:example="invalid-domain!"
+  // +kubebuilder:example="channel-shop-exp!"
   string value = 3;
 
   // +kubebuilder:example="must match pattern ^[a-z0-9-]+$"

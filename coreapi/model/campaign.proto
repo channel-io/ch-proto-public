@@ -47,13 +47,13 @@ message Campaign {
   // Unique campaign identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="cpn-001"
+  // +kubebuilder:example="3360"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this campaign belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // Human-readable label for the campaign.
@@ -61,7 +61,7 @@ message Campaign {
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
   // +kubebuilder:validation:MaxLength=128
-  // +kubebuilder:example="Welcome Campaign"
+  // +kubebuilder:example="자주 방문한 고객에게 앱 설치 안내하기"
   string name = 3 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -89,7 +89,7 @@ message Campaign {
 
   // Specific medium instance within the medium_type (e.g., a particular phone number or email sender).
   //
-  // +kubebuilder:example="sms-001"
+  // +kubebuilder:example="sms-sender-201"
   string medium_id = 6;
 
   // Query expression that defines the target user segment.
@@ -201,7 +201,7 @@ message Campaign {
   // Channel operation schedule used to determine delivery timing.
   // Applicable when send_mode is IN_OPERATION or AWAY.
   //
-  // +kubebuilder:example="op-001"
+  // +kubebuilder:example="op-6263-default"
   string channel_operation_id = 26;
 
   // Custom time windows for delivery scheduling.
@@ -211,30 +211,30 @@ message Campaign {
 
   // Timestamp when the campaign becomes eligible to trigger.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp start_at = 28;
 
   // Timestamp when the campaign automatically stops.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp end_at = 29;
 
   // Snapshot of the campaign configuration captured before activation.
   // Represented as a free-form JSON object.
   //
-  // +kubebuilder:example={"campaign":{"name":"Welcome Campaign","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
+  // +kubebuilder:example={"campaign":{"name":"자주 방문한 고객에게 앱 설치 안내하기","sendMedium":"inAppChat","mediumType":"native"},"msgs":[{"name":"welcome-msg","sendMedium":"inAppChat","mediumType":"native"}]}
   google.protobuf.Struct draft = 30;
 
   // Campaign creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-22T02:16:44.306092Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp created_at = 31 [(buf.validate.field).required = true];
 
   // Campaign last update timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp updated_at = 32 [(buf.validate.field).required = true];
 
   // Cumulative count of messages delivered.
@@ -265,7 +265,7 @@ message Campaign {
 
   // Manager assigned to handle user responses from this campaign.
   //
-  // +kubebuilder:example="m-001"
+  // +kubebuilder:example="9187"
   string manager_id = 38;
 }
 

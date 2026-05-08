@@ -26,30 +26,30 @@ message User {
   // Unique user identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="u-abc123"
+  // +kubebuilder:example="69032c11943c1930fd6f"
   string id = 1 [(buf.validate.field).required = true];
 
   // Channel ID this user belongs to.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 2 [(buf.validate.field).required = true];
 
   // External member ID provided at boot or manual creation.
   // Present for member-type users; for anonymous visitors, this matches
   // the veil_id.
   //
-  // +kubebuilder:example="member-001"
+  // +kubebuilder:example="0055f1eb-2036-4cf3-a1cd-af6b9cbf0592"
   string member_id = 3;
 
   // Cookie-based device identifier assigned to anonymous visitors.
   //
-  // +kubebuilder:example="550e8400-e29b-41d4-a716-446655440000"
+  // +kubebuilder:example="0055f1eb-2036-4cf3-a1cd-af6b9cbf0592"
   string veil_id = 4;
 
   // ID of the unified identity when multiple user records have been merged.
   //
-  // +kubebuilder:example="u-unified-001"
+  // +kubebuilder:example="01b9ddaf-ed24-4746-b9fa-9ca9cc2c2bf4"
   string unified_id = 5;
 
   // Identity type of this user.
@@ -58,7 +58,7 @@ message User {
 
   // Tags that were automatically applied during a user import operation.
   //
-  // +kubebuilder:example=["imported-2025Q1","csv-batch-001"]
+  // +kubebuilder:example=["imported-2024Q4","csv-batch-premium"]
   repeated string user_import_tags = 7;
 
   // Number of chats with unread messages that have alert notifications enabled.
@@ -73,12 +73,12 @@ message User {
 
   // ID of the chat currently displayed as a pop-up widget to the user.
   //
-  // +kubebuilder:example="uc-popup-001"
+  // +kubebuilder:example="666801d85da597a54c3d"
   string pop_up_chat_id = 10;
 
   // ID of the chat pinned as the primary conversation in the messenger.
   //
-  // +kubebuilder:example="uc-main-001"
+  // +kubebuilder:example="666801d85da597a54c3d"
   string main_chat_id = 11;
 
   // ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
@@ -96,26 +96,26 @@ message User {
   // User creation timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:49Z"
   google.protobuf.Timestamp created_at = 14 [(buf.validate.field).required = true];
 
   // User last update timestamp.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:50Z"
   google.protobuf.Timestamp updated_at = 15 [(buf.validate.field).required = true];
 
   // Optimistic locking version incremented on every update.
   // Supply the current value when updating to prevent overwriting concurrent changes.
   //
-  // +kubebuilder:example="1"
+  // +kubebuilder:example="3"
   int64 version = 16;
 
   // Custom key-value profile data.
   // Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
   // arbitrary keys are also supported.
   //
-  // +kubebuilder:example={"name":"Jane Doe","email":"jane@example.com","mobileNumber":"+821012345678","avatarUrl":"https://cdn.channel.io/avatars/jane.png"}
+  // +kubebuilder:example={"name":"김민준","email":"minjun.kim@example.com","mobileNumber":"+821098761234","avatarUrl":"https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"}
   google.protobuf.Struct profile = 17;
 
   // Classification tags attached to the user for segmentation and filtering.
@@ -138,7 +138,7 @@ message User {
 
   // Timestamp when the email opt-out preference was last changed.
   //
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:49Z"
   google.protobuf.Timestamp unsubscribe_email_updated_at = 21;
 
   // Whether the user has opted out of SMS/text notifications.
@@ -149,7 +149,7 @@ message User {
 
   // Timestamp when the SMS/text opt-out preference was last changed.
   //
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:49Z"
   google.protobuf.Timestamp unsubscribe_texting_updated_at = 23;
 
   // Whether the user has opted out of mobile app push notifications.
@@ -159,21 +159,21 @@ message User {
 
   // Timestamp when the app push opt-out preference was last changed.
   //
-  // +kubebuilder:example="2026-04-28T09:35:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:49Z"
   google.protobuf.Timestamp unsubscribe_app_push_updated_at = 25;
 
   // URL of the user's avatar image.
   // Falls back to an auto-generated default avatar when no custom avatar is set
   // in the profile.
   //
-  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/u-abc123"
+  // +kubebuilder:example="https://cdn.channel.io/thumb/200x200/69032c11943c1930fd6f"
   string avatar_url = 26;
 
   // Whether the user has a display name set in the profile
   // (name, firstName, or lastName).
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="false"
+  // +kubebuilder:example="true"
   bool named = 27 [(buf.validate.field).required = true];
 
   // Language detected from the user's browser or device settings,
@@ -186,25 +186,25 @@ message User {
   // and is eligible for SMS delivery.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="false"
+  // +kubebuilder:example="true"
   bool mobile_number_qualified = 29 [(buf.validate.field).required = true];
 
   // Whether the user's email address has passed format validation
   // and is eligible for email delivery.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="false"
+  // +kubebuilder:example="true"
   bool email_qualified = 30 [(buf.validate.field).required = true];
 
   // Display name of the user, derived from the profile's name field.
   //
-  // +kubebuilder:example="John Doe"
+  // +kubebuilder:example="김민준"
   string name = 31;
 
   // Whether the user has at least one managed chat conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="false"
+  // +kubebuilder:example="true"
   bool has_chat = 32 [(buf.validate.field).required = true];
 
   // Whether the user has a registered device token for push notifications.
@@ -215,22 +215,22 @@ message User {
 
   // Province or state name derived from IP geolocation.
   //
-  // +kubebuilder:example="Seoul"
+  // +kubebuilder:example="서울시"
   string province = 34;
 
   // City name derived from IP geolocation.
   //
-  // +kubebuilder:example="Gangnam-gu"
+  // +kubebuilder:example="서울시 강남구"
   string city = 35;
 
   // Latitude coordinate derived from IP geolocation.
   //
-  // +kubebuilder:example="37.4979"
+  // +kubebuilder:example="37.4955"
   double latitude = 36;
 
   // Longitude coordinate derived from IP geolocation.
   //
-  // +kubebuilder:example="127.0276"
+  // +kubebuilder:example="127.0334"
   double longitude = 37;
 
   // Web browser and page tracking information from the user's latest session.
@@ -243,12 +243,12 @@ message User {
 
   // Total number of chat sessions the user has initiated in this channel.
   //
-  // +kubebuilder:example="5"
+  // +kubebuilder:example="1"
   int32 sessions_count = 40;
 
   // Timestamp when the user was last seen online in the channel.
   //
-  // +kubebuilder:example="2026-04-28T09:40:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:49Z"
   google.protobuf.Timestamp last_seen_at = 41;
 
   // Whether the user is blocked from initiating new chats.
@@ -260,34 +260,34 @@ message User {
   // Identifier key associated with the block action,
   // used to look up block details.
   //
-  // +kubebuilder:example="bk-001"
+  // +kubebuilder:example="1761815569607"
   string blocked_key = 43;
 
   // Sort key used for ordering users in the managed contact list.
   //
-  // +kubebuilder:example="1"
+  // +kubebuilder:example="1761815569607"
   int64 managed_key = 44;
 
   // Whether the user's type is member.
   // Derived from the type field.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="true"
+  // +kubebuilder:example="false"
   bool member = 45 [(buf.validate.field).required = true];
 
   // Email address extracted from the user's profile data.
   //
-  // +kubebuilder:example="user@example.com"
+  // +kubebuilder:example="minjun.kim@example.com"
   string email = 46;
 
   // Mobile phone number extracted from the user's profile data.
   //
-  // +kubebuilder:example="+821012345678"
+  // +kubebuilder:example="+821098761234"
   string mobile_number = 47;
 
   // Landline phone number extracted from the user's profile data.
   //
-  // +kubebuilder:example="+8221234567"
+  // +kubebuilder:example="+8222345678"
   string landline_number = 48;
 }
 
@@ -300,7 +300,7 @@ message User {
 message WebInfo {
   // Device form factor (e.g. "desktop", "tablet", "mobile").
   //
-  // +kubebuilder:example="desktop"
+  // +kubebuilder:example="Apple Macintosh"
   string device = 1;
 
   // Operating system version string (e.g. "10.15.7", "11").
@@ -310,12 +310,12 @@ message WebInfo {
 
   // Operating system name (e.g. "Windows", "macOS", "Linux").
   //
-  // +kubebuilder:example="macOS"
+  // +kubebuilder:example="Mac OS"
   string os_name = 3;
 
   // Browser version string (e.g. "120.0.6099.109").
   //
-  // +kubebuilder:example="120.0.6099.109"
+  // +kubebuilder:example="141"
   string browser = 4;
 
   // Browser name (e.g. "Chrome", "Safari", "Firefox").
@@ -326,12 +326,12 @@ message WebInfo {
   // Cumulative number of web sessions recorded for this user.
   // Incremented on each new session.
   //
-  // +kubebuilder:example="5"
+  // +kubebuilder:example="1"
   int32 sessions_count = 6;
 
   // Timestamp of the user's most recent web session start.
   //
-  // +kubebuilder:example="2026-04-28T09:40:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:49Z"
   google.protobuf.Timestamp last_seen_at = 7;
 }
 
@@ -359,7 +359,7 @@ message MobileInfo {
 
   // Name of the host application embedding the Channel SDK.
   //
-  // +kubebuilder:example="MyApp"
+  // +kubebuilder:example="Channel Shop"
   string app_name = 4;
 
   // Version of the host application embedding the Channel SDK.
@@ -385,6 +385,6 @@ message MobileInfo {
 
   // Timestamp of the user's most recent mobile session start.
   //
-  // +kubebuilder:example="2026-04-28T09:40:00Z"
+  // +kubebuilder:example="2025-10-30T09:12:49Z"
   google.protobuf.Timestamp last_seen_at = 9;
 }

@@ -30,7 +30,7 @@ message Block {
   // Text content of the block.
   // Applicable for TEXT and CODE block types; ignored for BULLETS.
   //
-  // +kubebuilder:example="Hello, world!"
+  // +kubebuilder:example="안녕하세요, 주문 확인 부탁드립니다."
   string value = 3;
 
   // Nested child blocks that form a hierarchical list structure.
@@ -113,7 +113,7 @@ message MessageFile {
   // Unique file identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="file-001"
+  // +kubebuilder:example="6606508ec1dd00001a2b"
   string id = 1 [(buf.validate.field).required = true];
 
   // High-level media category derived from the MIME type (e.g. "image", "video", "audio").
@@ -221,13 +221,13 @@ message MessageFile {
   // Channel ID that owns this private file.
   // Derived from the storage key pattern.
   //
-  // +kubebuilder:example="ch-12345"
+  // +kubebuilder:example="6263"
   string channel_id = 16;
 
   // Manager ID that owns this private file.
   // Derived from the storage key pattern; present only when `private_file_scope` is MANAGER.
   //
-  // +kubebuilder:example="m-abc123"
+  // +kubebuilder:example="9187"
   string manager_id = 17;
 
   // Chat type for chat-scoped private files.
@@ -239,7 +239,7 @@ message MessageFile {
   // Chat ID for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
   //
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="6606508eaa71575f1e8c"
   string chat_id = 19;
 
   // Access scope for private file visibility.
@@ -264,7 +264,7 @@ message MessageWebPage {
   // Unique web page preview identifier.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="wp-001"
+  // +kubebuilder:example="6606508ec1dd00001a2b"
   string id = 1 [(buf.validate.field).required = true];
 
   // Target URL of the linked web page.
@@ -383,7 +383,7 @@ message MessageContent {
 
   // Plain text representation of the message.
   //
-  // +kubebuilder:example="Hello, how can I help you?"
+  // +kubebuilder:example="안녕하세요, 문의드립니다."
   string plain_text = 2;
 
   // Interactive buttons attached to the message.

@@ -24,7 +24,7 @@ message CampaignUser {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="u-abc123"
+  // +kubebuilder:example="67776a4781a5fff12ecb"
   string user_id = 1 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -38,7 +38,7 @@ message CampaignUser {
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="cpn-001"
+  // +kubebuilder:example="4461"
   string campaign_id = 2 [
     (buf.validate.field).cel = {
       id: "string.minLen"
@@ -50,42 +50,42 @@ message CampaignUser {
 
   // Message variant that was delivered to this user.
   //
-  // +kubebuilder:example="cm-001"
+  // +kubebuilder:example="2015"
   string msg_id = 3;
 
   // User chat conversation created by the campaign delivery.
   //
-  // +kubebuilder:example="uc-abc123"
+  // +kubebuilder:example="68218603ba2aec12b158"
   string user_chat_id = 4;
 
   // Timestamp when the campaign message was delivered to the user.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp sent = 5;
 
   // Timestamp when the user first viewed the delivered message.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp view = 6;
 
   // Timestamp when the user first clicked a link in the message.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp click = 7;
 
   // Timestamp when the user completed the campaign goal event.
   //
-  // +kubebuilder:example="2026-04-28T09:30:00Z"
+  // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp goal = 8;
 
   // Cumulative revenue attributed to this user from the campaign.
   //
-  // +kubebuilder:example="100.50"
+  // +kubebuilder:example="0"
   string revenue = 9;
 
   // Composite identifier in the format "{campaign_id}-{user_id}".
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="cpn-001-u-abc123"
+  // +kubebuilder:example="4461-67776a4781a5fff12ecb"
   string id = 10 [(buf.validate.field).required = true];
 }
