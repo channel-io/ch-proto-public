@@ -282,7 +282,7 @@ type UpdatePluginRequest struct {
 	// Whether the label button is displayed on the widget.
 	//
 	// +kubebuilder:validation:Nullable
-	LabelButton bool `protobuf:"varint,5,opt,name=label_button,json=labelButton,proto3" json:"label_button,omitempty"`
+	LabelButton *bool `protobuf:"varint,5,opt,name=label_button,json=labelButton,proto3,oneof" json:"label_button,omitempty"`
 	// Text displayed on the label button.
 	//
 	// +kubebuilder:validation:Nullable
@@ -306,15 +306,15 @@ type UpdatePluginRequest struct {
 	// Horizontal margin in pixels for the desktop widget.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskMarginX int32 `protobuf:"varint,10,opt,name=desk_margin_x,json=deskMarginX,proto3" json:"desk_margin_x,omitempty"`
+	DeskMarginX *int32 `protobuf:"varint,10,opt,name=desk_margin_x,json=deskMarginX,proto3,oneof" json:"desk_margin_x,omitempty"`
 	// Vertical margin in pixels for the desktop widget.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskMarginY int32 `protobuf:"varint,11,opt,name=desk_margin_y,json=deskMarginY,proto3" json:"desk_margin_y,omitempty"`
+	DeskMarginY *int32 `protobuf:"varint,11,opt,name=desk_margin_y,json=deskMarginY,proto3,oneof" json:"desk_margin_y,omitempty"`
 	// Whether the launcher button is hidden on desktop.
 	//
 	// +kubebuilder:validation:Nullable
-	DeskHideButton bool `protobuf:"varint,12,opt,name=desk_hide_button,json=deskHideButton,proto3" json:"desk_hide_button,omitempty"`
+	DeskHideButton *bool `protobuf:"varint,12,opt,name=desk_hide_button,json=deskHideButton,proto3,oneof" json:"desk_hide_button,omitempty"`
 	// Horizontal position of the widget on desktop.
 	//
 	// +kubebuilder:validation:Nullable
@@ -322,11 +322,11 @@ type UpdatePluginRequest struct {
 	// Horizontal margin in pixels for the mobile widget.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileMarginX int32 `protobuf:"varint,14,opt,name=mobile_margin_x,json=mobileMarginX,proto3" json:"mobile_margin_x,omitempty"`
+	MobileMarginX *int32 `protobuf:"varint,14,opt,name=mobile_margin_x,json=mobileMarginX,proto3,oneof" json:"mobile_margin_x,omitempty"`
 	// Vertical margin in pixels for the mobile widget.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileMarginY int32 `protobuf:"varint,15,opt,name=mobile_margin_y,json=mobileMarginY,proto3" json:"mobile_margin_y,omitempty"`
+	MobileMarginY *int32 `protobuf:"varint,15,opt,name=mobile_margin_y,json=mobileMarginY,proto3,oneof" json:"mobile_margin_y,omitempty"`
 	// Horizontal position of the widget on mobile.
 	//
 	// +kubebuilder:validation:Nullable
@@ -334,7 +334,7 @@ type UpdatePluginRequest struct {
 	// Whether the launcher button is hidden on mobile.
 	//
 	// +kubebuilder:validation:Nullable
-	MobileHideButton bool `protobuf:"varint,17,opt,name=mobile_hide_button,json=mobileHideButton,proto3" json:"mobile_hide_button,omitempty"`
+	MobileHideButton *bool `protobuf:"varint,17,opt,name=mobile_hide_button,json=mobileHideButton,proto3,oneof" json:"mobile_hide_button,omitempty"`
 	// Vertical position of the chat bubble on mobile.
 	//
 	// +kubebuilder:validation:Nullable
@@ -344,7 +344,7 @@ type UpdatePluginRequest struct {
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=1
-	RunRate float32 `protobuf:"fixed32,19,opt,name=run_rate,json=runRate,proto3" json:"run_rate,omitempty"`
+	RunRate *float32 `protobuf:"fixed32,19,opt,name=run_rate,json=runRate,proto3,oneof" json:"run_rate,omitempty"`
 	// External image URL to use as the custom launcher button image.
 	// Applicable when button_type is CUSTOM_IMAGE.
 	//
@@ -413,8 +413,8 @@ func (x *UpdatePluginRequest) GetAppearance() model.PluginAppearance {
 }
 
 func (x *UpdatePluginRequest) GetLabelButton() bool {
-	if x != nil {
-		return x.LabelButton
+	if x != nil && x.LabelButton != nil {
+		return *x.LabelButton
 	}
 	return false
 }
@@ -448,22 +448,22 @@ func (x *UpdatePluginRequest) GetIconButton() model.PluginIconButton {
 }
 
 func (x *UpdatePluginRequest) GetDeskMarginX() int32 {
-	if x != nil {
-		return x.DeskMarginX
+	if x != nil && x.DeskMarginX != nil {
+		return *x.DeskMarginX
 	}
 	return 0
 }
 
 func (x *UpdatePluginRequest) GetDeskMarginY() int32 {
-	if x != nil {
-		return x.DeskMarginY
+	if x != nil && x.DeskMarginY != nil {
+		return *x.DeskMarginY
 	}
 	return 0
 }
 
 func (x *UpdatePluginRequest) GetDeskHideButton() bool {
-	if x != nil {
-		return x.DeskHideButton
+	if x != nil && x.DeskHideButton != nil {
+		return *x.DeskHideButton
 	}
 	return false
 }
@@ -476,15 +476,15 @@ func (x *UpdatePluginRequest) GetDeskPosition() model.PluginPosition {
 }
 
 func (x *UpdatePluginRequest) GetMobileMarginX() int32 {
-	if x != nil {
-		return x.MobileMarginX
+	if x != nil && x.MobileMarginX != nil {
+		return *x.MobileMarginX
 	}
 	return 0
 }
 
 func (x *UpdatePluginRequest) GetMobileMarginY() int32 {
-	if x != nil {
-		return x.MobileMarginY
+	if x != nil && x.MobileMarginY != nil {
+		return *x.MobileMarginY
 	}
 	return 0
 }
@@ -497,8 +497,8 @@ func (x *UpdatePluginRequest) GetMobilePosition() model.PluginPosition {
 }
 
 func (x *UpdatePluginRequest) GetMobileHideButton() bool {
-	if x != nil {
-		return x.MobileHideButton
+	if x != nil && x.MobileHideButton != nil {
+		return *x.MobileHideButton
 	}
 	return false
 }
@@ -511,8 +511,8 @@ func (x *UpdatePluginRequest) GetMobileBubblePosition() model.PluginBubblePositi
 }
 
 func (x *UpdatePluginRequest) GetRunRate() float32 {
-	if x != nil {
-		return x.RunRate
+	if x != nil && x.RunRate != nil {
+		return *x.RunRate
 	}
 	return 0
 }
@@ -590,7 +590,7 @@ const file_coreapi_service_plugin_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"@\n" +
 	"\x0fGetPluginResult\x12-\n" +
-	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06plugin\"\xb3\v\n" +
+	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06plugin\"\xf1\f\n" +
 	"\x13UpdatePluginRequest\x12#\n" +
 	"\tplugin_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bpluginId\x12%\n" +
 	"\n" +
@@ -599,8 +599,8 @@ const file_coreapi_service_plugin_proto_rawDesc = "" +
 	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30R\x04name\x12?\n" +
 	"\n" +
 	"appearance\x18\x04 \x01(\x0e2\x1f.coreapi.model.PluginAppearanceR\n" +
-	"appearance\x12!\n" +
-	"\flabel_button\x18\x05 \x01(\bR\vlabelButton\x12\x9e\x01\n" +
+	"appearance\x12&\n" +
+	"\flabel_button\x18\x05 \x01(\bH\x00R\vlabelButton\x88\x01\x01\x12\x9e\x01\n" +
 	"\x11label_button_text\x18\x06 \x01(\tBr\xbaHo\xba\x01l\n" +
 	"\n" +
 	"string.len\x12)value must be between 4 and 30 characters\x1a3this == '' || (size(this) >= 4 && size(this) <= 30)R\x0flabelButtonText\x12|\n" +
@@ -608,24 +608,32 @@ const file_coreapi_service_plugin_proto_rawDesc = "" +
 	"\vbutton_type\x18\b \x01(\x0e2\x1f.coreapi.model.PluginButtonTypeR\n" +
 	"buttonType\x12@\n" +
 	"\vicon_button\x18\t \x01(\x0e2\x1f.coreapi.model.PluginIconButtonR\n" +
-	"iconButton\x12\"\n" +
+	"iconButton\x12'\n" +
 	"\rdesk_margin_x\x18\n" +
-	" \x01(\x05R\vdeskMarginX\x12\"\n" +
-	"\rdesk_margin_y\x18\v \x01(\x05R\vdeskMarginY\x12(\n" +
-	"\x10desk_hide_button\x18\f \x01(\bR\x0edeskHideButton\x12B\n" +
-	"\rdesk_position\x18\r \x01(\x0e2\x1d.coreapi.model.PluginPositionR\fdeskPosition\x12&\n" +
-	"\x0fmobile_margin_x\x18\x0e \x01(\x05R\rmobileMarginX\x12&\n" +
-	"\x0fmobile_margin_y\x18\x0f \x01(\x05R\rmobileMarginY\x12F\n" +
-	"\x0fmobile_position\x18\x10 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\x0emobilePosition\x12,\n" +
-	"\x12mobile_hide_button\x18\x11 \x01(\bR\x10mobileHideButton\x12Y\n" +
-	"\x16mobile_bubble_position\x18\x12 \x01(\x0e2#.coreapi.model.PluginBubblePositionR\x14mobileBubblePosition\x12\x87\x01\n" +
+	" \x01(\x05H\x01R\vdeskMarginX\x88\x01\x01\x12'\n" +
+	"\rdesk_margin_y\x18\v \x01(\x05H\x02R\vdeskMarginY\x88\x01\x01\x12-\n" +
+	"\x10desk_hide_button\x18\f \x01(\bH\x03R\x0edeskHideButton\x88\x01\x01\x12B\n" +
+	"\rdesk_position\x18\r \x01(\x0e2\x1d.coreapi.model.PluginPositionR\fdeskPosition\x12+\n" +
+	"\x0fmobile_margin_x\x18\x0e \x01(\x05H\x04R\rmobileMarginX\x88\x01\x01\x12+\n" +
+	"\x0fmobile_margin_y\x18\x0f \x01(\x05H\x05R\rmobileMarginY\x88\x01\x01\x12F\n" +
+	"\x0fmobile_position\x18\x10 \x01(\x0e2\x1d.coreapi.model.PluginPositionR\x0emobilePosition\x121\n" +
+	"\x12mobile_hide_button\x18\x11 \x01(\bH\x06R\x10mobileHideButton\x88\x01\x01\x12Y\n" +
+	"\x16mobile_bubble_position\x18\x12 \x01(\x0e2#.coreapi.model.PluginBubblePositionR\x14mobileBubblePosition\x12\x8c\x01\n" +
 	"\brun_rate\x18\x13 \x01(\x02Bl\xbaHi\xba\x012\n" +
 	"\tfloat.gte\x12\x18value must be at least 0\x1a\vthis >= 0.0\xba\x011\n" +
-	"\tfloat.lte\x12\x17value must be at most 1\x1a\vthis <= 1.0R\arunRate\x12(\n" +
+	"\tfloat.lte\x12\x17value must be at most 1\x1a\vthis <= 1.0H\aR\arunRate\x88\x01\x01\x12(\n" +
 	"\x10custom_image_url\x18\x14 \x01(\tR\x0ecustomImageUrl\x1aI\n" +
 	"\x1bLabelButtonTextI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"C\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\x0f\n" +
+	"\r_label_buttonB\x10\n" +
+	"\x0e_desk_margin_xB\x10\n" +
+	"\x0e_desk_margin_yB\x13\n" +
+	"\x11_desk_hide_buttonB\x12\n" +
+	"\x10_mobile_margin_xB\x12\n" +
+	"\x10_mobile_margin_yB\x15\n" +
+	"\x13_mobile_hide_buttonB\v\n" +
+	"\t_run_rate\"C\n" +
 	"\x12UpdatePluginResult\x12-\n" +
 	"\x06plugin\x18\x01 \x01(\v2\x15.coreapi.model.PluginR\x06pluginBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
@@ -681,6 +689,7 @@ func file_coreapi_service_plugin_proto_init() {
 	if File_coreapi_service_plugin_proto != nil {
 		return
 	}
+	file_coreapi_service_plugin_proto_msgTypes[4].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
