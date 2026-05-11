@@ -361,16 +361,16 @@ message AssignManagerToUserChatResult {
 }
 
 // ============================================================
-// UserChat Sessions (chat_session 종속)
+// Chat Sessions (chat_session 종속)
 // ============================================================
 
 // Retrieves a list of chat sessions for a user chat.
-message SearchUserChatSessionsRequest {
+message SearchChatSessionsRequest {
   string channel_id = 1 [(buf.validate.field).required = true];
   string user_chat_id = 2 [(buf.validate.field).required = true];
 }
 
-message SearchUserChatSessionsResult {
+message SearchChatSessionsResult {
   repeated coreapi.model.ChatSession chat_sessions = 1;
 }
 

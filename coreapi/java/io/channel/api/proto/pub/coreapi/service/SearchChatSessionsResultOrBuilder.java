@@ -3,8 +3,8 @@
 
 package io.channel.api.proto.pub.coreapi.service;
 
-public interface SearchUserChatSessionsResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:coreapi.service.SearchUserChatSessionsResult)
+public interface SearchChatSessionsResultOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:coreapi.service.SearchChatSessionsResult)
     com.google.protobuf.MessageOrBuilder {
 
   /**
