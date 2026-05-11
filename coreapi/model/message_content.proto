@@ -16,6 +16,12 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // Block represents a structured content block within a message.
 // Blocks can be nested to form bullet lists.
 message Block {
+  option (buf.validate.message).cel = {
+    id: "block.value_required_for_leaf_types"
+    message: "value must be non-empty when type is TEXT or CODE"
+    expression: "(this.type == coreapi.model.Block.BlockType.BLOCK_TYPE_CODE || this.type == coreapi.model.Block.BlockType.BLOCK_TYPE_TEXT) ? size(this.value) > 0 : true"
+  };
+
   // Content block type that determines how the block is rendered and which fields are applicable.
   //
   // +kubebuilder:validation:Required
@@ -376,7 +382,15 @@ enum MessageOption {
 }
 
 // MessageContent represents the content payload for sending a message via the API.
+//
+// At least one of blocks, plain_text, files, buttons, web_page, or form must be set.
 message MessageContent {
+  option (buf.validate.message).cel = {
+    id: "message_content.at_least_one_field"
+    message: "at least one of blocks, plain_text, files, buttons, web_page, form must be set"
+    expression: "size(this.blocks) > 0 || size(this.plain_text) > 0 || size(this.files) > 0 || size(this.buttons) > 0 || has(this.web_page) || has(this.form)"
+  };
+
   // Structured content blocks of the message.
   //
   repeated Block blocks = 1;

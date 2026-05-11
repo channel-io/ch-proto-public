@@ -909,6 +909,8 @@ func (x *MessageWebPage) GetName() string {
 }
 
 // MessageContent represents the content payload for sending a message via the API.
+//
+// At least one of blocks, plain_text, files, buttons, web_page, or form must be set.
 type MessageContent struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Structured content blocks of the message.
@@ -1034,7 +1036,7 @@ var File_coreapi_model_message_content_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x8e\x02\n" +
+	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x8b\x04\n" +
 	"\x05Block\x12:\n" +
 	"\x04type\x18\x01 \x01(\x0e2\x1e.coreapi.model.Block.BlockTypeB\x06\xbaH\x03\xc8\x01\x01R\x04type\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x14\n" +
@@ -1044,7 +1046,8 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\x16BLOCK_TYPE_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12BLOCK_TYPE_BULLETS\x10\x01\x12\x13\n" +
 	"\x0fBLOCK_TYPE_CODE\x10\x02\x12\x13\n" +
-	"\x0fBLOCK_TYPE_TEXT\x10\x03\"\xad\x04\n" +
+	"\x0fBLOCK_TYPE_TEXT\x10\x03:\xfa\x01\xbaH\xf6\x01\x1a\xf3\x01\n" +
+	"#block.value_required_for_leaf_types\x121value must be non-empty when type is TEXT or CODE\x1a\x98\x01(this.type == coreapi.model.Block.BlockType.BLOCK_TYPE_CODE || this.type == coreapi.model.Block.BlockType.BLOCK_TYPE_TEXT) ? size(this.value) > 0 : true\"\xad\x04\n" +
 	"\rMessageButton\x12\xb3\x01\n" +
 	"\x05title\x18\x01 \x01(\tB\x9c\x01\xbaH\x98\x01\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xba\x01K\n" +
@@ -1109,7 +1112,7 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\vpreview_key\x18\f \x01(\tR\n" +
 	"previewKey\x12\x12\n" +
 	"\x04logo\x18\r \x01(\tR\x04logo\x12\x12\n" +
-	"\x04name\x18\x0e \x01(\tR\x04name\"\x99\x03\n" +
+	"\x04name\x18\x0e \x01(\tR\x04name\"\xa6\x05\n" +
 	"\x0eMessageContent\x12,\n" +
 	"\x06blocks\x18\x01 \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
 	"\n" +
@@ -1121,7 +1124,8 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\x04form\x18\x06 \x01(\v2\x17.google.protobuf.StructR\x04form\x126\n" +
 	"\aoptions\x18\a \x03(\x0e2\x1c.coreapi.model.MessageOptionR\aoptions\x12\x1d\n" +
 	"\n" +
-	"request_id\x18\b \x01(\tR\trequestId*\xc8\x03\n" +
+	"request_id\x18\b \x01(\tR\trequestId:\x8a\x02\xbaH\x86\x02\x1a\x83\x02\n" +
+	"\"message_content.at_least_one_field\x12Nat least one of blocks, plain_text, files, buttons, web_page, form must be set\x1a\x8c\x01size(this.blocks) > 0 || size(this.plain_text) > 0 || size(this.files) > 0 || size(this.buttons) > 0 || has(this.web_page) || has(this.form)*\xc8\x03\n" +
 	"\rMessageOption\x12\x1e\n" +
 	"\x1aMESSAGE_OPTION_UNSPECIFIED\x10\x00\x12!\n" +
 	"\x1dMESSAGE_OPTION_ACT_AS_MANAGER\x10\x01\x12%\n" +

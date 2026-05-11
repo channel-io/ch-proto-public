@@ -6,6 +6,7 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * MessageContent represents the content payload for sending a message via the API.
+ * At least one of blocks, plain_text, files, buttons, web_page, or form must be set.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageContent}
@@ -905,6 +906,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MessageContent represents the content payload for sending a message via the API.
+   * At least one of blocks, plain_text, files, buttons, web_page, or form must be set.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageContent}

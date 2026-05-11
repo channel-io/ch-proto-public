@@ -50,88 +50,102 @@ public final class MessageContentOuterClass {
     java.lang.String[] descriptorData = {
       "\n#coreapi/model/message_content.proto\022\rc" +
       "oreapi.model\032\033buf/validate/validate.prot" +
-      "o\032\034google/protobuf/struct.proto\"\216\002\n\005Bloc" +
+      "o\032\034google/protobuf/struct.proto\"\213\004\n\005Bloc" +
       "k\022:\n\004type\030\001 \001(\0162\036.coreapi.model.Block.Bl" +
       "ockTypeB\006\272H\003\310\001\001R\004type\022\032\n\010language\030\002 \001(\tR" +
       "\010language\022\024\n\005value\030\003 \001(\tR\005value\022,\n\006block" +
       "s\030\004 \003(\0132\024.coreapi.model.BlockR\006blocks\"i\n" +
       "\tBlockType\022\032\n\026BLOCK_TYPE_UNSPECIFIED\020\000\022\026" +
       "\n\022BLOCK_TYPE_BULLETS\020\001\022\023\n\017BLOCK_TYPE_COD" +
-      "E\020\002\022\023\n\017BLOCK_TYPE_TEXT\020\003\"\255\004\n\rMessageButt" +
-      "on\022\263\001\n\005title\030\001 \001(\tB\234\001\272H\230\001\272\001D\n\rstring.min" +
-      "Len\022\"value must be at least 1 character\032" +
-      "\017size(this) >= 1\272\001K\n\rstring.maxLen\022(valu" +
-      "e must be no more than 30 characters\032\020si" +
-      "ze(this) <= 30\310\001\001R\005title\022N\n\rcolor_varian" +
-      "t\030\002 \001(\0162).coreapi.model.MessageButton.Co" +
-      "lorVariantR\014colorVariant\0227\n\006action\030\003 \001(\013" +
-      "2\027.google.protobuf.StructB\006\272H\003\310\001\001R\006actio" +
-      "n\"\334\001\n\014ColorVariant\022\035\n\031COLOR_VARIANT_UNSP" +
-      "ECIFIED\020\000\022\030\n\024COLOR_VARIANT_COBALT\020\001\022\027\n\023C" +
-      "OLOR_VARIANT_GREEN\020\002\022\030\n\024COLOR_VARIANT_OR" +
-      "ANGE\020\003\022\025\n\021COLOR_VARIANT_RED\020\004\022\027\n\023COLOR_V" +
-      "ARIANT_BLACK\020\005\022\026\n\022COLOR_VARIANT_PINK\020\006\022\030" +
-      "\n\024COLOR_VARIANT_PURPLE\020\007\"\326\007\n\013MessageFile" +
-      "\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022\022\n\004type\030\002 \001(\tR\004" +
-      "type\022a\n\004name\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minLe" +
-      "n\022\"value must be at least 1 character\032\017s" +
-      "ize(this) >= 1\310\001\001R\004name\022\032\n\004size\030\004 \001(\003B\006\272" +
-      "H\003\310\001\001R\004size\022!\n\014content_type\030\005 \001(\tR\013conte" +
-      "ntType\022\032\n\010duration\030\006 \001(\001R\010duration\022\024\n\005wi" +
-      "dth\030\007 \001(\005R\005width\022\026\n\006height\030\010 \001(\005R\006height" +
-      "\022 \n\013orientation\030\t \001(\005R\013orientation\022\032\n\010an" +
-      "imated\030\n \001(\010R\010animated\022e\n\006bucket\030\013 \001(\tBM" +
+      "E\020\002\022\023\n\017BLOCK_TYPE_TEXT\020\003:\372\001\272H\366\001\032\363\001\n#bloc" +
+      "k.value_required_for_leaf_types\0221value m" +
+      "ust be non-empty when type is TEXT or CO" +
+      "DE\032\230\001(this.type == coreapi.model.Block.B" +
+      "lockType.BLOCK_TYPE_CODE || this.type ==" +
+      " coreapi.model.Block.BlockType.BLOCK_TYP" +
+      "E_TEXT) ? size(this.value) > 0 : true\"\255\004" +
+      "\n\rMessageButton\022\263\001\n\005title\030\001 \001(\tB\234\001\272H\230\001\272\001" +
+      "D\n\rstring.minLen\022\"value must be at least" +
+      " 1 character\032\017size(this) >= 1\272\001K\n\rstring" +
+      ".maxLen\022(value must be no more than 30 c" +
+      "haracters\032\020size(this) <= 30\310\001\001R\005title\022N\n" +
+      "\rcolor_variant\030\002 \001(\0162).coreapi.model.Mes" +
+      "sageButton.ColorVariantR\014colorVariant\0227\n" +
+      "\006action\030\003 \001(\0132\027.google.protobuf.StructB\006" +
+      "\272H\003\310\001\001R\006action\"\334\001\n\014ColorVariant\022\035\n\031COLOR" +
+      "_VARIANT_UNSPECIFIED\020\000\022\030\n\024COLOR_VARIANT_" +
+      "COBALT\020\001\022\027\n\023COLOR_VARIANT_GREEN\020\002\022\030\n\024COL" +
+      "OR_VARIANT_ORANGE\020\003\022\025\n\021COLOR_VARIANT_RED" +
+      "\020\004\022\027\n\023COLOR_VARIANT_BLACK\020\005\022\026\n\022COLOR_VAR" +
+      "IANT_PINK\020\006\022\030\n\024COLOR_VARIANT_PURPLE\020\007\"\326\007" +
+      "\n\013MessageFile\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022\022\n" +
+      "\004type\030\002 \001(\tR\004type\022a\n\004name\030\003 \001(\tBM\272HJ\272\001D\n" +
+      "\rstring.minLen\022\"value must be at least 1" +
+      " character\032\017size(this) >= 1\310\001\001R\004name\022\032\n\004" +
+      "size\030\004 \001(\003B\006\272H\003\310\001\001R\004size\022!\n\014content_type" +
+      "\030\005 \001(\tR\013contentType\022\032\n\010duration\030\006 \001(\001R\010d" +
+      "uration\022\024\n\005width\030\007 \001(\005R\005width\022\026\n\006height\030" +
+      "\010 \001(\005R\006height\022 \n\013orientation\030\t \001(\005R\013orie" +
+      "ntation\022\032\n\010animated\030\n \001(\010R\010animated\022e\n\006b" +
+      "ucket\030\013 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"valu" +
+      "e must be at least 1 character\032\017size(thi" +
+      "s) >= 1\310\001\001R\006bucket\022_\n\003key\030\014 \001(\tBM\272HJ\272\001D\n" +
+      "\rstring.minLen\022\"value must be at least 1" +
+      " character\032\017size(this) >= 1\310\001\001R\003key\022\037\n\013p" +
+      "review_key\030\r \001(\tR\npreviewKey\022Y\n\022private_" +
+      "file_scope\030\016 \001(\0162+.coreapi.model.Message" +
+      "File.PrivateFileScopeR\020privateFileScope\022" +
+      "#\n\rshared_domain\030\017 \001(\tR\014sharedDomain\022\035\n\n" +
+      "channel_id\030\020 \001(\tR\tchannelId\022\035\n\nmanager_i" +
+      "d\030\021 \001(\tR\tmanagerId\022\033\n\tchat_type\030\022 \001(\tR\010c" +
+      "hatType\022\027\n\007chat_id\030\023 \001(\tR\006chatId\"\223\001\n\020Pri" +
+      "vateFileScope\022\"\n\036PRIVATE_FILE_SCOPE_UNSP" +
+      "ECIFIED\020\000\022\033\n\027PRIVATE_FILE_SCOPE_CHAT\020\001\022\036" +
+      "\n\032PRIVATE_FILE_SCOPE_MANAGER\020\002\022\036\n\032PRIVAT" +
+      "E_FILE_SCOPE_CHANNEL\020\003\"\300\003\n\016MessageWebPag" +
+      "e\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022_\n\003url\030\002 \001(\tBM" +
       "\272HJ\272\001D\n\rstring.minLen\022\"value must be at " +
-      "least 1 character\032\017size(this) >= 1\310\001\001R\006b" +
-      "ucket\022_\n\003key\030\014 \001(\tBM\272HJ\272\001D\n\rstring.minLe" +
-      "n\022\"value must be at least 1 character\032\017s" +
-      "ize(this) >= 1\310\001\001R\003key\022\037\n\013preview_key\030\r " +
-      "\001(\tR\npreviewKey\022Y\n\022private_file_scope\030\016 " +
-      "\001(\0162+.coreapi.model.MessageFile.PrivateF" +
-      "ileScopeR\020privateFileScope\022#\n\rshared_dom" +
-      "ain\030\017 \001(\tR\014sharedDomain\022\035\n\nchannel_id\030\020 " +
-      "\001(\tR\tchannelId\022\035\n\nmanager_id\030\021 \001(\tR\tmana" +
-      "gerId\022\033\n\tchat_type\030\022 \001(\tR\010chatType\022\027\n\007ch" +
-      "at_id\030\023 \001(\tR\006chatId\"\223\001\n\020PrivateFileScope" +
-      "\022\"\n\036PRIVATE_FILE_SCOPE_UNSPECIFIED\020\000\022\033\n\027" +
-      "PRIVATE_FILE_SCOPE_CHAT\020\001\022\036\n\032PRIVATE_FIL" +
-      "E_SCOPE_MANAGER\020\002\022\036\n\032PRIVATE_FILE_SCOPE_" +
-      "CHANNEL\020\003\"\300\003\n\016MessageWebPage\022\026\n\002id\030\001 \001(\t" +
-      "B\006\272H\003\310\001\001R\002id\022_\n\003url\030\002 \001(\tBM\272HJ\272\001D\n\rstrin" +
-      "g.minLen\022\"value must be at least 1 chara" +
-      "cter\032\017size(this) >= 1\310\001\001R\003url\022\024\n\005title\030\003" +
-      " \001(\tR\005title\022 \n\013description\030\004 \001(\tR\013descri" +
-      "ption\022\033\n\timage_url\030\005 \001(\tR\010imageUrl\022\033\n\tvi" +
-      "deo_url\030\006 \001(\tR\010videoUrl\022\034\n\tpublisher\030\007 \001" +
-      "(\tR\tpublisher\022\026\n\006author\030\010 \001(\tR\006author\022\024\n" +
-      "\005width\030\t \001(\005R\005width\022\026\n\006height\030\n \001(\005R\006hei" +
-      "ght\022\026\n\006bucket\030\013 \001(\tR\006bucket\022\037\n\013preview_k" +
-      "ey\030\014 \001(\tR\npreviewKey\022\022\n\004logo\030\r \001(\tR\004logo" +
-      "\022\022\n\004name\030\016 \001(\tR\004name\"\231\003\n\016MessageContent\022" +
-      ",\n\006blocks\030\001 \003(\0132\024.coreapi.model.BlockR\006b" +
-      "locks\022\035\n\nplain_text\030\002 \001(\tR\tplainText\022@\n\007" +
-      "buttons\030\003 \003(\0132\034.coreapi.model.MessageBut" +
-      "tonB\010\272H\005\222\001\002\020\002R\007buttons\022:\n\005files\030\004 \003(\0132\032." +
-      "coreapi.model.MessageFileB\010\272H\005\222\001\002\020\nR\005fil" +
-      "es\0228\n\010web_page\030\005 \001(\0132\035.coreapi.model.Mes" +
-      "sageWebPageR\007webPage\022+\n\004form\030\006 \001(\0132\027.goo" +
-      "gle.protobuf.StructR\004form\0226\n\007options\030\007 \003" +
-      "(\0162\034.coreapi.model.MessageOptionR\007option" +
-      "s\022\035\n\nrequest_id\030\010 \001(\tR\trequestId*\310\003\n\rMes" +
-      "sageOption\022\036\n\032MESSAGE_OPTION_UNSPECIFIED" +
-      "\020\000\022!\n\035MESSAGE_OPTION_ACT_AS_MANAGER\020\001\022%\n" +
-      "!MESSAGE_OPTION_DISPLAY_AS_CHANNEL\020\002\022\036\n\032" +
-      "MESSAGE_OPTION_DO_NOT_POST\020\003\022 \n\034MESSAGE_" +
-      "OPTION_DO_NOT_SEARCH\020\004\022\"\n\036MESSAGE_OPTION" +
-      "_DO_NOT_SEND_APP\020\005\022%\n!MESSAGE_OPTION_DO_" +
-      "NOT_UPDATE_DESK\020\006\022\034\n\030MESSAGE_OPTION_IMMU" +
-      "TABLE\020\007\022\032\n\026MESSAGE_OPTION_PRIVATE\020\010\022\031\n\025M" +
-      "ESSAGE_OPTION_SILENT\020\t\022$\n MESSAGE_OPTION" +
-      "_SILENT_TO_MANAGER\020\n\022!\n\035MESSAGE_OPTION_S" +
-      "ILENT_TO_USER\020\013\022\"\n\036MESSAGE_OPTION_ALERT_" +
-      "TO_WRITER\020\014Bb\n&io.channel.api.proto.pub." +
-      "coreapi.modelP\001Z6github.com/channel-io/c" +
-      "h-proto-public/coreapi/go/modelb\006proto3"
+      "least 1 character\032\017size(this) >= 1\310\001\001R\003u" +
+      "rl\022\024\n\005title\030\003 \001(\tR\005title\022 \n\013description\030" +
+      "\004 \001(\tR\013description\022\033\n\timage_url\030\005 \001(\tR\010i" +
+      "mageUrl\022\033\n\tvideo_url\030\006 \001(\tR\010videoUrl\022\034\n\t" +
+      "publisher\030\007 \001(\tR\tpublisher\022\026\n\006author\030\010 \001" +
+      "(\tR\006author\022\024\n\005width\030\t \001(\005R\005width\022\026\n\006heig" +
+      "ht\030\n \001(\005R\006height\022\026\n\006bucket\030\013 \001(\tR\006bucket" +
+      "\022\037\n\013preview_key\030\014 \001(\tR\npreviewKey\022\022\n\004log" +
+      "o\030\r \001(\tR\004logo\022\022\n\004name\030\016 \001(\tR\004name\"\246\005\n\016Me" +
+      "ssageContent\022,\n\006blocks\030\001 \003(\0132\024.coreapi.m" +
+      "odel.BlockR\006blocks\022\035\n\nplain_text\030\002 \001(\tR\t" +
+      "plainText\022@\n\007buttons\030\003 \003(\0132\034.coreapi.mod" +
+      "el.MessageButtonB\010\272H\005\222\001\002\020\002R\007buttons\022:\n\005f" +
+      "iles\030\004 \003(\0132\032.coreapi.model.MessageFileB\010" +
+      "\272H\005\222\001\002\020\nR\005files\0228\n\010web_page\030\005 \001(\0132\035.core" +
+      "api.model.MessageWebPageR\007webPage\022+\n\004for" +
+      "m\030\006 \001(\0132\027.google.protobuf.StructR\004form\0226" +
+      "\n\007options\030\007 \003(\0162\034.coreapi.model.MessageO" +
+      "ptionR\007options\022\035\n\nrequest_id\030\010 \001(\tR\trequ" +
+      "estId:\212\002\272H\206\002\032\203\002\n\"message_content.at_leas" +
+      "t_one_field\022Nat least one of blocks, pla" +
+      "in_text, files, buttons, web_page, form " +
+      "must be set\032\214\001size(this.blocks) > 0 || s" +
+      "ize(this.plain_text) > 0 || size(this.fi" +
+      "les) > 0 || size(this.buttons) > 0 || ha" +
+      "s(this.web_page) || has(this.form)*\310\003\n\rM" +
+      "essageOption\022\036\n\032MESSAGE_OPTION_UNSPECIFI" +
+      "ED\020\000\022!\n\035MESSAGE_OPTION_ACT_AS_MANAGER\020\001\022" +
+      "%\n!MESSAGE_OPTION_DISPLAY_AS_CHANNEL\020\002\022\036" +
+      "\n\032MESSAGE_OPTION_DO_NOT_POST\020\003\022 \n\034MESSAG" +
+      "E_OPTION_DO_NOT_SEARCH\020\004\022\"\n\036MESSAGE_OPTI" +
+      "ON_DO_NOT_SEND_APP\020\005\022%\n!MESSAGE_OPTION_D" +
+      "O_NOT_UPDATE_DESK\020\006\022\034\n\030MESSAGE_OPTION_IM" +
+      "MUTABLE\020\007\022\032\n\026MESSAGE_OPTION_PRIVATE\020\010\022\031\n" +
+      "\025MESSAGE_OPTION_SILENT\020\t\022$\n MESSAGE_OPTI" +
+      "ON_SILENT_TO_MANAGER\020\n\022!\n\035MESSAGE_OPTION" +
+      "_SILENT_TO_USER\020\013\022\"\n\036MESSAGE_OPTION_ALER" +
+      "T_TO_WRITER\020\014Bb\n&io.channel.api.proto.pu" +
+      "b.coreapi.modelP\001Z6github.com/channel-io" +
+      "/ch-proto-public/coreapi/go/modelb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -172,6 +186,7 @@ public final class MessageContentOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);
+    registry.add(build.buf.validate.ValidateProto.message);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
