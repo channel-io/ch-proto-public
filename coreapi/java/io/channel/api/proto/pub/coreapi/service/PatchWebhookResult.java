@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.service;
 
 /**
  * <pre>
- * Response for webhook update.
+ * Response for webhook patch.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.PatchWebhookResult}
@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Response for webhook update.
+   * Response for webhook patch.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.PatchWebhookResult}

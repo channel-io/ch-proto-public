@@ -49,159 +49,58 @@ public interface PatchUserRequestOrBuilder extends
 
   /**
    * <pre>
-   * Custom key-value profile data to set or merge.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
-   * @return Whether the profile field is set.
+   * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return Whether the body field is set.
    */
-  boolean hasProfile();
+  boolean hasBody();
   /**
    * <pre>
-   * Custom key-value profile data to set or merge.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
-   * @return The profile.
+   * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
+   * @return The body.
    */
-  com.google.protobuf.Struct getProfile();
+  io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBody getBody();
   /**
    * <pre>
-   * Custom key-value profile data to set or merge.
+   * Patch body. Only fields listed in update_mask are applied.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile = 3 [json_name = "profile"];</code>
+   * <code>.coreapi.service.PatchUserRequest.PatchUserBody body = 3 [json_name = "body", (.buf.validate.field) = { ... }</code>
    */
-  com.google.protobuf.StructOrBuilder getProfileOrBuilder();
+  io.channel.api.proto.pub.coreapi.service.PatchUserRequest.PatchUserBodyOrBuilder getBodyOrBuilder();
 
   /**
    * <pre>
-   * Profile data that is set only once on first write.
-   * Subsequent updates to the same keys are ignored.
+   * Set of field paths (relative to PatchUserBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
-   * @return Whether the profileOnce field is set.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return Whether the updateMask field is set.
    */
-  boolean hasProfileOnce();
+  boolean hasUpdateMask();
   /**
    * <pre>
-   * Profile data that is set only once on first write.
-   * Subsequent updates to the same keys are ignored.
+   * Set of field paths (relative to PatchUserBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
-   * @return The profileOnce.
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
+   * @return The updateMask.
    */
-  com.google.protobuf.Struct getProfileOnce();
+  com.google.protobuf.FieldMask getUpdateMask();
   /**
    * <pre>
-   * Profile data that is set only once on first write.
-   * Subsequent updates to the same keys are ignored.
+   * Set of field paths (relative to PatchUserBody) to update.
+   * Unlisted fields remain unchanged.
    * </pre>
    *
-   * <code>.google.protobuf.Struct profile_once = 4 [json_name = "profileOnce"];</code>
+   * <code>.google.protobuf.FieldMask update_mask = 4 [json_name = "updateMask", (.buf.validate.field) = { ... }</code>
    */
-  com.google.protobuf.StructOrBuilder getProfileOnceOrBuilder();
-
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @return A list containing the tags.
-   */
-  java.util.List<java.lang.String>
-      getTagsList();
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @return The count of tags.
-   */
-  int getTagsCount();
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @param index The index of the element to return.
-   * @return The tags at the given index.
-   */
-  java.lang.String getTags(int index);
-  /**
-   * <pre>
-   * User classification tags to replace the current set.
-   * </pre>
-   *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the tags at the given index.
-   */
-  com.google.protobuf.ByteString
-      getTagsBytes(int index);
-
-  /**
-   * <pre>
-   * Whether the user is blocked.
-   * </pre>
-   *
-   * <code>bool blocked = 6 [json_name = "blocked"];</code>
-   * @return The blocked.
-   */
-  boolean getBlocked();
-
-  /**
-   * <pre>
-   * Whether the user opted out of email notifications.
-   * </pre>
-   *
-   * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
-   * @return The unsubscribeEmail.
-   */
-  boolean getUnsubscribeEmail();
-
-  /**
-   * <pre>
-   * Whether the user opted out of SMS/text notifications.
-   * </pre>
-   *
-   * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
-   * @return The unsubscribeTexting.
-   */
-  boolean getUnsubscribeTexting();
-
-  /**
-   * <pre>
-   * Whether the user opted out of app push notifications.
-   * </pre>
-   *
-   * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
-   * @return The unsubscribeAppPush.
-   */
-  boolean getUnsubscribeAppPush();
-
-  /**
-   * <pre>
-   * User's preferred language locale.
-   * </pre>
-   *
-   * <code>string language = 10 [json_name = "language"];</code>
-   * @return The language.
-   */
-  java.lang.String getLanguage();
-  /**
-   * <pre>
-   * User's preferred language locale.
-   * </pre>
-   *
-   * <code>string language = 10 [json_name = "language"];</code>
-   * @return The bytes for language.
-   */
-  com.google.protobuf.ByteString
-      getLanguageBytes();
+  com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder();
 }
