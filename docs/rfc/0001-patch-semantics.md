@@ -67,6 +67,10 @@ message PatchPluginRequest {
 | **B. FieldMask + Body** | **모든 필드 균일** | **✅** | **AIP-134/161, RFC 7396** | **변경 없음** |
 | C. Wrapper types | scalar만 | ❌ | △ | 없음 |
 
+**옵션 A 한계**: proto3 `optional`은 scalar/string에만 적용 가능하고 `repeated`/`map`(예: `url_white_list`, `i18n_map`)에는 적용 안 됨. 같은 메시지 안에서 필드 타입별로 partial update 시맨틱이 갈리는 문제 발생.
+
+**proto3 `optional`/`required` 키워드 비사용 컨벤션**: `.claude/rules/protovalidate.md`에 "키워드 사용 금지, 모든 검증은 buf.validate로" 규칙 존재 (proto2/3 간 키워드 의미 변동 이력 때문). 옵션 A 채택 시 이 규칙에 patch-only 예외 단서 필요.
+
 ### 채택 근거
 
 1. **Customer 영향 없음** — proto는 internal contract, customer는 OpenAPI PATCH 그대로 사용
