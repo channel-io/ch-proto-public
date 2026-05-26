@@ -931,50 +931,6 @@ public interface CampaignOrBuilder extends
 
   /**
    * <pre>
-   * Cumulative count of messages delivered.
-   * +kubebuilder:example="100"
-   * </pre>
-   *
-   * <code>int32 sent = 33 [json_name = "sent"];</code>
-   * @return The sent.
-   */
-  int getSent();
-
-  /**
-   * <pre>
-   * Cumulative count of message views by recipients.
-   * +kubebuilder:example="50"
-   * </pre>
-   *
-   * <code>int32 view = 34 [json_name = "view"];</code>
-   * @return The view.
-   */
-  int getView();
-
-  /**
-   * <pre>
-   * Cumulative count of goal event completions attributed to this campaign.
-   * +kubebuilder:example="10"
-   * </pre>
-   *
-   * <code>int32 goal = 35 [json_name = "goal"];</code>
-   * @return The goal.
-   */
-  int getGoal();
-
-  /**
-   * <pre>
-   * Cumulative count of message link clicks.
-   * +kubebuilder:example="25"
-   * </pre>
-   *
-   * <code>int32 click = 36 [json_name = "click"];</code>
-   * @return The click.
-   */
-  int getClick();
-
-  /**
-   * <pre>
    * Duration before the user chat created by this campaign expires, in ISO 8601 format.
    * Defaults to 31 days.
    * +kubebuilder:example="PT1H30M"

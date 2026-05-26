@@ -254,22 +254,6 @@ type OneTimeMsg struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2024-07-26T04:55:22Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Cumulative count of messages delivered.
-	//
-	// +kubebuilder:example="100"
-	Sent int32 `protobuf:"varint,26,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Cumulative count of message views by recipients.
-	//
-	// +kubebuilder:example="50"
-	View int32 `protobuf:"varint,27,opt,name=view,proto3" json:"view,omitempty"`
-	// Cumulative count of goal event completions attributed to this message.
-	//
-	// +kubebuilder:example="10"
-	Goal int32 `protobuf:"varint,28,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Cumulative count of message link clicks.
-	//
-	// +kubebuilder:example="25"
-	Click int32 `protobuf:"varint,29,opt,name=click,proto3" json:"click,omitempty"`
 	// Duration before the user chat created by this message expires, in ISO 8601 format.
 	// Defaults to 31 days.
 	//
@@ -484,34 +468,6 @@ func (x *OneTimeMsg) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *OneTimeMsg) GetSent() int32 {
-	if x != nil {
-		return x.Sent
-	}
-	return 0
-}
-
-func (x *OneTimeMsg) GetView() int32 {
-	if x != nil {
-		return x.View
-	}
-	return 0
-}
-
-func (x *OneTimeMsg) GetGoal() int32 {
-	if x != nil {
-		return x.Goal
-	}
-	return 0
-}
-
-func (x *OneTimeMsg) GetClick() int32 {
-	if x != nil {
-		return x.Click
-	}
-	return 0
-}
-
 func (x *OneTimeMsg) GetUserChatExpireDuration() *durationpb.Duration {
 	if x != nil {
 		return x.UserChatExpireDuration
@@ -523,7 +479,7 @@ var File_coreapi_model_one_time_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xeb\r\n" +
+	" coreapi/model/one_time_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x99\r\n" +
 	"\n" +
 	"OneTimeMsg\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
@@ -558,11 +514,7 @@ const file_coreapi_model_one_time_msg_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x18 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x12\n" +
-	"\x04sent\x18\x1a \x01(\x05R\x04sent\x12\x12\n" +
-	"\x04view\x18\x1b \x01(\x05R\x04view\x12\x12\n" +
-	"\x04goal\x18\x1c \x01(\x05R\x04goal\x12\x14\n" +
-	"\x05click\x18\x1d \x01(\x05R\x05click\x12T\n" +
+	"updated_at\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12T\n" +
 	"\x19user_chat_expire_duration\x18\x1e \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x1a_\n" +
 	"\x16ConversionWindowsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +

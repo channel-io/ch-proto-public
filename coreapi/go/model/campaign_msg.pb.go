@@ -75,23 +75,7 @@ type CampaignMsg struct {
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2024-09-19T02:07:40Z"
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Cumulative count of messages delivered for this variant.
-	//
-	// +kubebuilder:example="100"
-	Sent int32 `protobuf:"varint,10,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Cumulative count of message views by recipients for this variant.
-	//
-	// +kubebuilder:example="50"
-	View int32 `protobuf:"varint,11,opt,name=view,proto3" json:"view,omitempty"`
-	// Cumulative count of goal event completions attributed to this variant.
-	//
-	// +kubebuilder:example="10"
-	Goal int32 `protobuf:"varint,12,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Cumulative count of message link clicks for this variant.
-	//
-	// +kubebuilder:example="25"
-	Click         int32 `protobuf:"varint,13,opt,name=click,proto3" json:"click,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -189,39 +173,11 @@ func (x *CampaignMsg) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *CampaignMsg) GetSent() int32 {
-	if x != nil {
-		return x.Sent
-	}
-	return 0
-}
-
-func (x *CampaignMsg) GetView() int32 {
-	if x != nil {
-		return x.View
-	}
-	return 0
-}
-
-func (x *CampaignMsg) GetGoal() int32 {
-	if x != nil {
-		return x.Goal
-	}
-	return 0
-}
-
-func (x *CampaignMsg) GetClick() int32 {
-	if x != nil {
-		return x.Click
-	}
-	return 0
-}
-
 var File_coreapi_model_campaign_msg_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_msg_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/campaign_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\x05\n" +
+	" coreapi/model/campaign_msg.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x04\n" +
 	"\vCampaignMsg\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12n\n" +
 	"\vcampaign_id\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -238,12 +194,7 @@ const file_coreapi_model_campaign_msg_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x12\n" +
-	"\x04sent\x18\n" +
-	" \x01(\x05R\x04sent\x12\x12\n" +
-	"\x04view\x18\v \x01(\x05R\x04view\x12\x12\n" +
-	"\x04goal\x18\f \x01(\x05R\x04goal\x12\x14\n" +
-	"\x05click\x18\r \x01(\x05R\x05clickBb\n" +
+	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAtBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

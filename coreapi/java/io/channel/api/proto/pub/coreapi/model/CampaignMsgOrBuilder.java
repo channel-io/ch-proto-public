@@ -255,48 +255,4 @@ public interface CampaignMsgOrBuilder extends
    * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Cumulative count of messages delivered for this variant.
-   * +kubebuilder:example="100"
-   * </pre>
-   *
-   * <code>int32 sent = 10 [json_name = "sent"];</code>
-   * @return The sent.
-   */
-  int getSent();
-
-  /**
-   * <pre>
-   * Cumulative count of message views by recipients for this variant.
-   * +kubebuilder:example="50"
-   * </pre>
-   *
-   * <code>int32 view = 11 [json_name = "view"];</code>
-   * @return The view.
-   */
-  int getView();
-
-  /**
-   * <pre>
-   * Cumulative count of goal event completions attributed to this variant.
-   * +kubebuilder:example="10"
-   * </pre>
-   *
-   * <code>int32 goal = 12 [json_name = "goal"];</code>
-   * @return The goal.
-   */
-  int getGoal();
-
-  /**
-   * <pre>
-   * Cumulative count of message link clicks for this variant.
-   * +kubebuilder:example="25"
-   * </pre>
-   *
-   * <code>int32 click = 13 [json_name = "click"];</code>
-   * @return The click.
-   */
-  int getClick();
 }
