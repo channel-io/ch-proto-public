@@ -39,7 +39,7 @@ public final class OneTimeMsgOuterClass {
       "/model/medium_type.proto\032\036google/protobu" +
       "f/duration.proto\032\034google/protobuf/struct" +
       ".proto\032\037google/protobuf/timestamp.proto\"" +
-      "\353\r\n\nOneTimeMsg\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%" +
+      "\231\r\n\nOneTimeMsg\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%" +
       "\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\263\001" +
       "\n\004name\030\003 \001(\tB\236\001\272H\232\001\272\001D\n\rstring.minLen\022\"v" +
       "alue must be at least 1 character\032\017size(" +
@@ -76,27 +76,25 @@ public final class OneTimeMsgOuterClass {
       ".StructR\005draft\022A\n\ncreated_at\030\030 \001(\0132\032.goo" +
       "gle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedA" +
       "t\022A\n\nupdated_at\030\031 \001(\0132\032.google.protobuf." +
-      "TimestampB\006\272H\003\310\001\001R\tupdatedAt\022\022\n\004sent\030\032 \001" +
-      "(\005R\004sent\022\022\n\004view\030\033 \001(\005R\004view\022\022\n\004goal\030\034 \001" +
-      "(\005R\004goal\022\024\n\005click\030\035 \001(\005R\005click\022T\n\031user_c" +
-      "hat_expire_duration\030\036 \001(\0132\031.google.proto" +
-      "buf.DurationR\026userChatExpireDuration\032_\n\026" +
-      "ConversionWindowsEntry\022\020\n\003key\030\001 \001(\tR\003key" +
-      "\022/\n\005value\030\002 \001(\0132\031.google.protobuf.Durati" +
-      "onR\005value:\0028\001*\321\001\n\017OneTimeMsgState\022\"\n\036ONE" +
-      "_TIME_MSG_STATE_UNSPECIFIED\020\000\022\034\n\030ONE_TIM" +
-      "E_MSG_STATE_DRAFT\020\001\022\036\n\032ONE_TIME_MSG_STAT" +
-      "E_WAITING\020\002\022\033\n\027ONE_TIME_MSG_STATE_SENT\020\003" +
-      "\022\037\n\033ONE_TIME_MSG_STATE_CANCELED\020\004\022\036\n\032ONE" +
-      "_TIME_MSG_STATE_REMOVED\020\005*\322\001\n\022OneTimeMsg" +
-      "SendMode\022&\n\"ONE_TIME_MSG_SEND_MODE_UNSPE" +
-      "CIFIED\020\000\022&\n\"ONE_TIME_MSG_SEND_MODE_IMMED" +
-      "IATELY\020\001\0224\n0ONE_TIME_MSG_SEND_MODE_RESER" +
-      "VED_WITH_SENDER_TIME\020\002\0226\n2ONE_TIME_MSG_S" +
-      "END_MODE_RESERVED_WITH_RECEIVER_TIME\020\003Bb" +
-      "\n&io.channel.api.proto.pub.coreapi.model" +
-      "P\001Z6github.com/channel-io/ch-proto-publi" +
-      "c/coreapi/go/modelb\006proto3"
+      "TimestampB\006\272H\003\310\001\001R\tupdatedAt\022T\n\031user_cha" +
+      "t_expire_duration\030\036 \001(\0132\031.google.protobu" +
+      "f.DurationR\026userChatExpireDuration\032_\n\026Co" +
+      "nversionWindowsEntry\022\020\n\003key\030\001 \001(\tR\003key\022/" +
+      "\n\005value\030\002 \001(\0132\031.google.protobuf.Duration" +
+      "R\005value:\0028\001*\321\001\n\017OneTimeMsgState\022\"\n\036ONE_T" +
+      "IME_MSG_STATE_UNSPECIFIED\020\000\022\034\n\030ONE_TIME_" +
+      "MSG_STATE_DRAFT\020\001\022\036\n\032ONE_TIME_MSG_STATE_" +
+      "WAITING\020\002\022\033\n\027ONE_TIME_MSG_STATE_SENT\020\003\022\037" +
+      "\n\033ONE_TIME_MSG_STATE_CANCELED\020\004\022\036\n\032ONE_T" +
+      "IME_MSG_STATE_REMOVED\020\005*\322\001\n\022OneTimeMsgSe" +
+      "ndMode\022&\n\"ONE_TIME_MSG_SEND_MODE_UNSPECI" +
+      "FIED\020\000\022&\n\"ONE_TIME_MSG_SEND_MODE_IMMEDIA" +
+      "TELY\020\001\0224\n0ONE_TIME_MSG_SEND_MODE_RESERVE" +
+      "D_WITH_SENDER_TIME\020\002\0226\n2ONE_TIME_MSG_SEN" +
+      "D_MODE_RESERVED_WITH_RECEIVER_TIME\020\003Bb\n&" +
+      "io.channel.api.proto.pub.coreapi.modelP\001" +
+      "Z6github.com/channel-io/ch-proto-public/" +
+      "coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -113,7 +111,7 @@ public final class OneTimeMsgOuterClass {
     internal_static_coreapi_model_OneTimeMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_OneTimeMsg_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "SendMode", "ChannelOperationId", "MediumType", "MediumId", "MediumTopicBuildKey", "MediumTopicBuildLabels", "Settings", "UserQuery", "AppSegments", "ConversionWindows", "GoalEventName", "GoalEventQuery", "GoalEventDuration", "Advertising", "SendToOfflineXms", "SendToOfflineEmail", "StartAt", "LocalStartAt", "Draft", "CreatedAt", "UpdatedAt", "Sent", "View", "Goal", "Click", "UserChatExpireDuration", });
+        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "SendMode", "ChannelOperationId", "MediumType", "MediumId", "MediumTopicBuildKey", "MediumTopicBuildLabels", "Settings", "UserQuery", "AppSegments", "ConversionWindows", "GoalEventName", "GoalEventQuery", "GoalEventDuration", "Advertising", "SendToOfflineXms", "SendToOfflineEmail", "StartAt", "LocalStartAt", "Draft", "CreatedAt", "UpdatedAt", "UserChatExpireDuration", });
     internal_static_coreapi_model_OneTimeMsg_ConversionWindowsEntry_descriptor =
       internal_static_coreapi_model_OneTimeMsg_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_OneTimeMsg_ConversionWindowsEntry_fieldAccessorTable = new

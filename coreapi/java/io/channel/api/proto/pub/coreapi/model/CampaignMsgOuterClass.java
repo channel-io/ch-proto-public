@@ -32,7 +32,7 @@ public final class CampaignMsgOuterClass {
       "api.model\032\033buf/validate/validate.proto\032\037" +
       "coreapi/model/medium_type.proto\032\034google/" +
       "protobuf/struct.proto\032\037google/protobuf/t" +
-      "imestamp.proto\"\225\005\n\013CampaignMsg\022\026\n\002id\030\001 \001" +
+      "imestamp.proto\"\303\004\n\013CampaignMsg\022\026\n\002id\030\001 \001" +
       "(\tB\006\272H\003\310\001\001R\002id\022n\n\013campaign_id\030\002 \001(\tBM\272HJ" +
       "\272\001D\n\rstring.minLen\022\"value must be at lea" +
       "st 1 character\032\017size(this) >= 1\310\001\001R\ncamp" +
@@ -46,12 +46,10 @@ public final class CampaignMsgOuterClass {
       "ructB\006\272H\003\310\001\001R\010settings\022A\n\ncreated_at\030\010 \001" +
       "(\0132\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\t" +
       "createdAt\022A\n\nupdated_at\030\t \001(\0132\032.google.p" +
-      "rotobuf.TimestampB\006\272H\003\310\001\001R\tupdatedAt\022\022\n\004" +
-      "sent\030\n \001(\005R\004sent\022\022\n\004view\030\013 \001(\005R\004view\022\022\n\004" +
-      "goal\030\014 \001(\005R\004goal\022\024\n\005click\030\r \001(\005R\005clickBb" +
-      "\n&io.channel.api.proto.pub.coreapi.model" +
-      "P\001Z6github.com/channel-io/ch-proto-publi" +
-      "c/coreapi/go/modelb\006proto3"
+      "rotobuf.TimestampB\006\272H\003\310\001\001R\tupdatedAtBb\n&" +
+      "io.channel.api.proto.pub.coreapi.modelP\001" +
+      "Z6github.com/channel-io/ch-proto-public/" +
+      "coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -66,7 +64,7 @@ public final class CampaignMsgOuterClass {
     internal_static_coreapi_model_CampaignMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_CampaignMsg_descriptor,
-        new java.lang.String[] { "Id", "CampaignId", "ChannelId", "Name", "MediumType", "MediumId", "Settings", "CreatedAt", "UpdatedAt", "Sent", "View", "Goal", "Click", });
+        new java.lang.String[] { "Id", "CampaignId", "ChannelId", "Name", "MediumType", "MediumId", "Settings", "CreatedAt", "UpdatedAt", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

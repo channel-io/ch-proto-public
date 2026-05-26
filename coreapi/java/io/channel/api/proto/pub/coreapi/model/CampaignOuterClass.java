@@ -44,7 +44,7 @@ public final class CampaignOuterClass {
       "el/medium_type.proto\032\036coreapi/model/time" +
       "_range.proto\032\036google/protobuf/duration.p" +
       "roto\032\034google/protobuf/struct.proto\032\037goog" +
-      "le/protobuf/timestamp.proto\"\366\021\n\010Campaign" +
+      "le/protobuf/timestamp.proto\"\244\021\n\010Campaign" +
       "\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_id\030\002" +
       " \001(\tB\006\272H\003\310\001\001R\tchannelId\022\263\001\n\004name\030\003 \001(\tB\236" +
       "\001\272H\232\001\272\001D\n\rstring.minLen\022\"value must be a" +
@@ -94,49 +94,46 @@ public final class CampaignOuterClass {
       ".StructR\005draft\022A\n\ncreated_at\030\037 \001(\0132\032.goo" +
       "gle.protobuf.TimestampB\006\272H\003\310\001\001R\tcreatedA" +
       "t\022A\n\nupdated_at\030  \001(\0132\032.google.protobuf." +
-      "TimestampB\006\272H\003\310\001\001R\tupdatedAt\022\022\n\004sent\030! \001" +
-      "(\005R\004sent\022\022\n\004view\030\" \001(\005R\004view\022\022\n\004goal\030# \001" +
-      "(\005R\004goal\022\024\n\005click\030$ \001(\005R\005click\022T\n\031user_c" +
-      "hat_expire_duration\030% \001(\0132\031.google.proto" +
-      "buf.DurationR\026userChatExpireDuration\022\035\n\n" +
-      "manager_id\030& \001(\tR\tmanagerId\032_\n\026Conversio" +
-      "nWindowsEntry\022\020\n\003key\030\001 \001(\tR\003key\022/\n\005value" +
-      "\030\002 \001(\0132\031.google.protobuf.DurationR\005value" +
-      ":\0028\001\"\373\003\n\027HoldingPropertyConstant\022u\n\017base" +
-      "_event_name\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen" +
-      "\022\"value must be at least 1 character\032\017si" +
-      "ze(this) >= 1\310\001\001R\rbaseEventName\022s\n\016base_" +
-      "event_key\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"" +
+      "TimestampB\006\272H\003\310\001\001R\tupdatedAt\022T\n\031user_cha" +
+      "t_expire_duration\030% \001(\0132\031.google.protobu" +
+      "f.DurationR\026userChatExpireDuration\022\035\n\nma" +
+      "nager_id\030& \001(\tR\tmanagerId\032_\n\026ConversionW" +
+      "indowsEntry\022\020\n\003key\030\001 \001(\tR\003key\022/\n\005value\030\002" +
+      " \001(\0132\031.google.protobuf.DurationR\005value:\002" +
+      "8\001\"\373\003\n\027HoldingPropertyConstant\022u\n\017base_e" +
+      "vent_name\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"" +
       "value must be at least 1 character\032\017size" +
-      "(this) >= 1\310\001\001R\014baseEventKey\0228\n\013event_qu" +
-      "ery\030\003 \001(\0132\027.google.protobuf.StructR\neven" +
-      "tQuery\022T\n\017base_event_type\030\004 \001(\0162$.coreap" +
-      "i.model.CampaignBaseEventTypeB\006\272H\003\310\001\001R\rb" +
-      "aseEventType\0223\n\010operator\030\005 \001(\0132\027.google." +
-      "protobuf.StructR\010operator\022/\n\006values\030\006 \001(" +
-      "\0132\027.google.protobuf.StructR\006values*\234\001\n\rC" +
-      "ampaignState\022\036\n\032CAMPAIGN_STATE_UNSPECIFI" +
-      "ED\020\000\022\030\n\024CAMPAIGN_STATE_DRAFT\020\001\022\031\n\025CAMPAI" +
-      "GN_STATE_ACTIVE\020\002\022\032\n\026CAMPAIGN_STATE_STOP" +
-      "PED\020\003\022\032\n\026CAMPAIGN_STATE_REMOVED\020\004*\204\001\n\023Ca" +
-      "mpaignFilterMatch\022%\n!CAMPAIGN_FILTER_MAT" +
-      "CH_UNSPECIFIED\020\000\022\"\n\036CAMPAIGN_FILTER_MATC" +
-      "H_POSITIVE\020\001\022\"\n\036CAMPAIGN_FILTER_MATCH_NE" +
-      "GATIVE\020\002*\232\002\n\020CampaignSendMode\022\"\n\036CAMPAIG" +
-      "N_SEND_MODE_UNSPECIFIED\020\000\022\035\n\031CAMPAIGN_SE" +
-      "ND_MODE_ALWAYS\020\001\022\033\n\027CAMPAIGN_SEND_MODE_A" +
-      "WAY\020\002\022#\n\037CAMPAIGN_SEND_MODE_IN_OPERATION" +
-      "\020\003\022/\n+CAMPAIGN_SEND_MODE_CUSTOM_USING_SE" +
-      "NDER_TIME\020\004\0221\n-CAMPAIGN_SEND_MODE_CUSTOM" +
-      "_USING_RECEIVER_TIME\020\005\022\035\n\031CAMPAIGN_SEND_" +
-      "MODE_CUSTOM\020\006*\235\001\n\025CampaignBaseEventType\022" +
-      "(\n$CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED\020" +
-      "\000\022*\n&CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EV" +
-      "ENT\020\001\022.\n*CAMPAIGN_BASE_EVENT_TYPE_ADDITI" +
-      "ONAL_FILTER\020\002Bb\n&io.channel.api.proto.pu" +
-      "b.coreapi.modelP\001Z6github.com/channel-io" +
-      "/ch-proto-public/coreapi/go/modelb\006proto" +
-      "3"
+      "(this) >= 1\310\001\001R\rbaseEventName\022s\n\016base_ev" +
+      "ent_key\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"va" +
+      "lue must be at least 1 character\032\017size(t" +
+      "his) >= 1\310\001\001R\014baseEventKey\0228\n\013event_quer" +
+      "y\030\003 \001(\0132\027.google.protobuf.StructR\neventQ" +
+      "uery\022T\n\017base_event_type\030\004 \001(\0162$.coreapi." +
+      "model.CampaignBaseEventTypeB\006\272H\003\310\001\001R\rbas" +
+      "eEventType\0223\n\010operator\030\005 \001(\0132\027.google.pr" +
+      "otobuf.StructR\010operator\022/\n\006values\030\006 \001(\0132" +
+      "\027.google.protobuf.StructR\006values*\234\001\n\rCam" +
+      "paignState\022\036\n\032CAMPAIGN_STATE_UNSPECIFIED" +
+      "\020\000\022\030\n\024CAMPAIGN_STATE_DRAFT\020\001\022\031\n\025CAMPAIGN" +
+      "_STATE_ACTIVE\020\002\022\032\n\026CAMPAIGN_STATE_STOPPE" +
+      "D\020\003\022\032\n\026CAMPAIGN_STATE_REMOVED\020\004*\204\001\n\023Camp" +
+      "aignFilterMatch\022%\n!CAMPAIGN_FILTER_MATCH" +
+      "_UNSPECIFIED\020\000\022\"\n\036CAMPAIGN_FILTER_MATCH_" +
+      "POSITIVE\020\001\022\"\n\036CAMPAIGN_FILTER_MATCH_NEGA" +
+      "TIVE\020\002*\232\002\n\020CampaignSendMode\022\"\n\036CAMPAIGN_" +
+      "SEND_MODE_UNSPECIFIED\020\000\022\035\n\031CAMPAIGN_SEND" +
+      "_MODE_ALWAYS\020\001\022\033\n\027CAMPAIGN_SEND_MODE_AWA" +
+      "Y\020\002\022#\n\037CAMPAIGN_SEND_MODE_IN_OPERATION\020\003" +
+      "\022/\n+CAMPAIGN_SEND_MODE_CUSTOM_USING_SEND" +
+      "ER_TIME\020\004\0221\n-CAMPAIGN_SEND_MODE_CUSTOM_U" +
+      "SING_RECEIVER_TIME\020\005\022\035\n\031CAMPAIGN_SEND_MO" +
+      "DE_CUSTOM\020\006*\235\001\n\025CampaignBaseEventType\022(\n" +
+      "$CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED\020\000\022" +
+      "*\n&CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVEN" +
+      "T\020\001\022.\n*CAMPAIGN_BASE_EVENT_TYPE_ADDITION" +
+      "AL_FILTER\020\002Bb\n&io.channel.api.proto.pub." +
+      "coreapi.modelP\001Z6github.com/channel-io/c" +
+      "h-proto-public/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -154,7 +151,7 @@ public final class CampaignOuterClass {
     internal_static_coreapi_model_Campaign_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Campaign_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "MediumType", "MediumId", "UserQuery", "AppSegments", "TriggerEventName", "TriggerEventQuery", "WaitingTime", "FilterEventName", "FilterEventQuery", "FilterMatch", "FilterHpc", "ConversionWindows", "GoalEventName", "GoalEventQuery", "GoalEventDuration", "GoalHpc", "Advertising", "SendToOfflineXms", "SendToOfflineEmail", "Cooldown", "SendMode", "ChannelOperationId", "SendTimeRanges", "StartAt", "EndAt", "Draft", "CreatedAt", "UpdatedAt", "Sent", "View", "Goal", "Click", "UserChatExpireDuration", "ManagerId", });
+        new java.lang.String[] { "Id", "ChannelId", "Name", "State", "MediumType", "MediumId", "UserQuery", "AppSegments", "TriggerEventName", "TriggerEventQuery", "WaitingTime", "FilterEventName", "FilterEventQuery", "FilterMatch", "FilterHpc", "ConversionWindows", "GoalEventName", "GoalEventQuery", "GoalEventDuration", "GoalHpc", "Advertising", "SendToOfflineXms", "SendToOfflineEmail", "Cooldown", "SendMode", "ChannelOperationId", "SendTimeRanges", "StartAt", "EndAt", "Draft", "CreatedAt", "UpdatedAt", "UserChatExpireDuration", "ManagerId", });
     internal_static_coreapi_model_Campaign_ConversionWindowsEntry_descriptor =
       internal_static_coreapi_model_Campaign_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Campaign_ConversionWindowsEntry_fieldAccessorTable = new

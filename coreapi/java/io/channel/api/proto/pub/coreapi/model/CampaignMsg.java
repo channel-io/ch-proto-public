@@ -134,26 +134,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 80: {
-
-            sent_ = input.readInt32();
-            break;
-          }
-          case 88: {
-
-            view_ = input.readInt32();
-            break;
-          }
-          case 96: {
-
-            goal_ = input.readInt32();
-            break;
-          }
-          case 104: {
-
-            click_ = input.readInt32();
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -606,70 +586,6 @@ private static final long serialVersionUID = 0L;
     return getUpdatedAt();
   }
 
-  public static final int SENT_FIELD_NUMBER = 10;
-  private int sent_;
-  /**
-   * <pre>
-   * Cumulative count of messages delivered for this variant.
-   * +kubebuilder:example="100"
-   * </pre>
-   *
-   * <code>int32 sent = 10 [json_name = "sent"];</code>
-   * @return The sent.
-   */
-  @java.lang.Override
-  public int getSent() {
-    return sent_;
-  }
-
-  public static final int VIEW_FIELD_NUMBER = 11;
-  private int view_;
-  /**
-   * <pre>
-   * Cumulative count of message views by recipients for this variant.
-   * +kubebuilder:example="50"
-   * </pre>
-   *
-   * <code>int32 view = 11 [json_name = "view"];</code>
-   * @return The view.
-   */
-  @java.lang.Override
-  public int getView() {
-    return view_;
-  }
-
-  public static final int GOAL_FIELD_NUMBER = 12;
-  private int goal_;
-  /**
-   * <pre>
-   * Cumulative count of goal event completions attributed to this variant.
-   * +kubebuilder:example="10"
-   * </pre>
-   *
-   * <code>int32 goal = 12 [json_name = "goal"];</code>
-   * @return The goal.
-   */
-  @java.lang.Override
-  public int getGoal() {
-    return goal_;
-  }
-
-  public static final int CLICK_FIELD_NUMBER = 13;
-  private int click_;
-  /**
-   * <pre>
-   * Cumulative count of message link clicks for this variant.
-   * +kubebuilder:example="25"
-   * </pre>
-   *
-   * <code>int32 click = 13 [json_name = "click"];</code>
-   * @return The click.
-   */
-  @java.lang.Override
-  public int getClick() {
-    return click_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -711,18 +627,6 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != null) {
       output.writeMessage(9, getUpdatedAt());
     }
-    if (sent_ != 0) {
-      output.writeInt32(10, sent_);
-    }
-    if (view_ != 0) {
-      output.writeInt32(11, view_);
-    }
-    if (goal_ != 0) {
-      output.writeInt32(12, goal_);
-    }
-    if (click_ != 0) {
-      output.writeInt32(13, click_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -762,22 +666,6 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getUpdatedAt());
-    }
-    if (sent_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(10, sent_);
-    }
-    if (view_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(11, view_);
-    }
-    if (goal_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(12, goal_);
-    }
-    if (click_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(13, click_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -820,14 +708,6 @@ private static final long serialVersionUID = 0L;
       if (!getUpdatedAt()
           .equals(other.getUpdatedAt())) return false;
     }
-    if (getSent()
-        != other.getSent()) return false;
-    if (getView()
-        != other.getView()) return false;
-    if (getGoal()
-        != other.getGoal()) return false;
-    if (getClick()
-        != other.getClick()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -863,14 +743,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedAt().hashCode();
     }
-    hash = (37 * hash) + SENT_FIELD_NUMBER;
-    hash = (53 * hash) + getSent();
-    hash = (37 * hash) + VIEW_FIELD_NUMBER;
-    hash = (53 * hash) + getView();
-    hash = (37 * hash) + GOAL_FIELD_NUMBER;
-    hash = (53 * hash) + getGoal();
-    hash = (37 * hash) + CLICK_FIELD_NUMBER;
-    hash = (53 * hash) + getClick();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1039,14 +911,6 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
         updatedAtBuilder_ = null;
       }
-      sent_ = 0;
-
-      view_ = 0;
-
-      goal_ = 0;
-
-      click_ = 0;
-
       return this;
     }
 
@@ -1094,10 +958,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.updatedAt_ = updatedAtBuilder_.build();
       }
-      result.sent_ = sent_;
-      result.view_ = view_;
-      result.goal_ = goal_;
-      result.click_ = click_;
       onBuilt();
       return result;
     }
@@ -1177,18 +1037,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUpdatedAt()) {
         mergeUpdatedAt(other.getUpdatedAt());
-      }
-      if (other.getSent() != 0) {
-        setSent(other.getSent());
-      }
-      if (other.getView() != 0) {
-        setView(other.getView());
-      }
-      if (other.getGoal() != 0) {
-        setGoal(other.getGoal());
-      }
-      if (other.getClick() != 0) {
-        setClick(other.getClick());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2370,190 +2218,6 @@ private static final long serialVersionUID = 0L;
       }
       return updatedAtBuilder_;
     }
-
-    private int sent_ ;
-    /**
-     * <pre>
-     * Cumulative count of messages delivered for this variant.
-     * +kubebuilder:example="100"
-     * </pre>
-     *
-     * <code>int32 sent = 10 [json_name = "sent"];</code>
-     * @return The sent.
-     */
-    @java.lang.Override
-    public int getSent() {
-      return sent_;
-    }
-    /**
-     * <pre>
-     * Cumulative count of messages delivered for this variant.
-     * +kubebuilder:example="100"
-     * </pre>
-     *
-     * <code>int32 sent = 10 [json_name = "sent"];</code>
-     * @param value The sent to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSent(int value) {
-      
-      sent_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cumulative count of messages delivered for this variant.
-     * +kubebuilder:example="100"
-     * </pre>
-     *
-     * <code>int32 sent = 10 [json_name = "sent"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSent() {
-      
-      sent_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int view_ ;
-    /**
-     * <pre>
-     * Cumulative count of message views by recipients for this variant.
-     * +kubebuilder:example="50"
-     * </pre>
-     *
-     * <code>int32 view = 11 [json_name = "view"];</code>
-     * @return The view.
-     */
-    @java.lang.Override
-    public int getView() {
-      return view_;
-    }
-    /**
-     * <pre>
-     * Cumulative count of message views by recipients for this variant.
-     * +kubebuilder:example="50"
-     * </pre>
-     *
-     * <code>int32 view = 11 [json_name = "view"];</code>
-     * @param value The view to set.
-     * @return This builder for chaining.
-     */
-    public Builder setView(int value) {
-      
-      view_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cumulative count of message views by recipients for this variant.
-     * +kubebuilder:example="50"
-     * </pre>
-     *
-     * <code>int32 view = 11 [json_name = "view"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearView() {
-      
-      view_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int goal_ ;
-    /**
-     * <pre>
-     * Cumulative count of goal event completions attributed to this variant.
-     * +kubebuilder:example="10"
-     * </pre>
-     *
-     * <code>int32 goal = 12 [json_name = "goal"];</code>
-     * @return The goal.
-     */
-    @java.lang.Override
-    public int getGoal() {
-      return goal_;
-    }
-    /**
-     * <pre>
-     * Cumulative count of goal event completions attributed to this variant.
-     * +kubebuilder:example="10"
-     * </pre>
-     *
-     * <code>int32 goal = 12 [json_name = "goal"];</code>
-     * @param value The goal to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGoal(int value) {
-      
-      goal_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cumulative count of goal event completions attributed to this variant.
-     * +kubebuilder:example="10"
-     * </pre>
-     *
-     * <code>int32 goal = 12 [json_name = "goal"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearGoal() {
-      
-      goal_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int click_ ;
-    /**
-     * <pre>
-     * Cumulative count of message link clicks for this variant.
-     * +kubebuilder:example="25"
-     * </pre>
-     *
-     * <code>int32 click = 13 [json_name = "click"];</code>
-     * @return The click.
-     */
-    @java.lang.Override
-    public int getClick() {
-      return click_;
-    }
-    /**
-     * <pre>
-     * Cumulative count of message link clicks for this variant.
-     * +kubebuilder:example="25"
-     * </pre>
-     *
-     * <code>int32 click = 13 [json_name = "click"];</code>
-     * @param value The click to set.
-     * @return This builder for chaining.
-     */
-    public Builder setClick(int value) {
-      
-      click_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Cumulative count of message link clicks for this variant.
-     * +kubebuilder:example="25"
-     * </pre>
-     *
-     * <code>int32 click = 13 [json_name = "click"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearClick() {
-      
-      click_ = 0;
-      onChanged();
-      return this;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2774,98 +2438,6 @@ private static final long serialVersionUID = 0L;
     		return clearUpdatedAt();
     	else
     		return setUpdatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The sent to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearSent(java.lang.Integer value) {
-    	if (value == null)
-    		return clearSent();
-    	else
-    		return setSent(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearSent(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
-    	if (value == null)
-    		return clearSent();
-    	else
-    		return setSent(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The view to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearView(java.lang.Integer value) {
-    	if (value == null)
-    		return clearView();
-    	else
-    		return setView(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearView(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
-    	if (value == null)
-    		return clearView();
-    	else
-    		return setView(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The goal to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearGoal(java.lang.Integer value) {
-    	if (value == null)
-    		return clearGoal();
-    	else
-    		return setGoal(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearGoal(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
-    	if (value == null)
-    		return clearGoal();
-    	else
-    		return setGoal(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The click to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearClick(java.lang.Integer value) {
-    	if (value == null)
-    		return clearClick();
-    	else
-    		return setClick(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearClick(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
-    	if (value == null)
-    		return clearClick();
-    	else
-    		return setClick(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.CampaignMsg)

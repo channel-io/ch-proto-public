@@ -391,22 +391,6 @@ type Campaign struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2024-09-19T02:07:40Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Cumulative count of messages delivered.
-	//
-	// +kubebuilder:example="100"
-	Sent int32 `protobuf:"varint,33,opt,name=sent,proto3" json:"sent,omitempty"`
-	// Cumulative count of message views by recipients.
-	//
-	// +kubebuilder:example="50"
-	View int32 `protobuf:"varint,34,opt,name=view,proto3" json:"view,omitempty"`
-	// Cumulative count of goal event completions attributed to this campaign.
-	//
-	// +kubebuilder:example="10"
-	Goal int32 `protobuf:"varint,35,opt,name=goal,proto3" json:"goal,omitempty"`
-	// Cumulative count of message link clicks.
-	//
-	// +kubebuilder:example="25"
-	Click int32 `protobuf:"varint,36,opt,name=click,proto3" json:"click,omitempty"`
 	// Duration before the user chat created by this campaign expires, in ISO 8601 format.
 	// Defaults to 31 days.
 	//
@@ -674,34 +658,6 @@ func (x *Campaign) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Campaign) GetSent() int32 {
-	if x != nil {
-		return x.Sent
-	}
-	return 0
-}
-
-func (x *Campaign) GetView() int32 {
-	if x != nil {
-		return x.View
-	}
-	return 0
-}
-
-func (x *Campaign) GetGoal() int32 {
-	if x != nil {
-		return x.Goal
-	}
-	return 0
-}
-
-func (x *Campaign) GetClick() int32 {
-	if x != nil {
-		return x.Click
-	}
-	return 0
-}
-
 func (x *Campaign) GetUserChatExpireDuration() *durationpb.Duration {
 	if x != nil {
 		return x.UserChatExpireDuration
@@ -831,7 +787,7 @@ var File_coreapi_model_campaign_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\n" +
-	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x11\n" +
+	"\x1ccoreapi/model/campaign.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/app_segment.proto\x1a\x1fcoreapi/model/medium_type.proto\x1a\x1ecoreapi/model/time_range.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x11\n" +
 	"\bCampaign\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -873,11 +829,7 @@ const file_coreapi_model_campaign_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x1f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18  \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x12\n" +
-	"\x04sent\x18! \x01(\x05R\x04sent\x12\x12\n" +
-	"\x04view\x18\" \x01(\x05R\x04view\x12\x12\n" +
-	"\x04goal\x18# \x01(\x05R\x04goal\x12\x14\n" +
-	"\x05click\x18$ \x01(\x05R\x05click\x12T\n" +
+	"updated_at\x18  \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12T\n" +
 	"\x19user_chat_expire_duration\x18% \x01(\v2\x19.google.protobuf.DurationR\x16userChatExpireDuration\x12\x1d\n" +
 	"\n" +
 	"manager_id\x18& \x01(\tR\tmanagerId\x1a_\n" +

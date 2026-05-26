@@ -237,26 +237,6 @@ message Campaign {
   // +kubebuilder:example="2024-09-19T02:07:40Z"
   google.protobuf.Timestamp updated_at = 32 [(buf.validate.field).required = true];
 
-  // Cumulative count of messages delivered.
-  //
-  // +kubebuilder:example="100"
-  int32 sent = 33;
-
-  // Cumulative count of message views by recipients.
-  //
-  // +kubebuilder:example="50"
-  int32 view = 34;
-
-  // Cumulative count of goal event completions attributed to this campaign.
-  //
-  // +kubebuilder:example="10"
-  int32 goal = 35;
-
-  // Cumulative count of message link clicks.
-  //
-  // +kubebuilder:example="25"
-  int32 click = 36;
-
   // Duration before the user chat created by this campaign expires, in ISO 8601 format.
   // Defaults to 31 days.
   //
