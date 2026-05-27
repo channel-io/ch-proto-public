@@ -124,7 +124,7 @@ message Manager {
   // +kubebuilder:example="false"
   bool show_email_to_front = 10 [(buf.validate.field).required = true];
 
-  // Manager mobile phone number in E.164 format (e.g., +821012345678).
+  // Manager mobile phone number in E.164 format.
   //
   // +kubebuilder:example="+821012345678"
   string mobile_number = 11;
@@ -140,7 +140,7 @@ message Manager {
   // +kubebuilder:example="role-owner"
   string role_id = 13;
 
-  // Whether this manager has been soft-deleted from the channel.
+  // Whether this manager has been removed from the channel.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:example="false"
@@ -158,8 +158,7 @@ message Manager {
   // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp updated_at = 16 [(buf.validate.field).required = true];
 
-  // Timestamp when the manager was soft-deleted.
-  // Present only when removed is true.
+  // Timestamp when the manager was removed. Set only when `removed` is true.
   //
   // +kubebuilder:example="2024-03-28T08:57:32Z"
   google.protobuf.Timestamp removed_at = 17;
@@ -208,13 +207,11 @@ message Manager {
   bool show_private_message_preview = 25 [(buf.validate.field).required = true];
 
   // Performance score reflecting the manager's conversation handling efficiency.
-  // Decays over time when the manager is inactive.
   //
   // +kubebuilder:example="0"
   float operator_score = 26;
 
   // Engagement score reflecting the frequency of customer interactions.
-  // Decays over time when the manager is inactive.
   //
   // +kubebuilder:example="0"
   float touch_score = 27;
@@ -255,7 +252,7 @@ message Manager {
   // +kubebuilder:example="true"
   bool operator = 33 [(buf.validate.field).required = true];
 
-  // Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+  // Operator status identifier for custom availability states.
   //
   // +kubebuilder:example="9187"
   string operator_status_id = 34;
@@ -272,7 +269,7 @@ message Manager {
   // +kubebuilder:example="true"
   bool user_message_important = 36 [(buf.validate.field).required = true];
 
-  // User chat types this manager can be auto-assigned to (e.g., sync, async).
+  // User chat types this manager can be auto-assigned to.
   //
   // +kubebuilder:example=["sync","async"]
   repeated string assignable_user_chat_types = 37;

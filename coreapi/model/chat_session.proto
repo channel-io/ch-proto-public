@@ -150,7 +150,7 @@ message ChatSession {
   // +kubebuilder:example="manager-9187-userChat-6606508eaa71575f1e8c"
   string id = 18 [(buf.validate.field).required = true];
 
-  // Chat type of the conversation (e.g., "userChat", "group", "directChat").
+  // Chat type of the conversation.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -164,7 +164,7 @@ message ChatSession {
     (buf.validate.field).required = true
   ];
 
-  // Entity type of the session owner (e.g., "manager", "user").
+  // Entity type of the session owner.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
