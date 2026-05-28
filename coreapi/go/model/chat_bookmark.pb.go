@@ -61,7 +61,7 @@ type ChatBookmark struct {
 	//
 	// +kubebuilder:example="1"
 	Version int64 `protobuf:"varint,6,opt,name=version,proto3" json:"version,omitempty"`
-	// Type of the bookmark owner (e.g. "manager").
+	// Type of the bookmark owner.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
@@ -73,7 +73,7 @@ type ChatBookmark struct {
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:example="9187"
 	PersonId string `protobuf:"bytes,8,opt,name=person_id,json=personId,proto3" json:"person_id,omitempty"`
-	// Chat type this bookmark belongs to (e.g. "group", "userChat").
+	// Chat type this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1

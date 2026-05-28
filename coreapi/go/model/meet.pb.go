@@ -23,9 +23,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Direction of a phone call relative to the channel.
-// - INBOUND: Call received from an external caller.
-// - OUTBOUND: Call initiated by a manager to an external number.
+// Direction of a phone call relative to the channel. INBOUND calls are received from
+// external callers, while OUTBOUND calls are initiated by a manager to an external number.
 type CallDirection int32
 
 const (
@@ -75,9 +74,8 @@ func (CallDirection) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_meet_proto_rawDescGZIP(), []int{0}
 }
 
-// Current state of a phone call in its lifecycle.
-// - WAITING: The call is ringing or queued, not yet answered.
-// - ENGAGED: The call is actively connected between participants.
+// Current state of a phone call in its lifecycle. WAITING means the call is ringing
+// or queued and not yet answered; ENGAGED means it is actively connected between participants.
 type CallState int32
 
 const (
@@ -320,7 +318,7 @@ type MeetMessage struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6606508eaa71575f1e8c"
 	ChatId string `protobuf:"bytes,4,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	// Entity type of the message author (e.g., "manager", "user").
+	// Entity type of the message author.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="manager"

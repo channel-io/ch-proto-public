@@ -49,7 +49,7 @@ message ImageFile {
   // +kubebuilder:example="600"
   int32 height = 4;
 
-  // MIME content type of the image (e.g. "image/png", "image/jpeg").
+  // MIME content type of the image.
   //
   // +kubebuilder:validation:Pattern="^image/.*"
   // +kubebuilder:example="image/png"

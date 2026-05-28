@@ -11,11 +11,8 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// State of a message in its lifecycle.
-// - SENDING: The message is being transmitted to the server.
-// - SENT: The message has been successfully delivered.
-// - FAILED: The message failed to send.
-// - REMOVED: The message has been deleted.
+// State of a message in its lifecycle. SENDING is in transit to the server,
+// SENT has been delivered, FAILED could not be delivered, and REMOVED has been deleted.
 enum MessageState {
   MESSAGE_STATE_UNSPECIFIED = 0;
   MESSAGE_STATE_SENDING = 1;
@@ -25,9 +22,8 @@ enum MessageState {
 }
 
 // Alert level controlling how the client displays notifications for a message.
-// - ALERT: Triggers a push notification and visual alert.
-// - UNREAD: Increments the unread badge without a push notification.
-// - NONE: No notification or badge change.
+// ALERT triggers a push notification and visual alert, UNREAD increments the unread badge
+// without a push notification, and NONE applies no notification or badge change.
 enum AlertLevel {
   ALERT_LEVEL_UNSPECIFIED = 0;
   ALERT_LEVEL_ALERT = 1;
@@ -36,9 +32,9 @@ enum AlertLevel {
 }
 
 // Determines how the message was composed and how clients should render it.
-// - STANDARD: Regular text message composed via the chat input.
-// - CUSTOM: Message rendered using a third-party custom payload.
-// - EMAIL: Message composed or received via email integration.
+// STANDARD is a regular text message composed via the chat input,
+// CUSTOM is rendered using a third-party custom payload, and EMAIL was composed or received
+// via email integration.
 enum WritingType {
   WRITING_TYPE_UNSPECIFIED = 0;
   WRITING_TYPE_STANDARD = 1;
@@ -103,7 +99,7 @@ message Message {
   // +kubebuilder:example="6263"
   string channel_id = 8 [(buf.validate.field).required = true];
 
-  // Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+  // Chat type of the parent conversation.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:example="userChat"
@@ -115,7 +111,7 @@ message Message {
   // +kubebuilder:example="6606508eaa71575f1e8c"
   string chat_id = 10 [(buf.validate.field).required = true];
 
-  // Entity type of the message author (e.g., "manager", "user", "bot").
+  // Entity type of the message author.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:example="manager"
@@ -134,7 +130,7 @@ message Message {
   // +kubebuilder:example="req-6606508ec1dd00aa1234"
   string request_id = 13;
 
-  // Detected language of the message content (e.g., "ko", "en", "ja").
+  // Detected language of the message content.
   //
   // +kubebuilder:example="ko"
   string language = 14;
@@ -388,7 +384,7 @@ message MessageLog {
   // +kubebuilder:example=["vip","premium"]
   repeated string values = 2;
 
-  // Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+  // Entity type that triggered this action.
   //
   // +kubebuilder:example="workflow"
   string trigger_type = 3;
@@ -451,9 +447,11 @@ message MessageLog {
 // =====================================================
 
 // MessageReaction represents a single emoji reaction on a message,
-// aggregating all people who used the same emoji.
+// aggregating every person who reacted with the same emoji.
+// A message accepts up to 10 distinct emojis and 300 reactions in total,
+// with each manager limited to 5 reactions on the same message.
 message MessageReaction {
-  // Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+  // Emoji shortcode identifying the reaction.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -467,8 +465,9 @@ message MessageReaction {
     (buf.validate.field).required = true
   ];
 
-  // Person keys of everyone who reacted with this emoji,
-  // in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+  // Person keys of everyone who reacted with this emoji, in the format
+  // "{personType}-{personId}". The order reflects the order in which the
+  // reactions were added.
   //
   // +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
   repeated string person_keys = 2;
@@ -485,7 +484,7 @@ message MessageMeet {
   // +kubebuilder:example="6606508ec1dd0000000a"
   string id = 1;
 
-  // Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+  // Chat type of the conversation this meet belongs to.
   //
   // +kubebuilder:example="userChat"
   string chat_type = 2;

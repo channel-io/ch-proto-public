@@ -60,11 +60,12 @@ type CampaignMsg struct {
 	//
 	// +kubebuilder:example="sms-sender-201"
 	MediumId string `protobuf:"bytes,6,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
-	// Message content and medium-specific delivery configuration.
-	// Structure varies by medium_type.
+	// Message body and delivery options for the chosen medium. Set `type` to one
+	// of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+	// fill in the fields that medium expects.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
+	// +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen"}
 	Settings *structpb.Struct `protobuf:"bytes,7,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Campaign message creation timestamp.
 	//

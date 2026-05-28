@@ -673,23 +673,23 @@ func (x *User) GetLandlineNumber() string {
 // collected from a user visiting the channel via a web browser.
 type WebInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Device form factor (e.g. "desktop", "tablet", "mobile").
+	// Device form factor.
 	//
 	// +kubebuilder:example="Apple Macintosh"
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
-	// Operating system version string (e.g. "10.15.7", "11").
+	// Operating system version string.
 	//
 	// +kubebuilder:example="10.15.7"
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
-	// Operating system name (e.g. "Windows", "macOS", "Linux").
+	// Operating system name.
 	//
 	// +kubebuilder:example="Mac OS"
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
-	// Browser version string (e.g. "120.0.6099.109").
+	// Browser version string.
 	//
 	// +kubebuilder:example="141"
 	Browser string `protobuf:"bytes,4,opt,name=browser,proto3" json:"browser,omitempty"`
-	// Browser name (e.g. "Chrome", "Safari", "Firefox").
+	// Browser name.
 	//
 	// +kubebuilder:example="Chrome"
 	BrowserName string `protobuf:"bytes,5,opt,name=browser_name,json=browserName,proto3" json:"browser_name,omitempty"`
@@ -789,15 +789,15 @@ func (x *WebInfo) GetLastSeenAt() *timestamppb.Timestamp {
 // collected from a user accessing the channel via a mobile SDK.
 type MobileInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Device model name (e.g. "iPhone 15", "Galaxy S24").
+	// Device model name.
 	//
 	// +kubebuilder:example="iPhone 15"
 	Device string `protobuf:"bytes,1,opt,name=device,proto3" json:"device,omitempty"`
-	// Operating system version string (e.g. "17.2", "14").
+	// Operating system version string.
 	//
 	// +kubebuilder:example="17.2"
 	Os string `protobuf:"bytes,2,opt,name=os,proto3" json:"os,omitempty"`
-	// Operating system name (e.g. "iOS", "Android").
+	// Operating system name.
 	//
 	// +kubebuilder:example="iOS"
 	OsName string `protobuf:"bytes,3,opt,name=os_name,json=osName,proto3" json:"os_name,omitempty"`
@@ -809,7 +809,7 @@ type MobileInfo struct {
 	//
 	// +kubebuilder:example="2.1.0"
 	AppVersion string `protobuf:"bytes,5,opt,name=app_version,json=appVersion,proto3" json:"app_version,omitempty"`
-	// Channel SDK platform name (e.g. "ios", "android", "react-native").
+	// Channel SDK platform name.
 	//
 	// +kubebuilder:example="ios"
 	SdkName string `protobuf:"bytes,6,opt,name=sdk_name,json=sdkName,proto3" json:"sdk_name,omitempty"`

@@ -21,7 +21,10 @@ message Block {
   // +kubebuilder:validation:Required
   BlockType type = 1 [(buf.validate.field).required = true];
 
-  // Programming language identifier for syntax highlighting.
+  // Programming language identifier for syntax highlighting in code blocks.
+  // Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+  // and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
+  // and unknown identifiers fall back to plain text rendering.
   // Only applicable when type is CODE.
   //
   // +kubebuilder:example="python"
@@ -116,12 +119,12 @@ message MessageFile {
   // +kubebuilder:example="6606508ec1dd00001a2b"
   string id = 1 [(buf.validate.field).required = true];
 
-  // High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+  // High-level media category derived from the MIME type.
   //
   // +kubebuilder:example="image"
   string type = 2;
 
-  // Original file name including the extension (e.g. "report.pdf").
+  // Original file name including the extension.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1
@@ -141,7 +144,7 @@ message MessageFile {
   // +kubebuilder:example=2048
   int64 size = 4 [(buf.validate.field).required = true];
 
-  // MIME content type (e.g. "image/png", "application/pdf").
+  // MIME content type.
   //
   // +kubebuilder:example="image/png"
   string content_type = 5;
@@ -168,7 +171,7 @@ message MessageFile {
   // +kubebuilder:example="1"
   int32 orientation = 9;
 
-  // Whether the image is an animated format (e.g. GIF, APNG).
+  // Whether the image is an animated format.
   //
   // +kubebuilder:example="false"
   bool animated = 10;

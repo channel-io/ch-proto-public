@@ -66,11 +66,12 @@ message CampaignMsg {
   // +kubebuilder:example="sms-sender-201"
   string medium_id = 6;
 
-  // Message content and medium-specific delivery configuration.
-  // Structure varies by medium_type.
+  // Message body and delivery options for the chosen medium. Set `type` to one
+  // of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+  // fill in the fields that medium expects.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
+  // +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen"}
   google.protobuf.Struct settings = 7 [(buf.validate.field).required = true];
 
   // Campaign message creation timestamp.

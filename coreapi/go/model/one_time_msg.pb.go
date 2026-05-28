@@ -185,10 +185,11 @@ type OneTimeMsg struct {
 	//
 	// +kubebuilder:example=["welcome","onboarding"]
 	MediumTopicBuildLabels []string `protobuf:"bytes,10,rep,name=medium_topic_build_labels,json=mediumTopicBuildLabels,proto3" json:"medium_topic_build_labels,omitempty"`
-	// Message content and medium-specific delivery configuration.
-	// Structure varies by medium_type.
+	// Message body and delivery options for the chosen medium. Set `type` to one
+	// of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+	// fill in the fields that medium expects.
 	//
-	// +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+	// +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
 	Settings *structpb.Struct `protobuf:"bytes,11,opt,name=settings,proto3" json:"settings,omitempty"`
 	// Query expression that defines the target user segment.
 	// Represented as a structured filter object.

@@ -298,27 +298,27 @@ message User {
 // WebInfo represents web browser environment and session data
 // collected from a user visiting the channel via a web browser.
 message WebInfo {
-  // Device form factor (e.g. "desktop", "tablet", "mobile").
+  // Device form factor.
   //
   // +kubebuilder:example="Apple Macintosh"
   string device = 1;
 
-  // Operating system version string (e.g. "10.15.7", "11").
+  // Operating system version string.
   //
   // +kubebuilder:example="10.15.7"
   string os = 2;
 
-  // Operating system name (e.g. "Windows", "macOS", "Linux").
+  // Operating system name.
   //
   // +kubebuilder:example="Mac OS"
   string os_name = 3;
 
-  // Browser version string (e.g. "120.0.6099.109").
+  // Browser version string.
   //
   // +kubebuilder:example="141"
   string browser = 4;
 
-  // Browser name (e.g. "Chrome", "Safari", "Firefox").
+  // Browser name.
   //
   // +kubebuilder:example="Chrome"
   string browser_name = 5;
@@ -342,17 +342,17 @@ message WebInfo {
 // MobileInfo represents mobile app environment and session data
 // collected from a user accessing the channel via a mobile SDK.
 message MobileInfo {
-  // Device model name (e.g. "iPhone 15", "Galaxy S24").
+  // Device model name.
   //
   // +kubebuilder:example="iPhone 15"
   string device = 1;
 
-  // Operating system version string (e.g. "17.2", "14").
+  // Operating system version string.
   //
   // +kubebuilder:example="17.2"
   string os = 2;
 
-  // Operating system name (e.g. "iOS", "Android").
+  // Operating system name.
   //
   // +kubebuilder:example="iOS"
   string os_name = 3;
@@ -367,7 +367,7 @@ message MobileInfo {
   // +kubebuilder:example="2.1.0"
   string app_version = 5;
 
-  // Channel SDK platform name (e.g. "ios", "android", "react-native").
+  // Channel SDK platform name.
   //
   // +kubebuilder:example="ios"
   string sdk_name = 6;

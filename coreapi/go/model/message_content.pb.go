@@ -302,7 +302,10 @@ type Block struct {
 	//
 	// +kubebuilder:validation:Required
 	Type Block_BlockType `protobuf:"varint,1,opt,name=type,proto3,enum=coreapi.model.Block_BlockType" json:"type,omitempty"`
-	// Programming language identifier for syntax highlighting.
+	// Programming language identifier for syntax highlighting in code blocks.
+	// Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+	// and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
+	// and unknown identifiers fall back to plain text rendering.
 	// Only applicable when type is CODE.
 	//
 	// +kubebuilder:example="python"
@@ -460,11 +463,11 @@ type MessageFile struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6606508ec1dd00001a2b"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+	// High-level media category derived from the MIME type.
 	//
 	// +kubebuilder:example="image"
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	// Original file name including the extension (e.g. "report.pdf").
+	// Original file name including the extension.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
@@ -475,7 +478,7 @@ type MessageFile struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example=2048
 	Size int64 `protobuf:"varint,4,opt,name=size,proto3" json:"size,omitempty"`
-	// MIME content type (e.g. "image/png", "application/pdf").
+	// MIME content type.
 	//
 	// +kubebuilder:example="image/png"
 	ContentType string `protobuf:"bytes,5,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
@@ -497,7 +500,7 @@ type MessageFile struct {
 	//
 	// +kubebuilder:example="1"
 	Orientation int32 `protobuf:"varint,9,opt,name=orientation,proto3" json:"orientation,omitempty"`
-	// Whether the image is an animated format (e.g. GIF, APNG).
+	// Whether the image is an animated format.
 	//
 	// +kubebuilder:example="false"
 	Animated bool `protobuf:"varint,10,opt,name=animated,proto3" json:"animated,omitempty"`

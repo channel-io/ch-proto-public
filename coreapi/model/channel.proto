@@ -102,7 +102,7 @@ message Channel {
   // +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 8;
 
-  // Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+  // Dominant color extracted from the cover image in hex format.
   //
   // +kubebuilder:example="#F3F4F6"
   string cover_image_color = 9;
@@ -113,7 +113,7 @@ message Channel {
   // +kubebuilder:example="Channel-bot"
   string bot_name = 10 [(buf.validate.field).required = true];
 
-  // Channel theme color in hex format (e.g., #3B82F6).
+  // Channel theme color in hex format.
   // Used to derive border, gradient, text, and plugin icon colors.
   //
   // +kubebuilder:validation:Required
@@ -152,7 +152,7 @@ message Channel {
   // +kubebuilder:example="https://zoyi.cafe24.com/"
   string homepage_url = 16;
 
-  // Business contact phone number in E.164 format (e.g., +821012345678).
+  // Business contact phone number in E.164 format.
   //
   // +kubebuilder:example="+821012345678"
   string phone_number = 17;
@@ -221,7 +221,7 @@ message Channel {
   // +kubebuilder:example="104"
   string default_plugin_id = 28;
 
-  // Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+  // Industry or business category of the channel.
   //
   // +kubebuilder:example="lowEndShoppingMall"
   string biz_category = 29;
@@ -236,7 +236,7 @@ message Channel {
   // +kubebuilder:example="2"
   string app_commerce_id = 31;
 
-  // Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+  // Integrated e-commerce platform type.
   //
   // +kubebuilder:example="Cafe24"
   string app_commerce_type = 32;

@@ -24,11 +24,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// State of a message in its lifecycle.
-// - SENDING: The message is being transmitted to the server.
-// - SENT: The message has been successfully delivered.
-// - FAILED: The message failed to send.
-// - REMOVED: The message has been deleted.
+// State of a message in its lifecycle. SENDING is in transit to the server,
+// SENT has been delivered, FAILED could not be delivered, and REMOVED has been deleted.
 type MessageState int32
 
 const (
@@ -85,9 +82,8 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 }
 
 // Alert level controlling how the client displays notifications for a message.
-// - ALERT: Triggers a push notification and visual alert.
-// - UNREAD: Increments the unread badge without a push notification.
-// - NONE: No notification or badge change.
+// ALERT triggers a push notification and visual alert, UNREAD increments the unread badge
+// without a push notification, and NONE applies no notification or badge change.
 type AlertLevel int32
 
 const (
@@ -141,9 +137,9 @@ func (AlertLevel) EnumDescriptor() ([]byte, []int) {
 }
 
 // Determines how the message was composed and how clients should render it.
-// - STANDARD: Regular text message composed via the chat input.
-// - CUSTOM: Message rendered using a third-party custom payload.
-// - EMAIL: Message composed or received via email integration.
+// STANDARD is a regular text message composed via the chat input,
+// CUSTOM is rendered using a third-party custom payload, and EMAIL was composed or received
+// via email integration.
 type WritingType int32
 
 const (
@@ -688,7 +684,7 @@ type Message struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,8,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+	// Chat type of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="userChat"
@@ -698,7 +694,7 @@ type Message struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6606508eaa71575f1e8c"
 	ChatId string `protobuf:"bytes,10,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	// Entity type of the message author (e.g., "manager", "user", "bot").
+	// Entity type of the message author.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="manager"
@@ -714,7 +710,7 @@ type Message struct {
 	//
 	// +kubebuilder:example="req-6606508ec1dd00aa1234"
 	RequestId string `protobuf:"bytes,13,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
-	// Detected language of the message content (e.g., "ko", "en", "ja").
+	// Detected language of the message content.
 	//
 	// +kubebuilder:example="ko"
 	Language string `protobuf:"bytes,14,opt,name=language,proto3" json:"language,omitempty"`
@@ -1343,7 +1339,7 @@ type MessageLog struct {
 	//
 	// +kubebuilder:example=["vip","premium"]
 	Values []string `protobuf:"bytes,2,rep,name=values,proto3" json:"values,omitempty"`
-	// Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+	// Entity type that triggered this action.
 	//
 	// +kubebuilder:example="workflow"
 	TriggerType string `protobuf:"bytes,3,opt,name=trigger_type,json=triggerType,proto3" json:"trigger_type,omitempty"`
@@ -1414,17 +1410,20 @@ func (x *MessageLog) GetTriggerId() string {
 }
 
 // MessageReaction represents a single emoji reaction on a message,
-// aggregating all people who used the same emoji.
+// aggregating every person who reacted with the same emoji.
+// A message accepts up to 10 distinct emojis and 300 reactions in total,
+// with each manager limited to 5 reactions on the same message.
 type MessageReaction struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+	// Emoji shortcode identifying the reaction.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:example="thumbsup"
 	EmojiName string `protobuf:"bytes,1,opt,name=emoji_name,json=emojiName,proto3" json:"emoji_name,omitempty"`
-	// Person keys of everyone who reacted with this emoji,
-	// in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+	// Person keys of everyone who reacted with this emoji, in the format
+	// "{personType}-{personId}". The order reflects the order in which the
+	// reactions were added.
 	//
 	// +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
 	PersonKeys    []string `protobuf:"bytes,2,rep,name=person_keys,json=personKeys,proto3" json:"person_keys,omitempty"`
@@ -1483,7 +1482,7 @@ type MessageMeet struct {
 	//
 	// +kubebuilder:example="6606508ec1dd0000000a"
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+	// Chat type of the conversation this meet belongs to.
 	//
 	// +kubebuilder:example="userChat"
 	ChatType string `protobuf:"bytes,2,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`

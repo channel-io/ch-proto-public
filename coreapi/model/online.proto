@@ -16,7 +16,7 @@ message Online {
   // +kubebuilder:example="6263"
   string channel_id = 1 [(buf.validate.field).required = true];
 
-  // Type of the person (e.g., manager, user).
+  // Type of the person.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:validation:MinLength=1

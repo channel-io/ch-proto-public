@@ -117,13 +117,13 @@ type ChatSession struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="manager-9187-userChat-6606508eaa71575f1e8c"
 	Id string `protobuf:"bytes,18,opt,name=id,proto3" json:"id,omitempty"`
-	// Chat type of the conversation (e.g., "userChat", "group", "directChat").
+	// Chat type of the conversation.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:example="userChat"
 	ChatType string `protobuf:"bytes,19,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
-	// Entity type of the session owner (e.g., "manager", "user").
+	// Entity type of the session owner.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
