@@ -101,15 +101,9 @@ message OneTimeMsg {
   // +kubebuilder:example=["welcome","onboarding"]
   repeated string medium_topic_build_labels = 10;
 
-  // Message content and medium-specific delivery configuration.
-  // The settings object carries a "type" discriminator that selects one of the
-  // following shapes (required keys differ accordingly):
-  //   - inAppChatMsg: { botName, message, exposureType, imageLinkUrl, enableWorkflow }
-  //   - xms: { message }
-  //   - appAlimtalk: { appAlimtalkId, senderKeyType, templateCode, templateParamMapper }
-  //   - app: { appId, message }
-  //   - appLine, email: type-only (no additional fields)
-  // The `message` field is a NestedMessage value carrying blocks/buttons/files content.
+  // Message body and delivery options for the chosen medium. Set `type` to one
+  // of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+  // fill in the fields that medium expects.
   //
   // +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
   google.protobuf.Struct settings = 11;
