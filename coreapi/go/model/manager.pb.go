@@ -260,7 +260,7 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="false"
 	ShowEmailToFront bool `protobuf:"varint,10,opt,name=show_email_to_front,json=showEmailToFront,proto3" json:"show_email_to_front,omitempty"`
-	// Manager mobile phone number in E.164 format (e.g., +821012345678).
+	// Manager mobile phone number in E.164 format.
 	//
 	// +kubebuilder:example="+821012345678"
 	MobileNumber string `protobuf:"bytes,11,opt,name=mobile_number,json=mobileNumber,proto3" json:"mobile_number,omitempty"`
@@ -273,7 +273,7 @@ type Manager struct {
 	//
 	// +kubebuilder:example="role-owner"
 	RoleId string `protobuf:"bytes,13,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	// Whether this manager has been soft-deleted from the channel.
+	// Whether this manager has been removed from the channel.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="false"
@@ -288,8 +288,7 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Timestamp when the manager was soft-deleted.
-	// Present only when removed is true.
+	// Timestamp when the manager was removed. Set only when `removed` is true.
 	//
 	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
@@ -324,12 +323,10 @@ type Manager struct {
 	// +kubebuilder:example="true"
 	ShowPrivateMessagePreview bool `protobuf:"varint,25,opt,name=show_private_message_preview,json=showPrivateMessagePreview,proto3" json:"show_private_message_preview,omitempty"`
 	// Performance score reflecting the manager's conversation handling efficiency.
-	// Decays over time when the manager is inactive.
 	//
 	// +kubebuilder:example="0"
 	OperatorScore float32 `protobuf:"fixed32,26,opt,name=operator_score,json=operatorScore,proto3" json:"operator_score,omitempty"`
 	// Engagement score reflecting the frequency of customer interactions.
-	// Decays over time when the manager is inactive.
 	//
 	// +kubebuilder:example="0"
 	TouchScore float32 `protobuf:"fixed32,27,opt,name=touch_score,json=touchScore,proto3" json:"touch_score,omitempty"`
@@ -363,7 +360,7 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="true"
 	Operator bool `protobuf:"varint,33,opt,name=operator,proto3" json:"operator,omitempty"`
-	// Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+	// Operator status identifier for custom availability states.
 	//
 	// +kubebuilder:example="9187"
 	OperatorStatusId string `protobuf:"bytes,34,opt,name=operator_status_id,json=operatorStatusId,proto3" json:"operator_status_id,omitempty"`
@@ -377,7 +374,7 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="true"
 	UserMessageImportant bool `protobuf:"varint,36,opt,name=user_message_important,json=userMessageImportant,proto3" json:"user_message_important,omitempty"`
-	// User chat types this manager can be auto-assigned to (e.g., sync, async).
+	// User chat types this manager can be auto-assigned to.
 	//
 	// +kubebuilder:example=["sync","async"]
 	AssignableUserChatTypes []string `protobuf:"bytes,37,rep,name=assignable_user_chat_types,json=assignableUserChatTypes,proto3" json:"assignable_user_chat_types,omitempty"`

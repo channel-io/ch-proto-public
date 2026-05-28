@@ -46,7 +46,7 @@ type ImageFile struct {
 	//
 	// +kubebuilder:example="600"
 	Height int32 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
-	// MIME content type of the image (e.g. "image/png", "image/jpeg").
+	// MIME content type of the image.
 	//
 	// +kubebuilder:validation:Pattern="^image/.*"
 	// +kubebuilder:example="image/png"

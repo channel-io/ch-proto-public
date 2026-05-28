@@ -238,7 +238,7 @@ type Channel struct {
 	//
 	// +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,8,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+	// Dominant color extracted from the cover image in hex format.
 	//
 	// +kubebuilder:example="#F3F4F6"
 	CoverImageColor string `protobuf:"bytes,9,opt,name=cover_image_color,json=coverImageColor,proto3" json:"cover_image_color,omitempty"`
@@ -247,7 +247,7 @@ type Channel struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="Channel-bot"
 	BotName string `protobuf:"bytes,10,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
-	// Channel theme color in hex format (e.g., #3B82F6).
+	// Channel theme color in hex format.
 	// Used to derive border, gradient, text, and plugin icon colors.
 	//
 	// +kubebuilder:validation:Required
@@ -276,7 +276,7 @@ type Channel struct {
 	//
 	// +kubebuilder:example="https://zoyi.cafe24.com/"
 	HomepageUrl string `protobuf:"bytes,16,opt,name=homepage_url,json=homepageUrl,proto3" json:"homepage_url,omitempty"`
-	// Business contact phone number in E.164 format (e.g., +821012345678).
+	// Business contact phone number in E.164 format.
 	//
 	// +kubebuilder:example="+821012345678"
 	PhoneNumber string `protobuf:"bytes,17,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
@@ -332,7 +332,7 @@ type Channel struct {
 	//
 	// +kubebuilder:example="104"
 	DefaultPluginId string `protobuf:"bytes,28,opt,name=default_plugin_id,json=defaultPluginId,proto3" json:"default_plugin_id,omitempty"`
-	// Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+	// Industry or business category of the channel.
 	//
 	// +kubebuilder:example="lowEndShoppingMall"
 	BizCategory string `protobuf:"bytes,29,opt,name=biz_category,json=bizCategory,proto3" json:"biz_category,omitempty"`
@@ -344,7 +344,7 @@ type Channel struct {
 	//
 	// +kubebuilder:example="2"
 	AppCommerceId string `protobuf:"bytes,31,opt,name=app_commerce_id,json=appCommerceId,proto3" json:"app_commerce_id,omitempty"`
-	// Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+	// Integrated e-commerce platform type.
 	//
 	// +kubebuilder:example="Cafe24"
 	AppCommerceType string `protobuf:"bytes,32,opt,name=app_commerce_type,json=appCommerceType,proto3" json:"app_commerce_type,omitempty"`

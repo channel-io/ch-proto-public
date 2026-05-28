@@ -30,7 +30,7 @@ type Online struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Type of the person (e.g., manager, user).
+	// Type of the person.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
