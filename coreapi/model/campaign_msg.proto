@@ -67,10 +67,17 @@ message CampaignMsg {
   string medium_id = 6;
 
   // Message content and medium-specific delivery configuration.
-  // Structure varies by medium_type.
+  // The settings object carries a "type" discriminator that selects one of the
+  // following shapes (required keys differ accordingly):
+  //   - inAppChatMsg: { botName, message, exposureType, imageLinkUrl, enableWorkflow }
+  //   - xms: { message }
+  //   - appAlimtalk: { appAlimtalkId, senderKeyType, templateCode, templateParamMapper }
+  //   - app: { appId, message }
+  //   - appLine, email: type-only (no additional fields)
+  // The `message` field is a NestedMessage value carrying blocks/buttons/files content.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
+  // +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen"}
   google.protobuf.Struct settings = 7 [(buf.validate.field).required = true];
 
   // Campaign message creation timestamp.

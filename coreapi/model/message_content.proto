@@ -21,7 +21,10 @@ message Block {
   // +kubebuilder:validation:Required
   BlockType type = 1 [(buf.validate.field).required = true];
 
-  // Programming language identifier for syntax highlighting.
+  // Programming language identifier for syntax highlighting in code blocks.
+  // Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+  // and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
+  // and unknown identifiers fall back to plain text rendering.
   // Only applicable when type is CODE.
   //
   // +kubebuilder:example="python"
