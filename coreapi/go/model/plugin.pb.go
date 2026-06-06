@@ -27,9 +27,12 @@ const (
 type PluginState int32
 
 const (
+	// Unspecified or not set.
 	PluginState_PLUGIN_STATE_UNSPECIFIED PluginState = 0
-	PluginState_PLUGIN_STATE_WAITING     PluginState = 1
-	PluginState_PLUGIN_STATE_ACTIVE      PluginState = 2
+	// Created and awaiting activation.
+	PluginState_PLUGIN_STATE_WAITING PluginState = 1
+	// Activated and serving the chat widget.
+	PluginState_PLUGIN_STATE_ACTIVE PluginState = 2
 )
 
 // Enum value maps for PluginState.
@@ -77,10 +80,14 @@ func (PluginState) EnumDescriptor() ([]byte, []int) {
 type PluginAppearance int32
 
 const (
+	// Unspecified or not set.
 	PluginAppearance_PLUGIN_APPEARANCE_UNSPECIFIED PluginAppearance = 0
-	PluginAppearance_PLUGIN_APPEARANCE_LIGHT       PluginAppearance = 1
-	PluginAppearance_PLUGIN_APPEARANCE_DARK        PluginAppearance = 2
-	PluginAppearance_PLUGIN_APPEARANCE_SYSTEM      PluginAppearance = 3
+	// Light color theme.
+	PluginAppearance_PLUGIN_APPEARANCE_LIGHT PluginAppearance = 1
+	// Dark color theme.
+	PluginAppearance_PLUGIN_APPEARANCE_DARK PluginAppearance = 2
+	// Follows the end user's system theme setting.
+	PluginAppearance_PLUGIN_APPEARANCE_SYSTEM PluginAppearance = 3
 )
 
 // Enum value maps for PluginAppearance.
@@ -130,10 +137,14 @@ func (PluginAppearance) EnumDescriptor() ([]byte, []int) {
 type PluginButtonType int32
 
 const (
-	PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED  PluginButtonType = 0
-	PluginButtonType_PLUGIN_BUTTON_TYPE_LEGACY       PluginButtonType = 1
+	// Unspecified or not set.
+	PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED PluginButtonType = 0
+	// Legacy launcher using uploaded desktop and mobile images.
+	PluginButtonType_PLUGIN_BUTTON_TYPE_LEGACY PluginButtonType = 1
+	// Launcher using a single custom uploaded image.
 	PluginButtonType_PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE PluginButtonType = 2
-	PluginButtonType_PLUGIN_BUTTON_TYPE_ICON_BUTTON  PluginButtonType = 3
+	// Launcher using a predefined icon.
+	PluginButtonType_PLUGIN_BUTTON_TYPE_ICON_BUTTON PluginButtonType = 3
 )
 
 // Enum value maps for PluginButtonType.
@@ -183,26 +194,46 @@ func (PluginButtonType) EnumDescriptor() ([]byte, []int) {
 type PluginIconButton int32
 
 const (
-	PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED            PluginIconButton = 0
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL                PluginIconButton = 1
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL_FILLED         PluginIconButton = 2
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT        PluginIconButton = 3
+	// Unspecified or not set.
+	PluginIconButton_PLUGIN_ICON_BUTTON_UNSPECIFIED PluginIconButton = 0
+	// Channel logo icon (outline style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL PluginIconButton = 1
+	// Channel logo icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHANNEL_FILLED PluginIconButton = 2
+	// Alternate chat bubble icon (outline style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT PluginIconButton = 3
+	// Alternate chat bubble icon (filled style).
 	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED PluginIconButton = 4
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED     PluginIconButton = 5
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED  PluginIconButton = 6
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS          PluginIconButton = 7
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED   PluginIconButton = 8
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION          PluginIconButton = 9
-	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED   PluginIconButton = 10
-	PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT                PluginIconButton = 11
-	PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT_FILLED         PluginIconButton = 12
-	PluginIconButton_PLUGIN_ICON_BUTTON_COMMUNICATION          PluginIconButton = 13
-	PluginIconButton_PLUGIN_ICON_BUTTON_HEADSET                PluginIconButton = 14
-	PluginIconButton_PLUGIN_ICON_BUTTON_HELP_FILLED            PluginIconButton = 15
-	PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD           PluginIconButton = 16
-	PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED    PluginIconButton = 17
-	PluginIconButton_PLUGIN_ICON_BUTTON_SMS                    PluginIconButton = 18
-	PluginIconButton_PLUGIN_ICON_BUTTON_SMS_FILLED             PluginIconButton = 19
+	// Chat bubble icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED PluginIconButton = 5
+	// Chat bubble with lightning icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED PluginIconButton = 6
+	// Chat bubble with progress dots icon (outline style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS PluginIconButton = 7
+	// Chat bubble with progress dots icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED PluginIconButton = 8
+	// Chat bubble with question mark icon (outline style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION PluginIconButton = 9
+	// Chat bubble with question mark icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED PluginIconButton = 10
+	// Comment icon (outline style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT PluginIconButton = 11
+	// Comment icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_COMMENT_FILLED PluginIconButton = 12
+	// Communication icon.
+	PluginIconButton_PLUGIN_ICON_BUTTON_COMMUNICATION PluginIconButton = 13
+	// Headset (customer support) icon.
+	PluginIconButton_PLUGIN_ICON_BUTTON_HEADSET PluginIconButton = 14
+	// Help icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_HELP_FILLED PluginIconButton = 15
+	// Send/forward arrow icon (outline style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD PluginIconButton = 16
+	// Send/forward arrow icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED PluginIconButton = 17
+	// SMS message icon (outline style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_SMS PluginIconButton = 18
+	// SMS message icon (filled style).
+	PluginIconButton_PLUGIN_ICON_BUTTON_SMS_FILLED PluginIconButton = 19
 )
 
 // Enum value maps for PluginIconButton.
@@ -284,9 +315,12 @@ func (PluginIconButton) EnumDescriptor() ([]byte, []int) {
 type PluginPosition int32
 
 const (
+	// Unspecified or not set.
 	PluginPosition_PLUGIN_POSITION_UNSPECIFIED PluginPosition = 0
-	PluginPosition_PLUGIN_POSITION_LEFT        PluginPosition = 1
-	PluginPosition_PLUGIN_POSITION_RIGHT       PluginPosition = 2
+	// Anchored to the left edge of the screen.
+	PluginPosition_PLUGIN_POSITION_LEFT PluginPosition = 1
+	// Anchored to the right edge of the screen.
+	PluginPosition_PLUGIN_POSITION_RIGHT PluginPosition = 2
 )
 
 // Enum value maps for PluginPosition.
@@ -334,9 +368,12 @@ func (PluginPosition) EnumDescriptor() ([]byte, []int) {
 type PluginBubblePosition int32
 
 const (
+	// Unspecified or not set.
 	PluginBubblePosition_PLUGIN_BUBBLE_POSITION_UNSPECIFIED PluginBubblePosition = 0
-	PluginBubblePosition_PLUGIN_BUBBLE_POSITION_TOP         PluginBubblePosition = 1
-	PluginBubblePosition_PLUGIN_BUBBLE_POSITION_BOTTOM      PluginBubblePosition = 2
+	// Positioned near the top of the screen.
+	PluginBubblePosition_PLUGIN_BUBBLE_POSITION_TOP PluginBubblePosition = 1
+	// Positioned near the bottom of the screen.
+	PluginBubblePosition_PLUGIN_BUBBLE_POSITION_BOTTOM PluginBubblePosition = 2
 )
 
 // Enum value maps for PluginBubblePosition.

@@ -27,11 +27,16 @@ const (
 type OneTimeMsgUserState int32
 
 const (
+	// Unspecified or not set.
 	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_UNSPECIFIED OneTimeMsgUserState = 0
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_SENT        OneTimeMsgUserState = 1
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_VIEW        OneTimeMsgUserState = 2
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_GOAL        OneTimeMsgUserState = 3
-	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_CLICK       OneTimeMsgUserState = 4
+	// Users to whom the one-time message was delivered.
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_SENT OneTimeMsgUserState = 1
+	// Users who viewed the delivered message.
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_VIEW OneTimeMsgUserState = 2
+	// Users who completed the goal event.
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_GOAL OneTimeMsgUserState = 3
+	// Users who clicked a link in the message.
+	OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_CLICK OneTimeMsgUserState = 4
 )
 
 // Enum value maps for OneTimeMsgUserState.

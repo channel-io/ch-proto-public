@@ -29,11 +29,16 @@ const (
 type CampaignState int32
 
 const (
+	// Unspecified or not set.
 	CampaignState_CAMPAIGN_STATE_UNSPECIFIED CampaignState = 0
-	CampaignState_CAMPAIGN_STATE_DRAFT       CampaignState = 1
-	CampaignState_CAMPAIGN_STATE_ACTIVE      CampaignState = 2
-	CampaignState_CAMPAIGN_STATE_STOPPED     CampaignState = 3
-	CampaignState_CAMPAIGN_STATE_REMOVED     CampaignState = 4
+	// Draft being configured; not yet activated.
+	CampaignState_CAMPAIGN_STATE_DRAFT CampaignState = 1
+	// Active and eligible to trigger deliveries.
+	CampaignState_CAMPAIGN_STATE_ACTIVE CampaignState = 2
+	// Stopped; no longer triggering deliveries.
+	CampaignState_CAMPAIGN_STATE_STOPPED CampaignState = 3
+	// The campaign is no longer present.
+	CampaignState_CAMPAIGN_STATE_REMOVED CampaignState = 4
 )
 
 // Enum value maps for CampaignState.
@@ -85,9 +90,12 @@ func (CampaignState) EnumDescriptor() ([]byte, []int) {
 type CampaignFilterMatch int32
 
 const (
+	// Unspecified or not set.
 	CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_UNSPECIFIED CampaignFilterMatch = 0
-	CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_POSITIVE    CampaignFilterMatch = 1
-	CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_NEGATIVE    CampaignFilterMatch = 2
+	// The filter event must have occurred for delivery.
+	CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_POSITIVE CampaignFilterMatch = 1
+	// The filter event must not have occurred for delivery.
+	CampaignFilterMatch_CAMPAIGN_FILTER_MATCH_NEGATIVE CampaignFilterMatch = 2
 )
 
 // Enum value maps for CampaignFilterMatch.
@@ -135,13 +143,20 @@ func (CampaignFilterMatch) EnumDescriptor() ([]byte, []int) {
 type CampaignSendMode int32
 
 const (
-	CampaignSendMode_CAMPAIGN_SEND_MODE_UNSPECIFIED                CampaignSendMode = 0
-	CampaignSendMode_CAMPAIGN_SEND_MODE_ALWAYS                     CampaignSendMode = 1
-	CampaignSendMode_CAMPAIGN_SEND_MODE_AWAY                       CampaignSendMode = 2
-	CampaignSendMode_CAMPAIGN_SEND_MODE_IN_OPERATION               CampaignSendMode = 3
-	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME   CampaignSendMode = 4
+	// Unspecified or not set.
+	CampaignSendMode_CAMPAIGN_SEND_MODE_UNSPECIFIED CampaignSendMode = 0
+	// Deliver at any time.
+	CampaignSendMode_CAMPAIGN_SEND_MODE_ALWAYS CampaignSendMode = 1
+	// Deliver only outside operation hours.
+	CampaignSendMode_CAMPAIGN_SEND_MODE_AWAY CampaignSendMode = 2
+	// Deliver only during operation hours.
+	CampaignSendMode_CAMPAIGN_SEND_MODE_IN_OPERATION CampaignSendMode = 3
+	// Deliver within custom time ranges based on the sender's timezone.
+	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME CampaignSendMode = 4
+	// Deliver within custom time ranges based on the receiver's timezone.
 	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME CampaignSendMode = 5
-	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM                     CampaignSendMode = 6
+	// Deliver within custom time ranges.
+	CampaignSendMode_CAMPAIGN_SEND_MODE_CUSTOM CampaignSendMode = 6
 )
 
 // Enum value maps for CampaignSendMode.
@@ -197,8 +212,11 @@ func (CampaignSendMode) EnumDescriptor() ([]byte, []int) {
 type CampaignBaseEventType int32
 
 const (
-	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED       CampaignBaseEventType = 0
-	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT     CampaignBaseEventType = 1
+	// Unspecified or not set.
+	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED CampaignBaseEventType = 0
+	// Captured from the trigger event.
+	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT CampaignBaseEventType = 1
+	// Captured from the additional filter event.
 	CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER CampaignBaseEventType = 2
 )
 

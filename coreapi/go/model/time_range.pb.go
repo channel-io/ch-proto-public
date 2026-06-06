@@ -26,14 +26,22 @@ const (
 type TimeRange_DayOfWeek int32
 
 const (
+	// Unspecified or not set.
 	TimeRange_DAY_OF_WEEK_UNSPECIFIED TimeRange_DayOfWeek = 0
-	TimeRange_DAY_OF_WEEK_MON         TimeRange_DayOfWeek = 1
-	TimeRange_DAY_OF_WEEK_TUE         TimeRange_DayOfWeek = 2
-	TimeRange_DAY_OF_WEEK_WED         TimeRange_DayOfWeek = 3
-	TimeRange_DAY_OF_WEEK_THU         TimeRange_DayOfWeek = 4
-	TimeRange_DAY_OF_WEEK_FRI         TimeRange_DayOfWeek = 5
-	TimeRange_DAY_OF_WEEK_SAT         TimeRange_DayOfWeek = 6
-	TimeRange_DAY_OF_WEEK_SUN         TimeRange_DayOfWeek = 7
+	// Monday.
+	TimeRange_DAY_OF_WEEK_MON TimeRange_DayOfWeek = 1
+	// Tuesday.
+	TimeRange_DAY_OF_WEEK_TUE TimeRange_DayOfWeek = 2
+	// Wednesday.
+	TimeRange_DAY_OF_WEEK_WED TimeRange_DayOfWeek = 3
+	// Thursday.
+	TimeRange_DAY_OF_WEEK_THU TimeRange_DayOfWeek = 4
+	// Friday.
+	TimeRange_DAY_OF_WEEK_FRI TimeRange_DayOfWeek = 5
+	// Saturday.
+	TimeRange_DAY_OF_WEEK_SAT TimeRange_DayOfWeek = 6
+	// Sunday.
+	TimeRange_DAY_OF_WEEK_SUN TimeRange_DayOfWeek = 7
 )
 
 // Enum value maps for TimeRange_DayOfWeek.

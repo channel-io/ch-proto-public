@@ -27,11 +27,16 @@ const (
 type CampaignUserState int32
 
 const (
+	// Unspecified or not set.
 	CampaignUserState_CAMPAIGN_USER_STATE_UNSPECIFIED CampaignUserState = 0
-	CampaignUserState_CAMPAIGN_USER_STATE_SENT        CampaignUserState = 1
-	CampaignUserState_CAMPAIGN_USER_STATE_VIEW        CampaignUserState = 2
-	CampaignUserState_CAMPAIGN_USER_STATE_GOAL        CampaignUserState = 3
-	CampaignUserState_CAMPAIGN_USER_STATE_CLICK       CampaignUserState = 4
+	// Users to whom the campaign message was delivered.
+	CampaignUserState_CAMPAIGN_USER_STATE_SENT CampaignUserState = 1
+	// Users who viewed the delivered message.
+	CampaignUserState_CAMPAIGN_USER_STATE_VIEW CampaignUserState = 2
+	// Users who completed the campaign goal event.
+	CampaignUserState_CAMPAIGN_USER_STATE_GOAL CampaignUserState = 3
+	// Users who clicked a link in the message.
+	CampaignUserState_CAMPAIGN_USER_STATE_CLICK CampaignUserState = 4
 )
 
 // Enum value maps for CampaignUserState.

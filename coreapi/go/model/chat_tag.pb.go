@@ -27,16 +27,26 @@ const (
 type ChatTagColorVariant int32
 
 const (
+	// Unspecified or not set.
 	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_UNSPECIFIED ChatTagColorVariant = 0
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_RED         ChatTagColorVariant = 1
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_ORANGE      ChatTagColorVariant = 2
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_YELLOW      ChatTagColorVariant = 3
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_OLIVE       ChatTagColorVariant = 4
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_GREEN       ChatTagColorVariant = 5
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_COBALT      ChatTagColorVariant = 6
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PURPLE      ChatTagColorVariant = 7
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PINK        ChatTagColorVariant = 8
-	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_NAVY        ChatTagColorVariant = 9
+	// Red color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_RED ChatTagColorVariant = 1
+	// Orange color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_ORANGE ChatTagColorVariant = 2
+	// Yellow color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_YELLOW ChatTagColorVariant = 3
+	// Olive color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_OLIVE ChatTagColorVariant = 4
+	// Green color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_GREEN ChatTagColorVariant = 5
+	// Cobalt (blue) color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_COBALT ChatTagColorVariant = 6
+	// Purple color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PURPLE ChatTagColorVariant = 7
+	// Pink color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_PINK ChatTagColorVariant = 8
+	// Navy (dark blue) color variant.
+	ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_NAVY ChatTagColorVariant = 9
 )
 
 // Enum value maps for ChatTagColorVariant.

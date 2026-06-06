@@ -25,11 +25,16 @@ const (
 type MediumType int32
 
 const (
+	// Unspecified or not set.
 	MediumType_MEDIUM_TYPE_UNSPECIFIED MediumType = 0
-	MediumType_MEDIUM_TYPE_NATIVE      MediumType = 1
-	MediumType_MEDIUM_TYPE_APP         MediumType = 2
-	MediumType_MEDIUM_TYPE_EMAIL       MediumType = 3
-	MediumType_MEDIUM_TYPE_PHONE       MediumType = 4
+	// In-app chat via the native Channel messenger.
+	MediumType_MEDIUM_TYPE_NATIVE MediumType = 1
+	// Third-party app messenger integration (e.g., Alimtalk, LINE).
+	MediumType_MEDIUM_TYPE_APP MediumType = 2
+	// Email delivery.
+	MediumType_MEDIUM_TYPE_EMAIL MediumType = 3
+	// Text message (SMS/LMS/MMS) delivery.
+	MediumType_MEDIUM_TYPE_PHONE MediumType = 4
 )
 
 // Enum value maps for MediumType.

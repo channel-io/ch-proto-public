@@ -21,13 +21,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Sort direction for ordering query results.
 type SortOrder int32
 
 const (
+	// Unspecified or not set.
 	SortOrder_SORT_ORDER_UNSPECIFIED SortOrder = 0
-	SortOrder_SORT_ORDER_ASC         SortOrder = 1
-	SortOrder_SORT_ORDER_DESC        SortOrder = 2
-	SortOrder_SORT_ORDER_BOTH        SortOrder = 3
+	// Ascending order.
+	SortOrder_SORT_ORDER_ASC SortOrder = 1
+	// Descending order.
+	SortOrder_SORT_ORDER_DESC SortOrder = 2
+	// Both ascending and descending order. TODO: confirm meaning.
+	SortOrder_SORT_ORDER_BOTH SortOrder = 3
 )
 
 // Enum value maps for SortOrder.

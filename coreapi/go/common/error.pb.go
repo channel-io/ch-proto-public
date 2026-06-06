@@ -29,6 +29,7 @@ const (
 type CommonErrorCode int32
 
 const (
+	// Unspecified or not set.
 	CommonErrorCode_COMMON_ERROR_CODE_UNSPECIFIED CommonErrorCode = 0
 	// The requested entity does not exist.
 	CommonErrorCode_COMMON_ERROR_CODE_ENTITY_NOT_FOUND CommonErrorCode = 1

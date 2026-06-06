@@ -28,10 +28,14 @@ const (
 type SessionWatch int32
 
 const (
+	// Unspecified or not set.
 	SessionWatch_SESSION_WATCH_UNSPECIFIED SessionWatch = 0
-	SessionWatch_SESSION_WATCH_ALL         SessionWatch = 1
-	SessionWatch_SESSION_WATCH_INFO        SessionWatch = 2
-	SessionWatch_SESSION_WATCH_NONE        SessionWatch = 3
+	// Notify on every message.
+	SessionWatch_SESSION_WATCH_ALL SessionWatch = 1
+	// Notify only on mentions and important updates.
+	SessionWatch_SESSION_WATCH_INFO SessionWatch = 2
+	// Do not notify.
+	SessionWatch_SESSION_WATCH_NONE SessionWatch = 3
 )
 
 // Enum value maps for SessionWatch.
@@ -81,16 +85,26 @@ func (SessionWatch) EnumDescriptor() ([]byte, []int) {
 type ChatAlertSound int32
 
 const (
+	// Unspecified or not set.
 	ChatAlertSound_CHAT_ALERT_SOUND_UNSPECIFIED ChatAlertSound = 0
-	ChatAlertSound_CHAT_ALERT_SOUND_NONE        ChatAlertSound = 1
-	ChatAlertSound_CHAT_ALERT_SOUND_DROP        ChatAlertSound = 2
-	ChatAlertSound_CHAT_ALERT_SOUND_WOODY       ChatAlertSound = 3
-	ChatAlertSound_CHAT_ALERT_SOUND_BOUNCE      ChatAlertSound = 4
-	ChatAlertSound_CHAT_ALERT_SOUND_CRYSTAL     ChatAlertSound = 5
-	ChatAlertSound_CHAT_ALERT_SOUND_XYLO        ChatAlertSound = 6
+	// No sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_NONE ChatAlertSound = 1
+	// "Drop" notification sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_DROP ChatAlertSound = 2
+	// "Woody" notification sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_WOODY ChatAlertSound = 3
+	// "Bounce" notification sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_BOUNCE ChatAlertSound = 4
+	// "Crystal" notification sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_CRYSTAL ChatAlertSound = 5
+	// "Xylo" notification sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_XYLO ChatAlertSound = 6
+	// "Quick knock" notification sound.
 	ChatAlertSound_CHAT_ALERT_SOUND_QUICK_KNOCK ChatAlertSound = 7
-	ChatAlertSound_CHAT_ALERT_SOUND_CANDY       ChatAlertSound = 8
-	ChatAlertSound_CHAT_ALERT_SOUND_SHINE       ChatAlertSound = 9
+	// "Candy" notification sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_CANDY ChatAlertSound = 8
+	// "Shine" notification sound.
+	ChatAlertSound_CHAT_ALERT_SOUND_SHINE ChatAlertSound = 9
 )
 
 // Enum value maps for ChatAlertSound.
@@ -152,11 +166,16 @@ func (ChatAlertSound) EnumDescriptor() ([]byte, []int) {
 type MeetAlertSound int32
 
 const (
+	// Unspecified or not set.
 	MeetAlertSound_MEET_ALERT_SOUND_UNSPECIFIED MeetAlertSound = 0
-	MeetAlertSound_MEET_ALERT_SOUND_CUTE        MeetAlertSound = 1
-	MeetAlertSound_MEET_ALERT_SOUND_BASIC       MeetAlertSound = 2
-	MeetAlertSound_MEET_ALERT_SOUND_GENTLE      MeetAlertSound = 3
-	MeetAlertSound_MEET_ALERT_SOUND_MARIMBA     MeetAlertSound = 4
+	// "Cute" ringtone.
+	MeetAlertSound_MEET_ALERT_SOUND_CUTE MeetAlertSound = 1
+	// "Basic" ringtone.
+	MeetAlertSound_MEET_ALERT_SOUND_BASIC MeetAlertSound = 2
+	// "Gentle" ringtone.
+	MeetAlertSound_MEET_ALERT_SOUND_GENTLE MeetAlertSound = 3
+	// "Marimba" ringtone.
+	MeetAlertSound_MEET_ALERT_SOUND_MARIMBA MeetAlertSound = 4
 )
 
 // Enum value maps for MeetAlertSound.

@@ -27,16 +27,26 @@ const (
 type WebhookScope int32
 
 const (
-	WebhookScope_WEBHOOK_SCOPE_UNSPECIFIED                  WebhookScope = 0
-	WebhookScope_WEBHOOK_SCOPE_USER_CHAT_OPENED             WebhookScope = 1
-	WebhookScope_WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT    WebhookScope = 2
-	WebhookScope_WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT    WebhookScope = 3
-	WebhookScope_WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT        WebhookScope = 4
-	WebhookScope_WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION   WebhookScope = 5
-	WebhookScope_WEBHOOK_SCOPE_LEAD_DELETED                 WebhookScope = 6
-	WebhookScope_WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT      WebhookScope = 7
+	// Unspecified or not set.
+	WebhookScope_WEBHOOK_SCOPE_UNSPECIFIED WebhookScope = 0
+	// Triggered when a user chat is opened.
+	WebhookScope_WEBHOOK_SCOPE_USER_CHAT_OPENED WebhookScope = 1
+	// Triggered when a message is created in a user chat.
+	WebhookScope_WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT WebhookScope = 2
+	// Triggered when a message is created in a team chat.
+	WebhookScope_WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT WebhookScope = 3
+	// Triggered when a lead's contact information is created or updated.
+	WebhookScope_WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT WebhookScope = 4
+	// Triggered when a lead's marketing subscription is created or updated.
+	WebhookScope_WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION WebhookScope = 5
+	// Triggered when a lead is deleted.
+	WebhookScope_WEBHOOK_SCOPE_LEAD_DELETED WebhookScope = 6
+	// Triggered when a member's contact information is created or updated.
+	WebhookScope_WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT WebhookScope = 7
+	// Triggered when a member's marketing subscription is created or updated.
 	WebhookScope_WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION WebhookScope = 8
-	WebhookScope_WEBHOOK_SCOPE_MEMBER_DELETED               WebhookScope = 9
+	// Triggered when a member is deleted.
+	WebhookScope_WEBHOOK_SCOPE_MEMBER_DELETED WebhookScope = 9
 )
 
 // Enum value maps for WebhookScope.

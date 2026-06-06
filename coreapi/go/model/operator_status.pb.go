@@ -28,6 +28,7 @@ const (
 type OperatorStatusType int32
 
 const (
+	// Unspecified or not set.
 	OperatorStatusType_OPERATOR_STATUS_TYPE_UNSPECIFIED OperatorStatusType = 0
 	// Idle and ready to receive new chats (active).
 	OperatorStatusType_OPERATOR_STATUS_TYPE_WAITING OperatorStatusType = 1

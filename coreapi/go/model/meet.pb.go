@@ -28,9 +28,12 @@ const (
 type CallDirection int32
 
 const (
+	// Unspecified or not set.
 	CallDirection_CALL_DIRECTION_UNSPECIFIED CallDirection = 0
-	CallDirection_CALL_DIRECTION_INBOUND     CallDirection = 1
-	CallDirection_CALL_DIRECTION_OUTBOUND    CallDirection = 2
+	// Inbound call received from an external caller.
+	CallDirection_CALL_DIRECTION_INBOUND CallDirection = 1
+	// Outbound call initiated by a manager.
+	CallDirection_CALL_DIRECTION_OUTBOUND CallDirection = 2
 )
 
 // Enum value maps for CallDirection.
@@ -79,9 +82,12 @@ func (CallDirection) EnumDescriptor() ([]byte, []int) {
 type CallState int32
 
 const (
+	// Unspecified or not set.
 	CallState_CALL_STATE_UNSPECIFIED CallState = 0
-	CallState_CALL_STATE_WAITING     CallState = 1
-	CallState_CALL_STATE_ENGAGED     CallState = 2
+	// Ringing or queued, not yet answered.
+	CallState_CALL_STATE_WAITING CallState = 1
+	// Actively connected between participants.
+	CallState_CALL_STATE_ENGAGED CallState = 2
 )
 
 // Enum value maps for CallState.

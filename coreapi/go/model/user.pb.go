@@ -28,6 +28,7 @@ const (
 type UserType int32
 
 const (
+	// Unspecified or not set.
 	UserType_USER_TYPE_UNSPECIFIED UserType = 0
 	// Registered member with an external member ID.
 	UserType_USER_TYPE_MEMBER UserType = 1

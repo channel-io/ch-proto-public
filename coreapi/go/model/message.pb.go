@@ -29,11 +29,16 @@ const (
 type MessageState int32
 
 const (
+	// Unspecified or not set.
 	MessageState_MESSAGE_STATE_UNSPECIFIED MessageState = 0
-	MessageState_MESSAGE_STATE_SENDING     MessageState = 1
-	MessageState_MESSAGE_STATE_SENT        MessageState = 2
-	MessageState_MESSAGE_STATE_FAILED      MessageState = 3
-	MessageState_MESSAGE_STATE_REMOVED     MessageState = 4
+	// In transit to the server.
+	MessageState_MESSAGE_STATE_SENDING MessageState = 1
+	// Successfully delivered.
+	MessageState_MESSAGE_STATE_SENT MessageState = 2
+	// Could not be delivered.
+	MessageState_MESSAGE_STATE_FAILED MessageState = 3
+	// The message is no longer present in the conversation.
+	MessageState_MESSAGE_STATE_REMOVED MessageState = 4
 )
 
 // Enum value maps for MessageState.
@@ -87,10 +92,14 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 type AlertLevel int32
 
 const (
+	// Unspecified or not set.
 	AlertLevel_ALERT_LEVEL_UNSPECIFIED AlertLevel = 0
-	AlertLevel_ALERT_LEVEL_ALERT       AlertLevel = 1
-	AlertLevel_ALERT_LEVEL_UNREAD      AlertLevel = 2
-	AlertLevel_ALERT_LEVEL_NONE        AlertLevel = 3
+	// Triggers a push notification and visual alert.
+	AlertLevel_ALERT_LEVEL_ALERT AlertLevel = 1
+	// Increments the unread badge without a push notification.
+	AlertLevel_ALERT_LEVEL_UNREAD AlertLevel = 2
+	// No notification and no badge increment.
+	AlertLevel_ALERT_LEVEL_NONE AlertLevel = 3
 )
 
 // Enum value maps for AlertLevel.
@@ -143,10 +152,14 @@ func (AlertLevel) EnumDescriptor() ([]byte, []int) {
 type WritingType int32
 
 const (
+	// Unspecified or not set.
 	WritingType_WRITING_TYPE_UNSPECIFIED WritingType = 0
-	WritingType_WRITING_TYPE_STANDARD    WritingType = 1
-	WritingType_WRITING_TYPE_CUSTOM      WritingType = 2
-	WritingType_WRITING_TYPE_EMAIL       WritingType = 3
+	// Regular text message composed via the chat input.
+	WritingType_WRITING_TYPE_STANDARD WritingType = 1
+	// Rendered using a third-party custom payload.
+	WritingType_WRITING_TYPE_CUSTOM WritingType = 2
+	// Composed or received via email integration.
+	WritingType_WRITING_TYPE_EMAIL WritingType = 3
 )
 
 // Enum value maps for WritingType.
@@ -196,49 +209,92 @@ func (WritingType) EnumDescriptor() ([]byte, []int) {
 type MessageLog_MessageLogAction int32
 
 const (
-	MessageLog_MESSAGE_LOG_ACTION_UNSPECIFIED               MessageLog_MessageLogAction = 0
-	MessageLog_MESSAGE_LOG_ACTION_CHANGE_NAME               MessageLog_MessageLogAction = 1
-	MessageLog_MESSAGE_LOG_ACTION_CHANGE_SCOPE              MessageLog_MessageLogAction = 2
-	MessageLog_MESSAGE_LOG_ACTION_CLOSE                     MessageLog_MessageLogAction = 3
-	MessageLog_MESSAGE_LOG_ACTION_AUTO_CLOSE                MessageLog_MessageLogAction = 4
-	MessageLog_MESSAGE_LOG_ACTION_CREATE                    MessageLog_MessageLogAction = 5
-	MessageLog_MESSAGE_LOG_ACTION_INVITE                    MessageLog_MessageLogAction = 6
-	MessageLog_MESSAGE_LOG_ACTION_JOIN                      MessageLog_MessageLogAction = 7
-	MessageLog_MESSAGE_LOG_ACTION_ASSIGN                    MessageLog_MessageLogAction = 8
-	MessageLog_MESSAGE_LOG_ACTION_AUTO_ASSIGN               MessageLog_MessageLogAction = 9
-	MessageLog_MESSAGE_LOG_ACTION_UNASSIGN                  MessageLog_MessageLogAction = 10
-	MessageLog_MESSAGE_LOG_ACTION_LEAVE                     MessageLog_MessageLogAction = 11
-	MessageLog_MESSAGE_LOG_ACTION_OPEN                      MessageLog_MessageLogAction = 12
-	MessageLog_MESSAGE_LOG_ACTION_AUTO_OPEN                 MessageLog_MessageLogAction = 13
-	MessageLog_MESSAGE_LOG_ACTION_ENQUEUE                   MessageLog_MessageLogAction = 14
-	MessageLog_MESSAGE_LOG_ACTION_MISS                      MessageLog_MessageLogAction = 15
-	MessageLog_MESSAGE_LOG_ACTION_REMOVE                    MessageLog_MessageLogAction = 16
-	MessageLog_MESSAGE_LOG_ACTION_SNOOZE                    MessageLog_MessageLogAction = 17
-	MessageLog_MESSAGE_LOG_ACTION_ADD_TAGS                  MessageLog_MessageLogAction = 18
-	MessageLog_MESSAGE_LOG_ACTION_REMOVE_TAGS               MessageLog_MessageLogAction = 19
-	MessageLog_MESSAGE_LOG_ACTION_ASSIGN_TEAM               MessageLog_MessageLogAction = 20
-	MessageLog_MESSAGE_LOG_ACTION_UNASSIGN_TEAM             MessageLog_MessageLogAction = 21
-	MessageLog_MESSAGE_LOG_ACTION_JOIN_MEET                 MessageLog_MessageLogAction = 22
-	MessageLog_MESSAGE_LOG_ACTION_LEAVE_MEET                MessageLog_MessageLogAction = 23
-	MessageLog_MESSAGE_LOG_ACTION_INVITE_MEET               MessageLog_MessageLogAction = 24
-	MessageLog_MESSAGE_LOG_ACTION_MISS_MEET                 MessageLog_MessageLogAction = 25
-	MessageLog_MESSAGE_LOG_ACTION_CALLBACK_MEET             MessageLog_MessageLogAction = 26
-	MessageLog_MESSAGE_LOG_ACTION_TRY_CONNECT_CALL          MessageLog_MessageLogAction = 27
-	MessageLog_MESSAGE_LOG_ACTION_PROCESS_BY_MISS           MessageLog_MessageLogAction = 28
-	MessageLog_MESSAGE_LOG_ACTION_PROCESS_BRANCH            MessageLog_MessageLogAction = 29
-	MessageLog_MESSAGE_LOG_ACTION_SEND_XMS                  MessageLog_MessageLogAction = 30
-	MessageLog_MESSAGE_LOG_ACTION_ADD_USER_TAGS             MessageLog_MessageLogAction = 31
-	MessageLog_MESSAGE_LOG_ACTION_REMOVE_USER_TAGS          MessageLog_MessageLogAction = 32
-	MessageLog_MESSAGE_LOG_ACTION_UPDATE_PRIORITY           MessageLog_MessageLogAction = 33
-	MessageLog_MESSAGE_LOG_ACTION_START_WORKFLOW            MessageLog_MessageLogAction = 34
-	MessageLog_MESSAGE_LOG_ACTION_END_WORKFLOW              MessageLog_MessageLogAction = 35
-	MessageLog_MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW        MessageLog_MessageLogAction = 36
+	// Unspecified or not set.
+	MessageLog_MESSAGE_LOG_ACTION_UNSPECIFIED MessageLog_MessageLogAction = 0
+	// The chat name was edited.
+	MessageLog_MESSAGE_LOG_ACTION_CHANGE_NAME MessageLog_MessageLogAction = 1
+	// The chat scope was reconfigured.
+	MessageLog_MESSAGE_LOG_ACTION_CHANGE_SCOPE MessageLog_MessageLogAction = 2
+	// The chat was closed.
+	MessageLog_MESSAGE_LOG_ACTION_CLOSE MessageLog_MessageLogAction = 3
+	// The chat was closed automatically.
+	MessageLog_MESSAGE_LOG_ACTION_AUTO_CLOSE MessageLog_MessageLogAction = 4
+	// The chat was created.
+	MessageLog_MESSAGE_LOG_ACTION_CREATE MessageLog_MessageLogAction = 5
+	// A manager was invited to the chat.
+	MessageLog_MESSAGE_LOG_ACTION_INVITE MessageLog_MessageLogAction = 6
+	// A manager joined the chat.
+	MessageLog_MESSAGE_LOG_ACTION_JOIN MessageLog_MessageLogAction = 7
+	// The chat was assigned to a manager.
+	MessageLog_MESSAGE_LOG_ACTION_ASSIGN MessageLog_MessageLogAction = 8
+	// The chat was assigned automatically.
+	MessageLog_MESSAGE_LOG_ACTION_AUTO_ASSIGN MessageLog_MessageLogAction = 9
+	// The chat assignee was cleared.
+	MessageLog_MESSAGE_LOG_ACTION_UNASSIGN MessageLog_MessageLogAction = 10
+	// A manager left the chat.
+	MessageLog_MESSAGE_LOG_ACTION_LEAVE MessageLog_MessageLogAction = 11
+	// The chat was opened.
+	MessageLog_MESSAGE_LOG_ACTION_OPEN MessageLog_MessageLogAction = 12
+	// The chat was opened automatically.
+	MessageLog_MESSAGE_LOG_ACTION_AUTO_OPEN MessageLog_MessageLogAction = 13
+	// The chat was placed in the assignment queue.
+	MessageLog_MESSAGE_LOG_ACTION_ENQUEUE MessageLog_MessageLogAction = 14
+	// The chat was missed.
+	MessageLog_MESSAGE_LOG_ACTION_MISS MessageLog_MessageLogAction = 15
+	// The chat was discarded.
+	MessageLog_MESSAGE_LOG_ACTION_REMOVE MessageLog_MessageLogAction = 16
+	// The chat was snoozed.
+	MessageLog_MESSAGE_LOG_ACTION_SNOOZE MessageLog_MessageLogAction = 17
+	// Tags were attached to the chat.
+	MessageLog_MESSAGE_LOG_ACTION_ADD_TAGS MessageLog_MessageLogAction = 18
+	// Tags were detached from the chat.
+	MessageLog_MESSAGE_LOG_ACTION_REMOVE_TAGS MessageLog_MessageLogAction = 19
+	// The chat was assigned to a team.
+	MessageLog_MESSAGE_LOG_ACTION_ASSIGN_TEAM MessageLog_MessageLogAction = 20
+	// The chat's team assignment was cleared.
+	MessageLog_MESSAGE_LOG_ACTION_UNASSIGN_TEAM MessageLog_MessageLogAction = 21
+	// A participant joined the meet.
+	MessageLog_MESSAGE_LOG_ACTION_JOIN_MEET MessageLog_MessageLogAction = 22
+	// A participant left the meet.
+	MessageLog_MESSAGE_LOG_ACTION_LEAVE_MEET MessageLog_MessageLogAction = 23
+	// A participant was invited to the meet.
+	MessageLog_MESSAGE_LOG_ACTION_INVITE_MEET MessageLog_MessageLogAction = 24
+	// The meet was missed.
+	MessageLog_MESSAGE_LOG_ACTION_MISS_MEET MessageLog_MessageLogAction = 25
+	// A callback was requested for the meet.
+	MessageLog_MESSAGE_LOG_ACTION_CALLBACK_MEET MessageLog_MessageLogAction = 26
+	// An attempt was made to connect a call.
+	MessageLog_MESSAGE_LOG_ACTION_TRY_CONNECT_CALL MessageLog_MessageLogAction = 27
+	// The chat was processed due to a miss.
+	MessageLog_MESSAGE_LOG_ACTION_PROCESS_BY_MISS MessageLog_MessageLogAction = 28
+	// A workflow branch was processed.
+	MessageLog_MESSAGE_LOG_ACTION_PROCESS_BRANCH MessageLog_MessageLogAction = 29
+	// An SMS/LMS/MMS message was sent.
+	MessageLog_MESSAGE_LOG_ACTION_SEND_XMS MessageLog_MessageLogAction = 30
+	// Tags were attached to the user.
+	MessageLog_MESSAGE_LOG_ACTION_ADD_USER_TAGS MessageLog_MessageLogAction = 31
+	// Tags were detached from the user.
+	MessageLog_MESSAGE_LOG_ACTION_REMOVE_USER_TAGS MessageLog_MessageLogAction = 32
+	// The chat priority was adjusted.
+	MessageLog_MESSAGE_LOG_ACTION_UPDATE_PRIORITY MessageLog_MessageLogAction = 33
+	// A workflow was started.
+	MessageLog_MESSAGE_LOG_ACTION_START_WORKFLOW MessageLog_MessageLogAction = 34
+	// A workflow ended.
+	MessageLog_MESSAGE_LOG_ACTION_END_WORKFLOW MessageLog_MessageLogAction = 35
+	// A workflow was interrupted.
+	MessageLog_MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW MessageLog_MessageLogAction = 36
+	// A workflow was interrupted by a bot.
 	MessageLog_MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT MessageLog_MessageLogAction = 37
-	MessageLog_MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF         MessageLog_MessageLogAction = 38
-	MessageLog_MESSAGE_LOG_ACTION_START_TASK                MessageLog_MessageLogAction = 39
-	MessageLog_MESSAGE_LOG_ACTION_APPLY_RULES               MessageLog_MessageLogAction = 40
-	MessageLog_MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER        MessageLog_MessageLogAction = 41
-	MessageLog_MESSAGE_LOG_ACTION_FALLBACK_CALL             MessageLog_MessageLogAction = 42
+	// An attempt was made to open the chat with ALF (AI agent).
+	MessageLog_MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF MessageLog_MessageLogAction = 38
+	// A task was started.
+	MessageLog_MESSAGE_LOG_ACTION_START_TASK MessageLog_MessageLogAction = 39
+	// Automation rules were applied.
+	MessageLog_MESSAGE_LOG_ACTION_APPLY_RULES MessageLog_MessageLogAction = 40
+	// ALF (AI agent) handling was canceled by the user.
+	MessageLog_MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER MessageLog_MessageLogAction = 41
+	// The call fell back to an alternative handler.
+	MessageLog_MESSAGE_LOG_ACTION_FALLBACK_CALL MessageLog_MessageLogAction = 42
 )
 
 // Enum value maps for MessageLog_MessageLogAction.
@@ -366,6 +422,7 @@ func (MessageLog_MessageLogAction) EnumDescriptor() ([]byte, []int) {
 type MessageMeet_MeetState int32
 
 const (
+	// Unspecified or not set.
 	MessageMeet_MEET_STATE_UNSPECIFIED MessageMeet_MeetState = 0
 	// Meet is currently in progress.
 	MessageMeet_MEET_STATE_LIVE MessageMeet_MeetState = 1
@@ -430,6 +487,7 @@ func (MessageMeet_MeetState) EnumDescriptor() ([]byte, []int) {
 type MessageMeet_MeetMode int32
 
 const (
+	// Unspecified or not set.
 	MessageMeet_MEET_MODE_UNSPECIFIED MessageMeet_MeetMode = 0
 	// Audio-only session.
 	MessageMeet_MEET_MODE_AUDIO MessageMeet_MeetMode = 1
@@ -482,6 +540,7 @@ func (MessageMeet_MeetMode) EnumDescriptor() ([]byte, []int) {
 type MessageMeet_MeetType int32
 
 const (
+	// Unspecified or not set.
 	MessageMeet_MEET_TYPE_UNSPECIFIED MessageMeet_MeetType = 0
 	// Browser-based video/audio meet.
 	MessageMeet_MEET_TYPE_FRONT MessageMeet_MeetType = 1
@@ -538,6 +597,7 @@ func (MessageMeet_MeetType) EnumDescriptor() ([]byte, []int) {
 type MessageEmail_EmailDirection int32
 
 const (
+	// Unspecified or not set.
 	MessageEmail_EMAIL_DIRECTION_UNSPECIFIED MessageEmail_EmailDirection = 0
 	// Received from an external sender.
 	MessageEmail_EMAIL_DIRECTION_INBOUND MessageEmail_EmailDirection = 1
@@ -590,6 +650,7 @@ func (MessageEmail_EmailDirection) EnumDescriptor() ([]byte, []int) {
 type MessageMarketing_ExposureType int32
 
 const (
+	// Unspecified or not set.
 	MessageMarketing_EXPOSURE_TYPE_UNSPECIFIED MessageMarketing_ExposureType = 0
 	// Renders as a full-screen overlay.
 	MessageMarketing_EXPOSURE_TYPE_FULL_SCREEN MessageMarketing_ExposureType = 1

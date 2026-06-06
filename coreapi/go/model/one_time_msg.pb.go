@@ -29,12 +29,18 @@ const (
 type OneTimeMsgState int32
 
 const (
+	// Unspecified or not set.
 	OneTimeMsgState_ONE_TIME_MSG_STATE_UNSPECIFIED OneTimeMsgState = 0
-	OneTimeMsgState_ONE_TIME_MSG_STATE_DRAFT       OneTimeMsgState = 1
-	OneTimeMsgState_ONE_TIME_MSG_STATE_WAITING     OneTimeMsgState = 2
-	OneTimeMsgState_ONE_TIME_MSG_STATE_SENT        OneTimeMsgState = 3
-	OneTimeMsgState_ONE_TIME_MSG_STATE_CANCELED    OneTimeMsgState = 4
-	OneTimeMsgState_ONE_TIME_MSG_STATE_REMOVED     OneTimeMsgState = 5
+	// Draft being configured; not yet scheduled.
+	OneTimeMsgState_ONE_TIME_MSG_STATE_DRAFT OneTimeMsgState = 1
+	// Scheduled and waiting to be sent.
+	OneTimeMsgState_ONE_TIME_MSG_STATE_WAITING OneTimeMsgState = 2
+	// Sent to the target segment.
+	OneTimeMsgState_ONE_TIME_MSG_STATE_SENT OneTimeMsgState = 3
+	// Canceled before sending.
+	OneTimeMsgState_ONE_TIME_MSG_STATE_CANCELED OneTimeMsgState = 4
+	// The one-time message is no longer present.
+	OneTimeMsgState_ONE_TIME_MSG_STATE_REMOVED OneTimeMsgState = 5
 )
 
 // Enum value maps for OneTimeMsgState.
@@ -88,9 +94,13 @@ func (OneTimeMsgState) EnumDescriptor() ([]byte, []int) {
 type OneTimeMsgSendMode int32
 
 const (
-	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED                 OneTimeMsgSendMode = 0
-	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_IMMEDIATELY                 OneTimeMsgSendMode = 1
-	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME   OneTimeMsgSendMode = 2
+	// Unspecified or not set.
+	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED OneTimeMsgSendMode = 0
+	// Send immediately.
+	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_IMMEDIATELY OneTimeMsgSendMode = 1
+	// Send at a scheduled time in the sender's timezone.
+	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME OneTimeMsgSendMode = 2
+	// Send at a scheduled time in each receiver's local timezone.
 	OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME OneTimeMsgSendMode = 3
 )
 

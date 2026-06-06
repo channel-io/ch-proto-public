@@ -28,6 +28,7 @@ const (
 type UserChatState int32
 
 const (
+	// Unspecified or not set.
 	UserChatState_USER_CHAT_STATE_UNSPECIFIED UserChatState = 0
 	// The chat has been resolved and closed.
 	UserChatState_USER_CHAT_STATE_CLOSED UserChatState = 1
@@ -92,6 +93,7 @@ func (UserChatState) EnumDescriptor() ([]byte, []int) {
 type MissedReason int32
 
 const (
+	// Unspecified or not set.
 	MissedReason_MISSED_REASON_UNSPECIFIED MissedReason = 0
 	// The channel was outside of operating hours.
 	MissedReason_MISSED_REASON_NOT_IN_OPERATION MissedReason = 1
@@ -188,6 +190,7 @@ func (MissedReason) EnumDescriptor() ([]byte, []int) {
 type AutoAssignPriority int32
 
 const (
+	// Unspecified or not set.
 	AutoAssignPriority_AUTO_ASSIGN_PRIORITY_UNSPECIFIED AutoAssignPriority = 0
 	// Low priority; assigned after medium and high priority chats.
 	AutoAssignPriority_AUTO_ASSIGN_PRIORITY_LOW AutoAssignPriority = 1
@@ -244,6 +247,7 @@ func (AutoAssignPriority) EnumDescriptor() ([]byte, []int) {
 type UserChatGoalState int32
 
 const (
+	// Unspecified or not set.
 	UserChatGoalState_USER_CHAT_GOAL_STATE_UNSPECIFIED UserChatGoalState = 0
 	// The tracked goal event has been achieved.
 	UserChatGoalState_USER_CHAT_GOAL_STATE_ACHIEVED UserChatGoalState = 1
@@ -304,6 +308,7 @@ func (UserChatGoalState) EnumDescriptor() ([]byte, []int) {
 type UserChatSubtextType int32
 
 const (
+	// Unspecified or not set.
 	UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED UserChatSubtextType = 0
 	// Shows the chat description as the subtext.
 	UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_DESCRIPTION UserChatSubtextType = 1

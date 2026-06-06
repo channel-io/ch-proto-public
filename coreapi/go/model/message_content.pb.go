@@ -27,6 +27,7 @@ const (
 type MessageOption int32
 
 const (
+	// Unspecified or not set.
 	MessageOption_MESSAGE_OPTION_UNSPECIFIED MessageOption = 0
 	// Deliver the message as if sent by a manager instead of a bot.
 	MessageOption_MESSAGE_OPTION_ACT_AS_MANAGER MessageOption = 1
@@ -121,6 +122,7 @@ func (MessageOption) EnumDescriptor() ([]byte, []int) {
 type Block_BlockType int32
 
 const (
+	// Unspecified or not set.
 	Block_BLOCK_TYPE_UNSPECIFIED Block_BlockType = 0
 	// Container for nested child blocks forming a bullet list.
 	Block_BLOCK_TYPE_BULLETS Block_BlockType = 1
@@ -177,14 +179,22 @@ func (Block_BlockType) EnumDescriptor() ([]byte, []int) {
 type MessageButton_ColorVariant int32
 
 const (
+	// Unspecified or not set.
 	MessageButton_COLOR_VARIANT_UNSPECIFIED MessageButton_ColorVariant = 0
-	MessageButton_COLOR_VARIANT_COBALT      MessageButton_ColorVariant = 1
-	MessageButton_COLOR_VARIANT_GREEN       MessageButton_ColorVariant = 2
-	MessageButton_COLOR_VARIANT_ORANGE      MessageButton_ColorVariant = 3
-	MessageButton_COLOR_VARIANT_RED         MessageButton_ColorVariant = 4
-	MessageButton_COLOR_VARIANT_BLACK       MessageButton_ColorVariant = 5
-	MessageButton_COLOR_VARIANT_PINK        MessageButton_ColorVariant = 6
-	MessageButton_COLOR_VARIANT_PURPLE      MessageButton_ColorVariant = 7
+	// Cobalt blue theme.
+	MessageButton_COLOR_VARIANT_COBALT MessageButton_ColorVariant = 1
+	// Green theme.
+	MessageButton_COLOR_VARIANT_GREEN MessageButton_ColorVariant = 2
+	// Orange theme.
+	MessageButton_COLOR_VARIANT_ORANGE MessageButton_ColorVariant = 3
+	// Red theme.
+	MessageButton_COLOR_VARIANT_RED MessageButton_ColorVariant = 4
+	// Black theme.
+	MessageButton_COLOR_VARIANT_BLACK MessageButton_ColorVariant = 5
+	// Pink theme.
+	MessageButton_COLOR_VARIANT_PINK MessageButton_ColorVariant = 6
+	// Purple theme.
+	MessageButton_COLOR_VARIANT_PURPLE MessageButton_ColorVariant = 7
 )
 
 // Enum value maps for MessageButton_ColorVariant.
@@ -242,6 +252,7 @@ func (MessageButton_ColorVariant) EnumDescriptor() ([]byte, []int) {
 type MessageFile_PrivateFileScope int32
 
 const (
+	// Unspecified or not set.
 	MessageFile_PRIVATE_FILE_SCOPE_UNSPECIFIED MessageFile_PrivateFileScope = 0
 	// Visible only to participants of the specific chat.
 	MessageFile_PRIVATE_FILE_SCOPE_CHAT MessageFile_PrivateFileScope = 1

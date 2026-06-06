@@ -27,6 +27,7 @@ const (
 type GroupScope int32
 
 const (
+	// Unspecified or not set.
 	GroupScope_GROUP_SCOPE_UNSPECIFIED GroupScope = 0
 	// Visible to all managers in the channel regardless of membership.
 	GroupScope_GROUP_SCOPE_ALL GroupScope = 1

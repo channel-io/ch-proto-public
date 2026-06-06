@@ -29,14 +29,22 @@ const (
 type ChannelState int32
 
 const (
-	ChannelState_CHANNEL_STATE_UNSPECIFIED  ChannelState = 0
-	ChannelState_CHANNEL_STATE_WAITING      ChannelState = 1
-	ChannelState_CHANNEL_STATE_ACTIVE       ChannelState = 2
-	ChannelState_CHANNEL_STATE_RESTRICTED   ChannelState = 3
+	// Unspecified or not set.
+	ChannelState_CHANNEL_STATE_UNSPECIFIED ChannelState = 0
+	// Created and awaiting activation.
+	ChannelState_CHANNEL_STATE_WAITING ChannelState = 1
+	// Active and fully operational.
+	ChannelState_CHANNEL_STATE_ACTIVE ChannelState = 2
+	// Access restricted; treated as a blocked state.
+	ChannelState_CHANNEL_STATE_RESTRICTED ChannelState = 3
+	// Payment overdue within a grace period; not yet blocked. TODO: confirm meaning vs INDEBTED.
 	ChannelState_CHANNEL_STATE_PRE_INDEBTED ChannelState = 4
-	ChannelState_CHANNEL_STATE_INDEBTED     ChannelState = 5
-	ChannelState_CHANNEL_STATE_BANNED       ChannelState = 6
-	ChannelState_CHANNEL_STATE_REMOVED      ChannelState = 7
+	// Payment unresolved past the due date; treated as a blocked state.
+	ChannelState_CHANNEL_STATE_INDEBTED ChannelState = 5
+	// Banned; treated as a blocked state.
+	ChannelState_CHANNEL_STATE_BANNED ChannelState = 6
+	// The channel has been removed; treated as a blocked state.
+	ChannelState_CHANNEL_STATE_REMOVED ChannelState = 7
 )
 
 // Enum value maps for ChannelState.
@@ -94,10 +102,14 @@ func (ChannelState) EnumDescriptor() ([]byte, []int) {
 type ChannelAwayOption int32
 
 const (
+	// Unspecified or not set.
 	ChannelAwayOption_CHANNEL_AWAY_OPTION_UNSPECIFIED ChannelAwayOption = 0
-	ChannelAwayOption_CHANNEL_AWAY_OPTION_ACTIVE      ChannelAwayOption = 1
-	ChannelAwayOption_CHANNEL_AWAY_OPTION_DISABLED    ChannelAwayOption = 2
-	ChannelAwayOption_CHANNEL_AWAY_OPTION_HIDDEN      ChannelAwayOption = 3
+	// Messenger stays active and accepts new chats while away.
+	ChannelAwayOption_CHANNEL_AWAY_OPTION_ACTIVE ChannelAwayOption = 1
+	// Starting new chats is disabled while away.
+	ChannelAwayOption_CHANNEL_AWAY_OPTION_DISABLED ChannelAwayOption = 2
+	// Messenger is hidden while away.
+	ChannelAwayOption_CHANNEL_AWAY_OPTION_HIDDEN ChannelAwayOption = 3
 )
 
 // Enum value maps for ChannelAwayOption.
@@ -147,10 +159,14 @@ func (ChannelAwayOption) EnumDescriptor() ([]byte, []int) {
 type ResponseDelayType int32
 
 const (
+	// Unspecified or not set.
 	ResponseDelayType_RESPONSE_DELAY_TYPE_UNSPECIFIED ResponseDelayType = 0
-	ResponseDelayType_RESPONSE_DELAY_TYPE_INSTANT     ResponseDelayType = 1
-	ResponseDelayType_RESPONSE_DELAY_TYPE_NORMAL      ResponseDelayType = 2
-	ResponseDelayType_RESPONSE_DELAY_TYPE_DELAYED     ResponseDelayType = 3
+	// Replies are expected almost immediately.
+	ResponseDelayType_RESPONSE_DELAY_TYPE_INSTANT ResponseDelayType = 1
+	// Replies are expected within a normal timeframe.
+	ResponseDelayType_RESPONSE_DELAY_TYPE_NORMAL ResponseDelayType = 2
+	// Replies may be delayed.
+	ResponseDelayType_RESPONSE_DELAY_TYPE_DELAYED ResponseDelayType = 3
 )
 
 // Enum value maps for ResponseDelayType.
