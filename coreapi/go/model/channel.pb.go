@@ -37,7 +37,7 @@ const (
 	ChannelState_CHANNEL_STATE_ACTIVE ChannelState = 2
 	// Access restricted; treated as a blocked state.
 	ChannelState_CHANNEL_STATE_RESTRICTED ChannelState = 3
-	// Payment overdue within a grace period; not yet blocked. TODO: confirm meaning vs INDEBTED.
+	// Payment overdue and within a grace period; not yet blocked.
 	ChannelState_CHANNEL_STATE_PRE_INDEBTED ChannelState = 4
 	// Payment unresolved past the due date; treated as a blocked state.
 	ChannelState_CHANNEL_STATE_INDEBTED ChannelState = 5

@@ -23,7 +23,7 @@ enum ChannelState {
   CHANNEL_STATE_ACTIVE = 2;
   // Access restricted; treated as a blocked state.
   CHANNEL_STATE_RESTRICTED = 3;
-  // Payment overdue within a grace period; not yet blocked. TODO: confirm meaning vs INDEBTED.
+  // Payment overdue and within a grace period; not yet blocked.
   CHANNEL_STATE_PRE_INDEBTED = 4;
   // Payment unresolved past the due date; treated as a blocked state.
   CHANNEL_STATE_INDEBTED = 5;
