@@ -81,7 +81,6 @@ func (CampaignState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_campaign_proto_rawDescGZIP(), []int{0}
 }
 
-// Messaging medium type for marketing delivery.
 // Additional event filter matching strategy.
 type CampaignFilterMatch int32
 
