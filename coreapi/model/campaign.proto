@@ -23,7 +23,6 @@ enum CampaignState {
   CAMPAIGN_STATE_REMOVED = 4;
 }
 
-// Messaging medium type for marketing delivery.
 // Additional event filter matching strategy.
 enum CampaignFilterMatch {
   CAMPAIGN_FILTER_MATCH_UNSPECIFIED = 0;
