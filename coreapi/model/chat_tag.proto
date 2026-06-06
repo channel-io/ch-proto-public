@@ -11,15 +11,25 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Color variant for visual labeling of chat tags.
 enum ChatTagColorVariant {
+  // Unspecified or not set.
   CHAT_TAG_COLOR_VARIANT_UNSPECIFIED = 0;
+  // Red color variant.
   CHAT_TAG_COLOR_VARIANT_RED = 1;
+  // Orange color variant.
   CHAT_TAG_COLOR_VARIANT_ORANGE = 2;
+  // Yellow color variant.
   CHAT_TAG_COLOR_VARIANT_YELLOW = 3;
+  // Olive color variant.
   CHAT_TAG_COLOR_VARIANT_OLIVE = 4;
+  // Green color variant.
   CHAT_TAG_COLOR_VARIANT_GREEN = 5;
+  // Cobalt (blue) color variant.
   CHAT_TAG_COLOR_VARIANT_COBALT = 6;
+  // Purple color variant.
   CHAT_TAG_COLOR_VARIANT_PURPLE = 7;
+  // Pink color variant.
   CHAT_TAG_COLOR_VARIANT_PINK = 8;
+  // Navy (dark blue) color variant.
   CHAT_TAG_COLOR_VARIANT_NAVY = 9;
 }
 

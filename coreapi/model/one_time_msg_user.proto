@@ -11,10 +11,15 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Filter state for querying one-time message user delivery results.
 enum OneTimeMsgUserState {
+  // Unspecified or not set.
   ONE_TIME_MSG_USER_STATE_UNSPECIFIED = 0;
+  // Users to whom the one-time message was delivered.
   ONE_TIME_MSG_USER_STATE_SENT = 1;
+  // Users who viewed the delivered message.
   ONE_TIME_MSG_USER_STATE_VIEW = 2;
+  // Users who completed the goal event.
   ONE_TIME_MSG_USER_STATE_GOAL = 3;
+  // Users who clicked a link in the message.
   ONE_TIME_MSG_USER_STATE_CLICK = 4;
 }
 

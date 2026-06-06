@@ -15,29 +15,45 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Lifecycle state of a channel.
 enum ChannelState {
+  // Unspecified or not set.
   CHANNEL_STATE_UNSPECIFIED = 0;
+  // Created and awaiting activation.
   CHANNEL_STATE_WAITING = 1;
+  // Active and fully operational.
   CHANNEL_STATE_ACTIVE = 2;
+  // Access restricted; treated as a blocked state.
   CHANNEL_STATE_RESTRICTED = 3;
+  // Payment overdue within a grace period; not yet blocked. TODO: confirm meaning vs INDEBTED.
   CHANNEL_STATE_PRE_INDEBTED = 4;
+  // Payment unresolved past the due date; treated as a blocked state.
   CHANNEL_STATE_INDEBTED = 5;
+  // Banned; treated as a blocked state.
   CHANNEL_STATE_BANNED = 6;
+  // The channel has been removed; treated as a blocked state.
   CHANNEL_STATE_REMOVED = 7;
 }
 
 // Away behavior when the channel is outside of operating hours.
 enum ChannelAwayOption {
+  // Unspecified or not set.
   CHANNEL_AWAY_OPTION_UNSPECIFIED = 0;
+  // Messenger stays active and accepts new chats while away.
   CHANNEL_AWAY_OPTION_ACTIVE = 1;
+  // Starting new chats is disabled while away.
   CHANNEL_AWAY_OPTION_DISABLED = 2;
+  // Messenger is hidden while away.
   CHANNEL_AWAY_OPTION_HIDDEN = 3;
 }
 
 // Expected response speed indicator shown to end users.
 enum ResponseDelayType {
+  // Unspecified or not set.
   RESPONSE_DELAY_TYPE_UNSPECIFIED = 0;
+  // Replies are expected almost immediately.
   RESPONSE_DELAY_TYPE_INSTANT = 1;
+  // Replies are expected within a normal timeframe.
   RESPONSE_DELAY_TYPE_NORMAL = 2;
+  // Replies may be delayed.
   RESPONSE_DELAY_TYPE_DELAYED = 3;
 }
 

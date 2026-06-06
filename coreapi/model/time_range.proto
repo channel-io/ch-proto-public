@@ -63,13 +63,21 @@ message TimeRange {
 
   // Day of the week.
   enum DayOfWeek {
+    // Unspecified or not set.
     DAY_OF_WEEK_UNSPECIFIED = 0;
+    // Monday.
     DAY_OF_WEEK_MON = 1;
+    // Tuesday.
     DAY_OF_WEEK_TUE = 2;
+    // Wednesday.
     DAY_OF_WEEK_WED = 3;
+    // Thursday.
     DAY_OF_WEEK_THU = 4;
+    // Friday.
     DAY_OF_WEEK_FRI = 5;
+    // Saturday.
     DAY_OF_WEEK_SAT = 6;
+    // Sunday.
     DAY_OF_WEEK_SUN = 7;
   }
 }

@@ -13,62 +13,99 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Plugin state in the activation lifecycle.
 enum PluginState {
+  // Unspecified or not set.
   PLUGIN_STATE_UNSPECIFIED = 0;
+  // Created and awaiting activation.
   PLUGIN_STATE_WAITING = 1;
+  // Activated and serving the chat widget.
   PLUGIN_STATE_ACTIVE = 2;
 }
 
 // Visual appearance mode for the plugin widget.
 enum PluginAppearance {
+  // Unspecified or not set.
   PLUGIN_APPEARANCE_UNSPECIFIED = 0;
+  // Light color theme.
   PLUGIN_APPEARANCE_LIGHT = 1;
+  // Dark color theme.
   PLUGIN_APPEARANCE_DARK = 2;
+  // Follows the end user's system theme setting.
   PLUGIN_APPEARANCE_SYSTEM = 3;
 }
 
 // Button rendering type for the plugin launcher.
 enum PluginButtonType {
+  // Unspecified or not set.
   PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;
+  // Legacy launcher using uploaded desktop and mobile images.
   PLUGIN_BUTTON_TYPE_LEGACY = 1;
+  // Launcher using a single custom uploaded image.
   PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;
+  // Launcher using a predefined icon.
   PLUGIN_BUTTON_TYPE_ICON_BUTTON = 3;
 }
 
 // Predefined icon for the plugin launcher button.
 enum PluginIconButton {
+  // Unspecified or not set.
   PLUGIN_ICON_BUTTON_UNSPECIFIED = 0;
+  // Channel logo icon (outline style).
   PLUGIN_ICON_BUTTON_CHANNEL = 1;
+  // Channel logo icon (filled style).
   PLUGIN_ICON_BUTTON_CHANNEL_FILLED = 2;
+  // Alternate chat bubble icon (outline style).
   PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT = 3;
+  // Alternate chat bubble icon (filled style).
   PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED = 4;
+  // Chat bubble icon (filled style).
   PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED = 5;
+  // Chat bubble with lightning icon (filled style).
   PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED = 6;
+  // Chat bubble with progress dots icon (outline style).
   PLUGIN_ICON_BUTTON_CHAT_PROGRESS = 7;
+  // Chat bubble with progress dots icon (filled style).
   PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED = 8;
+  // Chat bubble with question mark icon (outline style).
   PLUGIN_ICON_BUTTON_CHAT_QUESTION = 9;
+  // Chat bubble with question mark icon (filled style).
   PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED = 10;
+  // Comment icon (outline style).
   PLUGIN_ICON_BUTTON_COMMENT = 11;
+  // Comment icon (filled style).
   PLUGIN_ICON_BUTTON_COMMENT_FILLED = 12;
+  // Communication icon.
   PLUGIN_ICON_BUTTON_COMMUNICATION = 13;
+  // Headset (customer support) icon.
   PLUGIN_ICON_BUTTON_HEADSET = 14;
+  // Help icon (filled style).
   PLUGIN_ICON_BUTTON_HELP_FILLED = 15;
+  // Send/forward arrow icon (outline style).
   PLUGIN_ICON_BUTTON_SEND_FORWARD = 16;
+  // Send/forward arrow icon (filled style).
   PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED = 17;
+  // SMS message icon (outline style).
   PLUGIN_ICON_BUTTON_SMS = 18;
+  // SMS message icon (filled style).
   PLUGIN_ICON_BUTTON_SMS_FILLED = 19;
 }
 
 // Horizontal position of the plugin widget on screen.
 enum PluginPosition {
+  // Unspecified or not set.
   PLUGIN_POSITION_UNSPECIFIED = 0;
+  // Anchored to the left edge of the screen.
   PLUGIN_POSITION_LEFT = 1;
+  // Anchored to the right edge of the screen.
   PLUGIN_POSITION_RIGHT = 2;
 }
 
 // Vertical position of the mobile chat bubble.
 enum PluginBubblePosition {
+  // Unspecified or not set.
   PLUGIN_BUBBLE_POSITION_UNSPECIFIED = 0;
+  // Positioned near the top of the screen.
   PLUGIN_BUBBLE_POSITION_TOP = 1;
+  // Positioned near the bottom of the screen.
   PLUGIN_BUBBLE_POSITION_BOTTOM = 2;
 }
 

@@ -11,15 +11,25 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Webhook event scope determining which events trigger the webhook.
 enum WebhookScope {
+  // Unspecified or not set.
   WEBHOOK_SCOPE_UNSPECIFIED = 0;
+  // Triggered when a user chat is opened.
   WEBHOOK_SCOPE_USER_CHAT_OPENED = 1;
+  // Triggered when a message is created in a user chat.
   WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT = 2;
+  // Triggered when a message is created in a team chat.
   WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT = 3;
+  // Triggered when a lead's contact information is created or updated.
   WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT = 4;
+  // Triggered when a lead's marketing subscription is created or updated.
   WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION = 5;
+  // Triggered when a lead is deleted.
   WEBHOOK_SCOPE_LEAD_DELETED = 6;
+  // Triggered when a member's contact information is created or updated.
   WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT = 7;
+  // Triggered when a member's marketing subscription is created or updated.
   WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION = 8;
+  // Triggered when a member is deleted.
   WEBHOOK_SCOPE_MEMBER_DELETED = 9;
 }
 

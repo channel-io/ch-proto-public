@@ -12,6 +12,7 @@ option java_package = "io.channel.api.proto.pub.coreapi.common";
 // - a CommonErrorCode (for errors common to most operations), or
 // - an operation_error_code string (for errors specific to a single operation).
 enum CommonErrorCode {
+  // Unspecified or not set.
   COMMON_ERROR_CODE_UNSPECIFIED = 0;
 
   // The requested entity does not exist.
