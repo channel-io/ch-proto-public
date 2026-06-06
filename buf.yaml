@@ -1,5 +1,9 @@
 version: v2
 lint:
+  use:
+    - STANDARD
+    - COMMENT_ENUM
+    - COMMENT_ENUM_VALUE
   except:
     - PACKAGE_VERSION_SUFFIX
 modules:
