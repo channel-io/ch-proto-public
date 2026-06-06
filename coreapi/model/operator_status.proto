@@ -12,6 +12,7 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // Activity state of a manager for operational tracking and chat routing.
 // States are grouped into "active" (eligible for chat assignment) and "inactive".
 enum OperatorStatusType {
+  // Unspecified or not set.
   OPERATOR_STATUS_TYPE_UNSPECIFIED = 0;
   // Idle and ready to receive new chats (active).
   OPERATOR_STATUS_TYPE_WAITING = 1;

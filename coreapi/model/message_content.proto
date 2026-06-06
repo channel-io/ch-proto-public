@@ -45,6 +45,7 @@ message Block {
   // TEXT and CODE are leaf types that hold text in `value`.
   // BULLETS is a container type that holds child blocks in `blocks`.
   enum BlockType {
+    // Unspecified or not set.
     BLOCK_TYPE_UNSPECIFIED = 0;
     // Container for nested child blocks forming a bullet list.
     BLOCK_TYPE_BULLETS = 1;
@@ -96,13 +97,21 @@ message MessageButton {
 
   // Visual color theme for a button.
   enum ColorVariant {
+    // Unspecified or not set.
     COLOR_VARIANT_UNSPECIFIED = 0;
+    // Cobalt blue theme.
     COLOR_VARIANT_COBALT = 1;
+    // Green theme.
     COLOR_VARIANT_GREEN = 2;
+    // Orange theme.
     COLOR_VARIANT_ORANGE = 3;
+    // Red theme.
     COLOR_VARIANT_RED = 4;
+    // Black theme.
     COLOR_VARIANT_BLACK = 5;
+    // Pink theme.
     COLOR_VARIANT_PINK = 6;
+    // Purple theme.
     COLOR_VARIANT_PURPLE = 7;
   }
 }
@@ -247,6 +256,7 @@ message MessageFile {
 
   // Access scope for private file visibility.
   enum PrivateFileScope {
+    // Unspecified or not set.
     PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;
     // Visible only to participants of the specific chat.
     PRIVATE_FILE_SCOPE_CHAT = 1;
@@ -351,6 +361,7 @@ message MessageWebPage {
 
 // Message option flags that modify message delivery and display behavior.
 enum MessageOption {
+  // Unspecified or not set.
   MESSAGE_OPTION_UNSPECIFIED = 0;
   // Deliver the message as if sent by a manager instead of a bot.
   MESSAGE_OPTION_ACT_AS_MANAGER = 1;

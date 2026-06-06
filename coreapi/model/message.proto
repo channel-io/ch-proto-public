@@ -14,10 +14,15 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // State of a message in its lifecycle. SENDING is in transit to the server,
 // SENT has been delivered, FAILED could not be delivered, and REMOVED has been deleted.
 enum MessageState {
+  // Unspecified or not set.
   MESSAGE_STATE_UNSPECIFIED = 0;
+  // In transit to the server.
   MESSAGE_STATE_SENDING = 1;
+  // Successfully delivered.
   MESSAGE_STATE_SENT = 2;
+  // Could not be delivered.
   MESSAGE_STATE_FAILED = 3;
+  // The message is no longer present in the conversation.
   MESSAGE_STATE_REMOVED = 4;
 }
 
@@ -25,9 +30,13 @@ enum MessageState {
 // ALERT triggers a push notification and visual alert, UNREAD increments the unread badge
 // without a push notification, and NONE applies no notification or badge change.
 enum AlertLevel {
+  // Unspecified or not set.
   ALERT_LEVEL_UNSPECIFIED = 0;
+  // Triggers a push notification and visual alert.
   ALERT_LEVEL_ALERT = 1;
+  // Increments the unread badge without a push notification.
   ALERT_LEVEL_UNREAD = 2;
+  // No notification and no badge increment.
   ALERT_LEVEL_NONE = 3;
 }
 
@@ -36,9 +45,13 @@ enum AlertLevel {
 // CUSTOM is rendered using a third-party custom payload, and EMAIL was composed or received
 // via email integration.
 enum WritingType {
+  // Unspecified or not set.
   WRITING_TYPE_UNSPECIFIED = 0;
+  // Regular text message composed via the chat input.
   WRITING_TYPE_STANDARD = 1;
+  // Rendered using a third-party custom payload.
   WRITING_TYPE_CUSTOM = 2;
+  // Composed or received via email integration.
   WRITING_TYPE_EMAIL = 3;
 }
 
@@ -396,48 +409,91 @@ message MessageLog {
 
   // Action types recorded in system log messages.
   enum MessageLogAction {
+    // Unspecified or not set.
     MESSAGE_LOG_ACTION_UNSPECIFIED = 0;
+    // The chat name was edited.
     MESSAGE_LOG_ACTION_CHANGE_NAME = 1;
+    // The chat scope was reconfigured.
     MESSAGE_LOG_ACTION_CHANGE_SCOPE = 2;
+    // The chat was closed.
     MESSAGE_LOG_ACTION_CLOSE = 3;
+    // The chat was closed automatically.
     MESSAGE_LOG_ACTION_AUTO_CLOSE = 4;
+    // The chat was created.
     MESSAGE_LOG_ACTION_CREATE = 5;
+    // A manager was invited to the chat.
     MESSAGE_LOG_ACTION_INVITE = 6;
+    // A manager joined the chat.
     MESSAGE_LOG_ACTION_JOIN = 7;
+    // The chat was assigned to a manager.
     MESSAGE_LOG_ACTION_ASSIGN = 8;
+    // The chat was assigned automatically.
     MESSAGE_LOG_ACTION_AUTO_ASSIGN = 9;
+    // The chat assignee was cleared.
     MESSAGE_LOG_ACTION_UNASSIGN = 10;
+    // A manager left the chat.
     MESSAGE_LOG_ACTION_LEAVE = 11;
+    // The chat was opened.
     MESSAGE_LOG_ACTION_OPEN = 12;
+    // The chat was opened automatically.
     MESSAGE_LOG_ACTION_AUTO_OPEN = 13;
+    // The chat was placed in the assignment queue.
     MESSAGE_LOG_ACTION_ENQUEUE = 14;
+    // The chat was missed.
     MESSAGE_LOG_ACTION_MISS = 15;
+    // The chat was discarded.
     MESSAGE_LOG_ACTION_REMOVE = 16;
+    // The chat was snoozed.
     MESSAGE_LOG_ACTION_SNOOZE = 17;
+    // Tags were attached to the chat.
     MESSAGE_LOG_ACTION_ADD_TAGS = 18;
+    // Tags were detached from the chat.
     MESSAGE_LOG_ACTION_REMOVE_TAGS = 19;
+    // The chat was assigned to a team.
     MESSAGE_LOG_ACTION_ASSIGN_TEAM = 20;
+    // The chat's team assignment was cleared.
     MESSAGE_LOG_ACTION_UNASSIGN_TEAM = 21;
+    // A participant joined the meet.
     MESSAGE_LOG_ACTION_JOIN_MEET = 22;
+    // A participant left the meet.
     MESSAGE_LOG_ACTION_LEAVE_MEET = 23;
+    // A participant was invited to the meet.
     MESSAGE_LOG_ACTION_INVITE_MEET = 24;
+    // The meet was missed.
     MESSAGE_LOG_ACTION_MISS_MEET = 25;
+    // A callback was requested for the meet.
     MESSAGE_LOG_ACTION_CALLBACK_MEET = 26;
+    // An attempt was made to connect a call.
     MESSAGE_LOG_ACTION_TRY_CONNECT_CALL = 27;
+    // The chat was processed due to a miss.
     MESSAGE_LOG_ACTION_PROCESS_BY_MISS = 28;
+    // A workflow branch was processed.
     MESSAGE_LOG_ACTION_PROCESS_BRANCH = 29;
+    // An SMS/LMS/MMS message was sent.
     MESSAGE_LOG_ACTION_SEND_XMS = 30;
+    // Tags were attached to the user.
     MESSAGE_LOG_ACTION_ADD_USER_TAGS = 31;
+    // Tags were detached from the user.
     MESSAGE_LOG_ACTION_REMOVE_USER_TAGS = 32;
+    // The chat priority was adjusted.
     MESSAGE_LOG_ACTION_UPDATE_PRIORITY = 33;
+    // A workflow was started.
     MESSAGE_LOG_ACTION_START_WORKFLOW = 34;
+    // A workflow ended.
     MESSAGE_LOG_ACTION_END_WORKFLOW = 35;
+    // A workflow was interrupted.
     MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW = 36;
+    // A workflow was interrupted by a bot.
     MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;
+    // An attempt was made to open the chat with ALF (AI agent).
     MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF = 38;
+    // A task was started.
     MESSAGE_LOG_ACTION_START_TASK = 39;
+    // Automation rules were applied.
     MESSAGE_LOG_ACTION_APPLY_RULES = 40;
+    // ALF (AI agent) handling was canceled by the user.
     MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER = 41;
+    // The call fell back to an alternative handler.
     MESSAGE_LOG_ACTION_FALLBACK_CALL = 42;
   }
 }
@@ -557,6 +613,7 @@ message MessageMeet {
 
   // Lifecycle state of a meet session.
   enum MeetState {
+    // Unspecified or not set.
     MEET_STATE_UNSPECIFIED = 0;
     // Meet is currently in progress.
     MEET_STATE_LIVE = 1;
@@ -572,6 +629,7 @@ message MessageMeet {
 
   // Media mode for a meet session.
   enum MeetMode {
+    // Unspecified or not set.
     MEET_MODE_UNSPECIFIED = 0;
     // Audio-only session.
     MEET_MODE_AUDIO = 1;
@@ -581,6 +639,7 @@ message MessageMeet {
 
   // Category of a meet session, determined by the session type.
   enum MeetType {
+    // Unspecified or not set.
     MEET_TYPE_UNSPECIFIED = 0;
     // Browser-based video/audio meet.
     MEET_TYPE_FRONT = 1;
@@ -711,6 +770,7 @@ message MessageEmail {
 
   // Direction of an email relative to the channel.
   enum EmailDirection {
+    // Unspecified or not set.
     EMAIL_DIRECTION_UNSPECIFIED = 0;
     // Received from an external sender.
     EMAIL_DIRECTION_INBOUND = 1;
@@ -780,6 +840,7 @@ message MessageMarketing {
 
   // In-app display mode for marketing messages.
   enum ExposureType {
+    // Unspecified or not set.
     EXPOSURE_TYPE_UNSPECIFIED = 0;
     // Renders as a full-screen overlay.
     EXPOSURE_TYPE_FULL_SCREEN = 1;

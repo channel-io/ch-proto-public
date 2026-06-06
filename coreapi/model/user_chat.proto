@@ -12,6 +12,7 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // State of a user chat conversation.
 enum UserChatState {
+  // Unspecified or not set.
   USER_CHAT_STATE_UNSPECIFIED = 0;
   // The chat has been resolved and closed.
   USER_CHAT_STATE_CLOSED = 1;
@@ -27,6 +28,7 @@ enum UserChatState {
 
 // Reason why an inbound call or chat was missed.
 enum MissedReason {
+  // Unspecified or not set.
   MISSED_REASON_UNSPECIFIED = 0;
   // The channel was outside of operating hours.
   MISSED_REASON_NOT_IN_OPERATION = 1;
@@ -58,6 +60,7 @@ enum MissedReason {
 
 // Priority level for auto-assignment routing.
 enum AutoAssignPriority {
+  // Unspecified or not set.
   AUTO_ASSIGN_PRIORITY_UNSPECIFIED = 0;
   // Low priority; assigned after medium and high priority chats.
   AUTO_ASSIGN_PRIORITY_LOW = 1;
@@ -69,6 +72,7 @@ enum AutoAssignPriority {
 
 // Goal achievement state of a user chat.
 enum UserChatGoalState {
+  // Unspecified or not set.
   USER_CHAT_GOAL_STATE_UNSPECIFIED = 0;
   // The tracked goal event has been achieved.
   USER_CHAT_GOAL_STATE_ACHIEVED = 1;
@@ -82,6 +86,7 @@ enum UserChatGoalState {
 
 // Type of subtext displayed below the chat title.
 enum UserChatSubtextType {
+  // Unspecified or not set.
   USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED = 0;
   // Shows the chat description as the subtext.
   USER_CHAT_SUBTEXT_TYPE_DESCRIPTION = 1;

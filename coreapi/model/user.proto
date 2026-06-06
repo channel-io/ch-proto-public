@@ -12,6 +12,7 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Type of user identity.
 enum UserType {
+  // Unspecified or not set.
   USER_TYPE_UNSPECIFIED = 0;
   // Registered member with an external member ID.
   USER_TYPE_MEMBER = 1;

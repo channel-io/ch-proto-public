@@ -13,32 +13,51 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Notification level for chat sessions.
 enum SessionWatch {
+  // Unspecified or not set.
   SESSION_WATCH_UNSPECIFIED = 0;
+  // Notify on every message.
   SESSION_WATCH_ALL = 1;
+  // Notify only on mentions and important updates.
   SESSION_WATCH_INFO = 2;
+  // Do not notify.
   SESSION_WATCH_NONE = 3;
 }
 
 // Sound played for incoming chat notifications.
 enum ChatAlertSound {
+  // Unspecified or not set.
   CHAT_ALERT_SOUND_UNSPECIFIED = 0;
+  // No sound.
   CHAT_ALERT_SOUND_NONE = 1;
+  // "Drop" notification sound.
   CHAT_ALERT_SOUND_DROP = 2;
+  // "Woody" notification sound.
   CHAT_ALERT_SOUND_WOODY = 3;
+  // "Bounce" notification sound.
   CHAT_ALERT_SOUND_BOUNCE = 4;
+  // "Crystal" notification sound.
   CHAT_ALERT_SOUND_CRYSTAL = 5;
+  // "Xylo" notification sound.
   CHAT_ALERT_SOUND_XYLO = 6;
+  // "Quick knock" notification sound.
   CHAT_ALERT_SOUND_QUICK_KNOCK = 7;
+  // "Candy" notification sound.
   CHAT_ALERT_SOUND_CANDY = 8;
+  // "Shine" notification sound.
   CHAT_ALERT_SOUND_SHINE = 9;
 }
 
 // Sound played for incoming meet (call) notifications.
 enum MeetAlertSound {
+  // Unspecified or not set.
   MEET_ALERT_SOUND_UNSPECIFIED = 0;
+  // "Cute" ringtone.
   MEET_ALERT_SOUND_CUTE = 1;
+  // "Basic" ringtone.
   MEET_ALERT_SOUND_BASIC = 2;
+  // "Gentle" ringtone.
   MEET_ALERT_SOUND_GENTLE = 3;
+  // "Marimba" ringtone.
   MEET_ALERT_SOUND_MARIMBA = 4;
 }
 

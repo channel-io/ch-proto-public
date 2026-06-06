@@ -11,6 +11,7 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Visibility scope of a group.
 enum GroupScope {
+  // Unspecified or not set.
   GROUP_SCOPE_UNSPECIFIED = 0;
   // Visible to all managers in the channel regardless of membership.
   GROUP_SCOPE_ALL = 1;

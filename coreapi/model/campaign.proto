@@ -16,28 +16,43 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Campaign lifecycle state.
 enum CampaignState {
+  // Unspecified or not set.
   CAMPAIGN_STATE_UNSPECIFIED = 0;
+  // Draft being configured; not yet activated.
   CAMPAIGN_STATE_DRAFT = 1;
+  // Active and eligible to trigger deliveries.
   CAMPAIGN_STATE_ACTIVE = 2;
+  // Stopped; no longer triggering deliveries.
   CAMPAIGN_STATE_STOPPED = 3;
+  // The campaign is no longer present.
   CAMPAIGN_STATE_REMOVED = 4;
 }
 
 // Additional event filter matching strategy.
 enum CampaignFilterMatch {
+  // Unspecified or not set.
   CAMPAIGN_FILTER_MATCH_UNSPECIFIED = 0;
+  // The filter event must have occurred for delivery.
   CAMPAIGN_FILTER_MATCH_POSITIVE = 1;
+  // The filter event must not have occurred for delivery.
   CAMPAIGN_FILTER_MATCH_NEGATIVE = 2;
 }
 
 // Campaign send mode controlling delivery timing.
 enum CampaignSendMode {
+  // Unspecified or not set.
   CAMPAIGN_SEND_MODE_UNSPECIFIED = 0;
+  // Deliver at any time.
   CAMPAIGN_SEND_MODE_ALWAYS = 1;
+  // Deliver only outside operation hours.
   CAMPAIGN_SEND_MODE_AWAY = 2;
+  // Deliver only during operation hours.
   CAMPAIGN_SEND_MODE_IN_OPERATION = 3;
+  // Deliver within custom time ranges based on the sender's timezone.
   CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME = 4;
+  // Deliver within custom time ranges based on the receiver's timezone.
   CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME = 5;
+  // Deliver within custom time ranges.
   CAMPAIGN_SEND_MODE_CUSTOM = 6;
 }
 
@@ -254,8 +269,11 @@ message Campaign {
 
 // Source event type from which the property value is captured.
 enum CampaignBaseEventType {
+  // Unspecified or not set.
   CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED = 0;
+  // Captured from the trigger event.
   CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT = 1;
+  // Captured from the additional filter event.
   CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER = 2;
 }
 

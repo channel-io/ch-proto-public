@@ -14,16 +14,22 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // Direction of a phone call relative to the channel. INBOUND calls are received from
 // external callers, while OUTBOUND calls are initiated by a manager to an external number.
 enum CallDirection {
+  // Unspecified or not set.
   CALL_DIRECTION_UNSPECIFIED = 0;
+  // Inbound call received from an external caller.
   CALL_DIRECTION_INBOUND = 1;
+  // Outbound call initiated by a manager.
   CALL_DIRECTION_OUTBOUND = 2;
 }
 
 // Current state of a phone call in its lifecycle. WAITING means the call is ringing
 // or queued and not yet answered; ENGAGED means it is actively connected between participants.
 enum CallState {
+  // Unspecified or not set.
   CALL_STATE_UNSPECIFIED = 0;
+  // Ringing or queued, not yet answered.
   CALL_STATE_WAITING = 1;
+  // Actively connected between participants.
   CALL_STATE_ENGAGED = 2;
 }
 

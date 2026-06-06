@@ -8,9 +8,14 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 
 // Delivery medium type for messages.
 enum MediumType {
+  // Unspecified or not set.
   MEDIUM_TYPE_UNSPECIFIED = 0;
+  // In-app chat via the native Channel messenger.
   MEDIUM_TYPE_NATIVE = 1;
+  // Third-party app messenger integration (e.g., Alimtalk, LINE).
   MEDIUM_TYPE_APP = 2;
+  // Email delivery.
   MEDIUM_TYPE_EMAIL = 3;
+  // Text message (SMS/LMS/MMS) delivery.
   MEDIUM_TYPE_PHONE = 4;
 }
