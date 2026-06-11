@@ -13,22 +13,42 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum CampaignUserState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_UNSPECIFIED = 0;</code>
    */
   CAMPAIGN_USER_STATE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Users to whom the campaign message was delivered.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_SENT = 1;</code>
    */
   CAMPAIGN_USER_STATE_SENT(1),
   /**
+   * <pre>
+   * Users who viewed the delivered message.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_VIEW = 2;</code>
    */
   CAMPAIGN_USER_STATE_VIEW(2),
   /**
+   * <pre>
+   * Users who completed the campaign goal event.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_GOAL = 3;</code>
    */
   CAMPAIGN_USER_STATE_GOAL(3),
   /**
+   * <pre>
+   * Users who clicked a link in the message.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_CLICK = 4;</code>
    */
   CAMPAIGN_USER_STATE_CLICK(4),
@@ -36,22 +56,42 @@ public enum CampaignUserState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int CAMPAIGN_USER_STATE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Users to whom the campaign message was delivered.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_SENT = 1;</code>
    */
   public static final int CAMPAIGN_USER_STATE_SENT_VALUE = 1;
   /**
+   * <pre>
+   * Users who viewed the delivered message.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_VIEW = 2;</code>
    */
   public static final int CAMPAIGN_USER_STATE_VIEW_VALUE = 2;
   /**
+   * <pre>
+   * Users who completed the campaign goal event.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_GOAL = 3;</code>
    */
   public static final int CAMPAIGN_USER_STATE_GOAL_VALUE = 3;
   /**
+   * <pre>
+   * Users who clicked a link in the message.
+   * </pre>
+   *
    * <code>CAMPAIGN_USER_STATE_CLICK = 4;</code>
    */
   public static final int CAMPAIGN_USER_STATE_CLICK_VALUE = 4;

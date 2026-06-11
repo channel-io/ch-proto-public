@@ -215,7 +215,7 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="userChat"
    * </pre>
@@ -226,7 +226,7 @@ public interface MessageOrBuilder extends
   java.lang.String getChatType();
   /**
    * <pre>
-   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="userChat"
    * </pre>
@@ -263,7 +263,7 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user", "bot").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>
@@ -274,7 +274,7 @@ public interface MessageOrBuilder extends
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user", "bot").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>
@@ -337,7 +337,7 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Detected language of the message content (e.g., "ko", "en", "ja").
+   * Detected language of the message content.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -347,7 +347,7 @@ public interface MessageOrBuilder extends
   java.lang.String getLanguage();
   /**
    * <pre>
-   * Detected language of the message content (e.g., "ko", "en", "ja").
+   * Detected language of the message content.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -1053,39 +1053,6 @@ public interface MessageOrBuilder extends
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    */
   com.google.protobuf.StructOrBuilder getMarketingOrBuilder();
-
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   * @return Whether the supportBot field is set.
-   */
-  boolean hasSupportBot();
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   * @return The supportBot.
-   */
-  com.google.protobuf.Struct getSupportBot();
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getSupportBotOrBuilder();
 
   /**
    * <pre>

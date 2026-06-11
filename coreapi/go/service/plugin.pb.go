@@ -414,6 +414,7 @@ type PatchPluginRequest_PatchPluginBody struct {
 	// +kubebuilder:validation:Nullable
 	LabelButtonTextI18NMap map[string]string `protobuf:"bytes,5,rep,name=label_button_text_i18n_map,json=labelButtonTextI18nMap,proto3" json:"label_button_text_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Type of the launcher button.
+	// Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
 	//
 	// +kubebuilder:validation:Nullable
 	ButtonType model.PluginButtonType `protobuf:"varint,6,opt,name=button_type,json=buttonType,proto3,enum=coreapi.model.PluginButtonType" json:"button_type,omitempty"`

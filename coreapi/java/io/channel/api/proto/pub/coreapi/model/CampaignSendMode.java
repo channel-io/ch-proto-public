@@ -13,30 +13,58 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum CampaignSendMode
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_UNSPECIFIED = 0;</code>
    */
   CAMPAIGN_SEND_MODE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Deliver at any time.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_ALWAYS = 1;</code>
    */
   CAMPAIGN_SEND_MODE_ALWAYS(1),
   /**
+   * <pre>
+   * Deliver only outside operation hours.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_AWAY = 2;</code>
    */
   CAMPAIGN_SEND_MODE_AWAY(2),
   /**
+   * <pre>
+   * Deliver only during operation hours.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_IN_OPERATION = 3;</code>
    */
   CAMPAIGN_SEND_MODE_IN_OPERATION(3),
   /**
+   * <pre>
+   * Deliver within custom time ranges based on the sender's timezone.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME = 4;</code>
    */
   CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME(4),
   /**
+   * <pre>
+   * Deliver within custom time ranges based on the receiver's timezone.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME = 5;</code>
    */
   CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME(5),
   /**
+   * <pre>
+   * Deliver within custom time ranges.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_CUSTOM = 6;</code>
    */
   CAMPAIGN_SEND_MODE_CUSTOM(6),
@@ -44,30 +72,58 @@ public enum CampaignSendMode
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_UNSPECIFIED = 0;</code>
    */
   public static final int CAMPAIGN_SEND_MODE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Deliver at any time.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_ALWAYS = 1;</code>
    */
   public static final int CAMPAIGN_SEND_MODE_ALWAYS_VALUE = 1;
   /**
+   * <pre>
+   * Deliver only outside operation hours.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_AWAY = 2;</code>
    */
   public static final int CAMPAIGN_SEND_MODE_AWAY_VALUE = 2;
   /**
+   * <pre>
+   * Deliver only during operation hours.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_IN_OPERATION = 3;</code>
    */
   public static final int CAMPAIGN_SEND_MODE_IN_OPERATION_VALUE = 3;
   /**
+   * <pre>
+   * Deliver within custom time ranges based on the sender's timezone.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME = 4;</code>
    */
   public static final int CAMPAIGN_SEND_MODE_CUSTOM_USING_SENDER_TIME_VALUE = 4;
   /**
+   * <pre>
+   * Deliver within custom time ranges based on the receiver's timezone.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME = 5;</code>
    */
   public static final int CAMPAIGN_SEND_MODE_CUSTOM_USING_RECEIVER_TIME_VALUE = 5;
   /**
+   * <pre>
+   * Deliver within custom time ranges.
+   * </pre>
+   *
    * <code>CAMPAIGN_SEND_MODE_CUSTOM = 6;</code>
    */
   public static final int CAMPAIGN_SEND_MODE_CUSTOM_VALUE = 6;

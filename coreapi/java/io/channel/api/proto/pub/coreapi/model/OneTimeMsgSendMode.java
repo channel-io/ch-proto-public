@@ -13,18 +13,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum OneTimeMsgSendMode
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_UNSPECIFIED = 0;</code>
    */
   ONE_TIME_MSG_SEND_MODE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Send immediately.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_IMMEDIATELY = 1;</code>
    */
   ONE_TIME_MSG_SEND_MODE_IMMEDIATELY(1),
   /**
+   * <pre>
+   * Send at a scheduled time in the sender's timezone.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME = 2;</code>
    */
   ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME(2),
   /**
+   * <pre>
+   * Send at a scheduled time in each receiver's local timezone.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME = 3;</code>
    */
   ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME(3),
@@ -32,18 +48,34 @@ public enum OneTimeMsgSendMode
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_UNSPECIFIED = 0;</code>
    */
   public static final int ONE_TIME_MSG_SEND_MODE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Send immediately.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_IMMEDIATELY = 1;</code>
    */
   public static final int ONE_TIME_MSG_SEND_MODE_IMMEDIATELY_VALUE = 1;
   /**
+   * <pre>
+   * Send at a scheduled time in the sender's timezone.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME = 2;</code>
    */
   public static final int ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_SENDER_TIME_VALUE = 2;
   /**
+   * <pre>
+   * Send at a scheduled time in each receiver's local timezone.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME = 3;</code>
    */
   public static final int ONE_TIME_MSG_SEND_MODE_RESERVED_WITH_RECEIVER_TIME_VALUE = 3;

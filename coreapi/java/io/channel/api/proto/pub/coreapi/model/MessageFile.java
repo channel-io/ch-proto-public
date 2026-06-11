@@ -215,6 +215,10 @@ private static final long serialVersionUID = 0L;
   public enum PrivateFileScope
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;</code>
      */
     PRIVATE_FILE_SCOPE_UNSPECIFIED(0),
@@ -246,6 +250,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;</code>
      */
     public static final int PRIVATE_FILE_SCOPE_UNSPECIFIED_VALUE = 0;
@@ -413,7 +421,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object type_;
   /**
    * <pre>
-   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * High-level media category derived from the MIME type.
    * +kubebuilder:example="image"
    * </pre>
    *
@@ -435,7 +443,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * High-level media category derived from the MIME type.
    * +kubebuilder:example="image"
    * </pre>
    *
@@ -461,7 +469,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Original file name including the extension (e.g. "report.pdf").
+   * Original file name including the extension.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="report.pdf"
@@ -485,7 +493,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Original file name including the extension (e.g. "report.pdf").
+   * Original file name including the extension.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="report.pdf"
@@ -530,7 +538,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object contentType_;
   /**
    * <pre>
-   * MIME content type (e.g. "image/png", "application/pdf").
+   * MIME content type.
    * +kubebuilder:example="image/png"
    * </pre>
    *
@@ -552,7 +560,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MIME content type (e.g. "image/png", "application/pdf").
+   * MIME content type.
    * +kubebuilder:example="image/png"
    * </pre>
    *
@@ -644,7 +652,7 @@ private static final long serialVersionUID = 0L;
   private boolean animated_;
   /**
    * <pre>
-   * Whether the image is an animated format (e.g. GIF, APNG).
+   * Whether the image is an animated format.
    * +kubebuilder:example="false"
    * </pre>
    *
@@ -1813,7 +1821,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1834,7 +1842,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1856,7 +1864,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1876,7 +1884,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1891,7 +1899,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1914,7 +1922,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -1937,7 +1945,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -1961,7 +1969,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -1983,7 +1991,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -2000,7 +2008,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -2074,7 +2082,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object contentType_ = "";
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2095,7 +2103,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2117,7 +2125,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2137,7 +2145,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2152,7 +2160,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2365,7 +2373,7 @@ private static final long serialVersionUID = 0L;
     private boolean animated_ ;
     /**
      * <pre>
-     * Whether the image is an animated format (e.g. GIF, APNG).
+     * Whether the image is an animated format.
      * +kubebuilder:example="false"
      * </pre>
      *
@@ -2378,7 +2386,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the image is an animated format (e.g. GIF, APNG).
+     * Whether the image is an animated format.
      * +kubebuilder:example="false"
      * </pre>
      *
@@ -2394,7 +2402,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the image is an animated format (e.g. GIF, APNG).
+     * Whether the image is an animated format.
      * +kubebuilder:example="false"
      * </pre>
      *

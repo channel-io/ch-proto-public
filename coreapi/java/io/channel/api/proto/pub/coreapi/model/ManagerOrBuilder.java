@@ -276,7 +276,7 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Manager mobile phone number in E.164 format (e.g., +821012345678).
+   * Manager mobile phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -286,7 +286,7 @@ public interface ManagerOrBuilder extends
   java.lang.String getMobileNumber();
   /**
    * <pre>
-   * Manager mobile phone number in E.164 format (e.g., +821012345678).
+   * Manager mobile phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -332,7 +332,7 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Whether this manager has been soft-deleted from the channel.
+   * Whether this manager has been removed from the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="false"
    * </pre>
@@ -410,8 +410,7 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the manager was soft-deleted.
-   * Present only when removed is true.
+   * Timestamp when the manager was removed. Set only when `removed` is true.
    * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
@@ -421,8 +420,7 @@ public interface ManagerOrBuilder extends
   boolean hasRemovedAt();
   /**
    * <pre>
-   * Timestamp when the manager was soft-deleted.
-   * Present only when removed is true.
+   * Timestamp when the manager was removed. Set only when `removed` is true.
    * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
@@ -432,8 +430,7 @@ public interface ManagerOrBuilder extends
   com.google.protobuf.Timestamp getRemovedAt();
   /**
    * <pre>
-   * Timestamp when the manager was soft-deleted.
-   * Present only when removed is true.
+   * Timestamp when the manager was removed. Set only when `removed` is true.
    * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
@@ -585,7 +582,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Performance score reflecting the manager's conversation handling efficiency.
-   * Decays over time when the manager is inactive.
    * +kubebuilder:example="0"
    * </pre>
    *
@@ -597,7 +593,6 @@ public interface ManagerOrBuilder extends
   /**
    * <pre>
    * Engagement score reflecting the frequency of customer interactions.
-   * Decays over time when the manager is inactive.
    * +kubebuilder:example="0"
    * </pre>
    *
@@ -680,7 +675,7 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * Operator status identifier for custom availability states.
    * +kubebuilder:example="9187"
    * </pre>
    *
@@ -690,7 +685,7 @@ public interface ManagerOrBuilder extends
   java.lang.String getOperatorStatusId();
   /**
    * <pre>
-   * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * Operator status identifier for custom availability states.
    * +kubebuilder:example="9187"
    * </pre>
    *
@@ -726,7 +721,7 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *
@@ -737,7 +732,7 @@ public interface ManagerOrBuilder extends
       getAssignableUserChatTypesList();
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *
@@ -747,7 +742,7 @@ public interface ManagerOrBuilder extends
   int getAssignableUserChatTypesCount();
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *
@@ -758,7 +753,7 @@ public interface ManagerOrBuilder extends
   java.lang.String getAssignableUserChatTypes(int index);
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *

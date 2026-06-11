@@ -13,6 +13,10 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum GroupScope
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_UNSPECIFIED = 0;</code>
    */
   GROUP_SCOPE_UNSPECIFIED(0),
@@ -44,6 +48,10 @@ public enum GroupScope
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>GROUP_SCOPE_UNSPECIFIED = 0;</code>
    */
   public static final int GROUP_SCOPE_UNSPECIFIED_VALUE = 0;

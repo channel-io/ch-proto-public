@@ -9,7 +9,7 @@ public interface WebInfoOrBuilder extends
 
   /**
    * <pre>
-   * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * Device form factor.
    * +kubebuilder:example="Apple Macintosh"
    * </pre>
    *
@@ -19,7 +19,7 @@ public interface WebInfoOrBuilder extends
   java.lang.String getDevice();
   /**
    * <pre>
-   * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * Device form factor.
    * +kubebuilder:example="Apple Macintosh"
    * </pre>
    *
@@ -31,7 +31,7 @@ public interface WebInfoOrBuilder extends
 
   /**
    * <pre>
-   * Operating system version string (e.g. "10.15.7", "11").
+   * Operating system version string.
    * +kubebuilder:example="10.15.7"
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface WebInfoOrBuilder extends
   java.lang.String getOs();
   /**
    * <pre>
-   * Operating system version string (e.g. "10.15.7", "11").
+   * Operating system version string.
    * +kubebuilder:example="10.15.7"
    * </pre>
    *
@@ -53,7 +53,7 @@ public interface WebInfoOrBuilder extends
 
   /**
    * <pre>
-   * Operating system name (e.g. "Windows", "macOS", "Linux").
+   * Operating system name.
    * +kubebuilder:example="Mac OS"
    * </pre>
    *
@@ -63,7 +63,7 @@ public interface WebInfoOrBuilder extends
   java.lang.String getOsName();
   /**
    * <pre>
-   * Operating system name (e.g. "Windows", "macOS", "Linux").
+   * Operating system name.
    * +kubebuilder:example="Mac OS"
    * </pre>
    *
@@ -75,7 +75,7 @@ public interface WebInfoOrBuilder extends
 
   /**
    * <pre>
-   * Browser version string (e.g. "120.0.6099.109").
+   * Browser version string.
    * +kubebuilder:example="141"
    * </pre>
    *
@@ -85,7 +85,7 @@ public interface WebInfoOrBuilder extends
   java.lang.String getBrowser();
   /**
    * <pre>
-   * Browser version string (e.g. "120.0.6099.109").
+   * Browser version string.
    * +kubebuilder:example="141"
    * </pre>
    *
@@ -97,7 +97,7 @@ public interface WebInfoOrBuilder extends
 
   /**
    * <pre>
-   * Browser name (e.g. "Chrome", "Safari", "Firefox").
+   * Browser name.
    * +kubebuilder:example="Chrome"
    * </pre>
    *
@@ -107,7 +107,7 @@ public interface WebInfoOrBuilder extends
   java.lang.String getBrowserName();
   /**
    * <pre>
-   * Browser name (e.g. "Chrome", "Safari", "Firefox").
+   * Browser name.
    * +kubebuilder:example="Chrome"
    * </pre>
    *

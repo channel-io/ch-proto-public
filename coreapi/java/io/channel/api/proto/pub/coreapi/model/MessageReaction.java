@@ -6,7 +6,9 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * MessageReaction represents a single emoji reaction on a message,
- * aggregating all people who used the same emoji.
+ * aggregating every person who reacted with the same emoji.
+ * A message accepts up to 10 distinct emojis and 300 reactions in total,
+ * with each manager limited to 5 reactions on the same message.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.MessageReaction}
@@ -110,7 +112,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object emojiName_;
   /**
    * <pre>
-   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+   * Emoji shortcode identifying the reaction.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="thumbsup"
@@ -134,7 +136,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+   * Emoji shortcode identifying the reaction.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="thumbsup"
@@ -162,8 +164,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList personKeys_;
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *
@@ -176,8 +179,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *
@@ -189,8 +193,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *
@@ -203,8 +208,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *
@@ -391,7 +397,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MessageReaction represents a single emoji reaction on a message,
-   * aggregating all people who used the same emoji.
+   * aggregating every person who reacted with the same emoji.
+   * A message accepts up to 10 distinct emojis and 300 reactions in total,
+   * with each manager limited to 5 reactions on the same message.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.MessageReaction}
@@ -563,7 +571,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object emojiName_ = "";
     /**
      * <pre>
-     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+     * Emoji shortcode identifying the reaction.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="thumbsup"
@@ -586,7 +594,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+     * Emoji shortcode identifying the reaction.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="thumbsup"
@@ -610,7 +618,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+     * Emoji shortcode identifying the reaction.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="thumbsup"
@@ -632,7 +640,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+     * Emoji shortcode identifying the reaction.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="thumbsup"
@@ -649,7 +657,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+     * Emoji shortcode identifying the reaction.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="thumbsup"
@@ -680,8 +688,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -694,8 +703,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -707,8 +717,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -721,8 +732,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -736,8 +748,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -758,8 +771,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -779,8 +793,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -798,8 +813,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *
@@ -814,8 +830,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Person keys of everyone who reacted with this emoji,
-     * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+     * Person keys of everyone who reacted with this emoji, in the format
+     * "{personType}-{personId}". The order reflects the order in which the
+     * reactions were added.
      * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
      * </pre>
      *

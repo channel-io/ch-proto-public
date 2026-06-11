@@ -13,14 +13,26 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum CampaignBaseEventType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED = 0;</code>
    */
   CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Captured from the trigger event.
+   * </pre>
+   *
    * <code>CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT = 1;</code>
    */
   CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT(1),
   /**
+   * <pre>
+   * Captured from the additional filter event.
+   * </pre>
+   *
    * <code>CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER = 2;</code>
    */
   CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER(2),
@@ -28,14 +40,26 @@ public enum CampaignBaseEventType
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED = 0;</code>
    */
   public static final int CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Captured from the trigger event.
+   * </pre>
+   *
    * <code>CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT = 1;</code>
    */
   public static final int CAMPAIGN_BASE_EVENT_TYPE_TRIGGER_EVENT_VALUE = 1;
   /**
+   * <pre>
+   * Captured from the additional filter event.
+   * </pre>
+   *
    * <code>CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER = 2;</code>
    */
   public static final int CAMPAIGN_BASE_EVENT_TYPE_ADDITIONAL_FILTER_VALUE = 2;

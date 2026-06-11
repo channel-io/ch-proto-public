@@ -166,7 +166,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Type of the person (e.g., manager, user).
+   * Type of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -190,7 +190,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Type of the person (e.g., manager, user).
+   * Type of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -780,7 +780,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Type of the person (e.g., manager, user).
+     * Type of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -803,7 +803,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the person (e.g., manager, user).
+     * Type of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -827,7 +827,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the person (e.g., manager, user).
+     * Type of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -849,7 +849,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the person (e.g., manager, user).
+     * Type of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -866,7 +866,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the person (e.g., manager, user).
+     * Type of the person.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"

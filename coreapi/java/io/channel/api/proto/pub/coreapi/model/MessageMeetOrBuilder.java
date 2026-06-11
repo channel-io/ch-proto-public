@@ -31,7 +31,7 @@ public interface MessageMeetOrBuilder extends
 
   /**
    * <pre>
-   * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+   * Chat type of the conversation this meet belongs to.
    * +kubebuilder:example="userChat"
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface MessageMeetOrBuilder extends
   java.lang.String getChatType();
   /**
    * <pre>
-   * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+   * Chat type of the conversation this meet belongs to.
    * +kubebuilder:example="userChat"
    * </pre>
    *

@@ -379,19 +379,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 282: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (supportBot_ != null) {
-              subBuilder = supportBot_.toBuilder();
-            }
-            supportBot_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(supportBot_);
-              supportBot_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           case 290: {
             com.google.protobuf.Struct.Builder subBuilder = null;
             if (workflow_ != null) {
@@ -934,7 +921,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object chatType_;
   /**
    * <pre>
-   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="userChat"
    * </pre>
@@ -957,7 +944,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="userChat"
    * </pre>
@@ -1034,7 +1021,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user", "bot").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>
@@ -1057,7 +1044,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user", "bot").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>
@@ -1186,7 +1173,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object language_;
   /**
    * <pre>
-   * Detected language of the message content (e.g., "ko", "en", "ja").
+   * Detected language of the message content.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -1208,7 +1195,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Detected language of the message content (e.g., "ko", "en", "ja").
+   * Detected language of the message content.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -2172,50 +2159,6 @@ private static final long serialVersionUID = 0L;
     return getMarketing();
   }
 
-  public static final int SUPPORT_BOT_FIELD_NUMBER = 35;
-  private com.google.protobuf.Struct supportBot_;
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   * @return Whether the supportBot field is set.
-   */
-  @java.lang.Override
-  public boolean hasSupportBot() {
-    return supportBot_ != null;
-  }
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   * @return The supportBot.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Struct getSupportBot() {
-    return supportBot_ == null ? com.google.protobuf.Struct.getDefaultInstance() : supportBot_;
-  }
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getSupportBotOrBuilder() {
-    return getSupportBot();
-  }
-
   public static final int WORKFLOW_FIELD_NUMBER = 36;
   private com.google.protobuf.Struct workflow_;
   /**
@@ -2649,9 +2592,6 @@ private static final long serialVersionUID = 0L;
     if (marketing_ != null) {
       output.writeMessage(34, getMarketing());
     }
-    if (supportBot_ != null) {
-      output.writeMessage(35, getSupportBot());
-    }
     if (workflow_ != null) {
       output.writeMessage(36, getWorkflow());
     }
@@ -2816,10 +2756,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(34, getMarketing());
     }
-    if (supportBot_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(35, getSupportBot());
-    }
     if (workflow_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(36, getWorkflow());
@@ -2977,11 +2913,6 @@ private static final long serialVersionUID = 0L;
       if (!getMarketing()
           .equals(other.getMarketing())) return false;
     }
-    if (hasSupportBot() != other.hasSupportBot()) return false;
-    if (hasSupportBot()) {
-      if (!getSupportBot()
-          .equals(other.getSupportBot())) return false;
-    }
     if (hasWorkflow() != other.hasWorkflow()) return false;
     if (hasWorkflow()) {
       if (!getWorkflow()
@@ -3122,10 +3053,6 @@ private static final long serialVersionUID = 0L;
     if (hasMarketing()) {
       hash = (37 * hash) + MARKETING_FIELD_NUMBER;
       hash = (53 * hash) + getMarketing().hashCode();
-    }
-    if (hasSupportBot()) {
-      hash = (37 * hash) + SUPPORT_BOT_FIELD_NUMBER;
-      hash = (53 * hash) + getSupportBot().hashCode();
     }
     if (hasWorkflow()) {
       hash = (37 * hash) + WORKFLOW_FIELD_NUMBER;
@@ -3430,12 +3357,6 @@ private static final long serialVersionUID = 0L;
         marketing_ = null;
         marketingBuilder_ = null;
       }
-      if (supportBotBuilder_ == null) {
-        supportBot_ = null;
-      } else {
-        supportBot_ = null;
-        supportBotBuilder_ = null;
-      }
       if (workflowBuilder_ == null) {
         workflow_ = null;
       } else {
@@ -3612,11 +3533,6 @@ private static final long serialVersionUID = 0L;
         result.marketing_ = marketing_;
       } else {
         result.marketing_ = marketingBuilder_.build();
-      }
-      if (supportBotBuilder_ == null) {
-        result.supportBot_ = supportBot_;
-      } else {
-        result.supportBot_ = supportBotBuilder_.build();
       }
       if (workflowBuilder_ == null) {
         result.workflow_ = workflow_;
@@ -3903,9 +3819,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasMarketing()) {
         mergeMarketing(other.getMarketing());
-      }
-      if (other.hasSupportBot()) {
-        mergeSupportBot(other.getSupportBot());
       }
       if (other.hasWorkflow()) {
         mergeWorkflow(other.getWorkflow());
@@ -4854,7 +4767,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatType_ = "";
     /**
      * <pre>
-     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="userChat"
      * </pre>
@@ -4876,7 +4789,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="userChat"
      * </pre>
@@ -4899,7 +4812,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="userChat"
      * </pre>
@@ -4920,7 +4833,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="userChat"
      * </pre>
@@ -4936,7 +4849,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="userChat"
      * </pre>
@@ -5066,7 +4979,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user", "bot").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -5088,7 +5001,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user", "bot").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -5111,7 +5024,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user", "bot").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -5132,7 +5045,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user", "bot").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -5148,7 +5061,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user", "bot").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -5389,7 +5302,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object language_ = "";
     /**
      * <pre>
-     * Detected language of the message content (e.g., "ko", "en", "ja").
+     * Detected language of the message content.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5410,7 +5323,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Detected language of the message content (e.g., "ko", "en", "ja").
+     * Detected language of the message content.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5432,7 +5345,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Detected language of the message content (e.g., "ko", "en", "ja").
+     * Detected language of the message content.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5452,7 +5365,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Detected language of the message content (e.g., "ko", "en", "ja").
+     * Detected language of the message content.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5467,7 +5380,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Detected language of the message content (e.g., "ko", "en", "ja").
+     * Detected language of the message content.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -9276,179 +9189,6 @@ private static final long serialVersionUID = 0L;
       return marketingBuilder_;
     }
 
-    private com.google.protobuf.Struct supportBot_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> supportBotBuilder_;
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     * @return Whether the supportBot field is set.
-     */
-    public boolean hasSupportBot() {
-      return supportBotBuilder_ != null || supportBot_ != null;
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     * @return The supportBot.
-     */
-    public com.google.protobuf.Struct getSupportBot() {
-      if (supportBotBuilder_ == null) {
-        return supportBot_ == null ? com.google.protobuf.Struct.getDefaultInstance() : supportBot_;
-      } else {
-        return supportBotBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     */
-    public Builder setSupportBot(com.google.protobuf.Struct value) {
-      if (supportBotBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        supportBot_ = value;
-        onChanged();
-      } else {
-        supportBotBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     */
-    public Builder setSupportBot(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (supportBotBuilder_ == null) {
-        supportBot_ = builderForValue.build();
-        onChanged();
-      } else {
-        supportBotBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     */
-    public Builder mergeSupportBot(com.google.protobuf.Struct value) {
-      if (supportBotBuilder_ == null) {
-        if (supportBot_ != null) {
-          supportBot_ =
-            com.google.protobuf.Struct.newBuilder(supportBot_).mergeFrom(value).buildPartial();
-        } else {
-          supportBot_ = value;
-        }
-        onChanged();
-      } else {
-        supportBotBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     */
-    public Builder clearSupportBot() {
-      if (supportBotBuilder_ == null) {
-        supportBot_ = null;
-        onChanged();
-      } else {
-        supportBot_ = null;
-        supportBotBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     */
-    public com.google.protobuf.Struct.Builder getSupportBotBuilder() {
-      
-      onChanged();
-      return getSupportBotFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     */
-    public com.google.protobuf.StructOrBuilder getSupportBotOrBuilder() {
-      if (supportBotBuilder_ != null) {
-        return supportBotBuilder_.getMessageOrBuilder();
-      } else {
-        return supportBot_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : supportBot_;
-      }
-    }
-    /**
-     * <pre>
-     * Legacy support bot metadata.
-     * Retained for backward compatibility with older workflow implementations.
-     * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getSupportBotFieldBuilder() {
-      if (supportBotBuilder_ == null) {
-        supportBotBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getSupportBot(),
-                getParentForChildren(),
-                isClean());
-        supportBot_ = null;
-      }
-      return supportBotBuilder_;
-    }
-
     private com.google.protobuf.Struct workflow_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> workflowBuilder_;
@@ -11257,29 +10997,6 @@ private static final long serialVersionUID = 0L;
     		return clearMarketing();
     	else
     		return setMarketing(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The support_bot to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearSupportBot(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearSupportBot();
-    	else
-    		return setSupportBot(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearSupportBot(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearSupportBot();
-    	else
-    		return setSupportBot(mapFunc.apply(value));
     }
     	
     /**

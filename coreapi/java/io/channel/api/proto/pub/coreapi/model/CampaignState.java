@@ -13,22 +13,42 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum CampaignState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_UNSPECIFIED = 0;</code>
    */
   CAMPAIGN_STATE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Draft being configured; not yet activated.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_DRAFT = 1;</code>
    */
   CAMPAIGN_STATE_DRAFT(1),
   /**
+   * <pre>
+   * Active and eligible to trigger deliveries.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_ACTIVE = 2;</code>
    */
   CAMPAIGN_STATE_ACTIVE(2),
   /**
+   * <pre>
+   * Stopped; no longer triggering deliveries.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_STOPPED = 3;</code>
    */
   CAMPAIGN_STATE_STOPPED(3),
   /**
+   * <pre>
+   * The campaign is no longer present.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_REMOVED = 4;</code>
    */
   CAMPAIGN_STATE_REMOVED(4),
@@ -36,22 +56,42 @@ public enum CampaignState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int CAMPAIGN_STATE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Draft being configured; not yet activated.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_DRAFT = 1;</code>
    */
   public static final int CAMPAIGN_STATE_DRAFT_VALUE = 1;
   /**
+   * <pre>
+   * Active and eligible to trigger deliveries.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_ACTIVE = 2;</code>
    */
   public static final int CAMPAIGN_STATE_ACTIVE_VALUE = 2;
   /**
+   * <pre>
+   * Stopped; no longer triggering deliveries.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_STOPPED = 3;</code>
    */
   public static final int CAMPAIGN_STATE_STOPPED_VALUE = 3;
   /**
+   * <pre>
+   * The campaign is no longer present.
+   * </pre>
+   *
    * <code>CAMPAIGN_STATE_REMOVED = 4;</code>
    */
   public static final int CAMPAIGN_STATE_REMOVED_VALUE = 4;

@@ -862,11 +862,6 @@ type Message struct {
 	//
 	// +kubebuilder:example={"campaignId":"1461","campaignType":"promotion","trackingId":"1461-660640f04f4065f2161a"}
 	Marketing *structpb.Struct `protobuf:"bytes,34,opt,name=marketing,proto3" json:"marketing,omitempty"`
-	// Legacy support bot metadata.
-	// Retained for backward compatibility with older workflow implementations.
-	//
-	// +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-	SupportBot *structpb.Struct `protobuf:"bytes,35,opt,name=support_bot,json=supportBot,proto3" json:"support_bot,omitempty"`
 	// Workflow automation metadata linking this message to a workflow step.
 	// Contains workflow ID, step ID, and button submission context.
 	//
@@ -1188,13 +1183,6 @@ func (x *Message) GetOptions() []string {
 func (x *Message) GetMarketing() *structpb.Struct {
 	if x != nil {
 		return x.Marketing
-	}
-	return nil
-}
-
-func (x *Message) GetSupportBot() *structpb.Struct {
-	if x != nil {
-		return x.SupportBot
 	}
 	return nil
 }
@@ -2224,112 +2212,6 @@ func (x *MessageMarketing) GetImageLinkUrl() string {
 	return ""
 }
 
-// MessageSupportBot represents legacy support bot flow metadata attached to a user chat message.
-// Tracks the current position within a support bot's multi-step conversation flow.
-type MessageSupportBot struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Support bot identifier that owns this flow.
-	//
-	// +kubebuilder:example="2840"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Published revision of the support bot being executed.
-	//
-	// +kubebuilder:example="2612"
-	RevisionId string `protobuf:"bytes,2,opt,name=revision_id,json=revisionId,proto3" json:"revision_id,omitempty"`
-	// Current section within the support bot flow (e.g. a route or action section).
-	//
-	// +kubebuilder:example="A"
-	SectionId string `protobuf:"bytes,3,opt,name=section_id,json=sectionId,proto3" json:"section_id,omitempty"`
-	// Zero-based step position within the current section.
-	//
-	// +kubebuilder:example="0"
-	StepIndex int32 `protobuf:"varint,4,opt,name=step_index,json=stepIndex,proto3" json:"step_index,omitempty"`
-	// Route selection buttons presented to the user at the end of a route section.
-	// Set to null after the user makes a selection.
-	//
-	// +kubebuilder:example=[]
-	Buttons []*structpb.Struct `protobuf:"bytes,5,rep,name=buttons,proto3" json:"buttons,omitempty"`
-	// Zero-based index of the button the user selected.
-	// Present only on messages recording the user's route selection.
-	//
-	// +kubebuilder:example="1"
-	SubmitButtonIndex int32 `protobuf:"varint,6,opt,name=submit_button_index,json=submitButtonIndex,proto3" json:"submit_button_index,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-func (x *MessageSupportBot) Reset() {
-	*x = MessageSupportBot{}
-	mi := &file_coreapi_model_message_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MessageSupportBot) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MessageSupportBot) ProtoMessage() {}
-
-func (x *MessageSupportBot) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MessageSupportBot.ProtoReflect.Descriptor instead.
-func (*MessageSupportBot) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *MessageSupportBot) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *MessageSupportBot) GetRevisionId() string {
-	if x != nil {
-		return x.RevisionId
-	}
-	return ""
-}
-
-func (x *MessageSupportBot) GetSectionId() string {
-	if x != nil {
-		return x.SectionId
-	}
-	return ""
-}
-
-func (x *MessageSupportBot) GetStepIndex() int32 {
-	if x != nil {
-		return x.StepIndex
-	}
-	return 0
-}
-
-func (x *MessageSupportBot) GetButtons() []*structpb.Struct {
-	if x != nil {
-		return x.Buttons
-	}
-	return nil
-}
-
-func (x *MessageSupportBot) GetSubmitButtonIndex() int32 {
-	if x != nil {
-		return x.SubmitButtonIndex
-	}
-	return 0
-}
-
 // MessageWorkflow represents workflow automation metadata attached to a user chat message.
 // Tracks the current execution position within a multi-step workflow.
 type MessageWorkflow struct {
@@ -2367,7 +2249,7 @@ type MessageWorkflow struct {
 
 func (x *MessageWorkflow) Reset() {
 	*x = MessageWorkflow{}
-	mi := &file_coreapi_model_message_proto_msgTypes[11]
+	mi := &file_coreapi_model_message_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2379,7 +2261,7 @@ func (x *MessageWorkflow) String() string {
 func (*MessageWorkflow) ProtoMessage() {}
 
 func (x *MessageWorkflow) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[11]
+	mi := &file_coreapi_model_message_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2392,7 +2274,7 @@ func (x *MessageWorkflow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageWorkflow.ProtoReflect.Descriptor instead.
 func (*MessageWorkflow) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{11}
+	return file_coreapi_model_message_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *MessageWorkflow) GetId() string {
@@ -2456,7 +2338,7 @@ type MessageCustomPayload struct {
 
 func (x *MessageCustomPayload) Reset() {
 	*x = MessageCustomPayload{}
-	mi := &file_coreapi_model_message_proto_msgTypes[12]
+	mi := &file_coreapi_model_message_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2468,7 +2350,7 @@ func (x *MessageCustomPayload) String() string {
 func (*MessageCustomPayload) ProtoMessage() {}
 
 func (x *MessageCustomPayload) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_message_proto_msgTypes[12]
+	mi := &file_coreapi_model_message_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2481,7 +2363,7 @@ func (x *MessageCustomPayload) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageCustomPayload.ProtoReflect.Descriptor instead.
 func (*MessageCustomPayload) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_message_proto_rawDescGZIP(), []int{12}
+	return file_coreapi_model_message_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *MessageCustomPayload) GetData() *structpb.Struct {
@@ -2502,7 +2384,7 @@ var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe8\x0f\n" +
+	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xae\x0f\n" +
 	"\aMessage\x12!\n" +
 	"\bchat_key\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\achatKey\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x19\n" +
@@ -2546,9 +2428,7 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\x04form\x18\x1f \x01(\v2\x17.google.protobuf.StructR\x04form\x121\n" +
 	"\x05state\x18  \x01(\x0e2\x1b.coreapi.model.MessageStateR\x05state\x12\x18\n" +
 	"\aoptions\x18! \x03(\tR\aoptions\x125\n" +
-	"\tmarketing\x18\" \x01(\v2\x17.google.protobuf.StructR\tmarketing\x128\n" +
-	"\vsupport_bot\x18# \x01(\v2\x17.google.protobuf.StructR\n" +
-	"supportBot\x123\n" +
+	"\tmarketing\x18\" \x01(\v2\x17.google.protobuf.StructR\tmarketing\x123\n" +
 	"\bworkflow\x18$ \x01(\v2\x17.google.protobuf.StructR\bworkflow\x12:\n" +
 	"\valert_level\x18% \x01(\x0e2\x19.coreapi.model.AlertLevelR\n" +
 	"alertLevel\x12)\n" +
@@ -2714,17 +2594,7 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\x0eimage_link_url\x18\a \x01(\tR\fimageLinkUrl\"L\n" +
 	"\fExposureType\x12\x1d\n" +
 	"\x19EXPOSURE_TYPE_UNSPECIFIED\x10\x00\x12\x1d\n" +
-	"\x19EXPOSURE_TYPE_FULL_SCREEN\x10\x01\"\xe5\x01\n" +
-	"\x11MessageSupportBot\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
-	"\vrevision_id\x18\x02 \x01(\tR\n" +
-	"revisionId\x12\x1d\n" +
-	"\n" +
-	"section_id\x18\x03 \x01(\tR\tsectionId\x12\x1d\n" +
-	"\n" +
-	"step_index\x18\x04 \x01(\x05R\tstepIndex\x121\n" +
-	"\abuttons\x18\x05 \x03(\v2\x17.google.protobuf.StructR\abuttons\x12.\n" +
-	"\x13submit_button_index\x18\x06 \x01(\x05R\x11submitButtonIndex\"\xe4\x01\n" +
+	"\x19EXPOSURE_TYPE_FULL_SCREEN\x10\x01\"\xe4\x01\n" +
 	"\x0fMessageWorkflow\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
 	"\vrevision_id\x18\x02 \x01(\tR\n" +
@@ -2772,7 +2642,7 @@ func file_coreapi_model_message_proto_rawDescGZIP() []byte {
 }
 
 var file_coreapi_model_message_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
-var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_coreapi_model_message_proto_goTypes = []any{
 	(MessageState)(0),                  // 0: coreapi.model.MessageState
 	(AlertLevel)(0),                    // 1: coreapi.model.AlertLevel
@@ -2793,68 +2663,65 @@ var file_coreapi_model_message_proto_goTypes = []any{
 	(*MessageEmail)(nil),               // 16: coreapi.model.MessageEmail
 	(*MessageIvr)(nil),                 // 17: coreapi.model.MessageIvr
 	(*MessageMarketing)(nil),           // 18: coreapi.model.MessageMarketing
-	(*MessageSupportBot)(nil),          // 19: coreapi.model.MessageSupportBot
-	(*MessageWorkflow)(nil),            // 20: coreapi.model.MessageWorkflow
-	(*MessageCustomPayload)(nil),       // 21: coreapi.model.MessageCustomPayload
-	nil,                                // 22: coreapi.model.MessageCustomPayload.ParamMapperEntry
-	(*timestamppb.Timestamp)(nil),      // 23: google.protobuf.Timestamp
-	(*Block)(nil),                      // 24: coreapi.model.Block
-	(*structpb.Struct)(nil),            // 25: google.protobuf.Struct
-	(*MessageButton)(nil),              // 26: coreapi.model.MessageButton
-	(*MessageFile)(nil),                // 27: coreapi.model.MessageFile
-	(*MessageWebPage)(nil),             // 28: coreapi.model.MessageWebPage
+	(*MessageWorkflow)(nil),            // 19: coreapi.model.MessageWorkflow
+	(*MessageCustomPayload)(nil),       // 20: coreapi.model.MessageCustomPayload
+	nil,                                // 21: coreapi.model.MessageCustomPayload.ParamMapperEntry
+	(*timestamppb.Timestamp)(nil),      // 22: google.protobuf.Timestamp
+	(*Block)(nil),                      // 23: coreapi.model.Block
+	(*structpb.Struct)(nil),            // 24: google.protobuf.Struct
+	(*MessageButton)(nil),              // 25: coreapi.model.MessageButton
+	(*MessageFile)(nil),                // 26: coreapi.model.MessageFile
+	(*MessageWebPage)(nil),             // 27: coreapi.model.MessageWebPage
 }
 var file_coreapi_model_message_proto_depIdxs = []int32{
-	23, // 0: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
-	24, // 1: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
-	23, // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
+	22, // 0: coreapi.model.Message.created_at:type_name -> google.protobuf.Timestamp
+	23, // 1: coreapi.model.Message.blocks:type_name -> coreapi.model.Block
+	22, // 2: coreapi.model.Message.updated_at:type_name -> google.protobuf.Timestamp
 	10, // 3: coreapi.model.Message.thread:type_name -> coreapi.model.MessageThread
-	25, // 4: coreapi.model.Message.meet:type_name -> google.protobuf.Struct
-	25, // 5: coreapi.model.Message.email:type_name -> google.protobuf.Struct
-	25, // 6: coreapi.model.Message.alf_thread:type_name -> google.protobuf.Struct
-	23, // 7: coreapi.model.Message.edited_at:type_name -> google.protobuf.Timestamp
-	26, // 8: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
-	27, // 9: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
-	28, // 10: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
+	24, // 4: coreapi.model.Message.meet:type_name -> google.protobuf.Struct
+	24, // 5: coreapi.model.Message.email:type_name -> google.protobuf.Struct
+	24, // 6: coreapi.model.Message.alf_thread:type_name -> google.protobuf.Struct
+	22, // 7: coreapi.model.Message.edited_at:type_name -> google.protobuf.Timestamp
+	25, // 8: coreapi.model.Message.buttons:type_name -> coreapi.model.MessageButton
+	26, // 9: coreapi.model.Message.files:type_name -> coreapi.model.MessageFile
+	27, // 10: coreapi.model.Message.web_page:type_name -> coreapi.model.MessageWebPage
 	11, // 11: coreapi.model.Message.log:type_name -> coreapi.model.MessageLog
 	12, // 12: coreapi.model.Message.reactions:type_name -> coreapi.model.MessageReaction
-	25, // 13: coreapi.model.Message.alf_progress:type_name -> google.protobuf.Struct
-	25, // 14: coreapi.model.Message.form:type_name -> google.protobuf.Struct
+	24, // 13: coreapi.model.Message.alf_progress:type_name -> google.protobuf.Struct
+	24, // 14: coreapi.model.Message.form:type_name -> google.protobuf.Struct
 	0,  // 15: coreapi.model.Message.state:type_name -> coreapi.model.MessageState
-	25, // 16: coreapi.model.Message.marketing:type_name -> google.protobuf.Struct
-	25, // 17: coreapi.model.Message.support_bot:type_name -> google.protobuf.Struct
-	25, // 18: coreapi.model.Message.workflow:type_name -> google.protobuf.Struct
-	1,  // 19: coreapi.model.Message.alert_level:type_name -> coreapi.model.AlertLevel
-	25, // 20: coreapi.model.Message.ivr:type_name -> google.protobuf.Struct
-	25, // 21: coreapi.model.Message.custom_payload:type_name -> google.protobuf.Struct
-	2,  // 22: coreapi.model.Message.writing_type:type_name -> coreapi.model.WritingType
-	3,  // 23: coreapi.model.MessageLog.action:type_name -> coreapi.model.MessageLog.MessageLogAction
-	4,  // 24: coreapi.model.MessageMeet.state:type_name -> coreapi.model.MessageMeet.MeetState
-	5,  // 25: coreapi.model.MessageMeet.mode:type_name -> coreapi.model.MessageMeet.MeetMode
-	23, // 26: coreapi.model.MessageMeet.room_started_at:type_name -> google.protobuf.Timestamp
-	25, // 27: coreapi.model.MessageMeet.call:type_name -> google.protobuf.Struct
-	25, // 28: coreapi.model.MessageMeet.front:type_name -> google.protobuf.Struct
-	25, // 29: coreapi.model.MessageMeet.recording:type_name -> google.protobuf.Struct
-	23, // 30: coreapi.model.MessageMeet.meet_ended_at:type_name -> google.protobuf.Timestamp
-	6,  // 31: coreapi.model.MessageMeet.meet_type:type_name -> coreapi.model.MessageMeet.MeetType
-	25, // 32: coreapi.model.MessageAlf.references:type_name -> google.protobuf.Struct
-	7,  // 33: coreapi.model.MessageEmail.direction:type_name -> coreapi.model.MessageEmail.EmailDirection
-	25, // 34: coreapi.model.MessageEmail.from:type_name -> google.protobuf.Struct
-	25, // 35: coreapi.model.MessageEmail.to:type_name -> google.protobuf.Struct
-	25, // 36: coreapi.model.MessageEmail.cc:type_name -> google.protobuf.Struct
-	25, // 37: coreapi.model.MessageEmail.bcc:type_name -> google.protobuf.Struct
-	25, // 38: coreapi.model.MessageEmail.reply_to:type_name -> google.protobuf.Struct
-	23, // 39: coreapi.model.MessageEmail.created_at:type_name -> google.protobuf.Timestamp
-	27, // 40: coreapi.model.MessageIvr.audio_file:type_name -> coreapi.model.MessageFile
-	8,  // 41: coreapi.model.MessageMarketing.exposure_type:type_name -> coreapi.model.MessageMarketing.ExposureType
-	25, // 42: coreapi.model.MessageSupportBot.buttons:type_name -> google.protobuf.Struct
-	25, // 43: coreapi.model.MessageCustomPayload.data:type_name -> google.protobuf.Struct
-	22, // 44: coreapi.model.MessageCustomPayload.param_mapper:type_name -> coreapi.model.MessageCustomPayload.ParamMapperEntry
-	45, // [45:45] is the sub-list for method output_type
-	45, // [45:45] is the sub-list for method input_type
-	45, // [45:45] is the sub-list for extension type_name
-	45, // [45:45] is the sub-list for extension extendee
-	0,  // [0:45] is the sub-list for field type_name
+	24, // 16: coreapi.model.Message.marketing:type_name -> google.protobuf.Struct
+	24, // 17: coreapi.model.Message.workflow:type_name -> google.protobuf.Struct
+	1,  // 18: coreapi.model.Message.alert_level:type_name -> coreapi.model.AlertLevel
+	24, // 19: coreapi.model.Message.ivr:type_name -> google.protobuf.Struct
+	24, // 20: coreapi.model.Message.custom_payload:type_name -> google.protobuf.Struct
+	2,  // 21: coreapi.model.Message.writing_type:type_name -> coreapi.model.WritingType
+	3,  // 22: coreapi.model.MessageLog.action:type_name -> coreapi.model.MessageLog.MessageLogAction
+	4,  // 23: coreapi.model.MessageMeet.state:type_name -> coreapi.model.MessageMeet.MeetState
+	5,  // 24: coreapi.model.MessageMeet.mode:type_name -> coreapi.model.MessageMeet.MeetMode
+	22, // 25: coreapi.model.MessageMeet.room_started_at:type_name -> google.protobuf.Timestamp
+	24, // 26: coreapi.model.MessageMeet.call:type_name -> google.protobuf.Struct
+	24, // 27: coreapi.model.MessageMeet.front:type_name -> google.protobuf.Struct
+	24, // 28: coreapi.model.MessageMeet.recording:type_name -> google.protobuf.Struct
+	22, // 29: coreapi.model.MessageMeet.meet_ended_at:type_name -> google.protobuf.Timestamp
+	6,  // 30: coreapi.model.MessageMeet.meet_type:type_name -> coreapi.model.MessageMeet.MeetType
+	24, // 31: coreapi.model.MessageAlf.references:type_name -> google.protobuf.Struct
+	7,  // 32: coreapi.model.MessageEmail.direction:type_name -> coreapi.model.MessageEmail.EmailDirection
+	24, // 33: coreapi.model.MessageEmail.from:type_name -> google.protobuf.Struct
+	24, // 34: coreapi.model.MessageEmail.to:type_name -> google.protobuf.Struct
+	24, // 35: coreapi.model.MessageEmail.cc:type_name -> google.protobuf.Struct
+	24, // 36: coreapi.model.MessageEmail.bcc:type_name -> google.protobuf.Struct
+	24, // 37: coreapi.model.MessageEmail.reply_to:type_name -> google.protobuf.Struct
+	22, // 38: coreapi.model.MessageEmail.created_at:type_name -> google.protobuf.Timestamp
+	26, // 39: coreapi.model.MessageIvr.audio_file:type_name -> coreapi.model.MessageFile
+	8,  // 40: coreapi.model.MessageMarketing.exposure_type:type_name -> coreapi.model.MessageMarketing.ExposureType
+	24, // 41: coreapi.model.MessageCustomPayload.data:type_name -> google.protobuf.Struct
+	21, // 42: coreapi.model.MessageCustomPayload.param_mapper:type_name -> coreapi.model.MessageCustomPayload.ParamMapperEntry
+	43, // [43:43] is the sub-list for method output_type
+	43, // [43:43] is the sub-list for method input_type
+	43, // [43:43] is the sub-list for extension type_name
+	43, // [43:43] is the sub-list for extension extendee
+	0,  // [0:43] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_message_proto_init() }
@@ -2869,7 +2736,7 @@ func file_coreapi_model_message_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_message_proto_rawDesc), len(file_coreapi_model_message_proto_rawDesc)),
 			NumEnums:      9,
-			NumMessages:   14,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

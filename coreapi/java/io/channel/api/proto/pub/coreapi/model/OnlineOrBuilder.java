@@ -33,7 +33,7 @@ public interface OnlineOrBuilder extends
 
   /**
    * <pre>
-   * Type of the person (e.g., manager, user).
+   * Type of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -45,7 +45,7 @@ public interface OnlineOrBuilder extends
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Type of the person (e.g., manager, user).
+   * Type of the person.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"

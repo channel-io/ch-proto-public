@@ -5,7 +5,6 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Messaging medium type for marketing delivery.
  * Additional event filter matching strategy.
  * </pre>
  *
@@ -14,14 +13,26 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum CampaignFilterMatch
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_FILTER_MATCH_UNSPECIFIED = 0;</code>
    */
   CAMPAIGN_FILTER_MATCH_UNSPECIFIED(0),
   /**
+   * <pre>
+   * The filter event must have occurred for delivery.
+   * </pre>
+   *
    * <code>CAMPAIGN_FILTER_MATCH_POSITIVE = 1;</code>
    */
   CAMPAIGN_FILTER_MATCH_POSITIVE(1),
   /**
+   * <pre>
+   * The filter event must not have occurred for delivery.
+   * </pre>
+   *
    * <code>CAMPAIGN_FILTER_MATCH_NEGATIVE = 2;</code>
    */
   CAMPAIGN_FILTER_MATCH_NEGATIVE(2),
@@ -29,14 +40,26 @@ public enum CampaignFilterMatch
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CAMPAIGN_FILTER_MATCH_UNSPECIFIED = 0;</code>
    */
   public static final int CAMPAIGN_FILTER_MATCH_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * The filter event must have occurred for delivery.
+   * </pre>
+   *
    * <code>CAMPAIGN_FILTER_MATCH_POSITIVE = 1;</code>
    */
   public static final int CAMPAIGN_FILTER_MATCH_POSITIVE_VALUE = 1;
   /**
+   * <pre>
+   * The filter event must not have occurred for delivery.
+   * </pre>
+   *
    * <code>CAMPAIGN_FILTER_MATCH_NEGATIVE = 2;</code>
    */
   public static final int CAMPAIGN_FILTER_MATCH_NEGATIVE_VALUE = 2;

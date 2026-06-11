@@ -83,7 +83,7 @@ public interface ImageFileOrBuilder extends
 
   /**
    * <pre>
-   * MIME content type of the image (e.g. "image/png", "image/jpeg").
+   * MIME content type of the image.
    * +kubebuilder:validation:Pattern="^image/.*"
    * +kubebuilder:example="image/png"
    * </pre>
@@ -94,7 +94,7 @@ public interface ImageFileOrBuilder extends
   java.lang.String getContentType();
   /**
    * <pre>
-   * MIME content type of the image (e.g. "image/png", "image/jpeg").
+   * MIME content type of the image.
    * +kubebuilder:validation:Pattern="^image/.*"
    * +kubebuilder:example="image/png"
    * </pre>

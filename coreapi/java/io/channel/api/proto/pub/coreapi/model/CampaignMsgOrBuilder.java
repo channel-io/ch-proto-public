@@ -156,10 +156,11 @@ public interface CampaignMsgOrBuilder extends
 
   /**
    * <pre>
-   * Message content and medium-specific delivery configuration.
-   * Structure varies by medium_type.
+   * Message body and delivery options for the chosen medium. Set `type` to one
+   * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+   * fill in the fields that medium expects.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
+   * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -168,10 +169,11 @@ public interface CampaignMsgOrBuilder extends
   boolean hasSettings();
   /**
    * <pre>
-   * Message content and medium-specific delivery configuration.
-   * Structure varies by medium_type.
+   * Message body and delivery options for the chosen medium. Set `type` to one
+   * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+   * fill in the fields that medium expects.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
+   * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>
@@ -180,10 +182,11 @@ public interface CampaignMsgOrBuilder extends
   com.google.protobuf.Struct getSettings();
   /**
    * <pre>
-   * Message content and medium-specific delivery configuration.
-   * Structure varies by medium_type.
+   * Message body and delivery options for the chosen medium. Set `type` to one
+   * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+   * fill in the fields that medium expects.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot"}
+   * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen"}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 7 [json_name = "settings", (.buf.validate.field) = { ... }</code>

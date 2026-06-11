@@ -5,9 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Direction of a phone call relative to the channel.
- * - INBOUND: Call received from an external caller.
- * - OUTBOUND: Call initiated by a manager to an external number.
+ * Direction of a phone call relative to the channel. INBOUND calls are received from
+ * external callers, while OUTBOUND calls are initiated by a manager to an external number.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CallDirection}
@@ -15,14 +14,26 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum CallDirection
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CALL_DIRECTION_UNSPECIFIED = 0;</code>
    */
   CALL_DIRECTION_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Inbound call received from an external caller.
+   * </pre>
+   *
    * <code>CALL_DIRECTION_INBOUND = 1;</code>
    */
   CALL_DIRECTION_INBOUND(1),
   /**
+   * <pre>
+   * Outbound call initiated by a manager.
+   * </pre>
+   *
    * <code>CALL_DIRECTION_OUTBOUND = 2;</code>
    */
   CALL_DIRECTION_OUTBOUND(2),
@@ -30,14 +41,26 @@ public enum CallDirection
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CALL_DIRECTION_UNSPECIFIED = 0;</code>
    */
   public static final int CALL_DIRECTION_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Inbound call received from an external caller.
+   * </pre>
+   *
    * <code>CALL_DIRECTION_INBOUND = 1;</code>
    */
   public static final int CALL_DIRECTION_INBOUND_VALUE = 1;
   /**
+   * <pre>
+   * Outbound call initiated by a manager.
+   * </pre>
+   *
    * <code>CALL_DIRECTION_OUTBOUND = 2;</code>
    */
   public static final int CALL_DIRECTION_OUTBOUND_VALUE = 2;

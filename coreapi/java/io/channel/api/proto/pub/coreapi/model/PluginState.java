@@ -13,14 +13,26 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum PluginState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_STATE_UNSPECIFIED = 0;</code>
    */
   PLUGIN_STATE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Created and awaiting activation.
+   * </pre>
+   *
    * <code>PLUGIN_STATE_WAITING = 1;</code>
    */
   PLUGIN_STATE_WAITING(1),
   /**
+   * <pre>
+   * Activated and serving the chat widget.
+   * </pre>
+   *
    * <code>PLUGIN_STATE_ACTIVE = 2;</code>
    */
   PLUGIN_STATE_ACTIVE(2),
@@ -28,14 +40,26 @@ public enum PluginState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int PLUGIN_STATE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Created and awaiting activation.
+   * </pre>
+   *
    * <code>PLUGIN_STATE_WAITING = 1;</code>
    */
   public static final int PLUGIN_STATE_WAITING_VALUE = 1;
   /**
+   * <pre>
+   * Activated and serving the chat widget.
+   * </pre>
+   *
    * <code>PLUGIN_STATE_ACTIVE = 2;</code>
    */
   public static final int PLUGIN_STATE_ACTIVE_VALUE = 2;

@@ -13,14 +13,26 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum PluginBubblePosition
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_BUBBLE_POSITION_UNSPECIFIED = 0;</code>
    */
   PLUGIN_BUBBLE_POSITION_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Positioned near the top of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_BUBBLE_POSITION_TOP = 1;</code>
    */
   PLUGIN_BUBBLE_POSITION_TOP(1),
   /**
+   * <pre>
+   * Positioned near the bottom of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_BUBBLE_POSITION_BOTTOM = 2;</code>
    */
   PLUGIN_BUBBLE_POSITION_BOTTOM(2),
@@ -28,14 +40,26 @@ public enum PluginBubblePosition
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_BUBBLE_POSITION_UNSPECIFIED = 0;</code>
    */
   public static final int PLUGIN_BUBBLE_POSITION_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Positioned near the top of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_BUBBLE_POSITION_TOP = 1;</code>
    */
   public static final int PLUGIN_BUBBLE_POSITION_TOP_VALUE = 1;
   /**
+   * <pre>
+   * Positioned near the bottom of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_BUBBLE_POSITION_BOTTOM = 2;</code>
    */
   public static final int PLUGIN_BUBBLE_POSITION_BOTTOM_VALUE = 2;

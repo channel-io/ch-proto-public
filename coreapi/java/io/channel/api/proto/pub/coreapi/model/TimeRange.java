@@ -133,34 +133,66 @@ private static final long serialVersionUID = 0L;
   public enum DayOfWeek
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_UNSPECIFIED = 0;</code>
      */
     DAY_OF_WEEK_UNSPECIFIED(0),
     /**
+     * <pre>
+     * Monday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_MON = 1;</code>
      */
     DAY_OF_WEEK_MON(1),
     /**
+     * <pre>
+     * Tuesday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_TUE = 2;</code>
      */
     DAY_OF_WEEK_TUE(2),
     /**
+     * <pre>
+     * Wednesday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_WED = 3;</code>
      */
     DAY_OF_WEEK_WED(3),
     /**
+     * <pre>
+     * Thursday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_THU = 4;</code>
      */
     DAY_OF_WEEK_THU(4),
     /**
+     * <pre>
+     * Friday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_FRI = 5;</code>
      */
     DAY_OF_WEEK_FRI(5),
     /**
+     * <pre>
+     * Saturday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_SAT = 6;</code>
      */
     DAY_OF_WEEK_SAT(6),
     /**
+     * <pre>
+     * Sunday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_SUN = 7;</code>
      */
     DAY_OF_WEEK_SUN(7),
@@ -168,34 +200,66 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_UNSPECIFIED = 0;</code>
      */
     public static final int DAY_OF_WEEK_UNSPECIFIED_VALUE = 0;
     /**
+     * <pre>
+     * Monday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_MON = 1;</code>
      */
     public static final int DAY_OF_WEEK_MON_VALUE = 1;
     /**
+     * <pre>
+     * Tuesday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_TUE = 2;</code>
      */
     public static final int DAY_OF_WEEK_TUE_VALUE = 2;
     /**
+     * <pre>
+     * Wednesday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_WED = 3;</code>
      */
     public static final int DAY_OF_WEEK_WED_VALUE = 3;
     /**
+     * <pre>
+     * Thursday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_THU = 4;</code>
      */
     public static final int DAY_OF_WEEK_THU_VALUE = 4;
     /**
+     * <pre>
+     * Friday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_FRI = 5;</code>
      */
     public static final int DAY_OF_WEEK_FRI_VALUE = 5;
     /**
+     * <pre>
+     * Saturday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_SAT = 6;</code>
      */
     public static final int DAY_OF_WEEK_SAT_VALUE = 6;
     /**
+     * <pre>
+     * Sunday.
+     * </pre>
+     *
      * <code>DAY_OF_WEEK_SUN = 7;</code>
      */
     public static final int DAY_OF_WEEK_SUN_VALUE = 7;
@@ -386,8 +450,7 @@ private static final long serialVersionUID = 0L;
   private int from_;
   /**
    * <pre>
-   * Start time as minutes from midnight (e.g. 540 = 09:00).
-   * Must be less than `to`.
+   * Start time as minutes from midnight. Must be less than `to`.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1440
@@ -406,8 +469,7 @@ private static final long serialVersionUID = 0L;
   private int to_;
   /**
    * <pre>
-   * End time as minutes from midnight (e.g. 1080 = 18:00).
-   * Must be greater than `from`.
+   * End time as minutes from midnight. Must be greater than `from`.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1440
@@ -1017,8 +1079,7 @@ private static final long serialVersionUID = 0L;
     private int from_ ;
     /**
      * <pre>
-     * Start time as minutes from midnight (e.g. 540 = 09:00).
-     * Must be less than `to`.
+     * Start time as minutes from midnight. Must be less than `to`.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1440
@@ -1034,8 +1095,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Start time as minutes from midnight (e.g. 540 = 09:00).
-     * Must be less than `to`.
+     * Start time as minutes from midnight. Must be less than `to`.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1440
@@ -1054,8 +1114,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Start time as minutes from midnight (e.g. 540 = 09:00).
-     * Must be less than `to`.
+     * Start time as minutes from midnight. Must be less than `to`.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1440
@@ -1075,8 +1134,7 @@ private static final long serialVersionUID = 0L;
     private int to_ ;
     /**
      * <pre>
-     * End time as minutes from midnight (e.g. 1080 = 18:00).
-     * Must be greater than `from`.
+     * End time as minutes from midnight. Must be greater than `from`.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1440
@@ -1092,8 +1150,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * End time as minutes from midnight (e.g. 1080 = 18:00).
-     * Must be greater than `from`.
+     * End time as minutes from midnight. Must be greater than `from`.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1440
@@ -1112,8 +1169,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * End time as minutes from midnight (e.g. 1080 = 18:00).
-     * Must be greater than `from`.
+     * End time as minutes from midnight. Must be greater than `from`.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Minimum=0
      * +kubebuilder:validation:Maximum=1440

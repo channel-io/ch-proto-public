@@ -1041,7 +1041,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object coverImageColor_;
   /**
    * <pre>
-   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * Dominant color extracted from the cover image in hex format.
    * +kubebuilder:example="#F3F4F6"
    * </pre>
    *
@@ -1063,7 +1063,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * Dominant color extracted from the cover image in hex format.
    * +kubebuilder:example="#F3F4F6"
    * </pre>
    *
@@ -1139,7 +1139,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object color_;
   /**
    * <pre>
-   * Channel theme color in hex format (e.g., #3B82F6).
+   * Channel theme color in hex format.
    * Used to derive border, gradient, text, and plugin icon colors.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="#5c4ef3"
@@ -1163,7 +1163,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Channel theme color in hex format (e.g., #3B82F6).
+   * Channel theme color in hex format.
    * Used to derive border, gradient, text, and plugin icon colors.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="#5c4ef3"
@@ -1437,7 +1437,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object phoneNumber_;
   /**
    * <pre>
-   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * Business contact phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -1459,7 +1459,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * Business contact phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -1781,7 +1781,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object bizCategory_;
   /**
    * <pre>
-   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * Industry or business category of the channel.
    * +kubebuilder:example="lowEndShoppingMall"
    * </pre>
    *
@@ -1803,7 +1803,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * Industry or business category of the channel.
    * +kubebuilder:example="lowEndShoppingMall"
    * </pre>
    *
@@ -1893,7 +1893,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object appCommerceType_;
   /**
    * <pre>
-   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * Integrated e-commerce platform type.
    * +kubebuilder:example="Cafe24"
    * </pre>
    *
@@ -1915,7 +1915,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * Integrated e-commerce platform type.
    * +kubebuilder:example="Cafe24"
    * </pre>
    *
@@ -5675,7 +5675,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object coverImageColor_ = "";
     /**
      * <pre>
-     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * Dominant color extracted from the cover image in hex format.
      * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
@@ -5696,7 +5696,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * Dominant color extracted from the cover image in hex format.
      * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
@@ -5718,7 +5718,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * Dominant color extracted from the cover image in hex format.
      * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
@@ -5738,7 +5738,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * Dominant color extracted from the cover image in hex format.
      * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
@@ -5753,7 +5753,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+     * Dominant color extracted from the cover image in hex format.
      * +kubebuilder:example="#F3F4F6"
      * </pre>
      *
@@ -5882,7 +5882,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object color_ = "";
     /**
      * <pre>
-     * Channel theme color in hex format (e.g., #3B82F6).
+     * Channel theme color in hex format.
      * Used to derive border, gradient, text, and plugin icon colors.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="#5c4ef3"
@@ -5905,7 +5905,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel theme color in hex format (e.g., #3B82F6).
+     * Channel theme color in hex format.
      * Used to derive border, gradient, text, and plugin icon colors.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="#5c4ef3"
@@ -5929,7 +5929,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel theme color in hex format (e.g., #3B82F6).
+     * Channel theme color in hex format.
      * Used to derive border, gradient, text, and plugin icon colors.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="#5c4ef3"
@@ -5951,7 +5951,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel theme color in hex format (e.g., #3B82F6).
+     * Channel theme color in hex format.
      * Used to derive border, gradient, text, and plugin icon colors.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="#5c4ef3"
@@ -5968,7 +5968,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel theme color in hex format (e.g., #3B82F6).
+     * Channel theme color in hex format.
      * Used to derive border, gradient, text, and plugin icon colors.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="#5c4ef3"
@@ -6513,7 +6513,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object phoneNumber_ = "";
     /**
      * <pre>
-     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * Business contact phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -6534,7 +6534,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * Business contact phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -6556,7 +6556,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * Business contact phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -6576,7 +6576,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * Business contact phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -6591,7 +6591,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Business contact phone number in E.164 format (e.g., +821012345678).
+     * Business contact phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -7349,7 +7349,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bizCategory_ = "";
     /**
      * <pre>
-     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * Industry or business category of the channel.
      * +kubebuilder:example="lowEndShoppingMall"
      * </pre>
      *
@@ -7370,7 +7370,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * Industry or business category of the channel.
      * +kubebuilder:example="lowEndShoppingMall"
      * </pre>
      *
@@ -7392,7 +7392,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * Industry or business category of the channel.
      * +kubebuilder:example="lowEndShoppingMall"
      * </pre>
      *
@@ -7412,7 +7412,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * Industry or business category of the channel.
      * +kubebuilder:example="lowEndShoppingMall"
      * </pre>
      *
@@ -7427,7 +7427,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+     * Industry or business category of the channel.
      * +kubebuilder:example="lowEndShoppingMall"
      * </pre>
      *
@@ -7597,7 +7597,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object appCommerceType_ = "";
     /**
      * <pre>
-     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * Integrated e-commerce platform type.
      * +kubebuilder:example="Cafe24"
      * </pre>
      *
@@ -7618,7 +7618,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * Integrated e-commerce platform type.
      * +kubebuilder:example="Cafe24"
      * </pre>
      *
@@ -7640,7 +7640,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * Integrated e-commerce platform type.
      * +kubebuilder:example="Cafe24"
      * </pre>
      *
@@ -7660,7 +7660,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * Integrated e-commerce platform type.
      * +kubebuilder:example="Cafe24"
      * </pre>
      *
@@ -7675,7 +7675,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+     * Integrated e-commerce platform type.
      * +kubebuilder:example="Cafe24"
      * </pre>
      *

@@ -436,7 +436,7 @@ public interface ChatSessionOrBuilder extends
 
   /**
    * <pre>
-   * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"
@@ -448,7 +448,7 @@ public interface ChatSessionOrBuilder extends
   java.lang.String getChatType();
   /**
    * <pre>
-   * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"
@@ -462,7 +462,7 @@ public interface ChatSessionOrBuilder extends
 
   /**
    * <pre>
-   * Entity type of the session owner (e.g., "manager", "user").
+   * Entity type of the session owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -474,7 +474,7 @@ public interface ChatSessionOrBuilder extends
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Entity type of the session owner (e.g., "manager", "user").
+   * Entity type of the session owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"

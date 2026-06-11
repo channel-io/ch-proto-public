@@ -248,6 +248,10 @@ private static final long serialVersionUID = 0L;
   public enum MeetState
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_STATE_UNSPECIFIED = 0;</code>
      */
     MEET_STATE_UNSPECIFIED(0),
@@ -295,6 +299,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_STATE_UNSPECIFIED = 0;</code>
      */
     public static final int MEET_STATE_UNSPECIFIED_VALUE = 0;
@@ -436,6 +444,10 @@ private static final long serialVersionUID = 0L;
   public enum MeetMode
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_MODE_UNSPECIFIED = 0;</code>
      */
     MEET_MODE_UNSPECIFIED(0),
@@ -459,6 +471,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_MODE_UNSPECIFIED = 0;</code>
      */
     public static final int MEET_MODE_UNSPECIFIED_VALUE = 0;
@@ -573,6 +589,10 @@ private static final long serialVersionUID = 0L;
   public enum MeetType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_TYPE_UNSPECIFIED = 0;</code>
      */
     MEET_TYPE_UNSPECIFIED(0),
@@ -604,6 +624,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_TYPE_UNSPECIFIED = 0;</code>
      */
     public static final int MEET_TYPE_UNSPECIFIED_VALUE = 0;
@@ -769,7 +793,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object chatType_;
   /**
    * <pre>
-   * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+   * Chat type of the conversation this meet belongs to.
    * +kubebuilder:example="userChat"
    * </pre>
    *
@@ -791,7 +815,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+   * Chat type of the conversation this meet belongs to.
    * +kubebuilder:example="userChat"
    * </pre>
    *
@@ -2136,7 +2160,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatType_ = "";
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+     * Chat type of the conversation this meet belongs to.
      * +kubebuilder:example="userChat"
      * </pre>
      *
@@ -2157,7 +2181,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+     * Chat type of the conversation this meet belongs to.
      * +kubebuilder:example="userChat"
      * </pre>
      *
@@ -2179,7 +2203,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+     * Chat type of the conversation this meet belongs to.
      * +kubebuilder:example="userChat"
      * </pre>
      *
@@ -2199,7 +2223,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+     * Chat type of the conversation this meet belongs to.
      * +kubebuilder:example="userChat"
      * </pre>
      *
@@ -2214,7 +2238,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
+     * Chat type of the conversation this meet belongs to.
      * +kubebuilder:example="userChat"
      * </pre>
      *

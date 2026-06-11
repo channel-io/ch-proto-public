@@ -428,7 +428,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
+   * Type of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -452,7 +452,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
+   * Type of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object chatType_;
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
+   * Chat type this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"
@@ -556,7 +556,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
+   * Chat type this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"
@@ -1633,7 +1633,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -1656,7 +1656,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -1680,7 +1680,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -1702,7 +1702,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -1719,7 +1719,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -1855,7 +1855,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatType_ = "";
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -1878,7 +1878,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -1902,7 +1902,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -1924,7 +1924,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -1941,7 +1941,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"

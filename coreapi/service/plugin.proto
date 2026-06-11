@@ -129,6 +129,7 @@ message PatchPluginRequest {
     map<string, string> label_button_text_i18n_map = 5;
 
     // Type of the launcher button.
+    // Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
     //
     // +kubebuilder:validation:Nullable
     coreapi.model.PluginButtonType button_type = 6;

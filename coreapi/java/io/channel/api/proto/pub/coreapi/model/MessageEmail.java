@@ -213,6 +213,10 @@ private static final long serialVersionUID = 0L;
   public enum EmailDirection
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>EMAIL_DIRECTION_UNSPECIFIED = 0;</code>
      */
     EMAIL_DIRECTION_UNSPECIFIED(0),
@@ -236,6 +240,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>EMAIL_DIRECTION_UNSPECIFIED = 0;</code>
      */
     public static final int EMAIL_DIRECTION_UNSPECIFIED_VALUE = 0;

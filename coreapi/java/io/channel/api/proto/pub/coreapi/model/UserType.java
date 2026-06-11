@@ -13,6 +13,10 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum UserType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>USER_TYPE_UNSPECIFIED = 0;</code>
    */
   USER_TYPE_UNSPECIFIED(0),
@@ -44,6 +48,10 @@ public enum UserType
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>USER_TYPE_UNSPECIFIED = 0;</code>
    */
   public static final int USER_TYPE_UNSPECIFIED_VALUE = 0;

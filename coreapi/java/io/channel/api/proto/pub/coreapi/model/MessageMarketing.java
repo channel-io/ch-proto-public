@@ -138,6 +138,10 @@ private static final long serialVersionUID = 0L;
   public enum ExposureType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>EXPOSURE_TYPE_UNSPECIFIED = 0;</code>
      */
     EXPOSURE_TYPE_UNSPECIFIED(0),
@@ -153,6 +157,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>EXPOSURE_TYPE_UNSPECIFIED = 0;</code>
      */
     public static final int EXPOSURE_TYPE_UNSPECIFIED_VALUE = 0;

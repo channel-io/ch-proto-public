@@ -976,7 +976,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object chatType_;
   /**
    * <pre>
-   * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"
@@ -1000,7 +1000,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the conversation.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"
@@ -1028,7 +1028,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Entity type of the session owner (e.g., "manager", "user").
+   * Entity type of the session owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -1052,7 +1052,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Entity type of the session owner (e.g., "manager", "user").
+   * Entity type of the session owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -3830,7 +3830,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object chatType_ = "";
     /**
      * <pre>
-     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -3853,7 +3853,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -3877,7 +3877,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -3899,7 +3899,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -3916,7 +3916,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Chat type of the conversation (e.g., "userChat", "group", "directChat").
+     * Chat type of the conversation.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="userChat"
@@ -3941,7 +3941,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Entity type of the session owner (e.g., "manager", "user").
+     * Entity type of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -3964,7 +3964,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the session owner (e.g., "manager", "user").
+     * Entity type of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -3988,7 +3988,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the session owner (e.g., "manager", "user").
+     * Entity type of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -4010,7 +4010,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the session owner (e.g., "manager", "user").
+     * Entity type of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"
@@ -4027,7 +4027,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the session owner (e.g., "manager", "user").
+     * Entity type of the session owner.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="manager"

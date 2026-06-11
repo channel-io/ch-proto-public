@@ -9,7 +9,7 @@ public interface MessageReactionOrBuilder extends
 
   /**
    * <pre>
-   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+   * Emoji shortcode identifying the reaction.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="thumbsup"
@@ -21,7 +21,7 @@ public interface MessageReactionOrBuilder extends
   java.lang.String getEmojiName();
   /**
    * <pre>
-   * Emoji shortcode identifying the reaction (e.g. "thumbsup", "heart", "tada").
+   * Emoji shortcode identifying the reaction.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="thumbsup"
@@ -35,8 +35,9 @@ public interface MessageReactionOrBuilder extends
 
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *
@@ -47,8 +48,9 @@ public interface MessageReactionOrBuilder extends
       getPersonKeysList();
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *
@@ -58,8 +60,9 @@ public interface MessageReactionOrBuilder extends
   int getPersonKeysCount();
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *
@@ -70,8 +73,9 @@ public interface MessageReactionOrBuilder extends
   java.lang.String getPersonKeys(int index);
   /**
    * <pre>
-   * Person keys of everyone who reacted with this emoji,
-   * in the format "{personType}-{personId}" (e.g. "user-abc123", "manager-xyz789").
+   * Person keys of everyone who reacted with this emoji, in the format
+   * "{personType}-{personId}". The order reflects the order in which the
+   * reactions were added.
    * +kubebuilder:example=["user-660640f04f4065f2161a","manager-9187"]
    * </pre>
    *

@@ -6,9 +6,9 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * Determines how the message was composed and how clients should render it.
- * - STANDARD: Regular text message composed via the chat input.
- * - CUSTOM: Message rendered using a third-party custom payload.
- * - EMAIL: Message composed or received via email integration.
+ * STANDARD is a regular text message composed via the chat input,
+ * CUSTOM is rendered using a third-party custom payload, and EMAIL was composed or received
+ * via email integration.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.WritingType}
@@ -16,18 +16,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum WritingType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>WRITING_TYPE_UNSPECIFIED = 0;</code>
    */
   WRITING_TYPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Regular text message composed via the chat input.
+   * </pre>
+   *
    * <code>WRITING_TYPE_STANDARD = 1;</code>
    */
   WRITING_TYPE_STANDARD(1),
   /**
+   * <pre>
+   * Rendered using a third-party custom payload.
+   * </pre>
+   *
    * <code>WRITING_TYPE_CUSTOM = 2;</code>
    */
   WRITING_TYPE_CUSTOM(2),
   /**
+   * <pre>
+   * Composed or received via email integration.
+   * </pre>
+   *
    * <code>WRITING_TYPE_EMAIL = 3;</code>
    */
   WRITING_TYPE_EMAIL(3),
@@ -35,18 +51,34 @@ public enum WritingType
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>WRITING_TYPE_UNSPECIFIED = 0;</code>
    */
   public static final int WRITING_TYPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Regular text message composed via the chat input.
+   * </pre>
+   *
    * <code>WRITING_TYPE_STANDARD = 1;</code>
    */
   public static final int WRITING_TYPE_STANDARD_VALUE = 1;
   /**
+   * <pre>
+   * Rendered using a third-party custom payload.
+   * </pre>
+   *
    * <code>WRITING_TYPE_CUSTOM = 2;</code>
    */
   public static final int WRITING_TYPE_CUSTOM_VALUE = 2;
   /**
+   * <pre>
+   * Composed or received via email integration.
+   * </pre>
+   *
    * <code>WRITING_TYPE_EMAIL = 3;</code>
    */
   public static final int WRITING_TYPE_EMAIL_VALUE = 3;

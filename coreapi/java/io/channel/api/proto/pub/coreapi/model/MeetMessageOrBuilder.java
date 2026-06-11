@@ -105,7 +105,7 @@ public interface MeetMessageOrBuilder extends
 
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>
@@ -116,7 +116,7 @@ public interface MeetMessageOrBuilder extends
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>

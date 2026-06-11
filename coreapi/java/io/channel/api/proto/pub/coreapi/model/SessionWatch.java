@@ -13,18 +13,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum SessionWatch
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>SESSION_WATCH_UNSPECIFIED = 0;</code>
    */
   SESSION_WATCH_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Notify on every message.
+   * </pre>
+   *
    * <code>SESSION_WATCH_ALL = 1;</code>
    */
   SESSION_WATCH_ALL(1),
   /**
+   * <pre>
+   * Notify only on mentions and important updates.
+   * </pre>
+   *
    * <code>SESSION_WATCH_INFO = 2;</code>
    */
   SESSION_WATCH_INFO(2),
   /**
+   * <pre>
+   * Do not notify.
+   * </pre>
+   *
    * <code>SESSION_WATCH_NONE = 3;</code>
    */
   SESSION_WATCH_NONE(3),
@@ -32,18 +48,34 @@ public enum SessionWatch
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>SESSION_WATCH_UNSPECIFIED = 0;</code>
    */
   public static final int SESSION_WATCH_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Notify on every message.
+   * </pre>
+   *
    * <code>SESSION_WATCH_ALL = 1;</code>
    */
   public static final int SESSION_WATCH_ALL_VALUE = 1;
   /**
+   * <pre>
+   * Notify only on mentions and important updates.
+   * </pre>
+   *
    * <code>SESSION_WATCH_INFO = 2;</code>
    */
   public static final int SESSION_WATCH_INFO_VALUE = 2;
   /**
+   * <pre>
+   * Do not notify.
+   * </pre>
+   *
    * <code>SESSION_WATCH_NONE = 3;</code>
    */
   public static final int SESSION_WATCH_NONE_VALUE = 3;

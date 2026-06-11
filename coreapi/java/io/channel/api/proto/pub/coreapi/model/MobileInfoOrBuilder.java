@@ -9,7 +9,7 @@ public interface MobileInfoOrBuilder extends
 
   /**
    * <pre>
-   * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * Device model name.
    * +kubebuilder:example="iPhone 15"
    * </pre>
    *
@@ -19,7 +19,7 @@ public interface MobileInfoOrBuilder extends
   java.lang.String getDevice();
   /**
    * <pre>
-   * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * Device model name.
    * +kubebuilder:example="iPhone 15"
    * </pre>
    *
@@ -31,7 +31,7 @@ public interface MobileInfoOrBuilder extends
 
   /**
    * <pre>
-   * Operating system version string (e.g. "17.2", "14").
+   * Operating system version string.
    * +kubebuilder:example="17.2"
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface MobileInfoOrBuilder extends
   java.lang.String getOs();
   /**
    * <pre>
-   * Operating system version string (e.g. "17.2", "14").
+   * Operating system version string.
    * +kubebuilder:example="17.2"
    * </pre>
    *
@@ -53,7 +53,7 @@ public interface MobileInfoOrBuilder extends
 
   /**
    * <pre>
-   * Operating system name (e.g. "iOS", "Android").
+   * Operating system name.
    * +kubebuilder:example="iOS"
    * </pre>
    *
@@ -63,7 +63,7 @@ public interface MobileInfoOrBuilder extends
   java.lang.String getOsName();
   /**
    * <pre>
-   * Operating system name (e.g. "iOS", "Android").
+   * Operating system name.
    * +kubebuilder:example="iOS"
    * </pre>
    *
@@ -119,7 +119,7 @@ public interface MobileInfoOrBuilder extends
 
   /**
    * <pre>
-   * Channel SDK platform name (e.g. "ios", "android", "react-native").
+   * Channel SDK platform name.
    * +kubebuilder:example="ios"
    * </pre>
    *
@@ -129,7 +129,7 @@ public interface MobileInfoOrBuilder extends
   java.lang.String getSdkName();
   /**
    * <pre>
-   * Channel SDK platform name (e.g. "ios", "android", "react-native").
+   * Channel SDK platform name.
    * +kubebuilder:example="ios"
    * </pre>
    *

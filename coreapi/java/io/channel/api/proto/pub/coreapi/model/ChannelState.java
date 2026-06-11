@@ -13,34 +13,66 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum ChannelState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_UNSPECIFIED = 0;</code>
    */
   CHANNEL_STATE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Created and awaiting activation.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_WAITING = 1;</code>
    */
   CHANNEL_STATE_WAITING(1),
   /**
+   * <pre>
+   * Active and fully operational.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_ACTIVE = 2;</code>
    */
   CHANNEL_STATE_ACTIVE(2),
   /**
+   * <pre>
+   * Access restricted; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_RESTRICTED = 3;</code>
    */
   CHANNEL_STATE_RESTRICTED(3),
   /**
+   * <pre>
+   * Payment overdue and within a grace period; not yet blocked.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_PRE_INDEBTED = 4;</code>
    */
   CHANNEL_STATE_PRE_INDEBTED(4),
   /**
+   * <pre>
+   * Payment unresolved past the due date; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_INDEBTED = 5;</code>
    */
   CHANNEL_STATE_INDEBTED(5),
   /**
+   * <pre>
+   * Banned; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_BANNED = 6;</code>
    */
   CHANNEL_STATE_BANNED(6),
   /**
+   * <pre>
+   * The channel has been removed; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_REMOVED = 7;</code>
    */
   CHANNEL_STATE_REMOVED(7),
@@ -48,34 +80,66 @@ public enum ChannelState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int CHANNEL_STATE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Created and awaiting activation.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_WAITING = 1;</code>
    */
   public static final int CHANNEL_STATE_WAITING_VALUE = 1;
   /**
+   * <pre>
+   * Active and fully operational.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_ACTIVE = 2;</code>
    */
   public static final int CHANNEL_STATE_ACTIVE_VALUE = 2;
   /**
+   * <pre>
+   * Access restricted; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_RESTRICTED = 3;</code>
    */
   public static final int CHANNEL_STATE_RESTRICTED_VALUE = 3;
   /**
+   * <pre>
+   * Payment overdue and within a grace period; not yet blocked.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_PRE_INDEBTED = 4;</code>
    */
   public static final int CHANNEL_STATE_PRE_INDEBTED_VALUE = 4;
   /**
+   * <pre>
+   * Payment unresolved past the due date; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_INDEBTED = 5;</code>
    */
   public static final int CHANNEL_STATE_INDEBTED_VALUE = 5;
   /**
+   * <pre>
+   * Banned; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_BANNED = 6;</code>
    */
   public static final int CHANNEL_STATE_BANNED_VALUE = 6;
   /**
+   * <pre>
+   * The channel has been removed; treated as a blocked state.
+   * </pre>
+   *
    * <code>CHANNEL_STATE_REMOVED = 7;</code>
    */
   public static final int CHANNEL_STATE_REMOVED_VALUE = 7;

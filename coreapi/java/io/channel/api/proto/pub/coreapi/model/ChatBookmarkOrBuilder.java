@@ -152,7 +152,7 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
+   * Type of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -164,7 +164,7 @@ public interface ChatBookmarkOrBuilder extends
   java.lang.String getPersonType();
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
+   * Type of the bookmark owner.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="manager"
@@ -204,7 +204,7 @@ public interface ChatBookmarkOrBuilder extends
 
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
+   * Chat type this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"
@@ -216,7 +216,7 @@ public interface ChatBookmarkOrBuilder extends
   java.lang.String getChatType();
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
+   * Chat type this bookmark belongs to.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="userChat"

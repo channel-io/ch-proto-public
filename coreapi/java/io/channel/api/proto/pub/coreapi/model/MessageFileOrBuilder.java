@@ -33,7 +33,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * High-level media category derived from the MIME type.
    * +kubebuilder:example="image"
    * </pre>
    *
@@ -43,7 +43,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * High-level media category derived from the MIME type.
    * +kubebuilder:example="image"
    * </pre>
    *
@@ -55,7 +55,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Original file name including the extension (e.g. "report.pdf").
+   * Original file name including the extension.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="report.pdf"
@@ -67,7 +67,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Original file name including the extension (e.g. "report.pdf").
+   * Original file name including the extension.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="report.pdf"
@@ -93,7 +93,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * MIME content type (e.g. "image/png", "application/pdf").
+   * MIME content type.
    * +kubebuilder:example="image/png"
    * </pre>
    *
@@ -103,7 +103,7 @@ public interface MessageFileOrBuilder extends
   java.lang.String getContentType();
   /**
    * <pre>
-   * MIME content type (e.g. "image/png", "application/pdf").
+   * MIME content type.
    * +kubebuilder:example="image/png"
    * </pre>
    *
@@ -161,7 +161,7 @@ public interface MessageFileOrBuilder extends
 
   /**
    * <pre>
-   * Whether the image is an animated format (e.g. GIF, APNG).
+   * Whether the image is an animated format.
    * +kubebuilder:example="false"
    * </pre>
    *

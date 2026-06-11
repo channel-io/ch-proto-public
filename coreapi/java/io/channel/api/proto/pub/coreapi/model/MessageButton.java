@@ -122,34 +122,66 @@ private static final long serialVersionUID = 0L;
   public enum ColorVariant
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_UNSPECIFIED = 0;</code>
      */
     COLOR_VARIANT_UNSPECIFIED(0),
     /**
+     * <pre>
+     * Cobalt blue theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_COBALT = 1;</code>
      */
     COLOR_VARIANT_COBALT(1),
     /**
+     * <pre>
+     * Green theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_GREEN = 2;</code>
      */
     COLOR_VARIANT_GREEN(2),
     /**
+     * <pre>
+     * Orange theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_ORANGE = 3;</code>
      */
     COLOR_VARIANT_ORANGE(3),
     /**
+     * <pre>
+     * Red theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_RED = 4;</code>
      */
     COLOR_VARIANT_RED(4),
     /**
+     * <pre>
+     * Black theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_BLACK = 5;</code>
      */
     COLOR_VARIANT_BLACK(5),
     /**
+     * <pre>
+     * Pink theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_PINK = 6;</code>
      */
     COLOR_VARIANT_PINK(6),
     /**
+     * <pre>
+     * Purple theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_PURPLE = 7;</code>
      */
     COLOR_VARIANT_PURPLE(7),
@@ -157,34 +189,66 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_UNSPECIFIED = 0;</code>
      */
     public static final int COLOR_VARIANT_UNSPECIFIED_VALUE = 0;
     /**
+     * <pre>
+     * Cobalt blue theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_COBALT = 1;</code>
      */
     public static final int COLOR_VARIANT_COBALT_VALUE = 1;
     /**
+     * <pre>
+     * Green theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_GREEN = 2;</code>
      */
     public static final int COLOR_VARIANT_GREEN_VALUE = 2;
     /**
+     * <pre>
+     * Orange theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_ORANGE = 3;</code>
      */
     public static final int COLOR_VARIANT_ORANGE_VALUE = 3;
     /**
+     * <pre>
+     * Red theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_RED = 4;</code>
      */
     public static final int COLOR_VARIANT_RED_VALUE = 4;
     /**
+     * <pre>
+     * Black theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_BLACK = 5;</code>
      */
     public static final int COLOR_VARIANT_BLACK_VALUE = 5;
     /**
+     * <pre>
+     * Pink theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_PINK = 6;</code>
      */
     public static final int COLOR_VARIANT_PINK_VALUE = 6;
     /**
+     * <pre>
+     * Purple theme.
+     * </pre>
+     *
      * <code>COLOR_VARIANT_PURPLE = 7;</code>
      */
     public static final int COLOR_VARIANT_PURPLE_VALUE = 7;

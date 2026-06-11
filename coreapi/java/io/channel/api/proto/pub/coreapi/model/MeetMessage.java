@@ -377,7 +377,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object personType_;
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>
@@ -400,7 +400,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="manager"
    * </pre>
@@ -1621,7 +1621,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object personType_ = "";
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -1643,7 +1643,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -1666,7 +1666,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -1687,7 +1687,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>
@@ -1703,7 +1703,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="manager"
      * </pre>

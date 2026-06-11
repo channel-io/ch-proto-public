@@ -13,18 +13,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum PluginButtonType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;</code>
    */
   PLUGIN_BUTTON_TYPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Legacy launcher mode using separate desktop and mobile uploaded images.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_LEGACY = 1;</code>
    */
   PLUGIN_BUTTON_TYPE_LEGACY(1),
   /**
+   * <pre>
+   * Launcher using a single custom uploaded image.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;</code>
    */
   PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE(2),
   /**
+   * <pre>
+   * Launcher using a predefined icon.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_ICON_BUTTON = 3;</code>
    */
   PLUGIN_BUTTON_TYPE_ICON_BUTTON(3),
@@ -32,18 +48,34 @@ public enum PluginButtonType
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;</code>
    */
   public static final int PLUGIN_BUTTON_TYPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Legacy launcher mode using separate desktop and mobile uploaded images.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_LEGACY = 1;</code>
    */
   public static final int PLUGIN_BUTTON_TYPE_LEGACY_VALUE = 1;
   /**
+   * <pre>
+   * Launcher using a single custom uploaded image.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;</code>
    */
   public static final int PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE_VALUE = 2;
   /**
+   * <pre>
+   * Launcher using a predefined icon.
+   * </pre>
+   *
    * <code>PLUGIN_BUTTON_TYPE_ICON_BUTTON = 3;</code>
    */
   public static final int PLUGIN_BUTTON_TYPE_ICON_BUTTON_VALUE = 3;

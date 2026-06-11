@@ -139,7 +139,7 @@ type PluginButtonType int32
 const (
 	// Unspecified or not set.
 	PluginButtonType_PLUGIN_BUTTON_TYPE_UNSPECIFIED PluginButtonType = 0
-	// Legacy launcher using uploaded desktop and mobile images.
+	// Legacy launcher mode using separate desktop and mobile uploaded images.
 	PluginButtonType_PLUGIN_BUTTON_TYPE_LEGACY PluginButtonType = 1
 	// Launcher using a single custom uploaded image.
 	PluginButtonType_PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE PluginButtonType = 2
@@ -488,7 +488,7 @@ type Plugin struct {
 	// Applicable when button_type is CUSTOM_IMAGE.
 	CustomImage *ImageFile `protobuf:"bytes,13,opt,name=custom_image,json=customImage,proto3" json:"custom_image,omitempty"`
 	// Uploaded desktop launcher image.
-	// Applicable when button_type is LEGACY.
+	// Used when button_type is LEGACY.
 	DeskImage *TinyFile `protobuf:"bytes,14,opt,name=desk_image,json=deskImage,proto3" json:"desk_image,omitempty"`
 	// Horizontal offset of the desktop widget from its anchored edge, in pixels.
 	//
@@ -505,7 +505,7 @@ type Plugin struct {
 	// Horizontal anchor position of the desktop widget.
 	DeskPosition PluginPosition `protobuf:"varint,18,opt,name=desk_position,json=deskPosition,proto3,enum=coreapi.model.PluginPosition" json:"desk_position,omitempty"`
 	// Uploaded mobile launcher image.
-	// Applicable when button_type is LEGACY.
+	// Used when button_type is LEGACY.
 	MobileImage *TinyFile `protobuf:"bytes,19,opt,name=mobile_image,json=mobileImage,proto3" json:"mobile_image,omitempty"`
 	// Horizontal offset of the mobile widget from its anchored edge, in pixels.
 	//

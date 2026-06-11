@@ -261,12 +261,6 @@ message Message {
   // +kubebuilder:example={"campaignId":"1461","campaignType":"promotion","trackingId":"1461-660640f04f4065f2161a"}
   google.protobuf.Struct marketing = 34;
 
-  // Legacy support bot metadata.
-  // Retained for backward compatibility with older workflow implementations.
-  //
-  // +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-  google.protobuf.Struct support_bot = 35;
-
   // Workflow automation metadata linking this message to a workflow step.
   // Contains workflow ID, step ID, and button submission context.
   //
@@ -845,46 +839,6 @@ message MessageMarketing {
     // Renders as a full-screen overlay.
     EXPOSURE_TYPE_FULL_SCREEN = 1;
   }
-}
-
-// =====================================================
-// MessageSupportBot
-// =====================================================
-
-// MessageSupportBot represents legacy support bot flow metadata attached to a user chat message.
-// Tracks the current position within a support bot's multi-step conversation flow.
-message MessageSupportBot {
-  // Support bot identifier that owns this flow.
-  //
-  // +kubebuilder:example="2840"
-  string id = 1;
-
-  // Published revision of the support bot being executed.
-  //
-  // +kubebuilder:example="2612"
-  string revision_id = 2;
-
-  // Current section within the support bot flow (e.g. a route or action section).
-  //
-  // +kubebuilder:example="A"
-  string section_id = 3;
-
-  // Zero-based step position within the current section.
-  //
-  // +kubebuilder:example="0"
-  int32 step_index = 4;
-
-  // Route selection buttons presented to the user at the end of a route section.
-  // Set to null after the user makes a selection.
-  //
-  // +kubebuilder:example=[]
-  repeated google.protobuf.Struct buttons = 5;
-
-  // Zero-based index of the button the user selected.
-  // Present only on messages recording the user's route selection.
-  //
-  // +kubebuilder:example="1"
-  int32 submit_button_index = 6;
 }
 
 // =====================================================

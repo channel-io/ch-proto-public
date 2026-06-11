@@ -300,7 +300,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * Dominant color extracted from the cover image in hex format.
    * +kubebuilder:example="#F3F4F6"
    * </pre>
    *
@@ -310,7 +310,7 @@ public interface ChannelOrBuilder extends
   java.lang.String getCoverImageColor();
   /**
    * <pre>
-   * Dominant color extracted from the cover image in hex format (e.g., #3B82F6).
+   * Dominant color extracted from the cover image in hex format.
    * +kubebuilder:example="#F3F4F6"
    * </pre>
    *
@@ -346,7 +346,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Channel theme color in hex format (e.g., #3B82F6).
+   * Channel theme color in hex format.
    * Used to derive border, gradient, text, and plugin icon colors.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="#5c4ef3"
@@ -358,7 +358,7 @@ public interface ChannelOrBuilder extends
   java.lang.String getColor();
   /**
    * <pre>
-   * Channel theme color in hex format (e.g., #3B82F6).
+   * Channel theme color in hex format.
    * Used to derive border, gradient, text, and plugin icon colors.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="#5c4ef3"
@@ -488,7 +488,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * Business contact phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -498,7 +498,7 @@ public interface ChannelOrBuilder extends
   java.lang.String getPhoneNumber();
   /**
    * <pre>
-   * Business contact phone number in E.164 format (e.g., +821012345678).
+   * Business contact phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -685,7 +685,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * Industry or business category of the channel.
    * +kubebuilder:example="lowEndShoppingMall"
    * </pre>
    *
@@ -695,7 +695,7 @@ public interface ChannelOrBuilder extends
   java.lang.String getBizCategory();
   /**
    * <pre>
-   * Industry or business category of the channel (e.g., "E-commerce", "SaaS").
+   * Industry or business category of the channel.
    * +kubebuilder:example="lowEndShoppingMall"
    * </pre>
    *
@@ -740,7 +740,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * Integrated e-commerce platform type.
    * +kubebuilder:example="Cafe24"
    * </pre>
    *
@@ -750,7 +750,7 @@ public interface ChannelOrBuilder extends
   java.lang.String getAppCommerceType();
   /**
    * <pre>
-   * Integrated e-commerce platform type (e.g., Shopify, Cafe24).
+   * Integrated e-commerce platform type.
    * +kubebuilder:example="Cafe24"
    * </pre>
    *
