@@ -121,4 +121,3 @@ func CampaignBaseEventTypeForString(value string) CampaignBaseEventType {
 		return CampaignBaseEventType_CAMPAIGN_BASE_EVENT_TYPE_UNSPECIFIED
 	}
 }
-

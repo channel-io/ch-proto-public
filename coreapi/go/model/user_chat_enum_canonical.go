@@ -189,4 +189,3 @@ func UserChatSubtextTypeForString(value string) UserChatSubtextType {
 		return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED
 	}
 }
-

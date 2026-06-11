@@ -33,4 +33,3 @@ func MediumTypeForString(value string) MediumType {
 		return MediumType_MEDIUM_TYPE_UNSPECIFIED
 	}
 }
-
