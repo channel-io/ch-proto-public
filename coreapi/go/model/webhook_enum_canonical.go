@@ -53,3 +53,4 @@ func WebhookScopeForString(value string) WebhookScope {
 		return WebhookScope_WEBHOOK_SCOPE_UNSPECIFIED
 	}
 }
+

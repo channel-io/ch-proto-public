@@ -7,14 +7,13 @@
 package model
 
 import (
-	reflect "reflect"
-	sync "sync"
-	unsafe "unsafe"
-
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	structpb "google.golang.org/protobuf/types/known/structpb"
+	reflect "reflect"
+	sync "sync"
+	unsafe "unsafe"
 )
 
 const (
@@ -553,9 +552,7 @@ type MessageFile struct {
 	ManagerId string `protobuf:"bytes,17,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Chat type for chat-scoped private files.
 	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-	//
-	// +kubebuilder:example="userChat"
-	ChatType string `protobuf:"bytes,18,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
+	ChatType ChatType `protobuf:"varint,18,opt,name=chat_type,json=chatType,proto3,enum=coreapi.model.ChatType" json:"chat_type,omitempty"`
 	// Chat ID for chat-scoped private files.
 	// Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
 	//
@@ -714,11 +711,11 @@ func (x *MessageFile) GetManagerId() string {
 	return ""
 }
 
-func (x *MessageFile) GetChatType() string {
+func (x *MessageFile) GetChatType() ChatType {
 	if x != nil {
 		return x.ChatType
 	}
-	return ""
+	return ChatType_CHAT_TYPE_UNSPECIFIED
 }
 
 func (x *MessageFile) GetChatId() string {
@@ -1049,7 +1046,7 @@ var File_coreapi_model_message_content_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x8e\x02\n" +
+	"#coreapi/model/message_content.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x8e\x02\n" +
 	"\x05Block\x12:\n" +
 	"\x04type\x18\x01 \x01(\x0e2\x1e.coreapi.model.Block.BlockTypeB\x06\xbaH\x03\xc8\x01\x01R\x04type\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x14\n" +
@@ -1074,7 +1071,7 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\x11COLOR_VARIANT_RED\x10\x04\x12\x17\n" +
 	"\x13COLOR_VARIANT_BLACK\x10\x05\x12\x16\n" +
 	"\x12COLOR_VARIANT_PINK\x10\x06\x12\x18\n" +
-	"\x14COLOR_VARIANT_PURPLE\x10\a\"\xd6\a\n" +
+	"\x14COLOR_VARIANT_PURPLE\x10\a\"\xef\a\n" +
 	"\vMessageFile\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12a\n" +
@@ -1099,8 +1096,8 @@ const file_coreapi_model_message_content_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x10 \x01(\tR\tchannelId\x12\x1d\n" +
 	"\n" +
-	"manager_id\x18\x11 \x01(\tR\tmanagerId\x12\x1b\n" +
-	"\tchat_type\x18\x12 \x01(\tR\bchatType\x12\x17\n" +
+	"manager_id\x18\x11 \x01(\tR\tmanagerId\x124\n" +
+	"\tchat_type\x18\x12 \x01(\x0e2\x17.coreapi.model.ChatTypeR\bchatType\x12\x17\n" +
 	"\achat_id\x18\x13 \x01(\tR\x06chatId\"\x93\x01\n" +
 	"\x10PrivateFileScope\x12\"\n" +
 	"\x1ePRIVATE_FILE_SCOPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
@@ -1179,6 +1176,7 @@ var file_coreapi_model_message_content_proto_goTypes = []any{
 	(*MessageWebPage)(nil),            // 7: coreapi.model.MessageWebPage
 	(*MessageContent)(nil),            // 8: coreapi.model.MessageContent
 	(*structpb.Struct)(nil),           // 9: google.protobuf.Struct
+	(ChatType)(0),                     // 10: coreapi.model.ChatType
 }
 var file_coreapi_model_message_content_proto_depIdxs = []int32{
 	1,  // 0: coreapi.model.Block.type:type_name -> coreapi.model.Block.BlockType
@@ -1186,17 +1184,18 @@ var file_coreapi_model_message_content_proto_depIdxs = []int32{
 	2,  // 2: coreapi.model.MessageButton.color_variant:type_name -> coreapi.model.MessageButton.ColorVariant
 	9,  // 3: coreapi.model.MessageButton.action:type_name -> google.protobuf.Struct
 	3,  // 4: coreapi.model.MessageFile.private_file_scope:type_name -> coreapi.model.MessageFile.PrivateFileScope
-	4,  // 5: coreapi.model.MessageContent.blocks:type_name -> coreapi.model.Block
-	5,  // 6: coreapi.model.MessageContent.buttons:type_name -> coreapi.model.MessageButton
-	6,  // 7: coreapi.model.MessageContent.files:type_name -> coreapi.model.MessageFile
-	7,  // 8: coreapi.model.MessageContent.web_page:type_name -> coreapi.model.MessageWebPage
-	9,  // 9: coreapi.model.MessageContent.form:type_name -> google.protobuf.Struct
-	0,  // 10: coreapi.model.MessageContent.options:type_name -> coreapi.model.MessageOption
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	10, // 5: coreapi.model.MessageFile.chat_type:type_name -> coreapi.model.ChatType
+	4,  // 6: coreapi.model.MessageContent.blocks:type_name -> coreapi.model.Block
+	5,  // 7: coreapi.model.MessageContent.buttons:type_name -> coreapi.model.MessageButton
+	6,  // 8: coreapi.model.MessageContent.files:type_name -> coreapi.model.MessageFile
+	7,  // 9: coreapi.model.MessageContent.web_page:type_name -> coreapi.model.MessageWebPage
+	9,  // 10: coreapi.model.MessageContent.form:type_name -> google.protobuf.Struct
+	0,  // 11: coreapi.model.MessageContent.options:type_name -> coreapi.model.MessageOption
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_message_content_proto_init() }
@@ -1204,6 +1203,7 @@ func file_coreapi_model_message_content_proto_init() {
 	if File_coreapi_model_message_content_proto != nil {
 		return
 	}
+	file_coreapi_model_entity_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

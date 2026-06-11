@@ -32,24 +32,21 @@ public interface MessageMeetOrBuilder extends
   /**
    * <pre>
    * Chat type of the conversation this meet belongs to.
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 2 [json_name = "chatType"];</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  java.lang.String getChatType();
+  int getChatTypeValue();
   /**
    * <pre>
    * Chat type of the conversation this meet belongs to.
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 2 [json_name = "chatType"];</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+   * @return The chatType.
    */
-  com.google.protobuf.ByteString
-      getChatTypeBytes();
+  io.channel.api.proto.pub.coreapi.model.ChatType getChatType();
 
   /**
    * <pre>

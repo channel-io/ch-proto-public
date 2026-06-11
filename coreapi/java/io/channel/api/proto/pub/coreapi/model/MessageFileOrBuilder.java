@@ -343,25 +343,22 @@ public interface MessageFileOrBuilder extends
    * <pre>
    * Chat type for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 18 [json_name = "chatType"];</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  java.lang.String getChatType();
+  int getChatTypeValue();
   /**
    * <pre>
    * Chat type for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 18 [json_name = "chatType"];</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+   * @return The chatType.
    */
-  com.google.protobuf.ByteString
-      getChatTypeBytes();
+  io.channel.api.proto.pub.coreapi.model.ChatType getChatType();
 
   /**
    * <pre>

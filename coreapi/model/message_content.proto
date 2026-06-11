@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/entity_type.proto";
 import "google/protobuf/struct.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
@@ -245,8 +246,7 @@ message MessageFile {
   // Chat type for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
   //
-  // +kubebuilder:example="userChat"
-  string chat_type = 18;
+  coreapi.model.ChatType chat_type = 18;
 
   // Chat ID for chat-scoped private files.
   // Derived from the storage key pattern; present only when `private_file_scope` is CHAT.

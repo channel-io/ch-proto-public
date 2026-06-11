@@ -45,3 +45,4 @@ func CommonErrorCodeForString(value string) CommonErrorCode {
 		return CommonErrorCode_COMMON_ERROR_CODE_UNSPECIFIED
 	}
 }
+

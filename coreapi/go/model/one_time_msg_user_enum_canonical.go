@@ -33,3 +33,4 @@ func OneTimeMsgUserStateForString(value string) OneTimeMsgUserState {
 		return OneTimeMsgUserState_ONE_TIME_MSG_USER_STATE_UNSPECIFIED
 	}
 }
+

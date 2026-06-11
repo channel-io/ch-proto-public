@@ -7,14 +7,13 @@
 package model
 
 import (
-	reflect "reflect"
-	sync "sync"
-	unsafe "unsafe"
-
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
+	reflect "reflect"
+	sync "sync"
+	unsafe "unsafe"
 )
 
 const (
@@ -121,15 +120,11 @@ type ChatSession struct {
 	// Chat type of the conversation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="userChat"
-	ChatType string `protobuf:"bytes,19,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
+	ChatType ChatType `protobuf:"varint,19,opt,name=chat_type,json=chatType,proto3,enum=coreapi.model.ChatType" json:"chat_type,omitempty"`
 	// Entity type of the session owner.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="manager"
-	PersonType string `protobuf:"bytes,20,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
+	PersonType PersonType `protobuf:"varint,20,opt,name=person_type,json=personType,proto3,enum=coreapi.model.PersonType" json:"person_type,omitempty"`
 	// Entity ID of the session owner.
 	//
 	// +kubebuilder:validation:Required
@@ -296,18 +291,18 @@ func (x *ChatSession) GetId() string {
 	return ""
 }
 
-func (x *ChatSession) GetChatType() string {
+func (x *ChatSession) GetChatType() ChatType {
 	if x != nil {
 		return x.ChatType
 	}
-	return ""
+	return ChatType_CHAT_TYPE_UNSPECIFIED
 }
 
-func (x *ChatSession) GetPersonType() string {
+func (x *ChatSession) GetPersonType() PersonType {
 	if x != nil {
 		return x.PersonType
 	}
-	return ""
+	return PersonType_PERSON_TYPE_UNSPECIFIED
 }
 
 func (x *ChatSession) GetPersonId() string {
@@ -321,7 +316,7 @@ var File_coreapi_model_chat_session_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xef\n" +
+	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\n" +
 	"\n" +
 	"\vChatSession\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -352,11 +347,9 @@ const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12 \n" +
 	"\aversion\x18\x11 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\aversion\x12\x16\n" +
-	"\x02id\x18\x12 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12j\n" +
-	"\tchat_type\x18\x13 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bchatType\x12n\n" +
-	"\vperson_type\x18\x14 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
+	"\x02id\x18\x12 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12<\n" +
+	"\tchat_type\x18\x13 \x01(\x0e2\x17.coreapi.model.ChatTypeB\x06\xbaH\x03\xc8\x01\x01R\bchatType\x12B\n" +
+	"\vperson_type\x18\x14 \x01(\x0e2\x19.coreapi.model.PersonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"personType\x12j\n" +
 	"\tperson_id\x18\x15 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonIdBb\n" +
@@ -379,6 +372,8 @@ var file_coreapi_model_chat_session_proto_goTypes = []any{
 	(*ChatSession)(nil),           // 0: coreapi.model.ChatSession
 	(SessionWatch)(0),             // 1: coreapi.model.SessionWatch
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(ChatType)(0),                 // 3: coreapi.model.ChatType
+	(PersonType)(0),               // 4: coreapi.model.PersonType
 }
 var file_coreapi_model_chat_session_proto_depIdxs = []int32{
 	1, // 0: coreapi.model.ChatSession.watch:type_name -> coreapi.model.SessionWatch
@@ -387,11 +382,13 @@ var file_coreapi_model_chat_session_proto_depIdxs = []int32{
 	2, // 3: coreapi.model.ChatSession.posted_at:type_name -> google.protobuf.Timestamp
 	2, // 4: coreapi.model.ChatSession.updated_at:type_name -> google.protobuf.Timestamp
 	2, // 5: coreapi.model.ChatSession.created_at:type_name -> google.protobuf.Timestamp
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	3, // 6: coreapi.model.ChatSession.chat_type:type_name -> coreapi.model.ChatType
+	4, // 7: coreapi.model.ChatSession.person_type:type_name -> coreapi.model.PersonType
+	8, // [8:8] is the sub-list for method output_type
+	8, // [8:8] is the sub-list for method input_type
+	8, // [8:8] is the sub-list for extension type_name
+	8, // [8:8] is the sub-list for extension extendee
+	0, // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_chat_session_proto_init() }
@@ -399,6 +396,7 @@ func file_coreapi_model_chat_session_proto_init() {
 	if File_coreapi_model_chat_session_proto != nil {
 		return
 	}
+	file_coreapi_model_entity_type_proto_init()
 	file_coreapi_model_manager_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

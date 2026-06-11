@@ -28,9 +28,9 @@ private static final long serialVersionUID = 0L;
     frontKey_ = "";
     alfThreadKey_ = "";
     channelId_ = "";
-    chatType_ = "";
+    chatType_ = 0;
     chatId_ = "";
-    personType_ = "";
+    personType_ = 0;
     personId_ = "";
     requestId_ = "";
     language_ = "";
@@ -40,7 +40,7 @@ private static final long serialVersionUID = 0L;
     files_ = java.util.Collections.emptyList();
     reactions_ = java.util.Collections.emptyList();
     state_ = 0;
-    options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    options_ = java.util.Collections.emptyList();
     alertLevel_ = 0;
     writingType_ = 0;
     rootMessageId_ = "";
@@ -125,10 +125,10 @@ private static final long serialVersionUID = 0L;
             channelId_ = s;
             break;
           }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 72: {
+            int rawValue = input.readEnum();
 
-            chatType_ = s;
+            chatType_ = rawValue;
             break;
           }
           case 82: {
@@ -137,10 +137,10 @@ private static final long serialVersionUID = 0L;
             chatId_ = s;
             break;
           }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 88: {
+            int rawValue = input.readEnum();
 
-            personType_ = s;
+            personType_ = rawValue;
             break;
           }
           case 98: {
@@ -357,13 +357,27 @@ private static final long serialVersionUID = 0L;
             state_ = rawValue;
             break;
           }
-          case 266: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 264: {
+            int rawValue = input.readEnum();
             if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              options_ = new com.google.protobuf.LazyStringArrayList();
+              options_ = new java.util.ArrayList<java.lang.Integer>();
               mutable_bitField0_ |= 0x00000010;
             }
-            options_.add(s);
+            options_.add(rawValue);
+            break;
+          }
+          case 266: {
+            int length = input.readRawVarint32();
+            int oldLimit = input.pushLimit(length);
+            while(input.getBytesUntilLimit() > 0) {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                options_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              options_.add(rawValue);
+            }
+            input.popLimit(oldLimit);
             break;
           }
           case 274: {
@@ -484,7 +498,7 @@ private static final long serialVersionUID = 0L;
         reactions_ = java.util.Collections.unmodifiableList(reactions_);
       }
       if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        options_ = options_.getUnmodifiableView();
+        options_ = java.util.Collections.unmodifiableList(options_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -918,53 +932,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHAT_TYPE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object chatType_;
+  private int chatType_;
   /**
    * <pre>
    * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  @java.lang.Override
-  public java.lang.String getChatType() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getChatTypeValue() {
+    return chatType_;
   }
   /**
    * <pre>
    * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The chatType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChatTypeBytes() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
   }
 
   public static final int CHAT_ID_FIELD_NUMBER = 10;
@@ -1018,53 +1011,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERSON_TYPE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object personType_;
+  private int personType_;
   /**
    * <pre>
    * Entity type of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The personType.
+   * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for personType.
    */
-  @java.lang.Override
-  public java.lang.String getPersonType() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      personType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getPersonTypeValue() {
+    return personType_;
   }
   /**
    * <pre>
    * Entity type of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for personType.
+   * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The personType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPersonTypeBytes() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      personType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PersonType getPersonType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.PersonType result = io.channel.api.proto.pub.coreapi.model.PersonType.valueOf(personType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.PersonType.UNRECOGNIZED : result;
   }
 
   public static final int PERSON_ID_FIELD_NUMBER = 12;
@@ -2049,71 +2021,87 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPTIONS_FIELD_NUMBER = 33;
-  private com.google.protobuf.LazyStringList options_;
+  private java.util.List<java.lang.Integer> options_;
+  private static final com.google.protobuf.Internal.ListAdapter.Converter<
+      java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption> options_converter_ =
+          new com.google.protobuf.Internal.ListAdapter.Converter<
+              java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption>() {
+            public io.channel.api.proto.pub.coreapi.model.MessageOption convert(java.lang.Integer from) {
+              @SuppressWarnings("deprecation")
+              io.channel.api.proto.pub.coreapi.model.MessageOption result = io.channel.api.proto.pub.coreapi.model.MessageOption.valueOf(from);
+              return result == null ? io.channel.api.proto.pub.coreapi.model.MessageOption.UNRECOGNIZED : result;
+            }
+          };
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
    * @return A list containing the options.
    */
-  public com.google.protobuf.ProtocolStringList
-      getOptionsList() {
-    return options_;
+  @java.lang.Override
+  public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageOption> getOptionsList() {
+    return new com.google.protobuf.Internal.ListAdapter<
+        java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption>(options_, options_converter_);
   }
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
    * @return The count of options.
    */
+  @java.lang.Override
   public int getOptionsCount() {
     return options_.size();
   }
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
    * @param index The index of the element to return.
    * @return The options at the given index.
    */
-  public java.lang.String getOptions(int index) {
-    return options_.get(index);
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.MessageOption getOptions(int index) {
+    return options_converter_.convert(options_.get(index));
   }
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the options at the given index.
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+   * @return A list containing the enum numeric values on the wire for options.
    */
-  public com.google.protobuf.ByteString
-      getOptionsBytes(int index) {
-    return options_.getByteString(index);
+  @java.lang.Override
+  public java.util.List<java.lang.Integer>
+  getOptionsValueList() {
+    return options_;
   }
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of options at the given index.
+   */
+  @java.lang.Override
+  public int getOptionsValue(int index) {
+    return options_.get(index);
+  }
+  private int optionsMemoizedSerializedSize;
 
   public static final int MARKETING_FIELD_NUMBER = 34;
   private com.google.protobuf.Struct marketing_;
@@ -2490,6 +2478,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chatKey_);
     }
@@ -2514,14 +2503,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(9, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, chatId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, personType_);
+    if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(11, personType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, personId_);
@@ -2586,8 +2575,12 @@ private static final long serialVersionUID = 0L;
     if (state_ != io.channel.api.proto.pub.coreapi.model.MessageState.MESSAGE_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(32, state_);
     }
+    if (getOptionsList().size() > 0) {
+      output.writeUInt32NoTag(266);
+      output.writeUInt32NoTag(optionsMemoizedSerializedSize);
+    }
     for (int i = 0; i < options_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 33, options_.getRaw(i));
+      output.writeEnumNoTag(options_.get(i));
     }
     if (marketing_ != null) {
       output.writeMessage(34, getMarketing());
@@ -2655,14 +2648,16 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(9, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, chatId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, personType_);
+    if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(11, personType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, personId_);
@@ -2747,10 +2742,14 @@ private static final long serialVersionUID = 0L;
     {
       int dataSize = 0;
       for (int i = 0; i < options_.size(); i++) {
-        dataSize += computeStringSizeNoTag(options_.getRaw(i));
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeEnumSizeNoTag(options_.get(i));
       }
       size += dataSize;
-      size += 2 * getOptionsList().size();
+      if (!getOptionsList().isEmpty()) {  size += 2;
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32SizeNoTag(dataSize);
+      }optionsMemoizedSerializedSize = dataSize;
     }
     if (marketing_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -2826,12 +2825,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAlfThreadKey())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
-    if (!getChatType()
-        .equals(other.getChatType())) return false;
+    if (chatType_ != other.chatType_) return false;
     if (!getChatId()
         .equals(other.getChatId())) return false;
-    if (!getPersonType()
-        .equals(other.getPersonType())) return false;
+    if (personType_ != other.personType_) return false;
     if (!getPersonId()
         .equals(other.getPersonId())) return false;
     if (!getRequestId()
@@ -2906,8 +2903,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getForm())) return false;
     }
     if (state_ != other.state_) return false;
-    if (!getOptionsList()
-        .equals(other.getOptionsList())) return false;
+    if (!options_.equals(other.options_)) return false;
     if (hasMarketing() != other.hasMarketing()) return false;
     if (hasMarketing()) {
       if (!getMarketing()
@@ -2968,11 +2964,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getChatType().hashCode();
+    hash = (53 * hash) + chatType_;
     hash = (37 * hash) + CHAT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChatId().hashCode();
     hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getPersonType().hashCode();
+    hash = (53 * hash) + personType_;
     hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
     hash = (53 * hash) + getPersonId().hashCode();
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
@@ -3048,7 +3044,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + state_;
     if (getOptionsCount() > 0) {
       hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
-      hash = (53 * hash) + getOptionsList().hashCode();
+      hash = (53 * hash) + options_.hashCode();
     }
     if (hasMarketing()) {
       hash = (37 * hash) + MARKETING_FIELD_NUMBER;
@@ -3241,11 +3237,11 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      chatType_ = "";
+      chatType_ = 0;
 
       chatId_ = "";
 
-      personType_ = "";
+      personType_ = 0;
 
       personId_ = "";
 
@@ -3349,7 +3345,7 @@ private static final long serialVersionUID = 0L;
       }
       state_ = 0;
 
-      options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      options_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000010);
       if (marketingBuilder_ == null) {
         marketing_ = null;
@@ -3525,7 +3521,7 @@ private static final long serialVersionUID = 0L;
       }
       result.state_ = state_;
       if (((bitField0_ & 0x00000010) != 0)) {
-        options_ = options_.getUnmodifiableView();
+        options_ = java.util.Collections.unmodifiableList(options_);
         bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.options_ = options_;
@@ -3636,17 +3632,15 @@ private static final long serialVersionUID = 0L;
         channelId_ = other.channelId_;
         onChanged();
       }
-      if (!other.getChatType().isEmpty()) {
-        chatType_ = other.chatType_;
-        onChanged();
+      if (other.chatType_ != 0) {
+        setChatTypeValue(other.getChatTypeValue());
       }
       if (!other.getChatId().isEmpty()) {
         chatId_ = other.chatId_;
         onChanged();
       }
-      if (!other.getPersonType().isEmpty()) {
-        personType_ = other.personType_;
-        onChanged();
+      if (other.personType_ != 0) {
+        setPersonTypeValue(other.getPersonTypeValue());
       }
       if (!other.getPersonId().isEmpty()) {
         personId_ = other.personId_;
@@ -4764,69 +4758,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object chatType_ = "";
+    private int chatType_ = 0;
     /**
      * <pre>
      * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The chatType.
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for chatType.
      */
-    public java.lang.String getChatType() {
-      java.lang.Object ref = chatType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getChatTypeValue() {
+      return chatType_;
     }
     /**
      * <pre>
      * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for chatType.
-     */
-    public com.google.protobuf.ByteString
-        getChatTypeBytes() {
-      java.lang.Object ref = chatType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type of the parent conversation.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The chatType to set.
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for chatType to set.
      * @return This builder for chaining.
      */
-    public Builder setChatType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setChatTypeValue(int value) {
+      
       chatType_ = value;
       onChanged();
       return this;
@@ -4835,37 +4791,48 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @return The chatType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Chat type of the parent conversation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      chatType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type of the parent conversation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatType() {
       
-      chatType_ = getDefaultInstance().getChatType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type of the parent conversation.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatType_ = value;
+      chatType_ = 0;
       onChanged();
       return this;
     }
@@ -4976,69 +4943,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object personType_ = "";
+    private int personType_ = 0;
     /**
      * <pre>
      * Entity type of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The personType.
+     * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for personType.
      */
-    public java.lang.String getPersonType() {
-      java.lang.Object ref = personType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        personType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getPersonTypeValue() {
+      return personType_;
     }
     /**
      * <pre>
      * Entity type of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for personType.
-     */
-    public com.google.protobuf.ByteString
-        getPersonTypeBytes() {
-      java.lang.Object ref = personType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        personType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Entity type of the message author.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
-     * </pre>
-     *
-     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The personType to set.
+     * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for personType to set.
      * @return This builder for chaining.
      */
-    public Builder setPersonType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setPersonTypeValue(int value) {
+      
       personType_ = value;
       onChanged();
       return this;
@@ -5047,37 +4976,48 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Entity type of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @return The personType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.PersonType getPersonType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.PersonType result = io.channel.api.proto.pub.coreapi.model.PersonType.valueOf(personType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.PersonType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Entity type of the message author.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @param value The personType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersonType(io.channel.api.proto.pub.coreapi.model.PersonType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      personType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Entity type of the message author.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonType() {
       
-      personType_ = getDefaultInstance().getPersonType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Entity type of the message author.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
-     * </pre>
-     *
-     * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for personType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPersonTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      personType_ = value;
+      personType_ = 0;
       onChanged();
       return this;
     }
@@ -8834,39 +8774,34 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringList options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private java.util.List<java.lang.Integer> options_ =
+      java.util.Collections.emptyList();
     private void ensureOptionsIsMutable() {
       if (!((bitField0_ & 0x00000010) != 0)) {
-        options_ = new com.google.protobuf.LazyStringArrayList(options_);
+        options_ = new java.util.ArrayList<java.lang.Integer>(options_);
         bitField0_ |= 0x00000010;
-       }
+      }
     }
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
      * @return A list containing the options.
      */
-    public com.google.protobuf.ProtocolStringList
-        getOptionsList() {
-      return options_.getUnmodifiableView();
+    public java.util.List<io.channel.api.proto.pub.coreapi.model.MessageOption> getOptionsList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, io.channel.api.proto.pub.coreapi.model.MessageOption>(options_, options_converter_);
     }
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
      * @return The count of options.
      */
     public int getOptionsCount() {
@@ -8875,118 +8810,86 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
      * @param index The index of the element to return.
      * @return The options at the given index.
      */
-    public java.lang.String getOptions(int index) {
-      return options_.get(index);
+    public io.channel.api.proto.pub.coreapi.model.MessageOption getOptions(int index) {
+      return options_converter_.convert(options_.get(index));
     }
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the options at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getOptionsBytes(int index) {
-      return options_.getByteString(index);
-    }
-    /**
-     * <pre>
-     * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
-     * </pre>
-     *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
      * @param index The index to set the value at.
      * @param value The options to set.
      * @return This builder for chaining.
      */
     public Builder setOptions(
-        int index, java.lang.String value) {
+        int index, io.channel.api.proto.pub.coreapi.model.MessageOption value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOptionsIsMutable();
-      options_.set(index, value);
+        throw new NullPointerException();
+      }
+      ensureOptionsIsMutable();
+      options_.set(index, value.getNumber());
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
      * @param value The options to add.
      * @return This builder for chaining.
      */
-    public Builder addOptions(
-        java.lang.String value) {
+    public Builder addOptions(io.channel.api.proto.pub.coreapi.model.MessageOption value) {
       if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOptionsIsMutable();
-      options_.add(value);
+        throw new NullPointerException();
+      }
+      ensureOptionsIsMutable();
+      options_.add(value.getNumber());
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
      * @param values The options to add.
      * @return This builder for chaining.
      */
     public Builder addAllOptions(
-        java.lang.Iterable<java.lang.String> values) {
+        java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.MessageOption> values) {
       ensureOptionsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, options_);
+      for (io.channel.api.proto.pub.coreapi.model.MessageOption value : values) {
+        options_.add(value.getNumber());
+      }
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOptions() {
-      options_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      options_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
@@ -8994,24 +8897,79 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Delivery and visibility options applied to this message.
-     * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-     * Some options are only applicable in user chats.
-     * +kubebuilder:validation:MinItems=1
-     * +kubebuilder:example=["doNotSearch","immutable","private"]
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
      * </pre>
      *
-     * <code>repeated string options = 33 [json_name = "options"];</code>
-     * @param value The bytes of the options to add.
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+     * @return A list containing the enum numeric values on the wire for options.
+     */
+    public java.util.List<java.lang.Integer>
+    getOptionsValueList() {
+      return java.util.Collections.unmodifiableList(options_);
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of options at the given index.
+     */
+    public int getOptionsValue(int index) {
+      return options_.get(index);
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of options at the given index.
      * @return This builder for chaining.
      */
-    public Builder addOptionsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public Builder setOptionsValue(
+        int index, int value) {
+      ensureOptionsIsMutable();
+      options_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+     * @param value The enum numeric value on the wire for options to add.
+     * @return This builder for chaining.
+     */
+    public Builder addOptionsValue(int value) {
       ensureOptionsIsMutable();
       options_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Delivery and visibility options applied to this message.
+     * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+     * </pre>
+     *
+     * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+     * @param values The enum numeric values on the wire for options to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllOptionsValue(
+        java.lang.Iterable<java.lang.Integer> values) {
+      ensureOptionsIsMutable();
+      for (int value : values) {
+        options_.add(value);
+      }
       onChanged();
       return this;
     }
@@ -10395,7 +10353,7 @@ private static final long serialVersionUID = 0L;
      * @param value The chat_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearChatType(java.lang.String value) {
+    public Builder setOrClearChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
     	if (value == null)
     		return clearChatType();
     	else
@@ -10407,7 +10365,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatType> mapFunc) {
     	if (value == null)
     		return clearChatType();
     	else
@@ -10441,7 +10399,7 @@ private static final long serialVersionUID = 0L;
      * @param value The person_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearPersonType(java.lang.String value) {
+    public Builder setOrClearPersonType(io.channel.api.proto.pub.coreapi.model.PersonType value) {
     	if (value == null)
     		return clearPersonType();
     	else
@@ -10453,7 +10411,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PersonType> mapFunc) {
     	if (value == null)
     		return clearPersonType();
     	else
@@ -10955,7 +10913,7 @@ private static final long serialVersionUID = 0L;
      * @param values The options to add.
      * @return This builder for chaining.
      */
-    public Builder addAllOrClearOptions(java.lang.Iterable<java.lang.String> values) {
+    public Builder addAllOrClearOptions(java.lang.Iterable<? extends io.channel.api.proto.pub.coreapi.model.MessageOption> values) {
     	if (values == null)
     		return clearOptions();
     	else
@@ -10967,7 +10925,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the values into each proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapAllOrClearOptions(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapAllOrClearOptions(java.lang.Iterable<T> values, java.util.function.Function<T, ? extends io.channel.api.proto.pub.coreapi.model.MessageOption> mapFunc) {
     	if (values == null)
     		return clearOptions();
     	else {

@@ -221,3 +221,4 @@ func PluginBubblePositionForString(value string) PluginBubblePosition {
 		return PluginBubblePosition_PLUGIN_BUBBLE_POSITION_UNSPECIFIED
 	}
 }
+

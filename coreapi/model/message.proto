@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/entity_type.proto";
 import "coreapi/model/message_content.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -115,8 +116,7 @@ message Message {
   // Chat type of the parent conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="userChat"
-  string chat_type = 9 [(buf.validate.field).required = true];
+  coreapi.model.ChatType chat_type = 9 [(buf.validate.field).required = true];
 
   // Chat ID of the parent conversation.
   //
@@ -127,8 +127,7 @@ message Message {
   // Entity type of the message author.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="manager"
-  string person_type = 11 [(buf.validate.field).required = true];
+  coreapi.model.PersonType person_type = 11 [(buf.validate.field).required = true];
 
   // Entity ID of the message author.
   //
@@ -248,12 +247,9 @@ message Message {
   MessageState state = 32;
 
   // Delivery and visibility options applied to this message.
-  // Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-  // Some options are only applicable in user chats.
   //
-  // +kubebuilder:validation:MinItems=1
-  // +kubebuilder:example=["doNotSearch","immutable","private"]
-  repeated string options = 33;
+  // no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+  repeated coreapi.model.MessageOption options = 33;
 
   // Marketing campaign metadata for outbound promotional messages.
   // Contains campaign type and tracking attributes.
@@ -359,8 +355,7 @@ message MessageThread {
 
   // Chat type component extracted from the thread `id`.
   //
-  // +kubebuilder:example="userChat"
-  string chat_type = 5;
+  coreapi.model.ChatType chat_type = 5;
 
   // Chat ID component extracted from the thread `id`.
   //
@@ -536,8 +531,7 @@ message MessageMeet {
 
   // Chat type of the conversation this meet belongs to.
   //
-  // +kubebuilder:example="userChat"
-  string chat_type = 2;
+  coreapi.model.ChatType chat_type = 2;
 
   // Channel ID this meet belongs to.
   //

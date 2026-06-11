@@ -29,22 +29,23 @@ public final class OnlineOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\032coreapi/model/online.proto\022\rcoreapi.mo" +
-      "del\032\033buf/validate/validate.proto\"\233\002\n\006Onl" +
-      "ine\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannel" +
-      "Id\022n\n\013person_type\030\002 \001(\tBM\272HJ\272\001D\n\rstring." +
-      "minLen\022\"value must be at least 1 charact" +
-      "er\032\017size(this) >= 1\310\001\001R\npersonType\022j\n\tpe" +
-      "rson_id\030\003 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"va" +
-      "lue must be at least 1 character\032\017size(t" +
-      "his) >= 1\310\001\001R\010personId\022\016\n\002id\030\004 \001(\tR\002idBb" +
-      "\n&io.channel.api.proto.pub.coreapi.model" +
-      "P\001Z6github.com/channel-io/ch-proto-publi" +
-      "c/coreapi/go/modelb\006proto3"
+      "del\032\033buf/validate/validate.proto\032\037coreap" +
+      "i/model/entity_type.proto\"\357\001\n\006Online\022%\n\n" +
+      "channel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022B\n\013p" +
+      "erson_type\030\002 \001(\0162\031.coreapi.model.PersonT" +
+      "ypeB\006\272H\003\310\001\001R\npersonType\022j\n\tperson_id\030\003 \001" +
+      "(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must be" +
+      " at least 1 character\032\017size(this) >= 1\310\001" +
+      "\001R\010personId\022\016\n\002id\030\004 \001(\tR\002idBb\n&io.channe" +
+      "l.api.proto.pub.coreapi.modelP\001Z6github." +
+      "com/channel-io/ch-proto-public/coreapi/g" +
+      "o/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.EntityType.getDescriptor(),
         });
     internal_static_coreapi_model_Online_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -58,6 +59,7 @@ public final class OnlineOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.EntityType.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

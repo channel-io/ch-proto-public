@@ -29,3 +29,4 @@ func GroupScopeForString(value string) GroupScope {
 		return GroupScope_GROUP_SCOPE_UNSPECIFIED
 	}
 }
+

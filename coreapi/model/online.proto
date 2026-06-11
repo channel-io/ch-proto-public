@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/entity_type.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
@@ -19,16 +20,7 @@ message Online {
   // Type of the person.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="manager"
-  string person_type = 2 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  coreapi.model.PersonType person_type = 2 [(buf.validate.field).required = true];
 
   // Identifier of the person.
   //

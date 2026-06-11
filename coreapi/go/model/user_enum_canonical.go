@@ -29,3 +29,4 @@ func UserTypeForString(value string) UserType {
 		return UserType_USER_TYPE_UNSPECIFIED
 	}
 }
+

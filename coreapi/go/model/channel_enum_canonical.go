@@ -101,3 +101,4 @@ func ResponseDelayTypeForString(value string) ResponseDelayType {
 		return ResponseDelayType_RESPONSE_DELAY_TYPE_UNSPECIFIED
 	}
 }
+

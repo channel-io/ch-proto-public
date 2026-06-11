@@ -29,36 +29,36 @@ public final class ChatBookmarkOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n!coreapi/model/chat_bookmark.proto\022\rcor" +
-      "eapi.model\032\033buf/validate/validate.proto\"" +
-      "\274\006\n\014ChatBookmark\022_\n\003key\030\001 \001(\tBM\272HJ\272\001D\n\rs" +
-      "tring.minLen\022\"value must be at least 1 c" +
-      "haracter\032\017size(this) >= 1\310\001\001R\003key\022f\n\007cha" +
-      "t_id\030\002 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value" +
-      " must be at least 1 character\032\017size(this" +
-      ") >= 1\310\001\001R\006chatId\022h\n\010chat_key\030\003 \001(\tBM\272HJ" +
-      "\272\001D\n\rstring.minLen\022\"value must be at lea" +
-      "st 1 character\032\017size(this) >= 1\310\001\001R\007chat" +
-      "Key\022p\n\014bookmark_key\030\004 \001(\tBM\272HJ\272\001D\n\rstrin" +
-      "g.minLen\022\"value must be at least 1 chara" +
-      "cter\032\017size(this) >= 1\310\001\001R\013bookmarkKey\022%\n" +
-      "\nchannel_id\030\005 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\030\n\007" +
-      "version\030\006 \001(\003R\007version\022n\n\013person_type\030\007 " +
+      "eapi.model\032\033buf/validate/validate.proto\032" +
+      "\037coreapi/model/entity_type.proto\"\342\005\n\014Cha" +
+      "tBookmark\022_\n\003key\030\001 \001(\tBM\272HJ\272\001D\n\rstring.m" +
+      "inLen\022\"value must be at least 1 characte" +
+      "r\032\017size(this) >= 1\310\001\001R\003key\022f\n\007chat_id\030\002 " +
       "\001(\tBM\272HJ\272\001D\n\rstring.minLen\022\"value must b" +
       "e at least 1 character\032\017size(this) >= 1\310" +
-      "\001\001R\npersonType\022j\n\tperson_id\030\010 \001(\tBM\272HJ\272\001" +
-      "D\n\rstring.minLen\022\"value must be at least" +
-      " 1 character\032\017size(this) >= 1\310\001\001R\010person" +
-      "Id\022j\n\tchat_type\030\t \001(\tBM\272HJ\272\001D\n\rstring.mi" +
-      "nLen\022\"value must be at least 1 character" +
-      "\032\017size(this) >= 1\310\001\001R\010chatTypeBb\n&io.cha" +
-      "nnel.api.proto.pub.coreapi.modelP\001Z6gith" +
-      "ub.com/channel-io/ch-proto-public/coreap" +
-      "i/go/modelb\006proto3"
+      "\001\001R\006chatId\022h\n\010chat_key\030\003 \001(\tBM\272HJ\272\001D\n\rst" +
+      "ring.minLen\022\"value must be at least 1 ch" +
+      "aracter\032\017size(this) >= 1\310\001\001R\007chatKey\022p\n\014" +
+      "bookmark_key\030\004 \001(\tBM\272HJ\272\001D\n\rstring.minLe" +
+      "n\022\"value must be at least 1 character\032\017s" +
+      "ize(this) >= 1\310\001\001R\013bookmarkKey\022%\n\nchanne" +
+      "l_id\030\005 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\030\n\007version" +
+      "\030\006 \001(\003R\007version\022B\n\013person_type\030\007 \001(\0162\031.c" +
+      "oreapi.model.PersonTypeB\006\272H\003\310\001\001R\npersonT" +
+      "ype\022j\n\tperson_id\030\010 \001(\tBM\272HJ\272\001D\n\rstring.m" +
+      "inLen\022\"value must be at least 1 characte" +
+      "r\032\017size(this) >= 1\310\001\001R\010personId\022<\n\tchat_" +
+      "type\030\t \001(\0162\027.coreapi.model.ChatTypeB\006\272H\003" +
+      "\310\001\001R\010chatTypeBb\n&io.channel.api.proto.pu" +
+      "b.coreapi.modelP\001Z6github.com/channel-io" +
+      "/ch-proto-public/coreapi/go/modelb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           build.buf.validate.ValidateProto.getDescriptor(),
+          io.channel.api.proto.pub.coreapi.model.EntityType.getDescriptor(),
         });
     internal_static_coreapi_model_ChatBookmark_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -72,6 +72,7 @@ public final class ChatBookmarkOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     build.buf.validate.ValidateProto.getDescriptor();
+    io.channel.api.proto.pub.coreapi.model.EntityType.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

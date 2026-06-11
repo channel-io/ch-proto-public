@@ -33,3 +33,4 @@ func CampaignUserStateForString(value string) CampaignUserState {
 		return CampaignUserState_CAMPAIGN_USER_STATE_UNSPECIFIED
 	}
 }
+
