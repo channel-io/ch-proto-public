@@ -5,11 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * State of a message in its lifecycle.
- * - SENDING: The message is being transmitted to the server.
- * - SENT: The message has been successfully delivered.
- * - FAILED: The message failed to send.
- * - REMOVED: The message has been deleted.
+ * State of a message in its lifecycle. SENDING is in transit to the server,
+ * SENT has been delivered, FAILED could not be delivered, and REMOVED has been deleted.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.MessageState}
@@ -17,22 +14,42 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum MessageState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_UNSPECIFIED = 0;</code>
    */
   MESSAGE_STATE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * In transit to the server.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_SENDING = 1;</code>
    */
   MESSAGE_STATE_SENDING(1),
   /**
+   * <pre>
+   * Successfully delivered.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_SENT = 2;</code>
    */
   MESSAGE_STATE_SENT(2),
   /**
+   * <pre>
+   * Could not be delivered.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_FAILED = 3;</code>
    */
   MESSAGE_STATE_FAILED(3),
   /**
+   * <pre>
+   * The message is no longer present in the conversation.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_REMOVED = 4;</code>
    */
   MESSAGE_STATE_REMOVED(4),
@@ -40,22 +57,42 @@ public enum MessageState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int MESSAGE_STATE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * In transit to the server.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_SENDING = 1;</code>
    */
   public static final int MESSAGE_STATE_SENDING_VALUE = 1;
   /**
+   * <pre>
+   * Successfully delivered.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_SENT = 2;</code>
    */
   public static final int MESSAGE_STATE_SENT_VALUE = 2;
   /**
+   * <pre>
+   * Could not be delivered.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_FAILED = 3;</code>
    */
   public static final int MESSAGE_STATE_FAILED_VALUE = 3;
   /**
+   * <pre>
+   * The message is no longer present in the conversation.
+   * </pre>
+   *
    * <code>MESSAGE_STATE_REMOVED = 4;</code>
    */
   public static final int MESSAGE_STATE_REMOVED_VALUE = 4;

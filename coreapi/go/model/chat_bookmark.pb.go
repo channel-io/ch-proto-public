@@ -64,9 +64,7 @@ type ChatBookmark struct {
 	// Type of the bookmark owner.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="manager"
-	PersonType string `protobuf:"bytes,7,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
+	PersonType PersonType `protobuf:"varint,7,opt,name=person_type,json=personType,proto3,enum=coreapi.model.PersonType" json:"person_type,omitempty"`
 	// Identifier of the bookmark owner.
 	//
 	// +kubebuilder:validation:Required
@@ -76,9 +74,7 @@ type ChatBookmark struct {
 	// Chat type this bookmark belongs to.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="userChat"
-	ChatType      string `protobuf:"bytes,9,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
+	ChatType      ChatType `protobuf:"varint,9,opt,name=chat_type,json=chatType,proto3,enum=coreapi.model.ChatType" json:"chat_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -155,11 +151,11 @@ func (x *ChatBookmark) GetVersion() int64 {
 	return 0
 }
 
-func (x *ChatBookmark) GetPersonType() string {
+func (x *ChatBookmark) GetPersonType() PersonType {
 	if x != nil {
 		return x.PersonType
 	}
-	return ""
+	return PersonType_PERSON_TYPE_UNSPECIFIED
 }
 
 func (x *ChatBookmark) GetPersonId() string {
@@ -169,18 +165,18 @@ func (x *ChatBookmark) GetPersonId() string {
 	return ""
 }
 
-func (x *ChatBookmark) GetChatType() string {
+func (x *ChatBookmark) GetChatType() ChatType {
 	if x != nil {
 		return x.ChatType
 	}
-	return ""
+	return ChatType_CHAT_TYPE_UNSPECIFIED
 }
 
 var File_coreapi_model_chat_bookmark_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_bookmark_proto_rawDesc = "" +
 	"\n" +
-	"!coreapi/model/chat_bookmark.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\xbc\x06\n" +
+	"!coreapi/model/chat_bookmark.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\"\xe2\x05\n" +
 	"\fChatBookmark\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12f\n" +
@@ -192,14 +188,12 @@ const file_coreapi_model_chat_bookmark_proto_rawDesc = "" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\vbookmarkKey\x12%\n" +
 	"\n" +
 	"channel_id\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x18\n" +
-	"\aversion\x18\x06 \x01(\x03R\aversion\x12n\n" +
-	"\vperson_type\x18\a \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
+	"\aversion\x18\x06 \x01(\x03R\aversion\x12B\n" +
+	"\vperson_type\x18\a \x01(\x0e2\x19.coreapi.model.PersonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"personType\x12j\n" +
 	"\tperson_id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12j\n" +
-	"\tchat_type\x18\t \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bchatTypeBb\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12<\n" +
+	"\tchat_type\x18\t \x01(\x0e2\x17.coreapi.model.ChatTypeB\x06\xbaH\x03\xc8\x01\x01R\bchatTypeBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -217,13 +211,17 @@ func file_coreapi_model_chat_bookmark_proto_rawDescGZIP() []byte {
 var file_coreapi_model_chat_bookmark_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_chat_bookmark_proto_goTypes = []any{
 	(*ChatBookmark)(nil), // 0: coreapi.model.ChatBookmark
+	(PersonType)(0),      // 1: coreapi.model.PersonType
+	(ChatType)(0),        // 2: coreapi.model.ChatType
 }
 var file_coreapi_model_chat_bookmark_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: coreapi.model.ChatBookmark.person_type:type_name -> coreapi.model.PersonType
+	2, // 1: coreapi.model.ChatBookmark.chat_type:type_name -> coreapi.model.ChatType
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_chat_bookmark_proto_init() }
@@ -231,6 +229,7 @@ func file_coreapi_model_chat_bookmark_proto_init() {
 	if File_coreapi_model_chat_bookmark_proto != nil {
 		return
 	}
+	file_coreapi_model_entity_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

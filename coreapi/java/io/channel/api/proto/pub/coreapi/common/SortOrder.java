@@ -4,23 +4,43 @@
 package io.channel.api.proto.pub.coreapi.common;
 
 /**
+ * <pre>
+ * Sort direction for ordering query results.
+ * </pre>
+ *
  * Protobuf enum {@code coreapi.common.SortOrder}
  */
 public enum SortOrder
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>SORT_ORDER_UNSPECIFIED = 0;</code>
    */
   SORT_ORDER_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Ascending order.
+   * </pre>
+   *
    * <code>SORT_ORDER_ASC = 1;</code>
    */
   SORT_ORDER_ASC(1),
   /**
+   * <pre>
+   * Descending order.
+   * </pre>
+   *
    * <code>SORT_ORDER_DESC = 2;</code>
    */
   SORT_ORDER_DESC(2),
   /**
+   * <pre>
+   * Both ascending and descending order. TODO: confirm meaning.
+   * </pre>
+   *
    * <code>SORT_ORDER_BOTH = 3;</code>
    */
   SORT_ORDER_BOTH(3),
@@ -28,18 +48,34 @@ public enum SortOrder
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>SORT_ORDER_UNSPECIFIED = 0;</code>
    */
   public static final int SORT_ORDER_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Ascending order.
+   * </pre>
+   *
    * <code>SORT_ORDER_ASC = 1;</code>
    */
   public static final int SORT_ORDER_ASC_VALUE = 1;
   /**
+   * <pre>
+   * Descending order.
+   * </pre>
+   *
    * <code>SORT_ORDER_DESC = 2;</code>
    */
   public static final int SORT_ORDER_DESC_VALUE = 2;
   /**
+   * <pre>
+   * Both ascending and descending order. TODO: confirm meaning.
+   * </pre>
+   *
    * <code>SORT_ORDER_BOTH = 3;</code>
    */
   public static final int SORT_ORDER_BOTH_VALUE = 3;

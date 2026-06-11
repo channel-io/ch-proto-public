@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/entity_type.proto";
 import "coreapi/model/manager.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -153,30 +154,12 @@ message ChatSession {
   // Chat type of the conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="userChat"
-  string chat_type = 19 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  coreapi.model.ChatType chat_type = 19 [(buf.validate.field).required = true];
 
   // Entity type of the session owner.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:validation:MinLength=1
-  // +kubebuilder:example="manager"
-  string person_type = 20 [
-    (buf.validate.field).cel = {
-      id: "string.minLen"
-      message: "value must be at least 1 character"
-      expression: "size(this) >= 1"
-    },
-    (buf.validate.field).required = true
-  ];
+  coreapi.model.PersonType person_type = 20 [(buf.validate.field).required = true];
 
   // Entity ID of the session owner.
   //

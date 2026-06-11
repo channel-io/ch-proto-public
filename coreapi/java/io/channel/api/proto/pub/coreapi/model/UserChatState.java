@@ -13,6 +13,10 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum UserChatState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>USER_CHAT_STATE_UNSPECIFIED = 0;</code>
    */
   USER_CHAT_STATE_UNSPECIFIED(0),
@@ -60,6 +64,10 @@ public enum UserChatState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>USER_CHAT_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int USER_CHAT_STATE_UNSPECIFIED_VALUE = 0;

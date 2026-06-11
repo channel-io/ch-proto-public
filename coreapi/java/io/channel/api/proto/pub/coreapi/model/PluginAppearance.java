@@ -13,18 +13,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum PluginAppearance
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_UNSPECIFIED = 0;</code>
    */
   PLUGIN_APPEARANCE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Light color theme.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_LIGHT = 1;</code>
    */
   PLUGIN_APPEARANCE_LIGHT(1),
   /**
+   * <pre>
+   * Dark color theme.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_DARK = 2;</code>
    */
   PLUGIN_APPEARANCE_DARK(2),
   /**
+   * <pre>
+   * Follows the end user's system theme setting.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_SYSTEM = 3;</code>
    */
   PLUGIN_APPEARANCE_SYSTEM(3),
@@ -32,18 +48,34 @@ public enum PluginAppearance
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_UNSPECIFIED = 0;</code>
    */
   public static final int PLUGIN_APPEARANCE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Light color theme.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_LIGHT = 1;</code>
    */
   public static final int PLUGIN_APPEARANCE_LIGHT_VALUE = 1;
   /**
+   * <pre>
+   * Dark color theme.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_DARK = 2;</code>
    */
   public static final int PLUGIN_APPEARANCE_DARK_VALUE = 2;
   /**
+   * <pre>
+   * Follows the end user's system theme setting.
+   * </pre>
+   *
    * <code>PLUGIN_APPEARANCE_SYSTEM = 3;</code>
    */
   public static final int PLUGIN_APPEARANCE_SYSTEM_VALUE = 3;

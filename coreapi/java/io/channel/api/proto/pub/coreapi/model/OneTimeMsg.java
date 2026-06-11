@@ -791,9 +791,10 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct settings_;
   /**
    * <pre>
-   * Message content and medium-specific delivery configuration.
-   * Structure varies by medium_type.
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+   * Message body and delivery options for the chosen medium. Set `type` to one
+   * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+   * fill in the fields that medium expects.
+   * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -805,9 +806,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Message content and medium-specific delivery configuration.
-   * Structure varies by medium_type.
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+   * Message body and delivery options for the chosen medium. Set `type` to one
+   * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+   * fill in the fields that medium expects.
+   * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -819,9 +821,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Message content and medium-specific delivery configuration.
-   * Structure varies by medium_type.
-   * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+   * Message body and delivery options for the chosen medium. Set `type` to one
+   * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+   * fill in the fields that medium expects.
+   * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
    * </pre>
    *
    * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3465,9 +3468,10 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> settingsBuilder_;
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3478,9 +3482,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3495,9 +3500,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3517,9 +3523,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3537,9 +3544,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3561,9 +3569,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3581,9 +3590,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3595,9 +3605,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>
@@ -3612,9 +3623,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Message content and medium-specific delivery configuration.
-     * Structure varies by medium_type.
-     * +kubebuilder:example={"exposureType":"fullScreen","botName":"Channel-bot","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
+     * Message body and delivery options for the chosen medium. Set `type` to one
+     * of `inAppChatMsg`, `xms`, `appAlimtalk`, `app`, `appLine`, or `email`, then
+     * fill in the fields that medium expects.
+     * +kubebuilder:example={"type":"inAppChatMsg","botName":"Channel-bot","exposureType":"fullScreen","message":{"blocks":[{"type":"text","value":"Hello!"}]}}
      * </pre>
      *
      * <code>.google.protobuf.Struct settings = 11 [json_name = "settings"];</code>

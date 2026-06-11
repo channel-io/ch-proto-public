@@ -13,82 +13,162 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum PluginIconButton
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_UNSPECIFIED = 0;</code>
    */
   PLUGIN_ICON_BUTTON_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Channel logo icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHANNEL = 1;</code>
    */
   PLUGIN_ICON_BUTTON_CHANNEL(1),
   /**
+   * <pre>
+   * Channel logo icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHANNEL_FILLED = 2;</code>
    */
   PLUGIN_ICON_BUTTON_CHANNEL_FILLED(2),
   /**
+   * <pre>
+   * Alternate chat bubble icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT = 3;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT(3),
   /**
+   * <pre>
+   * Alternate chat bubble icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED = 4;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED(4),
   /**
+   * <pre>
+   * Chat bubble icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED = 5;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED(5),
   /**
+   * <pre>
+   * Chat bubble with lightning icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED = 6;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED(6),
   /**
+   * <pre>
+   * Chat bubble with progress dots icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_PROGRESS = 7;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_PROGRESS(7),
   /**
+   * <pre>
+   * Chat bubble with progress dots icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED = 8;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED(8),
   /**
+   * <pre>
+   * Chat bubble with question mark icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_QUESTION = 9;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_QUESTION(9),
   /**
+   * <pre>
+   * Chat bubble with question mark icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED = 10;</code>
    */
   PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED(10),
   /**
+   * <pre>
+   * Comment icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_COMMENT = 11;</code>
    */
   PLUGIN_ICON_BUTTON_COMMENT(11),
   /**
+   * <pre>
+   * Comment icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_COMMENT_FILLED = 12;</code>
    */
   PLUGIN_ICON_BUTTON_COMMENT_FILLED(12),
   /**
+   * <pre>
+   * Communication icon.
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_COMMUNICATION = 13;</code>
    */
   PLUGIN_ICON_BUTTON_COMMUNICATION(13),
   /**
+   * <pre>
+   * Headset (customer support) icon.
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_HEADSET = 14;</code>
    */
   PLUGIN_ICON_BUTTON_HEADSET(14),
   /**
+   * <pre>
+   * Help icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_HELP_FILLED = 15;</code>
    */
   PLUGIN_ICON_BUTTON_HELP_FILLED(15),
   /**
+   * <pre>
+   * Send/forward arrow icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SEND_FORWARD = 16;</code>
    */
   PLUGIN_ICON_BUTTON_SEND_FORWARD(16),
   /**
+   * <pre>
+   * Send/forward arrow icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED = 17;</code>
    */
   PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED(17),
   /**
+   * <pre>
+   * SMS message icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SMS = 18;</code>
    */
   PLUGIN_ICON_BUTTON_SMS(18),
   /**
+   * <pre>
+   * SMS message icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SMS_FILLED = 19;</code>
    */
   PLUGIN_ICON_BUTTON_SMS_FILLED(19),
@@ -96,82 +176,162 @@ public enum PluginIconButton
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_UNSPECIFIED = 0;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Channel logo icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHANNEL = 1;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHANNEL_VALUE = 1;
   /**
+   * <pre>
+   * Channel logo icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHANNEL_FILLED = 2;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHANNEL_FILLED_VALUE = 2;
   /**
+   * <pre>
+   * Alternate chat bubble icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT = 3;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_VALUE = 3;
   /**
+   * <pre>
+   * Alternate chat bubble icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED = 4;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_BUBBLE_ALT_FILLED_VALUE = 4;
   /**
+   * <pre>
+   * Chat bubble icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED = 5;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_BUBBLE_FILLED_VALUE = 5;
   /**
+   * <pre>
+   * Chat bubble with lightning icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED = 6;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_LIGHTNING_FILLED_VALUE = 6;
   /**
+   * <pre>
+   * Chat bubble with progress dots icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_PROGRESS = 7;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_PROGRESS_VALUE = 7;
   /**
+   * <pre>
+   * Chat bubble with progress dots icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED = 8;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_PROGRESS_FILLED_VALUE = 8;
   /**
+   * <pre>
+   * Chat bubble with question mark icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_QUESTION = 9;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_QUESTION_VALUE = 9;
   /**
+   * <pre>
+   * Chat bubble with question mark icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED = 10;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_CHAT_QUESTION_FILLED_VALUE = 10;
   /**
+   * <pre>
+   * Comment icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_COMMENT = 11;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_COMMENT_VALUE = 11;
   /**
+   * <pre>
+   * Comment icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_COMMENT_FILLED = 12;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_COMMENT_FILLED_VALUE = 12;
   /**
+   * <pre>
+   * Communication icon.
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_COMMUNICATION = 13;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_COMMUNICATION_VALUE = 13;
   /**
+   * <pre>
+   * Headset (customer support) icon.
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_HEADSET = 14;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_HEADSET_VALUE = 14;
   /**
+   * <pre>
+   * Help icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_HELP_FILLED = 15;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_HELP_FILLED_VALUE = 15;
   /**
+   * <pre>
+   * Send/forward arrow icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SEND_FORWARD = 16;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_SEND_FORWARD_VALUE = 16;
   /**
+   * <pre>
+   * Send/forward arrow icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED = 17;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_SEND_FORWARD_FILLED_VALUE = 17;
   /**
+   * <pre>
+   * SMS message icon (outline style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SMS = 18;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_SMS_VALUE = 18;
   /**
+   * <pre>
+   * SMS message icon (filled style).
+   * </pre>
+   *
    * <code>PLUGIN_ICON_BUTTON_SMS_FILLED = 19;</code>
    */
   public static final int PLUGIN_ICON_BUTTON_SMS_FILLED_VALUE = 19;

@@ -13,6 +13,10 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum UserChatSubtextType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED = 0;</code>
    */
   USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED(0),
@@ -36,6 +40,10 @@ public enum UserChatSubtextType
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED = 0;</code>
    */
   public static final int USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED_VALUE = 0;

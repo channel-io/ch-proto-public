@@ -65,4 +65,3 @@ func OperatorStatusTypeForString(value string) OperatorStatusType {
 		return OperatorStatusType_OPERATOR_STATUS_TYPE_UNSPECIFIED
 	}
 }
-

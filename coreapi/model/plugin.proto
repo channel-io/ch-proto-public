@@ -37,7 +37,7 @@ enum PluginAppearance {
 enum PluginButtonType {
   // Unspecified or not set.
   PLUGIN_BUTTON_TYPE_UNSPECIFIED = 0;
-  // Legacy launcher using uploaded desktop and mobile images.
+  // Legacy launcher mode using separate desktop and mobile uploaded images.
   PLUGIN_BUTTON_TYPE_LEGACY = 1;
   // Launcher using a single custom uploaded image.
   PLUGIN_BUTTON_TYPE_CUSTOM_IMAGE = 2;
@@ -216,7 +216,7 @@ message Plugin {
   coreapi.model.ImageFile custom_image = 13;
 
   // Uploaded desktop launcher image.
-  // Applicable when button_type is LEGACY.
+  // Used when button_type is LEGACY.
   //
   coreapi.model.TinyFile desk_image = 14;
 
@@ -240,7 +240,7 @@ message Plugin {
   PluginPosition desk_position = 18;
 
   // Uploaded mobile launcher image.
-  // Applicable when button_type is LEGACY.
+  // Used when button_type is LEGACY.
   //
   coreapi.model.TinyFile mobile_image = 19;
 

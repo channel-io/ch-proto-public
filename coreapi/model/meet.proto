@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/entity_type.proto";
 import "coreapi/model/message_content.proto";
 import "coreapi/model/user_chat.proto";
 import "google/protobuf/timestamp.proto";
@@ -117,8 +118,7 @@ message MeetMessage {
   // Chat type of the parent conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="userChat"
-  string chat_type = 3 [(buf.validate.field).required = true];
+  coreapi.model.ChatType chat_type = 3 [(buf.validate.field).required = true];
 
   // Chat ID of the parent conversation.
   //
@@ -129,8 +129,7 @@ message MeetMessage {
   // Entity type of the message author.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="manager"
-  string person_type = 5 [(buf.validate.field).required = true];
+  coreapi.model.PersonType person_type = 5 [(buf.validate.field).required = true];
 
   // Entity ID of the message author.
   //

@@ -73,8 +73,7 @@ public interface TimeRangeOrBuilder extends
 
   /**
    * <pre>
-   * Start time as minutes from midnight (e.g. 540 = 09:00).
-   * Must be less than `to`.
+   * Start time as minutes from midnight. Must be less than `to`.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1440
@@ -88,8 +87,7 @@ public interface TimeRangeOrBuilder extends
 
   /**
    * <pre>
-   * End time as minutes from midnight (e.g. 1080 = 18:00).
-   * Must be greater than `from`.
+   * End time as minutes from midnight. Must be greater than `from`.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:Minimum=0
    * +kubebuilder:validation:Maximum=1440

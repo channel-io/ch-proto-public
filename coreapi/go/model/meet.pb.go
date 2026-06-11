@@ -317,8 +317,7 @@ type MeetMessage struct {
 	// Chat type of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="userChat"
-	ChatType string `protobuf:"bytes,3,opt,name=chat_type,json=chatType,proto3" json:"chat_type,omitempty"`
+	ChatType ChatType `protobuf:"varint,3,opt,name=chat_type,json=chatType,proto3,enum=coreapi.model.ChatType" json:"chat_type,omitempty"`
 	// Chat ID of the parent conversation.
 	//
 	// +kubebuilder:validation:Required
@@ -327,8 +326,7 @@ type MeetMessage struct {
 	// Entity type of the message author.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:example="manager"
-	PersonType string `protobuf:"bytes,5,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
+	PersonType PersonType `protobuf:"varint,5,opt,name=person_type,json=personType,proto3,enum=coreapi.model.PersonType" json:"person_type,omitempty"`
 	// Entity ID of the message author.
 	//
 	// +kubebuilder:validation:Required
@@ -398,11 +396,11 @@ func (x *MeetMessage) GetChannelId() string {
 	return ""
 }
 
-func (x *MeetMessage) GetChatType() string {
+func (x *MeetMessage) GetChatType() ChatType {
 	if x != nil {
 		return x.ChatType
 	}
-	return ""
+	return ChatType_CHAT_TYPE_UNSPECIFIED
 }
 
 func (x *MeetMessage) GetChatId() string {
@@ -412,11 +410,11 @@ func (x *MeetMessage) GetChatId() string {
 	return ""
 }
 
-func (x *MeetMessage) GetPersonType() string {
+func (x *MeetMessage) GetPersonType() PersonType {
 	if x != nil {
 		return x.PersonType
 	}
-	return ""
+	return PersonType_PERSON_TYPE_UNSPECIFIED
 }
 
 func (x *MeetMessage) GetPersonId() string {
@@ -458,7 +456,7 @@ var File_coreapi_model_meet_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_meet_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\x04\n" +
+	"\x18coreapi/model/meet.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\x04\n" +
 	"\aCallLog\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12@\n" +
@@ -478,14 +476,14 @@ const file_coreapi_model_meet_proto_rawDesc = "" +
 	"\fuser_chat_id\x18\v \x01(\tR\n" +
 	"userChatId\x12\x1f\n" +
 	"\vmanager_ids\x18\f \x03(\tR\n" +
-	"managerIds\"\xb3\x03\n" +
+	"managerIds\"\xe7\x03\n" +
 	"\vMeetMessage\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12#\n" +
-	"\tchat_type\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bchatType\x12\x1f\n" +
-	"\achat_id\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06chatId\x12'\n" +
-	"\vperson_type\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12<\n" +
+	"\tchat_type\x18\x03 \x01(\x0e2\x17.coreapi.model.ChatTypeB\x06\xbaH\x03\xc8\x01\x01R\bchatType\x12\x1f\n" +
+	"\achat_id\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06chatId\x12B\n" +
+	"\vperson_type\x18\x05 \x01(\x0e2\x19.coreapi.model.PersonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"personType\x12#\n" +
 	"\tperson_id\x18\x06 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bpersonId\x12,\n" +
 	"\x06blocks\x18\a \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
@@ -527,7 +525,9 @@ var file_coreapi_model_meet_proto_goTypes = []any{
 	(*MeetMessage)(nil),           // 3: coreapi.model.MeetMessage
 	(MissedReason)(0),             // 4: coreapi.model.MissedReason
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
-	(*Block)(nil),                 // 6: coreapi.model.Block
+	(ChatType)(0),                 // 6: coreapi.model.ChatType
+	(PersonType)(0),               // 7: coreapi.model.PersonType
+	(*Block)(nil),                 // 8: coreapi.model.Block
 }
 var file_coreapi_model_meet_proto_depIdxs = []int32{
 	4,  // 0: coreapi.model.CallLog.missed_reason:type_name -> coreapi.model.MissedReason
@@ -537,14 +537,16 @@ var file_coreapi_model_meet_proto_depIdxs = []int32{
 	5,  // 4: coreapi.model.CallLog.updated_at:type_name -> google.protobuf.Timestamp
 	5,  // 5: coreapi.model.CallLog.engaged_at:type_name -> google.protobuf.Timestamp
 	5,  // 6: coreapi.model.CallLog.closed_at:type_name -> google.protobuf.Timestamp
-	6,  // 7: coreapi.model.MeetMessage.blocks:type_name -> coreapi.model.Block
-	5,  // 8: coreapi.model.MeetMessage.created_at:type_name -> google.protobuf.Timestamp
-	5,  // 9: coreapi.model.MeetMessage.updated_at:type_name -> google.protobuf.Timestamp
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	6,  // 7: coreapi.model.MeetMessage.chat_type:type_name -> coreapi.model.ChatType
+	7,  // 8: coreapi.model.MeetMessage.person_type:type_name -> coreapi.model.PersonType
+	8,  // 9: coreapi.model.MeetMessage.blocks:type_name -> coreapi.model.Block
+	5,  // 10: coreapi.model.MeetMessage.created_at:type_name -> google.protobuf.Timestamp
+	5,  // 11: coreapi.model.MeetMessage.updated_at:type_name -> google.protobuf.Timestamp
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_meet_proto_init() }
@@ -552,6 +554,7 @@ func file_coreapi_model_meet_proto_init() {
 	if File_coreapi_model_meet_proto != nil {
 		return
 	}
+	file_coreapi_model_entity_type_proto_init()
 	file_coreapi_model_message_content_proto_init()
 	file_coreapi_model_user_chat_proto_init()
 	type x struct{}

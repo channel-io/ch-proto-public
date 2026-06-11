@@ -30,7 +30,10 @@ public interface BlockOrBuilder extends
 
   /**
    * <pre>
-   * Programming language identifier for syntax highlighting.
+   * Programming language identifier for syntax highlighting in code blocks.
+   * Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+   * and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
+   * and unknown identifiers fall back to plain text rendering.
    * Only applicable when type is CODE.
    * +kubebuilder:example="python"
    * </pre>
@@ -41,7 +44,10 @@ public interface BlockOrBuilder extends
   java.lang.String getLanguage();
   /**
    * <pre>
-   * Programming language identifier for syntax highlighting.
+   * Programming language identifier for syntax highlighting in code blocks.
+   * Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+   * and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
+   * and unknown identifiers fall back to plain text rendering.
    * Only applicable when type is CODE.
    * +kubebuilder:example="python"
    * </pre>

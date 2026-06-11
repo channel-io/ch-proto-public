@@ -13,22 +13,42 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum MeetAlertSound
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_UNSPECIFIED = 0;</code>
    */
   MEET_ALERT_SOUND_UNSPECIFIED(0),
   /**
+   * <pre>
+   * "Cute" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_CUTE = 1;</code>
    */
   MEET_ALERT_SOUND_CUTE(1),
   /**
+   * <pre>
+   * "Basic" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_BASIC = 2;</code>
    */
   MEET_ALERT_SOUND_BASIC(2),
   /**
+   * <pre>
+   * "Gentle" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_GENTLE = 3;</code>
    */
   MEET_ALERT_SOUND_GENTLE(3),
   /**
+   * <pre>
+   * "Marimba" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_MARIMBA = 4;</code>
    */
   MEET_ALERT_SOUND_MARIMBA(4),
@@ -36,22 +56,42 @@ public enum MeetAlertSound
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_UNSPECIFIED = 0;</code>
    */
   public static final int MEET_ALERT_SOUND_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * "Cute" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_CUTE = 1;</code>
    */
   public static final int MEET_ALERT_SOUND_CUTE_VALUE = 1;
   /**
+   * <pre>
+   * "Basic" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_BASIC = 2;</code>
    */
   public static final int MEET_ALERT_SOUND_BASIC_VALUE = 2;
   /**
+   * <pre>
+   * "Gentle" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_GENTLE = 3;</code>
    */
   public static final int MEET_ALERT_SOUND_GENTLE_VALUE = 3;
   /**
+   * <pre>
+   * "Marimba" ringtone.
+   * </pre>
+   *
    * <code>MEET_ALERT_SOUND_MARIMBA = 4;</code>
    */
   public static final int MEET_ALERT_SOUND_MARIMBA_VALUE = 4;

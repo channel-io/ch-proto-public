@@ -5,9 +5,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Current state of a phone call in its lifecycle.
- * - WAITING: The call is ringing or queued, not yet answered.
- * - ENGAGED: The call is actively connected between participants.
+ * Current state of a phone call in its lifecycle. WAITING means the call is ringing
+ * or queued and not yet answered; ENGAGED means it is actively connected between participants.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.CallState}
@@ -15,14 +14,26 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum CallState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CALL_STATE_UNSPECIFIED = 0;</code>
    */
   CALL_STATE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Ringing or queued, not yet answered.
+   * </pre>
+   *
    * <code>CALL_STATE_WAITING = 1;</code>
    */
   CALL_STATE_WAITING(1),
   /**
+   * <pre>
+   * Actively connected between participants.
+   * </pre>
+   *
    * <code>CALL_STATE_ENGAGED = 2;</code>
    */
   CALL_STATE_ENGAGED(2),
@@ -30,14 +41,26 @@ public enum CallState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CALL_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int CALL_STATE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Ringing or queued, not yet answered.
+   * </pre>
+   *
    * <code>CALL_STATE_WAITING = 1;</code>
    */
   public static final int CALL_STATE_WAITING_VALUE = 1;
   /**
+   * <pre>
+   * Actively connected between participants.
+   * </pre>
+   *
    * <code>CALL_STATE_ENGAGED = 2;</code>
    */
   public static final int CALL_STATE_ENGAGED_VALUE = 2;

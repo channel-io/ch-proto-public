@@ -282,6 +282,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of the launcher button.
+     * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -292,6 +293,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of the launcher button.
+     * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -954,6 +956,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of the launcher button.
+     * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -966,6 +969,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Type of the launcher button.
+     * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -2408,6 +2412,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Type of the launcher button.
+       * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
        * +kubebuilder:validation:Nullable
        * </pre>
        *
@@ -2420,6 +2425,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Type of the launcher button.
+       * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
        * +kubebuilder:validation:Nullable
        * </pre>
        *
@@ -2436,6 +2442,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Type of the launcher button.
+       * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
        * +kubebuilder:validation:Nullable
        * </pre>
        *
@@ -2451,6 +2458,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Type of the launcher button.
+       * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
        * +kubebuilder:validation:Nullable
        * </pre>
        *
@@ -2470,6 +2478,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Type of the launcher button.
+       * Use CUSTOM_IMAGE or ICON_BUTTON for updates; LEGACY may appear on existing plugins.
        * +kubebuilder:validation:Nullable
        * </pre>
        *

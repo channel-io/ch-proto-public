@@ -13,26 +13,50 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum OneTimeMsgState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_UNSPECIFIED = 0;</code>
    */
   ONE_TIME_MSG_STATE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Draft being configured; not yet scheduled.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_DRAFT = 1;</code>
    */
   ONE_TIME_MSG_STATE_DRAFT(1),
   /**
+   * <pre>
+   * Scheduled and waiting to be sent.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_WAITING = 2;</code>
    */
   ONE_TIME_MSG_STATE_WAITING(2),
   /**
+   * <pre>
+   * Sent to the target segment.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_SENT = 3;</code>
    */
   ONE_TIME_MSG_STATE_SENT(3),
   /**
+   * <pre>
+   * Canceled before sending.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_CANCELED = 4;</code>
    */
   ONE_TIME_MSG_STATE_CANCELED(4),
   /**
+   * <pre>
+   * The one-time message is no longer present.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_REMOVED = 5;</code>
    */
   ONE_TIME_MSG_STATE_REMOVED(5),
@@ -40,26 +64,50 @@ public enum OneTimeMsgState
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_UNSPECIFIED = 0;</code>
    */
   public static final int ONE_TIME_MSG_STATE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Draft being configured; not yet scheduled.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_DRAFT = 1;</code>
    */
   public static final int ONE_TIME_MSG_STATE_DRAFT_VALUE = 1;
   /**
+   * <pre>
+   * Scheduled and waiting to be sent.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_WAITING = 2;</code>
    */
   public static final int ONE_TIME_MSG_STATE_WAITING_VALUE = 2;
   /**
+   * <pre>
+   * Sent to the target segment.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_SENT = 3;</code>
    */
   public static final int ONE_TIME_MSG_STATE_SENT_VALUE = 3;
   /**
+   * <pre>
+   * Canceled before sending.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_CANCELED = 4;</code>
    */
   public static final int ONE_TIME_MSG_STATE_CANCELED_VALUE = 4;
   /**
+   * <pre>
+   * The one-time message is no longer present.
+   * </pre>
+   *
    * <code>ONE_TIME_MSG_STATE_REMOVED = 5;</code>
    */
   public static final int ONE_TIME_MSG_STATE_REMOVED_VALUE = 5;

@@ -26,9 +26,9 @@ private static final long serialVersionUID = 0L;
     chatKey_ = "";
     bookmarkKey_ = "";
     channelId_ = "";
-    personType_ = "";
+    personType_ = 0;
     personId_ = "";
-    chatType_ = "";
+    chatType_ = 0;
   }
 
   @java.lang.Override
@@ -96,10 +96,10 @@ private static final long serialVersionUID = 0L;
             version_ = input.readInt64();
             break;
           }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 56: {
+            int rawValue = input.readEnum();
 
-            personType_ = s;
+            personType_ = rawValue;
             break;
           }
           case 66: {
@@ -108,10 +108,10 @@ private static final long serialVersionUID = 0L;
             personId_ = s;
             break;
           }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 72: {
+            int rawValue = input.readEnum();
 
-            chatType_ = s;
+            chatType_ = rawValue;
             break;
           }
           default: {
@@ -425,55 +425,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERSON_TYPE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object personType_;
+  private int personType_;
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
+   * Type of the bookmark owner.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The personType.
+   * <code>.coreapi.model.PersonType person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for personType.
    */
-  @java.lang.Override
-  public java.lang.String getPersonType() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      personType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getPersonTypeValue() {
+    return personType_;
   }
   /**
    * <pre>
-   * Type of the bookmark owner (e.g. "manager").
+   * Type of the bookmark owner.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for personType.
+   * <code>.coreapi.model.PersonType person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The personType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPersonTypeBytes() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      personType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PersonType getPersonType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.PersonType result = io.channel.api.proto.pub.coreapi.model.PersonType.valueOf(personType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.PersonType.UNRECOGNIZED : result;
   }
 
   public static final int PERSON_ID_FIELD_NUMBER = 8;
@@ -529,55 +506,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHAT_TYPE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object chatType_;
+  private int chatType_;
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
+   * Chat type this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  @java.lang.Override
-  public java.lang.String getChatType() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getChatTypeValue() {
+    return chatType_;
   }
   /**
    * <pre>
-   * Chat type this bookmark belongs to (e.g. "group", "userChat").
+   * Chat type this bookmark belongs to.
    * +kubebuilder:validation:Required
-   * +kubebuilder:validation:MinLength=1
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The chatType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChatTypeBytes() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -612,14 +566,14 @@ private static final long serialVersionUID = 0L;
     if (version_ != 0L) {
       output.writeInt64(6, version_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, personType_);
+    if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(7, personType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, personId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(9, chatType_);
     }
     unknownFields.writeTo(output);
   }
@@ -649,14 +603,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(6, version_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, personType_);
+    if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(7, personType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, personId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(9, chatType_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -685,12 +641,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (getVersion()
         != other.getVersion()) return false;
-    if (!getPersonType()
-        .equals(other.getPersonType())) return false;
+    if (personType_ != other.personType_) return false;
     if (!getPersonId()
         .equals(other.getPersonId())) return false;
-    if (!getChatType()
-        .equals(other.getChatType())) return false;
+    if (chatType_ != other.chatType_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -716,11 +670,11 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getVersion());
     hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getPersonType().hashCode();
+    hash = (53 * hash) + personType_;
     hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
     hash = (53 * hash) + getPersonId().hashCode();
     hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getChatType().hashCode();
+    hash = (53 * hash) + chatType_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -871,11 +825,11 @@ private static final long serialVersionUID = 0L;
 
       version_ = 0L;
 
-      personType_ = "";
+      personType_ = 0;
 
       personId_ = "";
 
-      chatType_ = "";
+      chatType_ = 0;
 
       return this;
     }
@@ -983,17 +937,15 @@ private static final long serialVersionUID = 0L;
       if (other.getVersion() != 0L) {
         setVersion(other.getVersion());
       }
-      if (!other.getPersonType().isEmpty()) {
-        personType_ = other.personType_;
-        onChanged();
+      if (other.personType_ != 0) {
+        setPersonTypeValue(other.getPersonTypeValue());
       }
       if (!other.getPersonId().isEmpty()) {
         personId_ = other.personId_;
         onChanged();
       }
-      if (!other.getChatType().isEmpty()) {
-        chatType_ = other.chatType_;
-        onChanged();
+      if (other.chatType_ != 0) {
+        setChatTypeValue(other.getChatTypeValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1630,113 +1582,81 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object personType_ = "";
+    private int personType_ = 0;
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The personType.
+     * <code>.coreapi.model.PersonType person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for personType.
      */
-    public java.lang.String getPersonType() {
-      java.lang.Object ref = personType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        personType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getPersonTypeValue() {
+      return personType_;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for personType.
-     */
-    public com.google.protobuf.ByteString
-        getPersonTypeBytes() {
-      java.lang.Object ref = personType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        personType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Type of the bookmark owner (e.g. "manager").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="manager"
-     * </pre>
-     *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The personType to set.
+     * <code>.coreapi.model.PersonType person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for personType to set.
      * @return This builder for chaining.
      */
-    public Builder setPersonType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setPersonTypeValue(int value) {
+      
       personType_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Type of the bookmark owner (e.g. "manager").
+     * Type of the bookmark owner.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.PersonType person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @return The personType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.PersonType getPersonType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.PersonType result = io.channel.api.proto.pub.coreapi.model.PersonType.valueOf(personType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.PersonType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Type of the bookmark owner.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.PersonType person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @param value The personType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersonType(io.channel.api.proto.pub.coreapi.model.PersonType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      personType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Type of the bookmark owner.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.PersonType person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonType() {
       
-      personType_ = getDefaultInstance().getPersonType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Type of the bookmark owner (e.g. "manager").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="manager"
-     * </pre>
-     *
-     * <code>string person_type = 7 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for personType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPersonTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      personType_ = value;
+      personType_ = 0;
       onChanged();
       return this;
     }
@@ -1852,113 +1772,81 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object chatType_ = "";
+    private int chatType_ = 0;
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The chatType.
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for chatType.
      */
-    public java.lang.String getChatType() {
-      java.lang.Object ref = chatType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getChatTypeValue() {
+      return chatType_;
     }
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for chatType.
-     */
-    public com.google.protobuf.ByteString
-        getChatTypeBytes() {
-      java.lang.Object ref = chatType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The chatType to set.
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for chatType to set.
      * @return This builder for chaining.
      */
-    public Builder setChatType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setChatTypeValue(int value) {
+      
       chatType_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
+     * Chat type this bookmark belongs to.
      * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @return The chatType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Chat type this bookmark belongs to.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      chatType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type this bookmark belongs to.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatType() {
       
-      chatType_ = getDefaultInstance().getChatType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type this bookmark belongs to (e.g. "group", "userChat").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:validation:MinLength=1
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatType_ = value;
+      chatType_ = 0;
       onChanged();
       return this;
     }
@@ -2119,7 +2007,7 @@ private static final long serialVersionUID = 0L;
      * @param value The person_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearPersonType(java.lang.String value) {
+    public Builder setOrClearPersonType(io.channel.api.proto.pub.coreapi.model.PersonType value) {
     	if (value == null)
     		return clearPersonType();
     	else
@@ -2131,7 +2019,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PersonType> mapFunc) {
     	if (value == null)
     		return clearPersonType();
     	else
@@ -2165,7 +2053,7 @@ private static final long serialVersionUID = 0L;
      * @param value The chat_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearChatType(java.lang.String value) {
+    public Builder setOrClearChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
     	if (value == null)
     		return clearChatType();
     	else
@@ -2177,7 +2065,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatType> mapFunc) {
     	if (value == null)
     		return clearChatType();
     	else

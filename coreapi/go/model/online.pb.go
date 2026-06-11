@@ -33,9 +33,7 @@ type Online struct {
 	// Type of the person.
 	//
 	// +kubebuilder:validation:Required
-	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:example="manager"
-	PersonType string `protobuf:"bytes,2,opt,name=person_type,json=personType,proto3" json:"person_type,omitempty"`
+	PersonType PersonType `protobuf:"varint,2,opt,name=person_type,json=personType,proto3,enum=coreapi.model.PersonType" json:"person_type,omitempty"`
 	// Identifier of the person.
 	//
 	// +kubebuilder:validation:Required
@@ -87,11 +85,11 @@ func (x *Online) GetChannelId() string {
 	return ""
 }
 
-func (x *Online) GetPersonType() string {
+func (x *Online) GetPersonType() PersonType {
 	if x != nil {
 		return x.PersonType
 	}
-	return ""
+	return PersonType_PERSON_TYPE_UNSPECIFIED
 }
 
 func (x *Online) GetPersonId() string {
@@ -112,12 +110,11 @@ var File_coreapi_model_online_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_online_proto_rawDesc = "" +
 	"\n" +
-	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\"\x9b\x02\n" +
+	"\x1acoreapi/model/online.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\"\xef\x01\n" +
 	"\x06Online\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12n\n" +
-	"\vperson_type\x18\x02 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12B\n" +
+	"\vperson_type\x18\x02 \x01(\x0e2\x19.coreapi.model.PersonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"personType\x12j\n" +
 	"\tperson_id\x18\x03 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12\x0e\n" +
@@ -138,14 +135,16 @@ func file_coreapi_model_online_proto_rawDescGZIP() []byte {
 
 var file_coreapi_model_online_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_coreapi_model_online_proto_goTypes = []any{
-	(*Online)(nil), // 0: coreapi.model.Online
+	(*Online)(nil),  // 0: coreapi.model.Online
+	(PersonType)(0), // 1: coreapi.model.PersonType
 }
 var file_coreapi_model_online_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: coreapi.model.Online.person_type:type_name -> coreapi.model.PersonType
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_online_proto_init() }
@@ -153,6 +152,7 @@ func file_coreapi_model_online_proto_init() {
 	if File_coreapi_model_online_proto != nil {
 		return
 	}
+	file_coreapi_model_entity_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

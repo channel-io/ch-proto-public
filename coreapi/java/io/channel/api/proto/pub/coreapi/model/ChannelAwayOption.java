@@ -13,18 +13,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum ChannelAwayOption
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_UNSPECIFIED = 0;</code>
    */
   CHANNEL_AWAY_OPTION_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Messenger stays active and accepts new chats while away.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_ACTIVE = 1;</code>
    */
   CHANNEL_AWAY_OPTION_ACTIVE(1),
   /**
+   * <pre>
+   * Starting new chats is disabled while away.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_DISABLED = 2;</code>
    */
   CHANNEL_AWAY_OPTION_DISABLED(2),
   /**
+   * <pre>
+   * Messenger is hidden while away.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_HIDDEN = 3;</code>
    */
   CHANNEL_AWAY_OPTION_HIDDEN(3),
@@ -32,18 +48,34 @@ public enum ChannelAwayOption
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_UNSPECIFIED = 0;</code>
    */
   public static final int CHANNEL_AWAY_OPTION_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Messenger stays active and accepts new chats while away.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_ACTIVE = 1;</code>
    */
   public static final int CHANNEL_AWAY_OPTION_ACTIVE_VALUE = 1;
   /**
+   * <pre>
+   * Starting new chats is disabled while away.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_DISABLED = 2;</code>
    */
   public static final int CHANNEL_AWAY_OPTION_DISABLED_VALUE = 2;
   /**
+   * <pre>
+   * Messenger is hidden while away.
+   * </pre>
+   *
    * <code>CHANNEL_AWAY_OPTION_HIDDEN = 3;</code>
    */
   public static final int CHANNEL_AWAY_OPTION_HIDDEN_VALUE = 3;

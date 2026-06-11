@@ -183,9 +183,9 @@ message UserChat {
   google.protobuf.Struct handling = 15;
 
   // Origin information describing how this chat was created
-  // (e.g., user-initiated, workflow-triggered, support bot).
+  // (e.g., user-initiated or workflow-triggered).
   //
-  // +kubebuilder:example={"supportBot":{"revisionId":"2612","id":"2840"},"page":"https://zoyi.cafe24.com/myshop/index.html"}
+  // +kubebuilder:example={"type":"workflow","page":"https://zoyi.cafe24.com/myshop/index.html"}
   google.protobuf.Struct source = 16;
 
   // IDs of managers currently participating in this chat.

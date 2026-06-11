@@ -16,6 +16,10 @@ package io.channel.api.proto.pub.coreapi.common;
 public enum CommonErrorCode
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>COMMON_ERROR_CODE_UNSPECIFIED = 0;</code>
    */
   COMMON_ERROR_CODE_UNSPECIFIED(0),
@@ -87,6 +91,10 @@ public enum CommonErrorCode
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>COMMON_ERROR_CODE_UNSPECIFIED = 0;</code>
    */
   public static final int COMMON_ERROR_CODE_UNSPECIFIED_VALUE = 0;

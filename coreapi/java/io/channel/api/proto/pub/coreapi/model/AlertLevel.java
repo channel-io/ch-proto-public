@@ -6,9 +6,8 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * Alert level controlling how the client displays notifications for a message.
- * - ALERT: Triggers a push notification and visual alert.
- * - UNREAD: Increments the unread badge without a push notification.
- * - NONE: No notification or badge change.
+ * ALERT triggers a push notification and visual alert, UNREAD increments the unread badge
+ * without a push notification, and NONE applies no notification or badge change.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.AlertLevel}
@@ -16,18 +15,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum AlertLevel
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_UNSPECIFIED = 0;</code>
    */
   ALERT_LEVEL_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Triggers a push notification and visual alert.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_ALERT = 1;</code>
    */
   ALERT_LEVEL_ALERT(1),
   /**
+   * <pre>
+   * Increments the unread badge without a push notification.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_UNREAD = 2;</code>
    */
   ALERT_LEVEL_UNREAD(2),
   /**
+   * <pre>
+   * No notification and no badge increment.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_NONE = 3;</code>
    */
   ALERT_LEVEL_NONE(3),
@@ -35,18 +50,34 @@ public enum AlertLevel
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_UNSPECIFIED = 0;</code>
    */
   public static final int ALERT_LEVEL_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Triggers a push notification and visual alert.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_ALERT = 1;</code>
    */
   public static final int ALERT_LEVEL_ALERT_VALUE = 1;
   /**
+   * <pre>
+   * Increments the unread badge without a push notification.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_UNREAD = 2;</code>
    */
   public static final int ALERT_LEVEL_UNREAD_VALUE = 2;
   /**
+   * <pre>
+   * No notification and no badge increment.
+   * </pre>
+   *
    * <code>ALERT_LEVEL_NONE = 3;</code>
    */
   public static final int ALERT_LEVEL_NONE_VALUE = 3;

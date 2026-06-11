@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
     sharedDomain_ = "";
     channelId_ = "";
     managerId_ = "";
-    chatType_ = "";
+    chatType_ = 0;
     chatId_ = "";
   }
 
@@ -161,10 +161,10 @@ private static final long serialVersionUID = 0L;
             managerId_ = s;
             break;
           }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 144: {
+            int rawValue = input.readEnum();
 
-            chatType_ = s;
+            chatType_ = rawValue;
             break;
           }
           case 154: {
@@ -215,6 +215,10 @@ private static final long serialVersionUID = 0L;
   public enum PrivateFileScope
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;</code>
      */
     PRIVATE_FILE_SCOPE_UNSPECIFIED(0),
@@ -246,6 +250,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>PRIVATE_FILE_SCOPE_UNSPECIFIED = 0;</code>
      */
     public static final int PRIVATE_FILE_SCOPE_UNSPECIFIED_VALUE = 0;
@@ -413,7 +421,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object type_;
   /**
    * <pre>
-   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * High-level media category derived from the MIME type.
    * +kubebuilder:example="image"
    * </pre>
    *
@@ -435,7 +443,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+   * High-level media category derived from the MIME type.
    * +kubebuilder:example="image"
    * </pre>
    *
@@ -461,7 +469,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Original file name including the extension (e.g. "report.pdf").
+   * Original file name including the extension.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="report.pdf"
@@ -485,7 +493,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Original file name including the extension (e.g. "report.pdf").
+   * Original file name including the extension.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:example="report.pdf"
@@ -530,7 +538,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object contentType_;
   /**
    * <pre>
-   * MIME content type (e.g. "image/png", "application/pdf").
+   * MIME content type.
    * +kubebuilder:example="image/png"
    * </pre>
    *
@@ -552,7 +560,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MIME content type (e.g. "image/png", "application/pdf").
+   * MIME content type.
    * +kubebuilder:example="image/png"
    * </pre>
    *
@@ -644,7 +652,7 @@ private static final long serialVersionUID = 0L;
   private boolean animated_;
   /**
    * <pre>
-   * Whether the image is an animated format (e.g. GIF, APNG).
+   * Whether the image is an animated format.
    * +kubebuilder:example="false"
    * </pre>
    *
@@ -990,53 +998,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHAT_TYPE_FIELD_NUMBER = 18;
-  private volatile java.lang.Object chatType_;
+  private int chatType_;
   /**
    * <pre>
    * Chat type for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 18 [json_name = "chatType"];</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  @java.lang.Override
-  public java.lang.String getChatType() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getChatTypeValue() {
+    return chatType_;
   }
   /**
    * <pre>
    * Chat type for chat-scoped private files.
    * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 18 [json_name = "chatType"];</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+   * @return The chatType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChatTypeBytes() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
   }
 
   public static final int CHAT_ID_FIELD_NUMBER = 19;
@@ -1154,8 +1141,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, managerId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(18, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 19, chatId_);
@@ -1227,8 +1214,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(managerId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, managerId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(18, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, chatId_);
@@ -1282,8 +1270,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getChannelId())) return false;
     if (!getManagerId()
         .equals(other.getManagerId())) return false;
-    if (!getChatType()
-        .equals(other.getChatType())) return false;
+    if (chatType_ != other.chatType_) return false;
     if (!getChatId()
         .equals(other.getChatId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1335,7 +1322,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MANAGER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getManagerId().hashCode();
     hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getChatType().hashCode();
+    hash = (53 * hash) + chatType_;
     hash = (37 * hash) + CHAT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChatId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -1509,7 +1496,7 @@ private static final long serialVersionUID = 0L;
 
       managerId_ = "";
 
-      chatType_ = "";
+      chatType_ = 0;
 
       chatId_ = "";
 
@@ -1667,9 +1654,8 @@ private static final long serialVersionUID = 0L;
         managerId_ = other.managerId_;
         onChanged();
       }
-      if (!other.getChatType().isEmpty()) {
-        chatType_ = other.chatType_;
-        onChanged();
+      if (other.chatType_ != 0) {
+        setChatTypeValue(other.getChatTypeValue());
       }
       if (!other.getChatId().isEmpty()) {
         chatId_ = other.chatId_;
@@ -1813,7 +1799,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1834,7 +1820,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1856,7 +1842,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1876,7 +1862,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1891,7 +1877,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * High-level media category derived from the MIME type (e.g. "image", "video", "audio").
+     * High-level media category derived from the MIME type.
      * +kubebuilder:example="image"
      * </pre>
      *
@@ -1914,7 +1900,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -1937,7 +1923,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -1961,7 +1947,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -1983,7 +1969,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -2000,7 +1986,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Original file name including the extension (e.g. "report.pdf").
+     * Original file name including the extension.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:example="report.pdf"
@@ -2074,7 +2060,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object contentType_ = "";
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2095,7 +2081,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2117,7 +2103,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2137,7 +2123,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2152,7 +2138,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type (e.g. "image/png", "application/pdf").
+     * MIME content type.
      * +kubebuilder:example="image/png"
      * </pre>
      *
@@ -2365,7 +2351,7 @@ private static final long serialVersionUID = 0L;
     private boolean animated_ ;
     /**
      * <pre>
-     * Whether the image is an animated format (e.g. GIF, APNG).
+     * Whether the image is an animated format.
      * +kubebuilder:example="false"
      * </pre>
      *
@@ -2378,7 +2364,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the image is an animated format (e.g. GIF, APNG).
+     * Whether the image is an animated format.
      * +kubebuilder:example="false"
      * </pre>
      *
@@ -2394,7 +2380,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the image is an animated format (e.g. GIF, APNG).
+     * Whether the image is an animated format.
      * +kubebuilder:example="false"
      * </pre>
      *
@@ -3133,69 +3119,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object chatType_ = "";
+    private int chatType_ = 0;
     /**
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 18 [json_name = "chatType"];</code>
-     * @return The chatType.
+     * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+     * @return The enum numeric value on the wire for chatType.
      */
-    public java.lang.String getChatType() {
-      java.lang.Object ref = chatType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getChatTypeValue() {
+      return chatType_;
     }
     /**
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 18 [json_name = "chatType"];</code>
-     * @return The bytes for chatType.
-     */
-    public com.google.protobuf.ByteString
-        getChatTypeBytes() {
-      java.lang.Object ref = chatType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type for chat-scoped private files.
-     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 18 [json_name = "chatType"];</code>
-     * @param value The chatType to set.
+     * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+     * @param value The enum numeric value on the wire for chatType to set.
      * @return This builder for chaining.
      */
-    public Builder setChatType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setChatTypeValue(int value) {
+      
       chatType_ = value;
       onChanged();
       return this;
@@ -3204,37 +3152,48 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type for chat-scoped private files.
      * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 18 [json_name = "chatType"];</code>
+     * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+     * @return The chatType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Chat type for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      chatType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type for chat-scoped private files.
+     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 18 [json_name = "chatType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChatType() {
       
-      chatType_ = getDefaultInstance().getChatType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type for chat-scoped private files.
-     * Derived from the storage key pattern; present only when `private_file_scope` is CHAT.
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 18 [json_name = "chatType"];</code>
-     * @param value The bytes for chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatType_ = value;
+      chatType_ = 0;
       onChanged();
       return this;
     }
@@ -3754,7 +3713,7 @@ private static final long serialVersionUID = 0L;
      * @param value The chat_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearChatType(java.lang.String value) {
+    public Builder setOrClearChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
     	if (value == null)
     		return clearChatType();
     	else
@@ -3766,7 +3725,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatType> mapFunc) {
     	if (value == null)
     		return clearChatType();
     	else

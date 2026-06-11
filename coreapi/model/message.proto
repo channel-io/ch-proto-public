@@ -3,6 +3,7 @@ syntax = "proto3";
 package coreapi.model;
 
 import "buf/validate/validate.proto";
+import "coreapi/model/entity_type.proto";
 import "coreapi/model/message_content.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
@@ -115,8 +116,7 @@ message Message {
   // Chat type of the parent conversation.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="userChat"
-  string chat_type = 9 [(buf.validate.field).required = true];
+  coreapi.model.ChatType chat_type = 9 [(buf.validate.field).required = true];
 
   // Chat ID of the parent conversation.
   //
@@ -127,8 +127,7 @@ message Message {
   // Entity type of the message author.
   //
   // +kubebuilder:validation:Required
-  // +kubebuilder:example="manager"
-  string person_type = 11 [(buf.validate.field).required = true];
+  coreapi.model.PersonType person_type = 11 [(buf.validate.field).required = true];
 
   // Entity ID of the message author.
   //
@@ -248,24 +247,15 @@ message Message {
   MessageState state = 32;
 
   // Delivery and visibility options applied to this message.
-  // Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-  // Some options are only applicable in user chats.
   //
-  // +kubebuilder:validation:MinItems=1
-  // +kubebuilder:example=["doNotSearch","immutable","private"]
-  repeated string options = 33;
+  // no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+  repeated coreapi.model.MessageOption options = 33;
 
   // Marketing campaign metadata for outbound promotional messages.
   // Contains campaign type and tracking attributes.
   //
   // +kubebuilder:example={"campaignId":"1461","campaignType":"promotion","trackingId":"1461-660640f04f4065f2161a"}
   google.protobuf.Struct marketing = 34;
-
-  // Legacy support bot metadata.
-  // Retained for backward compatibility with older workflow implementations.
-  //
-  // +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-  google.protobuf.Struct support_bot = 35;
 
   // Workflow automation metadata linking this message to a workflow step.
   // Contains workflow ID, step ID, and button submission context.
@@ -365,8 +355,7 @@ message MessageThread {
 
   // Chat type component extracted from the thread `id`.
   //
-  // +kubebuilder:example="userChat"
-  string chat_type = 5;
+  coreapi.model.ChatType chat_type = 5;
 
   // Chat ID component extracted from the thread `id`.
   //
@@ -542,8 +531,7 @@ message MessageMeet {
 
   // Chat type of the conversation this meet belongs to.
   //
-  // +kubebuilder:example="userChat"
-  string chat_type = 2;
+  coreapi.model.ChatType chat_type = 2;
 
   // Channel ID this meet belongs to.
   //
@@ -845,46 +833,6 @@ message MessageMarketing {
     // Renders as a full-screen overlay.
     EXPOSURE_TYPE_FULL_SCREEN = 1;
   }
-}
-
-// =====================================================
-// MessageSupportBot
-// =====================================================
-
-// MessageSupportBot represents legacy support bot flow metadata attached to a user chat message.
-// Tracks the current position within a support bot's multi-step conversation flow.
-message MessageSupportBot {
-  // Support bot identifier that owns this flow.
-  //
-  // +kubebuilder:example="2840"
-  string id = 1;
-
-  // Published revision of the support bot being executed.
-  //
-  // +kubebuilder:example="2612"
-  string revision_id = 2;
-
-  // Current section within the support bot flow (e.g. a route or action section).
-  //
-  // +kubebuilder:example="A"
-  string section_id = 3;
-
-  // Zero-based step position within the current section.
-  //
-  // +kubebuilder:example="0"
-  int32 step_index = 4;
-
-  // Route selection buttons presented to the user at the end of a route section.
-  // Set to null after the user makes a selection.
-  //
-  // +kubebuilder:example=[]
-  repeated google.protobuf.Struct buttons = 5;
-
-  // Zero-based index of the button the user selected.
-  // Present only on messages recording the user's route selection.
-  //
-  // +kubebuilder:example="1"
-  int32 submit_button_index = 6;
 }
 
 // =====================================================

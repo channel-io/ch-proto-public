@@ -920,7 +920,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Uploaded desktop launcher image.
-   * Applicable when button_type is LEGACY.
+   * Used when button_type is LEGACY.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -933,7 +933,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Uploaded desktop launcher image.
-   * Applicable when button_type is LEGACY.
+   * Used when button_type is LEGACY.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -946,7 +946,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Uploaded desktop launcher image.
-   * Applicable when button_type is LEGACY.
+   * Used when button_type is LEGACY.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -1036,7 +1036,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Uploaded mobile launcher image.
-   * Applicable when button_type is LEGACY.
+   * Used when button_type is LEGACY.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -1049,7 +1049,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Uploaded mobile launcher image.
-   * Applicable when button_type is LEGACY.
+   * Used when button_type is LEGACY.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -1062,7 +1062,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Uploaded mobile launcher image.
-   * Applicable when button_type is LEGACY.
+   * Used when button_type is LEGACY.
    * </pre>
    *
    * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -3802,7 +3802,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3814,7 +3814,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3830,7 +3830,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3851,7 +3851,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3870,7 +3870,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3893,7 +3893,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3912,7 +3912,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3925,7 +3925,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -3941,7 +3941,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded desktop launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile desk_image = 14 [json_name = "deskImage"];</code>
@@ -4178,7 +4178,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4190,7 +4190,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4206,7 +4206,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4227,7 +4227,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4246,7 +4246,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4269,7 +4269,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4288,7 +4288,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4301,7 +4301,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>
@@ -4317,7 +4317,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Uploaded mobile launcher image.
-     * Applicable when button_type is LEGACY.
+     * Used when button_type is LEGACY.
      * </pre>
      *
      * <code>.coreapi.model.TinyFile mobile_image = 19 [json_name = "mobileImage"];</code>

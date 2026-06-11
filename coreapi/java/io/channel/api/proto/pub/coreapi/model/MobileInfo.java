@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object device_;
   /**
    * <pre>
-   * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * Device model name.
    * +kubebuilder:example="iPhone 15"
    * </pre>
    *
@@ -178,7 +178,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Device model name (e.g. "iPhone 15", "Galaxy S24").
+   * Device model name.
    * +kubebuilder:example="iPhone 15"
    * </pre>
    *
@@ -204,7 +204,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object os_;
   /**
    * <pre>
-   * Operating system version string (e.g. "17.2", "14").
+   * Operating system version string.
    * +kubebuilder:example="17.2"
    * </pre>
    *
@@ -226,7 +226,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system version string (e.g. "17.2", "14").
+   * Operating system version string.
    * +kubebuilder:example="17.2"
    * </pre>
    *
@@ -252,7 +252,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object osName_;
   /**
    * <pre>
-   * Operating system name (e.g. "iOS", "Android").
+   * Operating system name.
    * +kubebuilder:example="iOS"
    * </pre>
    *
@@ -274,7 +274,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system name (e.g. "iOS", "Android").
+   * Operating system name.
    * +kubebuilder:example="iOS"
    * </pre>
    *
@@ -396,7 +396,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object sdkName_;
   /**
    * <pre>
-   * Channel SDK platform name (e.g. "ios", "android", "react-native").
+   * Channel SDK platform name.
    * +kubebuilder:example="ios"
    * </pre>
    *
@@ -418,7 +418,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Channel SDK platform name (e.g. "ios", "android", "react-native").
+   * Channel SDK platform name.
    * +kubebuilder:example="ios"
    * </pre>
    *
@@ -1005,7 +1005,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object device_ = "";
     /**
      * <pre>
-     * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * Device model name.
      * +kubebuilder:example="iPhone 15"
      * </pre>
      *
@@ -1026,7 +1026,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * Device model name.
      * +kubebuilder:example="iPhone 15"
      * </pre>
      *
@@ -1048,7 +1048,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * Device model name.
      * +kubebuilder:example="iPhone 15"
      * </pre>
      *
@@ -1068,7 +1068,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * Device model name.
      * +kubebuilder:example="iPhone 15"
      * </pre>
      *
@@ -1083,7 +1083,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device model name (e.g. "iPhone 15", "Galaxy S24").
+     * Device model name.
      * +kubebuilder:example="iPhone 15"
      * </pre>
      *
@@ -1106,7 +1106,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object os_ = "";
     /**
      * <pre>
-     * Operating system version string (e.g. "17.2", "14").
+     * Operating system version string.
      * +kubebuilder:example="17.2"
      * </pre>
      *
@@ -1127,7 +1127,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "17.2", "14").
+     * Operating system version string.
      * +kubebuilder:example="17.2"
      * </pre>
      *
@@ -1149,7 +1149,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "17.2", "14").
+     * Operating system version string.
      * +kubebuilder:example="17.2"
      * </pre>
      *
@@ -1169,7 +1169,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "17.2", "14").
+     * Operating system version string.
      * +kubebuilder:example="17.2"
      * </pre>
      *
@@ -1184,7 +1184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "17.2", "14").
+     * Operating system version string.
      * +kubebuilder:example="17.2"
      * </pre>
      *
@@ -1207,7 +1207,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object osName_ = "";
     /**
      * <pre>
-     * Operating system name (e.g. "iOS", "Android").
+     * Operating system name.
      * +kubebuilder:example="iOS"
      * </pre>
      *
@@ -1228,7 +1228,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "iOS", "Android").
+     * Operating system name.
      * +kubebuilder:example="iOS"
      * </pre>
      *
@@ -1250,7 +1250,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "iOS", "Android").
+     * Operating system name.
      * +kubebuilder:example="iOS"
      * </pre>
      *
@@ -1270,7 +1270,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "iOS", "Android").
+     * Operating system name.
      * +kubebuilder:example="iOS"
      * </pre>
      *
@@ -1285,7 +1285,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "iOS", "Android").
+     * Operating system name.
      * +kubebuilder:example="iOS"
      * </pre>
      *
@@ -1510,7 +1510,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sdkName_ = "";
     /**
      * <pre>
-     * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * Channel SDK platform name.
      * +kubebuilder:example="ios"
      * </pre>
      *
@@ -1531,7 +1531,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * Channel SDK platform name.
      * +kubebuilder:example="ios"
      * </pre>
      *
@@ -1553,7 +1553,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * Channel SDK platform name.
      * +kubebuilder:example="ios"
      * </pre>
      *
@@ -1573,7 +1573,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * Channel SDK platform name.
      * +kubebuilder:example="ios"
      * </pre>
      *
@@ -1588,7 +1588,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Channel SDK platform name (e.g. "ios", "android", "react-native").
+     * Channel SDK platform name.
      * +kubebuilder:example="ios"
      * </pre>
      *

@@ -346,8 +346,8 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Origin information describing how this chat was created
-   * (e.g., user-initiated, workflow-triggered, support bot).
-   * +kubebuilder:example={"supportBot":{"revisionId":"2612","id":"2840"},"page":"https://zoyi.cafe24.com/myshop/index.html"}
+   * (e.g., user-initiated or workflow-triggered).
+   * +kubebuilder:example={"type":"workflow","page":"https://zoyi.cafe24.com/myshop/index.html"}
    * </pre>
    *
    * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -357,8 +357,8 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Origin information describing how this chat was created
-   * (e.g., user-initiated, workflow-triggered, support bot).
-   * +kubebuilder:example={"supportBot":{"revisionId":"2612","id":"2840"},"page":"https://zoyi.cafe24.com/myshop/index.html"}
+   * (e.g., user-initiated or workflow-triggered).
+   * +kubebuilder:example={"type":"workflow","page":"https://zoyi.cafe24.com/myshop/index.html"}
    * </pre>
    *
    * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
@@ -368,8 +368,8 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Origin information describing how this chat was created
-   * (e.g., user-initiated, workflow-triggered, support bot).
-   * +kubebuilder:example={"supportBot":{"revisionId":"2612","id":"2840"},"page":"https://zoyi.cafe24.com/myshop/index.html"}
+   * (e.g., user-initiated or workflow-triggered).
+   * +kubebuilder:example={"type":"workflow","page":"https://zoyi.cafe24.com/myshop/index.html"}
    * </pre>
    *
    * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>

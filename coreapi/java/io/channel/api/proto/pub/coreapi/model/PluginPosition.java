@@ -13,14 +13,26 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum PluginPosition
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_POSITION_UNSPECIFIED = 0;</code>
    */
   PLUGIN_POSITION_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Anchored to the left edge of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_POSITION_LEFT = 1;</code>
    */
   PLUGIN_POSITION_LEFT(1),
   /**
+   * <pre>
+   * Anchored to the right edge of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_POSITION_RIGHT = 2;</code>
    */
   PLUGIN_POSITION_RIGHT(2),
@@ -28,14 +40,26 @@ public enum PluginPosition
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>PLUGIN_POSITION_UNSPECIFIED = 0;</code>
    */
   public static final int PLUGIN_POSITION_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Anchored to the left edge of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_POSITION_LEFT = 1;</code>
    */
   public static final int PLUGIN_POSITION_LEFT_VALUE = 1;
   /**
+   * <pre>
+   * Anchored to the right edge of the screen.
+   * </pre>
+   *
    * <code>PLUGIN_POSITION_RIGHT = 2;</code>
    */
   public static final int PLUGIN_POSITION_RIGHT_VALUE = 2;

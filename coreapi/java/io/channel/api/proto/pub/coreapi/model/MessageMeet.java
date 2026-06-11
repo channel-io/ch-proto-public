@@ -21,7 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private MessageMeet() {
     id_ = "";
-    chatType_ = "";
+    chatType_ = 0;
     channelId_ = "";
     state_ = 0;
     mode_ = 0;
@@ -69,10 +69,10 @@ private static final long serialVersionUID = 0L;
             id_ = s;
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
+            int rawValue = input.readEnum();
 
-            chatType_ = s;
+            chatType_ = rawValue;
             break;
           }
           case 26: {
@@ -248,6 +248,10 @@ private static final long serialVersionUID = 0L;
   public enum MeetState
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_STATE_UNSPECIFIED = 0;</code>
      */
     MEET_STATE_UNSPECIFIED(0),
@@ -295,6 +299,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_STATE_UNSPECIFIED = 0;</code>
      */
     public static final int MEET_STATE_UNSPECIFIED_VALUE = 0;
@@ -436,6 +444,10 @@ private static final long serialVersionUID = 0L;
   public enum MeetMode
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_MODE_UNSPECIFIED = 0;</code>
      */
     MEET_MODE_UNSPECIFIED(0),
@@ -459,6 +471,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_MODE_UNSPECIFIED = 0;</code>
      */
     public static final int MEET_MODE_UNSPECIFIED_VALUE = 0;
@@ -573,6 +589,10 @@ private static final long serialVersionUID = 0L;
   public enum MeetType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_TYPE_UNSPECIFIED = 0;</code>
      */
     MEET_TYPE_UNSPECIFIED(0),
@@ -604,6 +624,10 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MEET_TYPE_UNSPECIFIED = 0;</code>
      */
     public static final int MEET_TYPE_UNSPECIFIED_VALUE = 0;
@@ -766,51 +790,30 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHAT_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object chatType_;
+  private int chatType_;
   /**
    * <pre>
-   * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-   * +kubebuilder:example="userChat"
+   * Chat type of the conversation this meet belongs to.
    * </pre>
    *
-   * <code>string chat_type = 2 [json_name = "chatType"];</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  @java.lang.Override
-  public java.lang.String getChatType() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getChatTypeValue() {
+    return chatType_;
   }
   /**
    * <pre>
-   * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-   * +kubebuilder:example="userChat"
+   * Chat type of the conversation this meet belongs to.
    * </pre>
    *
-   * <code>string chat_type = 2 [json_name = "chatType"];</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+   * @return The chatType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChatTypeBytes() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
   }
 
   public static final int CHANNEL_ID_FIELD_NUMBER = 3;
@@ -1390,8 +1393,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(2, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, channelId_);
@@ -1444,8 +1447,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(2, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, channelId_);
@@ -1526,8 +1530,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getId()
         .equals(other.getId())) return false;
-    if (!getChatType()
-        .equals(other.getChatType())) return false;
+    if (chatType_ != other.chatType_) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
     if (state_ != other.state_) return false;
@@ -1580,7 +1583,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getChatType().hashCode();
+    hash = (53 * hash) + chatType_;
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + STATE_FIELD_NUMBER;
@@ -1762,7 +1765,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = "";
 
-      chatType_ = "";
+      chatType_ = 0;
 
       channelId_ = "";
 
@@ -1936,9 +1939,8 @@ private static final long serialVersionUID = 0L;
         id_ = other.id_;
         onChanged();
       }
-      if (!other.getChatType().isEmpty()) {
-        chatType_ = other.chatType_;
-        onChanged();
+      if (other.chatType_ != 0) {
+        setChatTypeValue(other.getChatTypeValue());
       }
       if (!other.getChannelId().isEmpty()) {
         channelId_ = other.channelId_;
@@ -2133,103 +2135,76 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object chatType_ = "";
+    private int chatType_ = 0;
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:example="userChat"
+     * Chat type of the conversation this meet belongs to.
      * </pre>
      *
-     * <code>string chat_type = 2 [json_name = "chatType"];</code>
-     * @return The chatType.
+     * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+     * @return The enum numeric value on the wire for chatType.
      */
-    public java.lang.String getChatType() {
-      java.lang.Object ref = chatType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getChatTypeValue() {
+      return chatType_;
     }
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:example="userChat"
+     * Chat type of the conversation this meet belongs to.
      * </pre>
      *
-     * <code>string chat_type = 2 [json_name = "chatType"];</code>
-     * @return The bytes for chatType.
-     */
-    public com.google.protobuf.ByteString
-        getChatTypeBytes() {
-      java.lang.Object ref = chatType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 2 [json_name = "chatType"];</code>
-     * @param value The chatType to set.
+     * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+     * @param value The enum numeric value on the wire for chatType to set.
      * @return This builder for chaining.
      */
-    public Builder setChatType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setChatTypeValue(int value) {
+      
       chatType_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:example="userChat"
+     * Chat type of the conversation this meet belongs to.
      * </pre>
      *
-     * <code>string chat_type = 2 [json_name = "chatType"];</code>
+     * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+     * @return The chatType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Chat type of the conversation this meet belongs to.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      chatType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type of the conversation this meet belongs to.
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 2 [json_name = "chatType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChatType() {
       
-      chatType_ = getDefaultInstance().getChatType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type of the conversation this meet belongs to (e.g. "userChat", "group").
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 2 [json_name = "chatType"];</code>
-     * @param value The bytes for chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatType_ = value;
+      chatType_ = 0;
       onChanged();
       return this;
     }
@@ -4020,7 +3995,7 @@ private static final long serialVersionUID = 0L;
      * @param value The chat_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearChatType(java.lang.String value) {
+    public Builder setOrClearChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
     	if (value == null)
     		return clearChatType();
     	else
@@ -4032,7 +4007,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatType> mapFunc) {
     	if (value == null)
     		return clearChatType();
     	else

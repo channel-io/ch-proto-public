@@ -425,9 +425,9 @@ type UserChat struct {
 	// +kubebuilder:example={"step":"input","followUp":{"fields":[]}}
 	Handling *structpb.Struct `protobuf:"bytes,15,opt,name=handling,proto3" json:"handling,omitempty"`
 	// Origin information describing how this chat was created
-	// (e.g., user-initiated, workflow-triggered, support bot).
+	// (e.g., user-initiated or workflow-triggered).
 	//
-	// +kubebuilder:example={"supportBot":{"revisionId":"2612","id":"2840"},"page":"https://zoyi.cafe24.com/myshop/index.html"}
+	// +kubebuilder:example={"type":"workflow","page":"https://zoyi.cafe24.com/myshop/index.html"}
 	Source *structpb.Struct `protobuf:"bytes,16,opt,name=source,proto3" json:"source,omitempty"`
 	// IDs of managers currently participating in this chat.
 	//

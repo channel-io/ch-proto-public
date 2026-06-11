@@ -53,4 +53,3 @@ func ChatTagColorVariantForString(value string) ChatTagColorVariant {
 		return ChatTagColorVariant_CHAT_TAG_COLOR_VARIANT_UNSPECIFIED
 	}
 }
-

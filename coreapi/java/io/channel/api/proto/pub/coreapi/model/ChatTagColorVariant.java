@@ -13,42 +13,82 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum ChatTagColorVariant
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_UNSPECIFIED = 0;</code>
    */
   CHAT_TAG_COLOR_VARIANT_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Red color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_RED = 1;</code>
    */
   CHAT_TAG_COLOR_VARIANT_RED(1),
   /**
+   * <pre>
+   * Orange color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_ORANGE = 2;</code>
    */
   CHAT_TAG_COLOR_VARIANT_ORANGE(2),
   /**
+   * <pre>
+   * Yellow color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_YELLOW = 3;</code>
    */
   CHAT_TAG_COLOR_VARIANT_YELLOW(3),
   /**
+   * <pre>
+   * Olive color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_OLIVE = 4;</code>
    */
   CHAT_TAG_COLOR_VARIANT_OLIVE(4),
   /**
+   * <pre>
+   * Green color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_GREEN = 5;</code>
    */
   CHAT_TAG_COLOR_VARIANT_GREEN(5),
   /**
+   * <pre>
+   * Cobalt (blue) color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_COBALT = 6;</code>
    */
   CHAT_TAG_COLOR_VARIANT_COBALT(6),
   /**
+   * <pre>
+   * Purple color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_PURPLE = 7;</code>
    */
   CHAT_TAG_COLOR_VARIANT_PURPLE(7),
   /**
+   * <pre>
+   * Pink color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_PINK = 8;</code>
    */
   CHAT_TAG_COLOR_VARIANT_PINK(8),
   /**
+   * <pre>
+   * Navy (dark blue) color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_NAVY = 9;</code>
    */
   CHAT_TAG_COLOR_VARIANT_NAVY(9),
@@ -56,42 +96,82 @@ public enum ChatTagColorVariant
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_UNSPECIFIED = 0;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Red color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_RED = 1;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_RED_VALUE = 1;
   /**
+   * <pre>
+   * Orange color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_ORANGE = 2;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_ORANGE_VALUE = 2;
   /**
+   * <pre>
+   * Yellow color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_YELLOW = 3;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_YELLOW_VALUE = 3;
   /**
+   * <pre>
+   * Olive color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_OLIVE = 4;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_OLIVE_VALUE = 4;
   /**
+   * <pre>
+   * Green color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_GREEN = 5;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_GREEN_VALUE = 5;
   /**
+   * <pre>
+   * Cobalt (blue) color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_COBALT = 6;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_COBALT_VALUE = 6;
   /**
+   * <pre>
+   * Purple color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_PURPLE = 7;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_PURPLE_VALUE = 7;
   /**
+   * <pre>
+   * Pink color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_PINK = 8;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_PINK_VALUE = 8;
   /**
+   * <pre>
+   * Navy (dark blue) color variant.
+   * </pre>
+   *
    * <code>CHAT_TAG_COLOR_VARIANT_NAVY = 9;</code>
    */
   public static final int CHAT_TAG_COLOR_VARIANT_NAVY_VALUE = 9;

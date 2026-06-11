@@ -13,18 +13,34 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum ResponseDelayType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_UNSPECIFIED = 0;</code>
    */
   RESPONSE_DELAY_TYPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Replies are expected almost immediately.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_INSTANT = 1;</code>
    */
   RESPONSE_DELAY_TYPE_INSTANT(1),
   /**
+   * <pre>
+   * Replies are expected within a normal timeframe.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_NORMAL = 2;</code>
    */
   RESPONSE_DELAY_TYPE_NORMAL(2),
   /**
+   * <pre>
+   * Replies may be delayed.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_DELAYED = 3;</code>
    */
   RESPONSE_DELAY_TYPE_DELAYED(3),
@@ -32,18 +48,34 @@ public enum ResponseDelayType
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_UNSPECIFIED = 0;</code>
    */
   public static final int RESPONSE_DELAY_TYPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Replies are expected almost immediately.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_INSTANT = 1;</code>
    */
   public static final int RESPONSE_DELAY_TYPE_INSTANT_VALUE = 1;
   /**
+   * <pre>
+   * Replies are expected within a normal timeframe.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_NORMAL = 2;</code>
    */
   public static final int RESPONSE_DELAY_TYPE_NORMAL_VALUE = 2;
   /**
+   * <pre>
+   * Replies may be delayed.
+   * </pre>
+   *
    * <code>RESPONSE_DELAY_TYPE_DELAYED = 3;</code>
    */
   public static final int RESPONSE_DELAY_TYPE_DELAYED_VALUE = 3;

@@ -215,27 +215,24 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  java.lang.String getChatType();
+  int getChatTypeValue();
   /**
    * <pre>
-   * Chat type of the parent conversation (e.g., "userChat", "group", "directChat").
+   * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 9 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The chatType.
    */
-  com.google.protobuf.ByteString
-      getChatTypeBytes();
+  io.channel.api.proto.pub.coreapi.model.ChatType getChatType();
 
   /**
    * <pre>
@@ -263,27 +260,24 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user", "bot").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The personType.
+   * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for personType.
    */
-  java.lang.String getPersonType();
+  int getPersonTypeValue();
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user", "bot").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for personType.
+   * <code>.coreapi.model.PersonType person_type = 11 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The personType.
    */
-  com.google.protobuf.ByteString
-      getPersonTypeBytes();
+  io.channel.api.proto.pub.coreapi.model.PersonType getPersonType();
 
   /**
    * <pre>
@@ -337,7 +331,7 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Detected language of the message content (e.g., "ko", "en", "ja").
+   * Detected language of the message content.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -347,7 +341,7 @@ public interface MessageOrBuilder extends
   java.lang.String getLanguage();
   /**
    * <pre>
-   * Detected language of the message content (e.g., "ko", "en", "ja").
+   * Detected language of the message content.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -967,59 +961,56 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
    * @return A list containing the options.
    */
-  java.util.List<java.lang.String>
-      getOptionsList();
+  java.util.List<io.channel.api.proto.pub.coreapi.model.MessageOption> getOptionsList();
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
    * @return The count of options.
    */
   int getOptionsCount();
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
    * @param index The index of the element to return.
    * @return The options at the given index.
    */
-  java.lang.String getOptions(int index);
+  io.channel.api.proto.pub.coreapi.model.MessageOption getOptions(int index);
   /**
    * <pre>
    * Delivery and visibility options applied to this message.
-   * Values include "actAsManager", "private", "silentToManager", "silentToUser", etc.
-   * Some options are only applicable in user chats.
-   * +kubebuilder:validation:MinItems=1
-   * +kubebuilder:example=["doNotSearch","immutable","private"]
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
    * </pre>
    *
-   * <code>repeated string options = 33 [json_name = "options"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the options at the given index.
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+   * @return A list containing the enum numeric values on the wire for options.
    */
-  com.google.protobuf.ByteString
-      getOptionsBytes(int index);
+  java.util.List<java.lang.Integer>
+  getOptionsValueList();
+  /**
+   * <pre>
+   * Delivery and visibility options applied to this message.
+   * no-example: repeated enum (MessageOption); OpenAPI array-example emission not yet supported by harness
+   * </pre>
+   *
+   * <code>repeated .coreapi.model.MessageOption options = 33 [json_name = "options"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of options at the given index.
+   */
+  int getOptionsValue(int index);
 
   /**
    * <pre>
@@ -1053,39 +1044,6 @@ public interface MessageOrBuilder extends
    * <code>.google.protobuf.Struct marketing = 34 [json_name = "marketing"];</code>
    */
   com.google.protobuf.StructOrBuilder getMarketingOrBuilder();
-
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   * @return Whether the supportBot field is set.
-   */
-  boolean hasSupportBot();
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   * @return The supportBot.
-   */
-  com.google.protobuf.Struct getSupportBot();
-  /**
-   * <pre>
-   * Legacy support bot metadata.
-   * Retained for backward compatibility with older workflow implementations.
-   * +kubebuilder:example={"botId":"2840","workflowId":"2612"}
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct support_bot = 35 [json_name = "supportBot"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getSupportBotOrBuilder();
 
   /**
    * <pre>

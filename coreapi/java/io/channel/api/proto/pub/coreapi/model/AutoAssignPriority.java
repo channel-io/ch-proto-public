@@ -13,6 +13,10 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum AutoAssignPriority
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>AUTO_ASSIGN_PRIORITY_UNSPECIFIED = 0;</code>
    */
   AUTO_ASSIGN_PRIORITY_UNSPECIFIED(0),
@@ -44,6 +48,10 @@ public enum AutoAssignPriority
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>AUTO_ASSIGN_PRIORITY_UNSPECIFIED = 0;</code>
    */
   public static final int AUTO_ASSIGN_PRIORITY_UNSPECIFIED_VALUE = 0;

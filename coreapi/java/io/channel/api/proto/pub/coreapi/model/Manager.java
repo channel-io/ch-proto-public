@@ -941,7 +941,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object mobileNumber_;
   /**
    * <pre>
-   * Manager mobile phone number in E.164 format (e.g., +821012345678).
+   * Manager mobile phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -963,7 +963,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Manager mobile phone number in E.164 format (e.g., +821012345678).
+   * Manager mobile phone number in E.164 format.
    * +kubebuilder:example="+821012345678"
    * </pre>
    *
@@ -1054,7 +1054,7 @@ private static final long serialVersionUID = 0L;
   private boolean removed_;
   /**
    * <pre>
-   * Whether this manager has been soft-deleted from the channel.
+   * Whether this manager has been removed from the channel.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="false"
    * </pre>
@@ -1159,8 +1159,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp removedAt_;
   /**
    * <pre>
-   * Timestamp when the manager was soft-deleted.
-   * Present only when removed is true.
+   * Timestamp when the manager was removed. Set only when `removed` is true.
    * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
@@ -1173,8 +1172,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the manager was soft-deleted.
-   * Present only when removed is true.
+   * Timestamp when the manager was removed. Set only when `removed` is true.
    * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
@@ -1187,8 +1185,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the manager was soft-deleted.
-   * Present only when removed is true.
+   * Timestamp when the manager was removed. Set only when `removed` is true.
    * +kubebuilder:example="2024-03-28T08:57:32Z"
    * </pre>
    *
@@ -1400,7 +1397,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Performance score reflecting the manager's conversation handling efficiency.
-   * Decays over time when the manager is inactive.
    * +kubebuilder:example="0"
    * </pre>
    *
@@ -1417,7 +1413,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Engagement score reflecting the frequency of customer interactions.
-   * Decays over time when the manager is inactive.
    * +kubebuilder:example="0"
    * </pre>
    *
@@ -1535,7 +1530,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object operatorStatusId_;
   /**
    * <pre>
-   * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * Operator status identifier for custom availability states.
    * +kubebuilder:example="9187"
    * </pre>
    *
@@ -1557,7 +1552,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+   * Operator status identifier for custom availability states.
    * +kubebuilder:example="9187"
    * </pre>
    *
@@ -1617,7 +1612,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList assignableUserChatTypes_;
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *
@@ -1630,7 +1625,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *
@@ -1642,7 +1637,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *
@@ -1655,7 +1650,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * User chat types this manager can be auto-assigned to (e.g., sync, async).
+   * User chat types this manager can be auto-assigned to.
    * +kubebuilder:example=["sync","async"]
    * </pre>
    *
@@ -4422,7 +4417,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object mobileNumber_ = "";
     /**
      * <pre>
-     * Manager mobile phone number in E.164 format (e.g., +821012345678).
+     * Manager mobile phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -4443,7 +4438,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager mobile phone number in E.164 format (e.g., +821012345678).
+     * Manager mobile phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -4465,7 +4460,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager mobile phone number in E.164 format (e.g., +821012345678).
+     * Manager mobile phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -4485,7 +4480,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager mobile phone number in E.164 format (e.g., +821012345678).
+     * Manager mobile phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -4500,7 +4495,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Manager mobile phone number in E.164 format (e.g., +821012345678).
+     * Manager mobile phone number in E.164 format.
      * +kubebuilder:example="+821012345678"
      * </pre>
      *
@@ -4673,7 +4668,7 @@ private static final long serialVersionUID = 0L;
     private boolean removed_ ;
     /**
      * <pre>
-     * Whether this manager has been soft-deleted from the channel.
+     * Whether this manager has been removed from the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="false"
      * </pre>
@@ -4687,7 +4682,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether this manager has been soft-deleted from the channel.
+     * Whether this manager has been removed from the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="false"
      * </pre>
@@ -4704,7 +4699,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether this manager has been soft-deleted from the channel.
+     * Whether this manager has been removed from the channel.
      * +kubebuilder:validation:Required
      * +kubebuilder:example="false"
      * </pre>
@@ -5070,8 +5065,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> removedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5083,8 +5077,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5100,8 +5093,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5122,8 +5114,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5142,8 +5133,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5166,8 +5156,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5186,8 +5175,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5200,8 +5188,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5217,8 +5204,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the manager was soft-deleted.
-     * Present only when removed is true.
+     * Timestamp when the manager was removed. Set only when `removed` is true.
      * +kubebuilder:example="2024-03-28T08:57:32Z"
      * </pre>
      *
@@ -5784,7 +5770,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Performance score reflecting the manager's conversation handling efficiency.
-     * Decays over time when the manager is inactive.
      * +kubebuilder:example="0"
      * </pre>
      *
@@ -5798,7 +5783,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Performance score reflecting the manager's conversation handling efficiency.
-     * Decays over time when the manager is inactive.
      * +kubebuilder:example="0"
      * </pre>
      *
@@ -5815,7 +5799,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Performance score reflecting the manager's conversation handling efficiency.
-     * Decays over time when the manager is inactive.
      * +kubebuilder:example="0"
      * </pre>
      *
@@ -5833,7 +5816,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
-     * Decays over time when the manager is inactive.
      * +kubebuilder:example="0"
      * </pre>
      *
@@ -5847,7 +5829,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
-     * Decays over time when the manager is inactive.
      * +kubebuilder:example="0"
      * </pre>
      *
@@ -5864,7 +5845,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Engagement score reflecting the frequency of customer interactions.
-     * Decays over time when the manager is inactive.
      * +kubebuilder:example="0"
      * </pre>
      *
@@ -6175,7 +6155,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object operatorStatusId_ = "";
     /**
      * <pre>
-     * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * Operator status identifier for custom availability states.
      * +kubebuilder:example="9187"
      * </pre>
      *
@@ -6196,7 +6176,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * Operator status identifier for custom availability states.
      * +kubebuilder:example="9187"
      * </pre>
      *
@@ -6218,7 +6198,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * Operator status identifier for custom availability states.
      * +kubebuilder:example="9187"
      * </pre>
      *
@@ -6238,7 +6218,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * Operator status identifier for custom availability states.
      * +kubebuilder:example="9187"
      * </pre>
      *
@@ -6253,7 +6233,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator status identifier for custom availability states (e.g., "On break", "In a meeting").
+     * Operator status identifier for custom availability states.
      * +kubebuilder:example="9187"
      * </pre>
      *
@@ -6380,7 +6360,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6393,7 +6373,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6405,7 +6385,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6418,7 +6398,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6432,7 +6412,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6453,7 +6433,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6473,7 +6453,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6491,7 +6471,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *
@@ -6506,7 +6486,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * User chat types this manager can be auto-assigned to (e.g., sync, async).
+     * User chat types this manager can be auto-assigned to.
      * +kubebuilder:example=["sync","async"]
      * </pre>
      *

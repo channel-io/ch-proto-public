@@ -13,22 +13,42 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum MediumType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_UNSPECIFIED = 0;</code>
    */
   MEDIUM_TYPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * In-app chat via the native Channel messenger.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_NATIVE = 1;</code>
    */
   MEDIUM_TYPE_NATIVE(1),
   /**
+   * <pre>
+   * Third-party app messenger integration (e.g., Alimtalk, LINE).
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_APP = 2;</code>
    */
   MEDIUM_TYPE_APP(2),
   /**
+   * <pre>
+   * Email delivery.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_EMAIL = 3;</code>
    */
   MEDIUM_TYPE_EMAIL(3),
   /**
+   * <pre>
+   * Text message (SMS/LMS/MMS) delivery.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_PHONE = 4;</code>
    */
   MEDIUM_TYPE_PHONE(4),
@@ -36,22 +56,42 @@ public enum MediumType
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_UNSPECIFIED = 0;</code>
    */
   public static final int MEDIUM_TYPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * In-app chat via the native Channel messenger.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_NATIVE = 1;</code>
    */
   public static final int MEDIUM_TYPE_NATIVE_VALUE = 1;
   /**
+   * <pre>
+   * Third-party app messenger integration (e.g., Alimtalk, LINE).
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_APP = 2;</code>
    */
   public static final int MEDIUM_TYPE_APP_VALUE = 2;
   /**
+   * <pre>
+   * Email delivery.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_EMAIL = 3;</code>
    */
   public static final int MEDIUM_TYPE_EMAIL_VALUE = 3;
   /**
+   * <pre>
+   * Text message (SMS/LMS/MMS) delivery.
+   * </pre>
+   *
    * <code>MEDIUM_TYPE_PHONE = 4;</code>
    */
   public static final int MEDIUM_TYPE_PHONE_VALUE = 4;

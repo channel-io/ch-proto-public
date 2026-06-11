@@ -256,7 +256,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object contentType_;
   /**
    * <pre>
-   * MIME content type of the image (e.g. "image/png", "image/jpeg").
+   * MIME content type of the image.
    * +kubebuilder:validation:Pattern="^image/.*"
    * +kubebuilder:example="image/png"
    * </pre>
@@ -279,7 +279,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MIME content type of the image (e.g. "image/png", "image/jpeg").
+   * MIME content type of the image.
    * +kubebuilder:validation:Pattern="^image/.*"
    * +kubebuilder:example="image/png"
    * </pre>
@@ -994,7 +994,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object contentType_ = "";
     /**
      * <pre>
-     * MIME content type of the image (e.g. "image/png", "image/jpeg").
+     * MIME content type of the image.
      * +kubebuilder:validation:Pattern="^image/.*"
      * +kubebuilder:example="image/png"
      * </pre>
@@ -1016,7 +1016,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the image (e.g. "image/png", "image/jpeg").
+     * MIME content type of the image.
      * +kubebuilder:validation:Pattern="^image/.*"
      * +kubebuilder:example="image/png"
      * </pre>
@@ -1039,7 +1039,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the image (e.g. "image/png", "image/jpeg").
+     * MIME content type of the image.
      * +kubebuilder:validation:Pattern="^image/.*"
      * +kubebuilder:example="image/png"
      * </pre>
@@ -1060,7 +1060,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the image (e.g. "image/png", "image/jpeg").
+     * MIME content type of the image.
      * +kubebuilder:validation:Pattern="^image/.*"
      * +kubebuilder:example="image/png"
      * </pre>
@@ -1076,7 +1076,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MIME content type of the image (e.g. "image/png", "image/jpeg").
+     * MIME content type of the image.
      * +kubebuilder:validation:Pattern="^image/.*"
      * +kubebuilder:example="image/png"
      * </pre>

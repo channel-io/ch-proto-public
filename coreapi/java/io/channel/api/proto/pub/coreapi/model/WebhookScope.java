@@ -13,42 +13,82 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum WebhookScope
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_UNSPECIFIED = 0;</code>
    */
   WEBHOOK_SCOPE_UNSPECIFIED(0),
   /**
+   * <pre>
+   * Triggered when a user chat is opened.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_USER_CHAT_OPENED = 1;</code>
    */
   WEBHOOK_SCOPE_USER_CHAT_OPENED(1),
   /**
+   * <pre>
+   * Triggered when a message is created in a user chat.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT = 2;</code>
    */
   WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT(2),
   /**
+   * <pre>
+   * Triggered when a message is created in a team chat.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT = 3;</code>
    */
   WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT(3),
   /**
+   * <pre>
+   * Triggered when a lead's contact information is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT = 4;</code>
    */
   WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT(4),
   /**
+   * <pre>
+   * Triggered when a lead's marketing subscription is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION = 5;</code>
    */
   WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION(5),
   /**
+   * <pre>
+   * Triggered when a lead is deleted.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_LEAD_DELETED = 6;</code>
    */
   WEBHOOK_SCOPE_LEAD_DELETED(6),
   /**
+   * <pre>
+   * Triggered when a member's contact information is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT = 7;</code>
    */
   WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT(7),
   /**
+   * <pre>
+   * Triggered when a member's marketing subscription is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION = 8;</code>
    */
   WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION(8),
   /**
+   * <pre>
+   * Triggered when a member is deleted.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MEMBER_DELETED = 9;</code>
    */
   WEBHOOK_SCOPE_MEMBER_DELETED(9),
@@ -56,42 +96,82 @@ public enum WebhookScope
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_UNSPECIFIED = 0;</code>
    */
   public static final int WEBHOOK_SCOPE_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * Triggered when a user chat is opened.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_USER_CHAT_OPENED = 1;</code>
    */
   public static final int WEBHOOK_SCOPE_USER_CHAT_OPENED_VALUE = 1;
   /**
+   * <pre>
+   * Triggered when a message is created in a user chat.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT = 2;</code>
    */
   public static final int WEBHOOK_SCOPE_MESSAGE_CREATED_USER_CHAT_VALUE = 2;
   /**
+   * <pre>
+   * Triggered when a message is created in a team chat.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT = 3;</code>
    */
   public static final int WEBHOOK_SCOPE_MESSAGE_CREATED_TEAM_CHAT_VALUE = 3;
   /**
+   * <pre>
+   * Triggered when a lead's contact information is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT = 4;</code>
    */
   public static final int WEBHOOK_SCOPE_LEAD_UPSERTED_CONTACT_VALUE = 4;
   /**
+   * <pre>
+   * Triggered when a lead's marketing subscription is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION = 5;</code>
    */
   public static final int WEBHOOK_SCOPE_LEAD_UPSERTED_SUBSCRIPTION_VALUE = 5;
   /**
+   * <pre>
+   * Triggered when a lead is deleted.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_LEAD_DELETED = 6;</code>
    */
   public static final int WEBHOOK_SCOPE_LEAD_DELETED_VALUE = 6;
   /**
+   * <pre>
+   * Triggered when a member's contact information is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT = 7;</code>
    */
   public static final int WEBHOOK_SCOPE_MEMBER_UPSERTED_CONTACT_VALUE = 7;
   /**
+   * <pre>
+   * Triggered when a member's marketing subscription is created or updated.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION = 8;</code>
    */
   public static final int WEBHOOK_SCOPE_MEMBER_UPSERTED_SUBSCRIPTION_VALUE = 8;
   /**
+   * <pre>
+   * Triggered when a member is deleted.
+   * </pre>
+   *
    * <code>WEBHOOK_SCOPE_MEMBER_DELETED = 9;</code>
    */
   public static final int WEBHOOK_SCOPE_MEMBER_DELETED_VALUE = 9;

@@ -13,42 +13,82 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum ChatAlertSound
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_UNSPECIFIED = 0;</code>
    */
   CHAT_ALERT_SOUND_UNSPECIFIED(0),
   /**
+   * <pre>
+   * No sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_NONE = 1;</code>
    */
   CHAT_ALERT_SOUND_NONE(1),
   /**
+   * <pre>
+   * "Drop" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_DROP = 2;</code>
    */
   CHAT_ALERT_SOUND_DROP(2),
   /**
+   * <pre>
+   * "Woody" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_WOODY = 3;</code>
    */
   CHAT_ALERT_SOUND_WOODY(3),
   /**
+   * <pre>
+   * "Bounce" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_BOUNCE = 4;</code>
    */
   CHAT_ALERT_SOUND_BOUNCE(4),
   /**
+   * <pre>
+   * "Crystal" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_CRYSTAL = 5;</code>
    */
   CHAT_ALERT_SOUND_CRYSTAL(5),
   /**
+   * <pre>
+   * "Xylo" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_XYLO = 6;</code>
    */
   CHAT_ALERT_SOUND_XYLO(6),
   /**
+   * <pre>
+   * "Quick knock" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_QUICK_KNOCK = 7;</code>
    */
   CHAT_ALERT_SOUND_QUICK_KNOCK(7),
   /**
+   * <pre>
+   * "Candy" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_CANDY = 8;</code>
    */
   CHAT_ALERT_SOUND_CANDY(8),
   /**
+   * <pre>
+   * "Shine" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_SHINE = 9;</code>
    */
   CHAT_ALERT_SOUND_SHINE(9),
@@ -56,42 +96,82 @@ public enum ChatAlertSound
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_UNSPECIFIED = 0;</code>
    */
   public static final int CHAT_ALERT_SOUND_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * No sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_NONE = 1;</code>
    */
   public static final int CHAT_ALERT_SOUND_NONE_VALUE = 1;
   /**
+   * <pre>
+   * "Drop" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_DROP = 2;</code>
    */
   public static final int CHAT_ALERT_SOUND_DROP_VALUE = 2;
   /**
+   * <pre>
+   * "Woody" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_WOODY = 3;</code>
    */
   public static final int CHAT_ALERT_SOUND_WOODY_VALUE = 3;
   /**
+   * <pre>
+   * "Bounce" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_BOUNCE = 4;</code>
    */
   public static final int CHAT_ALERT_SOUND_BOUNCE_VALUE = 4;
   /**
+   * <pre>
+   * "Crystal" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_CRYSTAL = 5;</code>
    */
   public static final int CHAT_ALERT_SOUND_CRYSTAL_VALUE = 5;
   /**
+   * <pre>
+   * "Xylo" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_XYLO = 6;</code>
    */
   public static final int CHAT_ALERT_SOUND_XYLO_VALUE = 6;
   /**
+   * <pre>
+   * "Quick knock" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_QUICK_KNOCK = 7;</code>
    */
   public static final int CHAT_ALERT_SOUND_QUICK_KNOCK_VALUE = 7;
   /**
+   * <pre>
+   * "Candy" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_CANDY = 8;</code>
    */
   public static final int CHAT_ALERT_SOUND_CANDY_VALUE = 8;
   /**
+   * <pre>
+   * "Shine" notification sound.
+   * </pre>
+   *
    * <code>CHAT_ALERT_SOUND_SHINE = 9;</code>
    */
   public static final int CHAT_ALERT_SOUND_SHINE_VALUE = 9;

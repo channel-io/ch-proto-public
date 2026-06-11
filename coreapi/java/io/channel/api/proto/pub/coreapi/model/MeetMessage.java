@@ -22,9 +22,9 @@ private static final long serialVersionUID = 0L;
   private MeetMessage() {
     id_ = "";
     channelId_ = "";
-    chatType_ = "";
+    chatType_ = 0;
     chatId_ = "";
-    personType_ = "";
+    personType_ = 0;
     personId_ = "";
     blocks_ = java.util.Collections.emptyList();
     plainText_ = "";
@@ -73,10 +73,10 @@ private static final long serialVersionUID = 0L;
             channelId_ = s;
             break;
           }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 24: {
+            int rawValue = input.readEnum();
 
-            chatType_ = s;
+            chatType_ = rawValue;
             break;
           }
           case 34: {
@@ -85,10 +85,10 @@ private static final long serialVersionUID = 0L;
             chatId_ = s;
             break;
           }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 40: {
+            int rawValue = input.readEnum();
 
-            personType_ = s;
+            personType_ = rawValue;
             break;
           }
           case 50: {
@@ -274,53 +274,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHAT_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object chatType_;
+  private int chatType_;
   /**
    * <pre>
    * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The chatType.
+   * <code>.coreapi.model.ChatType chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for chatType.
    */
-  @java.lang.Override
-  public java.lang.String getChatType() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      chatType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getChatTypeValue() {
+    return chatType_;
   }
   /**
    * <pre>
    * Chat type of the parent conversation.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="userChat"
    * </pre>
    *
-   * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for chatType.
+   * <code>.coreapi.model.ChatType chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+   * @return The chatType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getChatTypeBytes() {
-    java.lang.Object ref = chatType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      chatType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
   }
 
   public static final int CHAT_ID_FIELD_NUMBER = 4;
@@ -374,53 +353,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERSON_TYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object personType_;
+  private int personType_;
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The personType.
+   * <code>.coreapi.model.PersonType person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The enum numeric value on the wire for personType.
    */
-  @java.lang.Override
-  public java.lang.String getPersonType() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      personType_ = s;
-      return s;
-    }
+  @java.lang.Override public int getPersonTypeValue() {
+    return personType_;
   }
   /**
    * <pre>
-   * Entity type of the message author (e.g., "manager", "user").
+   * Entity type of the message author.
    * +kubebuilder:validation:Required
-   * +kubebuilder:example="manager"
    * </pre>
    *
-   * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for personType.
+   * <code>.coreapi.model.PersonType person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+   * @return The personType.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPersonTypeBytes() {
-    java.lang.Object ref = personType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      personType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.PersonType getPersonType() {
+    @SuppressWarnings("deprecation")
+    io.channel.api.proto.pub.coreapi.model.PersonType result = io.channel.api.proto.pub.coreapi.model.PersonType.valueOf(personType_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.PersonType.UNRECOGNIZED : result;
   }
 
   public static final int PERSON_ID_FIELD_NUMBER = 6;
@@ -689,14 +647,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(3, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, chatId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, personType_);
+    if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(5, personType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, personId_);
@@ -728,14 +686,16 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, chatType_);
+    if (chatType_ != io.channel.api.proto.pub.coreapi.model.ChatType.CHAT_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(3, chatType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chatId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, chatId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, personType_);
+    if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, personType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(personId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, personId_);
@@ -774,12 +734,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getId())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
-    if (!getChatType()
-        .equals(other.getChatType())) return false;
+    if (chatType_ != other.chatType_) return false;
     if (!getChatId()
         .equals(other.getChatId())) return false;
-    if (!getPersonType()
-        .equals(other.getPersonType())) return false;
+    if (personType_ != other.personType_) return false;
     if (!getPersonId()
         .equals(other.getPersonId())) return false;
     if (!getBlocksList()
@@ -812,11 +770,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
     hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getChatType().hashCode();
+    hash = (53 * hash) + chatType_;
     hash = (37 * hash) + CHAT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChatId().hashCode();
     hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getPersonType().hashCode();
+    hash = (53 * hash) + personType_;
     hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
     hash = (53 * hash) + getPersonId().hashCode();
     if (getBlocksCount() > 0) {
@@ -975,11 +933,11 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      chatType_ = "";
+      chatType_ = 0;
 
       chatId_ = "";
 
-      personType_ = "";
+      personType_ = 0;
 
       personId_ = "";
 
@@ -1112,17 +1070,15 @@ private static final long serialVersionUID = 0L;
         channelId_ = other.channelId_;
         onChanged();
       }
-      if (!other.getChatType().isEmpty()) {
-        chatType_ = other.chatType_;
-        onChanged();
+      if (other.chatType_ != 0) {
+        setChatTypeValue(other.getChatTypeValue());
       }
       if (!other.getChatId().isEmpty()) {
         chatId_ = other.chatId_;
         onChanged();
       }
-      if (!other.getPersonType().isEmpty()) {
-        personType_ = other.personType_;
-        onChanged();
+      if (other.personType_ != 0) {
+        setPersonTypeValue(other.getPersonTypeValue());
       }
       if (!other.getPersonId().isEmpty()) {
         personId_ = other.personId_;
@@ -1406,69 +1362,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object chatType_ = "";
+    private int chatType_ = 0;
     /**
      * <pre>
      * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The chatType.
+     * <code>.coreapi.model.ChatType chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for chatType.
      */
-    public java.lang.String getChatType() {
-      java.lang.Object ref = chatType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chatType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getChatTypeValue() {
+      return chatType_;
     }
     /**
      * <pre>
      * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for chatType.
-     */
-    public com.google.protobuf.ByteString
-        getChatTypeBytes() {
-      java.lang.Object ref = chatType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chatType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Chat type of the parent conversation.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The chatType to set.
+     * <code>.coreapi.model.ChatType chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for chatType to set.
      * @return This builder for chaining.
      */
-    public Builder setChatType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setChatTypeValue(int value) {
+      
       chatType_ = value;
       onChanged();
       return this;
@@ -1477,37 +1395,48 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Chat type of the parent conversation.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
      * </pre>
      *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.ChatType chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @return The chatType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.ChatType getChatType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.ChatType result = io.channel.api.proto.pub.coreapi.model.ChatType.valueOf(chatType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.ChatType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Chat type of the parent conversation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
+     * @param value The chatType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      chatType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Chat type of the parent conversation.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.ChatType chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatType() {
       
-      chatType_ = getDefaultInstance().getChatType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Chat type of the parent conversation.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="userChat"
-     * </pre>
-     *
-     * <code>string chat_type = 3 [json_name = "chatType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for chatType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChatTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      chatType_ = value;
+      chatType_ = 0;
       onChanged();
       return this;
     }
@@ -1618,108 +1547,81 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object personType_ = "";
+    private int personType_ = 0;
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The personType.
+     * <code>.coreapi.model.PersonType person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @return The enum numeric value on the wire for personType.
      */
-    public java.lang.String getPersonType() {
-      java.lang.Object ref = personType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        personType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getPersonTypeValue() {
+      return personType_;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for personType.
-     */
-    public com.google.protobuf.ByteString
-        getPersonTypeBytes() {
-      java.lang.Object ref = personType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        personType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
-     * </pre>
-     *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The personType to set.
+     * <code>.coreapi.model.PersonType person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @param value The enum numeric value on the wire for personType to set.
      * @return This builder for chaining.
      */
-    public Builder setPersonType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setPersonTypeValue(int value) {
+      
       personType_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
+     * Entity type of the message author.
      * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
      * </pre>
      *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * <code>.coreapi.model.PersonType person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @return The personType.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.PersonType getPersonType() {
+      @SuppressWarnings("deprecation")
+      io.channel.api.proto.pub.coreapi.model.PersonType result = io.channel.api.proto.pub.coreapi.model.PersonType.valueOf(personType_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.PersonType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Entity type of the message author.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.PersonType person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
+     * @param value The personType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersonType(io.channel.api.proto.pub.coreapi.model.PersonType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      personType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Entity type of the message author.
+     * +kubebuilder:validation:Required
+     * </pre>
+     *
+     * <code>.coreapi.model.PersonType person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPersonType() {
       
-      personType_ = getDefaultInstance().getPersonType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Entity type of the message author (e.g., "manager", "user").
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="manager"
-     * </pre>
-     *
-     * <code>string person_type = 5 [json_name = "personType", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for personType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPersonTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      personType_ = value;
+      personType_ = 0;
       onChanged();
       return this;
     }
@@ -2653,7 +2555,7 @@ private static final long serialVersionUID = 0L;
      * @param value The chat_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearChatType(java.lang.String value) {
+    public Builder setOrClearChatType(io.channel.api.proto.pub.coreapi.model.ChatType value) {
     	if (value == null)
     		return clearChatType();
     	else
@@ -2665,7 +2567,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearChatType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ChatType> mapFunc) {
     	if (value == null)
     		return clearChatType();
     	else
@@ -2699,7 +2601,7 @@ private static final long serialVersionUID = 0L;
      * @param value The person_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearPersonType(java.lang.String value) {
+    public Builder setOrClearPersonType(io.channel.api.proto.pub.coreapi.model.PersonType value) {
     	if (value == null)
     		return clearPersonType();
     	else
@@ -2711,7 +2613,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearPersonType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.PersonType> mapFunc) {
     	if (value == null)
     		return clearPersonType();
     	else

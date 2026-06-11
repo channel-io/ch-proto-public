@@ -13,6 +13,10 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum MessageOption
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_UNSPECIFIED = 0;</code>
    */
   MESSAGE_OPTION_UNSPECIFIED(0),
@@ -116,6 +120,10 @@ public enum MessageOption
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MESSAGE_OPTION_UNSPECIFIED = 0;</code>
    */
   public static final int MESSAGE_OPTION_UNSPECIFIED_VALUE = 0;

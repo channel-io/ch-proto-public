@@ -142,7 +142,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object device_;
   /**
    * <pre>
-   * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * Device form factor.
    * +kubebuilder:example="Apple Macintosh"
    * </pre>
    *
@@ -164,7 +164,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Device form factor (e.g. "desktop", "tablet", "mobile").
+   * Device form factor.
    * +kubebuilder:example="Apple Macintosh"
    * </pre>
    *
@@ -190,7 +190,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object os_;
   /**
    * <pre>
-   * Operating system version string (e.g. "10.15.7", "11").
+   * Operating system version string.
    * +kubebuilder:example="10.15.7"
    * </pre>
    *
@@ -212,7 +212,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system version string (e.g. "10.15.7", "11").
+   * Operating system version string.
    * +kubebuilder:example="10.15.7"
    * </pre>
    *
@@ -238,7 +238,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object osName_;
   /**
    * <pre>
-   * Operating system name (e.g. "Windows", "macOS", "Linux").
+   * Operating system name.
    * +kubebuilder:example="Mac OS"
    * </pre>
    *
@@ -260,7 +260,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operating system name (e.g. "Windows", "macOS", "Linux").
+   * Operating system name.
    * +kubebuilder:example="Mac OS"
    * </pre>
    *
@@ -286,7 +286,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object browser_;
   /**
    * <pre>
-   * Browser version string (e.g. "120.0.6099.109").
+   * Browser version string.
    * +kubebuilder:example="141"
    * </pre>
    *
@@ -308,7 +308,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Browser version string (e.g. "120.0.6099.109").
+   * Browser version string.
    * +kubebuilder:example="141"
    * </pre>
    *
@@ -334,7 +334,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object browserName_;
   /**
    * <pre>
-   * Browser name (e.g. "Chrome", "Safari", "Firefox").
+   * Browser name.
    * +kubebuilder:example="Chrome"
    * </pre>
    *
@@ -356,7 +356,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Browser name (e.g. "Chrome", "Safari", "Firefox").
+   * Browser name.
    * +kubebuilder:example="Chrome"
    * </pre>
    *
@@ -861,7 +861,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object device_ = "";
     /**
      * <pre>
-     * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * Device form factor.
      * +kubebuilder:example="Apple Macintosh"
      * </pre>
      *
@@ -882,7 +882,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * Device form factor.
      * +kubebuilder:example="Apple Macintosh"
      * </pre>
      *
@@ -904,7 +904,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * Device form factor.
      * +kubebuilder:example="Apple Macintosh"
      * </pre>
      *
@@ -924,7 +924,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * Device form factor.
      * +kubebuilder:example="Apple Macintosh"
      * </pre>
      *
@@ -939,7 +939,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device form factor (e.g. "desktop", "tablet", "mobile").
+     * Device form factor.
      * +kubebuilder:example="Apple Macintosh"
      * </pre>
      *
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object os_ = "";
     /**
      * <pre>
-     * Operating system version string (e.g. "10.15.7", "11").
+     * Operating system version string.
      * +kubebuilder:example="10.15.7"
      * </pre>
      *
@@ -983,7 +983,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "10.15.7", "11").
+     * Operating system version string.
      * +kubebuilder:example="10.15.7"
      * </pre>
      *
@@ -1005,7 +1005,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "10.15.7", "11").
+     * Operating system version string.
      * +kubebuilder:example="10.15.7"
      * </pre>
      *
@@ -1025,7 +1025,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "10.15.7", "11").
+     * Operating system version string.
      * +kubebuilder:example="10.15.7"
      * </pre>
      *
@@ -1040,7 +1040,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system version string (e.g. "10.15.7", "11").
+     * Operating system version string.
      * +kubebuilder:example="10.15.7"
      * </pre>
      *
@@ -1063,7 +1063,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object osName_ = "";
     /**
      * <pre>
-     * Operating system name (e.g. "Windows", "macOS", "Linux").
+     * Operating system name.
      * +kubebuilder:example="Mac OS"
      * </pre>
      *
@@ -1084,7 +1084,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "Windows", "macOS", "Linux").
+     * Operating system name.
      * +kubebuilder:example="Mac OS"
      * </pre>
      *
@@ -1106,7 +1106,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "Windows", "macOS", "Linux").
+     * Operating system name.
      * +kubebuilder:example="Mac OS"
      * </pre>
      *
@@ -1126,7 +1126,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "Windows", "macOS", "Linux").
+     * Operating system name.
      * +kubebuilder:example="Mac OS"
      * </pre>
      *
@@ -1141,7 +1141,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operating system name (e.g. "Windows", "macOS", "Linux").
+     * Operating system name.
      * +kubebuilder:example="Mac OS"
      * </pre>
      *
@@ -1164,7 +1164,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object browser_ = "";
     /**
      * <pre>
-     * Browser version string (e.g. "120.0.6099.109").
+     * Browser version string.
      * +kubebuilder:example="141"
      * </pre>
      *
@@ -1185,7 +1185,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser version string (e.g. "120.0.6099.109").
+     * Browser version string.
      * +kubebuilder:example="141"
      * </pre>
      *
@@ -1207,7 +1207,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser version string (e.g. "120.0.6099.109").
+     * Browser version string.
      * +kubebuilder:example="141"
      * </pre>
      *
@@ -1227,7 +1227,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser version string (e.g. "120.0.6099.109").
+     * Browser version string.
      * +kubebuilder:example="141"
      * </pre>
      *
@@ -1242,7 +1242,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser version string (e.g. "120.0.6099.109").
+     * Browser version string.
      * +kubebuilder:example="141"
      * </pre>
      *
@@ -1265,7 +1265,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object browserName_ = "";
     /**
      * <pre>
-     * Browser name (e.g. "Chrome", "Safari", "Firefox").
+     * Browser name.
      * +kubebuilder:example="Chrome"
      * </pre>
      *
@@ -1286,7 +1286,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser name (e.g. "Chrome", "Safari", "Firefox").
+     * Browser name.
      * +kubebuilder:example="Chrome"
      * </pre>
      *
@@ -1308,7 +1308,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser name (e.g. "Chrome", "Safari", "Firefox").
+     * Browser name.
      * +kubebuilder:example="Chrome"
      * </pre>
      *
@@ -1328,7 +1328,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser name (e.g. "Chrome", "Safari", "Firefox").
+     * Browser name.
      * +kubebuilder:example="Chrome"
      * </pre>
      *
@@ -1343,7 +1343,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Browser name (e.g. "Chrome", "Safari", "Firefox").
+     * Browser name.
      * +kubebuilder:example="Chrome"
      * </pre>
      *

@@ -13,6 +13,10 @@ package io.channel.api.proto.pub.coreapi.model;
 public enum MissedReason
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MISSED_REASON_UNSPECIFIED = 0;</code>
    */
   MISSED_REASON_UNSPECIFIED(0),
@@ -124,6 +128,10 @@ public enum MissedReason
   ;
 
   /**
+   * <pre>
+   * Unspecified or not set.
+   * </pre>
+   *
    * <code>MISSED_REASON_UNSPECIFIED = 0;</code>
    */
   public static final int MISSED_REASON_UNSPECIFIED_VALUE = 0;

@@ -65,4 +65,3 @@ func OneTimeMsgSendModeForString(value string) OneTimeMsgSendMode {
 		return OneTimeMsgSendMode_ONE_TIME_MSG_SEND_MODE_UNSPECIFIED
 	}
 }
-

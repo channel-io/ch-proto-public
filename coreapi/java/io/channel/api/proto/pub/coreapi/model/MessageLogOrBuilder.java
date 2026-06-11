@@ -79,7 +79,7 @@ public interface MessageLogOrBuilder extends
 
   /**
    * <pre>
-   * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+   * Entity type that triggered this action.
    * +kubebuilder:example="workflow"
    * </pre>
    *
@@ -89,7 +89,7 @@ public interface MessageLogOrBuilder extends
   java.lang.String getTriggerType();
   /**
    * <pre>
-   * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+   * Entity type that triggered this action.
    * +kubebuilder:example="workflow"
    * </pre>
    *

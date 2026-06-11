@@ -130,174 +130,346 @@ private static final long serialVersionUID = 0L;
   public enum MessageLogAction
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UNSPECIFIED = 0;</code>
      */
     MESSAGE_LOG_ACTION_UNSPECIFIED(0),
     /**
+     * <pre>
+     * The chat name was edited.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CHANGE_NAME = 1;</code>
      */
     MESSAGE_LOG_ACTION_CHANGE_NAME(1),
     /**
+     * <pre>
+     * The chat scope was reconfigured.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CHANGE_SCOPE = 2;</code>
      */
     MESSAGE_LOG_ACTION_CHANGE_SCOPE(2),
     /**
+     * <pre>
+     * The chat was closed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CLOSE = 3;</code>
      */
     MESSAGE_LOG_ACTION_CLOSE(3),
     /**
+     * <pre>
+     * The chat was closed automatically.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_AUTO_CLOSE = 4;</code>
      */
     MESSAGE_LOG_ACTION_AUTO_CLOSE(4),
     /**
+     * <pre>
+     * The chat was created.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CREATE = 5;</code>
      */
     MESSAGE_LOG_ACTION_CREATE(5),
     /**
+     * <pre>
+     * A manager was invited to the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INVITE = 6;</code>
      */
     MESSAGE_LOG_ACTION_INVITE(6),
     /**
+     * <pre>
+     * A manager joined the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_JOIN = 7;</code>
      */
     MESSAGE_LOG_ACTION_JOIN(7),
     /**
+     * <pre>
+     * The chat was assigned to a manager.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ASSIGN = 8;</code>
      */
     MESSAGE_LOG_ACTION_ASSIGN(8),
     /**
+     * <pre>
+     * The chat was assigned automatically.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_AUTO_ASSIGN = 9;</code>
      */
     MESSAGE_LOG_ACTION_AUTO_ASSIGN(9),
     /**
+     * <pre>
+     * The chat assignee was cleared.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UNASSIGN = 10;</code>
      */
     MESSAGE_LOG_ACTION_UNASSIGN(10),
     /**
+     * <pre>
+     * A manager left the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_LEAVE = 11;</code>
      */
     MESSAGE_LOG_ACTION_LEAVE(11),
     /**
+     * <pre>
+     * The chat was opened.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_OPEN = 12;</code>
      */
     MESSAGE_LOG_ACTION_OPEN(12),
     /**
+     * <pre>
+     * The chat was opened automatically.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_AUTO_OPEN = 13;</code>
      */
     MESSAGE_LOG_ACTION_AUTO_OPEN(13),
     /**
+     * <pre>
+     * The chat was placed in the assignment queue.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ENQUEUE = 14;</code>
      */
     MESSAGE_LOG_ACTION_ENQUEUE(14),
     /**
+     * <pre>
+     * The chat was missed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_MISS = 15;</code>
      */
     MESSAGE_LOG_ACTION_MISS(15),
     /**
+     * <pre>
+     * The chat was discarded.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_REMOVE = 16;</code>
      */
     MESSAGE_LOG_ACTION_REMOVE(16),
     /**
+     * <pre>
+     * The chat was snoozed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_SNOOZE = 17;</code>
      */
     MESSAGE_LOG_ACTION_SNOOZE(17),
     /**
+     * <pre>
+     * Tags were attached to the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ADD_TAGS = 18;</code>
      */
     MESSAGE_LOG_ACTION_ADD_TAGS(18),
     /**
+     * <pre>
+     * Tags were detached from the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_REMOVE_TAGS = 19;</code>
      */
     MESSAGE_LOG_ACTION_REMOVE_TAGS(19),
     /**
+     * <pre>
+     * The chat was assigned to a team.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ASSIGN_TEAM = 20;</code>
      */
     MESSAGE_LOG_ACTION_ASSIGN_TEAM(20),
     /**
+     * <pre>
+     * The chat's team assignment was cleared.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UNASSIGN_TEAM = 21;</code>
      */
     MESSAGE_LOG_ACTION_UNASSIGN_TEAM(21),
     /**
+     * <pre>
+     * A participant joined the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_JOIN_MEET = 22;</code>
      */
     MESSAGE_LOG_ACTION_JOIN_MEET(22),
     /**
+     * <pre>
+     * A participant left the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_LEAVE_MEET = 23;</code>
      */
     MESSAGE_LOG_ACTION_LEAVE_MEET(23),
     /**
+     * <pre>
+     * A participant was invited to the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INVITE_MEET = 24;</code>
      */
     MESSAGE_LOG_ACTION_INVITE_MEET(24),
     /**
+     * <pre>
+     * The meet was missed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_MISS_MEET = 25;</code>
      */
     MESSAGE_LOG_ACTION_MISS_MEET(25),
     /**
+     * <pre>
+     * A callback was requested for the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CALLBACK_MEET = 26;</code>
      */
     MESSAGE_LOG_ACTION_CALLBACK_MEET(26),
     /**
+     * <pre>
+     * An attempt was made to connect a call.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_TRY_CONNECT_CALL = 27;</code>
      */
     MESSAGE_LOG_ACTION_TRY_CONNECT_CALL(27),
     /**
+     * <pre>
+     * The chat was processed due to a miss.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_PROCESS_BY_MISS = 28;</code>
      */
     MESSAGE_LOG_ACTION_PROCESS_BY_MISS(28),
     /**
+     * <pre>
+     * A workflow branch was processed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_PROCESS_BRANCH = 29;</code>
      */
     MESSAGE_LOG_ACTION_PROCESS_BRANCH(29),
     /**
+     * <pre>
+     * An SMS/LMS/MMS message was sent.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_SEND_XMS = 30;</code>
      */
     MESSAGE_LOG_ACTION_SEND_XMS(30),
     /**
+     * <pre>
+     * Tags were attached to the user.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ADD_USER_TAGS = 31;</code>
      */
     MESSAGE_LOG_ACTION_ADD_USER_TAGS(31),
     /**
+     * <pre>
+     * Tags were detached from the user.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_REMOVE_USER_TAGS = 32;</code>
      */
     MESSAGE_LOG_ACTION_REMOVE_USER_TAGS(32),
     /**
+     * <pre>
+     * The chat priority was adjusted.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UPDATE_PRIORITY = 33;</code>
      */
     MESSAGE_LOG_ACTION_UPDATE_PRIORITY(33),
     /**
+     * <pre>
+     * A workflow was started.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_START_WORKFLOW = 34;</code>
      */
     MESSAGE_LOG_ACTION_START_WORKFLOW(34),
     /**
+     * <pre>
+     * A workflow ended.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_END_WORKFLOW = 35;</code>
      */
     MESSAGE_LOG_ACTION_END_WORKFLOW(35),
     /**
+     * <pre>
+     * A workflow was interrupted.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW = 36;</code>
      */
     MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW(36),
     /**
+     * <pre>
+     * A workflow was interrupted by a bot.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;</code>
      */
     MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT(37),
     /**
+     * <pre>
+     * An attempt was made to open the chat with ALF (AI agent).
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF = 38;</code>
      */
     MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF(38),
     /**
+     * <pre>
+     * A task was started.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_START_TASK = 39;</code>
      */
     MESSAGE_LOG_ACTION_START_TASK(39),
     /**
+     * <pre>
+     * Automation rules were applied.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_APPLY_RULES = 40;</code>
      */
     MESSAGE_LOG_ACTION_APPLY_RULES(40),
     /**
+     * <pre>
+     * ALF (AI agent) handling was canceled by the user.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER = 41;</code>
      */
     MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER(41),
     /**
+     * <pre>
+     * The call fell back to an alternative handler.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_FALLBACK_CALL = 42;</code>
      */
     MESSAGE_LOG_ACTION_FALLBACK_CALL(42),
@@ -305,174 +477,346 @@ private static final long serialVersionUID = 0L;
     ;
 
     /**
+     * <pre>
+     * Unspecified or not set.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UNSPECIFIED = 0;</code>
      */
     public static final int MESSAGE_LOG_ACTION_UNSPECIFIED_VALUE = 0;
     /**
+     * <pre>
+     * The chat name was edited.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CHANGE_NAME = 1;</code>
      */
     public static final int MESSAGE_LOG_ACTION_CHANGE_NAME_VALUE = 1;
     /**
+     * <pre>
+     * The chat scope was reconfigured.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CHANGE_SCOPE = 2;</code>
      */
     public static final int MESSAGE_LOG_ACTION_CHANGE_SCOPE_VALUE = 2;
     /**
+     * <pre>
+     * The chat was closed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CLOSE = 3;</code>
      */
     public static final int MESSAGE_LOG_ACTION_CLOSE_VALUE = 3;
     /**
+     * <pre>
+     * The chat was closed automatically.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_AUTO_CLOSE = 4;</code>
      */
     public static final int MESSAGE_LOG_ACTION_AUTO_CLOSE_VALUE = 4;
     /**
+     * <pre>
+     * The chat was created.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CREATE = 5;</code>
      */
     public static final int MESSAGE_LOG_ACTION_CREATE_VALUE = 5;
     /**
+     * <pre>
+     * A manager was invited to the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INVITE = 6;</code>
      */
     public static final int MESSAGE_LOG_ACTION_INVITE_VALUE = 6;
     /**
+     * <pre>
+     * A manager joined the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_JOIN = 7;</code>
      */
     public static final int MESSAGE_LOG_ACTION_JOIN_VALUE = 7;
     /**
+     * <pre>
+     * The chat was assigned to a manager.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ASSIGN = 8;</code>
      */
     public static final int MESSAGE_LOG_ACTION_ASSIGN_VALUE = 8;
     /**
+     * <pre>
+     * The chat was assigned automatically.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_AUTO_ASSIGN = 9;</code>
      */
     public static final int MESSAGE_LOG_ACTION_AUTO_ASSIGN_VALUE = 9;
     /**
+     * <pre>
+     * The chat assignee was cleared.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UNASSIGN = 10;</code>
      */
     public static final int MESSAGE_LOG_ACTION_UNASSIGN_VALUE = 10;
     /**
+     * <pre>
+     * A manager left the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_LEAVE = 11;</code>
      */
     public static final int MESSAGE_LOG_ACTION_LEAVE_VALUE = 11;
     /**
+     * <pre>
+     * The chat was opened.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_OPEN = 12;</code>
      */
     public static final int MESSAGE_LOG_ACTION_OPEN_VALUE = 12;
     /**
+     * <pre>
+     * The chat was opened automatically.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_AUTO_OPEN = 13;</code>
      */
     public static final int MESSAGE_LOG_ACTION_AUTO_OPEN_VALUE = 13;
     /**
+     * <pre>
+     * The chat was placed in the assignment queue.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ENQUEUE = 14;</code>
      */
     public static final int MESSAGE_LOG_ACTION_ENQUEUE_VALUE = 14;
     /**
+     * <pre>
+     * The chat was missed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_MISS = 15;</code>
      */
     public static final int MESSAGE_LOG_ACTION_MISS_VALUE = 15;
     /**
+     * <pre>
+     * The chat was discarded.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_REMOVE = 16;</code>
      */
     public static final int MESSAGE_LOG_ACTION_REMOVE_VALUE = 16;
     /**
+     * <pre>
+     * The chat was snoozed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_SNOOZE = 17;</code>
      */
     public static final int MESSAGE_LOG_ACTION_SNOOZE_VALUE = 17;
     /**
+     * <pre>
+     * Tags were attached to the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ADD_TAGS = 18;</code>
      */
     public static final int MESSAGE_LOG_ACTION_ADD_TAGS_VALUE = 18;
     /**
+     * <pre>
+     * Tags were detached from the chat.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_REMOVE_TAGS = 19;</code>
      */
     public static final int MESSAGE_LOG_ACTION_REMOVE_TAGS_VALUE = 19;
     /**
+     * <pre>
+     * The chat was assigned to a team.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ASSIGN_TEAM = 20;</code>
      */
     public static final int MESSAGE_LOG_ACTION_ASSIGN_TEAM_VALUE = 20;
     /**
+     * <pre>
+     * The chat's team assignment was cleared.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UNASSIGN_TEAM = 21;</code>
      */
     public static final int MESSAGE_LOG_ACTION_UNASSIGN_TEAM_VALUE = 21;
     /**
+     * <pre>
+     * A participant joined the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_JOIN_MEET = 22;</code>
      */
     public static final int MESSAGE_LOG_ACTION_JOIN_MEET_VALUE = 22;
     /**
+     * <pre>
+     * A participant left the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_LEAVE_MEET = 23;</code>
      */
     public static final int MESSAGE_LOG_ACTION_LEAVE_MEET_VALUE = 23;
     /**
+     * <pre>
+     * A participant was invited to the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INVITE_MEET = 24;</code>
      */
     public static final int MESSAGE_LOG_ACTION_INVITE_MEET_VALUE = 24;
     /**
+     * <pre>
+     * The meet was missed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_MISS_MEET = 25;</code>
      */
     public static final int MESSAGE_LOG_ACTION_MISS_MEET_VALUE = 25;
     /**
+     * <pre>
+     * A callback was requested for the meet.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CALLBACK_MEET = 26;</code>
      */
     public static final int MESSAGE_LOG_ACTION_CALLBACK_MEET_VALUE = 26;
     /**
+     * <pre>
+     * An attempt was made to connect a call.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_TRY_CONNECT_CALL = 27;</code>
      */
     public static final int MESSAGE_LOG_ACTION_TRY_CONNECT_CALL_VALUE = 27;
     /**
+     * <pre>
+     * The chat was processed due to a miss.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_PROCESS_BY_MISS = 28;</code>
      */
     public static final int MESSAGE_LOG_ACTION_PROCESS_BY_MISS_VALUE = 28;
     /**
+     * <pre>
+     * A workflow branch was processed.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_PROCESS_BRANCH = 29;</code>
      */
     public static final int MESSAGE_LOG_ACTION_PROCESS_BRANCH_VALUE = 29;
     /**
+     * <pre>
+     * An SMS/LMS/MMS message was sent.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_SEND_XMS = 30;</code>
      */
     public static final int MESSAGE_LOG_ACTION_SEND_XMS_VALUE = 30;
     /**
+     * <pre>
+     * Tags were attached to the user.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_ADD_USER_TAGS = 31;</code>
      */
     public static final int MESSAGE_LOG_ACTION_ADD_USER_TAGS_VALUE = 31;
     /**
+     * <pre>
+     * Tags were detached from the user.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_REMOVE_USER_TAGS = 32;</code>
      */
     public static final int MESSAGE_LOG_ACTION_REMOVE_USER_TAGS_VALUE = 32;
     /**
+     * <pre>
+     * The chat priority was adjusted.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_UPDATE_PRIORITY = 33;</code>
      */
     public static final int MESSAGE_LOG_ACTION_UPDATE_PRIORITY_VALUE = 33;
     /**
+     * <pre>
+     * A workflow was started.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_START_WORKFLOW = 34;</code>
      */
     public static final int MESSAGE_LOG_ACTION_START_WORKFLOW_VALUE = 34;
     /**
+     * <pre>
+     * A workflow ended.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_END_WORKFLOW = 35;</code>
      */
     public static final int MESSAGE_LOG_ACTION_END_WORKFLOW_VALUE = 35;
     /**
+     * <pre>
+     * A workflow was interrupted.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW = 36;</code>
      */
     public static final int MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_VALUE = 36;
     /**
+     * <pre>
+     * A workflow was interrupted by a bot.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT = 37;</code>
      */
     public static final int MESSAGE_LOG_ACTION_INTERRUPT_WORKFLOW_BY_BOT_VALUE = 37;
     /**
+     * <pre>
+     * An attempt was made to open the chat with ALF (AI agent).
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF = 38;</code>
      */
     public static final int MESSAGE_LOG_ACTION_TRY_OPEN_WITH_ALF_VALUE = 38;
     /**
+     * <pre>
+     * A task was started.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_START_TASK = 39;</code>
      */
     public static final int MESSAGE_LOG_ACTION_START_TASK_VALUE = 39;
     /**
+     * <pre>
+     * Automation rules were applied.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_APPLY_RULES = 40;</code>
      */
     public static final int MESSAGE_LOG_ACTION_APPLY_RULES_VALUE = 40;
     /**
+     * <pre>
+     * ALF (AI agent) handling was canceled by the user.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER = 41;</code>
      */
     public static final int MESSAGE_LOG_ACTION_CANCEL_ALF_BY_USER_VALUE = 41;
     /**
+     * <pre>
+     * The call fell back to an alternative handler.
+     * </pre>
+     *
      * <code>MESSAGE_LOG_ACTION_FALLBACK_CALL = 42;</code>
      */
     public static final int MESSAGE_LOG_ACTION_FALLBACK_CALL_VALUE = 42;
@@ -693,7 +1037,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object triggerType_;
   /**
    * <pre>
-   * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+   * Entity type that triggered this action.
    * +kubebuilder:example="workflow"
    * </pre>
    *
@@ -715,7 +1059,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+   * Entity type that triggered this action.
    * +kubebuilder:example="workflow"
    * </pre>
    *
@@ -1407,7 +1751,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object triggerType_ = "";
     /**
      * <pre>
-     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+     * Entity type that triggered this action.
      * +kubebuilder:example="workflow"
      * </pre>
      *
@@ -1428,7 +1772,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+     * Entity type that triggered this action.
      * +kubebuilder:example="workflow"
      * </pre>
      *
@@ -1450,7 +1794,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+     * Entity type that triggered this action.
      * +kubebuilder:example="workflow"
      * </pre>
      *
@@ -1470,7 +1814,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+     * Entity type that triggered this action.
      * +kubebuilder:example="workflow"
      * </pre>
      *
@@ -1485,7 +1829,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Entity type that triggered this action (e.g. "workflow", "rule", "alf").
+     * Entity type that triggered this action.
      * +kubebuilder:example="workflow"
      * </pre>
      *
