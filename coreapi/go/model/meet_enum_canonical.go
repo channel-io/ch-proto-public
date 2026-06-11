@@ -49,4 +49,3 @@ func CallStateForString(value string) CallState {
 		return CallState_CALL_STATE_UNSPECIFIED
 	}
 }
-

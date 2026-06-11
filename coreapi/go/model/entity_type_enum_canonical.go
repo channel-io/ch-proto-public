@@ -61,4 +61,3 @@ func ChatTypeForString(value string) ChatType {
 		return ChatType_CHAT_TYPE_UNSPECIFIED
 	}
 }
-

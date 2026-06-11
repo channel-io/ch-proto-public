@@ -45,4 +45,3 @@ func TimeRange_DayOfWeekForString(value string) TimeRange_DayOfWeek {
 		return TimeRange_DAY_OF_WEEK_UNSPECIFIED
 	}
 }
-
