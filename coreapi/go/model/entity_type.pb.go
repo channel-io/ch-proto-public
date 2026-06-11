@@ -7,12 +7,11 @@
 package model
 
 import (
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
-
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -22,7 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Entity type of a person that can own sessions, presence, or messages.
+// Owner type for sessions, presence, or messages.
 type PersonType int32
 
 const (
@@ -30,7 +29,7 @@ const (
 	PersonType_PERSON_TYPE_UNSPECIFIED PersonType = 0
 	// Channel manager.
 	PersonType_PERSON_TYPE_MANAGER PersonType = 1
-	// End user or customer.
+	// User or customer.
 	PersonType_PERSON_TYPE_USER PersonType = 2
 	// Bot author or bot identity.
 	PersonType_PERSON_TYPE_BOT PersonType = 3
@@ -83,15 +82,15 @@ func (PersonType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_entity_type_proto_rawDescGZIP(), []int{0}
 }
 
-// Entity type of a chat conversation.
+// Chat type.
 type ChatType int32
 
 const (
 	// Unspecified or not set.
 	ChatType_CHAT_TYPE_UNSPECIFIED ChatType = 0
-	// User chat conversation.
+	// User chat.
 	ChatType_CHAT_TYPE_USER_CHAT ChatType = 1
-	// Team group chat.
+	// Team chat group.
 	ChatType_CHAT_TYPE_GROUP ChatType = 2
 	// Direct manager-to-manager chat.
 	ChatType_CHAT_TYPE_DIRECT_CHAT ChatType = 3

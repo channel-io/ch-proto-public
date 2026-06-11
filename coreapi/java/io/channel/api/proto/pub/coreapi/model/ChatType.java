@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Entity type of a chat conversation.
+ * Chat type.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.ChatType}
@@ -22,7 +22,7 @@ public enum ChatType
   CHAT_TYPE_UNSPECIFIED(0),
   /**
    * <pre>
-   * User chat conversation.
+   * User chat.
    * </pre>
    *
    * <code>CHAT_TYPE_USER_CHAT = 1;</code>
@@ -30,7 +30,7 @@ public enum ChatType
   CHAT_TYPE_USER_CHAT(1),
   /**
    * <pre>
-   * Team group chat.
+   * Team chat group.
    * </pre>
    *
    * <code>CHAT_TYPE_GROUP = 2;</code>
@@ -57,7 +57,7 @@ public enum ChatType
   public static final int CHAT_TYPE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * User chat conversation.
+   * User chat.
    * </pre>
    *
    * <code>CHAT_TYPE_USER_CHAT = 1;</code>
@@ -65,7 +65,7 @@ public enum ChatType
   public static final int CHAT_TYPE_USER_CHAT_VALUE = 1;
   /**
    * <pre>
-   * Team group chat.
+   * Team chat group.
    * </pre>
    *
    * <code>CHAT_TYPE_GROUP = 2;</code>

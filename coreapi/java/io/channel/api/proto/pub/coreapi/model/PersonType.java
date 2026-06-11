@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Entity type of a person that can own sessions, presence, or messages.
+ * Owner type for sessions, presence, or messages.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.PersonType}
@@ -30,7 +30,7 @@ public enum PersonType
   PERSON_TYPE_MANAGER(1),
   /**
    * <pre>
-   * End user or customer.
+   * User or customer.
    * </pre>
    *
    * <code>PERSON_TYPE_USER = 2;</code>
@@ -73,7 +73,7 @@ public enum PersonType
   public static final int PERSON_TYPE_MANAGER_VALUE = 1;
   /**
    * <pre>
-   * End user or customer.
+   * User or customer.
    * </pre>
    *
    * <code>PERSON_TYPE_USER = 2;</code>
