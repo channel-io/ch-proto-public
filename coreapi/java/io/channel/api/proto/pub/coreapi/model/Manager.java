@@ -191,19 +191,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 138: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (removedAt_ != null) {
-              subBuilder = removedAt_.toBuilder();
-            }
-            removedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(removedAt_);
-              removedAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           case 144: {
 
             displayAsChannel_ = input.readBool();
@@ -1155,47 +1142,6 @@ private static final long serialVersionUID = 0L;
     return getUpdatedAt();
   }
 
-  public static final int REMOVED_AT_FIELD_NUMBER = 17;
-  private com.google.protobuf.Timestamp removedAt_;
-  /**
-   * <pre>
-   * Timestamp when the manager was removed. Set only when `removed` is true.
-   * +kubebuilder:example="2024-03-28T08:57:32Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-   * @return Whether the removedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasRemovedAt() {
-    return removedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the manager was removed. Set only when `removed` is true.
-   * +kubebuilder:example="2024-03-28T08:57:32Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-   * @return The removedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getRemovedAt() {
-    return removedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the manager was removed. Set only when `removed` is true.
-   * +kubebuilder:example="2024-03-28T08:57:32Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder() {
-    return getRemovedAt();
-  }
-
   public static final int DISPLAY_AS_CHANNEL_FIELD_NUMBER = 18;
   private boolean displayAsChannel_;
   /**
@@ -2113,9 +2059,6 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != null) {
       output.writeMessage(16, getUpdatedAt());
     }
-    if (removedAt_ != null) {
-      output.writeMessage(17, getRemovedAt());
-    }
     if (displayAsChannel_ != false) {
       output.writeBool(18, displayAsChannel_);
     }
@@ -2279,10 +2222,6 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getUpdatedAt());
-    }
-    if (removedAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(17, getRemovedAt());
     }
     if (displayAsChannel_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -2464,11 +2403,6 @@ private static final long serialVersionUID = 0L;
       if (!getUpdatedAt()
           .equals(other.getUpdatedAt())) return false;
     }
-    if (hasRemovedAt() != other.hasRemovedAt()) return false;
-    if (hasRemovedAt()) {
-      if (!getRemovedAt()
-          .equals(other.getRemovedAt())) return false;
-    }
     if (getDisplayAsChannel()
         != other.getDisplayAsChannel()) return false;
     if (defaultGroupWatch_ != other.defaultGroupWatch_) return false;
@@ -2594,10 +2528,6 @@ private static final long serialVersionUID = 0L;
     if (hasUpdatedAt()) {
       hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedAt().hashCode();
-    }
-    if (hasRemovedAt()) {
-      hash = (37 * hash) + REMOVED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getRemovedAt().hashCode();
     }
     hash = (37 * hash) + DISPLAY_AS_CHANNEL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
@@ -2889,12 +2819,6 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
         updatedAtBuilder_ = null;
       }
-      if (removedAtBuilder_ == null) {
-        removedAt_ = null;
-      } else {
-        removedAt_ = null;
-        removedAtBuilder_ = null;
-      }
       displayAsChannel_ = false;
 
       defaultGroupWatch_ = 0;
@@ -3028,11 +2952,6 @@ private static final long serialVersionUID = 0L;
         result.updatedAt_ = updatedAt_;
       } else {
         result.updatedAt_ = updatedAtBuilder_.build();
-      }
-      if (removedAtBuilder_ == null) {
-        result.removedAt_ = removedAt_;
-      } else {
-        result.removedAt_ = removedAtBuilder_.build();
       }
       result.displayAsChannel_ = displayAsChannel_;
       result.defaultGroupWatch_ = defaultGroupWatch_;
@@ -3187,9 +3106,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUpdatedAt()) {
         mergeUpdatedAt(other.getUpdatedAt());
-      }
-      if (other.hasRemovedAt()) {
-        mergeRemovedAt(other.getRemovedAt());
       }
       if (other.getDisplayAsChannel() != false) {
         setDisplayAsChannel(other.getDisplayAsChannel());
@@ -5058,170 +4974,6 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
       }
       return updatedAtBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp removedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> removedAtBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     * @return Whether the removedAt field is set.
-     */
-    public boolean hasRemovedAt() {
-      return removedAtBuilder_ != null || removedAt_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     * @return The removedAt.
-     */
-    public com.google.protobuf.Timestamp getRemovedAt() {
-      if (removedAtBuilder_ == null) {
-        return removedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
-      } else {
-        return removedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     */
-    public Builder setRemovedAt(com.google.protobuf.Timestamp value) {
-      if (removedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        removedAt_ = value;
-        onChanged();
-      } else {
-        removedAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     */
-    public Builder setRemovedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (removedAtBuilder_ == null) {
-        removedAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        removedAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     */
-    public Builder mergeRemovedAt(com.google.protobuf.Timestamp value) {
-      if (removedAtBuilder_ == null) {
-        if (removedAt_ != null) {
-          removedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(removedAt_).mergeFrom(value).buildPartial();
-        } else {
-          removedAt_ = value;
-        }
-        onChanged();
-      } else {
-        removedAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     */
-    public Builder clearRemovedAt() {
-      if (removedAtBuilder_ == null) {
-        removedAt_ = null;
-        onChanged();
-      } else {
-        removedAt_ = null;
-        removedAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getRemovedAtBuilder() {
-      
-      onChanged();
-      return getRemovedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder() {
-      if (removedAtBuilder_ != null) {
-        return removedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return removedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the manager was removed. Set only when `removed` is true.
-     * +kubebuilder:example="2024-03-28T08:57:32Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getRemovedAtFieldBuilder() {
-      if (removedAtBuilder_ == null) {
-        removedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getRemovedAt(),
-                getParentForChildren(),
-                isClean());
-        removedAt_ = null;
-      }
-      return removedAtBuilder_;
     }
 
     private boolean displayAsChannel_ ;
@@ -8052,29 +7804,6 @@ private static final long serialVersionUID = 0L;
     		return clearUpdatedAt();
     	else
     		return setUpdatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The removed_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearRemovedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearRemovedAt();
-    	else
-    		return setRemovedAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearRemovedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearRemovedAt();
-    	else
-    		return setRemovedAt(mapFunc.apply(value));
     }
     	
     /**

@@ -121,11 +121,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 64: {
-
-            version_ = input.readInt64();
-            break;
-          }
           case 74: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               nameI18NMap_ = com.google.protobuf.MapField.newMapField(
@@ -513,23 +508,6 @@ private static final long serialVersionUID = 0L;
     return getExpireAt();
   }
 
-  public static final int VERSION_FIELD_NUMBER = 8;
-  private long version_;
-  /**
-   * <pre>
-   * Optimistic concurrency version counter.
-   * Incremented on each update to detect conflicting writes.
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 8 [json_name = "version"];</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
-  }
-
   public static final int NAME_I18N_MAP_FIELD_NUMBER = 9;
   private static final class NameI18NMapDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -670,9 +648,6 @@ private static final long serialVersionUID = 0L;
     if (expireAt_ != null) {
       output.writeMessage(7, getExpireAt());
     }
-    if (version_ != 0L) {
-      output.writeInt64(8, version_);
-    }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
@@ -711,10 +686,6 @@ private static final long serialVersionUID = 0L;
     if (expireAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getExpireAt());
-    }
-    if (version_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(8, version_);
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
          : internalGetNameI18NMap().getMap().entrySet()) {
@@ -764,8 +735,6 @@ private static final long serialVersionUID = 0L;
       if (!getExpireAt()
           .equals(other.getExpireAt())) return false;
     }
-    if (getVersion()
-        != other.getVersion()) return false;
     if (!internalGetNameI18NMap().equals(
         other.internalGetNameI18NMap())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -799,9 +768,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXPIRE_AT_FIELD_NUMBER;
       hash = (53 * hash) + getExpireAt().hashCode();
     }
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
     if (!internalGetNameI18NMap().getMap().isEmpty()) {
       hash = (37 * hash) + NAME_I18N_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetNameI18NMap().hashCode();
@@ -992,8 +958,6 @@ private static final long serialVersionUID = 0L;
         expireAt_ = null;
         expireAtBuilder_ = null;
       }
-      version_ = 0L;
-
       internalGetMutableNameI18NMap().clear();
       return this;
     }
@@ -1041,7 +1005,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.expireAt_ = expireAtBuilder_.build();
       }
-      result.version_ = version_;
       result.nameI18NMap_ = internalGetNameI18NMap();
       result.nameI18NMap_.makeImmutable();
       onBuilt();
@@ -1116,9 +1079,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasExpireAt()) {
         mergeExpireAt(other.getExpireAt());
-      }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
       }
       internalGetMutableNameI18NMap().mergeFrom(
           other.internalGetNameI18NMap());
@@ -2087,55 +2047,6 @@ private static final long serialVersionUID = 0L;
       return expireAtBuilder_;
     }
 
-    private long version_ ;
-    /**
-     * <pre>
-     * Optimistic concurrency version counter.
-     * Incremented on each update to detect conflicting writes.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 8 [json_name = "version"];</code>
-     * @return The version.
-     */
-    @java.lang.Override
-    public long getVersion() {
-      return version_;
-    }
-    /**
-     * <pre>
-     * Optimistic concurrency version counter.
-     * Incremented on each update to detect conflicting writes.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 8 [json_name = "version"];</code>
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersion(long value) {
-      
-      version_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optimistic concurrency version counter.
-     * Incremented on each update to detect conflicting writes.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 8 [json_name = "version"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVersion() {
-      
-      version_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> nameI18NMap_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2482,29 +2393,6 @@ private static final long serialVersionUID = 0L;
     		return clearExpireAt();
     	else
     		return setExpireAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearVersion(java.lang.Long value) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(mapFunc.apply(value));
     }
     	
     /**

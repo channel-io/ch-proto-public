@@ -67,11 +67,6 @@ type ManagerBadge struct {
 	//
 	// +kubebuilder:example="2024-03-29T03:28:35Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Optimistic locking version.
-	// Incremented on every update.
-	//
-	// +kubebuilder:example="1"
-	Version int64 `protobuf:"varint,9,opt,name=version,proto3" json:"version,omitempty"`
 	// Manager ID this badge belongs to.
 	// Same value as the badge id.
 	//
@@ -177,13 +172,6 @@ func (x *ManagerBadge) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *ManagerBadge) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
-}
-
 func (x *ManagerBadge) GetManagerId() string {
 	if x != nil {
 		return x.ManagerId
@@ -209,7 +197,7 @@ var File_coreapi_model_manager_badge_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_badge_proto_rawDesc = "" +
 	"\n" +
-	"!coreapi/model/manager_badge.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd8\x03\n" +
+	"!coreapi/model/manager_badge.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcd\x03\n" +
 	"\fManagerBadge\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12&\n" +
 	"\x0fteam_chat_alert\x18\x02 \x01(\x05R\rteamChatAlert\x12(\n" +
@@ -219,13 +207,13 @@ const file_coreapi_model_manager_badge_proto_rawDesc = "" +
 	"\x16team_chat_thread_alert\x18\x06 \x01(\x05R\x13teamChatThreadAlert\x125\n" +
 	"\x17team_chat_thread_unread\x18\a \x01(\x05R\x14teamChatThreadUnread\x129\n" +
 	"\n" +
-	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x18\n" +
-	"\aversion\x18\t \x01(\x03R\aversion\x12\x1d\n" +
+	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
 	"\n" +
 	"manager_id\x18\n" +
 	" \x01(\tR\tmanagerId\x12\x14\n" +
 	"\x05alert\x18\v \x01(\x05R\x05alert\x12\x16\n" +
-	"\x06unread\x18\f \x01(\x05R\x06unreadBb\n" +
+	"\x06unread\x18\f \x01(\x05R\x06unreadJ\x04\b\t\x10\n" +
+	"R\aversionBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

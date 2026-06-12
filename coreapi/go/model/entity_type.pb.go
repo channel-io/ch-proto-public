@@ -21,19 +21,19 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Owner type for sessions, presence, or messages.
+// Entity type used with a personType/personId pair.
 type PersonType int32
 
 const (
 	// Unspecified or not set.
 	PersonType_PERSON_TYPE_UNSPECIFIED PersonType = 0
-	// Channel manager.
+	// Manager in the channel.
 	PersonType_PERSON_TYPE_MANAGER PersonType = 1
-	// User or customer.
+	// User in the channel.
 	PersonType_PERSON_TYPE_USER PersonType = 2
-	// Bot author or bot identity.
+	// Bot in the channel.
 	PersonType_PERSON_TYPE_BOT PersonType = 3
-	// Channel account owner or account-level identity.
+	// Channel account identity.
 	PersonType_PERSON_TYPE_ACCOUNT PersonType = 4
 )
 
@@ -82,7 +82,7 @@ func (PersonType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_entity_type_proto_rawDescGZIP(), []int{0}
 }
 
-// Chat type.
+// Chat conversation type.
 type ChatType int32
 
 const (

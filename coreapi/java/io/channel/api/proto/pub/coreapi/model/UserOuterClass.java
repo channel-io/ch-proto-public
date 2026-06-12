@@ -41,7 +41,7 @@ public final class UserOuterClass {
       "\n\030coreapi/model/user.proto\022\rcoreapi.mode" +
       "l\032\033buf/validate/validate.proto\032\034google/p" +
       "rotobuf/struct.proto\032\037google/protobuf/ti" +
-      "mestamp.proto\"\260\017\n\004User\022\026\n\002id\030\001 \001(\tB\006\272H\003\310" +
+      "mestamp.proto\"\245\017\n\004User\022\026\n\002id\030\001 \001(\tB\006\272H\003\310" +
       "\001\001R\002id\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchan" +
       "nelId\022\033\n\tmember_id\030\003 \001(\tR\010memberId\022\027\n\007ve" +
       "il_id\030\004 \001(\tR\006veilId\022\035\n\nunified_id\030\005 \001(\tR" +
@@ -55,61 +55,61 @@ public final class UserOuterClass {
       "_at\030\016 \001(\0132\032.google.protobuf.TimestampB\006\272" +
       "H\003\310\001\001R\tcreatedAt\022A\n\nupdated_at\030\017 \001(\0132\032.g" +
       "oogle.protobuf.TimestampB\006\272H\003\310\001\001R\tupdate" +
-      "dAt\022\030\n\007version\030\020 \001(\003R\007version\0221\n\007profile" +
-      "\030\021 \001(\0132\027.google.protobuf.StructR\007profile" +
-      "\022\022\n\004tags\030\022 \003(\tR\004tags\022\032\n\010language\030\023 \001(\tR\010" +
-      "language\0223\n\021unsubscribe_email\030\024 \001(\010B\006\272H\003" +
-      "\310\001\001R\020unsubscribeEmail\022[\n\034unsubscribe_ema" +
-      "il_updated_at\030\025 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\031unsubscribeEmailUpdatedAt\0227\n\023un" +
-      "subscribe_texting\030\026 \001(\010B\006\272H\003\310\001\001R\022unsubsc" +
-      "ribeTexting\022_\n\036unsubscribe_texting_updat" +
-      "ed_at\030\027 \001(\0132\032.google.protobuf.TimestampR" +
-      "\033unsubscribeTextingUpdatedAt\0220\n\024unsubscr" +
-      "ibe_app_push\030\030 \001(\010R\022unsubscribeAppPush\022`" +
-      "\n\037unsubscribe_app_push_updated_at\030\031 \001(\0132" +
-      "\032.google.protobuf.TimestampR\033unsubscribe" +
-      "AppPushUpdatedAt\022\035\n\navatar_url\030\032 \001(\tR\tav" +
-      "atarUrl\022\034\n\005named\030\033 \001(\010B\006\272H\003\310\001\001R\005named\022\'\n" +
-      "\017system_language\030\034 \001(\tR\016systemLanguage\022>" +
-      "\n\027mobile_number_qualified\030\035 \001(\010B\006\272H\003\310\001\001R" +
-      "\025mobileNumberQualified\022/\n\017email_qualifie" +
-      "d\030\036 \001(\010B\006\272H\003\310\001\001R\016emailQualified\022\022\n\004name\030" +
-      "\037 \001(\tR\004name\022!\n\010has_chat\030  \001(\010B\006\272H\003\310\001\001R\007h" +
-      "asChat\022,\n\016has_push_token\030! \001(\010B\006\272H\003\310\001\001R\014" +
-      "hasPushToken\022\032\n\010province\030\" \001(\tR\010province" +
-      "\022\022\n\004city\030# \001(\tR\004city\022\032\n\010latitude\030$ \001(\001R\010" +
-      "latitude\022\034\n\tlongitude\030% \001(\001R\tlongitude\022(" +
-      "\n\003web\030& \001(\0132\026.coreapi.model.WebInfoR\003web" +
-      "\0221\n\006mobile\030\' \001(\0132\031.coreapi.model.MobileI" +
-      "nfoR\006mobile\022%\n\016sessions_count\030( \001(\005R\rses" +
-      "sionsCount\022<\n\014last_seen_at\030) \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\nlastSeenAt\022 \n\007bloc" +
-      "ked\030* \001(\010B\006\272H\003\310\001\001R\007blocked\022\037\n\013blocked_ke" +
-      "y\030+ \001(\tR\nblockedKey\022\037\n\013managed_key\030, \001(\003" +
-      "R\nmanagedKey\022\036\n\006member\030- \001(\010B\006\272H\003\310\001\001R\006me" +
-      "mber\022\024\n\005email\030. \001(\tR\005email\022#\n\rmobile_num" +
-      "ber\030/ \001(\tR\014mobileNumber\022\'\n\017landline_numb" +
-      "er\0300 \001(\tR\016landlineNumber\"\354\001\n\007WebInfo\022\026\n\006" +
-      "device\030\001 \001(\tR\006device\022\016\n\002os\030\002 \001(\tR\002os\022\027\n\007" +
-      "os_name\030\003 \001(\tR\006osName\022\030\n\007browser\030\004 \001(\tR\007" +
-      "browser\022!\n\014browser_name\030\005 \001(\tR\013browserNa" +
-      "me\022%\n\016sessions_count\030\006 \001(\005R\rsessionsCoun" +
-      "t\022<\n\014last_seen_at\030\007 \001(\0132\032.google.protobu" +
-      "f.TimestampR\nlastSeenAt\"\252\002\n\nMobileInfo\022\026" +
-      "\n\006device\030\001 \001(\tR\006device\022\016\n\002os\030\002 \001(\tR\002os\022\027" +
-      "\n\007os_name\030\003 \001(\tR\006osName\022\031\n\010app_name\030\004 \001(" +
-      "\tR\007appName\022\037\n\013app_version\030\005 \001(\tR\nappVers" +
-      "ion\022\031\n\010sdk_name\030\006 \001(\tR\007sdkName\022\037\n\013sdk_ve" +
-      "rsion\030\007 \001(\tR\nsdkVersion\022%\n\016sessions_coun" +
-      "t\030\010 \001(\005R\rsessionsCount\022<\n\014last_seen_at\030\t" +
-      " \001(\0132\032.google.protobuf.TimestampR\nlastSe" +
-      "enAt*f\n\010UserType\022\031\n\025USER_TYPE_UNSPECIFIE" +
-      "D\020\000\022\024\n\020USER_TYPE_MEMBER\020\001\022\022\n\016USER_TYPE_L" +
-      "EAD\020\002\022\025\n\021USER_TYPE_UNIFIED\020\003Bb\n&io.chann" +
-      "el.api.proto.pub.coreapi.modelP\001Z6github" +
-      ".com/channel-io/ch-proto-public/coreapi/" +
-      "go/modelb\006proto3"
+      "dAt\0221\n\007profile\030\021 \001(\0132\027.google.protobuf.S" +
+      "tructR\007profile\022\022\n\004tags\030\022 \003(\tR\004tags\022\032\n\010la" +
+      "nguage\030\023 \001(\tR\010language\0223\n\021unsubscribe_em" +
+      "ail\030\024 \001(\010B\006\272H\003\310\001\001R\020unsubscribeEmail\022[\n\034u" +
+      "nsubscribe_email_updated_at\030\025 \001(\0132\032.goog" +
+      "le.protobuf.TimestampR\031unsubscribeEmailU" +
+      "pdatedAt\0227\n\023unsubscribe_texting\030\026 \001(\010B\006\272" +
+      "H\003\310\001\001R\022unsubscribeTexting\022_\n\036unsubscribe" +
+      "_texting_updated_at\030\027 \001(\0132\032.google.proto" +
+      "buf.TimestampR\033unsubscribeTextingUpdated" +
+      "At\0220\n\024unsubscribe_app_push\030\030 \001(\010R\022unsubs" +
+      "cribeAppPush\022`\n\037unsubscribe_app_push_upd" +
+      "ated_at\030\031 \001(\0132\032.google.protobuf.Timestam" +
+      "pR\033unsubscribeAppPushUpdatedAt\022\035\n\navatar" +
+      "_url\030\032 \001(\tR\tavatarUrl\022\034\n\005named\030\033 \001(\010B\006\272H" +
+      "\003\310\001\001R\005named\022\'\n\017system_language\030\034 \001(\tR\016sy" +
+      "stemLanguage\022>\n\027mobile_number_qualified\030" +
+      "\035 \001(\010B\006\272H\003\310\001\001R\025mobileNumberQualified\022/\n\017" +
+      "email_qualified\030\036 \001(\010B\006\272H\003\310\001\001R\016emailQual" +
+      "ified\022\022\n\004name\030\037 \001(\tR\004name\022!\n\010has_chat\030  " +
+      "\001(\010B\006\272H\003\310\001\001R\007hasChat\022,\n\016has_push_token\030!" +
+      " \001(\010B\006\272H\003\310\001\001R\014hasPushToken\022\032\n\010province\030\"" +
+      " \001(\tR\010province\022\022\n\004city\030# \001(\tR\004city\022\032\n\010la" +
+      "titude\030$ \001(\001R\010latitude\022\034\n\tlongitude\030% \001(" +
+      "\001R\tlongitude\022(\n\003web\030& \001(\0132\026.coreapi.mode" +
+      "l.WebInfoR\003web\0221\n\006mobile\030\' \001(\0132\031.coreapi" +
+      ".model.MobileInfoR\006mobile\022%\n\016sessions_co" +
+      "unt\030( \001(\005R\rsessionsCount\022<\n\014last_seen_at" +
+      "\030) \001(\0132\032.google.protobuf.TimestampR\nlast" +
+      "SeenAt\022 \n\007blocked\030* \001(\010B\006\272H\003\310\001\001R\007blocked" +
+      "\022\037\n\013blocked_key\030+ \001(\tR\nblockedKey\022\037\n\013man" +
+      "aged_key\030, \001(\003R\nmanagedKey\022\036\n\006member\030- \001" +
+      "(\010B\006\272H\003\310\001\001R\006member\022\024\n\005email\030. \001(\tR\005email" +
+      "\022#\n\rmobile_number\030/ \001(\tR\014mobileNumber\022\'\n" +
+      "\017landline_number\0300 \001(\tR\016landlineNumberJ\004" +
+      "\010\020\020\021R\007version\"\354\001\n\007WebInfo\022\026\n\006device\030\001 \001(" +
+      "\tR\006device\022\016\n\002os\030\002 \001(\tR\002os\022\027\n\007os_name\030\003 \001" +
+      "(\tR\006osName\022\030\n\007browser\030\004 \001(\tR\007browser\022!\n\014" +
+      "browser_name\030\005 \001(\tR\013browserName\022%\n\016sessi" +
+      "ons_count\030\006 \001(\005R\rsessionsCount\022<\n\014last_s" +
+      "een_at\030\007 \001(\0132\032.google.protobuf.Timestamp" +
+      "R\nlastSeenAt\"\252\002\n\nMobileInfo\022\026\n\006device\030\001 " +
+      "\001(\tR\006device\022\016\n\002os\030\002 \001(\tR\002os\022\027\n\007os_name\030\003" +
+      " \001(\tR\006osName\022\031\n\010app_name\030\004 \001(\tR\007appName\022" +
+      "\037\n\013app_version\030\005 \001(\tR\nappVersion\022\031\n\010sdk_" +
+      "name\030\006 \001(\tR\007sdkName\022\037\n\013sdk_version\030\007 \001(\t" +
+      "R\nsdkVersion\022%\n\016sessions_count\030\010 \001(\005R\rse" +
+      "ssionsCount\022<\n\014last_seen_at\030\t \001(\0132\032.goog" +
+      "le.protobuf.TimestampR\nlastSeenAt*f\n\010Use" +
+      "rType\022\031\n\025USER_TYPE_UNSPECIFIED\020\000\022\024\n\020USER" +
+      "_TYPE_MEMBER\020\001\022\022\n\016USER_TYPE_LEAD\020\002\022\025\n\021US" +
+      "ER_TYPE_UNIFIED\020\003Bb\n&io.channel.api.prot" +
+      "o.pub.coreapi.modelP\001Z6github.com/channe" +
+      "l-io/ch-proto-public/coreapi/go/modelb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -123,7 +123,7 @@ public final class UserOuterClass {
     internal_static_coreapi_model_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_User_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "MemberId", "VeilId", "UnifiedId", "Type", "UserImportTags", "Alert", "Unread", "PopUpChatId", "MainChatId", "Country", "TimeZone", "CreatedAt", "UpdatedAt", "Version", "Profile", "Tags", "Language", "UnsubscribeEmail", "UnsubscribeEmailUpdatedAt", "UnsubscribeTexting", "UnsubscribeTextingUpdatedAt", "UnsubscribeAppPush", "UnsubscribeAppPushUpdatedAt", "AvatarUrl", "Named", "SystemLanguage", "MobileNumberQualified", "EmailQualified", "Name", "HasChat", "HasPushToken", "Province", "City", "Latitude", "Longitude", "Web", "Mobile", "SessionsCount", "LastSeenAt", "Blocked", "BlockedKey", "ManagedKey", "Member", "Email", "MobileNumber", "LandlineNumber", });
+        new java.lang.String[] { "Id", "ChannelId", "MemberId", "VeilId", "UnifiedId", "Type", "UserImportTags", "Alert", "Unread", "PopUpChatId", "MainChatId", "Country", "TimeZone", "CreatedAt", "UpdatedAt", "Profile", "Tags", "Language", "UnsubscribeEmail", "UnsubscribeEmailUpdatedAt", "UnsubscribeTexting", "UnsubscribeTextingUpdatedAt", "UnsubscribeAppPush", "UnsubscribeAppPushUpdatedAt", "AvatarUrl", "Named", "SystemLanguage", "MobileNumberQualified", "EmailQualified", "Name", "HasChat", "HasPushToken", "Province", "City", "Latitude", "Longitude", "Web", "Mobile", "SessionsCount", "LastSeenAt", "Blocked", "BlockedKey", "ManagedKey", "Member", "Email", "MobileNumber", "LandlineNumber", });
     internal_static_coreapi_model_WebInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_coreapi_model_WebInfo_fieldAccessorTable = new

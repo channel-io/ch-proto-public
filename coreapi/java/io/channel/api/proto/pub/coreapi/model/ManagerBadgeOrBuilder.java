@@ -137,18 +137,6 @@ public interface ManagerBadgeOrBuilder extends
 
   /**
    * <pre>
-   * Optimistic locking version.
-   * Incremented on every update.
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 9 [json_name = "version"];</code>
-   * @return The version.
-   */
-  long getVersion();
-
-  /**
-   * <pre>
    * Manager ID this badge belongs to.
    * Same value as the badge id.
    * +kubebuilder:example="9187"

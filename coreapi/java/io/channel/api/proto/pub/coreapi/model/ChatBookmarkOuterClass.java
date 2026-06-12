@@ -30,7 +30,7 @@ public final class ChatBookmarkOuterClass {
     java.lang.String[] descriptorData = {
       "\n!coreapi/model/chat_bookmark.proto\022\rcor" +
       "eapi.model\032\033buf/validate/validate.proto\032" +
-      "\037coreapi/model/entity_type.proto\"\342\005\n\014Cha" +
+      "\037coreapi/model/entity_type.proto\"\327\005\n\014Cha" +
       "tBookmark\022_\n\003key\030\001 \001(\tBM\272HJ\272\001D\n\rstring.m" +
       "inLen\022\"value must be at least 1 characte" +
       "r\032\017size(this) >= 1\310\001\001R\003key\022f\n\007chat_id\030\002 " +
@@ -42,17 +42,16 @@ public final class ChatBookmarkOuterClass {
       "bookmark_key\030\004 \001(\tBM\272HJ\272\001D\n\rstring.minLe" +
       "n\022\"value must be at least 1 character\032\017s" +
       "ize(this) >= 1\310\001\001R\013bookmarkKey\022%\n\nchanne" +
-      "l_id\030\005 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\030\n\007version" +
-      "\030\006 \001(\003R\007version\022B\n\013person_type\030\007 \001(\0162\031.c" +
-      "oreapi.model.PersonTypeB\006\272H\003\310\001\001R\npersonT" +
-      "ype\022j\n\tperson_id\030\010 \001(\tBM\272HJ\272\001D\n\rstring.m" +
-      "inLen\022\"value must be at least 1 characte" +
-      "r\032\017size(this) >= 1\310\001\001R\010personId\022<\n\tchat_" +
-      "type\030\t \001(\0162\027.coreapi.model.ChatTypeB\006\272H\003" +
-      "\310\001\001R\010chatTypeBb\n&io.channel.api.proto.pu" +
-      "b.coreapi.modelP\001Z6github.com/channel-io" +
-      "/ch-proto-public/coreapi/go/modelb\006proto" +
-      "3"
+      "l_id\030\005 \001(\tB\006\272H\003\310\001\001R\tchannelId\022B\n\013person_" +
+      "type\030\007 \001(\0162\031.coreapi.model.PersonTypeB\006\272" +
+      "H\003\310\001\001R\npersonType\022j\n\tperson_id\030\010 \001(\tBM\272H" +
+      "J\272\001D\n\rstring.minLen\022\"value must be at le" +
+      "ast 1 character\032\017size(this) >= 1\310\001\001R\010per" +
+      "sonId\022<\n\tchat_type\030\t \001(\0162\027.coreapi.model" +
+      ".ChatTypeB\006\272H\003\310\001\001R\010chatTypeJ\004\010\006\020\007R\007versi" +
+      "onBb\n&io.channel.api.proto.pub.coreapi.m" +
+      "odelP\001Z6github.com/channel-io/ch-proto-p" +
+      "ublic/coreapi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -65,7 +64,7 @@ public final class ChatBookmarkOuterClass {
     internal_static_coreapi_model_ChatBookmark_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_ChatBookmark_descriptor,
-        new java.lang.String[] { "Key", "ChatId", "ChatKey", "BookmarkKey", "ChannelId", "Version", "PersonType", "PersonId", "ChatType", });
+        new java.lang.String[] { "Key", "ChatId", "ChatKey", "BookmarkKey", "ChannelId", "PersonType", "PersonId", "ChatType", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

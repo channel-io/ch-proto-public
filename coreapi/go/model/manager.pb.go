@@ -307,10 +307,6 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2024-03-28T08:57:32Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Timestamp when the manager was removed. Set only when `removed` is true.
-	//
-	// +kubebuilder:example="2024-03-28T08:57:32Z"
-	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
 	// Whether this manager appears as the channel identity instead of their personal profile.
 	//
 	// +kubebuilder:validation:Required
@@ -596,13 +592,6 @@ func (x *Manager) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Manager) GetRemovedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.RemovedAt
-	}
-	return nil
-}
-
 func (x *Manager) GetDisplayAsChannel() bool {
 	if x != nil {
 		return x.DisplayAsChannel
@@ -824,7 +813,7 @@ var File_coreapi_model_manager_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xde\x19\n" +
+	"\x1bcoreapi/model/manager.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1dcoreapi/model/name_desc.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb5\x19\n" +
 	"\aManager\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -849,9 +838,7 @@ const file_coreapi_model_manager_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x129\n" +
-	"\n" +
-	"removed_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAt\x124\n" +
+	"updated_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x124\n" +
 	"\x12display_as_channel\x18\x12 \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x10displayAsChannel\x12K\n" +
 	"\x13default_group_watch\x18\x13 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x11defaultGroupWatch\x12V\n" +
 	"\x19default_direct_chat_watch\x18\x14 \x01(\x0e2\x1b.coreapi.model.SessionWatchR\x16defaultDirectChatWatch\x12R\n" +
@@ -890,7 +877,8 @@ const file_coreapi_model_manager_proto_rawDesc = "" +
 	"avatar_url\x180 \x01(\tR\tavatarUrl\x1a[\n" +
 	"\x14NameDescI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12-\n" +
-	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01*t\n" +
+	"\x05value\x18\x02 \x01(\v2\x17.coreapi.model.NameDescR\x05value:\x028\x01J\x04\b\x11\x10\x12R\n" +
+	"removed_at*t\n" +
 	"\fSessionWatch\x12\x1d\n" +
 	"\x19SESSION_WATCH_UNSPECIFIED\x10\x00\x12\x15\n" +
 	"\x11SESSION_WATCH_ALL\x10\x01\x12\x16\n" +
@@ -944,22 +932,21 @@ var file_coreapi_model_manager_proto_depIdxs = []int32{
 	5,  // 1: coreapi.model.Manager.profile:type_name -> google.protobuf.Struct
 	6,  // 2: coreapi.model.Manager.created_at:type_name -> google.protobuf.Timestamp
 	6,  // 3: coreapi.model.Manager.updated_at:type_name -> google.protobuf.Timestamp
-	6,  // 4: coreapi.model.Manager.removed_at:type_name -> google.protobuf.Timestamp
-	0,  // 5: coreapi.model.Manager.default_group_watch:type_name -> coreapi.model.SessionWatch
-	0,  // 6: coreapi.model.Manager.default_direct_chat_watch:type_name -> coreapi.model.SessionWatch
-	0,  // 7: coreapi.model.Manager.default_user_chat_watch:type_name -> coreapi.model.SessionWatch
-	1,  // 8: coreapi.model.Manager.chat_alert_sound:type_name -> coreapi.model.ChatAlertSound
-	2,  // 9: coreapi.model.Manager.meet_alert_sound:type_name -> coreapi.model.MeetAlertSound
-	6,  // 10: coreapi.model.Manager.status_clear_at:type_name -> google.protobuf.Timestamp
-	6,  // 11: coreapi.model.Manager.do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
-	6,  // 12: coreapi.model.Manager.account_do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
-	6,  // 13: coreapi.model.Manager.operator_updated_at:type_name -> google.protobuf.Timestamp
-	7,  // 14: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	0,  // 4: coreapi.model.Manager.default_group_watch:type_name -> coreapi.model.SessionWatch
+	0,  // 5: coreapi.model.Manager.default_direct_chat_watch:type_name -> coreapi.model.SessionWatch
+	0,  // 6: coreapi.model.Manager.default_user_chat_watch:type_name -> coreapi.model.SessionWatch
+	1,  // 7: coreapi.model.Manager.chat_alert_sound:type_name -> coreapi.model.ChatAlertSound
+	2,  // 8: coreapi.model.Manager.meet_alert_sound:type_name -> coreapi.model.MeetAlertSound
+	6,  // 9: coreapi.model.Manager.status_clear_at:type_name -> google.protobuf.Timestamp
+	6,  // 10: coreapi.model.Manager.do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
+	6,  // 11: coreapi.model.Manager.account_do_not_disturb_clear_at:type_name -> google.protobuf.Timestamp
+	6,  // 12: coreapi.model.Manager.operator_updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 13: coreapi.model.Manager.NameDescI18nMapEntry.value:type_name -> coreapi.model.NameDesc
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_manager_proto_init() }

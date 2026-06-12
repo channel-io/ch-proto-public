@@ -398,18 +398,6 @@ public interface ChatSessionOrBuilder extends
 
   /**
    * <pre>
-   * Optimistic locking version.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
-   * @return The version.
-   */
-  long getVersion();
-
-  /**
-   * <pre>
    * Unique session identifier.
    * Format: "{key}-{chatId}".
    * +kubebuilder:validation:Required

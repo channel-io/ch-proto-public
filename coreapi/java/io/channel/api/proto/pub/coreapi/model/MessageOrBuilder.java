@@ -386,18 +386,6 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Optimistic locking version.
-   * Incremented on every update.
-   * +kubebuilder:example=1
-   * </pre>
-   *
-   * <code>int64 version = 16 [json_name = "version"];</code>
-   * @return The version.
-   */
-  long getVersion();
-
-  /**
-   * <pre>
    * Structured content blocks composing the message body.
    * Contains rich text, images, code snippets, and other block-level elements.
    * </pre>

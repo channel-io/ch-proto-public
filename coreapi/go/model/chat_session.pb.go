@@ -106,11 +106,6 @@ type ChatSession struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Optimistic locking version.
-	//
-	// +kubebuilder:validation:Required
-	// +kubebuilder:example="1"
-	Version int64 `protobuf:"varint,17,opt,name=version,proto3" json:"version,omitempty"`
 	// Unique session identifier.
 	// Format: "{key}-{chatId}".
 	//
@@ -277,13 +272,6 @@ func (x *ChatSession) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *ChatSession) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
-}
-
 func (x *ChatSession) GetId() string {
 	if x != nil {
 		return x.Id
@@ -316,7 +304,7 @@ var File_coreapi_model_chat_session_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\n" +
+	" coreapi/model/chat_session.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a\x1bcoreapi/model/manager.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\n" +
 	"\n" +
 	"\vChatSession\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
@@ -345,14 +333,13 @@ const file_coreapi_model_chat_session_proto_rawDesc = "" +
 	"\n" +
 	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12A\n" +
 	"\n" +
-	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12 \n" +
-	"\aversion\x18\x11 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\aversion\x12\x16\n" +
+	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x16\n" +
 	"\x02id\x18\x12 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12<\n" +
 	"\tchat_type\x18\x13 \x01(\x0e2\x17.coreapi.model.ChatTypeB\x06\xbaH\x03\xc8\x01\x01R\bchatType\x12B\n" +
 	"\vperson_type\x18\x14 \x01(\x0e2\x19.coreapi.model.PersonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"personType\x12j\n" +
 	"\tperson_id\x18\x15 \x01(\tBM\xbaHJ\xba\x01D\n" +
-	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonIdBb\n" +
+	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonIdJ\x04\b\x11\x10\x12R\aversionBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

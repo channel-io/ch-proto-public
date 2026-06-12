@@ -597,12 +597,7 @@ type UserChat struct {
 	// Timestamp when the chat is scheduled to automatically expire and close.
 	//
 	// +kubebuilder:example="2024-04-12T00:00:00Z"
-	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
-	// Optimistic locking version incremented on every update.
-	// Supply the current value when updating to prevent overwriting concurrent changes.
-	//
-	// +kubebuilder:example="15"
-	Version       int64 `protobuf:"varint,56,opt,name=version,proto3" json:"version,omitempty"`
+	ExpiresAt     *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1022,18 +1017,11 @@ func (x *UserChat) GetExpiresAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *UserChat) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
-}
-
 var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaf\x16\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x16\n" +
 	"\bUserChat\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -1101,8 +1089,7 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
 	"snoozed_at\x186 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
 	"\n" +
-	"expires_at\x187 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x18\n" +
-	"\aversion\x188 \x01(\x03R\aversion*\xbe\x01\n" +
+	"expires_at\x187 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAtJ\x04\b8\x109R\aversion*\xbe\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_CLOSED\x10\x01\x12\x1a\n" +

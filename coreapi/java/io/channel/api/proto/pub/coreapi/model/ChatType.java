@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Chat type.
+ * Chat conversation type.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.ChatType}

@@ -193,11 +193,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 136: {
-
-            version_ = input.readInt64();
-            break;
-          }
           case 146: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -903,23 +898,6 @@ private static final long serialVersionUID = 0L;
     return getCreatedAt();
   }
 
-  public static final int VERSION_FIELD_NUMBER = 17;
-  private long version_;
-  /**
-   * <pre>
-   * Optimistic locking version.
-   * +kubebuilder:validation:Required
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
-  }
-
   public static final int ID_FIELD_NUMBER = 18;
   private volatile java.lang.Object id_;
   /**
@@ -1144,9 +1122,6 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       output.writeMessage(16, getCreatedAt());
     }
-    if (version_ != 0L) {
-      output.writeInt64(17, version_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 18, id_);
     }
@@ -1225,10 +1200,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getCreatedAt());
     }
-    if (version_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(17, version_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, id_);
     }
@@ -1304,8 +1275,6 @@ private static final long serialVersionUID = 0L;
       if (!getCreatedAt()
           .equals(other.getCreatedAt())) return false;
     }
-    if (getVersion()
-        != other.getVersion()) return false;
     if (!getId()
         .equals(other.getId())) return false;
     if (chatType_ != other.chatType_) return false;
@@ -1366,9 +1335,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
     }
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + CHAT_TYPE_FIELD_NUMBER;
@@ -1567,8 +1533,6 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
         createdAtBuilder_ = null;
       }
-      version_ = 0L;
-
       id_ = "";
 
       chatType_ = 0;
@@ -1639,7 +1603,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.createdAt_ = createdAtBuilder_.build();
       }
-      result.version_ = version_;
       result.id_ = id_;
       result.chatType_ = chatType_;
       result.personType_ = personType_;
@@ -1746,9 +1709,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
-      }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
@@ -3619,55 +3579,6 @@ private static final long serialVersionUID = 0L;
       return createdAtBuilder_;
     }
 
-    private long version_ ;
-    /**
-     * <pre>
-     * Optimistic locking version.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
-     * @return The version.
-     */
-    @java.lang.Override
-    public long getVersion() {
-      return version_;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersion(long value) {
-      
-      version_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version.
-     * +kubebuilder:validation:Required
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 17 [json_name = "version", (.buf.validate.field) = { ... }</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVersion() {
-      
-      version_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object id_ = "";
     /**
      * <pre>
@@ -4428,29 +4339,6 @@ private static final long serialVersionUID = 0L;
     		return clearCreatedAt();
     	else
     		return setCreatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearVersion(java.lang.Long value) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(mapFunc.apply(value));
     }
     	
     /**

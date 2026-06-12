@@ -13,6 +13,9 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // Event represents a user-level tracking event.
 // Events capture user actions such as page views, purchases, and custom interactions.
 message Event {
+  reserved 8;
+  reserved "version";
+
   // ID of the user who triggered the event.
   //
   // +kubebuilder:validation:Required
@@ -66,12 +69,6 @@ message Event {
   //
   // +kubebuilder:example="2024-03-29T03:24:30Z"
   google.protobuf.Timestamp expire_at = 7;
-
-  // Optimistic concurrency version counter.
-  // Incremented on each update to detect conflicting writes.
-  //
-  // +kubebuilder:example="1"
-  int64 version = 8;
 
   // Internationalized event name map keyed by locale (e.g., en, ko).
   // Populated only for system-defined events; custom events return no entries.

@@ -36,7 +36,7 @@ public final class EventOuterClass {
       "\n\031coreapi/model/event.proto\022\rcoreapi.mod" +
       "el\032\033buf/validate/validate.proto\032\034google/" +
       "protobuf/struct.proto\032\037google/protobuf/t" +
-      "imestamp.proto\"\361\004\n\005Event\022\037\n\007user_id\030\001 \001(" +
+      "imestamp.proto\"\346\004\n\005Event\022\037\n\007user_id\030\001 \001(" +
       "\tB\006\272H\003\310\001\001R\006userId\022\026\n\002id\030\002 \001(\tB\006\272H\003\310\001\001R\002i" +
       "d\022%\n\nchannel_id\030\003 \001(\tB\006\272H\003\310\001\001R\tchannelId" +
       "\022\261\001\n\004name\030\004 \001(\tB\234\001\272H\230\001\272\001D\n\rstring.minLen" +
@@ -47,14 +47,14 @@ public final class EventOuterClass {
       ".google.protobuf.StructR\010property\022A\n\ncre" +
       "ated_at\030\006 \001(\0132\032.google.protobuf.Timestam" +
       "pB\006\272H\003\310\001\001R\tcreatedAt\0227\n\texpire_at\030\007 \001(\0132" +
-      "\032.google.protobuf.TimestampR\010expireAt\022\030\n" +
-      "\007version\030\010 \001(\003R\007version\022I\n\rname_i18n_map" +
-      "\030\t \003(\0132%.coreapi.model.Event.NameI18nMap" +
-      "EntryR\013nameI18nMap\032>\n\020NameI18nMapEntry\022\020" +
-      "\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\002" +
-      "8\001Bb\n&io.channel.api.proto.pub.coreapi.m" +
-      "odelP\001Z6github.com/channel-io/ch-proto-p" +
-      "ublic/coreapi/go/modelb\006proto3"
+      "\032.google.protobuf.TimestampR\010expireAt\022I\n" +
+      "\rname_i18n_map\030\t \003(\0132%.coreapi.model.Eve" +
+      "nt.NameI18nMapEntryR\013nameI18nMap\032>\n\020Name" +
+      "I18nMapEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030" +
+      "\002 \001(\tR\005value:\0028\001J\004\010\010\020\tR\007versionBb\n&io.ch" +
+      "annel.api.proto.pub.coreapi.modelP\001Z6git" +
+      "hub.com/channel-io/ch-proto-public/corea" +
+      "pi/go/modelb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -68,7 +68,7 @@ public final class EventOuterClass {
     internal_static_coreapi_model_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_Event_descriptor,
-        new java.lang.String[] { "UserId", "Id", "ChannelId", "Name", "Property", "CreatedAt", "ExpireAt", "Version", "NameI18NMap", });
+        new java.lang.String[] { "UserId", "Id", "ChannelId", "Name", "Property", "CreatedAt", "ExpireAt", "NameI18NMap", });
     internal_static_coreapi_model_Event_NameI18nMapEntry_descriptor =
       internal_static_coreapi_model_Event_descriptor.getNestedTypes().get(0);
     internal_static_coreapi_model_Event_NameI18nMapEntry_fieldAccessorTable = new

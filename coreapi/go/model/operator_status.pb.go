@@ -160,10 +160,6 @@ type OperatorStatus struct {
 	//
 	// +kubebuilder:example="2024-03-29T03:28:35Z"
 	TypeUpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=type_updated_at,json=typeUpdatedAt,proto3" json:"type_updated_at,omitempty"`
-	// Optimistic locking version for concurrent update detection.
-	//
-	// +kubebuilder:example="1"
-	Version       int64 `protobuf:"varint,9,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -254,18 +250,11 @@ func (x *OperatorStatus) GetTypeUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *OperatorStatus) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
-}
-
 var File_coreapi_model_operator_status_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_operator_status_proto_rawDesc = "" +
 	"\n" +
-	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x04\n" +
+	"#coreapi/model/operator_status.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8b\x04\n" +
 	"\x0eOperatorStatus\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12l\n" +
 	"\n" +
@@ -279,8 +268,8 @@ const file_coreapi_model_operator_status_proto_rawDesc = "" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
 	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12B\n" +
-	"\x0ftype_updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\rtypeUpdatedAt\x12\x18\n" +
-	"\aversion\x18\t \x01(\x03R\aversion*\xc9\x03\n" +
+	"\x0ftype_updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\rtypeUpdatedAtJ\x04\b\t\x10\n" +
+	"R\aversion*\xc9\x03\n" +
 	"\x12OperatorStatusType\x12$\n" +
 	" OPERATOR_STATUS_TYPE_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cOPERATOR_STATUS_TYPE_WAITING\x10\x01\x12\x1d\n" +

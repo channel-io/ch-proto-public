@@ -12,8 +12,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// State of a message in its lifecycle. SENDING is in transit to the server,
-// SENT has been delivered, FAILED could not be delivered, and REMOVED has been deleted.
+// State of a message in its lifecycle.
 enum MessageState {
   // Unspecified or not set.
   MESSAGE_STATE_UNSPECIFIED = 0;
@@ -42,9 +41,6 @@ enum AlertLevel {
 }
 
 // Determines how the message was composed and how clients should render it.
-// STANDARD is a regular text message composed via the chat input,
-// CUSTOM is rendered using a third-party custom payload, and EMAIL was composed or received
-// via email integration.
 enum WritingType {
   // Unspecified or not set.
   WRITING_TYPE_UNSPECIFIED = 0;
@@ -58,6 +54,9 @@ enum WritingType {
 
 // Message represents a single chat message within a conversation.
 message Message {
+  reserved 16;
+  reserved "version";
+
   // Composite key identifying the parent conversation.
   // Format: "{chatType}-{chatId}".
   //
@@ -152,12 +151,6 @@ message Message {
   // +kubebuilder:validation:Required
   // +kubebuilder:example="2024-03-29T03:24:30Z"
   google.protobuf.Timestamp created_at = 15 [(buf.validate.field).required = true];
-
-  // Optimistic locking version.
-  // Incremented on every update.
-  //
-  // +kubebuilder:example=1
-  int64 version = 16;
 
   // Structured content blocks composing the message body.
   // Contains rich text, images, code snippets, and other block-level elements.

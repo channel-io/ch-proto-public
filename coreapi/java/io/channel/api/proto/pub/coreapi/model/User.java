@@ -180,11 +180,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 128: {
-
-            version_ = input.readInt64();
-            break;
-          }
           case 138: {
             com.google.protobuf.Struct.Builder subBuilder = null;
             if (profile_ != null) {
@@ -1097,23 +1092,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
     return getUpdatedAt();
-  }
-
-  public static final int VERSION_FIELD_NUMBER = 16;
-  private long version_;
-  /**
-   * <pre>
-   * Optimistic locking version incremented on every update.
-   * Supply the current value when updating to prevent overwriting concurrent changes.
-   * +kubebuilder:example="3"
-   * </pre>
-   *
-   * <code>int64 version = 16 [json_name = "version"];</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
   }
 
   public static final int PROFILE_FIELD_NUMBER = 17;
@@ -2250,9 +2228,6 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != null) {
       output.writeMessage(15, getUpdatedAt());
     }
-    if (version_ != 0L) {
-      output.writeInt64(16, version_);
-    }
     if (profile_ != null) {
       output.writeMessage(17, getProfile());
     }
@@ -2412,10 +2387,6 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getUpdatedAt());
-    }
-    if (version_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(16, version_);
     }
     if (profile_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -2589,8 +2560,6 @@ private static final long serialVersionUID = 0L;
       if (!getUpdatedAt()
           .equals(other.getUpdatedAt())) return false;
     }
-    if (getVersion()
-        != other.getVersion()) return false;
     if (hasProfile() != other.hasProfile()) return false;
     if (hasProfile()) {
       if (!getProfile()
@@ -2725,9 +2694,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getUpdatedAt().hashCode();
     }
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
     if (hasProfile()) {
       hash = (37 * hash) + PROFILE_FIELD_NUMBER;
       hash = (53 * hash) + getProfile().hashCode();
@@ -2996,8 +2962,6 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
         updatedAtBuilder_ = null;
       }
-      version_ = 0L;
-
       if (profileBuilder_ == null) {
         profile_ = null;
       } else {
@@ -3144,7 +3108,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.updatedAt_ = updatedAtBuilder_.build();
       }
-      result.version_ = version_;
       if (profileBuilder_ == null) {
         result.profile_ = profile_;
       } else {
@@ -3317,9 +3280,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUpdatedAt()) {
         mergeUpdatedAt(other.getUpdatedAt());
-      }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
       }
       if (other.hasProfile()) {
         mergeProfile(other.getProfile());
@@ -5068,55 +5028,6 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = null;
       }
       return updatedAtBuilder_;
-    }
-
-    private long version_ ;
-    /**
-     * <pre>
-     * Optimistic locking version incremented on every update.
-     * Supply the current value when updating to prevent overwriting concurrent changes.
-     * +kubebuilder:example="3"
-     * </pre>
-     *
-     * <code>int64 version = 16 [json_name = "version"];</code>
-     * @return The version.
-     */
-    @java.lang.Override
-    public long getVersion() {
-      return version_;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version incremented on every update.
-     * Supply the current value when updating to prevent overwriting concurrent changes.
-     * +kubebuilder:example="3"
-     * </pre>
-     *
-     * <code>int64 version = 16 [json_name = "version"];</code>
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersion(long value) {
-      
-      version_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version incremented on every update.
-     * Supply the current value when updating to prevent overwriting concurrent changes.
-     * +kubebuilder:example="3"
-     * </pre>
-     *
-     * <code>int64 version = 16 [json_name = "version"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVersion() {
-      
-      version_ = 0L;
-      onChanged();
-      return this;
     }
 
     private com.google.protobuf.Struct profile_;
@@ -8512,29 +8423,6 @@ private static final long serialVersionUID = 0L;
     		return clearUpdatedAt();
     	else
     		return setUpdatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearVersion(java.lang.Long value) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(mapFunc.apply(value));
     }
     	
     /**
