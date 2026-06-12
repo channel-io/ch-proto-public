@@ -399,5 +399,4 @@ message UserChat {
   //
   // +kubebuilder:example="2024-04-12T00:00:00Z"
   google.protobuf.Timestamp expires_at = 55;
-
 }

@@ -100,5 +100,4 @@ message OperatorStatus {
   //
   // +kubebuilder:example="2024-03-29T03:28:35Z"
   google.protobuf.Timestamp type_updated_at = 8;
-
 }
