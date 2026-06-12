@@ -371,18 +371,6 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Optimistic locking version incremented on every update.
-   * Supply the current value when updating to prevent overwriting concurrent changes.
-   * +kubebuilder:example="3"
-   * </pre>
-   *
-   * <code>int64 version = 16 [json_name = "version"];</code>
-   * @return The version.
-   */
-  long getVersion();
-
-  /**
-   * <pre>
    * Custom key-value profile data.
    * Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
    * arbitrary keys are also supported.

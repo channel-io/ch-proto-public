@@ -63,11 +63,6 @@ type Event struct {
 	//
 	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
-	// Optimistic concurrency version counter.
-	// Incremented on each update to detect conflicting writes.
-	//
-	// +kubebuilder:example="1"
-	Version int64 `protobuf:"varint,8,opt,name=version,proto3" json:"version,omitempty"`
 	// Internationalized event name map keyed by locale (e.g., en, ko).
 	// Populated only for system-defined events; custom events return no entries.
 	//
@@ -156,13 +151,6 @@ func (x *Event) GetExpireAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Event) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
-}
-
 func (x *Event) GetNameI18NMap() map[string]string {
 	if x != nil {
 		return x.NameI18NMap
@@ -174,7 +162,7 @@ var File_coreapi_model_event_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_event_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf1\x04\n" +
+	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x04\n" +
 	"\x05Event\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
@@ -186,12 +174,11 @@ const file_coreapi_model_event_proto_rawDesc = "" +
 	"\bproperty\x18\x05 \x01(\v2\x17.google.protobuf.StructR\bproperty\x12A\n" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x127\n" +
-	"\texpire_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12\x18\n" +
-	"\aversion\x18\b \x01(\x03R\aversion\x12I\n" +
+	"\texpire_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12I\n" +
 	"\rname_i18n_map\x18\t \x03(\v2%.coreapi.model.Event.NameI18nMapEntryR\vnameI18nMap\x1a>\n" +
 	"\x10NameI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01Bb\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\b\x10\tR\aversionBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

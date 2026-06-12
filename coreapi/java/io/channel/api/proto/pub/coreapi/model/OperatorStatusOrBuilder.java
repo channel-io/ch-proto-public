@@ -211,15 +211,4 @@ public interface OperatorStatusOrBuilder extends
    * <code>.google.protobuf.Timestamp type_updated_at = 8 [json_name = "typeUpdatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getTypeUpdatedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Optimistic locking version for concurrent update detection.
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 9 [json_name = "version"];</code>
-   * @return The version.
-   */
-  long getVersion();
 }

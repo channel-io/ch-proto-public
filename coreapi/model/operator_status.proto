@@ -43,6 +43,9 @@ enum OperatorStatusType {
 // OperatorStatus represents a manager's real-time operational state within a channel,
 // tracking availability and current activity for chat routing decisions.
 message OperatorStatus {
+  reserved 9;
+  reserved "version";
+
   // Unique operator status identifier, matching the associated manager ID.
   //
   // +kubebuilder:validation:Required
@@ -98,8 +101,4 @@ message OperatorStatus {
   // +kubebuilder:example="2024-03-29T03:28:35Z"
   google.protobuf.Timestamp type_updated_at = 8;
 
-  // Optimistic locking version for concurrent update detection.
-  //
-  // +kubebuilder:example="1"
-  int64 version = 9;
 }

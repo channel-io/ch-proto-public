@@ -91,11 +91,6 @@ private static final long serialVersionUID = 0L;
             channelId_ = s;
             break;
           }
-          case 48: {
-
-            version_ = input.readInt64();
-            break;
-          }
           case 56: {
             int rawValue = input.readEnum();
 
@@ -408,22 +403,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int VERSION_FIELD_NUMBER = 6;
-  private long version_;
-  /**
-   * <pre>
-   * Entity version number for optimistic concurrency control.
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 6 [json_name = "version"];</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
-  }
-
   public static final int PERSON_TYPE_FIELD_NUMBER = 7;
   private int personType_;
   /**
@@ -563,9 +542,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, channelId_);
     }
-    if (version_ != 0L) {
-      output.writeInt64(6, version_);
-    }
     if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, personType_);
     }
@@ -598,10 +574,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, channelId_);
-    }
-    if (version_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, version_);
     }
     if (personType_ != io.channel.api.proto.pub.coreapi.model.PersonType.PERSON_TYPE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -639,8 +611,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBookmarkKey())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
-    if (getVersion()
-        != other.getVersion()) return false;
     if (personType_ != other.personType_) return false;
     if (!getPersonId()
         .equals(other.getPersonId())) return false;
@@ -666,9 +636,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getBookmarkKey().hashCode();
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
     hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + personType_;
     hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
@@ -823,8 +790,6 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      version_ = 0L;
-
       personType_ = 0;
 
       personId_ = "";
@@ -862,7 +827,6 @@ private static final long serialVersionUID = 0L;
       result.chatKey_ = chatKey_;
       result.bookmarkKey_ = bookmarkKey_;
       result.channelId_ = channelId_;
-      result.version_ = version_;
       result.personType_ = personType_;
       result.personId_ = personId_;
       result.chatType_ = chatType_;
@@ -933,9 +897,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getChannelId().isEmpty()) {
         channelId_ = other.channelId_;
         onChanged();
-      }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
       }
       if (other.personType_ != 0) {
         setPersonTypeValue(other.getPersonTypeValue());
@@ -1536,52 +1497,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long version_ ;
-    /**
-     * <pre>
-     * Entity version number for optimistic concurrency control.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 6 [json_name = "version"];</code>
-     * @return The version.
-     */
-    @java.lang.Override
-    public long getVersion() {
-      return version_;
-    }
-    /**
-     * <pre>
-     * Entity version number for optimistic concurrency control.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 6 [json_name = "version"];</code>
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersion(long value) {
-      
-      version_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Entity version number for optimistic concurrency control.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 6 [json_name = "version"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVersion() {
-      
-      version_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private int personType_ = 0;
     /**
      * <pre>
@@ -1978,29 +1893,6 @@ private static final long serialVersionUID = 0L;
     		return clearChannelId();
     	else
     		return setChannelId(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearVersion(java.lang.Long value) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(mapFunc.apply(value));
     }
     	
     /**

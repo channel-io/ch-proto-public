@@ -150,11 +150,6 @@ type User struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2025-10-30T09:12:50Z"
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Optimistic locking version incremented on every update.
-	// Supply the current value when updating to prevent overwriting concurrent changes.
-	//
-	// +kubebuilder:example="3"
-	Version int64 `protobuf:"varint,16,opt,name=version,proto3" json:"version,omitempty"`
 	// Custom key-value profile data.
 	// Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
 	// arbitrary keys are also supported.
@@ -437,13 +432,6 @@ func (x *User) GetUpdatedAt() *timestamppb.Timestamp {
 		return x.UpdatedAt
 	}
 	return nil
-}
-
-func (x *User) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
 }
 
 func (x *User) GetProfile() *structpb.Struct {
@@ -928,7 +916,7 @@ var File_coreapi_model_user_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_proto_rawDesc = "" +
 	"\n" +
-	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x0f\n" +
+	"\x18coreapi/model/user.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa5\x0f\n" +
 	"\x04User\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -950,8 +938,7 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12A\n" +
 	"\n" +
-	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12\x18\n" +
-	"\aversion\x18\x10 \x01(\x03R\aversion\x121\n" +
+	"updated_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tupdatedAt\x121\n" +
 	"\aprofile\x18\x11 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12\x12\n" +
 	"\x04tags\x18\x12 \x03(\tR\x04tags\x12\x1a\n" +
 	"\blanguage\x18\x13 \x01(\tR\blanguage\x123\n" +
@@ -987,7 +974,7 @@ const file_coreapi_model_user_proto_rawDesc = "" +
 	"\x06member\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x06member\x12\x14\n" +
 	"\x05email\x18. \x01(\tR\x05email\x12#\n" +
 	"\rmobile_number\x18/ \x01(\tR\fmobileNumber\x12'\n" +
-	"\x0flandline_number\x180 \x01(\tR\x0elandlineNumber\"\xec\x01\n" +
+	"\x0flandline_number\x180 \x01(\tR\x0elandlineNumberJ\x04\b\x10\x10\x11R\aversion\"\xec\x01\n" +
 	"\aWebInfo\x12\x16\n" +
 	"\x06device\x18\x01 \x01(\tR\x06device\x12\x0e\n" +
 	"\x02os\x18\x02 \x01(\tR\x02os\x12\x17\n" +

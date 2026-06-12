@@ -174,11 +174,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 128: {
-
-            version_ = input.readInt64();
-            break;
-          }
           case 138: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               blocks_ = new java.util.ArrayList<io.channel.api.proto.pub.coreapi.model.Block>();
@@ -1231,23 +1226,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
     return getCreatedAt();
-  }
-
-  public static final int VERSION_FIELD_NUMBER = 16;
-  private long version_;
-  /**
-   * <pre>
-   * Optimistic locking version.
-   * Incremented on every update.
-   * +kubebuilder:example=1
-   * </pre>
-   *
-   * <code>int64 version = 16 [json_name = "version"];</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
   }
 
   public static final int BLOCKS_FIELD_NUMBER = 17;
@@ -2524,9 +2502,6 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       output.writeMessage(15, getCreatedAt());
     }
-    if (version_ != 0L) {
-      output.writeInt64(16, version_);
-    }
     for (int i = 0; i < blocks_.size(); i++) {
       output.writeMessage(17, blocks_.get(i));
     }
@@ -2671,10 +2646,6 @@ private static final long serialVersionUID = 0L;
     if (createdAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getCreatedAt());
-    }
-    if (version_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(16, version_);
     }
     for (int i = 0; i < blocks_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -2840,8 +2811,6 @@ private static final long serialVersionUID = 0L;
       if (!getCreatedAt()
           .equals(other.getCreatedAt())) return false;
     }
-    if (getVersion()
-        != other.getVersion()) return false;
     if (!getBlocksList()
         .equals(other.getBlocksList())) return false;
     if (!getPlainText()
@@ -2979,9 +2948,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedAt().hashCode();
     }
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
     if (getBlocksCount() > 0) {
       hash = (37 * hash) + BLOCKS_FIELD_NUMBER;
       hash = (53 * hash) + getBlocksList().hashCode();
@@ -3255,8 +3221,6 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
         createdAtBuilder_ = null;
       }
-      version_ = 0L;
-
       if (blocksBuilder_ == null) {
         blocks_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -3431,7 +3395,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.createdAt_ = createdAtBuilder_.build();
       }
-      result.version_ = version_;
       if (blocksBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           blocks_ = java.util.Collections.unmodifiableList(blocks_);
@@ -3656,9 +3619,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
-      }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
       }
       if (blocksBuilder_ == null) {
         if (!other.blocks_.isEmpty()) {
@@ -5511,55 +5471,6 @@ private static final long serialVersionUID = 0L;
         createdAt_ = null;
       }
       return createdAtBuilder_;
-    }
-
-    private long version_ ;
-    /**
-     * <pre>
-     * Optimistic locking version.
-     * Incremented on every update.
-     * +kubebuilder:example=1
-     * </pre>
-     *
-     * <code>int64 version = 16 [json_name = "version"];</code>
-     * @return The version.
-     */
-    @java.lang.Override
-    public long getVersion() {
-      return version_;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version.
-     * Incremented on every update.
-     * +kubebuilder:example=1
-     * </pre>
-     *
-     * <code>int64 version = 16 [json_name = "version"];</code>
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersion(long value) {
-      
-      version_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version.
-     * Incremented on every update.
-     * +kubebuilder:example=1
-     * </pre>
-     *
-     * <code>int64 version = 16 [json_name = "version"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVersion() {
-      
-      version_ = 0L;
-      onChanged();
-      return this;
     }
 
     private java.util.List<io.channel.api.proto.pub.coreapi.model.Block> blocks_ =
@@ -10508,29 +10419,6 @@ private static final long serialVersionUID = 0L;
     		return clearCreatedAt();
     	else
     		return setCreatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearVersion(java.lang.Long value) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(mapFunc.apply(value));
     }
     	
     /**

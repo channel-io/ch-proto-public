@@ -12,6 +12,9 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // ChatBookmark represents a participant's reading position in a chat.
 // Tracks the last-read location per person within a specific chat context.
 message ChatBookmark {
+  reserved 6;
+  reserved "version";
+
   // Unique bookmark identifier.
   // Format: "{personType}-{personId}-{chatType}".
   //
@@ -75,11 +78,6 @@ message ChatBookmark {
   // +kubebuilder:validation:Required
   // +kubebuilder:example="6263"
   string channel_id = 5 [(buf.validate.field).required = true];
-
-  // Entity version number for optimistic concurrency control.
-  //
-  // +kubebuilder:example="1"
-  int64 version = 6;
 
   // Type of the bookmark owner.
   //

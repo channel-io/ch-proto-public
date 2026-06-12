@@ -30,7 +30,7 @@ public final class ManagerBadgeOuterClass {
     java.lang.String[] descriptorData = {
       "\n!coreapi/model/manager_badge.proto\022\rcor" +
       "eapi.model\032\033buf/validate/validate.proto\032" +
-      "\037google/protobuf/timestamp.proto\"\330\003\n\014Man" +
+      "\037google/protobuf/timestamp.proto\"\315\003\n\014Man" +
       "agerBadge\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022&\n\017tea" +
       "m_chat_alert\030\002 \001(\005R\rteamChatAlert\022(\n\020tea" +
       "m_chat_unread\030\003 \001(\005R\016teamChatUnread\022&\n\017u" +
@@ -40,12 +40,12 @@ public final class ManagerBadgeOuterClass {
       "hreadAlert\0225\n\027team_chat_thread_unread\030\007 " +
       "\001(\005R\024teamChatThreadUnread\0229\n\nupdated_at\030" +
       "\010 \001(\0132\032.google.protobuf.TimestampR\tupdat" +
-      "edAt\022\030\n\007version\030\t \001(\003R\007version\022\035\n\nmanage" +
-      "r_id\030\n \001(\tR\tmanagerId\022\024\n\005alert\030\013 \001(\005R\005al" +
-      "ert\022\026\n\006unread\030\014 \001(\005R\006unreadBb\n&io.channe" +
-      "l.api.proto.pub.coreapi.modelP\001Z6github." +
-      "com/channel-io/ch-proto-public/coreapi/g" +
-      "o/modelb\006proto3"
+      "edAt\022\035\n\nmanager_id\030\n \001(\tR\tmanagerId\022\024\n\005a" +
+      "lert\030\013 \001(\005R\005alert\022\026\n\006unread\030\014 \001(\005R\006unrea" +
+      "dJ\004\010\t\020\nR\007versionBb\n&io.channel.api.proto" +
+      ".pub.coreapi.modelP\001Z6github.com/channel" +
+      "-io/ch-proto-public/coreapi/go/modelb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -58,7 +58,7 @@ public final class ManagerBadgeOuterClass {
     internal_static_coreapi_model_ManagerBadge_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_ManagerBadge_descriptor,
-        new java.lang.String[] { "Id", "TeamChatAlert", "TeamChatUnread", "UserChatAlert", "UserChatUnread", "TeamChatThreadAlert", "TeamChatThreadUnread", "UpdatedAt", "Version", "ManagerId", "Alert", "Unread", });
+        new java.lang.String[] { "Id", "TeamChatAlert", "TeamChatUnread", "UserChatAlert", "UserChatUnread", "TeamChatThreadAlert", "TeamChatThreadUnread", "UpdatedAt", "ManagerId", "Alert", "Unread", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

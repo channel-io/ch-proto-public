@@ -202,18 +202,6 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Optimistic concurrency version counter.
-   * Incremented on each update to detect conflicting writes.
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 8 [json_name = "version"];</code>
-   * @return The version.
-   */
-  long getVersion();
-
-  /**
-   * <pre>
    * Internationalized event name map keyed by locale (e.g., en, ko).
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}

@@ -1336,16 +1336,4 @@ public interface UserChatOrBuilder extends
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
-
-  /**
-   * <pre>
-   * Optimistic locking version incremented on every update.
-   * Supply the current value when updating to prevent overwriting concurrent changes.
-   * +kubebuilder:example="15"
-   * </pre>
-   *
-   * <code>int64 version = 56 [json_name = "version"];</code>
-   * @return The version.
-   */
-  long getVersion();
 }

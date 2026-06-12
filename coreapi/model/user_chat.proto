@@ -96,6 +96,9 @@ enum UserChatSubtextType {
 
 // UserChat represents a conversation between a user and managers.
 message UserChat {
+  reserved 56;
+  reserved "version";
+
   // Unique user chat identifier.
   //
   // +kubebuilder:validation:Required
@@ -397,9 +400,4 @@ message UserChat {
   // +kubebuilder:example="2024-04-12T00:00:00Z"
   google.protobuf.Timestamp expires_at = 55;
 
-  // Optimistic locking version incremented on every update.
-  // Supply the current value when updating to prevent overwriting concurrent changes.
-  //
-  // +kubebuilder:example="15"
-  int64 version = 56;
 }

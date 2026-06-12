@@ -12,6 +12,9 @@ option java_package = "io.channel.api.proto.pub.coreapi.model";
 // ManagerBadge holds per-chat-type notification badge counts for a manager,
 // broken down by team chat, user chat, and thread categories.
 message ManagerBadge {
+  reserved 9;
+  reserved "version";
+
   // Unique badge identifier.
   // Uses the same value as the owning manager's ID.
   //
@@ -59,12 +62,6 @@ message ManagerBadge {
   //
   // +kubebuilder:example="2024-03-29T03:28:35Z"
   google.protobuf.Timestamp updated_at = 8;
-
-  // Optimistic locking version.
-  // Incremented on every update.
-  //
-  // +kubebuilder:example="1"
-  int64 version = 9;
 
   // Manager ID this badge belongs to.
   // Same value as the badge id.

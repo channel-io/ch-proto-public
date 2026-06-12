@@ -24,8 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// State of a message in its lifecycle. SENDING is in transit to the server,
-// SENT has been delivered, FAILED could not be delivered, and REMOVED has been deleted.
+// State of a message in its lifecycle.
 type MessageState int32
 
 const (
@@ -146,9 +145,6 @@ func (AlertLevel) EnumDescriptor() ([]byte, []int) {
 }
 
 // Determines how the message was composed and how clients should render it.
-// STANDARD is a regular text message composed via the chat input,
-// CUSTOM is rendered using a third-party custom payload, and EMAIL was composed or received
-// via email integration.
 type WritingType int32
 
 const (
@@ -778,11 +774,6 @@ type Message struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Optimistic locking version.
-	// Incremented on every update.
-	//
-	// +kubebuilder:example=1
-	Version int64 `protobuf:"varint,16,opt,name=version,proto3" json:"version,omitempty"`
 	// Structured content blocks composing the message body.
 	// Contains rich text, images, code snippets, and other block-level elements.
 	Blocks []*Block `protobuf:"bytes,17,rep,name=blocks,proto3" json:"blocks,omitempty"`
@@ -1047,13 +1038,6 @@ func (x *Message) GetCreatedAt() *timestamppb.Timestamp {
 		return x.CreatedAt
 	}
 	return nil
-}
-
-func (x *Message) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
 }
 
 func (x *Message) GetBlocks() []*Block {
@@ -2375,7 +2359,7 @@ var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x10\n" +
+	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf5\x0f\n" +
 	"\aMessage\x12!\n" +
 	"\bchat_key\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\achatKey\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x19\n" +
@@ -2397,8 +2381,7 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"request_id\x18\r \x01(\tR\trequestId\x12\x1a\n" +
 	"\blanguage\x18\x0e \x01(\tR\blanguage\x12A\n" +
 	"\n" +
-	"created_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x18\n" +
-	"\aversion\x18\x10 \x01(\x03R\aversion\x12,\n" +
+	"created_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12,\n" +
 	"\x06blocks\x18\x11 \x03(\v2\x14.coreapi.model.BlockR\x06blocks\x12\x1d\n" +
 	"\n" +
 	"plain_text\x18\x12 \x01(\tR\tplainText\x129\n" +
@@ -2432,7 +2415,7 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\vthread_root\x18+ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"threadRoot\x12/\n" +
 	"\x0fbroadcasted_msg\x18, \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0ebroadcastedMsg\x122\n" +
-	"\x11removed_by_writer\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0fremovedByWriter\"\x9a\x02\n" +
+	"\x11removed_by_writer\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0fremovedByWriterJ\x04\b\x10\x10\x11R\aversion\"\x9a\x02\n" +
 	"\rMessageThread\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12)\n" +
 	"\vmanager_ids\x18\x02 \x03(\tB\b\xbaH\x05\x92\x01\x02\b\x01R\n" +

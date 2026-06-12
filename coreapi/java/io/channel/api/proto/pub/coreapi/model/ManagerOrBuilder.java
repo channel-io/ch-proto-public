@@ -410,36 +410,6 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the manager was removed. Set only when `removed` is true.
-   * +kubebuilder:example="2024-03-28T08:57:32Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-   * @return Whether the removedAt field is set.
-   */
-  boolean hasRemovedAt();
-  /**
-   * <pre>
-   * Timestamp when the manager was removed. Set only when `removed` is true.
-   * +kubebuilder:example="2024-03-28T08:57:32Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-   * @return The removedAt.
-   */
-  com.google.protobuf.Timestamp getRemovedAt();
-  /**
-   * <pre>
-   * Timestamp when the manager was removed. Set only when `removed` is true.
-   * +kubebuilder:example="2024-03-28T08:57:32Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp removed_at = 17 [json_name = "removedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder();
-
-  /**
-   * <pre>
    * Whether this manager appears as the channel identity instead of their personal profile.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="false"

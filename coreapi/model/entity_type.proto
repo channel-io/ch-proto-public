@@ -6,21 +6,21 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Owner type for sessions, presence, or messages.
+// Entity type used with a personType/personId pair.
 enum PersonType {
   // Unspecified or not set.
   PERSON_TYPE_UNSPECIFIED = 0;
-  // Channel manager.
+  // Manager in the channel.
   PERSON_TYPE_MANAGER = 1;
-  // User or customer.
+  // User in the channel.
   PERSON_TYPE_USER = 2;
-  // Bot author or bot identity.
+  // Bot in the channel.
   PERSON_TYPE_BOT = 3;
-  // Channel account owner or account-level identity.
+  // Channel account identity.
   PERSON_TYPE_ACCOUNT = 4;
 }
 
-// Chat type.
+// Chat conversation type.
 enum ChatType {
   // Unspecified or not set.
   CHAT_TYPE_UNSPECIFIED = 0;

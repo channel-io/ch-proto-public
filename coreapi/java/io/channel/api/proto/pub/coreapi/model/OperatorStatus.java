@@ -125,11 +125,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 72: {
-
-            version_ = input.readInt64();
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -491,22 +486,6 @@ private static final long serialVersionUID = 0L;
     return getTypeUpdatedAt();
   }
 
-  public static final int VERSION_FIELD_NUMBER = 9;
-  private long version_;
-  /**
-   * <pre>
-   * Optimistic locking version for concurrent update detection.
-   * +kubebuilder:example="1"
-   * </pre>
-   *
-   * <code>int64 version = 9 [json_name = "version"];</code>
-   * @return The version.
-   */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -545,9 +524,6 @@ private static final long serialVersionUID = 0L;
     if (typeUpdatedAt_ != null) {
       output.writeMessage(8, getTypeUpdatedAt());
     }
-    if (version_ != 0L) {
-      output.writeInt64(9, version_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -585,10 +561,6 @@ private static final long serialVersionUID = 0L;
     if (typeUpdatedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getTypeUpdatedAt());
-    }
-    if (version_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(9, version_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -629,8 +601,6 @@ private static final long serialVersionUID = 0L;
       if (!getTypeUpdatedAt()
           .equals(other.getTypeUpdatedAt())) return false;
     }
-    if (getVersion()
-        != other.getVersion()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -665,9 +635,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TYPE_UPDATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getTypeUpdatedAt().hashCode();
     }
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -834,8 +801,6 @@ private static final long serialVersionUID = 0L;
         typeUpdatedAt_ = null;
         typeUpdatedAtBuilder_ = null;
       }
-      version_ = 0L;
-
       return this;
     }
 
@@ -882,7 +847,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.typeUpdatedAt_ = typeUpdatedAtBuilder_.build();
       }
-      result.version_ = version_;
       onBuilt();
       return result;
     }
@@ -957,9 +921,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasTypeUpdatedAt()) {
         mergeTypeUpdatedAt(other.getTypeUpdatedAt());
-      }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1957,52 +1918,6 @@ private static final long serialVersionUID = 0L;
       }
       return typeUpdatedAtBuilder_;
     }
-
-    private long version_ ;
-    /**
-     * <pre>
-     * Optimistic locking version for concurrent update detection.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 9 [json_name = "version"];</code>
-     * @return The version.
-     */
-    @java.lang.Override
-    public long getVersion() {
-      return version_;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version for concurrent update detection.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 9 [json_name = "version"];</code>
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVersion(long value) {
-      
-      version_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optimistic locking version for concurrent update detection.
-     * +kubebuilder:example="1"
-     * </pre>
-     *
-     * <code>int64 version = 9 [json_name = "version"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVersion() {
-      
-      version_ = 0L;
-      onChanged();
-      return this;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2200,29 +2115,6 @@ private static final long serialVersionUID = 0L;
     		return clearTypeUpdatedAt();
     	else
     		return setTypeUpdatedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The version to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearVersion(java.lang.Long value) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearVersion(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearVersion();
-    	else
-    		return setVersion(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.OperatorStatus)

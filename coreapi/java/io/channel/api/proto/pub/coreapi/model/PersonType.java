@@ -5,7 +5,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Owner type for sessions, presence, or messages.
+ * Entity type used with a personType/personId pair.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.PersonType}
@@ -22,7 +22,7 @@ public enum PersonType
   PERSON_TYPE_UNSPECIFIED(0),
   /**
    * <pre>
-   * Channel manager.
+   * Manager in the channel.
    * </pre>
    *
    * <code>PERSON_TYPE_MANAGER = 1;</code>
@@ -30,7 +30,7 @@ public enum PersonType
   PERSON_TYPE_MANAGER(1),
   /**
    * <pre>
-   * User or customer.
+   * User in the channel.
    * </pre>
    *
    * <code>PERSON_TYPE_USER = 2;</code>
@@ -38,7 +38,7 @@ public enum PersonType
   PERSON_TYPE_USER(2),
   /**
    * <pre>
-   * Bot author or bot identity.
+   * Bot in the channel.
    * </pre>
    *
    * <code>PERSON_TYPE_BOT = 3;</code>
@@ -46,7 +46,7 @@ public enum PersonType
   PERSON_TYPE_BOT(3),
   /**
    * <pre>
-   * Channel account owner or account-level identity.
+   * Channel account identity.
    * </pre>
    *
    * <code>PERSON_TYPE_ACCOUNT = 4;</code>
@@ -65,7 +65,7 @@ public enum PersonType
   public static final int PERSON_TYPE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * Channel manager.
+   * Manager in the channel.
    * </pre>
    *
    * <code>PERSON_TYPE_MANAGER = 1;</code>
@@ -73,7 +73,7 @@ public enum PersonType
   public static final int PERSON_TYPE_MANAGER_VALUE = 1;
   /**
    * <pre>
-   * User or customer.
+   * User in the channel.
    * </pre>
    *
    * <code>PERSON_TYPE_USER = 2;</code>
@@ -81,7 +81,7 @@ public enum PersonType
   public static final int PERSON_TYPE_USER_VALUE = 2;
   /**
    * <pre>
-   * Bot author or bot identity.
+   * Bot in the channel.
    * </pre>
    *
    * <code>PERSON_TYPE_BOT = 3;</code>
@@ -89,7 +89,7 @@ public enum PersonType
   public static final int PERSON_TYPE_BOT_VALUE = 3;
   /**
    * <pre>
-   * Channel account owner or account-level identity.
+   * Channel account identity.
    * </pre>
    *
    * <code>PERSON_TYPE_ACCOUNT = 4;</code>

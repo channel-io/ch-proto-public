@@ -57,10 +57,6 @@ type ChatBookmark struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,5,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Entity version number for optimistic concurrency control.
-	//
-	// +kubebuilder:example="1"
-	Version int64 `protobuf:"varint,6,opt,name=version,proto3" json:"version,omitempty"`
 	// Type of the bookmark owner.
 	//
 	// +kubebuilder:validation:Required
@@ -144,13 +140,6 @@ func (x *ChatBookmark) GetChannelId() string {
 	return ""
 }
 
-func (x *ChatBookmark) GetVersion() int64 {
-	if x != nil {
-		return x.Version
-	}
-	return 0
-}
-
 func (x *ChatBookmark) GetPersonType() PersonType {
 	if x != nil {
 		return x.PersonType
@@ -176,7 +165,7 @@ var File_coreapi_model_chat_bookmark_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_chat_bookmark_proto_rawDesc = "" +
 	"\n" +
-	"!coreapi/model/chat_bookmark.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\"\xe2\x05\n" +
+	"!coreapi/model/chat_bookmark.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\"\xd7\x05\n" +
 	"\fChatBookmark\x12_\n" +
 	"\x03key\x18\x01 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\x03key\x12f\n" +
@@ -187,13 +176,12 @@ const file_coreapi_model_chat_bookmark_proto_rawDesc = "" +
 	"\fbookmark_key\x18\x04 \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\vbookmarkKey\x12%\n" +
 	"\n" +
-	"channel_id\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x18\n" +
-	"\aversion\x18\x06 \x01(\x03R\aversion\x12B\n" +
+	"channel_id\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12B\n" +
 	"\vperson_type\x18\a \x01(\x0e2\x19.coreapi.model.PersonTypeB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"personType\x12j\n" +
 	"\tperson_id\x18\b \x01(\tBM\xbaHJ\xba\x01D\n" +
 	"\rstring.minLen\x12\"value must be at least 1 character\x1a\x0fsize(this) >= 1\xc8\x01\x01R\bpersonId\x12<\n" +
-	"\tchat_type\x18\t \x01(\x0e2\x17.coreapi.model.ChatTypeB\x06\xbaH\x03\xc8\x01\x01R\bchatTypeBb\n" +
+	"\tchat_type\x18\t \x01(\x0e2\x17.coreapi.model.ChatTypeB\x06\xbaH\x03\xc8\x01\x01R\bchatTypeJ\x04\b\x06\x10\aR\aversionBb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (

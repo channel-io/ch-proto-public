@@ -6,9 +6,6 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * Determines how the message was composed and how clients should render it.
- * STANDARD is a regular text message composed via the chat input,
- * CUSTOM is rendered using a third-party custom payload, and EMAIL was composed or received
- * via email integration.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.WritingType}

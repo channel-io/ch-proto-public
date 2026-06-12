@@ -31,7 +31,7 @@ public final class UserChatOuterClass {
       "\n\035coreapi/model/user_chat.proto\022\rcoreapi" +
       ".model\032\033buf/validate/validate.proto\032\034goo" +
       "gle/protobuf/struct.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\257\026\n\010UserChat\022\026\n\002id\030\001 " +
+      "uf/timestamp.proto\"\244\026\n\010UserChat\022\026\n\002id\030\001 " +
       "\001(\tB\006\272H\003\310\001\001R\002id\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003" +
       "\310\001\001R\tchannelId\022.\n\023contact_medium_type\030\003 " +
       "\001(\tR\021contactMediumType\022 \n\014live_meet_id\030\004" +
@@ -102,40 +102,40 @@ public final class UserChatOuterClass {
       ".TimestampR\010closedAt\0229\n\nsnoozed_at\0306 \001(\013" +
       "2\032.google.protobuf.TimestampR\tsnoozedAt\022" +
       "9\n\nexpires_at\0307 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\texpiresAt\022\030\n\007version\0308 \001(\003R\007ver" +
-      "sion*\276\001\n\rUserChatState\022\037\n\033USER_CHAT_STAT" +
-      "E_UNSPECIFIED\020\000\022\032\n\026USER_CHAT_STATE_CLOSE" +
-      "D\020\001\022\032\n\026USER_CHAT_STATE_OPENED\020\002\022\033\n\027USER_" +
-      "CHAT_STATE_SNOOZED\020\003\022\032\n\026USER_CHAT_STATE_" +
-      "QUEUED\020\004\022\033\n\027USER_CHAT_STATE_INITIAL\020\005*\352\003" +
-      "\n\014MissedReason\022\035\n\031MISSED_REASON_UNSPECIF" +
-      "IED\020\000\022\"\n\036MISSED_REASON_NOT_IN_OPERATION\020" +
-      "\001\022\033\n\027MISSED_REASON_USER_LEFT\020\002\022 \n\034MISSED" +
-      "_REASON_RING_TIME_OVER\020\003\022$\n MISSED_REASO" +
-      "N_INBOUND_RATE_LIMIT\020\004\022\035\n\031MISSED_REASON_" +
-      "NO_OPERATOR\020\005\022 \n\034MISSED_REASON_EXCEEDED_" +
-      "QUEUE\020\006\022$\n MISSED_REASON_ABANDONED_IN_QU" +
-      "EUE\020\007\022\032\n\026MISSED_REASON_WORKFLOW\020\010\022\036\n\032MIS" +
-      "SED_REASON_MANAGER_LEFT\020\t\022$\n MISSED_REAS" +
-      "ON_NO_FALLBACK_CLIENT\020\n\022\"\n\036MISSED_REASON" +
-      "_PRESERVED_NUMBER\020\013\022%\n!MISSED_REASON_UNR" +
-      "EGISTERED_NUMBER\020\014\022\036\n\032MISSED_REASON_BLOC" +
-      "KED_USER\020\r*\230\001\n\022AutoAssignPriority\022$\n AUT" +
-      "O_ASSIGN_PRIORITY_UNSPECIFIED\020\000\022\034\n\030AUTO_" +
-      "ASSIGN_PRIORITY_LOW\020\001\022\037\n\033AUTO_ASSIGN_PRI" +
-      "ORITY_MEDIUM\020\002\022\035\n\031AUTO_ASSIGN_PRIORITY_H" +
-      "IGH\020\003*\304\001\n\021UserChatGoalState\022$\n USER_CHAT" +
-      "_GOAL_STATE_UNSPECIFIED\020\000\022!\n\035USER_CHAT_G" +
-      "OAL_STATE_ACHIEVED\020\001\022%\n!USER_CHAT_GOAL_S" +
-      "TATE_NOT_ACHIEVED\020\002\022 \n\034USER_CHAT_GOAL_ST" +
-      "ATE_WAITING\020\003\022\035\n\031USER_CHAT_GOAL_STATE_NO" +
-      "NE\020\004*\212\001\n\023UserChatSubtextType\022&\n\"USER_CHA" +
-      "T_SUBTEXT_TYPE_UNSPECIFIED\020\000\022&\n\"USER_CHA" +
-      "T_SUBTEXT_TYPE_DESCRIPTION\020\001\022#\n\037USER_CHA" +
-      "T_SUBTEXT_TYPE_INCOMING\020\002Bb\n&io.channel." +
-      "api.proto.pub.coreapi.modelP\001Z6github.co" +
-      "m/channel-io/ch-proto-public/coreapi/go/" +
-      "modelb\006proto3"
+      "mestampR\texpiresAtJ\004\0108\0209R\007version*\276\001\n\rUs" +
+      "erChatState\022\037\n\033USER_CHAT_STATE_UNSPECIFI" +
+      "ED\020\000\022\032\n\026USER_CHAT_STATE_CLOSED\020\001\022\032\n\026USER" +
+      "_CHAT_STATE_OPENED\020\002\022\033\n\027USER_CHAT_STATE_" +
+      "SNOOZED\020\003\022\032\n\026USER_CHAT_STATE_QUEUED\020\004\022\033\n" +
+      "\027USER_CHAT_STATE_INITIAL\020\005*\352\003\n\014MissedRea" +
+      "son\022\035\n\031MISSED_REASON_UNSPECIFIED\020\000\022\"\n\036MI" +
+      "SSED_REASON_NOT_IN_OPERATION\020\001\022\033\n\027MISSED" +
+      "_REASON_USER_LEFT\020\002\022 \n\034MISSED_REASON_RIN" +
+      "G_TIME_OVER\020\003\022$\n MISSED_REASON_INBOUND_R" +
+      "ATE_LIMIT\020\004\022\035\n\031MISSED_REASON_NO_OPERATOR" +
+      "\020\005\022 \n\034MISSED_REASON_EXCEEDED_QUEUE\020\006\022$\n " +
+      "MISSED_REASON_ABANDONED_IN_QUEUE\020\007\022\032\n\026MI" +
+      "SSED_REASON_WORKFLOW\020\010\022\036\n\032MISSED_REASON_" +
+      "MANAGER_LEFT\020\t\022$\n MISSED_REASON_NO_FALLB" +
+      "ACK_CLIENT\020\n\022\"\n\036MISSED_REASON_PRESERVED_" +
+      "NUMBER\020\013\022%\n!MISSED_REASON_UNREGISTERED_N" +
+      "UMBER\020\014\022\036\n\032MISSED_REASON_BLOCKED_USER\020\r*" +
+      "\230\001\n\022AutoAssignPriority\022$\n AUTO_ASSIGN_PR" +
+      "IORITY_UNSPECIFIED\020\000\022\034\n\030AUTO_ASSIGN_PRIO" +
+      "RITY_LOW\020\001\022\037\n\033AUTO_ASSIGN_PRIORITY_MEDIU" +
+      "M\020\002\022\035\n\031AUTO_ASSIGN_PRIORITY_HIGH\020\003*\304\001\n\021U" +
+      "serChatGoalState\022$\n USER_CHAT_GOAL_STATE" +
+      "_UNSPECIFIED\020\000\022!\n\035USER_CHAT_GOAL_STATE_A" +
+      "CHIEVED\020\001\022%\n!USER_CHAT_GOAL_STATE_NOT_AC" +
+      "HIEVED\020\002\022 \n\034USER_CHAT_GOAL_STATE_WAITING" +
+      "\020\003\022\035\n\031USER_CHAT_GOAL_STATE_NONE\020\004*\212\001\n\023Us" +
+      "erChatSubtextType\022&\n\"USER_CHAT_SUBTEXT_T" +
+      "YPE_UNSPECIFIED\020\000\022&\n\"USER_CHAT_SUBTEXT_T" +
+      "YPE_DESCRIPTION\020\001\022#\n\037USER_CHAT_SUBTEXT_T" +
+      "YPE_INCOMING\020\002Bb\n&io.channel.api.proto.p" +
+      "ub.coreapi.modelP\001Z6github.com/channel-i" +
+      "o/ch-proto-public/coreapi/go/modelb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -149,7 +149,7 @@ public final class UserChatOuterClass {
     internal_static_coreapi_model_UserChat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_coreapi_model_UserChat_descriptor,
-        new java.lang.String[] { "Id", "ChannelId", "ContactMediumType", "LiveMeetId", "State", "MissedReason", "Managed", "Priority", "UserId", "XerId", "Name", "Title", "Description", "SubtextType", "Handling", "Source", "ManagerIds", "AssigneeId", "TeamId", "Tags", "Profile", "GoalEventName", "GoalEventQuery", "GoalCheckedAt", "GoalState", "FirstOpenedAt", "OpenedAt", "FirstQueuedAt", "QueuedAt", "CreatedAt", "UpdatedAt", "FrontMessageId", "FrontUpdatedAt", "DeskMessageId", "DeskUpdatedAt", "UserLastMessageId", "FirstAssigneeIdAfterOpen", "FirstRepliedAt", "FirstRepliedAtAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "AskedAt", "FirstAskedAt", "ClosedAt", "SnoozedAt", "ExpiresAt", "Version", });
+        new java.lang.String[] { "Id", "ChannelId", "ContactMediumType", "LiveMeetId", "State", "MissedReason", "Managed", "Priority", "UserId", "XerId", "Name", "Title", "Description", "SubtextType", "Handling", "Source", "ManagerIds", "AssigneeId", "TeamId", "Tags", "Profile", "GoalEventName", "GoalEventQuery", "GoalCheckedAt", "GoalState", "FirstOpenedAt", "OpenedAt", "FirstQueuedAt", "QueuedAt", "CreatedAt", "UpdatedAt", "FrontMessageId", "FrontUpdatedAt", "DeskMessageId", "DeskUpdatedAt", "UserLastMessageId", "FirstAssigneeIdAfterOpen", "FirstRepliedAt", "FirstRepliedAtAfterOpen", "OneStop", "WaitingTime", "AvgReplyTime", "TotalReplyTime", "ReplyCount", "ResolutionTime", "OperationWaitingTime", "OperationAvgReplyTime", "OperationTotalReplyTime", "OperationReplyCount", "OperationResolutionTime", "AskedAt", "FirstAskedAt", "ClosedAt", "SnoozedAt", "ExpiresAt", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(build.buf.validate.ValidateProto.field);

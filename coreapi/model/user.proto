@@ -24,6 +24,9 @@ enum UserType {
 
 // User represents a customer or visitor in a channel.
 message User {
+  reserved 16;
+  reserved "version";
+
   // Unique user identifier.
   //
   // +kubebuilder:validation:Required
@@ -105,12 +108,6 @@ message User {
   // +kubebuilder:validation:Required
   // +kubebuilder:example="2025-10-30T09:12:50Z"
   google.protobuf.Timestamp updated_at = 15 [(buf.validate.field).required = true];
-
-  // Optimistic locking version incremented on every update.
-  // Supply the current value when updating to prevent overwriting concurrent changes.
-  //
-  // +kubebuilder:example="3"
-  int64 version = 16;
 
   // Custom key-value profile data.
   // Standard keys include "name", "email", "mobileNumber", and "avatarUrl";
