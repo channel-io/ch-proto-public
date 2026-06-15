@@ -94,34 +94,35 @@ public final class Webhook {
       "\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nchannel_id\030" +
       "\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"D\n\020GetWebhookRe" +
       "sult\0220\n\007webhook\030\001 \001(\0132\026.coreapi.model.We" +
-      "bhookR\007webhook\"\331\001\n\024CreateWebhookRequest\022" +
+      "bhookR\007webhook\"\336\001\n\024CreateWebhookRequest\022" +
       "%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\032" +
       "\n\004name\030\002 \001(\tB\006\272H\003\310\001\001R\004name\022\030\n\003url\030\003 \001(\tB" +
-      "\006\272H\003\310\001\001R\003url\022;\n\006scopes\030\004 \003(\0162\033.coreapi.m" +
-      "odel.WebhookScopeB\006\272H\003\310\001\001R\006scopes\022\'\n\013api" +
-      "_version\030\005 \001(\tB\006\272H\003\310\001\001R\napiVersion\"G\n\023Cr" +
-      "eateWebhookResult\0220\n\007webhook\030\001 \001(\0132\026.cor" +
-      "eapi.model.WebhookR\007webhook\"\350\003\n\023PatchWeb" +
-      "hookRequest\022%\n\nwebhook_id\030\001 \001(\tB\006\272H\003\310\001\001R" +
-      "\twebhookId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
-      "channelId\022Q\n\004body\030\003 \001(\01325.coreapi.servic" +
-      "e.PatchWebhookRequest.PatchWebhookBodyB\006" +
-      "\272H\003\310\001\001R\004body\022\236\001\n\013update_mask\030\004 \001(\0132\032.goo" +
-      "gle.protobuf.FieldMaskBa\272H^\272\001X\n\024field_ma" +
-      "sk.non_empty\022*update_mask must contain a" +
-      "t least one path\032\024size(this.paths) > 0\310\001" +
-      "\001R\nupdateMask\032\216\001\n\020PatchWebhookBody\022\022\n\004na" +
-      "me\030\001 \001(\tR\004name\022\020\n\003url\030\002 \001(\tR\003url\0223\n\006scop" +
-      "es\030\003 \003(\0162\033.coreapi.model.WebhookScopeR\006s" +
-      "copes\022\037\n\013api_version\030\004 \001(\tR\napiVersion\"F" +
-      "\n\022PatchWebhookResult\0220\n\007webhook\030\001 \001(\0132\026." +
-      "coreapi.model.WebhookR\007webhook\"d\n\024Delete" +
-      "WebhookRequest\022%\n\nwebhook_id\030\001 \001(\tB\006\272H\003\310" +
-      "\001\001R\twebhookId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001" +
-      "\001R\tchannelId\"\025\n\023DeleteWebhookResultBf\n(i" +
-      "o.channel.api.proto.pub.coreapi.serviceP" +
-      "\001Z8github.com/channel-io/ch-proto-public" +
-      "/coreapi/go/serviceb\006proto3"
+      "\006\272H\003\310\001\001R\003url\022@\n\006scopes\030\004 \003(\0162\033.coreapi.m" +
+      "odel.WebhookScopeB\013\272H\010\310\001\001\222\001\002\010\001R\006scopes\022\'" +
+      "\n\013api_version\030\005 \001(\tB\006\272H\003\310\001\001R\napiVersion\"" +
+      "G\n\023CreateWebhookResult\0220\n\007webhook\030\001 \001(\0132" +
+      "\026.coreapi.model.WebhookR\007webhook\"\362\003\n\023Pat" +
+      "chWebhookRequest\022%\n\nwebhook_id\030\001 \001(\tB\006\272H" +
+      "\003\310\001\001R\twebhookId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003" +
+      "\310\001\001R\tchannelId\022Q\n\004body\030\003 \001(\01325.coreapi.s" +
+      "ervice.PatchWebhookRequest.PatchWebhookB" +
+      "odyB\006\272H\003\310\001\001R\004body\022\236\001\n\013update_mask\030\004 \001(\0132" +
+      "\032.google.protobuf.FieldMaskBa\272H^\272\001X\n\024fie" +
+      "ld_mask.non_empty\022*update_mask must cont" +
+      "ain at least one path\032\024size(this.paths) " +
+      "> 0\310\001\001R\nupdateMask\032\230\001\n\020PatchWebhookBody\022" +
+      "\022\n\004name\030\001 \001(\tR\004name\022\020\n\003url\030\002 \001(\tR\003url\022=\n" +
+      "\006scopes\030\003 \003(\0162\033.coreapi.model.WebhookSco" +
+      "peB\010\272H\005\222\001\002\010\001R\006scopes\022\037\n\013api_version\030\004 \001(" +
+      "\tR\napiVersion\"F\n\022PatchWebhookResult\0220\n\007w" +
+      "ebhook\030\001 \001(\0132\026.coreapi.model.WebhookR\007we" +
+      "bhook\"d\n\024DeleteWebhookRequest\022%\n\nwebhook" +
+      "_id\030\001 \001(\tB\006\272H\003\310\001\001R\twebhookId\022%\n\nchannel_" +
+      "id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\025\n\023DeleteWeb" +
+      "hookResultBf\n(io.channel.api.proto.pub.c" +
+      "oreapi.serviceP\001Z8github.com/channel-io/" +
+      "ch-proto-public/coreapi/go/serviceb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

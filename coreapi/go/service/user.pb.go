@@ -924,6 +924,8 @@ type UpsertUserByMemberIdRequest struct {
 	// Subsequent updates to the same keys are ignored.
 	ProfileOnce *structpb.Struct `protobuf:"bytes,4,opt,name=profile_once,json=profileOnce,proto3" json:"profile_once,omitempty"`
 	// User classification tags to replace the current set.
+	//
+	// +kubebuilder:validation:MaxItems=20
 	Tags []string `protobuf:"bytes,5,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Whether the user is blocked.
 	Blocked bool `protobuf:"varint,6,opt,name=blocked,proto3" json:"blocked,omitempty"`
@@ -1185,9 +1187,6 @@ func (x *CreateLeadResult) GetUser() *model.User {
 }
 
 // Issues a session JWT for member authentication.
-//
-// The expiration duration must be between 1 minute and 30 days.
-// Defaults to 1 minute if unset.
 type IssueSessionJwtRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// External member identifier to issue a token for.
@@ -1197,9 +1196,10 @@ type IssueSessionJwtRequest struct {
 	MemberId string `protobuf:"bytes,1,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
 	// Channel ID the user belongs to.
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Token validity duration. Defaults to 1 minute.
+	// Token validity duration.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:default="PT1M"
 	Expiration    *durationpb.Duration `protobuf:"bytes,3,opt,name=expiration,proto3" json:"expiration,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1649,6 +1649,7 @@ type PatchUserRequest_PatchUserBody struct {
 	// User classification tags to replace the current set.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxItems=20
 	Tags []string `protobuf:"bytes,3,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Whether the user is blocked.
 	//
@@ -1814,7 +1815,7 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"<\n" +
 	"\x11UnblockUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xa3\x05\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xad\x05\n" +
 	"\x10PatchUserRequest\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12%\n" +
 	"\n" +
@@ -1822,26 +1823,26 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\x04body\x18\x03 \x01(\v2/.coreapi.service.PatchUserRequest.PatchUserBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12\x9e\x01\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskBa\xbaH^\xba\x01X\n" +
 	"\x14field_mask.non_empty\x12*update_mask must contain at least one path\x1a\x14size(this.paths) > 0\xc8\x01\x01R\n" +
-	"updateMask\x1a\xd8\x02\n" +
+	"updateMask\x1a\xe2\x02\n" +
 	"\rPatchUserBody\x121\n" +
 	"\aprofile\x18\x01 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12:\n" +
-	"\fprofile_once\x18\x02 \x01(\v2\x17.google.protobuf.StructR\vprofileOnce\x12\x12\n" +
-	"\x04tags\x18\x03 \x03(\tR\x04tags\x12\x18\n" +
+	"\fprofile_once\x18\x02 \x01(\v2\x17.google.protobuf.StructR\vprofileOnce\x12\x1c\n" +
+	"\x04tags\x18\x03 \x03(\tB\b\xbaH\x05\x92\x01\x02\x10\x14R\x04tags\x12\x18\n" +
 	"\ablocked\x18\x04 \x01(\bR\ablocked\x12+\n" +
 	"\x11unsubscribe_email\x18\x05 \x01(\bR\x10unsubscribeEmail\x12/\n" +
 	"\x13unsubscribe_texting\x18\x06 \x01(\bR\x12unsubscribeTexting\x120\n" +
 	"\x14unsubscribe_app_push\x18\a \x01(\bR\x12unsubscribeAppPush\x12\x1a\n" +
 	"\blanguage\x18\b \x01(\tR\blanguage\":\n" +
 	"\x0fPatchUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\x89\x04\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\x93\x04\n" +
 	"\x1bUpsertUserByMemberIdRequest\x12z\n" +
 	"\tmember_id\x18\x01 \x01(\tB]\xbaHZ\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 64 characters\x1a\x10size(this) <= 64\xc8\x01\x01r\a2\x05^\\S*$R\bmemberId\x12%\n" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x121\n" +
 	"\aprofile\x18\x03 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12:\n" +
-	"\fprofile_once\x18\x04 \x01(\v2\x17.google.protobuf.StructR\vprofileOnce\x12\x12\n" +
-	"\x04tags\x18\x05 \x03(\tR\x04tags\x12\x18\n" +
+	"\fprofile_once\x18\x04 \x01(\v2\x17.google.protobuf.StructR\vprofileOnce\x12\x1c\n" +
+	"\x04tags\x18\x05 \x03(\tB\b\xbaH\x05\x92\x01\x02\x10\x14R\x04tags\x12\x18\n" +
 	"\ablocked\x18\x06 \x01(\bR\ablocked\x12+\n" +
 	"\x11unsubscribe_email\x18\a \x01(\bR\x10unsubscribeEmail\x12/\n" +
 	"\x13unsubscribe_texting\x18\b \x01(\bR\x12unsubscribeTexting\x120\n" +

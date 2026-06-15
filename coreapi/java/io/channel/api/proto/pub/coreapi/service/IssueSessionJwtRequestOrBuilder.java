@@ -53,8 +53,9 @@ public interface IssueSessionJwtRequestOrBuilder extends
 
   /**
    * <pre>
-   * Token validity duration. Defaults to 1 minute.
+   * Token validity duration.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:default="PT1M"
    * </pre>
    *
    * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -63,8 +64,9 @@ public interface IssueSessionJwtRequestOrBuilder extends
   boolean hasExpiration();
   /**
    * <pre>
-   * Token validity duration. Defaults to 1 minute.
+   * Token validity duration.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:default="PT1M"
    * </pre>
    *
    * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -73,8 +75,9 @@ public interface IssueSessionJwtRequestOrBuilder extends
   com.google.protobuf.Duration getExpiration();
   /**
    * <pre>
-   * Token validity duration. Defaults to 1 minute.
+   * Token validity duration.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:default="PT1M"
    * </pre>
    *
    * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>

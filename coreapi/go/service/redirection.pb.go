@@ -29,9 +29,6 @@ const (
 // Generates a short URL that redirects to the specified original URL.
 // The `url` must be a channel URL containing the channel domain
 // (e.g., `https://{your_domain}.channel.io`).
-//
-// The `expiration` must be between 1 minute and 30 days.
-// If `expiration` is not specified, it defaults to 1 minute.
 type CreateRedirectionRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Channel ID.

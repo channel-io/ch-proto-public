@@ -177,9 +177,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return A list containing the scopes.
      */
     java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList();
@@ -187,9 +188,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return The count of scopes.
      */
     int getScopesCount();
@@ -197,9 +199,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @param index The index of the element to return.
      * @return The scopes at the given index.
      */
@@ -208,9 +211,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return A list containing the enum numeric values on the wire for scopes.
      */
     java.util.List<java.lang.Integer>
@@ -219,9 +223,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of scopes at the given index.
      */
@@ -489,9 +494,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return A list containing the scopes.
      */
     @java.lang.Override
@@ -503,9 +509,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return The count of scopes.
      */
     @java.lang.Override
@@ -516,9 +523,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @param index The index of the element to return.
      * @return The scopes at the given index.
      */
@@ -530,9 +538,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @return A list containing the enum numeric values on the wire for scopes.
      */
     @java.lang.Override
@@ -544,9 +553,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Event scopes that trigger this webhook.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MinItems=1
      * </pre>
      *
-     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+     * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of scopes at the given index.
      */
@@ -1200,9 +1210,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @return A list containing the scopes.
        */
       public java.util.List<io.channel.api.proto.pub.coreapi.model.WebhookScope> getScopesList() {
@@ -1213,9 +1224,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @return The count of scopes.
        */
       public int getScopesCount() {
@@ -1225,9 +1237,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param index The index of the element to return.
        * @return The scopes at the given index.
        */
@@ -1238,9 +1251,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param index The index to set the value at.
        * @param value The scopes to set.
        * @return This builder for chaining.
@@ -1259,9 +1273,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param value The scopes to add.
        * @return This builder for chaining.
        */
@@ -1278,9 +1293,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param values The scopes to add.
        * @return This builder for chaining.
        */
@@ -1297,9 +1313,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearScopes() {
@@ -1312,9 +1329,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @return A list containing the enum numeric values on the wire for scopes.
        */
       public java.util.List<java.lang.Integer>
@@ -1325,9 +1343,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param index The index of the value to return.
        * @return The enum numeric value on the wire of scopes at the given index.
        */
@@ -1338,9 +1357,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param index The index of the value to return.
        * @return The enum numeric value on the wire of scopes at the given index.
        * @return This builder for chaining.
@@ -1356,9 +1376,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param value The enum numeric value on the wire for scopes to add.
        * @return This builder for chaining.
        */
@@ -1372,9 +1393,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Event scopes that trigger this webhook.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MinItems=1
        * </pre>
        *
-       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes"];</code>
+       * <code>repeated .coreapi.model.WebhookScope scopes = 3 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
        * @param values The enum numeric values on the wire for scopes to add.
        * @return This builder for chaining.
        */

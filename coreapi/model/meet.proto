@@ -12,8 +12,7 @@ option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/model";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.model";
 
-// Direction of a phone call relative to the channel. INBOUND calls are received from
-// external callers, while OUTBOUND calls are initiated by a manager to an external number.
+// Direction of a phone call relative to the channel.
 enum CallDirection {
   // Unspecified or not set.
   CALL_DIRECTION_UNSPECIFIED = 0;
@@ -23,8 +22,7 @@ enum CallDirection {
   CALL_DIRECTION_OUTBOUND = 2;
 }
 
-// Current state of a phone call in its lifecycle. WAITING means the call is ringing
-// or queued and not yet answered; ENGAGED means it is actively connected between participants.
+// Current state of a phone call in its lifecycle.
 enum CallState {
   // Unspecified or not set.
   CALL_STATE_UNSPECIFIED = 0;

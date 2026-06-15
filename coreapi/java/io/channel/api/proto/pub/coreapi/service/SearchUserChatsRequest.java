@@ -11,7 +11,7 @@ package io.channel.api.proto.pub.coreapi.service;
  * Pagination is cursor-based. Pass the nextCursor value from the previous response
  * as the cursor parameter to retrieve the next page.
  * If the cursor parameter is left empty, the list starts from the beginning.
- * Retrieved user chats can be filtered by state (opened, snoozed, closed).
+ * Retrieved user chats can be filtered by state.
  * Defaults to opened if state is not specified.
  * </pre>
  *
@@ -490,7 +490,7 @@ private static final long serialVersionUID = 0L;
    * Pagination is cursor-based. Pass the nextCursor value from the previous response
    * as the cursor parameter to retrieve the next page.
    * If the cursor parameter is left empty, the list starts from the beginning.
-   * Retrieved user chats can be filtered by state (opened, snoozed, closed).
+   * Retrieved user chats can be filtered by state.
    * Defaults to opened if state is not specified.
    * </pre>
    *

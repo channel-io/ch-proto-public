@@ -111,9 +111,10 @@ public interface UpsertUserByMemberIdRequestOrBuilder extends
   /**
    * <pre>
    * User classification tags to replace the current set.
+   * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
+   * <code>repeated string tags = 5 [json_name = "tags", (.buf.validate.field) = { ... }</code>
    * @return A list containing the tags.
    */
   java.util.List<java.lang.String>
@@ -121,18 +122,20 @@ public interface UpsertUserByMemberIdRequestOrBuilder extends
   /**
    * <pre>
    * User classification tags to replace the current set.
+   * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
+   * <code>repeated string tags = 5 [json_name = "tags", (.buf.validate.field) = { ... }</code>
    * @return The count of tags.
    */
   int getTagsCount();
   /**
    * <pre>
    * User classification tags to replace the current set.
+   * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
+   * <code>repeated string tags = 5 [json_name = "tags", (.buf.validate.field) = { ... }</code>
    * @param index The index of the element to return.
    * @return The tags at the given index.
    */
@@ -140,9 +143,10 @@ public interface UpsertUserByMemberIdRequestOrBuilder extends
   /**
    * <pre>
    * User classification tags to replace the current set.
+   * +kubebuilder:validation:MaxItems=20
    * </pre>
    *
-   * <code>repeated string tags = 5 [json_name = "tags"];</code>
+   * <code>repeated string tags = 5 [json_name = "tags", (.buf.validate.field) = { ... }</code>
    * @param index The index of the value to return.
    * @return The bytes of the tags at the given index.
    */

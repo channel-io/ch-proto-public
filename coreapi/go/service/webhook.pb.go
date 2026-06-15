@@ -276,6 +276,9 @@ type CreateWebhookRequest struct {
 	// Destination URL that receives webhook payloads.
 	Url string `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
 	// Event scopes that trigger this webhook.
+	//
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinItems=1
 	Scopes []model.WebhookScope `protobuf:"varint,4,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
 	// API version for webhook payloads.
 	//
@@ -622,6 +625,7 @@ type PatchWebhookRequest_PatchWebhookBody struct {
 	// Event scopes that trigger this webhook.
 	//
 	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MinItems=1
 	Scopes []model.WebhookScope `protobuf:"varint,3,rep,packed,name=scopes,proto3,enum=coreapi.model.WebhookScope" json:"scopes,omitempty"`
 	// API version for webhook payloads.
 	//
@@ -712,17 +716,17 @@ const file_coreapi_service_webhook_proto_rawDesc = "" +
 	"\n" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\"D\n" +
 	"\x10GetWebhookResult\x120\n" +
-	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xd9\x01\n" +
+	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xde\x01\n" +
 	"\x14CreateWebhookRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1a\n" +
 	"\x04name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04name\x12\x18\n" +
-	"\x03url\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03url\x12;\n" +
-	"\x06scopes\x18\x04 \x03(\x0e2\x1b.coreapi.model.WebhookScopeB\x06\xbaH\x03\xc8\x01\x01R\x06scopes\x12'\n" +
+	"\x03url\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x03url\x12@\n" +
+	"\x06scopes\x18\x04 \x03(\x0e2\x1b.coreapi.model.WebhookScopeB\v\xbaH\b\xc8\x01\x01\x92\x01\x02\b\x01R\x06scopes\x12'\n" +
 	"\vapi_version\x18\x05 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"apiVersion\"G\n" +
 	"\x13CreateWebhookResult\x120\n" +
-	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xe8\x03\n" +
+	"\awebhook\x18\x01 \x01(\v2\x16.coreapi.model.WebhookR\awebhook\"\xf2\x03\n" +
 	"\x13PatchWebhookRequest\x12%\n" +
 	"\n" +
 	"webhook_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\twebhookId\x12%\n" +
@@ -731,11 +735,11 @@ const file_coreapi_service_webhook_proto_rawDesc = "" +
 	"\x04body\x18\x03 \x01(\v25.coreapi.service.PatchWebhookRequest.PatchWebhookBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12\x9e\x01\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskBa\xbaH^\xba\x01X\n" +
 	"\x14field_mask.non_empty\x12*update_mask must contain at least one path\x1a\x14size(this.paths) > 0\xc8\x01\x01R\n" +
-	"updateMask\x1a\x8e\x01\n" +
+	"updateMask\x1a\x98\x01\n" +
 	"\x10PatchWebhookBody\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03url\x123\n" +
-	"\x06scopes\x18\x03 \x03(\x0e2\x1b.coreapi.model.WebhookScopeR\x06scopes\x12\x1f\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\x12=\n" +
+	"\x06scopes\x18\x03 \x03(\x0e2\x1b.coreapi.model.WebhookScopeB\b\xbaH\x05\x92\x01\x02\b\x01R\x06scopes\x12\x1f\n" +
 	"\vapi_version\x18\x04 \x01(\tR\n" +
 	"apiVersion\"F\n" +
 	"\x12PatchWebhookResult\x120\n" +

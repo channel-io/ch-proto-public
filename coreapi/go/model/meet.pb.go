@@ -23,8 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Direction of a phone call relative to the channel. INBOUND calls are received from
-// external callers, while OUTBOUND calls are initiated by a manager to an external number.
+// Direction of a phone call relative to the channel.
 type CallDirection int32
 
 const (
@@ -77,8 +76,7 @@ func (CallDirection) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_meet_proto_rawDescGZIP(), []int{0}
 }
 
-// Current state of a phone call in its lifecycle. WAITING means the call is ringing
-// or queued and not yet answered; ENGAGED means it is actively connected between participants.
+// Current state of a phone call in its lifecycle.
 type CallState int32
 
 const (

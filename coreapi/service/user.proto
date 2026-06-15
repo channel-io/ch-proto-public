@@ -214,7 +214,8 @@ message PatchUserRequest {
     // User classification tags to replace the current set.
     //
     // +kubebuilder:validation:Nullable
-    repeated string tags = 3;
+    // +kubebuilder:validation:MaxItems=20
+    repeated string tags = 3 [(buf.validate.field).repeated.max_items = 20];
 
     // Whether the user is blocked.
     //
@@ -276,7 +277,9 @@ message UpsertUserByMemberIdRequest {
   google.protobuf.Struct profile_once = 4;
 
   // User classification tags to replace the current set.
-  repeated string tags = 5;
+  //
+  // +kubebuilder:validation:MaxItems=20
+  repeated string tags = 5 [(buf.validate.field).repeated.max_items = 20];
 
   // Whether the user is blocked.
   bool blocked = 6;
@@ -314,9 +317,6 @@ message CreateLeadResult {
 }
 
 // Issues a session JWT for member authentication.
-//
-// The expiration duration must be between 1 minute and 30 days.
-// Defaults to 1 minute if unset.
 message IssueSessionJwtRequest {
   // External member identifier to issue a token for.
   //
@@ -335,9 +335,10 @@ message IssueSessionJwtRequest {
   // Channel ID the user belongs to.
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Token validity duration. Defaults to 1 minute.
+  // Token validity duration.
   //
   // +kubebuilder:validation:Nullable
+  // +kubebuilder:default="PT1M"
   google.protobuf.Duration expiration = 3 [
     (buf.validate.field).cel = {
       id: "duration.gte"

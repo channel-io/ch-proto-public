@@ -78,7 +78,13 @@ message CreateWebhookRequest {
   string url = 3 [(buf.validate.field).required = true];
 
   // Event scopes that trigger this webhook.
-  repeated coreapi.model.WebhookScope scopes = 4 [(buf.validate.field).required = true];
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:MinItems=1
+  repeated coreapi.model.WebhookScope scopes = 4 [
+    (buf.validate.field).repeated.min_items = 1,
+    (buf.validate.field).required = true
+  ];
 
   // API version for webhook payloads.
   //
@@ -128,7 +134,8 @@ message PatchWebhookRequest {
     // Event scopes that trigger this webhook.
     //
     // +kubebuilder:validation:Nullable
-    repeated coreapi.model.WebhookScope scopes = 3;
+    // +kubebuilder:validation:MinItems=1
+    repeated coreapi.model.WebhookScope scopes = 3 [(buf.validate.field).repeated.min_items = 1];
 
     // API version for webhook payloads.
     //
