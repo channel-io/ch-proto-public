@@ -332,7 +332,7 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Whether this manager has been removed from the channel.
+   * Whether this manager has been deleted.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="false"
    * </pre>

@@ -292,7 +292,7 @@ type Manager struct {
 	//
 	// +kubebuilder:example="role-owner"
 	RoleId string `protobuf:"bytes,13,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	// Whether this manager has been removed from the channel.
+	// Whether this manager has been deleted.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="false"
