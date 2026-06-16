@@ -1,0 +1,60 @@
+{
+  "changeId": "BEAPI-20260616",
+  "repo": "ch-proto-public",
+  "repoScope": [
+    "ch-proto-public",
+    "ch-dropwizard",
+    "cht-open-api"
+  ],
+  "summary": "ch-proto-public adapter classified BEAPI-20260616; proto mutation requires reviewed generator rules.",
+  "change": {
+    "changeId": "BEAPI-20260616",
+    "source": {
+      "linearIssueId": "BEAPI-20260616",
+      "title": "Expose bot stats public OpenAPI",
+      "requestText": "Approved sample: add GET /bots/{botId}/stats backed by a new core API operation."
+    },
+    "kind": "add_operation",
+    "status": "validated",
+    "publicApi": {
+      "intent": "Bot stats API를 public facade로 제공한다.",
+      "operation": {
+        "method": "GET",
+        "path": "/bots/{botId}/stats",
+        "operationId": "getBotStats"
+      },
+      "fields": [
+        {
+          "name": "messageCount",
+          "type": "integer",
+          "required": true,
+          "description": "Number of messages sent by the bot in the selected period."
+        }
+      ]
+    },
+    "coreApiPlan": {
+      "decision": "new_core_operation_required",
+      "operations": [
+        {
+          "resource": "bot",
+          "operationName": "getBotStats",
+          "method": "POST",
+          "path": "/admin/core/pub/bots/getBotStats",
+          "protoServiceFile": "coreapi/service/bot.proto"
+        }
+      ]
+    },
+    "repoScope": [
+      "ch-proto-public",
+      "ch-dropwizard",
+      "cht-open-api"
+    ],
+    "safety": {
+      "breakingChange": false,
+      "requiresHumanReviewBeforePush": true,
+      "notes": [
+        "Reviewed sample for Docker MCP integration."
+      ]
+    }
+  }
+}
