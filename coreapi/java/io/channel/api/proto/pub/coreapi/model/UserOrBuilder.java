@@ -257,8 +257,7 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-   * (e.g., "KR", "US").
+   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -268,8 +267,7 @@ public interface UserOrBuilder extends
   java.lang.String getCountry();
   /**
    * <pre>
-   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-   * (e.g., "KR", "US").
+   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -281,8 +279,7 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * IANA time zone identifier derived from the user's IP geolocation
-   * (e.g., "Asia/Seoul").
+   * IANA time zone identifier derived from the user's IP geolocation.
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
@@ -292,8 +289,7 @@ public interface UserOrBuilder extends
   java.lang.String getTimeZone();
   /**
    * <pre>
-   * IANA time zone identifier derived from the user's IP geolocation
-   * (e.g., "Asia/Seoul").
+   * IANA time zone identifier derived from the user's IP geolocation.
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
@@ -460,7 +456,7 @@ public interface UserOrBuilder extends
 
   /**
    * <pre>
-   * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+   * Preferred language of the user as a BCP 47 locale code.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -470,7 +466,7 @@ public interface UserOrBuilder extends
   java.lang.String getLanguage();
   /**
    * <pre>
-   * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+   * Preferred language of the user as a BCP 47 locale code.
    * +kubebuilder:example="ko"
    * </pre>
    *

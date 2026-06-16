@@ -683,7 +683,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Contact medium type identifier for chats originating from external
-   * messenger integrations (e.g., "appKakao", "mobileNumber").
+   * messenger integrations.
    * +kubebuilder:example="mobileNumber"
    * </pre>
    *
@@ -706,7 +706,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Contact medium type identifier for chats originating from external
-   * messenger integrations (e.g., "appKakao", "mobileNumber").
+   * messenger integrations.
    * +kubebuilder:example="mobileNumber"
    * </pre>
    *
@@ -4405,7 +4405,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Contact medium type identifier for chats originating from external
-     * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * messenger integrations.
      * +kubebuilder:example="mobileNumber"
      * </pre>
      *
@@ -4427,7 +4427,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Contact medium type identifier for chats originating from external
-     * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * messenger integrations.
      * +kubebuilder:example="mobileNumber"
      * </pre>
      *
@@ -4450,7 +4450,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Contact medium type identifier for chats originating from external
-     * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * messenger integrations.
      * +kubebuilder:example="mobileNumber"
      * </pre>
      *
@@ -4471,7 +4471,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Contact medium type identifier for chats originating from external
-     * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * messenger integrations.
      * +kubebuilder:example="mobileNumber"
      * </pre>
      *
@@ -4487,7 +4487,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Contact medium type identifier for chats originating from external
-     * messenger integrations (e.g., "appKakao", "mobileNumber").
+     * messenger integrations.
      * +kubebuilder:example="mobileNumber"
      * </pre>
      *

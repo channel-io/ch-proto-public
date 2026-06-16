@@ -130,13 +130,11 @@ type User struct {
 	//
 	// +kubebuilder:example="666801d85da597a54c3d"
 	MainChatId string `protobuf:"bytes,11,opt,name=main_chat_id,json=mainChatId,proto3" json:"main_chat_id,omitempty"`
-	// ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-	// (e.g., "KR", "US").
+	// ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
 	//
 	// +kubebuilder:example="KR"
 	Country string `protobuf:"bytes,12,opt,name=country,proto3" json:"country,omitempty"`
-	// IANA time zone identifier derived from the user's IP geolocation
-	// (e.g., "Asia/Seoul").
+	// IANA time zone identifier derived from the user's IP geolocation.
 	//
 	// +kubebuilder:example="Asia/Seoul"
 	TimeZone string `protobuf:"bytes,13,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
@@ -162,7 +160,7 @@ type User struct {
 	// +kubebuilder:validation:MaxItems=20
 	// +kubebuilder:example=["premium-subscriber","vip"]
 	Tags []string `protobuf:"bytes,18,rep,name=tags,proto3" json:"tags,omitempty"`
-	// Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+	// Preferred language of the user as a BCP 47 locale code.
 	//
 	// +kubebuilder:example="ko"
 	Language string `protobuf:"bytes,19,opt,name=language,proto3" json:"language,omitempty"`

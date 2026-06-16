@@ -66,7 +66,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * Internationalized welcome message overrides keyed by locale.
    * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
@@ -75,7 +75,7 @@ public interface ChannelOrBuilder extends
   int getWelcomeMessageI18NMapCount();
   /**
    * <pre>
-   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * Internationalized welcome message overrides keyed by locale.
    * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
@@ -91,7 +91,7 @@ public interface ChannelOrBuilder extends
   getWelcomeMessageI18NMap();
   /**
    * <pre>
-   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * Internationalized welcome message overrides keyed by locale.
    * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
@@ -101,7 +101,7 @@ public interface ChannelOrBuilder extends
   getWelcomeMessageI18NMapMap();
   /**
    * <pre>
-   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * Internationalized welcome message overrides keyed by locale.
    * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
@@ -113,7 +113,7 @@ public interface ChannelOrBuilder extends
       com.google.protobuf.Struct defaultValue);
   /**
    * <pre>
-   * Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+   * Internationalized welcome message overrides keyed by locale.
    * +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
    * </pre>
    *
@@ -241,7 +241,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
    * </pre>
    *
@@ -250,7 +250,7 @@ public interface ChannelOrBuilder extends
   int getNameDescI18NMapCount();
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
    * </pre>
    *
@@ -266,7 +266,7 @@ public interface ChannelOrBuilder extends
   getNameDescI18NMap();
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
    * </pre>
    *
@@ -276,7 +276,7 @@ public interface ChannelOrBuilder extends
   getNameDescI18NMapMap();
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
    * </pre>
    *
@@ -288,7 +288,7 @@ public interface ChannelOrBuilder extends
       io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue);
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
    * </pre>
    *
@@ -396,7 +396,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+   * ISO 3166-1 alpha-2 country code.
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -406,7 +406,7 @@ public interface ChannelOrBuilder extends
   java.lang.String getCountry();
   /**
    * <pre>
-   * ISO 3166-1 alpha-2 country code (e.g., KR, US).
+   * ISO 3166-1 alpha-2 country code.
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -510,7 +510,7 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+   * IANA timezone identifier used for operating hour calculations.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
@@ -521,7 +521,7 @@ public interface ChannelOrBuilder extends
   java.lang.String getTimeZone();
   /**
    * <pre>
-   * IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+   * IANA timezone identifier used for operating hour calculations.
    * +kubebuilder:validation:Required
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
@@ -559,7 +559,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Due date for payment before the channel transitions to an indebted state.
-   * ISO 8601 date format (e.g., 2026-12-31).
+   * ISO 8601 date format.
    * +kubebuilder:example="2026-12-31"
    * </pre>
    *
@@ -570,7 +570,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Due date for payment before the channel transitions to an indebted state.
-   * ISO 8601 date format (e.g., 2026-12-31).
+   * ISO 8601 date format.
    * +kubebuilder:example="2026-12-31"
    * </pre>
    *
@@ -868,7 +868,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Countries where the channel has obtained business certification.
-   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * Each value is an ISO 3166-1 alpha-2 country code.
    * +kubebuilder:example=["KR","JP"]
    * </pre>
    *
@@ -880,7 +880,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Countries where the channel has obtained business certification.
-   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * Each value is an ISO 3166-1 alpha-2 country code.
    * +kubebuilder:example=["KR","JP"]
    * </pre>
    *
@@ -891,7 +891,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Countries where the channel has obtained business certification.
-   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * Each value is an ISO 3166-1 alpha-2 country code.
    * +kubebuilder:example=["KR","JP"]
    * </pre>
    *
@@ -903,7 +903,7 @@ public interface ChannelOrBuilder extends
   /**
    * <pre>
    * Countries where the channel has obtained business certification.
-   * Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+   * Each value is an ISO 3166-1 alpha-2 country code.
    * +kubebuilder:example=["KR","JP"]
    * </pre>
    *

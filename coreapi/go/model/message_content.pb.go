@@ -117,8 +117,8 @@ func (MessageOption) EnumDescriptor() ([]byte, []int) {
 }
 
 // Type of content block.
-// TEXT and CODE are leaf types that hold text in `value`.
-// BULLETS is a container type that holds child blocks in `blocks`.
+// `text` and `code` are leaf types that hold text in `value`.
+// `bullets` is a container type that holds child blocks in `blocks`.
 type Block_BlockType int32
 
 const (
@@ -314,20 +314,20 @@ type Block struct {
 	// +kubebuilder:validation:Required
 	Type Block_BlockType `protobuf:"varint,1,opt,name=type,proto3,enum=coreapi.model.Block_BlockType" json:"type,omitempty"`
 	// Programming language identifier for syntax highlighting in code blocks.
-	// Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+	// Used as the Markdown code fence language tag,
 	// and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
 	// and unknown identifiers fall back to plain text rendering.
-	// Only applicable when type is CODE.
+	// Only applicable when type is `code`.
 	//
 	// +kubebuilder:example="python"
 	Language string `protobuf:"bytes,2,opt,name=language,proto3" json:"language,omitempty"`
 	// Text content of the block.
-	// Applicable for TEXT and CODE block types; ignored for BULLETS.
+	// Applicable for `text` and `code` block types; ignored for `bullets`.
 	//
 	// +kubebuilder:example="Hello, please confirm my order."
 	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
 	// Nested child blocks that form a hierarchical list structure.
-	// Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+	// Only applicable when type is `bullets`; must be omitted for leaf types (`text`, `code`).
 	Blocks        []*Block `protobuf:"bytes,4,rep,name=blocks,proto3" json:"blocks,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

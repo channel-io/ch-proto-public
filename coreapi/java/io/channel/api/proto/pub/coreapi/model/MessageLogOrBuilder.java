@@ -30,7 +30,7 @@ public interface MessageLogOrBuilder extends
 
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>
@@ -42,7 +42,7 @@ public interface MessageLogOrBuilder extends
       getValuesList();
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>
@@ -53,7 +53,7 @@ public interface MessageLogOrBuilder extends
   int getValuesCount();
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>
@@ -65,7 +65,7 @@ public interface MessageLogOrBuilder extends
   java.lang.String getValues(int index);
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>

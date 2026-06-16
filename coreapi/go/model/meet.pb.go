@@ -23,8 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Direction of a phone call relative to the channel. INBOUND calls are received from
-// external callers, while OUTBOUND calls are initiated by a manager to an external number.
+// Direction of a phone call relative to the channel.
 type CallDirection int32
 
 const (

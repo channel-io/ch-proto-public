@@ -31,10 +31,10 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Programming language identifier for syntax highlighting in code blocks.
-   * Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+   * Used as the Markdown code fence language tag,
    * and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
    * and unknown identifiers fall back to plain text rendering.
-   * Only applicable when type is CODE.
+   * Only applicable when type is `code`.
    * +kubebuilder:example="python"
    * </pre>
    *
@@ -45,10 +45,10 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Programming language identifier for syntax highlighting in code blocks.
-   * Used as the Markdown code fence language tag (e.g., python, javascript, java, sql, json),
+   * Used as the Markdown code fence language tag,
    * and is interpreted by the receiving frontend's syntax highlighter — any string is accepted,
    * and unknown identifiers fall back to plain text rendering.
-   * Only applicable when type is CODE.
+   * Only applicable when type is `code`.
    * +kubebuilder:example="python"
    * </pre>
    *
@@ -61,7 +61,7 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Text content of the block.
-   * Applicable for TEXT and CODE block types; ignored for BULLETS.
+   * Applicable for `text` and `code` block types; ignored for `bullets`.
    * +kubebuilder:example="Hello, please confirm my order."
    * </pre>
    *
@@ -72,7 +72,7 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Text content of the block.
-   * Applicable for TEXT and CODE block types; ignored for BULLETS.
+   * Applicable for `text` and `code` block types; ignored for `bullets`.
    * +kubebuilder:example="Hello, please confirm my order."
    * </pre>
    *
@@ -85,7 +85,7 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
-   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+   * Only applicable when type is `bullets`; must be omitted for leaf types (`text`, `code`).
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -95,7 +95,7 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
-   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+   * Only applicable when type is `bullets`; must be omitted for leaf types (`text`, `code`).
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -104,7 +104,7 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
-   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+   * Only applicable when type is `bullets`; must be omitted for leaf types (`text`, `code`).
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -113,7 +113,7 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
-   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+   * Only applicable when type is `bullets`; must be omitted for leaf types (`text`, `code`).
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>
@@ -123,7 +123,7 @@ public interface BlockOrBuilder extends
   /**
    * <pre>
    * Nested child blocks that form a hierarchical list structure.
-   * Only applicable when type is BULLETS; must be omitted for leaf types (TEXT, CODE).
+   * Only applicable when type is `bullets`; must be omitted for leaf types (`text`, `code`).
    * </pre>
    *
    * <code>repeated .coreapi.model.Block blocks = 4 [json_name = "blocks"];</code>

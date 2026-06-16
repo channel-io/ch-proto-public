@@ -6,8 +6,6 @@ package io.channel.api.proto.pub.coreapi.model;
 /**
  * <pre>
  * Alert level controlling how the client displays notifications for a message.
- * ALERT triggers a push notification and visual alert, UNREAD increments the unread badge
- * without a push notification, and NONE applies no notification or badge change.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.AlertLevel}

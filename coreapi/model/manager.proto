@@ -124,7 +124,7 @@ message Manager {
   // +kubebuilder:example="false"
   bool show_description_to_front = 6 [(buf.validate.field).required = true];
 
-  // Internationalized name and description overrides keyed by locale (e.g., en, ko).
+  // Internationalized name and description overrides keyed by locale.
   //
   // +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 7;

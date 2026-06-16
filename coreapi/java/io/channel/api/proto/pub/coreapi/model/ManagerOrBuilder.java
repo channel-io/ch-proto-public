@@ -151,7 +151,7 @@ public interface ManagerOrBuilder extends
 
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -160,7 +160,7 @@ public interface ManagerOrBuilder extends
   int getNameDescI18NMapCount();
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -176,7 +176,7 @@ public interface ManagerOrBuilder extends
   getNameDescI18NMap();
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -186,7 +186,7 @@ public interface ManagerOrBuilder extends
   getNameDescI18NMapMap();
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -198,7 +198,7 @@ public interface ManagerOrBuilder extends
       io.channel.api.proto.pub.coreapi.model.NameDesc defaultValue);
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
