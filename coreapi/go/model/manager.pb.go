@@ -261,7 +261,7 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="false"
 	ShowDescriptionToFront bool `protobuf:"varint,6,opt,name=show_description_to_front,json=showDescriptionToFront,proto3" json:"show_description_to_front,omitempty"`
-	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
+	// Internationalized name and description overrides keyed by locale.
 	//
 	// +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,7,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`

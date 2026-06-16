@@ -71,7 +71,7 @@ message Channel {
   // +kubebuilder:example={"blocks":[{"type":"text","value":"Thanks for visiting! How can we help you today?"}]}
   google.protobuf.Struct welcome_message = 2 [(buf.validate.field).required = true];
 
-  // Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+  // Internationalized welcome message overrides keyed by locale.
   //
   // +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
   map<string, google.protobuf.Struct> welcome_message_i18n_map = 3;
@@ -113,7 +113,7 @@ message Channel {
     (buf.validate.field).required = true
   ];
 
-  // Internationalized name and description overrides keyed by locale (e.g., en, ko).
+  // Internationalized name and description overrides keyed by locale.
   //
   // +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
   map<string, coreapi.model.NameDesc> name_desc_i18n_map = 8;
@@ -146,7 +146,7 @@ message Channel {
     expression: "size(this) <= 180"
   }];
 
-  // ISO 3166-1 alpha-2 country code (e.g., KR, US).
+  // ISO 3166-1 alpha-2 country code.
   //
   // +kubebuilder:example="KR"
   string country = 13;
@@ -173,7 +173,7 @@ message Channel {
   // +kubebuilder:example="+821012345678"
   string phone_number = 17;
 
-  // IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+  // IANA timezone identifier used for operating hour calculations.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:example="Asia/Seoul"
@@ -192,7 +192,7 @@ message Channel {
   bool disable_new_chat_button = 20 [(buf.validate.field).required = true];
 
   // Due date for payment before the channel transitions to an indebted state.
-  // ISO 8601 date format (e.g., 2026-12-31).
+  // ISO 8601 date format.
   //
   // +kubebuilder:example="2026-12-31"
   string indebted_due_date = 21;
@@ -299,7 +299,7 @@ message Channel {
   bool mkt_alimtalk_allowed = 39 [(buf.validate.field).required = true];
 
   // Countries where the channel has obtained business certification.
-  // Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+  // Each value is an ISO 3166-1 alpha-2 country code.
   //
   // +kubebuilder:example=["KR","JP"]
   repeated string biz_certificated_countries = 40;

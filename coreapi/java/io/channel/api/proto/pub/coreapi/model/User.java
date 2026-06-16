@@ -910,8 +910,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object country_;
   /**
    * <pre>
-   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-   * (e.g., "KR", "US").
+   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -933,8 +932,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-   * (e.g., "KR", "US").
+   * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
    * +kubebuilder:example="KR"
    * </pre>
    *
@@ -960,8 +958,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object timeZone_;
   /**
    * <pre>
-   * IANA time zone identifier derived from the user's IP geolocation
-   * (e.g., "Asia/Seoul").
+   * IANA time zone identifier derived from the user's IP geolocation.
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
@@ -983,8 +980,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * IANA time zone identifier derived from the user's IP geolocation
-   * (e.g., "Asia/Seoul").
+   * IANA time zone identifier derived from the user's IP geolocation.
    * +kubebuilder:example="Asia/Seoul"
    * </pre>
    *
@@ -1208,7 +1204,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object language_;
   /**
    * <pre>
-   * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+   * Preferred language of the user as a BCP 47 locale code.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -1230,7 +1226,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+   * Preferred language of the user as a BCP 47 locale code.
    * +kubebuilder:example="ko"
    * </pre>
    *
@@ -4475,8 +4471,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object country_ = "";
     /**
      * <pre>
-     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-     * (e.g., "KR", "US").
+     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
      * +kubebuilder:example="KR"
      * </pre>
      *
@@ -4497,8 +4492,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-     * (e.g., "KR", "US").
+     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
      * +kubebuilder:example="KR"
      * </pre>
      *
@@ -4520,8 +4514,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-     * (e.g., "KR", "US").
+     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
      * +kubebuilder:example="KR"
      * </pre>
      *
@@ -4541,8 +4534,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-     * (e.g., "KR", "US").
+     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
      * +kubebuilder:example="KR"
      * </pre>
      *
@@ -4557,8 +4549,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-     * (e.g., "KR", "US").
+     * ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
      * +kubebuilder:example="KR"
      * </pre>
      *
@@ -4581,8 +4572,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object timeZone_ = "";
     /**
      * <pre>
-     * IANA time zone identifier derived from the user's IP geolocation
-     * (e.g., "Asia/Seoul").
+     * IANA time zone identifier derived from the user's IP geolocation.
      * +kubebuilder:example="Asia/Seoul"
      * </pre>
      *
@@ -4603,8 +4593,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IANA time zone identifier derived from the user's IP geolocation
-     * (e.g., "Asia/Seoul").
+     * IANA time zone identifier derived from the user's IP geolocation.
      * +kubebuilder:example="Asia/Seoul"
      * </pre>
      *
@@ -4626,8 +4615,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IANA time zone identifier derived from the user's IP geolocation
-     * (e.g., "Asia/Seoul").
+     * IANA time zone identifier derived from the user's IP geolocation.
      * +kubebuilder:example="Asia/Seoul"
      * </pre>
      *
@@ -4647,8 +4635,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IANA time zone identifier derived from the user's IP geolocation
-     * (e.g., "Asia/Seoul").
+     * IANA time zone identifier derived from the user's IP geolocation.
      * +kubebuilder:example="Asia/Seoul"
      * </pre>
      *
@@ -4663,8 +4650,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IANA time zone identifier derived from the user's IP geolocation
-     * (e.g., "Asia/Seoul").
+     * IANA time zone identifier derived from the user's IP geolocation.
      * +kubebuilder:example="Asia/Seoul"
      * </pre>
      *
@@ -5388,7 +5374,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object language_ = "";
     /**
      * <pre>
-     * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+     * Preferred language of the user as a BCP 47 locale code.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5409,7 +5395,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+     * Preferred language of the user as a BCP 47 locale code.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5431,7 +5417,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+     * Preferred language of the user as a BCP 47 locale code.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5451,7 +5437,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+     * Preferred language of the user as a BCP 47 locale code.
      * +kubebuilder:example="ko"
      * </pre>
      *
@@ -5466,7 +5452,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+     * Preferred language of the user as a BCP 47 locale code.
      * +kubebuilder:example="ko"
      * </pre>
      *

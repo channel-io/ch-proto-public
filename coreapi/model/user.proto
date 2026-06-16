@@ -85,14 +85,12 @@ message User {
   // +kubebuilder:example="666801d85da597a54c3d"
   string main_chat_id = 11;
 
-  // ISO 3166-1 alpha-2 country code derived from the user's IP geolocation
-  // (e.g., "KR", "US").
+  // ISO 3166-1 alpha-2 country code derived from the user's IP geolocation.
   //
   // +kubebuilder:example="KR"
   string country = 12;
 
-  // IANA time zone identifier derived from the user's IP geolocation
-  // (e.g., "Asia/Seoul").
+  // IANA time zone identifier derived from the user's IP geolocation.
   //
   // +kubebuilder:example="Asia/Seoul"
   string time_zone = 13;
@@ -123,7 +121,7 @@ message User {
   // +kubebuilder:example=["premium-subscriber","vip"]
   repeated string tags = 18;
 
-  // Preferred language of the user as a BCP 47 locale code (e.g., "ko", "en-US").
+  // Preferred language of the user as a BCP 47 locale code.
   //
   // +kubebuilder:example="ko"
   string language = 19;

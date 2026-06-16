@@ -371,7 +371,7 @@ type UserChat struct {
 	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Contact medium type identifier for chats originating from external
-	// messenger integrations (e.g., "appKakao", "mobileNumber").
+	// messenger integrations.
 	//
 	// +kubebuilder:example="mobileNumber"
 	ContactMediumType string `protobuf:"bytes,3,opt,name=contact_medium_type,json=contactMediumType,proto3" json:"contact_medium_type,omitempty"`

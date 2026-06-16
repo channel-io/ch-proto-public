@@ -43,14 +43,14 @@ type Event struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+	// Event name identifying the type of action.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=64
 	// +kubebuilder:example="PageView"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	// Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+	// Custom key-value properties associated with the event.
 	//
 	// +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
 	Property *structpb.Struct `protobuf:"bytes,5,opt,name=property,proto3" json:"property,omitempty"`
@@ -63,7 +63,7 @@ type Event struct {
 	//
 	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	ExpireAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expire_at,json=expireAt,proto3" json:"expire_at,omitempty"`
-	// Internationalized event name map keyed by locale (e.g., en, ko).
+	// Internationalized event name map keyed by locale.
 	// Populated only for system-defined events; custom events return no entries.
 	//
 	// +kubebuilder:example={"ko":"PageView","en":"PageView"}

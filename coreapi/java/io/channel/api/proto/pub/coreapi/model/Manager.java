@@ -743,7 +743,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -766,7 +766,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -779,7 +779,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -797,7 +797,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+   * Internationalized name and description overrides keyed by locale.
    * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
    * </pre>
    *
@@ -3873,7 +3873,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * Internationalized name and description overrides keyed by locale.
      * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
@@ -3896,7 +3896,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * Internationalized name and description overrides keyed by locale.
      * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
@@ -3909,7 +3909,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * Internationalized name and description overrides keyed by locale.
      * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
@@ -3927,7 +3927,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * Internationalized name and description overrides keyed by locale.
      * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
@@ -3953,7 +3953,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * Internationalized name and description overrides keyed by locale.
      * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
@@ -3977,7 +3977,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * Internationalized name and description overrides keyed by locale.
      * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *
@@ -3997,7 +3997,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized name and description overrides keyed by locale (e.g., en, ko).
+     * Internationalized name and description overrides keyed by locale.
      * +kubebuilder:example={"ko":{"name":"Customer Success Manager","description":"Handles customer inquiries"},"en":{"name":"Customer Success Manager","description":"Handles customer inquiries"}}
      * </pre>
      *

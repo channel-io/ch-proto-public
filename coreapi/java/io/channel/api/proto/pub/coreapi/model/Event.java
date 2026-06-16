@@ -332,7 +332,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+   * Event name identifying the type of action.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -357,7 +357,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+   * Event name identifying the type of action.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -386,7 +386,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Struct property_;
   /**
    * <pre>
-   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * Custom key-value properties associated with the event.
    * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
@@ -399,7 +399,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * Custom key-value properties associated with the event.
    * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
@@ -412,7 +412,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * Custom key-value properties associated with the event.
    * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -560,7 +560,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -574,7 +574,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -593,7 +593,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -1433,7 +1433,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+     * Event name identifying the type of action.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1457,7 +1457,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+     * Event name identifying the type of action.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1482,7 +1482,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+     * Event name identifying the type of action.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1505,7 +1505,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+     * Event name identifying the type of action.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1523,7 +1523,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+     * Event name identifying the type of action.
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=64
@@ -1551,7 +1551,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> propertyBuilder_;
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1563,7 +1563,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1579,7 +1579,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1600,7 +1600,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1619,7 +1619,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1642,7 +1642,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1661,7 +1661,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1674,7 +1674,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -1690,7 +1690,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+     * Custom key-value properties associated with the event.
      * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
      * </pre>
      *
@@ -2075,7 +2075,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Internationalized event name map keyed by locale.
      * Populated only for system-defined events; custom events return no entries.
      * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
@@ -2099,7 +2099,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Internationalized event name map keyed by locale.
      * Populated only for system-defined events; custom events return no entries.
      * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
@@ -2113,7 +2113,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Internationalized event name map keyed by locale.
      * Populated only for system-defined events; custom events return no entries.
      * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
@@ -2132,7 +2132,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Internationalized event name map keyed by locale.
      * Populated only for system-defined events; custom events return no entries.
      * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
@@ -2159,7 +2159,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Internationalized event name map keyed by locale.
      * Populated only for system-defined events; custom events return no entries.
      * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
@@ -2184,7 +2184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Internationalized event name map keyed by locale.
      * Populated only for system-defined events; custom events return no entries.
      * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>
@@ -2205,7 +2205,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Internationalized event name map keyed by locale (e.g., en, ko).
+     * Internationalized event name map keyed by locale.
      * Populated only for system-defined events; custom events return no entries.
      * +kubebuilder:example={"ko":"PageView","en":"PageView"}
      * </pre>

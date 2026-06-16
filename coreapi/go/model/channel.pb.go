@@ -225,7 +225,7 @@ type Channel struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example={"blocks":[{"type":"text","value":"Thanks for visiting! How can we help you today?"}]}
 	WelcomeMessage *structpb.Struct `protobuf:"bytes,2,opt,name=welcome_message,json=welcomeMessage,proto3" json:"welcome_message,omitempty"`
-	// Internationalized welcome message overrides keyed by locale (e.g., en, ko).
+	// Internationalized welcome message overrides keyed by locale.
 	//
 	// +kubebuilder:example={"ko":{"blocks":[{"type":"text","value":"Thanks for visiting"}]},"en":{"blocks":[{"type":"text","value":"Thanks for visiting"}]}}
 	WelcomeMessageI18NMap map[string]*structpb.Struct `protobuf:"bytes,3,rep,name=welcome_message_i18n_map,json=welcomeMessageI18nMap,proto3" json:"welcome_message_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -250,7 +250,7 @@ type Channel struct {
 	// +kubebuilder:validation:MaxLength=30
 	// +kubebuilder:example="Channel Shop Exp"
 	Name string `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
-	// Internationalized name and description overrides keyed by locale (e.g., en, ko).
+	// Internationalized name and description overrides keyed by locale.
 	//
 	// +kubebuilder:example={"ko":{"name":"Channel Shop Exp","description":"Customer Driven"},"en":{"name":"Channel Shop Exp","description":"Customer Driven"}}
 	NameDescI18NMap map[string]*NameDesc `protobuf:"bytes,8,rep,name=name_desc_i18n_map,json=nameDescI18nMap,proto3" json:"name_desc_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -274,7 +274,7 @@ type Channel struct {
 	// +kubebuilder:validation:MaxLength=180
 	// +kubebuilder:example="Customer Driven"
 	Description string `protobuf:"bytes,12,opt,name=description,proto3" json:"description,omitempty"`
-	// ISO 3166-1 alpha-2 country code (e.g., KR, US).
+	// ISO 3166-1 alpha-2 country code.
 	//
 	// +kubebuilder:example="KR"
 	Country string `protobuf:"bytes,13,opt,name=country,proto3" json:"country,omitempty"`
@@ -296,7 +296,7 @@ type Channel struct {
 	//
 	// +kubebuilder:example="+821012345678"
 	PhoneNumber string `protobuf:"bytes,17,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
-	// IANA timezone identifier used for operating hour calculations (e.g., Asia/Seoul).
+	// IANA timezone identifier used for operating hour calculations.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="Asia/Seoul"
@@ -312,7 +312,7 @@ type Channel struct {
 	// +kubebuilder:example="false"
 	DisableNewChatButton bool `protobuf:"varint,20,opt,name=disable_new_chat_button,json=disableNewChatButton,proto3" json:"disable_new_chat_button,omitempty"`
 	// Due date for payment before the channel transitions to an indebted state.
-	// ISO 8601 date format (e.g., 2026-12-31).
+	// ISO 8601 date format.
 	//
 	// +kubebuilder:example="2026-12-31"
 	IndebtedDueDate string `protobuf:"bytes,21,opt,name=indebted_due_date,json=indebtedDueDate,proto3" json:"indebted_due_date,omitempty"`
@@ -399,7 +399,7 @@ type Channel struct {
 	// +kubebuilder:example="false"
 	MktAlimtalkAllowed bool `protobuf:"varint,39,opt,name=mkt_alimtalk_allowed,json=mktAlimtalkAllowed,proto3" json:"mkt_alimtalk_allowed,omitempty"`
 	// Countries where the channel has obtained business certification.
-	// Each value is an ISO 3166-1 alpha-2 country code (e.g., KR).
+	// Each value is an ISO 3166-1 alpha-2 country code.
 	//
 	// +kubebuilder:example=["KR","JP"]
 	BizCertificatedCountries []string `protobuf:"bytes,40,rep,name=biz_certificated_countries,json=bizCertificatedCountries,proto3" json:"biz_certificated_countries,omitempty"`

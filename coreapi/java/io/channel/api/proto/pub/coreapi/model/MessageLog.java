@@ -978,7 +978,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList values_;
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>
@@ -992,7 +992,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>
@@ -1005,7 +1005,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>
@@ -1019,7 +1019,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+   * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
    * Interpretation depends on the `action` type.
    * +kubebuilder:example=["vip","premium"]
    * </pre>
@@ -1593,7 +1593,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1607,7 +1607,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1620,7 +1620,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1634,7 +1634,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1649,7 +1649,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1671,7 +1671,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1692,7 +1692,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1711,7 +1711,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>
@@ -1727,7 +1727,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+     * Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
      * Interpretation depends on the `action` type.
      * +kubebuilder:example=["vip","premium"]
      * </pre>

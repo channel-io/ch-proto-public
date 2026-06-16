@@ -86,8 +86,6 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 }
 
 // Alert level controlling how the client displays notifications for a message.
-// ALERT triggers a push notification and visual alert, UNREAD increments the unread badge
-// without a push notification, and NONE applies no notification or badge change.
 type AlertLevel int32
 
 const (
@@ -1360,7 +1358,7 @@ type MessageLog struct {
 	//
 	// +kubebuilder:validation:Required
 	Action MessageLog_MessageLogAction `protobuf:"varint,1,opt,name=action,proto3,enum=coreapi.model.MessageLog_MessageLogAction" json:"action,omitempty"`
-	// Contextual values associated with the action (e.g. tag names for ADD_TAGS, manager IDs for ASSIGN).
+	// Contextual values associated with the action (e.g. tag names for addTags, manager IDs for assign).
 	// Interpretation depends on the `action` type.
 	//
 	// +kubebuilder:example=["vip","premium"]

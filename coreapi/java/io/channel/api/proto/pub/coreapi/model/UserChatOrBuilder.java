@@ -58,7 +58,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Contact medium type identifier for chats originating from external
-   * messenger integrations (e.g., "appKakao", "mobileNumber").
+   * messenger integrations.
    * +kubebuilder:example="mobileNumber"
    * </pre>
    *
@@ -69,7 +69,7 @@ public interface UserChatOrBuilder extends
   /**
    * <pre>
    * Contact medium type identifier for chats originating from external
-   * messenger integrations (e.g., "appKakao", "mobileNumber").
+   * messenger integrations.
    * +kubebuilder:example="mobileNumber"
    * </pre>
    *

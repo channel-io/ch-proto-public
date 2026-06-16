@@ -81,7 +81,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+   * Event name identifying the type of action.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -94,7 +94,7 @@ public interface EventOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Event name identifying the type of action (e.g., PageView, Purchase, SignUp).
+   * Event name identifying the type of action.
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=64
@@ -109,7 +109,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * Custom key-value properties associated with the event.
    * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
@@ -119,7 +119,7 @@ public interface EventOrBuilder extends
   boolean hasProperty();
   /**
    * <pre>
-   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * Custom key-value properties associated with the event.
    * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
@@ -129,7 +129,7 @@ public interface EventOrBuilder extends
   com.google.protobuf.Struct getProperty();
   /**
    * <pre>
-   * Custom key-value properties associated with the event (e.g., page URL, product ID, revenue).
+   * Custom key-value properties associated with the event.
    * +kubebuilder:example={"url":"/checkout","revenue":50000,"category":"product"}
    * </pre>
    *
@@ -202,7 +202,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -212,7 +212,7 @@ public interface EventOrBuilder extends
   int getNameI18NMapCount();
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -229,7 +229,7 @@ public interface EventOrBuilder extends
   getNameI18NMap();
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -240,7 +240,7 @@ public interface EventOrBuilder extends
   getNameI18NMapMap();
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
@@ -253,7 +253,7 @@ public interface EventOrBuilder extends
       java.lang.String defaultValue);
   /**
    * <pre>
-   * Internationalized event name map keyed by locale (e.g., en, ko).
+   * Internationalized event name map keyed by locale.
    * Populated only for system-defined events; custom events return no entries.
    * +kubebuilder:example={"ko":"PageView","en":"PageView"}
    * </pre>
