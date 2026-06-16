@@ -370,11 +370,10 @@ type UserChat struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="6263"
 	ChannelId string `protobuf:"bytes,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	// Contact medium type identifier for chats originating from external
-	// messenger integrations.
+	// Channel through which this chat was created or delivered.
 	//
-	// +kubebuilder:example="mobileNumber"
-	ContactMediumType string `protobuf:"bytes,3,opt,name=contact_medium_type,json=contactMediumType,proto3" json:"contact_medium_type,omitempty"`
+	// +kubebuilder:example="app"
+	MediumType string `protobuf:"bytes,3,opt,name=medium_type,json=mediumType,proto3" json:"medium_type,omitempty"`
 	// ID of the active live meet session attached to this chat.
 	//
 	// +kubebuilder:example="6606508ec1dd0000000a"
@@ -597,7 +596,12 @@ type UserChat struct {
 	// Timestamp when the chat is scheduled to automatically expire and close.
 	//
 	// +kubebuilder:example="2024-04-12T00:00:00Z"
-	ExpiresAt     *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	// Specific medium instance within the medium_type.
+	// Usually set for app integrations; empty when the medium has no separate instance.
+	//
+	// +kubebuilder:example="67fceb5a3d6de141ea5a"
+	MediumId      string `protobuf:"bytes,57,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -646,9 +650,9 @@ func (x *UserChat) GetChannelId() string {
 	return ""
 }
 
-func (x *UserChat) GetContactMediumType() string {
+func (x *UserChat) GetMediumType() string {
 	if x != nil {
-		return x.ContactMediumType
+		return x.MediumType
 	}
 	return ""
 }
@@ -1017,16 +1021,24 @@ func (x *UserChat) GetExpiresAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *UserChat) GetMediumId() string {
+	if x != nil {
+		return x.MediumId
+	}
+	return ""
+}
+
 var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x16\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb2\x16\n" +
 	"\bUserChat\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
-	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12.\n" +
-	"\x13contact_medium_type\x18\x03 \x01(\tR\x11contactMediumType\x12 \n" +
+	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1f\n" +
+	"\vmedium_type\x18\x03 \x01(\tR\n" +
+	"mediumType\x12 \n" +
 	"\flive_meet_id\x18\x04 \x01(\tR\n" +
 	"liveMeetId\x12:\n" +
 	"\x05state\x18\x05 \x01(\x0e2\x1c.coreapi.model.UserChatStateB\x06\xbaH\x03\xc8\x01\x01R\x05state\x12@\n" +
@@ -1089,7 +1101,8 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
 	"snoozed_at\x186 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
 	"\n" +
-	"expires_at\x187 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAtJ\x04\b8\x109R\aversion*\xbe\x01\n" +
+	"expires_at\x187 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x1b\n" +
+	"\tmedium_id\x189 \x01(\tR\bmediumIdJ\x04\b8\x109R\aversion*\xbe\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_CLOSED\x10\x01\x12\x1a\n" +

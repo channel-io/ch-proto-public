@@ -111,11 +111,10 @@ message UserChat {
   // +kubebuilder:example="6263"
   string channel_id = 2 [(buf.validate.field).required = true];
 
-  // Contact medium type identifier for chats originating from external
-  // messenger integrations.
+  // Channel through which this chat was created or delivered.
   //
-  // +kubebuilder:example="mobileNumber"
-  string contact_medium_type = 3;
+  // +kubebuilder:example="app"
+  string medium_type = 3;
 
   // ID of the active live meet session attached to this chat.
   //
@@ -399,4 +398,10 @@ message UserChat {
   //
   // +kubebuilder:example="2024-04-12T00:00:00Z"
   google.protobuf.Timestamp expires_at = 55;
+
+  // Specific medium instance within the medium_type.
+  // Usually set for app integrations; empty when the medium has no separate instance.
+  //
+  // +kubebuilder:example="67fceb5a3d6de141ea5a"
+  string medium_id = 57;
 }
