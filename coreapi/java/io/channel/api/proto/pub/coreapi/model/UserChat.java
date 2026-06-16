@@ -22,7 +22,7 @@ private static final long serialVersionUID = 0L;
   private UserChat() {
     id_ = "";
     channelId_ = "";
-    contactMediumType_ = "";
+    mediumType_ = "";
     liveMeetId_ = "";
     state_ = 0;
     missedReason_ = 0;
@@ -43,6 +43,7 @@ private static final long serialVersionUID = 0L;
     deskMessageId_ = "";
     userLastMessageId_ = "";
     firstAssigneeIdAfterOpen_ = "";
+    mediumId_ = "";
   }
 
   @java.lang.Override
@@ -91,7 +92,7 @@ private static final long serialVersionUID = 0L;
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            contactMediumType_ = s;
+            mediumType_ = s;
             break;
           }
           case 34: {
@@ -540,6 +541,12 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 458: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            mediumId_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -678,50 +685,48 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CONTACT_MEDIUM_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object contactMediumType_;
+  public static final int MEDIUM_TYPE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object mediumType_;
   /**
    * <pre>
-   * Contact medium type identifier for chats originating from external
-   * messenger integrations.
-   * +kubebuilder:example="mobileNumber"
+   * Channel through which this chat was created or delivered.
+   * +kubebuilder:example="app"
    * </pre>
    *
-   * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-   * @return The contactMediumType.
+   * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+   * @return The mediumType.
    */
   @java.lang.Override
-  public java.lang.String getContactMediumType() {
-    java.lang.Object ref = contactMediumType_;
+  public java.lang.String getMediumType() {
+    java.lang.Object ref = mediumType_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      contactMediumType_ = s;
+      mediumType_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * Contact medium type identifier for chats originating from external
-   * messenger integrations.
-   * +kubebuilder:example="mobileNumber"
+   * Channel through which this chat was created or delivered.
+   * +kubebuilder:example="app"
    * </pre>
    *
-   * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-   * @return The bytes for contactMediumType.
+   * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+   * @return The bytes for mediumType.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getContactMediumTypeBytes() {
-    java.lang.Object ref = contactMediumType_;
+      getMediumTypeBytes() {
+    java.lang.Object ref = mediumType_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      contactMediumType_ = b;
+      mediumType_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -2664,6 +2669,56 @@ private static final long serialVersionUID = 0L;
     return getExpiresAt();
   }
 
+  public static final int MEDIUM_ID_FIELD_NUMBER = 57;
+  private volatile java.lang.Object mediumId_;
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type.
+   * Usually set for app integrations; empty when the medium has no separate instance.
+   * +kubebuilder:example="67fceb5a3d6de141ea5a"
+   * </pre>
+   *
+   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * @return The mediumId.
+   */
+  @java.lang.Override
+  public java.lang.String getMediumId() {
+    java.lang.Object ref = mediumId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      mediumId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type.
+   * Usually set for app integrations; empty when the medium has no separate instance.
+   * +kubebuilder:example="67fceb5a3d6de141ea5a"
+   * </pre>
+   *
+   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * @return The bytes for mediumId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMediumIdBytes() {
+    java.lang.Object ref = mediumId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      mediumId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -2684,8 +2739,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contactMediumType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, contactMediumType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, mediumType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(liveMeetId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, liveMeetId_);
@@ -2843,6 +2898,9 @@ private static final long serialVersionUID = 0L;
     if (expiresAt_ != null) {
       output.writeMessage(55, getExpiresAt());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 57, mediumId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -2858,8 +2916,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contactMediumType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, contactMediumType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, mediumType_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(liveMeetId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, liveMeetId_);
@@ -3064,6 +3122,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(55, getExpiresAt());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(57, mediumId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -3083,8 +3144,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getId())) return false;
     if (!getChannelId()
         .equals(other.getChannelId())) return false;
-    if (!getContactMediumType()
-        .equals(other.getContactMediumType())) return false;
+    if (!getMediumType()
+        .equals(other.getMediumType())) return false;
     if (!getLiveMeetId()
         .equals(other.getLiveMeetId())) return false;
     if (state_ != other.state_) return false;
@@ -3244,6 +3305,8 @@ private static final long serialVersionUID = 0L;
       if (!getExpiresAt()
           .equals(other.getExpiresAt())) return false;
     }
+    if (!getMediumId()
+        .equals(other.getMediumId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -3259,8 +3322,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelId().hashCode();
-    hash = (37 * hash) + CONTACT_MEDIUM_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getContactMediumType().hashCode();
+    hash = (37 * hash) + MEDIUM_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getMediumType().hashCode();
     hash = (37 * hash) + LIVE_MEET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getLiveMeetId().hashCode();
     hash = (37 * hash) + STATE_FIELD_NUMBER;
@@ -3419,6 +3482,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXPIRES_AT_FIELD_NUMBER;
       hash = (53 * hash) + getExpiresAt().hashCode();
     }
+    hash = (37 * hash) + MEDIUM_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getMediumId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -3560,7 +3625,7 @@ private static final long serialVersionUID = 0L;
 
       channelId_ = "";
 
-      contactMediumType_ = "";
+      mediumType_ = "";
 
       liveMeetId_ = "";
 
@@ -3746,6 +3811,8 @@ private static final long serialVersionUID = 0L;
         expiresAt_ = null;
         expiresAtBuilder_ = null;
       }
+      mediumId_ = "";
+
       return this;
     }
 
@@ -3775,7 +3842,7 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.channelId_ = channelId_;
-      result.contactMediumType_ = contactMediumType_;
+      result.mediumType_ = mediumType_;
       result.liveMeetId_ = liveMeetId_;
       result.state_ = state_;
       result.missedReason_ = missedReason_;
@@ -3916,6 +3983,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.expiresAt_ = expiresAtBuilder_.build();
       }
+      result.mediumId_ = mediumId_;
       onBuilt();
       return result;
     }
@@ -3972,8 +4040,8 @@ private static final long serialVersionUID = 0L;
         channelId_ = other.channelId_;
         onChanged();
       }
-      if (!other.getContactMediumType().isEmpty()) {
-        contactMediumType_ = other.contactMediumType_;
+      if (!other.getMediumType().isEmpty()) {
+        mediumType_ = other.mediumType_;
         onChanged();
       }
       if (!other.getLiveMeetId().isEmpty()) {
@@ -4158,6 +4226,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasExpiresAt()) {
         mergeExpiresAt(other.getExpiresAt());
+      }
+      if (!other.getMediumId().isEmpty()) {
+        mediumId_ = other.mediumId_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -4401,24 +4473,23 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object contactMediumType_ = "";
+    private java.lang.Object mediumType_ = "";
     /**
      * <pre>
-     * Contact medium type identifier for chats originating from external
-     * messenger integrations.
-     * +kubebuilder:example="mobileNumber"
+     * Channel through which this chat was created or delivered.
+     * +kubebuilder:example="app"
      * </pre>
      *
-     * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-     * @return The contactMediumType.
+     * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+     * @return The mediumType.
      */
-    public java.lang.String getContactMediumType() {
-      java.lang.Object ref = contactMediumType_;
+    public java.lang.String getMediumType() {
+      java.lang.Object ref = mediumType_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        contactMediumType_ = s;
+        mediumType_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -4426,22 +4497,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contact medium type identifier for chats originating from external
-     * messenger integrations.
-     * +kubebuilder:example="mobileNumber"
+     * Channel through which this chat was created or delivered.
+     * +kubebuilder:example="app"
      * </pre>
      *
-     * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-     * @return The bytes for contactMediumType.
+     * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+     * @return The bytes for mediumType.
      */
     public com.google.protobuf.ByteString
-        getContactMediumTypeBytes() {
-      java.lang.Object ref = contactMediumType_;
+        getMediumTypeBytes() {
+      java.lang.Object ref = mediumType_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        contactMediumType_ = b;
+        mediumType_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -4449,60 +4519,57 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contact medium type identifier for chats originating from external
-     * messenger integrations.
-     * +kubebuilder:example="mobileNumber"
+     * Channel through which this chat was created or delivered.
+     * +kubebuilder:example="app"
      * </pre>
      *
-     * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-     * @param value The contactMediumType to set.
+     * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+     * @param value The mediumType to set.
      * @return This builder for chaining.
      */
-    public Builder setContactMediumType(
+    public Builder setMediumType(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      contactMediumType_ = value;
+      mediumType_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Contact medium type identifier for chats originating from external
-     * messenger integrations.
-     * +kubebuilder:example="mobileNumber"
+     * Channel through which this chat was created or delivered.
+     * +kubebuilder:example="app"
      * </pre>
      *
-     * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
+     * <code>string medium_type = 3 [json_name = "mediumType"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearContactMediumType() {
+    public Builder clearMediumType() {
       
-      contactMediumType_ = getDefaultInstance().getContactMediumType();
+      mediumType_ = getDefaultInstance().getMediumType();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Contact medium type identifier for chats originating from external
-     * messenger integrations.
-     * +kubebuilder:example="mobileNumber"
+     * Channel through which this chat was created or delivered.
+     * +kubebuilder:example="app"
      * </pre>
      *
-     * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-     * @param value The bytes for contactMediumType to set.
+     * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+     * @param value The bytes for mediumType to set.
      * @return This builder for chaining.
      */
-    public Builder setContactMediumTypeBytes(
+    public Builder setMediumTypeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      contactMediumType_ = value;
+      mediumType_ = value;
       onChanged();
       return this;
     }
@@ -10481,6 +10548,112 @@ private static final long serialVersionUID = 0L;
       }
       return expiresAtBuilder_;
     }
+
+    private java.lang.Object mediumId_ = "";
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type.
+     * Usually set for app integrations; empty when the medium has no separate instance.
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
+     * </pre>
+     *
+     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * @return The mediumId.
+     */
+    public java.lang.String getMediumId() {
+      java.lang.Object ref = mediumId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mediumId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type.
+     * Usually set for app integrations; empty when the medium has no separate instance.
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
+     * </pre>
+     *
+     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * @return The bytes for mediumId.
+     */
+    public com.google.protobuf.ByteString
+        getMediumIdBytes() {
+      java.lang.Object ref = mediumId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mediumId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type.
+     * Usually set for app integrations; empty when the medium has no separate instance.
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
+     * </pre>
+     *
+     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * @param value The mediumId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      mediumId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type.
+     * Usually set for app integrations; empty when the medium has no separate instance.
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
+     * </pre>
+     *
+     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMediumId() {
+      
+      mediumId_ = getDefaultInstance().getMediumId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specific medium instance within the medium_type.
+     * Usually set for app integrations; empty when the medium has no separate instance.
+     * +kubebuilder:example="67fceb5a3d6de141ea5a"
+     * </pre>
+     *
+     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * @param value The bytes for mediumId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      mediumId_ = value;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10543,14 +10716,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The contact_medium_type to set.
+     * @param value The medium_type to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearContactMediumType(java.lang.String value) {
+    public Builder setOrClearMediumType(java.lang.String value) {
     	if (value == null)
-    		return clearContactMediumType();
+    		return clearMediumType();
     	else
-    		return setContactMediumType(value);
+    		return setMediumType(value);
     }
     	
     /**
@@ -10558,11 +10731,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearContactMediumType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearMediumType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearContactMediumType();
+    		return clearMediumType();
     	else
-    		return setContactMediumType(mapFunc.apply(value));
+    		return setMediumType(mapFunc.apply(value));
     }
     	
     /**
@@ -11763,6 +11936,29 @@ private static final long serialVersionUID = 0L;
     		return clearExpiresAt();
     	else
     		return setExpiresAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The medium_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMediumId(java.lang.String value) {
+    	if (value == null)
+    		return clearMediumId();
+    	else
+    		return setMediumId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMediumId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearMediumId();
+    	else
+    		return setMediumId(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.UserChat)

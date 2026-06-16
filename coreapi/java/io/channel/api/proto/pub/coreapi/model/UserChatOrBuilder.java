@@ -57,27 +57,25 @@ public interface UserChatOrBuilder extends
 
   /**
    * <pre>
-   * Contact medium type identifier for chats originating from external
-   * messenger integrations.
-   * +kubebuilder:example="mobileNumber"
+   * Channel through which this chat was created or delivered.
+   * +kubebuilder:example="app"
    * </pre>
    *
-   * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-   * @return The contactMediumType.
+   * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+   * @return The mediumType.
    */
-  java.lang.String getContactMediumType();
+  java.lang.String getMediumType();
   /**
    * <pre>
-   * Contact medium type identifier for chats originating from external
-   * messenger integrations.
-   * +kubebuilder:example="mobileNumber"
+   * Channel through which this chat was created or delivered.
+   * +kubebuilder:example="app"
    * </pre>
    *
-   * <code>string contact_medium_type = 3 [json_name = "contactMediumType"];</code>
-   * @return The bytes for contactMediumType.
+   * <code>string medium_type = 3 [json_name = "mediumType"];</code>
+   * @return The bytes for mediumType.
    */
   com.google.protobuf.ByteString
-      getContactMediumTypeBytes();
+      getMediumTypeBytes();
 
   /**
    * <pre>
@@ -1336,4 +1334,28 @@ public interface UserChatOrBuilder extends
    * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
+
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type.
+   * Usually set for app integrations; empty when the medium has no separate instance.
+   * +kubebuilder:example="67fceb5a3d6de141ea5a"
+   * </pre>
+   *
+   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * @return The mediumId.
+   */
+  java.lang.String getMediumId();
+  /**
+   * <pre>
+   * Specific medium instance within the medium_type.
+   * Usually set for app integrations; empty when the medium has no separate instance.
+   * +kubebuilder:example="67fceb5a3d6de141ea5a"
+   * </pre>
+   *
+   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * @return The bytes for mediumId.
+   */
+  com.google.protobuf.ByteString
+      getMediumIdBytes();
 }
