@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # /// script
-# requires-python = ">=3.10"
+# requires-python = ">=3.9"
 # dependencies = []
 # ///
 # --- How to run ---
@@ -39,7 +39,7 @@ FORBIDDEN_TRACKED_SURFACES: Final = (
 SYMBOL_PATTERN_TEMPLATE: Final = r"\b(?:message|enum)\s+{symbol}\b"
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class ExampleReference:
     file_path: Path
     symbols: tuple[str, ...]
