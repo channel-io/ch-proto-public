@@ -76,8 +76,7 @@ func (CallDirection) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_meet_proto_rawDescGZIP(), []int{0}
 }
 
-// Current state of a phone call in its lifecycle. WAITING means the call is ringing
-// or queued and not yet answered; ENGAGED means it is actively connected between participants.
+// Current state of a phone call in its lifecycle.
 type CallState int32
 
 const (

@@ -6,8 +6,6 @@ package io.channel.api.proto.pub.coreapi.service;
 /**
  * <pre>
  * Issues a session JWT for member authentication.
- * The expiration duration must be between 1 minute and 30 days.
- * Defaults to 1 minute if unset.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.IssueSessionJwtRequest}
@@ -213,8 +211,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Duration expiration_;
   /**
    * <pre>
-   * Token validity duration. Defaults to 1 minute.
+   * Token validity duration.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:default="PT1M"
    * </pre>
    *
    * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -226,8 +225,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Token validity duration. Defaults to 1 minute.
+   * Token validity duration.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:default="PT1M"
    * </pre>
    *
    * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -239,8 +239,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Token validity duration. Defaults to 1 minute.
+   * Token validity duration.
    * +kubebuilder:validation:Nullable
+   * +kubebuilder:default="PT1M"
    * </pre>
    *
    * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -433,8 +434,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Issues a session JWT for member authentication.
-   * The expiration duration must be between 1 minute and 30 days.
-   * Defaults to 1 minute if unset.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.IssueSessionJwtRequest}
@@ -812,8 +811,9 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> expirationBuilder_;
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -824,8 +824,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -840,8 +841,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -861,8 +863,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -880,8 +883,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -903,8 +907,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -922,8 +927,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -935,8 +941,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>
@@ -951,8 +958,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Token validity duration. Defaults to 1 minute.
+     * Token validity duration.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:default="PT1M"
      * </pre>
      *
      * <code>.google.protobuf.Duration expiration = 3 [json_name = "expiration", (.buf.validate.field) = { ... }</code>

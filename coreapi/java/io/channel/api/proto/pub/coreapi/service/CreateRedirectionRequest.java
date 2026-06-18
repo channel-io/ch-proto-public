@@ -9,8 +9,6 @@ package io.channel.api.proto.pub.coreapi.service;
  * Generates a short URL that redirects to the specified original URL.
  * The `url` must be a channel URL containing the channel domain
  * (e.g., `https://{your_domain}.channel.io`).
- * The `expiration` must be between 1 minute and 30 days.
- * If `expiration` is not specified, it defaults to 1 minute.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.CreateRedirectionRequest}
@@ -438,8 +436,6 @@ private static final long serialVersionUID = 0L;
    * Generates a short URL that redirects to the specified original URL.
    * The `url` must be a channel URL containing the channel domain
    * (e.g., `https://{your_domain}.channel.io`).
-   * The `expiration` must be between 1 minute and 30 days.
-   * If `expiration` is not specified, it defaults to 1 minute.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.CreateRedirectionRequest}

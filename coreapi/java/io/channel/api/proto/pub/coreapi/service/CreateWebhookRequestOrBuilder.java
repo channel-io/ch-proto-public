@@ -70,6 +70,8 @@ public interface CreateWebhookRequestOrBuilder extends
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -79,6 +81,8 @@ public interface CreateWebhookRequestOrBuilder extends
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -88,6 +92,8 @@ public interface CreateWebhookRequestOrBuilder extends
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -98,6 +104,8 @@ public interface CreateWebhookRequestOrBuilder extends
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>
@@ -108,6 +116,8 @@ public interface CreateWebhookRequestOrBuilder extends
   /**
    * <pre>
    * Event scopes that trigger this webhook.
+   * +kubebuilder:validation:Required
+   * +kubebuilder:validation:MinItems=1
    * </pre>
    *
    * <code>repeated .coreapi.model.WebhookScope scopes = 4 [json_name = "scopes", (.buf.validate.field) = { ... }</code>

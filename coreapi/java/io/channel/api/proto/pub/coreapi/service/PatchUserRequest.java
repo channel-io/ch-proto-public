@@ -198,9 +198,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @return A list containing the tags.
      */
     java.util.List<java.lang.String>
@@ -209,9 +210,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @return The count of tags.
      */
     int getTagsCount();
@@ -219,9 +221,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @param index The index of the element to return.
      * @return The tags at the given index.
      */
@@ -230,9 +233,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @param index The index of the value to return.
      * @return The bytes of the tags at the given index.
      */
@@ -540,9 +544,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @return A list containing the tags.
      */
     public com.google.protobuf.ProtocolStringList
@@ -553,9 +558,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @return The count of tags.
      */
     public int getTagsCount() {
@@ -565,9 +571,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @param index The index of the element to return.
      * @return The tags at the given index.
      */
@@ -578,9 +585,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * User classification tags to replace the current set.
      * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:MaxItems=20
      * </pre>
      *
-     * <code>repeated string tags = 3 [json_name = "tags"];</code>
+     * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
      * @param index The index of the value to return.
      * @return The bytes of the tags at the given index.
      */
@@ -1519,9 +1527,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @return A list containing the tags.
        */
       public com.google.protobuf.ProtocolStringList
@@ -1532,9 +1541,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @return The count of tags.
        */
       public int getTagsCount() {
@@ -1544,9 +1554,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @param index The index of the element to return.
        * @return The tags at the given index.
        */
@@ -1557,9 +1568,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @param index The index of the value to return.
        * @return The bytes of the tags at the given index.
        */
@@ -1571,9 +1583,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @param index The index to set the value at.
        * @param value The tags to set.
        * @return This builder for chaining.
@@ -1592,9 +1605,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @param value The tags to add.
        * @return This builder for chaining.
        */
@@ -1612,9 +1626,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @param values The tags to add.
        * @return This builder for chaining.
        */
@@ -1630,9 +1645,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearTags() {
@@ -1645,9 +1661,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * User classification tags to replace the current set.
        * +kubebuilder:validation:Nullable
+       * +kubebuilder:validation:MaxItems=20
        * </pre>
        *
-       * <code>repeated string tags = 3 [json_name = "tags"];</code>
+       * <code>repeated string tags = 3 [json_name = "tags", (.buf.validate.field) = { ... }</code>
        * @param value The bytes of the tags to add.
        * @return This builder for chaining.
        */
