@@ -1,0 +1,45 @@
+version: 1
+package: core-api
+
+tools:
+  make_install:
+    command: make install
+    purpose: Install Go dependencies and local protoc plugins.
+    requires:
+      - GRPC_JAVA_PATH
+      - GOPRIVATE for private channel-io Go modules when needed.
+
+  make_generate:
+    command: make generate
+    purpose: Regenerate Go and Java code from proto sources.
+    notes:
+      - Removes and regenerates coreapi/go and coreapi/java.
+      - Required after proto source changes.
+
+  make_lint:
+    command: make lint
+    purpose: Run buf lint and model marker/validation/example policy checks.
+
+  buf_format:
+    command: buf format --diff --exit-code
+    purpose: Verify proto formatting without modifying files.
+
+  buf_breaking:
+    command: "buf breaking --against '.git#branch=main'"
+    purpose: Detect breaking proto contract changes against main.
+
+  lint_model_validate:
+    command: ./scripts/lint-model-validate.sh
+    purpose: Ensure model kubebuilder validation markers have matching buf.validate constraints.
+
+  validate_example_policy:
+    command: python3 scripts/validate-example-policy.py --strict
+    purpose: Enforce model/common kubebuilder example marker policy.
+
+  validate_example_output:
+    command: python3 scripts/validate-example-output.py --strict .openapi-out
+    purpose: Enforce generated OpenAPI YAML example coverage.
+
+  agent_core_api_drift:
+    command: python3 scripts/check-agent-core-api-drift.py
+    purpose: Verify .agent/core-api references, adapters, and forbidden stale rule surfaces.

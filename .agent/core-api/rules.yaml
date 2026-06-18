@@ -1,0 +1,154 @@
+version: 1
+package: core-api
+repo: ch-proto-public
+source_of_truth: .agent/core-api
+
+repo_role:
+  owns:
+    - Core API proto contract authoring.
+    - Request and result messages under coreapi/service.
+    - Public schema messages under coreapi/model and coreapi/common.
+    - Generated Go and Java output expectations after proto changes.
+  does_not_own:
+    - Orchestrator implementation.
+    - Sibling repository implementation.
+    - Manual generated-code edits.
+    - Vendored buf.validate files under shared/v1/validation.
+
+paths:
+  source:
+    service: coreapi/service
+    model: coreapi/model
+    common: coreapi/common
+  generated:
+    go: coreapi/go
+    java: coreapi/java
+  protected:
+    - shared/v1/validation
+    - reference
+    - buf.lock
+
+proto_file_rules:
+  required_options:
+    - go_package
+    - java_multiple_files
+    - java_package
+  packages:
+    service:
+      directory: coreapi/service
+      package: coreapi.service
+      go_package: github.com/channel-io/ch-proto-public/coreapi/go/service
+      java_package: io.channel.api.proto.pub.coreapi.service
+    model:
+      directory: coreapi/model
+      package: coreapi.model
+      go_package: github.com/channel-io/ch-proto-public/coreapi/go/model
+      java_package: io.channel.api.proto.pub.coreapi.model
+    common:
+      directory: coreapi/common
+      package: coreapi.common
+      go_package: github.com/channel-io/ch-proto-public/coreapi/go/common
+      java_package: io.channel.api.proto.pub.coreapi.common
+  references:
+    use_fqn: true
+    example: coreapi.model.Bot
+  imports:
+    rule: Import only used proto files. Import buf/validate/validate.proto when buf.validate annotations are used.
+
+service_rules:
+  pattern_first:
+    level: must
+    rule: Before adding or changing a service operation, locate the closest existing operation under coreapi/service and follow its structure.
+  resource_boundary:
+    independent_resource:
+      rule: Independently addressable resources may have their own service proto file.
+      examples:
+        - bot.proto
+        - user.proto
+        - manager.proto
+        - group.proto
+        - user_chat.proto
+    dependent_operation:
+      rule: Dependent entity operations stay in the parent resource service file.
+      examples:
+        - Group sessions, messages, threads, bookmarks, and file URLs stay in group.proto.
+        - UserChat sessions, messages, bookmarks, and file URLs stay in user_chat.proto.
+    forbidden:
+      - Do not create service files such as chat_message.proto or chat_session.proto for dependent entities.
+      - Do not add a generic chat_type field to merge Group and UserChat operations.
+  naming:
+    request: "{Verb}{Resource}Request"
+    result: "{Verb}{Resource}Result"
+    verbs:
+      Search: list or filtered cursor lookup
+      BatchGet: lookup multiple resources by IDs or keys
+      Get: single resource lookup
+      Create: creation
+      Upsert: create-or-update by natural key
+      Patch: partial update using Body plus FieldMask
+      Delete: deletion
+  expand_pattern:
+    rule: Use include_* request booleans only for optional dependent data that requires extra lookup.
+    result_comment: Result fields populated by include_* must document when they are present.
+  patch_pattern:
+    rule: Partial updates use Patch*Request plus Body plus google.protobuf.FieldMask update_mask.
+    body_rule: FieldMask paths are relative to the patch body.
+    path_naming: FieldMask paths use proto snake_case field names.
+    required_mask_validation: update_mask must use required = true and CEL size(this.paths) > 0.
+
+model_common_rules:
+  public_schema:
+    rule: Model and common proto comments are public schema documentation.
+  kubebuilder_markers:
+    rule: Use kubebuilder markers for OpenAPI schema metadata when needed.
+  examples_policy:
+    rule: Follow scripts/validate-example-policy.py R1-R9 for model/common examples.
+  enums:
+    zero_value_suffix: _UNSPECIFIED
+    value_prefix_rule: Enum values include the enum name as prefix.
+
+validation_rules:
+  use_buf_validate: true
+  no_proto_validation_keywords:
+    - optional
+    - required
+  cel_used_for:
+    - string length
+    - numeric ranges
+    - repeated item counts
+    - non-empty FieldMask paths
+  kubebuilder_sync:
+    rule: When kubebuilder validation markers are present, keep matching buf.validate constraints on the same field.
+
+field_numbering:
+  preserve_existing_numbers: true
+  never_reuse_deleted_numbers: true
+  add_new_fields_at_next_safe_number: true
+  breaking_changes:
+    rule: Removing or renaming fields is breaking. Run buf breaking and call out intentional breaks.
+
+comments:
+  public_observable_behavior_only: true
+  avoid:
+    - internal storage details
+    - table names
+    - private service names
+    - implementation-only mechanisms
+  marker_separation:
+    rule: Separate description comments and kubebuilder marker comments with a blank comment line.
+
+generation:
+  proto_change_requires_make_generate: true
+  generated_dirs:
+    - coreapi/go
+    - coreapi/java
+  direct_generated_edits_forbidden: true
+
+pattern_evolution:
+  when: A change introduces or discovers a better recurring Core API proto pattern.
+  must:
+    - Update the representative proto implementation.
+    - Update .agent/core-api/rules.yaml if the rule changes.
+    - Update .agent/core-api/examples.yaml references if the canonical example changes.
+    - Update .agent/core-api/checks.yaml or scripts/check-agent-core-api-drift.py if enforcement changes.
+    - Mention the pattern migration in the PR or final handoff.

@@ -1,0 +1,86 @@
+version: 1
+package: core-api
+patterns:
+  - id: search_with_cursor
+    description: Cursor-based list operation with limit, cursor, next_cursor, and has_next.
+    references:
+      - file: coreapi/service/bot.proto
+        symbols: [SearchBotsRequest, SearchBotsResult]
+      - file: coreapi/service/one_time_msg.proto
+        symbols: [SearchOneTimeMsgsRequest, SearchOneTimeMsgsResult]
+      - file: coreapi/service/plugin.proto
+        symbols: [SearchPluginsRequest, SearchPluginsResult]
+    search:
+      command: rg -n "message Search.*Request|next_cursor|has_next" coreapi/service
+
+  - id: batch_get
+    description: Batch lookup by IDs or keys with repeated field validation.
+    references:
+      - file: coreapi/service/bot.proto
+        symbols: [BatchGetBotsRequest, BatchGetBotsResult]
+      - file: coreapi/service/manager.proto
+        symbols: [BatchGetManagersRequest, BatchGetManagersResult]
+      - file: coreapi/service/chat_tag.proto
+        symbols: [BatchGetChatTagsByKeysRequest, BatchGetChatTagsByKeysResult]
+    search:
+      command: rg -n "message BatchGet.*Request|repeated.*ids|repeated.*keys" coreapi/service
+
+  - id: include_expand
+    description: Optional dependent data included through include_* request booleans.
+    references:
+      - file: coreapi/service/manager.proto
+        symbols: [GetManagerRequest, GetManagerResult, SearchManagersRequest, SearchManagersResult]
+      - file: coreapi/service/user.proto
+        symbols: [GetUserRequest, GetUserResult, BatchGetUsersRequest, BatchGetUsersResult]
+      - file: coreapi/service/group.proto
+        symbols: [GetGroupRequest, GetGroupResult]
+    search:
+      command: rg -n "include_|Populated when include_" coreapi/service
+
+  - id: patch_field_mask_body
+    description: Partial update pattern using Body plus google.protobuf.FieldMask.
+    references:
+      - file: coreapi/service/plugin.proto
+        symbols: [PatchPluginRequest, PatchPluginResult, PatchPluginBody]
+      - file: coreapi/service/group.proto
+        symbols: [PatchGroupRequest, PatchGroupByNameRequest, PatchGroupBody]
+      - file: coreapi/service/user.proto
+        symbols: [PatchUserRequest, PatchUserResult, PatchUserBody]
+      - file: coreapi/service/chat_tag.proto
+        symbols: [PatchChatTagRequest, PatchChatTagResult, PatchChatTagBody]
+    search:
+      command: rg -n "Patch.*Request|FieldMask|update_mask|field_mask.non_empty" coreapi/service
+
+  - id: dependent_operation_in_parent
+    description: Dependent entity operations remain inside the parent resource service file.
+    references:
+      - file: coreapi/service/group.proto
+        symbols: [SearchGroupMessagesRequest, CreateGroupMessageRequest, SearchGroupThreadMessagesRequest]
+      - file: coreapi/service/user_chat.proto
+        symbols: [SearchUserChatMessagesRequest, CreateUserChatMessageRequest, SearchUserChatSessionsRequest]
+    search:
+      command: rg -n "Group Messages|UserChat Messages|Thread|FileUrl|Sessions" coreapi/service/group.proto coreapi/service/user_chat.proto
+
+  - id: model_public_schema
+    description: Public model schema comments, kubebuilder markers, examples, and buf.validate.
+    references:
+      - file: coreapi/model/bot.proto
+        symbols: [Bot]
+      - file: coreapi/model/plugin.proto
+        symbols: [Plugin]
+    search:
+      command: rg -n "kubebuilder:validation|kubebuilder:example|buf.validate" coreapi/model coreapi/common
+
+anti_patterns:
+  - id: dependent_service_split
+    bad: Creating coreapi/service/chat_message.proto or coreapi/service/chat_session.proto.
+    good: Put dependent chat operations in group.proto or user_chat.proto.
+  - id: generic_chat_type
+    bad: Adding chat_type to merge Group and UserChat operations.
+    good: Use parent-specific request/result messages.
+  - id: field_number_reuse
+    bad: Reusing a deleted field number or filling historical gaps.
+    good: Preserve existing numbers and add new fields at the next safe number.
+  - id: generated_manual_edit
+    bad: Editing coreapi/go or coreapi/java by hand.
+    good: Edit proto source and run make generate.

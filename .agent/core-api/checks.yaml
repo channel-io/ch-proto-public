@@ -1,0 +1,57 @@
+version: 1
+package: core-api
+
+gates:
+  before_edit:
+    - id: git_status
+      command: git status --short
+      success: Existing local changes are understood before editing.
+    - id: find_similar_service_pattern
+      command: rg -n "message (Search|BatchGet|Get|Create|Upsert|Patch|Delete).*Request" coreapi/service
+      success: Closest existing operation pattern is selected before editing.
+
+  after_proto_change:
+    - id: buf_format
+      command: buf format --diff --exit-code
+      success: Exits 0 with no formatting diff.
+    - id: generate
+      command: make generate
+      success: Exits 0 and updates generated Go and Java output from proto sources.
+    - id: lint
+      command: make lint
+      success: Exits 0, including buf lint and model validation/example policy checks.
+
+  breaking_sensitive:
+    - id: buf_breaking_main
+      command: "buf breaking --against '.git#branch=main'"
+      success: Exits 0, or intentional breaking change is explicitly called out.
+
+  model_common_openapi_schema_change:
+    - id: openapi_smoke_generate
+      command: |
+        mkdir -p .openapi-out
+        cat > /tmp/buf.gen.openapi.yaml <<'EOF'
+        version: v2
+        plugins:
+          - local: protoc-gen-openapi
+            out: .openapi-out
+            opt:
+              - yaml=true
+              - split_schemas=true
+              - include_description=true
+              - enum_strip_prefix=true
+              - enum_skip_unspecified=true
+        EOF
+        buf generate --template /tmp/buf.gen.openapi.yaml --path coreapi/model --path coreapi/common
+      success: OpenAPI schema generation exits 0.
+    - id: openapi_example_output
+      command: python3 scripts/validate-example-output.py --strict .openapi-out
+      success: Generated OpenAPI YAML example coverage passes.
+
+  agent_package_change:
+    - id: agent_core_api_drift
+      command: python3 scripts/check-agent-core-api-drift.py
+      success: Agent package references and adapters are synchronized with the repo.
+    - id: diff_check
+      command: git diff --check
+      success: No whitespace errors.
