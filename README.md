@@ -2,6 +2,12 @@
 
 Channel.io의 공개 Protocol Buffers 정의 레포지토리.
 
+## Core API Proto Authoring
+
+Core API proto authoring guidance for humans and agents lives in `.agent/core-api/`.
+
+Start with `.agent/core-api/README.md` before changing `coreapi/service`, `coreapi/model`, or `coreapi/common` proto contracts.
+
 ## Prerequisites
 
 ### 필수 도구
