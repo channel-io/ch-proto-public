@@ -124,6 +124,86 @@ public enum MissedReason
    * <code>MISSED_REASON_BLOCKED_USER = 13;</code>
    */
   MISSED_REASON_BLOCKED_USER(13),
+  /**
+   * <pre>
+   * A workflow input step timed out without receiving a response.
+   * </pre>
+   *
+   * <code>MISSED_REASON_WF_INPUT_TIMEOUT = 14;</code>
+   */
+  MISSED_REASON_WF_INPUT_TIMEOUT(14),
+  /**
+   * <pre>
+   * The workflow directed the call to voicemail instead of a manager.
+   * </pre>
+   *
+   * <code>MISSED_REASON_WF_VOICE_MAIL = 15;</code>
+   */
+  MISSED_REASON_WF_VOICE_MAIL(15),
+  /**
+   * <pre>
+   * The workflow ended the call before it was answered.
+   * </pre>
+   *
+   * <code>MISSED_REASON_WF_END_CALL = 16;</code>
+   */
+  MISSED_REASON_WF_END_CALL(16),
+  /**
+   * <pre>
+   * An operator declined the incoming call.
+   * </pre>
+   *
+   * <code>MISSED_REASON_REJECTED_BY_OPERATOR = 17;</code>
+   */
+  MISSED_REASON_REJECTED_BY_OPERATOR(17),
+  /**
+   * <pre>
+   * The user left during the greeting, before menu navigation.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_GREETING = 18;</code>
+   */
+  MISSED_REASON_USER_LEFT_IN_GREETING(18),
+  /**
+   * <pre>
+   * The user left at the IVR menu without making any selection.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT = 19;</code>
+   */
+  MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT(19),
+  /**
+   * <pre>
+   * The user left while navigating the IVR menu.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_IVR = 20;</code>
+   */
+  MISSED_REASON_USER_LEFT_IN_IVR(20),
+  /**
+   * <pre>
+   * The user left while queued for an available manager.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_QUEUED = 21;</code>
+   */
+  MISSED_REASON_USER_LEFT_IN_QUEUED(21),
+  /**
+   * <pre>
+   * The user left while waiting for the assigned manager to answer.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER = 22;</code>
+   */
+  MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER(22),
+  /**
+   * <pre>
+   * The channel's concurrent call limit was reached.
+   * </pre>
+   *
+   * <code>MISSED_REASON_CONCURRENCY_LIMIT = 23;</code>
+   */
+  MISSED_REASON_CONCURRENCY_LIMIT(23),
   UNRECOGNIZED(-1),
   ;
 
@@ -239,6 +319,86 @@ public enum MissedReason
    * <code>MISSED_REASON_BLOCKED_USER = 13;</code>
    */
   public static final int MISSED_REASON_BLOCKED_USER_VALUE = 13;
+  /**
+   * <pre>
+   * A workflow input step timed out without receiving a response.
+   * </pre>
+   *
+   * <code>MISSED_REASON_WF_INPUT_TIMEOUT = 14;</code>
+   */
+  public static final int MISSED_REASON_WF_INPUT_TIMEOUT_VALUE = 14;
+  /**
+   * <pre>
+   * The workflow directed the call to voicemail instead of a manager.
+   * </pre>
+   *
+   * <code>MISSED_REASON_WF_VOICE_MAIL = 15;</code>
+   */
+  public static final int MISSED_REASON_WF_VOICE_MAIL_VALUE = 15;
+  /**
+   * <pre>
+   * The workflow ended the call before it was answered.
+   * </pre>
+   *
+   * <code>MISSED_REASON_WF_END_CALL = 16;</code>
+   */
+  public static final int MISSED_REASON_WF_END_CALL_VALUE = 16;
+  /**
+   * <pre>
+   * An operator declined the incoming call.
+   * </pre>
+   *
+   * <code>MISSED_REASON_REJECTED_BY_OPERATOR = 17;</code>
+   */
+  public static final int MISSED_REASON_REJECTED_BY_OPERATOR_VALUE = 17;
+  /**
+   * <pre>
+   * The user left during the greeting, before menu navigation.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_GREETING = 18;</code>
+   */
+  public static final int MISSED_REASON_USER_LEFT_IN_GREETING_VALUE = 18;
+  /**
+   * <pre>
+   * The user left at the IVR menu without making any selection.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT = 19;</code>
+   */
+  public static final int MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT_VALUE = 19;
+  /**
+   * <pre>
+   * The user left while navigating the IVR menu.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_IVR = 20;</code>
+   */
+  public static final int MISSED_REASON_USER_LEFT_IN_IVR_VALUE = 20;
+  /**
+   * <pre>
+   * The user left while queued for an available manager.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_QUEUED = 21;</code>
+   */
+  public static final int MISSED_REASON_USER_LEFT_IN_QUEUED_VALUE = 21;
+  /**
+   * <pre>
+   * The user left while waiting for the assigned manager to answer.
+   * </pre>
+   *
+   * <code>MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER = 22;</code>
+   */
+  public static final int MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER_VALUE = 22;
+  /**
+   * <pre>
+   * The channel's concurrent call limit was reached.
+   * </pre>
+   *
+   * <code>MISSED_REASON_CONCURRENCY_LIMIT = 23;</code>
+   */
+  public static final int MISSED_REASON_CONCURRENCY_LIMIT_VALUE = 23;
 
 
   public final int getNumber() {
@@ -279,6 +439,16 @@ public enum MissedReason
       case 11: return MISSED_REASON_PRESERVED_NUMBER;
       case 12: return MISSED_REASON_UNREGISTERED_NUMBER;
       case 13: return MISSED_REASON_BLOCKED_USER;
+      case 14: return MISSED_REASON_WF_INPUT_TIMEOUT;
+      case 15: return MISSED_REASON_WF_VOICE_MAIL;
+      case 16: return MISSED_REASON_WF_END_CALL;
+      case 17: return MISSED_REASON_REJECTED_BY_OPERATOR;
+      case 18: return MISSED_REASON_USER_LEFT_IN_GREETING;
+      case 19: return MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT;
+      case 20: return MISSED_REASON_USER_LEFT_IN_IVR;
+      case 21: return MISSED_REASON_USER_LEFT_IN_QUEUED;
+      case 22: return MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER;
+      case 23: return MISSED_REASON_CONCURRENCY_LIMIT;
       default: return null;
     }
   }
@@ -342,6 +512,7 @@ public enum MissedReason
   	switch (value) {
       case "abandonedInQueue": return MISSED_REASON_ABANDONED_IN_QUEUE;
       case "blockedUser": return MISSED_REASON_BLOCKED_USER;
+      case "concurrencyLimit": return MISSED_REASON_CONCURRENCY_LIMIT;
       case "exceededQueue": return MISSED_REASON_EXCEEDED_QUEUE;
       case "inboundRateLimit": return MISSED_REASON_INBOUND_RATE_LIMIT;
       case "managerLeft": return MISSED_REASON_MANAGER_LEFT;
@@ -349,9 +520,18 @@ public enum MissedReason
       case "noOperator": return MISSED_REASON_NO_OPERATOR;
       case "notInOperation": return MISSED_REASON_NOT_IN_OPERATION;
       case "preservedNumber": return MISSED_REASON_PRESERVED_NUMBER;
+      case "rejectedByOperator": return MISSED_REASON_REJECTED_BY_OPERATOR;
       case "ringTimeOver": return MISSED_REASON_RING_TIME_OVER;
       case "unregisteredNumber": return MISSED_REASON_UNREGISTERED_NUMBER;
       case "userLeft": return MISSED_REASON_USER_LEFT;
+      case "userLeftInGreeting": return MISSED_REASON_USER_LEFT_IN_GREETING;
+      case "userLeftInIvr": return MISSED_REASON_USER_LEFT_IN_IVR;
+      case "userLeftInIvrWithoutInput": return MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT;
+      case "userLeftInQueued": return MISSED_REASON_USER_LEFT_IN_QUEUED;
+      case "userLeftInWaitingManager": return MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER;
+      case "wfEndCall": return MISSED_REASON_WF_END_CALL;
+      case "wfInputTimeout": return MISSED_REASON_WF_INPUT_TIMEOUT;
+      case "wfVoiceMail": return MISSED_REASON_WF_VOICE_MAIL;
       case "workflow": return MISSED_REASON_WORKFLOW;
   		default: return MISSED_REASON_UNSPECIFIED;
   	}
@@ -364,6 +544,7 @@ public enum MissedReason
   	switch (this) {
       case MISSED_REASON_ABANDONED_IN_QUEUE: return "abandonedInQueue";
       case MISSED_REASON_BLOCKED_USER: return "blockedUser";
+      case MISSED_REASON_CONCURRENCY_LIMIT: return "concurrencyLimit";
       case MISSED_REASON_EXCEEDED_QUEUE: return "exceededQueue";
       case MISSED_REASON_INBOUND_RATE_LIMIT: return "inboundRateLimit";
       case MISSED_REASON_MANAGER_LEFT: return "managerLeft";
@@ -371,9 +552,18 @@ public enum MissedReason
       case MISSED_REASON_NO_OPERATOR: return "noOperator";
       case MISSED_REASON_NOT_IN_OPERATION: return "notInOperation";
       case MISSED_REASON_PRESERVED_NUMBER: return "preservedNumber";
+      case MISSED_REASON_REJECTED_BY_OPERATOR: return "rejectedByOperator";
       case MISSED_REASON_RING_TIME_OVER: return "ringTimeOver";
       case MISSED_REASON_UNREGISTERED_NUMBER: return "unregisteredNumber";
       case MISSED_REASON_USER_LEFT: return "userLeft";
+      case MISSED_REASON_USER_LEFT_IN_GREETING: return "userLeftInGreeting";
+      case MISSED_REASON_USER_LEFT_IN_IVR: return "userLeftInIvr";
+      case MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT: return "userLeftInIvrWithoutInput";
+      case MISSED_REASON_USER_LEFT_IN_QUEUED: return "userLeftInQueued";
+      case MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER: return "userLeftInWaitingManager";
+      case MISSED_REASON_WF_END_CALL: return "wfEndCall";
+      case MISSED_REASON_WF_INPUT_TIMEOUT: return "wfInputTimeout";
+      case MISSED_REASON_WF_VOICE_MAIL: return "wfVoiceMail";
       case MISSED_REASON_WORKFLOW: return "workflow";
   		default: return null;
   	}

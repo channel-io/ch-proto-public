@@ -121,6 +121,26 @@ const (
 	MissedReason_MISSED_REASON_UNREGISTERED_NUMBER MissedReason = 12
 	// The user has been blocked from initiating chats.
 	MissedReason_MISSED_REASON_BLOCKED_USER MissedReason = 13
+	// A workflow input step timed out without receiving a response.
+	MissedReason_MISSED_REASON_WF_INPUT_TIMEOUT MissedReason = 14
+	// The workflow directed the call to voicemail instead of a manager.
+	MissedReason_MISSED_REASON_WF_VOICE_MAIL MissedReason = 15
+	// The workflow ended the call before it was answered.
+	MissedReason_MISSED_REASON_WF_END_CALL MissedReason = 16
+	// An operator declined the incoming call.
+	MissedReason_MISSED_REASON_REJECTED_BY_OPERATOR MissedReason = 17
+	// The user left during the greeting, before menu navigation.
+	MissedReason_MISSED_REASON_USER_LEFT_IN_GREETING MissedReason = 18
+	// The user left at the IVR menu without making any selection.
+	MissedReason_MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT MissedReason = 19
+	// The user left while navigating the IVR menu.
+	MissedReason_MISSED_REASON_USER_LEFT_IN_IVR MissedReason = 20
+	// The user left while queued for an available manager.
+	MissedReason_MISSED_REASON_USER_LEFT_IN_QUEUED MissedReason = 21
+	// The user left while waiting for the assigned manager to answer.
+	MissedReason_MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER MissedReason = 22
+	// The channel's concurrent call limit was reached.
+	MissedReason_MISSED_REASON_CONCURRENCY_LIMIT MissedReason = 23
 )
 
 // Enum value maps for MissedReason.
@@ -140,22 +160,42 @@ var (
 		11: "MISSED_REASON_PRESERVED_NUMBER",
 		12: "MISSED_REASON_UNREGISTERED_NUMBER",
 		13: "MISSED_REASON_BLOCKED_USER",
+		14: "MISSED_REASON_WF_INPUT_TIMEOUT",
+		15: "MISSED_REASON_WF_VOICE_MAIL",
+		16: "MISSED_REASON_WF_END_CALL",
+		17: "MISSED_REASON_REJECTED_BY_OPERATOR",
+		18: "MISSED_REASON_USER_LEFT_IN_GREETING",
+		19: "MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT",
+		20: "MISSED_REASON_USER_LEFT_IN_IVR",
+		21: "MISSED_REASON_USER_LEFT_IN_QUEUED",
+		22: "MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER",
+		23: "MISSED_REASON_CONCURRENCY_LIMIT",
 	}
 	MissedReason_value = map[string]int32{
-		"MISSED_REASON_UNSPECIFIED":         0,
-		"MISSED_REASON_NOT_IN_OPERATION":    1,
-		"MISSED_REASON_USER_LEFT":           2,
-		"MISSED_REASON_RING_TIME_OVER":      3,
-		"MISSED_REASON_INBOUND_RATE_LIMIT":  4,
-		"MISSED_REASON_NO_OPERATOR":         5,
-		"MISSED_REASON_EXCEEDED_QUEUE":      6,
-		"MISSED_REASON_ABANDONED_IN_QUEUE":  7,
-		"MISSED_REASON_WORKFLOW":            8,
-		"MISSED_REASON_MANAGER_LEFT":        9,
-		"MISSED_REASON_NO_FALLBACK_CLIENT":  10,
-		"MISSED_REASON_PRESERVED_NUMBER":    11,
-		"MISSED_REASON_UNREGISTERED_NUMBER": 12,
-		"MISSED_REASON_BLOCKED_USER":        13,
+		"MISSED_REASON_UNSPECIFIED":                    0,
+		"MISSED_REASON_NOT_IN_OPERATION":               1,
+		"MISSED_REASON_USER_LEFT":                      2,
+		"MISSED_REASON_RING_TIME_OVER":                 3,
+		"MISSED_REASON_INBOUND_RATE_LIMIT":             4,
+		"MISSED_REASON_NO_OPERATOR":                    5,
+		"MISSED_REASON_EXCEEDED_QUEUE":                 6,
+		"MISSED_REASON_ABANDONED_IN_QUEUE":             7,
+		"MISSED_REASON_WORKFLOW":                       8,
+		"MISSED_REASON_MANAGER_LEFT":                   9,
+		"MISSED_REASON_NO_FALLBACK_CLIENT":             10,
+		"MISSED_REASON_PRESERVED_NUMBER":               11,
+		"MISSED_REASON_UNREGISTERED_NUMBER":            12,
+		"MISSED_REASON_BLOCKED_USER":                   13,
+		"MISSED_REASON_WF_INPUT_TIMEOUT":               14,
+		"MISSED_REASON_WF_VOICE_MAIL":                  15,
+		"MISSED_REASON_WF_END_CALL":                    16,
+		"MISSED_REASON_REJECTED_BY_OPERATOR":           17,
+		"MISSED_REASON_USER_LEFT_IN_GREETING":          18,
+		"MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT": 19,
+		"MISSED_REASON_USER_LEFT_IN_IVR":               20,
+		"MISSED_REASON_USER_LEFT_IN_QUEUED":            21,
+		"MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER":   22,
+		"MISSED_REASON_CONCURRENCY_LIMIT":              23,
 	}
 )
 
@@ -1109,7 +1149,7 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\x16USER_CHAT_STATE_OPENED\x10\x02\x12\x1b\n" +
 	"\x17USER_CHAT_STATE_SNOOZED\x10\x03\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_QUEUED\x10\x04\x12\x1b\n" +
-	"\x17USER_CHAT_STATE_INITIAL\x10\x05*\xea\x03\n" +
+	"\x17USER_CHAT_STATE_INITIAL\x10\x05*\xf1\x06\n" +
 	"\fMissedReason\x12\x1d\n" +
 	"\x19MISSED_REASON_UNSPECIFIED\x10\x00\x12\"\n" +
 	"\x1eMISSED_REASON_NOT_IN_OPERATION\x10\x01\x12\x1b\n" +
@@ -1125,7 +1165,17 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\x12\"\n" +
 	"\x1eMISSED_REASON_PRESERVED_NUMBER\x10\v\x12%\n" +
 	"!MISSED_REASON_UNREGISTERED_NUMBER\x10\f\x12\x1e\n" +
-	"\x1aMISSED_REASON_BLOCKED_USER\x10\r*\x98\x01\n" +
+	"\x1aMISSED_REASON_BLOCKED_USER\x10\r\x12\"\n" +
+	"\x1eMISSED_REASON_WF_INPUT_TIMEOUT\x10\x0e\x12\x1f\n" +
+	"\x1bMISSED_REASON_WF_VOICE_MAIL\x10\x0f\x12\x1d\n" +
+	"\x19MISSED_REASON_WF_END_CALL\x10\x10\x12&\n" +
+	"\"MISSED_REASON_REJECTED_BY_OPERATOR\x10\x11\x12'\n" +
+	"#MISSED_REASON_USER_LEFT_IN_GREETING\x10\x12\x120\n" +
+	",MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT\x10\x13\x12\"\n" +
+	"\x1eMISSED_REASON_USER_LEFT_IN_IVR\x10\x14\x12%\n" +
+	"!MISSED_REASON_USER_LEFT_IN_QUEUED\x10\x15\x12.\n" +
+	"*MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER\x10\x16\x12#\n" +
+	"\x1fMISSED_REASON_CONCURRENCY_LIMIT\x10\x17*\x98\x01\n" +
 	"\x12AutoAssignPriority\x12$\n" +
 	" AUTO_ASSIGN_PRIORITY_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18AUTO_ASSIGN_PRIORITY_LOW\x10\x01\x12\x1f\n" +

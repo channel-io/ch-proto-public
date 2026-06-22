@@ -45,6 +45,8 @@ func (x MissedReason) GetString() string {
 		return "abandonedInQueue"
 	case MissedReason_MISSED_REASON_BLOCKED_USER:
 		return "blockedUser"
+	case MissedReason_MISSED_REASON_CONCURRENCY_LIMIT:
+		return "concurrencyLimit"
 	case MissedReason_MISSED_REASON_EXCEEDED_QUEUE:
 		return "exceededQueue"
 	case MissedReason_MISSED_REASON_INBOUND_RATE_LIMIT:
@@ -59,12 +61,30 @@ func (x MissedReason) GetString() string {
 		return "notInOperation"
 	case MissedReason_MISSED_REASON_PRESERVED_NUMBER:
 		return "preservedNumber"
+	case MissedReason_MISSED_REASON_REJECTED_BY_OPERATOR:
+		return "rejectedByOperator"
 	case MissedReason_MISSED_REASON_RING_TIME_OVER:
 		return "ringTimeOver"
 	case MissedReason_MISSED_REASON_UNREGISTERED_NUMBER:
 		return "unregisteredNumber"
 	case MissedReason_MISSED_REASON_USER_LEFT:
 		return "userLeft"
+	case MissedReason_MISSED_REASON_USER_LEFT_IN_GREETING:
+		return "userLeftInGreeting"
+	case MissedReason_MISSED_REASON_USER_LEFT_IN_IVR:
+		return "userLeftInIvr"
+	case MissedReason_MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT:
+		return "userLeftInIvrWithoutInput"
+	case MissedReason_MISSED_REASON_USER_LEFT_IN_QUEUED:
+		return "userLeftInQueued"
+	case MissedReason_MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER:
+		return "userLeftInWaitingManager"
+	case MissedReason_MISSED_REASON_WF_END_CALL:
+		return "wfEndCall"
+	case MissedReason_MISSED_REASON_WF_INPUT_TIMEOUT:
+		return "wfInputTimeout"
+	case MissedReason_MISSED_REASON_WF_VOICE_MAIL:
+		return "wfVoiceMail"
 	case MissedReason_MISSED_REASON_WORKFLOW:
 		return "workflow"
 	default:
@@ -79,6 +99,8 @@ func MissedReasonForString(value string) MissedReason {
 		return MissedReason_MISSED_REASON_ABANDONED_IN_QUEUE
 	case "blockedUser":
 		return MissedReason_MISSED_REASON_BLOCKED_USER
+	case "concurrencyLimit":
+		return MissedReason_MISSED_REASON_CONCURRENCY_LIMIT
 	case "exceededQueue":
 		return MissedReason_MISSED_REASON_EXCEEDED_QUEUE
 	case "inboundRateLimit":
@@ -93,12 +115,30 @@ func MissedReasonForString(value string) MissedReason {
 		return MissedReason_MISSED_REASON_NOT_IN_OPERATION
 	case "preservedNumber":
 		return MissedReason_MISSED_REASON_PRESERVED_NUMBER
+	case "rejectedByOperator":
+		return MissedReason_MISSED_REASON_REJECTED_BY_OPERATOR
 	case "ringTimeOver":
 		return MissedReason_MISSED_REASON_RING_TIME_OVER
 	case "unregisteredNumber":
 		return MissedReason_MISSED_REASON_UNREGISTERED_NUMBER
 	case "userLeft":
 		return MissedReason_MISSED_REASON_USER_LEFT
+	case "userLeftInGreeting":
+		return MissedReason_MISSED_REASON_USER_LEFT_IN_GREETING
+	case "userLeftInIvr":
+		return MissedReason_MISSED_REASON_USER_LEFT_IN_IVR
+	case "userLeftInIvrWithoutInput":
+		return MissedReason_MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT
+	case "userLeftInQueued":
+		return MissedReason_MISSED_REASON_USER_LEFT_IN_QUEUED
+	case "userLeftInWaitingManager":
+		return MissedReason_MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER
+	case "wfEndCall":
+		return MissedReason_MISSED_REASON_WF_END_CALL
+	case "wfInputTimeout":
+		return MissedReason_MISSED_REASON_WF_INPUT_TIMEOUT
+	case "wfVoiceMail":
+		return MissedReason_MISSED_REASON_WF_VOICE_MAIL
 	case "workflow":
 		return MissedReason_MISSED_REASON_WORKFLOW
 	default:
