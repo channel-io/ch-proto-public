@@ -56,6 +56,26 @@ enum MissedReason {
   MISSED_REASON_UNREGISTERED_NUMBER = 12;
   // The user has been blocked from initiating chats.
   MISSED_REASON_BLOCKED_USER = 13;
+  // A workflow input step timed out without receiving a response.
+  MISSED_REASON_WF_INPUT_TIMEOUT = 14;
+  // The workflow directed the call to voicemail instead of a manager.
+  MISSED_REASON_WF_VOICE_MAIL = 15;
+  // The workflow ended the call before it was answered.
+  MISSED_REASON_WF_END_CALL = 16;
+  // An operator declined the incoming call.
+  MISSED_REASON_REJECTED_BY_OPERATOR = 17;
+  // The user left during the greeting, before menu navigation.
+  MISSED_REASON_USER_LEFT_IN_GREETING = 18;
+  // The user left at the IVR menu without making any selection.
+  MISSED_REASON_USER_LEFT_IN_IVR_WITHOUT_INPUT = 19;
+  // The user left while navigating the IVR menu.
+  MISSED_REASON_USER_LEFT_IN_IVR = 20;
+  // The user left while queued for an available manager.
+  MISSED_REASON_USER_LEFT_IN_QUEUED = 21;
+  // The user left while waiting for the assigned manager to answer.
+  MISSED_REASON_USER_LEFT_IN_WAITING_MANAGER = 22;
+  // The channel's concurrent call limit was reached.
+  MISSED_REASON_CONCURRENCY_LIMIT = 23;
 }
 
 // Priority level for auto-assignment routing.
