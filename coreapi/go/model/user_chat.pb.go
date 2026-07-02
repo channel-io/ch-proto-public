@@ -363,11 +363,11 @@ type UserChatDirection int32
 const (
 	// Unspecified or not set.
 	UserChatDirection_USER_CHAT_DIRECTION_UNSPECIFIED UserChatDirection = 0
-	// Inbound conversation started by a user or external contact.
+	// Inbound conversation.
 	UserChatDirection_USER_CHAT_DIRECTION_INBOUND UserChatDirection = 1
-	// Outbound conversation started by a manager or channel-side actor.
+	// Outbound conversation.
 	UserChatDirection_USER_CHAT_DIRECTION_OUTBOUND UserChatDirection = 2
-	// Shared conversation created from another chat context.
+	// Shared conversation.
 	UserChatDirection_USER_CHAT_DIRECTION_SHARING UserChatDirection = 3
 )
 
@@ -414,300 +414,304 @@ func (UserChatDirection) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{5}
 }
 
-// Statistics measured for a user chat conversation.
+// User chat statistics for conversation-level report metrics.
 //
-// Duration fields are measured in milliseconds.
+// These fields align with user-chat report metric labels.
+// For detailed and current metric definitions, see:
+// https://docs.channel.io/help/ko/articles/%EB%A6%AC%ED%8F%AC%ED%8A%B8-%EC%A7%80%ED%91%9C--%ED%95%84%ED%84%B0-e99e1425
+//
+// Duration fields are in milliseconds.
 type UserChatStat struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Direction of the conversation relative to the channel.
+	// Conversation direction used as a report dimension.
 	Direction UserChatDirection `protobuf:"varint,1,opt,name=direction,proto3,enum=coreapi.model.UserChatDirection" json:"direction,omitempty"`
-	// Timestamp when the chat first left the assignment queue.
+	// First queue exit timestamp for the "상담 대기 시간" metric.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-06-15T04:40:17.435Z"
 	FirstQueueOutAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=first_queue_out_at,json=firstQueueOutAt,proto3" json:"first_queue_out_at,omitempty"`
-	// Timestamp when the chat first became active.
+	// First active timestamp for opened-to-answer and opened-to-close metrics.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-06-24T05:43:45.856Z"
 	FirstActiveAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=first_active_at,json=firstActiveAt,proto3" json:"first_active_at,omitempty"`
-	// Timestamp when the chat was first opened.
+	// First opened timestamp for request-to-answer and request-to-close metrics.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-06-24T05:43:45.856Z"
 	FirstOpenedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=first_opened_at,json=firstOpenedAt,proto3" json:"first_opened_at,omitempty"`
-	// Timestamp when the chat first entered the assignment queue.
+	// First queue entry timestamp for the "상담 대기 시간" metric.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-06-15T04:40:09.504Z"
 	FirstQueueInAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=first_queue_in_at,json=firstQueueInAt,proto3" json:"first_queue_in_at,omitempty"`
-	// Timestamp when the chat was first missed.
+	// First missed timestamp.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-03-02T06:53:24.543Z"
 	FirstMissedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=first_missed_at,json=firstMissedAt,proto3" json:"first_missed_at,omitempty"`
-	// Timestamp when the chat was first closed.
+	// First close timestamp for the "종료된 상담 수" and close-duration metrics.
 	//
-	// +kubebuilder:example="2024-03-29T03:28:34Z"
+	// +kubebuilder:example="2026-06-24T05:43:47.670Z"
 	FirstClosedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=first_closed_at,json=firstClosedAt,proto3" json:"first_closed_at,omitempty"`
 	// ID of the assignee when the chat was first closed.
 	//
-	// +kubebuilder:example="9187"
+	// +kubebuilder:example="23919"
 	AssigneeIdAtFirstClose string `protobuf:"bytes,8,opt,name=assignee_id_at_first_close,json=assigneeIdAtFirstClose,proto3" json:"assignee_id_at_first_close,omitempty"`
-	// Number of times the chat was reopened.
+	// Number of reopen events recorded for this chat.
 	//
 	// +kubebuilder:example=1
 	ReopenCount int32 `protobuf:"varint,9,opt,name=reopen_count,json=reopenCount,proto3" json:"reopen_count,omitempty"`
 	// ID of the first assignee after the chat first became active.
 	//
-	// +kubebuilder:example="9187"
+	// +kubebuilder:example="23919"
 	FirstAssigneeIdAfterActive string `protobuf:"bytes,10,opt,name=first_assignee_id_after_active,json=firstAssigneeIdAfterActive,proto3" json:"first_assignee_id_after_active,omitempty"`
-	// Timestamp when the chat was first assigned.
+	// First assignment timestamp for assignment-time report metrics.
 	//
-	// +kubebuilder:example="2024-03-29T03:25:00Z"
+	// +kubebuilder:example="2026-06-24T05:43:46.546Z"
 	FirstAssignedAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=first_assigned_at,json=firstAssignedAt,proto3" json:"first_assigned_at,omitempty"`
 	// ID of the first assignee.
 	//
-	// +kubebuilder:example="9187"
+	// +kubebuilder:example="23919"
 	FirstAssigneeId string `protobuf:"bytes,12,opt,name=first_assignee_id,json=firstAssigneeId,proto3" json:"first_assignee_id,omitempty"`
-	// Number of times the chat was reassigned.
+	// Number of reassignment events used by the "담당자 이관율" metric.
 	//
-	// +kubebuilder:example=2
+	// +kubebuilder:example=1
 	ReassignmentCount int32 `protobuf:"varint,13,opt,name=reassignment_count,json=reassignmentCount,proto3" json:"reassignment_count,omitempty"`
-	// Timestamp when the user first asked a question.
+	// First ask timestamp for customer waiting-time metrics.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-06-24T05:43:45.780Z"
 	FirstAskedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=first_asked_at,json=firstAskedAt,proto3" json:"first_asked_at,omitempty"`
-	// Number of customer satisfaction scores submitted for the chat.
+	// Number of CSAT responses recorded for this chat.
 	//
 	// +kubebuilder:example=1
 	CsatCount int32 `protobuf:"varint,15,opt,name=csat_count,json=csatCount,proto3" json:"csat_count,omitempty"`
-	// Timestamp when the chat first became managed.
+	// Managed timestamp used as the aggregation time for user-chat report metrics.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:48Z"
+	// +kubebuilder:example="2026-06-24T05:43:45.856Z"
 	ManagedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=managed_at,json=managedAt,proto3" json:"managed_at,omitempty"`
-	// Number of times the chat was snoozed.
+	// Number of snooze events recorded for this chat.
 	//
 	// +kubebuilder:example=1
 	SnoozeCount int32 `protobuf:"varint,17,opt,name=snooze_count,json=snoozeCount,proto3" json:"snooze_count,omitempty"`
-	// Total time the chat spent snoozed.
+	// Total snoozed time used by handling-time metrics.
 	//
-	// +kubebuilder:example=60000
+	// +kubebuilder:example=146488
 	TotalSnoozedTime int64 `protobuf:"varint,18,opt,name=total_snoozed_time,json=totalSnoozedTime,proto3" json:"total_snoozed_time,omitempty"`
-	// Total time the chat spent closed before reopening.
+	// Total closed time tracked for final-close metrics.
 	//
-	// +kubebuilder:example=120000
+	// +kubebuilder:example=121605
 	TotalClosedTime int64 `protobuf:"varint,19,opt,name=total_closed_time,json=totalClosedTime,proto3" json:"total_closed_time,omitempty"`
-	// Timestamp when the chat was first answered.
+	// First answer timestamp for answer-count and first-answer duration metrics.
 	//
-	// +kubebuilder:example="2024-03-29T03:28:35Z"
+	// +kubebuilder:example="2026-06-24T05:43:46.524Z"
 	FirstAnsweredAt *timestamppb.Timestamp `protobuf:"bytes,20,opt,name=first_answered_at,json=firstAnsweredAt,proto3" json:"first_answered_at,omitempty"`
-	// Sum of reply durations.
+	// Total reply time used by the "평균 응답 시간" metric.
 	//
-	// +kubebuilder:example=90000
+	// +kubebuilder:example=668
 	TotalReplyTime int64 `protobuf:"varint,21,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
-	// Number of replies counted in reply-time statistics.
+	// Reply count used by reply-time metrics.
 	//
-	// +kubebuilder:example=3
+	// +kubebuilder:example=1
 	ReplyCount int32 `protobuf:"varint,22,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
-	// Number of replies counted during operation time.
+	// Reply count for the operation-time version of reply-time metrics.
 	//
-	// +kubebuilder:example=2
+	// +kubebuilder:example=1
 	ReplyCountInOperation int32 `protobuf:"varint,23,opt,name=reply_count_in_operation,json=replyCountInOperation,proto3" json:"reply_count_in_operation,omitempty"`
-	// Sum of reply durations during operation time.
+	// Total reply time for the operation-time version of reply-time metrics.
 	//
-	// +kubebuilder:example=80000
+	// +kubebuilder:example=668
 	TotalReplyTimeInOperation int64 `protobuf:"varint,24,opt,name=total_reply_time_in_operation,json=totalReplyTimeInOperation,proto3" json:"total_reply_time_in_operation,omitempty"`
 	// Timestamp of the first reply after the chat first became active.
 	//
-	// +kubebuilder:example="2024-03-29T03:28:35Z"
+	// +kubebuilder:example="2026-06-24T05:43:46.524Z"
 	FirstRepliedAtAfterActive *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=first_replied_at_after_active,json=firstRepliedAtAfterActive,proto3" json:"first_replied_at_after_active,omitempty"`
-	// Total snoozed time during operation time.
+	// Total snoozed time for operation-time handling metrics.
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=146488
 	OperationTotalSnoozedTime int64 `protobuf:"varint,26,opt,name=operation_total_snoozed_time,json=operationTotalSnoozedTime,proto3" json:"operation_total_snoozed_time,omitempty"`
-	// Total closed time during operation time.
+	// Total closed time for operation-time final-close metrics.
 	//
-	// +kubebuilder:example=110000
+	// +kubebuilder:example=20218908
 	OperationTotalClosedTime int64 `protobuf:"varint,27,opt,name=operation_total_closed_time,json=operationTotalClosedTime,proto3" json:"operation_total_closed_time,omitempty"`
-	// Duration from management to first assignment.
+	// "담당자 배정까지의 시간" metric.
 	//
-	// +kubebuilder:example=12000
+	// +kubebuilder:example=690
 	TimeToFirstAssignment int64 `protobuf:"varint,28,opt,name=time_to_first_assignment,json=timeToFirstAssignment,proto3" json:"time_to_first_assignment,omitempty"`
-	// Duration from management to first assignment during operation time.
+	// Operation-time version of "담당자 배정까지의 시간".
 	//
-	// +kubebuilder:example=10000
+	// +kubebuilder:example=690
 	TimeToFirstAssignmentInOperation int64 `protobuf:"varint,29,opt,name=time_to_first_assignment_in_operation,json=timeToFirstAssignmentInOperation,proto3" json:"time_to_first_assignment_in_operation,omitempty"`
-	// Duration from management to first answer.
+	// "상담 인입부터 첫 응답까지의 시간" metric.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=668
 	TimeToFirstAnswer int64 `protobuf:"varint,30,opt,name=time_to_first_answer,json=timeToFirstAnswer,proto3" json:"time_to_first_answer,omitempty"`
-	// Duration from management to first answer during operation time.
+	// Operation-time version of "상담 인입부터 첫 응답까지의 시간".
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=668
 	TimeToFirstAnswerInOperation int64 `protobuf:"varint,31,opt,name=time_to_first_answer_in_operation,json=timeToFirstAnswerInOperation,proto3" json:"time_to_first_answer_in_operation,omitempty"`
-	// Duration from first ask to first answer.
+	// "첫 문의 후 첫 응답까지의 시간" metric.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=744
 	TimeFromFirstAskToFirstAnswer int64 `protobuf:"varint,32,opt,name=time_from_first_ask_to_first_answer,json=timeFromFirstAskToFirstAnswer,proto3" json:"time_from_first_ask_to_first_answer,omitempty"`
-	// Duration from first ask to first answer during operation time.
+	// Operation-time version of "첫 문의 후 첫 응답까지의 시간".
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=744
 	TimeFromFirstAskToFirstAnswerInOperation int64 `protobuf:"varint,33,opt,name=time_from_first_ask_to_first_answer_in_operation,json=timeFromFirstAskToFirstAnswerInOperation,proto3" json:"time_from_first_ask_to_first_answer_in_operation,omitempty"`
-	// Duration from first assignment to first answer.
+	// "담당자 배정 후 첫 응답까지의 시간" metric.
 	//
-	// +kubebuilder:example=180000
+	// +kubebuilder:example=0
 	TimeFromFirstAssignmentToFirstAnswer int64 `protobuf:"varint,34,opt,name=time_from_first_assignment_to_first_answer,json=timeFromFirstAssignmentToFirstAnswer,proto3" json:"time_from_first_assignment_to_first_answer,omitempty"`
-	// Duration from first assignment to first answer during operation time.
+	// Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
 	//
-	// +kubebuilder:example=50000
+	// +kubebuilder:example=0
 	TimeFromFirstAssignmentToFirstAnswerInOperation int64 `protobuf:"varint,35,opt,name=time_from_first_assignment_to_first_answer_in_operation,json=timeFromFirstAssignmentToFirstAnswerInOperation,proto3" json:"time_from_first_assignment_to_first_answer_in_operation,omitempty"`
-	// Duration from first active state to first answer.
+	// "상담이 열린 후 첫 응답까지의 시간" metric.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=668
 	TimeFromFirstActiveToFirstAnswer int64 `protobuf:"varint,36,opt,name=time_from_first_active_to_first_answer,json=timeFromFirstActiveToFirstAnswer,proto3" json:"time_from_first_active_to_first_answer,omitempty"`
-	// Duration from first active state to first answer during operation time.
+	// Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=668
 	TimeFromFirstActiveToFirstAnswerInOperation int64 `protobuf:"varint,37,opt,name=time_from_first_active_to_first_answer_in_operation,json=timeFromFirstActiveToFirstAnswerInOperation,proto3" json:"time_from_first_active_to_first_answer_in_operation,omitempty"`
-	// Duration from first open to first answer.
+	// "상담 요청 후 첫 응답까지의 시간" metric.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=668
 	TimeFromFirstOpenToFirstAnswer int64 `protobuf:"varint,38,opt,name=time_from_first_open_to_first_answer,json=timeFromFirstOpenToFirstAnswer,proto3" json:"time_from_first_open_to_first_answer,omitempty"`
-	// Duration from first open to first answer during operation time.
+	// Operation-time version of "상담 요청 후 첫 응답까지의 시간".
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=668
 	TimeFromFirstOpenToFirstAnswerInOperation int64 `protobuf:"varint,39,opt,name=time_from_first_open_to_first_answer_in_operation,json=timeFromFirstOpenToFirstAnswerInOperation,proto3" json:"time_from_first_open_to_first_answer_in_operation,omitempty"`
-	// Duration spent in the first queue interval.
+	// "상담 대기 시간" metric.
 	//
-	// +kubebuilder:example=30000
+	// +kubebuilder:example=7931
 	FirstQueueTime int64 `protobuf:"varint,40,opt,name=first_queue_time,json=firstQueueTime,proto3" json:"first_queue_time,omitempty"`
-	// Duration spent in the first queue interval during operation time.
+	// Operation-time version of "상담 대기 시간".
 	//
-	// +kubebuilder:example=25000
+	// +kubebuilder:example=7931
 	FirstQueueTimeInOperation int64 `protobuf:"varint,41,opt,name=first_queue_time_in_operation,json=firstQueueTimeInOperation,proto3" json:"first_queue_time_in_operation,omitempty"`
-	// Average reply duration.
+	// "평균 응답 시간" metric.
 	//
-	// +kubebuilder:example=45000
+	// +kubebuilder:example=668
 	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
-	// Average reply duration during operation time.
+	// Operation-time version of "평균 응답 시간".
 	//
-	// +kubebuilder:example=40000
+	// +kubebuilder:example=668
 	AvgReplyTimeInOperation int64 `protobuf:"varint,43,opt,name=avg_reply_time_in_operation,json=avgReplyTimeInOperation,proto3" json:"avg_reply_time_in_operation,omitempty"`
-	// Duration from management to first close.
+	// "상담 인입부터 종료까지의 시간" metric.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=1814
 	TimeToFirstClose int64 `protobuf:"varint,44,opt,name=time_to_first_close,json=timeToFirstClose,proto3" json:"time_to_first_close,omitempty"`
-	// Duration from management to first close during operation time.
+	// Operation-time version of "상담 인입부터 종료까지의 시간".
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=1814
 	TimeToFirstCloseInOperation int64 `protobuf:"varint,45,opt,name=time_to_first_close_in_operation,json=timeToFirstCloseInOperation,proto3" json:"time_to_first_close_in_operation,omitempty"`
-	// Duration from first ask to first close.
+	// First ask to first close duration.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=1890
 	TimeFromFirstAskToFirstClose int64 `protobuf:"varint,46,opt,name=time_from_first_ask_to_first_close,json=timeFromFirstAskToFirstClose,proto3" json:"time_from_first_ask_to_first_close,omitempty"`
-	// Duration from first ask to first close during operation time.
+	// Operation-time version of first ask to first close duration.
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=1890
 	TimeFromFirstAskToFirstCloseInOperation int64 `protobuf:"varint,47,opt,name=time_from_first_ask_to_first_close_in_operation,json=timeFromFirstAskToFirstCloseInOperation,proto3" json:"time_from_first_ask_to_first_close_in_operation,omitempty"`
-	// Duration from first assignment to first close.
+	// First assignment to first close duration.
 	//
-	// +kubebuilder:example=180000
+	// +kubebuilder:example=1124
 	TimeFromFirstAssignmentToFirstClose int64 `protobuf:"varint,48,opt,name=time_from_first_assignment_to_first_close,json=timeFromFirstAssignmentToFirstClose,proto3" json:"time_from_first_assignment_to_first_close,omitempty"`
-	// Duration from first assignment to first close during operation time.
+	// Operation-time version of first assignment to first close duration.
 	//
-	// +kubebuilder:example=50000
+	// +kubebuilder:example=1124
 	TimeFromFirstAssignmentToFirstCloseInOperation int64 `protobuf:"varint,49,opt,name=time_from_first_assignment_to_first_close_in_operation,json=timeFromFirstAssignmentToFirstCloseInOperation,proto3" json:"time_from_first_assignment_to_first_close_in_operation,omitempty"`
-	// Duration from first active state to first close.
+	// Opened to first close duration.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=1814
 	TimeFromFirstActiveToFirstClose int64 `protobuf:"varint,50,opt,name=time_from_first_active_to_first_close,json=timeFromFirstActiveToFirstClose,proto3" json:"time_from_first_active_to_first_close,omitempty"`
-	// Duration from first active state to first close during operation time.
+	// Operation-time version of opened to first close duration.
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=1814
 	TimeFromFirstActiveToFirstCloseInOperation int64 `protobuf:"varint,51,opt,name=time_from_first_active_to_first_close_in_operation,json=timeFromFirstActiveToFirstCloseInOperation,proto3" json:"time_from_first_active_to_first_close_in_operation,omitempty"`
-	// Duration from first open to first close.
+	// Request to first close duration.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=1814
 	TimeFromFirstOpenToFirstClose int64 `protobuf:"varint,52,opt,name=time_from_first_open_to_first_close,json=timeFromFirstOpenToFirstClose,proto3" json:"time_from_first_open_to_first_close,omitempty"`
-	// Duration from first open to first close during operation time.
+	// Operation-time version of request to first close duration.
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=1814
 	TimeFromFirstOpenToFirstCloseInOperation int64 `protobuf:"varint,53,opt,name=time_from_first_open_to_first_close_in_operation,json=timeFromFirstOpenToFirstCloseInOperation,proto3" json:"time_from_first_open_to_first_close_in_operation,omitempty"`
-	// Duration from management to close.
+	// "상담 인입부터 최종 종료까지의 시간" metric.
 	//
-	// +kubebuilder:example=226139
+	// +kubebuilder:example=1814
 	TimeToClose int64 `protobuf:"varint,54,opt,name=time_to_close,json=timeToClose,proto3" json:"time_to_close,omitempty"`
-	// Duration from management to close during operation time.
+	// Operation-time version of "상담 인입부터 최종 종료까지의 시간".
 	//
-	// +kubebuilder:example=55000
+	// +kubebuilder:example=1814
 	TimeToCloseInOperation int64 `protobuf:"varint,55,opt,name=time_to_close_in_operation,json=timeToCloseInOperation,proto3" json:"time_to_close_in_operation,omitempty"`
-	// Duration of the first member handling interval.
+	// "상담원 응대 시간" metric.
 	//
-	// +kubebuilder:example=180000
+	// +kubebuilder:example=1814
 	FirstMemberHandlingTime int64 `protobuf:"varint,56,opt,name=first_member_handling_time,json=firstMemberHandlingTime,proto3" json:"first_member_handling_time,omitempty"`
-	// Duration of the first member handling interval during operation time.
+	// Operation-time version of "상담원 응대 시간".
 	//
-	// +kubebuilder:example=50000
+	// +kubebuilder:example=1814
 	FirstMemberHandlingTimeInOperation int64 `protobuf:"varint,57,opt,name=first_member_handling_time_in_operation,json=firstMemberHandlingTimeInOperation,proto3" json:"first_member_handling_time_in_operation,omitempty"`
-	// Total member handling duration.
+	// "상담원 최종 응대 시간" metric.
 	//
-	// +kubebuilder:example=360000
+	// +kubebuilder:example=1814
 	MemberHandlingTime int64 `protobuf:"varint,58,opt,name=member_handling_time,json=memberHandlingTime,proto3" json:"member_handling_time,omitempty"`
-	// Total member handling duration during operation time.
+	// Operation-time version of "상담원 최종 응대 시간".
 	//
-	// +kubebuilder:example=100000
+	// +kubebuilder:example=1814
 	MemberHandlingTimeInOperation int64 `protobuf:"varint,59,opt,name=member_handling_time_in_operation,json=memberHandlingTimeInOperation,proto3" json:"member_handling_time_in_operation,omitempty"`
-	// Whether workflow handling was triggered.
+	// Whether workflow handling was triggered for this chat.
 	//
 	// +kubebuilder:example=true
 	WorkflowTriggered bool `protobuf:"varint,60,opt,name=workflow_triggered,json=workflowTriggered,proto3" json:"workflow_triggered,omitempty"`
-	// Whether ALF handling was triggered.
+	// Whether ALF was involved in this chat.
 	//
 	// +kubebuilder:example=true
 	AlfTriggered bool `protobuf:"varint,61,opt,name=alf_triggered,json=alfTriggered,proto3" json:"alf_triggered,omitempty"`
-	// Whether the chat was ever opened.
+	// Whether this chat was ever opened.
 	//
 	// +kubebuilder:example=true
 	EverOpened bool `protobuf:"varint,62,opt,name=ever_opened,json=everOpened,proto3" json:"ever_opened,omitempty"`
-	// Whether the chat was reopened.
+	// Whether this chat was reopened.
 	//
 	// +kubebuilder:example=true
 	Reopened bool `protobuf:"varint,63,opt,name=reopened,proto3" json:"reopened,omitempty"`
-	// Whether the chat was reassigned.
+	// Whether this chat was reassigned.
 	//
 	// +kubebuilder:example=true
 	Reassigned bool `protobuf:"varint,64,opt,name=reassigned,proto3" json:"reassigned,omitempty"`
-	// Whether the chat became managed during operation time.
+	// Whether managed_at fell within operation time.
 	//
 	// +kubebuilder:example=true
 	ManagedInOperationTime bool `protobuf:"varint,65,opt,name=managed_in_operation_time,json=managedInOperationTime,proto3" json:"managed_in_operation_time,omitempty"`
 	// Timestamp when workflow handling first started.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-03-11T11:26:55.673Z"
 	FirstWorkflowStartedAt *timestamppb.Timestamp `protobuf:"bytes,66,opt,name=first_workflow_started_at,json=firstWorkflowStartedAt,proto3" json:"first_workflow_started_at,omitempty"`
 	// Timestamp when workflow handling first ended.
 	//
-	// +kubebuilder:example="2024-03-29T03:25:30Z"
+	// +kubebuilder:example="2026-03-11T11:27:11.566Z"
 	FirstWorkflowEndedAt *timestamppb.Timestamp `protobuf:"bytes,67,opt,name=first_workflow_ended_at,json=firstWorkflowEndedAt,proto3" json:"first_workflow_ended_at,omitempty"`
 	// Timestamp when ALF handling first started.
 	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	// +kubebuilder:example="2026-01-28T00:45:07.603Z"
 	FirstAlfStartedAt *timestamppb.Timestamp `protobuf:"bytes,68,opt,name=first_alf_started_at,json=firstAlfStartedAt,proto3" json:"first_alf_started_at,omitempty"`
 	// Timestamp when ALF handling first ended.
 	//
-	// +kubebuilder:example="2024-03-29T03:25:30Z"
+	// +kubebuilder:example="2026-01-28T00:45:52.994Z"
 	FirstAlfEndedAt *timestamppb.Timestamp `protobuf:"bytes,69,opt,name=first_alf_ended_at,json=firstAlfEndedAt,proto3" json:"first_alf_ended_at,omitempty"`
 	// Total workflow handling duration.
 	//
-	// +kubebuilder:example=60000
+	// +kubebuilder:example=15893
 	WorkflowHandlingTime int64 `protobuf:"varint,70,opt,name=workflow_handling_time,json=workflowHandlingTime,proto3" json:"workflow_handling_time,omitempty"`
-	// Total ALF handling duration.
+	// "ALF 응대 시간" metric.
 	//
-	// +kubebuilder:example=60000
+	// +kubebuilder:example=45391
 	AlfHandlingTime int64 `protobuf:"varint,71,opt,name=alf_handling_time,json=alfHandlingTime,proto3" json:"alf_handling_time,omitempty"`
-	// ALF customer experience score.
+	// ALF CX Score metric.
 	//
-	// +kubebuilder:example=4.5
+	// +kubebuilder:example=1.4
 	AlfCxScore float32 `protobuf:"fixed32,72,opt,name=alf_cx_score,json=alfCxScore,proto3" json:"alf_cx_score,omitempty"`
-	// Customer experience score.
+	// Customer experience score recorded for this chat.
 	//
-	// +kubebuilder:example=4.2
+	// +kubebuilder:example=1.4
 	CxScore       float32 `protobuf:"fixed32,73,opt,name=cx_score,json=cxScore,proto3" json:"cx_score,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

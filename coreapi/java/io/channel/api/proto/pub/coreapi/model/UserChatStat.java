@@ -5,8 +5,11 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Statistics measured for a user chat conversation.
- * Duration fields are measured in milliseconds.
+ * User chat statistics for conversation-level report metrics.
+ * These fields align with user-chat report metric labels.
+ * For detailed and current metric definitions, see:
+ * https://docs.channel.io/help/ko/articles/%EB%A6%AC%ED%8F%AC%ED%8A%B8-%EC%A7%80%ED%91%9C--%ED%95%84%ED%84%B0-e99e1425
+ * Duration fields are in milliseconds.
  * </pre>
  *
  * Protobuf type {@code coreapi.model.UserChatStat}
@@ -582,7 +585,7 @@ private static final long serialVersionUID = 0L;
   private int direction_;
   /**
    * <pre>
-   * Direction of the conversation relative to the channel.
+   * Conversation direction used as a report dimension.
    * </pre>
    *
    * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -593,7 +596,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Direction of the conversation relative to the channel.
+   * Conversation direction used as a report dimension.
    * </pre>
    *
    * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -609,8 +612,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstQueueOutAt_;
   /**
    * <pre>
-   * Timestamp when the chat first left the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -622,8 +625,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first left the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -635,8 +638,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first left the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -650,8 +653,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstActiveAt_;
   /**
    * <pre>
-   * Timestamp when the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First active timestamp for opened-to-answer and opened-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -663,8 +666,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First active timestamp for opened-to-answer and opened-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -676,8 +679,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First active timestamp for opened-to-answer and opened-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -691,8 +694,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstOpenedAt_;
   /**
    * <pre>
-   * Timestamp when the chat was first opened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First opened timestamp for request-to-answer and request-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -704,8 +707,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first opened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First opened timestamp for request-to-answer and request-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -717,8 +720,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first opened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First opened timestamp for request-to-answer and request-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -732,8 +735,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstQueueInAt_;
   /**
    * <pre>
-   * Timestamp when the chat first entered the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -745,8 +748,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first entered the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -758,8 +761,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first entered the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -773,8 +776,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstMissedAt_;
   /**
    * <pre>
-   * Timestamp when the chat was first missed.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First missed timestamp.
+   * +kubebuilder:example="2026-03-02T06:53:24.543Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -786,8 +789,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first missed.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First missed timestamp.
+   * +kubebuilder:example="2026-03-02T06:53:24.543Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -799,8 +802,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first missed.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First missed timestamp.
+   * +kubebuilder:example="2026-03-02T06:53:24.543Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -814,8 +817,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstClosedAt_;
   /**
    * <pre>
-   * Timestamp when the chat was first closed.
-   * +kubebuilder:example="2024-03-29T03:28:34Z"
+   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -827,8 +830,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first closed.
-   * +kubebuilder:example="2024-03-29T03:28:34Z"
+   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -840,8 +843,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first closed.
-   * +kubebuilder:example="2024-03-29T03:28:34Z"
+   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -856,7 +859,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the assignee when the chat was first closed.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -868,7 +871,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       assigneeIdAtFirstClose_ = s;
@@ -878,7 +881,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the assignee when the chat was first closed.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -889,7 +892,7 @@ private static final long serialVersionUID = 0L;
       getAssigneeIdAtFirstCloseBytes() {
     java.lang.Object ref = assigneeIdAtFirstClose_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       assigneeIdAtFirstClose_ = b;
@@ -903,7 +906,7 @@ private static final long serialVersionUID = 0L;
   private int reopenCount_;
   /**
    * <pre>
-   * Number of times the chat was reopened.
+   * Number of reopen events recorded for this chat.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -920,7 +923,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the first assignee after the chat first became active.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -932,7 +935,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       firstAssigneeIdAfterActive_ = s;
@@ -942,7 +945,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the first assignee after the chat first became active.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -953,7 +956,7 @@ private static final long serialVersionUID = 0L;
       getFirstAssigneeIdAfterActiveBytes() {
     java.lang.Object ref = firstAssigneeIdAfterActive_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       firstAssigneeIdAfterActive_ = b;
@@ -967,8 +970,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstAssignedAt_;
   /**
    * <pre>
-   * Timestamp when the chat was first assigned.
-   * +kubebuilder:example="2024-03-29T03:25:00Z"
+   * First assignment timestamp for assignment-time report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.546Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -980,8 +983,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first assigned.
-   * +kubebuilder:example="2024-03-29T03:25:00Z"
+   * First assignment timestamp for assignment-time report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.546Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -993,8 +996,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first assigned.
-   * +kubebuilder:example="2024-03-29T03:25:00Z"
+   * First assignment timestamp for assignment-time report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.546Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -1009,7 +1012,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the first assignee.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -1021,7 +1024,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       firstAssigneeId_ = s;
@@ -1031,7 +1034,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ID of the first assignee.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -1042,7 +1045,7 @@ private static final long serialVersionUID = 0L;
       getFirstAssigneeIdBytes() {
     java.lang.Object ref = firstAssigneeId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       firstAssigneeId_ = b;
@@ -1056,8 +1059,8 @@ private static final long serialVersionUID = 0L;
   private int reassignmentCount_;
   /**
    * <pre>
-   * Number of times the chat was reassigned.
-   * +kubebuilder:example=2
+   * Number of reassignment events used by the "담당자 이관율" metric.
+   * +kubebuilder:example=1
    * </pre>
    *
    * <code>int32 reassignment_count = 13 [json_name = "reassignmentCount"];</code>
@@ -1072,8 +1075,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstAskedAt_;
   /**
    * <pre>
-   * Timestamp when the user first asked a question.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First ask timestamp for customer waiting-time metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.780Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -1085,8 +1088,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user first asked a question.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First ask timestamp for customer waiting-time metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.780Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -1098,8 +1101,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the user first asked a question.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First ask timestamp for customer waiting-time metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.780Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -1113,7 +1116,7 @@ private static final long serialVersionUID = 0L;
   private int csatCount_;
   /**
    * <pre>
-   * Number of customer satisfaction scores submitted for the chat.
+   * Number of CSAT responses recorded for this chat.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -1129,8 +1132,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp managedAt_;
   /**
    * <pre>
-   * Timestamp when the chat first became managed.
-   * +kubebuilder:example="2024-03-29T03:24:48Z"
+   * Managed timestamp used as the aggregation time for user-chat report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -1142,8 +1145,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first became managed.
-   * +kubebuilder:example="2024-03-29T03:24:48Z"
+   * Managed timestamp used as the aggregation time for user-chat report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -1155,8 +1158,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat first became managed.
-   * +kubebuilder:example="2024-03-29T03:24:48Z"
+   * Managed timestamp used as the aggregation time for user-chat report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -1170,7 +1173,7 @@ private static final long serialVersionUID = 0L;
   private int snoozeCount_;
   /**
    * <pre>
-   * Number of times the chat was snoozed.
+   * Number of snooze events recorded for this chat.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -1186,8 +1189,8 @@ private static final long serialVersionUID = 0L;
   private long totalSnoozedTime_;
   /**
    * <pre>
-   * Total time the chat spent snoozed.
-   * +kubebuilder:example=60000
+   * Total snoozed time used by handling-time metrics.
+   * +kubebuilder:example=146488
    * </pre>
    *
    * <code>int64 total_snoozed_time = 18 [json_name = "totalSnoozedTime"];</code>
@@ -1202,8 +1205,8 @@ private static final long serialVersionUID = 0L;
   private long totalClosedTime_;
   /**
    * <pre>
-   * Total time the chat spent closed before reopening.
-   * +kubebuilder:example=120000
+   * Total closed time tracked for final-close metrics.
+   * +kubebuilder:example=121605
    * </pre>
    *
    * <code>int64 total_closed_time = 19 [json_name = "totalClosedTime"];</code>
@@ -1218,8 +1221,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstAnsweredAt_;
   /**
    * <pre>
-   * Timestamp when the chat was first answered.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * First answer timestamp for answer-count and first-answer duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -1231,8 +1234,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first answered.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * First answer timestamp for answer-count and first-answer duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -1244,8 +1247,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Timestamp when the chat was first answered.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * First answer timestamp for answer-count and first-answer duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -1259,8 +1262,8 @@ private static final long serialVersionUID = 0L;
   private long totalReplyTime_;
   /**
    * <pre>
-   * Sum of reply durations.
-   * +kubebuilder:example=90000
+   * Total reply time used by the "평균 응답 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 total_reply_time = 21 [json_name = "totalReplyTime"];</code>
@@ -1275,8 +1278,8 @@ private static final long serialVersionUID = 0L;
   private int replyCount_;
   /**
    * <pre>
-   * Number of replies counted in reply-time statistics.
-   * +kubebuilder:example=3
+   * Reply count used by reply-time metrics.
+   * +kubebuilder:example=1
    * </pre>
    *
    * <code>int32 reply_count = 22 [json_name = "replyCount"];</code>
@@ -1291,8 +1294,8 @@ private static final long serialVersionUID = 0L;
   private int replyCountInOperation_;
   /**
    * <pre>
-   * Number of replies counted during operation time.
-   * +kubebuilder:example=2
+   * Reply count for the operation-time version of reply-time metrics.
+   * +kubebuilder:example=1
    * </pre>
    *
    * <code>int32 reply_count_in_operation = 23 [json_name = "replyCountInOperation"];</code>
@@ -1307,8 +1310,8 @@ private static final long serialVersionUID = 0L;
   private long totalReplyTimeInOperation_;
   /**
    * <pre>
-   * Sum of reply durations during operation time.
-   * +kubebuilder:example=80000
+   * Total reply time for the operation-time version of reply-time metrics.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 total_reply_time_in_operation = 24 [json_name = "totalReplyTimeInOperation"];</code>
@@ -1324,7 +1327,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp of the first reply after the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -1337,7 +1340,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp of the first reply after the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -1350,7 +1353,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp of the first reply after the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -1364,8 +1367,8 @@ private static final long serialVersionUID = 0L;
   private long operationTotalSnoozedTime_;
   /**
    * <pre>
-   * Total snoozed time during operation time.
-   * +kubebuilder:example=55000
+   * Total snoozed time for operation-time handling metrics.
+   * +kubebuilder:example=146488
    * </pre>
    *
    * <code>int64 operation_total_snoozed_time = 26 [json_name = "operationTotalSnoozedTime"];</code>
@@ -1380,8 +1383,8 @@ private static final long serialVersionUID = 0L;
   private long operationTotalClosedTime_;
   /**
    * <pre>
-   * Total closed time during operation time.
-   * +kubebuilder:example=110000
+   * Total closed time for operation-time final-close metrics.
+   * +kubebuilder:example=20218908
    * </pre>
    *
    * <code>int64 operation_total_closed_time = 27 [json_name = "operationTotalClosedTime"];</code>
@@ -1396,8 +1399,8 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAssignment_;
   /**
    * <pre>
-   * Duration from management to first assignment.
-   * +kubebuilder:example=12000
+   * "담당자 배정까지의 시간" metric.
+   * +kubebuilder:example=690
    * </pre>
    *
    * <code>int64 time_to_first_assignment = 28 [json_name = "timeToFirstAssignment"];</code>
@@ -1412,8 +1415,8 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAssignmentInOperation_;
   /**
    * <pre>
-   * Duration from management to first assignment during operation time.
-   * +kubebuilder:example=10000
+   * Operation-time version of "담당자 배정까지의 시간".
+   * +kubebuilder:example=690
    * </pre>
    *
    * <code>int64 time_to_first_assignment_in_operation = 29 [json_name = "timeToFirstAssignmentInOperation"];</code>
@@ -1428,8 +1431,8 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAnswer_;
   /**
    * <pre>
-   * Duration from management to first answer.
-   * +kubebuilder:example=226139
+   * "상담 인입부터 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_to_first_answer = 30 [json_name = "timeToFirstAnswer"];</code>
@@ -1444,8 +1447,8 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Duration from management to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_to_first_answer_in_operation = 31 [json_name = "timeToFirstAnswerInOperation"];</code>
@@ -1460,8 +1463,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAskToFirstAnswer_;
   /**
    * <pre>
-   * Duration from first ask to first answer.
-   * +kubebuilder:example=226139
+   * "첫 문의 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=744
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_answer = 32 [json_name = "timeFromFirstAskToFirstAnswer"];</code>
@@ -1476,8 +1479,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAskToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Duration from first ask to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+   * +kubebuilder:example=744
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_answer_in_operation = 33 [json_name = "timeFromFirstAskToFirstAnswerInOperation"];</code>
@@ -1492,8 +1495,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAssignmentToFirstAnswer_;
   /**
    * <pre>
-   * Duration from first assignment to first answer.
-   * +kubebuilder:example=180000
+   * "담당자 배정 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=0
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_answer = 34 [json_name = "timeFromFirstAssignmentToFirstAnswer"];</code>
@@ -1508,8 +1511,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAssignmentToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Duration from first assignment to first answer during operation time.
-   * +kubebuilder:example=50000
+   * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+   * +kubebuilder:example=0
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_answer_in_operation = 35 [json_name = "timeFromFirstAssignmentToFirstAnswerInOperation"];</code>
@@ -1524,8 +1527,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstActiveToFirstAnswer_;
   /**
    * <pre>
-   * Duration from first active state to first answer.
-   * +kubebuilder:example=226139
+   * "상담이 열린 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_answer = 36 [json_name = "timeFromFirstActiveToFirstAnswer"];</code>
@@ -1540,8 +1543,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstActiveToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Duration from first active state to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_answer_in_operation = 37 [json_name = "timeFromFirstActiveToFirstAnswerInOperation"];</code>
@@ -1556,8 +1559,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstOpenToFirstAnswer_;
   /**
    * <pre>
-   * Duration from first open to first answer.
-   * +kubebuilder:example=226139
+   * "상담 요청 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_answer = 38 [json_name = "timeFromFirstOpenToFirstAnswer"];</code>
@@ -1572,8 +1575,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstOpenToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Duration from first open to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_answer_in_operation = 39 [json_name = "timeFromFirstOpenToFirstAnswerInOperation"];</code>
@@ -1588,8 +1591,8 @@ private static final long serialVersionUID = 0L;
   private long firstQueueTime_;
   /**
    * <pre>
-   * Duration spent in the first queue interval.
-   * +kubebuilder:example=30000
+   * "상담 대기 시간" metric.
+   * +kubebuilder:example=7931
    * </pre>
    *
    * <code>int64 first_queue_time = 40 [json_name = "firstQueueTime"];</code>
@@ -1604,8 +1607,8 @@ private static final long serialVersionUID = 0L;
   private long firstQueueTimeInOperation_;
   /**
    * <pre>
-   * Duration spent in the first queue interval during operation time.
-   * +kubebuilder:example=25000
+   * Operation-time version of "상담 대기 시간".
+   * +kubebuilder:example=7931
    * </pre>
    *
    * <code>int64 first_queue_time_in_operation = 41 [json_name = "firstQueueTimeInOperation"];</code>
@@ -1620,8 +1623,8 @@ private static final long serialVersionUID = 0L;
   private long avgReplyTime_;
   /**
    * <pre>
-   * Average reply duration.
-   * +kubebuilder:example=45000
+   * "평균 응답 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -1636,8 +1639,8 @@ private static final long serialVersionUID = 0L;
   private long avgReplyTimeInOperation_;
   /**
    * <pre>
-   * Average reply duration during operation time.
-   * +kubebuilder:example=40000
+   * Operation-time version of "평균 응답 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 avg_reply_time_in_operation = 43 [json_name = "avgReplyTimeInOperation"];</code>
@@ -1652,8 +1655,8 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstClose_;
   /**
    * <pre>
-   * Duration from management to first close.
-   * +kubebuilder:example=226139
+   * "상담 인입부터 종료까지의 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_first_close = 44 [json_name = "timeToFirstClose"];</code>
@@ -1668,8 +1671,8 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstCloseInOperation_;
   /**
    * <pre>
-   * Duration from management to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 인입부터 종료까지의 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_first_close_in_operation = 45 [json_name = "timeToFirstCloseInOperation"];</code>
@@ -1684,8 +1687,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAskToFirstClose_;
   /**
    * <pre>
-   * Duration from first ask to first close.
-   * +kubebuilder:example=226139
+   * First ask to first close duration.
+   * +kubebuilder:example=1890
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_close = 46 [json_name = "timeFromFirstAskToFirstClose"];</code>
@@ -1700,8 +1703,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAskToFirstCloseInOperation_;
   /**
    * <pre>
-   * Duration from first ask to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of first ask to first close duration.
+   * +kubebuilder:example=1890
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_close_in_operation = 47 [json_name = "timeFromFirstAskToFirstCloseInOperation"];</code>
@@ -1716,8 +1719,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAssignmentToFirstClose_;
   /**
    * <pre>
-   * Duration from first assignment to first close.
-   * +kubebuilder:example=180000
+   * First assignment to first close duration.
+   * +kubebuilder:example=1124
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_close = 48 [json_name = "timeFromFirstAssignmentToFirstClose"];</code>
@@ -1732,8 +1735,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAssignmentToFirstCloseInOperation_;
   /**
    * <pre>
-   * Duration from first assignment to first close during operation time.
-   * +kubebuilder:example=50000
+   * Operation-time version of first assignment to first close duration.
+   * +kubebuilder:example=1124
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_close_in_operation = 49 [json_name = "timeFromFirstAssignmentToFirstCloseInOperation"];</code>
@@ -1748,8 +1751,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstActiveToFirstClose_;
   /**
    * <pre>
-   * Duration from first active state to first close.
-   * +kubebuilder:example=226139
+   * Opened to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_close = 50 [json_name = "timeFromFirstActiveToFirstClose"];</code>
@@ -1764,8 +1767,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstActiveToFirstCloseInOperation_;
   /**
    * <pre>
-   * Duration from first active state to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of opened to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_close_in_operation = 51 [json_name = "timeFromFirstActiveToFirstCloseInOperation"];</code>
@@ -1780,8 +1783,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstOpenToFirstClose_;
   /**
    * <pre>
-   * Duration from first open to first close.
-   * +kubebuilder:example=226139
+   * Request to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_close = 52 [json_name = "timeFromFirstOpenToFirstClose"];</code>
@@ -1796,8 +1799,8 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstOpenToFirstCloseInOperation_;
   /**
    * <pre>
-   * Duration from first open to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of request to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_close_in_operation = 53 [json_name = "timeFromFirstOpenToFirstCloseInOperation"];</code>
@@ -1812,8 +1815,8 @@ private static final long serialVersionUID = 0L;
   private long timeToClose_;
   /**
    * <pre>
-   * Duration from management to close.
-   * +kubebuilder:example=226139
+   * "상담 인입부터 최종 종료까지의 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_close = 54 [json_name = "timeToClose"];</code>
@@ -1828,8 +1831,8 @@ private static final long serialVersionUID = 0L;
   private long timeToCloseInOperation_;
   /**
    * <pre>
-   * Duration from management to close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_close_in_operation = 55 [json_name = "timeToCloseInOperation"];</code>
@@ -1844,8 +1847,8 @@ private static final long serialVersionUID = 0L;
   private long firstMemberHandlingTime_;
   /**
    * <pre>
-   * Duration of the first member handling interval.
-   * +kubebuilder:example=180000
+   * "상담원 응대 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 first_member_handling_time = 56 [json_name = "firstMemberHandlingTime"];</code>
@@ -1860,8 +1863,8 @@ private static final long serialVersionUID = 0L;
   private long firstMemberHandlingTimeInOperation_;
   /**
    * <pre>
-   * Duration of the first member handling interval during operation time.
-   * +kubebuilder:example=50000
+   * Operation-time version of "상담원 응대 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 first_member_handling_time_in_operation = 57 [json_name = "firstMemberHandlingTimeInOperation"];</code>
@@ -1876,8 +1879,8 @@ private static final long serialVersionUID = 0L;
   private long memberHandlingTime_;
   /**
    * <pre>
-   * Total member handling duration.
-   * +kubebuilder:example=360000
+   * "상담원 최종 응대 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 member_handling_time = 58 [json_name = "memberHandlingTime"];</code>
@@ -1892,8 +1895,8 @@ private static final long serialVersionUID = 0L;
   private long memberHandlingTimeInOperation_;
   /**
    * <pre>
-   * Total member handling duration during operation time.
-   * +kubebuilder:example=100000
+   * Operation-time version of "상담원 최종 응대 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 member_handling_time_in_operation = 59 [json_name = "memberHandlingTimeInOperation"];</code>
@@ -1908,7 +1911,7 @@ private static final long serialVersionUID = 0L;
   private boolean workflowTriggered_;
   /**
    * <pre>
-   * Whether workflow handling was triggered.
+   * Whether workflow handling was triggered for this chat.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -1924,7 +1927,7 @@ private static final long serialVersionUID = 0L;
   private boolean alfTriggered_;
   /**
    * <pre>
-   * Whether ALF handling was triggered.
+   * Whether ALF was involved in this chat.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -1940,7 +1943,7 @@ private static final long serialVersionUID = 0L;
   private boolean everOpened_;
   /**
    * <pre>
-   * Whether the chat was ever opened.
+   * Whether this chat was ever opened.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -1956,7 +1959,7 @@ private static final long serialVersionUID = 0L;
   private boolean reopened_;
   /**
    * <pre>
-   * Whether the chat was reopened.
+   * Whether this chat was reopened.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -1972,7 +1975,7 @@ private static final long serialVersionUID = 0L;
   private boolean reassigned_;
   /**
    * <pre>
-   * Whether the chat was reassigned.
+   * Whether this chat was reassigned.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -1988,7 +1991,7 @@ private static final long serialVersionUID = 0L;
   private boolean managedInOperationTime_;
   /**
    * <pre>
-   * Whether the chat became managed during operation time.
+   * Whether managed_at fell within operation time.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -2005,7 +2008,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when workflow handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-03-11T11:26:55.673Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -2018,7 +2021,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when workflow handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-03-11T11:26:55.673Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -2031,7 +2034,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when workflow handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-03-11T11:26:55.673Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -2046,7 +2049,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when workflow handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-03-11T11:27:11.566Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -2059,7 +2062,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when workflow handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-03-11T11:27:11.566Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -2072,7 +2075,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when workflow handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-03-11T11:27:11.566Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -2087,7 +2090,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when ALF handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:07.603Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -2100,7 +2103,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when ALF handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:07.603Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -2113,7 +2116,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when ALF handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:07.603Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -2128,7 +2131,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when ALF handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:52.994Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -2141,7 +2144,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when ALF handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:52.994Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -2154,7 +2157,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when ALF handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:52.994Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -2169,7 +2172,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Total workflow handling duration.
-   * +kubebuilder:example=60000
+   * +kubebuilder:example=15893
    * </pre>
    *
    * <code>int64 workflow_handling_time = 70 [json_name = "workflowHandlingTime"];</code>
@@ -2184,8 +2187,8 @@ private static final long serialVersionUID = 0L;
   private long alfHandlingTime_;
   /**
    * <pre>
-   * Total ALF handling duration.
-   * +kubebuilder:example=60000
+   * "ALF 응대 시간" metric.
+   * +kubebuilder:example=45391
    * </pre>
    *
    * <code>int64 alf_handling_time = 71 [json_name = "alfHandlingTime"];</code>
@@ -2200,8 +2203,8 @@ private static final long serialVersionUID = 0L;
   private float alfCxScore_;
   /**
    * <pre>
-   * ALF customer experience score.
-   * +kubebuilder:example=4.5
+   * ALF CX Score metric.
+   * +kubebuilder:example=1.4
    * </pre>
    *
    * <code>float alf_cx_score = 72 [json_name = "alfCxScore"];</code>
@@ -2216,8 +2219,8 @@ private static final long serialVersionUID = 0L;
   private float cxScore_;
   /**
    * <pre>
-   * Customer experience score.
-   * +kubebuilder:example=4.2
+   * Customer experience score recorded for this chat.
+   * +kubebuilder:example=1.4
    * </pre>
    *
    * <code>float cx_score = 73 [json_name = "cxScore"];</code>
@@ -3298,8 +3301,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Statistics measured for a user chat conversation.
-   * Duration fields are measured in milliseconds.
+   * User chat statistics for conversation-level report metrics.
+   * These fields align with user-chat report metric labels.
+   * For detailed and current metric definitions, see:
+   * https://docs.channel.io/help/ko/articles/%EB%A6%AC%ED%8F%AC%ED%8A%B8-%EC%A7%80%ED%91%9C--%ED%95%84%ED%84%B0-e99e1425
+   * Duration fields are in milliseconds.
    * </pre>
    *
    * Protobuf type {@code coreapi.model.UserChatStat}
@@ -4006,7 +4012,7 @@ private static final long serialVersionUID = 0L;
     private int direction_ = 0;
     /**
      * <pre>
-     * Direction of the conversation relative to the channel.
+     * Conversation direction used as a report dimension.
      * </pre>
      *
      * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -4017,7 +4023,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Direction of the conversation relative to the channel.
+     * Conversation direction used as a report dimension.
      * </pre>
      *
      * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -4025,14 +4031,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDirectionValue(int value) {
-      
+
       direction_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Direction of the conversation relative to the channel.
+     * Conversation direction used as a report dimension.
      * </pre>
      *
      * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -4046,7 +4052,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Direction of the conversation relative to the channel.
+     * Conversation direction used as a report dimension.
      * </pre>
      *
      * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -4057,21 +4063,21 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+
       direction_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Direction of the conversation relative to the channel.
+     * Conversation direction used as a report dimension.
      * </pre>
      *
      * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDirection() {
-      
+
       direction_ = 0;
       onChanged();
       return this;
@@ -4082,8 +4088,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstQueueOutAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -4094,8 +4100,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -4110,8 +4116,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -4131,8 +4137,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -4150,8 +4156,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -4173,8 +4179,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -4192,21 +4198,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstQueueOutAtBuilder() {
-      
+
       onChanged();
       return getFirstQueueOutAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -4221,14 +4227,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first left the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstQueueOutAtFieldBuilder() {
       if (firstQueueOutAtBuilder_ == null) {
         firstQueueOutAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4246,8 +4252,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstActiveAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -4258,8 +4264,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -4274,8 +4280,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -4295,8 +4301,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -4314,8 +4320,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -4337,8 +4343,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -4356,21 +4362,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstActiveAtBuilder() {
-      
+
       onChanged();
       return getFirstActiveAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -4385,14 +4391,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First active timestamp for opened-to-answer and opened-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstActiveAtFieldBuilder() {
       if (firstActiveAtBuilder_ == null) {
         firstActiveAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4410,8 +4416,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstOpenedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -4422,8 +4428,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -4438,8 +4444,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -4459,8 +4465,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -4478,8 +4484,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -4501,8 +4507,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -4520,21 +4526,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstOpenedAtBuilder() {
-      
+
       onChanged();
       return getFirstOpenedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -4549,14 +4555,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first opened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First opened timestamp for request-to-answer and request-to-close metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstOpenedAtFieldBuilder() {
       if (firstOpenedAtBuilder_ == null) {
         firstOpenedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4574,8 +4580,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstQueueInAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -4586,8 +4592,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -4602,8 +4608,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -4623,8 +4629,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -4642,8 +4648,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -4665,8 +4671,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -4684,21 +4690,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstQueueInAtBuilder() {
-      
+
       onChanged();
       return getFirstQueueInAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -4713,14 +4719,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first entered the assignment queue.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstQueueInAtFieldBuilder() {
       if (firstQueueInAtBuilder_ == null) {
         firstQueueInAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4738,8 +4744,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstMissedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -4750,8 +4756,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -4766,8 +4772,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -4787,8 +4793,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -4806,8 +4812,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -4829,8 +4835,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -4848,21 +4854,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstMissedAtBuilder() {
-      
+
       onChanged();
       return getFirstMissedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -4877,14 +4883,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first missed.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First missed timestamp.
+     * +kubebuilder:example="2026-03-02T06:53:24.543Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstMissedAtFieldBuilder() {
       if (firstMissedAtBuilder_ == null) {
         firstMissedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4902,8 +4908,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstClosedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -4914,8 +4920,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -4930,8 +4936,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -4951,8 +4957,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -4970,8 +4976,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -4993,8 +4999,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -5012,21 +5018,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstClosedAtBuilder() {
-      
+
       onChanged();
       return getFirstClosedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -5041,14 +5047,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first closed.
-     * +kubebuilder:example="2024-03-29T03:28:34Z"
+     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstClosedAtFieldBuilder() {
       if (firstClosedAtBuilder_ == null) {
         firstClosedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -5065,7 +5071,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the assignee when the chat was first closed.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -5086,7 +5092,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the assignee when the chat was first closed.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -5096,7 +5102,7 @@ private static final long serialVersionUID = 0L;
         getAssigneeIdAtFirstCloseBytes() {
       java.lang.Object ref = assigneeIdAtFirstClose_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         assigneeIdAtFirstClose_ = b;
@@ -5108,7 +5114,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the assignee when the chat was first closed.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -5120,7 +5126,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       assigneeIdAtFirstClose_ = value;
       onChanged();
       return this;
@@ -5128,14 +5134,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the assignee when the chat was first closed.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAssigneeIdAtFirstClose() {
-      
+
       assigneeIdAtFirstClose_ = getDefaultInstance().getAssigneeIdAtFirstClose();
       onChanged();
       return this;
@@ -5143,7 +5149,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the assignee when the chat was first closed.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -5156,7 +5162,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       assigneeIdAtFirstClose_ = value;
       onChanged();
       return this;
@@ -5165,7 +5171,7 @@ private static final long serialVersionUID = 0L;
     private int reopenCount_ ;
     /**
      * <pre>
-     * Number of times the chat was reopened.
+     * Number of reopen events recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5178,7 +5184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of times the chat was reopened.
+     * Number of reopen events recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5187,14 +5193,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReopenCount(int value) {
-      
+
       reopenCount_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Number of times the chat was reopened.
+     * Number of reopen events recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5202,7 +5208,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReopenCount() {
-      
+
       reopenCount_ = 0;
       onChanged();
       return this;
@@ -5212,7 +5218,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee after the chat first became active.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -5233,7 +5239,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee after the chat first became active.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -5243,7 +5249,7 @@ private static final long serialVersionUID = 0L;
         getFirstAssigneeIdAfterActiveBytes() {
       java.lang.Object ref = firstAssigneeIdAfterActive_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         firstAssigneeIdAfterActive_ = b;
@@ -5255,7 +5261,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee after the chat first became active.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -5267,7 +5273,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       firstAssigneeIdAfterActive_ = value;
       onChanged();
       return this;
@@ -5275,14 +5281,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee after the chat first became active.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFirstAssigneeIdAfterActive() {
-      
+
       firstAssigneeIdAfterActive_ = getDefaultInstance().getFirstAssigneeIdAfterActive();
       onChanged();
       return this;
@@ -5290,7 +5296,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee after the chat first became active.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -5303,7 +5309,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       firstAssigneeIdAfterActive_ = value;
       onChanged();
       return this;
@@ -5314,8 +5320,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstAssignedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -5326,8 +5332,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -5342,8 +5348,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -5363,8 +5369,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -5382,8 +5388,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -5405,8 +5411,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -5424,21 +5430,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstAssignedAtBuilder() {
-      
+
       onChanged();
       return getFirstAssignedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -5453,14 +5459,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first assigned.
-     * +kubebuilder:example="2024-03-29T03:25:00Z"
+     * First assignment timestamp for assignment-time report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.546Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstAssignedAtFieldBuilder() {
       if (firstAssignedAtBuilder_ == null) {
         firstAssignedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -5477,7 +5483,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -5498,7 +5504,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -5508,7 +5514,7 @@ private static final long serialVersionUID = 0L;
         getFirstAssigneeIdBytes() {
       java.lang.Object ref = firstAssigneeId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         firstAssigneeId_ = b;
@@ -5520,7 +5526,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -5532,7 +5538,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       firstAssigneeId_ = value;
       onChanged();
       return this;
@@ -5540,14 +5546,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFirstAssigneeId() {
-      
+
       firstAssigneeId_ = getDefaultInstance().getFirstAssigneeId();
       onChanged();
       return this;
@@ -5555,7 +5561,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ID of the first assignee.
-     * +kubebuilder:example="9187"
+     * +kubebuilder:example="23919"
      * </pre>
      *
      * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -5568,7 +5574,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       firstAssigneeId_ = value;
       onChanged();
       return this;
@@ -5577,8 +5583,8 @@ private static final long serialVersionUID = 0L;
     private int reassignmentCount_ ;
     /**
      * <pre>
-     * Number of times the chat was reassigned.
-     * +kubebuilder:example=2
+     * Number of reassignment events used by the "담당자 이관율" metric.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reassignment_count = 13 [json_name = "reassignmentCount"];</code>
@@ -5590,8 +5596,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of times the chat was reassigned.
-     * +kubebuilder:example=2
+     * Number of reassignment events used by the "담당자 이관율" metric.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reassignment_count = 13 [json_name = "reassignmentCount"];</code>
@@ -5599,22 +5605,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReassignmentCount(int value) {
-      
+
       reassignmentCount_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Number of times the chat was reassigned.
-     * +kubebuilder:example=2
+     * Number of reassignment events used by the "담당자 이관율" metric.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reassignment_count = 13 [json_name = "reassignmentCount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearReassignmentCount() {
-      
+
       reassignmentCount_ = 0;
       onChanged();
       return this;
@@ -5625,8 +5631,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstAskedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -5637,8 +5643,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -5653,8 +5659,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -5674,8 +5680,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -5693,8 +5699,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -5716,8 +5722,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -5735,21 +5741,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstAskedAtBuilder() {
-      
+
       onChanged();
       return getFirstAskedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -5764,14 +5770,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the user first asked a question.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * First ask timestamp for customer waiting-time metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.780Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstAskedAtFieldBuilder() {
       if (firstAskedAtBuilder_ == null) {
         firstAskedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -5787,7 +5793,7 @@ private static final long serialVersionUID = 0L;
     private int csatCount_ ;
     /**
      * <pre>
-     * Number of customer satisfaction scores submitted for the chat.
+     * Number of CSAT responses recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5800,7 +5806,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of customer satisfaction scores submitted for the chat.
+     * Number of CSAT responses recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5809,14 +5815,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCsatCount(int value) {
-      
+
       csatCount_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Number of customer satisfaction scores submitted for the chat.
+     * Number of CSAT responses recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5824,7 +5830,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCsatCount() {
-      
+
       csatCount_ = 0;
       onChanged();
       return this;
@@ -5835,8 +5841,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> managedAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -5847,8 +5853,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -5863,8 +5869,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -5884,8 +5890,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -5903,8 +5909,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -5926,8 +5932,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -5945,21 +5951,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getManagedAtBuilder() {
-      
+
       onChanged();
       return getManagedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -5974,14 +5980,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat first became managed.
-     * +kubebuilder:example="2024-03-29T03:24:48Z"
+     * Managed timestamp used as the aggregation time for user-chat report metrics.
+     * +kubebuilder:example="2026-06-24T05:43:45.856Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getManagedAtFieldBuilder() {
       if (managedAtBuilder_ == null) {
         managedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -5997,7 +6003,7 @@ private static final long serialVersionUID = 0L;
     private int snoozeCount_ ;
     /**
      * <pre>
-     * Number of times the chat was snoozed.
+     * Number of snooze events recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -6010,7 +6016,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of times the chat was snoozed.
+     * Number of snooze events recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -6019,14 +6025,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSnoozeCount(int value) {
-      
+
       snoozeCount_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Number of times the chat was snoozed.
+     * Number of snooze events recorded for this chat.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -6034,7 +6040,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSnoozeCount() {
-      
+
       snoozeCount_ = 0;
       onChanged();
       return this;
@@ -6043,8 +6049,8 @@ private static final long serialVersionUID = 0L;
     private long totalSnoozedTime_ ;
     /**
      * <pre>
-     * Total time the chat spent snoozed.
-     * +kubebuilder:example=60000
+     * Total snoozed time used by handling-time metrics.
+     * +kubebuilder:example=146488
      * </pre>
      *
      * <code>int64 total_snoozed_time = 18 [json_name = "totalSnoozedTime"];</code>
@@ -6056,8 +6062,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total time the chat spent snoozed.
-     * +kubebuilder:example=60000
+     * Total snoozed time used by handling-time metrics.
+     * +kubebuilder:example=146488
      * </pre>
      *
      * <code>int64 total_snoozed_time = 18 [json_name = "totalSnoozedTime"];</code>
@@ -6065,22 +6071,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTotalSnoozedTime(long value) {
-      
+
       totalSnoozedTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Total time the chat spent snoozed.
-     * +kubebuilder:example=60000
+     * Total snoozed time used by handling-time metrics.
+     * +kubebuilder:example=146488
      * </pre>
      *
      * <code>int64 total_snoozed_time = 18 [json_name = "totalSnoozedTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalSnoozedTime() {
-      
+
       totalSnoozedTime_ = 0L;
       onChanged();
       return this;
@@ -6089,8 +6095,8 @@ private static final long serialVersionUID = 0L;
     private long totalClosedTime_ ;
     /**
      * <pre>
-     * Total time the chat spent closed before reopening.
-     * +kubebuilder:example=120000
+     * Total closed time tracked for final-close metrics.
+     * +kubebuilder:example=121605
      * </pre>
      *
      * <code>int64 total_closed_time = 19 [json_name = "totalClosedTime"];</code>
@@ -6102,8 +6108,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total time the chat spent closed before reopening.
-     * +kubebuilder:example=120000
+     * Total closed time tracked for final-close metrics.
+     * +kubebuilder:example=121605
      * </pre>
      *
      * <code>int64 total_closed_time = 19 [json_name = "totalClosedTime"];</code>
@@ -6111,22 +6117,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTotalClosedTime(long value) {
-      
+
       totalClosedTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Total time the chat spent closed before reopening.
-     * +kubebuilder:example=120000
+     * Total closed time tracked for final-close metrics.
+     * +kubebuilder:example=121605
      * </pre>
      *
      * <code>int64 total_closed_time = 19 [json_name = "totalClosedTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalClosedTime() {
-      
+
       totalClosedTime_ = 0L;
       onChanged();
       return this;
@@ -6137,8 +6143,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstAnsweredAtBuilder_;
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -6149,8 +6155,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -6165,8 +6171,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -6186,8 +6192,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -6205,8 +6211,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -6228,8 +6234,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -6247,21 +6253,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstAnsweredAtBuilder() {
-      
+
       onChanged();
       return getFirstAnsweredAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -6276,14 +6282,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Timestamp when the chat was first answered.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * First answer timestamp for answer-count and first-answer duration metrics.
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstAnsweredAtFieldBuilder() {
       if (firstAnsweredAtBuilder_ == null) {
         firstAnsweredAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -6299,8 +6305,8 @@ private static final long serialVersionUID = 0L;
     private long totalReplyTime_ ;
     /**
      * <pre>
-     * Sum of reply durations.
-     * +kubebuilder:example=90000
+     * Total reply time used by the "평균 응답 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 total_reply_time = 21 [json_name = "totalReplyTime"];</code>
@@ -6312,8 +6318,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Sum of reply durations.
-     * +kubebuilder:example=90000
+     * Total reply time used by the "평균 응답 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 total_reply_time = 21 [json_name = "totalReplyTime"];</code>
@@ -6321,22 +6327,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTotalReplyTime(long value) {
-      
+
       totalReplyTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Sum of reply durations.
-     * +kubebuilder:example=90000
+     * Total reply time used by the "평균 응답 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 total_reply_time = 21 [json_name = "totalReplyTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalReplyTime() {
-      
+
       totalReplyTime_ = 0L;
       onChanged();
       return this;
@@ -6345,8 +6351,8 @@ private static final long serialVersionUID = 0L;
     private int replyCount_ ;
     /**
      * <pre>
-     * Number of replies counted in reply-time statistics.
-     * +kubebuilder:example=3
+     * Reply count used by reply-time metrics.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reply_count = 22 [json_name = "replyCount"];</code>
@@ -6358,8 +6364,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of replies counted in reply-time statistics.
-     * +kubebuilder:example=3
+     * Reply count used by reply-time metrics.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reply_count = 22 [json_name = "replyCount"];</code>
@@ -6367,22 +6373,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReplyCount(int value) {
-      
+
       replyCount_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Number of replies counted in reply-time statistics.
-     * +kubebuilder:example=3
+     * Reply count used by reply-time metrics.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reply_count = 22 [json_name = "replyCount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearReplyCount() {
-      
+
       replyCount_ = 0;
       onChanged();
       return this;
@@ -6391,8 +6397,8 @@ private static final long serialVersionUID = 0L;
     private int replyCountInOperation_ ;
     /**
      * <pre>
-     * Number of replies counted during operation time.
-     * +kubebuilder:example=2
+     * Reply count for the operation-time version of reply-time metrics.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reply_count_in_operation = 23 [json_name = "replyCountInOperation"];</code>
@@ -6404,8 +6410,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of replies counted during operation time.
-     * +kubebuilder:example=2
+     * Reply count for the operation-time version of reply-time metrics.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reply_count_in_operation = 23 [json_name = "replyCountInOperation"];</code>
@@ -6413,22 +6419,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReplyCountInOperation(int value) {
-      
+
       replyCountInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Number of replies counted during operation time.
-     * +kubebuilder:example=2
+     * Reply count for the operation-time version of reply-time metrics.
+     * +kubebuilder:example=1
      * </pre>
      *
      * <code>int32 reply_count_in_operation = 23 [json_name = "replyCountInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearReplyCountInOperation() {
-      
+
       replyCountInOperation_ = 0;
       onChanged();
       return this;
@@ -6437,8 +6443,8 @@ private static final long serialVersionUID = 0L;
     private long totalReplyTimeInOperation_ ;
     /**
      * <pre>
-     * Sum of reply durations during operation time.
-     * +kubebuilder:example=80000
+     * Total reply time for the operation-time version of reply-time metrics.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 total_reply_time_in_operation = 24 [json_name = "totalReplyTimeInOperation"];</code>
@@ -6450,8 +6456,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Sum of reply durations during operation time.
-     * +kubebuilder:example=80000
+     * Total reply time for the operation-time version of reply-time metrics.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 total_reply_time_in_operation = 24 [json_name = "totalReplyTimeInOperation"];</code>
@@ -6459,22 +6465,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTotalReplyTimeInOperation(long value) {
-      
+
       totalReplyTimeInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Sum of reply durations during operation time.
-     * +kubebuilder:example=80000
+     * Total reply time for the operation-time version of reply-time metrics.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 total_reply_time_in_operation = 24 [json_name = "totalReplyTimeInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalReplyTimeInOperation() {
-      
+
       totalReplyTimeInOperation_ = 0L;
       onChanged();
       return this;
@@ -6486,7 +6492,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -6498,7 +6504,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -6514,7 +6520,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -6535,7 +6541,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -6554,7 +6560,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -6577,7 +6583,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -6596,20 +6602,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstRepliedAtAfterActiveBuilder() {
-      
+
       onChanged();
       return getFirstRepliedAtAfterActiveFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -6625,13 +6631,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp of the first reply after the chat first became active.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * +kubebuilder:example="2026-06-24T05:43:46.524Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstRepliedAtAfterActiveFieldBuilder() {
       if (firstRepliedAtAfterActiveBuilder_ == null) {
         firstRepliedAtAfterActiveBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -6647,8 +6653,8 @@ private static final long serialVersionUID = 0L;
     private long operationTotalSnoozedTime_ ;
     /**
      * <pre>
-     * Total snoozed time during operation time.
-     * +kubebuilder:example=55000
+     * Total snoozed time for operation-time handling metrics.
+     * +kubebuilder:example=146488
      * </pre>
      *
      * <code>int64 operation_total_snoozed_time = 26 [json_name = "operationTotalSnoozedTime"];</code>
@@ -6660,8 +6666,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total snoozed time during operation time.
-     * +kubebuilder:example=55000
+     * Total snoozed time for operation-time handling metrics.
+     * +kubebuilder:example=146488
      * </pre>
      *
      * <code>int64 operation_total_snoozed_time = 26 [json_name = "operationTotalSnoozedTime"];</code>
@@ -6669,22 +6675,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOperationTotalSnoozedTime(long value) {
-      
+
       operationTotalSnoozedTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Total snoozed time during operation time.
-     * +kubebuilder:example=55000
+     * Total snoozed time for operation-time handling metrics.
+     * +kubebuilder:example=146488
      * </pre>
      *
      * <code>int64 operation_total_snoozed_time = 26 [json_name = "operationTotalSnoozedTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOperationTotalSnoozedTime() {
-      
+
       operationTotalSnoozedTime_ = 0L;
       onChanged();
       return this;
@@ -6693,8 +6699,8 @@ private static final long serialVersionUID = 0L;
     private long operationTotalClosedTime_ ;
     /**
      * <pre>
-     * Total closed time during operation time.
-     * +kubebuilder:example=110000
+     * Total closed time for operation-time final-close metrics.
+     * +kubebuilder:example=20218908
      * </pre>
      *
      * <code>int64 operation_total_closed_time = 27 [json_name = "operationTotalClosedTime"];</code>
@@ -6706,8 +6712,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total closed time during operation time.
-     * +kubebuilder:example=110000
+     * Total closed time for operation-time final-close metrics.
+     * +kubebuilder:example=20218908
      * </pre>
      *
      * <code>int64 operation_total_closed_time = 27 [json_name = "operationTotalClosedTime"];</code>
@@ -6715,22 +6721,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOperationTotalClosedTime(long value) {
-      
+
       operationTotalClosedTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Total closed time during operation time.
-     * +kubebuilder:example=110000
+     * Total closed time for operation-time final-close metrics.
+     * +kubebuilder:example=20218908
      * </pre>
      *
      * <code>int64 operation_total_closed_time = 27 [json_name = "operationTotalClosedTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOperationTotalClosedTime() {
-      
+
       operationTotalClosedTime_ = 0L;
       onChanged();
       return this;
@@ -6739,8 +6745,8 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAssignment_ ;
     /**
      * <pre>
-     * Duration from management to first assignment.
-     * +kubebuilder:example=12000
+     * "담당자 배정까지의 시간" metric.
+     * +kubebuilder:example=690
      * </pre>
      *
      * <code>int64 time_to_first_assignment = 28 [json_name = "timeToFirstAssignment"];</code>
@@ -6752,8 +6758,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to first assignment.
-     * +kubebuilder:example=12000
+     * "담당자 배정까지의 시간" metric.
+     * +kubebuilder:example=690
      * </pre>
      *
      * <code>int64 time_to_first_assignment = 28 [json_name = "timeToFirstAssignment"];</code>
@@ -6761,22 +6767,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToFirstAssignment(long value) {
-      
+
       timeToFirstAssignment_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to first assignment.
-     * +kubebuilder:example=12000
+     * "담당자 배정까지의 시간" metric.
+     * +kubebuilder:example=690
      * </pre>
      *
      * <code>int64 time_to_first_assignment = 28 [json_name = "timeToFirstAssignment"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToFirstAssignment() {
-      
+
       timeToFirstAssignment_ = 0L;
       onChanged();
       return this;
@@ -6785,8 +6791,8 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAssignmentInOperation_ ;
     /**
      * <pre>
-     * Duration from management to first assignment during operation time.
-     * +kubebuilder:example=10000
+     * Operation-time version of "담당자 배정까지의 시간".
+     * +kubebuilder:example=690
      * </pre>
      *
      * <code>int64 time_to_first_assignment_in_operation = 29 [json_name = "timeToFirstAssignmentInOperation"];</code>
@@ -6798,8 +6804,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to first assignment during operation time.
-     * +kubebuilder:example=10000
+     * Operation-time version of "담당자 배정까지의 시간".
+     * +kubebuilder:example=690
      * </pre>
      *
      * <code>int64 time_to_first_assignment_in_operation = 29 [json_name = "timeToFirstAssignmentInOperation"];</code>
@@ -6807,22 +6813,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToFirstAssignmentInOperation(long value) {
-      
+
       timeToFirstAssignmentInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to first assignment during operation time.
-     * +kubebuilder:example=10000
+     * Operation-time version of "담당자 배정까지의 시간".
+     * +kubebuilder:example=690
      * </pre>
      *
      * <code>int64 time_to_first_assignment_in_operation = 29 [json_name = "timeToFirstAssignmentInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToFirstAssignmentInOperation() {
-      
+
       timeToFirstAssignmentInOperation_ = 0L;
       onChanged();
       return this;
@@ -6831,8 +6837,8 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAnswer_ ;
     /**
      * <pre>
-     * Duration from management to first answer.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_to_first_answer = 30 [json_name = "timeToFirstAnswer"];</code>
@@ -6844,8 +6850,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to first answer.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_to_first_answer = 30 [json_name = "timeToFirstAnswer"];</code>
@@ -6853,22 +6859,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToFirstAnswer(long value) {
-      
+
       timeToFirstAnswer_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to first answer.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_to_first_answer = 30 [json_name = "timeToFirstAnswer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToFirstAnswer() {
-      
+
       timeToFirstAnswer_ = 0L;
       onChanged();
       return this;
@@ -6877,8 +6883,8 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Duration from management to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_to_first_answer_in_operation = 31 [json_name = "timeToFirstAnswerInOperation"];</code>
@@ -6890,8 +6896,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_to_first_answer_in_operation = 31 [json_name = "timeToFirstAnswerInOperation"];</code>
@@ -6899,22 +6905,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToFirstAnswerInOperation(long value) {
-      
+
       timeToFirstAnswerInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_to_first_answer_in_operation = 31 [json_name = "timeToFirstAnswerInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToFirstAnswerInOperation() {
-      
+
       timeToFirstAnswerInOperation_ = 0L;
       onChanged();
       return this;
@@ -6923,8 +6929,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAskToFirstAnswer_ ;
     /**
      * <pre>
-     * Duration from first ask to first answer.
-     * +kubebuilder:example=226139
+     * "첫 문의 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=744
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_answer = 32 [json_name = "timeFromFirstAskToFirstAnswer"];</code>
@@ -6936,8 +6942,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first ask to first answer.
-     * +kubebuilder:example=226139
+     * "첫 문의 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=744
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_answer = 32 [json_name = "timeFromFirstAskToFirstAnswer"];</code>
@@ -6945,22 +6951,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAskToFirstAnswer(long value) {
-      
+
       timeFromFirstAskToFirstAnswer_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first ask to first answer.
-     * +kubebuilder:example=226139
+     * "첫 문의 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=744
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_answer = 32 [json_name = "timeFromFirstAskToFirstAnswer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAskToFirstAnswer() {
-      
+
       timeFromFirstAskToFirstAnswer_ = 0L;
       onChanged();
       return this;
@@ -6969,8 +6975,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAskToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Duration from first ask to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+     * +kubebuilder:example=744
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_answer_in_operation = 33 [json_name = "timeFromFirstAskToFirstAnswerInOperation"];</code>
@@ -6982,8 +6988,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first ask to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+     * +kubebuilder:example=744
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_answer_in_operation = 33 [json_name = "timeFromFirstAskToFirstAnswerInOperation"];</code>
@@ -6991,22 +6997,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAskToFirstAnswerInOperation(long value) {
-      
+
       timeFromFirstAskToFirstAnswerInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first ask to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+     * +kubebuilder:example=744
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_answer_in_operation = 33 [json_name = "timeFromFirstAskToFirstAnswerInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAskToFirstAnswerInOperation() {
-      
+
       timeFromFirstAskToFirstAnswerInOperation_ = 0L;
       onChanged();
       return this;
@@ -7015,8 +7021,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAssignmentToFirstAnswer_ ;
     /**
      * <pre>
-     * Duration from first assignment to first answer.
-     * +kubebuilder:example=180000
+     * "담당자 배정 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=0
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_answer = 34 [json_name = "timeFromFirstAssignmentToFirstAnswer"];</code>
@@ -7028,8 +7034,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first assignment to first answer.
-     * +kubebuilder:example=180000
+     * "담당자 배정 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=0
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_answer = 34 [json_name = "timeFromFirstAssignmentToFirstAnswer"];</code>
@@ -7037,22 +7043,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAssignmentToFirstAnswer(long value) {
-      
+
       timeFromFirstAssignmentToFirstAnswer_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first assignment to first answer.
-     * +kubebuilder:example=180000
+     * "담당자 배정 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=0
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_answer = 34 [json_name = "timeFromFirstAssignmentToFirstAnswer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAssignmentToFirstAnswer() {
-      
+
       timeFromFirstAssignmentToFirstAnswer_ = 0L;
       onChanged();
       return this;
@@ -7061,8 +7067,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAssignmentToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Duration from first assignment to first answer during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+     * +kubebuilder:example=0
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_answer_in_operation = 35 [json_name = "timeFromFirstAssignmentToFirstAnswerInOperation"];</code>
@@ -7074,8 +7080,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first assignment to first answer during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+     * +kubebuilder:example=0
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_answer_in_operation = 35 [json_name = "timeFromFirstAssignmentToFirstAnswerInOperation"];</code>
@@ -7083,22 +7089,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAssignmentToFirstAnswerInOperation(long value) {
-      
+
       timeFromFirstAssignmentToFirstAnswerInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first assignment to first answer during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+     * +kubebuilder:example=0
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_answer_in_operation = 35 [json_name = "timeFromFirstAssignmentToFirstAnswerInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAssignmentToFirstAnswerInOperation() {
-      
+
       timeFromFirstAssignmentToFirstAnswerInOperation_ = 0L;
       onChanged();
       return this;
@@ -7107,8 +7113,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstActiveToFirstAnswer_ ;
     /**
      * <pre>
-     * Duration from first active state to first answer.
-     * +kubebuilder:example=226139
+     * "상담이 열린 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_answer = 36 [json_name = "timeFromFirstActiveToFirstAnswer"];</code>
@@ -7120,8 +7126,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first active state to first answer.
-     * +kubebuilder:example=226139
+     * "상담이 열린 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_answer = 36 [json_name = "timeFromFirstActiveToFirstAnswer"];</code>
@@ -7129,22 +7135,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstActiveToFirstAnswer(long value) {
-      
+
       timeFromFirstActiveToFirstAnswer_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first active state to first answer.
-     * +kubebuilder:example=226139
+     * "상담이 열린 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_answer = 36 [json_name = "timeFromFirstActiveToFirstAnswer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstActiveToFirstAnswer() {
-      
+
       timeFromFirstActiveToFirstAnswer_ = 0L;
       onChanged();
       return this;
@@ -7153,8 +7159,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstActiveToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Duration from first active state to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_answer_in_operation = 37 [json_name = "timeFromFirstActiveToFirstAnswerInOperation"];</code>
@@ -7166,8 +7172,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first active state to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_answer_in_operation = 37 [json_name = "timeFromFirstActiveToFirstAnswerInOperation"];</code>
@@ -7175,22 +7181,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstActiveToFirstAnswerInOperation(long value) {
-      
+
       timeFromFirstActiveToFirstAnswerInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first active state to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_answer_in_operation = 37 [json_name = "timeFromFirstActiveToFirstAnswerInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstActiveToFirstAnswerInOperation() {
-      
+
       timeFromFirstActiveToFirstAnswerInOperation_ = 0L;
       onChanged();
       return this;
@@ -7199,8 +7205,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstOpenToFirstAnswer_ ;
     /**
      * <pre>
-     * Duration from first open to first answer.
-     * +kubebuilder:example=226139
+     * "상담 요청 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_answer = 38 [json_name = "timeFromFirstOpenToFirstAnswer"];</code>
@@ -7212,8 +7218,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first open to first answer.
-     * +kubebuilder:example=226139
+     * "상담 요청 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_answer = 38 [json_name = "timeFromFirstOpenToFirstAnswer"];</code>
@@ -7221,22 +7227,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstOpenToFirstAnswer(long value) {
-      
+
       timeFromFirstOpenToFirstAnswer_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first open to first answer.
-     * +kubebuilder:example=226139
+     * "상담 요청 후 첫 응답까지의 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_answer = 38 [json_name = "timeFromFirstOpenToFirstAnswer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstOpenToFirstAnswer() {
-      
+
       timeFromFirstOpenToFirstAnswer_ = 0L;
       onChanged();
       return this;
@@ -7245,8 +7251,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstOpenToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Duration from first open to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_answer_in_operation = 39 [json_name = "timeFromFirstOpenToFirstAnswerInOperation"];</code>
@@ -7258,8 +7264,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first open to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_answer_in_operation = 39 [json_name = "timeFromFirstOpenToFirstAnswerInOperation"];</code>
@@ -7267,22 +7273,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstOpenToFirstAnswerInOperation(long value) {
-      
+
       timeFromFirstOpenToFirstAnswerInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first open to first answer during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_answer_in_operation = 39 [json_name = "timeFromFirstOpenToFirstAnswerInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstOpenToFirstAnswerInOperation() {
-      
+
       timeFromFirstOpenToFirstAnswerInOperation_ = 0L;
       onChanged();
       return this;
@@ -7291,8 +7297,8 @@ private static final long serialVersionUID = 0L;
     private long firstQueueTime_ ;
     /**
      * <pre>
-     * Duration spent in the first queue interval.
-     * +kubebuilder:example=30000
+     * "상담 대기 시간" metric.
+     * +kubebuilder:example=7931
      * </pre>
      *
      * <code>int64 first_queue_time = 40 [json_name = "firstQueueTime"];</code>
@@ -7304,8 +7310,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration spent in the first queue interval.
-     * +kubebuilder:example=30000
+     * "상담 대기 시간" metric.
+     * +kubebuilder:example=7931
      * </pre>
      *
      * <code>int64 first_queue_time = 40 [json_name = "firstQueueTime"];</code>
@@ -7313,22 +7319,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFirstQueueTime(long value) {
-      
+
       firstQueueTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration spent in the first queue interval.
-     * +kubebuilder:example=30000
+     * "상담 대기 시간" metric.
+     * +kubebuilder:example=7931
      * </pre>
      *
      * <code>int64 first_queue_time = 40 [json_name = "firstQueueTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFirstQueueTime() {
-      
+
       firstQueueTime_ = 0L;
       onChanged();
       return this;
@@ -7337,8 +7343,8 @@ private static final long serialVersionUID = 0L;
     private long firstQueueTimeInOperation_ ;
     /**
      * <pre>
-     * Duration spent in the first queue interval during operation time.
-     * +kubebuilder:example=25000
+     * Operation-time version of "상담 대기 시간".
+     * +kubebuilder:example=7931
      * </pre>
      *
      * <code>int64 first_queue_time_in_operation = 41 [json_name = "firstQueueTimeInOperation"];</code>
@@ -7350,8 +7356,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration spent in the first queue interval during operation time.
-     * +kubebuilder:example=25000
+     * Operation-time version of "상담 대기 시간".
+     * +kubebuilder:example=7931
      * </pre>
      *
      * <code>int64 first_queue_time_in_operation = 41 [json_name = "firstQueueTimeInOperation"];</code>
@@ -7359,22 +7365,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFirstQueueTimeInOperation(long value) {
-      
+
       firstQueueTimeInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration spent in the first queue interval during operation time.
-     * +kubebuilder:example=25000
+     * Operation-time version of "상담 대기 시간".
+     * +kubebuilder:example=7931
      * </pre>
      *
      * <code>int64 first_queue_time_in_operation = 41 [json_name = "firstQueueTimeInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFirstQueueTimeInOperation() {
-      
+
       firstQueueTimeInOperation_ = 0L;
       onChanged();
       return this;
@@ -7383,8 +7389,8 @@ private static final long serialVersionUID = 0L;
     private long avgReplyTime_ ;
     /**
      * <pre>
-     * Average reply duration.
-     * +kubebuilder:example=45000
+     * "평균 응답 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -7396,8 +7402,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Average reply duration.
-     * +kubebuilder:example=45000
+     * "평균 응답 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -7405,22 +7411,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAvgReplyTime(long value) {
-      
+
       avgReplyTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Average reply duration.
-     * +kubebuilder:example=45000
+     * "평균 응답 시간" metric.
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAvgReplyTime() {
-      
+
       avgReplyTime_ = 0L;
       onChanged();
       return this;
@@ -7429,8 +7435,8 @@ private static final long serialVersionUID = 0L;
     private long avgReplyTimeInOperation_ ;
     /**
      * <pre>
-     * Average reply duration during operation time.
-     * +kubebuilder:example=40000
+     * Operation-time version of "평균 응답 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 avg_reply_time_in_operation = 43 [json_name = "avgReplyTimeInOperation"];</code>
@@ -7442,8 +7448,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Average reply duration during operation time.
-     * +kubebuilder:example=40000
+     * Operation-time version of "평균 응답 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 avg_reply_time_in_operation = 43 [json_name = "avgReplyTimeInOperation"];</code>
@@ -7451,22 +7457,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAvgReplyTimeInOperation(long value) {
-      
+
       avgReplyTimeInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Average reply duration during operation time.
-     * +kubebuilder:example=40000
+     * Operation-time version of "평균 응답 시간".
+     * +kubebuilder:example=668
      * </pre>
      *
      * <code>int64 avg_reply_time_in_operation = 43 [json_name = "avgReplyTimeInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAvgReplyTimeInOperation() {
-      
+
       avgReplyTimeInOperation_ = 0L;
       onChanged();
       return this;
@@ -7475,8 +7481,8 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstClose_ ;
     /**
      * <pre>
-     * Duration from management to first close.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 종료까지의 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_first_close = 44 [json_name = "timeToFirstClose"];</code>
@@ -7488,8 +7494,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to first close.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 종료까지의 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_first_close = 44 [json_name = "timeToFirstClose"];</code>
@@ -7497,22 +7503,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToFirstClose(long value) {
-      
+
       timeToFirstClose_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to first close.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 종료까지의 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_first_close = 44 [json_name = "timeToFirstClose"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToFirstClose() {
-      
+
       timeToFirstClose_ = 0L;
       onChanged();
       return this;
@@ -7521,8 +7527,8 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstCloseInOperation_ ;
     /**
      * <pre>
-     * Duration from management to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 종료까지의 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_first_close_in_operation = 45 [json_name = "timeToFirstCloseInOperation"];</code>
@@ -7534,8 +7540,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 종료까지의 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_first_close_in_operation = 45 [json_name = "timeToFirstCloseInOperation"];</code>
@@ -7543,22 +7549,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToFirstCloseInOperation(long value) {
-      
+
       timeToFirstCloseInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 종료까지의 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_first_close_in_operation = 45 [json_name = "timeToFirstCloseInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToFirstCloseInOperation() {
-      
+
       timeToFirstCloseInOperation_ = 0L;
       onChanged();
       return this;
@@ -7567,8 +7573,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAskToFirstClose_ ;
     /**
      * <pre>
-     * Duration from first ask to first close.
-     * +kubebuilder:example=226139
+     * First ask to first close duration.
+     * +kubebuilder:example=1890
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_close = 46 [json_name = "timeFromFirstAskToFirstClose"];</code>
@@ -7580,8 +7586,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first ask to first close.
-     * +kubebuilder:example=226139
+     * First ask to first close duration.
+     * +kubebuilder:example=1890
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_close = 46 [json_name = "timeFromFirstAskToFirstClose"];</code>
@@ -7589,22 +7595,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAskToFirstClose(long value) {
-      
+
       timeFromFirstAskToFirstClose_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first ask to first close.
-     * +kubebuilder:example=226139
+     * First ask to first close duration.
+     * +kubebuilder:example=1890
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_close = 46 [json_name = "timeFromFirstAskToFirstClose"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAskToFirstClose() {
-      
+
       timeFromFirstAskToFirstClose_ = 0L;
       onChanged();
       return this;
@@ -7613,8 +7619,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAskToFirstCloseInOperation_ ;
     /**
      * <pre>
-     * Duration from first ask to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of first ask to first close duration.
+     * +kubebuilder:example=1890
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_close_in_operation = 47 [json_name = "timeFromFirstAskToFirstCloseInOperation"];</code>
@@ -7626,8 +7632,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first ask to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of first ask to first close duration.
+     * +kubebuilder:example=1890
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_close_in_operation = 47 [json_name = "timeFromFirstAskToFirstCloseInOperation"];</code>
@@ -7635,22 +7641,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAskToFirstCloseInOperation(long value) {
-      
+
       timeFromFirstAskToFirstCloseInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first ask to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of first ask to first close duration.
+     * +kubebuilder:example=1890
      * </pre>
      *
      * <code>int64 time_from_first_ask_to_first_close_in_operation = 47 [json_name = "timeFromFirstAskToFirstCloseInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAskToFirstCloseInOperation() {
-      
+
       timeFromFirstAskToFirstCloseInOperation_ = 0L;
       onChanged();
       return this;
@@ -7659,8 +7665,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAssignmentToFirstClose_ ;
     /**
      * <pre>
-     * Duration from first assignment to first close.
-     * +kubebuilder:example=180000
+     * First assignment to first close duration.
+     * +kubebuilder:example=1124
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_close = 48 [json_name = "timeFromFirstAssignmentToFirstClose"];</code>
@@ -7672,8 +7678,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first assignment to first close.
-     * +kubebuilder:example=180000
+     * First assignment to first close duration.
+     * +kubebuilder:example=1124
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_close = 48 [json_name = "timeFromFirstAssignmentToFirstClose"];</code>
@@ -7681,22 +7687,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAssignmentToFirstClose(long value) {
-      
+
       timeFromFirstAssignmentToFirstClose_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first assignment to first close.
-     * +kubebuilder:example=180000
+     * First assignment to first close duration.
+     * +kubebuilder:example=1124
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_close = 48 [json_name = "timeFromFirstAssignmentToFirstClose"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAssignmentToFirstClose() {
-      
+
       timeFromFirstAssignmentToFirstClose_ = 0L;
       onChanged();
       return this;
@@ -7705,8 +7711,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAssignmentToFirstCloseInOperation_ ;
     /**
      * <pre>
-     * Duration from first assignment to first close during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of first assignment to first close duration.
+     * +kubebuilder:example=1124
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_close_in_operation = 49 [json_name = "timeFromFirstAssignmentToFirstCloseInOperation"];</code>
@@ -7718,8 +7724,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first assignment to first close during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of first assignment to first close duration.
+     * +kubebuilder:example=1124
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_close_in_operation = 49 [json_name = "timeFromFirstAssignmentToFirstCloseInOperation"];</code>
@@ -7727,22 +7733,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstAssignmentToFirstCloseInOperation(long value) {
-      
+
       timeFromFirstAssignmentToFirstCloseInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first assignment to first close during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of first assignment to first close duration.
+     * +kubebuilder:example=1124
      * </pre>
      *
      * <code>int64 time_from_first_assignment_to_first_close_in_operation = 49 [json_name = "timeFromFirstAssignmentToFirstCloseInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstAssignmentToFirstCloseInOperation() {
-      
+
       timeFromFirstAssignmentToFirstCloseInOperation_ = 0L;
       onChanged();
       return this;
@@ -7751,8 +7757,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstActiveToFirstClose_ ;
     /**
      * <pre>
-     * Duration from first active state to first close.
-     * +kubebuilder:example=226139
+     * Opened to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_close = 50 [json_name = "timeFromFirstActiveToFirstClose"];</code>
@@ -7764,8 +7770,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first active state to first close.
-     * +kubebuilder:example=226139
+     * Opened to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_close = 50 [json_name = "timeFromFirstActiveToFirstClose"];</code>
@@ -7773,22 +7779,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstActiveToFirstClose(long value) {
-      
+
       timeFromFirstActiveToFirstClose_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first active state to first close.
-     * +kubebuilder:example=226139
+     * Opened to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_close = 50 [json_name = "timeFromFirstActiveToFirstClose"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstActiveToFirstClose() {
-      
+
       timeFromFirstActiveToFirstClose_ = 0L;
       onChanged();
       return this;
@@ -7797,8 +7803,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstActiveToFirstCloseInOperation_ ;
     /**
      * <pre>
-     * Duration from first active state to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of opened to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_close_in_operation = 51 [json_name = "timeFromFirstActiveToFirstCloseInOperation"];</code>
@@ -7810,8 +7816,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first active state to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of opened to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_close_in_operation = 51 [json_name = "timeFromFirstActiveToFirstCloseInOperation"];</code>
@@ -7819,22 +7825,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstActiveToFirstCloseInOperation(long value) {
-      
+
       timeFromFirstActiveToFirstCloseInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first active state to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of opened to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_active_to_first_close_in_operation = 51 [json_name = "timeFromFirstActiveToFirstCloseInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstActiveToFirstCloseInOperation() {
-      
+
       timeFromFirstActiveToFirstCloseInOperation_ = 0L;
       onChanged();
       return this;
@@ -7843,8 +7849,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstOpenToFirstClose_ ;
     /**
      * <pre>
-     * Duration from first open to first close.
-     * +kubebuilder:example=226139
+     * Request to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_close = 52 [json_name = "timeFromFirstOpenToFirstClose"];</code>
@@ -7856,8 +7862,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first open to first close.
-     * +kubebuilder:example=226139
+     * Request to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_close = 52 [json_name = "timeFromFirstOpenToFirstClose"];</code>
@@ -7865,22 +7871,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstOpenToFirstClose(long value) {
-      
+
       timeFromFirstOpenToFirstClose_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first open to first close.
-     * +kubebuilder:example=226139
+     * Request to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_close = 52 [json_name = "timeFromFirstOpenToFirstClose"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstOpenToFirstClose() {
-      
+
       timeFromFirstOpenToFirstClose_ = 0L;
       onChanged();
       return this;
@@ -7889,8 +7895,8 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstOpenToFirstCloseInOperation_ ;
     /**
      * <pre>
-     * Duration from first open to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of request to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_close_in_operation = 53 [json_name = "timeFromFirstOpenToFirstCloseInOperation"];</code>
@@ -7902,8 +7908,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from first open to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of request to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_close_in_operation = 53 [json_name = "timeFromFirstOpenToFirstCloseInOperation"];</code>
@@ -7911,22 +7917,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeFromFirstOpenToFirstCloseInOperation(long value) {
-      
+
       timeFromFirstOpenToFirstCloseInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from first open to first close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of request to first close duration.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_from_first_open_to_first_close_in_operation = 53 [json_name = "timeFromFirstOpenToFirstCloseInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeFromFirstOpenToFirstCloseInOperation() {
-      
+
       timeFromFirstOpenToFirstCloseInOperation_ = 0L;
       onChanged();
       return this;
@@ -7935,8 +7941,8 @@ private static final long serialVersionUID = 0L;
     private long timeToClose_ ;
     /**
      * <pre>
-     * Duration from management to close.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 최종 종료까지의 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_close = 54 [json_name = "timeToClose"];</code>
@@ -7948,8 +7954,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to close.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 최종 종료까지의 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_close = 54 [json_name = "timeToClose"];</code>
@@ -7957,22 +7963,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToClose(long value) {
-      
+
       timeToClose_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to close.
-     * +kubebuilder:example=226139
+     * "상담 인입부터 최종 종료까지의 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_close = 54 [json_name = "timeToClose"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToClose() {
-      
+
       timeToClose_ = 0L;
       onChanged();
       return this;
@@ -7981,8 +7987,8 @@ private static final long serialVersionUID = 0L;
     private long timeToCloseInOperation_ ;
     /**
      * <pre>
-     * Duration from management to close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_close_in_operation = 55 [json_name = "timeToCloseInOperation"];</code>
@@ -7994,8 +8000,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration from management to close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_close_in_operation = 55 [json_name = "timeToCloseInOperation"];</code>
@@ -8003,22 +8009,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeToCloseInOperation(long value) {
-      
+
       timeToCloseInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration from management to close during operation time.
-     * +kubebuilder:example=55000
+     * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 time_to_close_in_operation = 55 [json_name = "timeToCloseInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTimeToCloseInOperation() {
-      
+
       timeToCloseInOperation_ = 0L;
       onChanged();
       return this;
@@ -8027,8 +8033,8 @@ private static final long serialVersionUID = 0L;
     private long firstMemberHandlingTime_ ;
     /**
      * <pre>
-     * Duration of the first member handling interval.
-     * +kubebuilder:example=180000
+     * "상담원 응대 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 first_member_handling_time = 56 [json_name = "firstMemberHandlingTime"];</code>
@@ -8040,8 +8046,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration of the first member handling interval.
-     * +kubebuilder:example=180000
+     * "상담원 응대 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 first_member_handling_time = 56 [json_name = "firstMemberHandlingTime"];</code>
@@ -8049,22 +8055,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFirstMemberHandlingTime(long value) {
-      
+
       firstMemberHandlingTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration of the first member handling interval.
-     * +kubebuilder:example=180000
+     * "상담원 응대 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 first_member_handling_time = 56 [json_name = "firstMemberHandlingTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFirstMemberHandlingTime() {
-      
+
       firstMemberHandlingTime_ = 0L;
       onChanged();
       return this;
@@ -8073,8 +8079,8 @@ private static final long serialVersionUID = 0L;
     private long firstMemberHandlingTimeInOperation_ ;
     /**
      * <pre>
-     * Duration of the first member handling interval during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of "상담원 응대 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 first_member_handling_time_in_operation = 57 [json_name = "firstMemberHandlingTimeInOperation"];</code>
@@ -8086,8 +8092,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Duration of the first member handling interval during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of "상담원 응대 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 first_member_handling_time_in_operation = 57 [json_name = "firstMemberHandlingTimeInOperation"];</code>
@@ -8095,22 +8101,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFirstMemberHandlingTimeInOperation(long value) {
-      
+
       firstMemberHandlingTimeInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Duration of the first member handling interval during operation time.
-     * +kubebuilder:example=50000
+     * Operation-time version of "상담원 응대 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 first_member_handling_time_in_operation = 57 [json_name = "firstMemberHandlingTimeInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFirstMemberHandlingTimeInOperation() {
-      
+
       firstMemberHandlingTimeInOperation_ = 0L;
       onChanged();
       return this;
@@ -8119,8 +8125,8 @@ private static final long serialVersionUID = 0L;
     private long memberHandlingTime_ ;
     /**
      * <pre>
-     * Total member handling duration.
-     * +kubebuilder:example=360000
+     * "상담원 최종 응대 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 member_handling_time = 58 [json_name = "memberHandlingTime"];</code>
@@ -8132,8 +8138,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total member handling duration.
-     * +kubebuilder:example=360000
+     * "상담원 최종 응대 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 member_handling_time = 58 [json_name = "memberHandlingTime"];</code>
@@ -8141,22 +8147,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMemberHandlingTime(long value) {
-      
+
       memberHandlingTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Total member handling duration.
-     * +kubebuilder:example=360000
+     * "상담원 최종 응대 시간" metric.
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 member_handling_time = 58 [json_name = "memberHandlingTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMemberHandlingTime() {
-      
+
       memberHandlingTime_ = 0L;
       onChanged();
       return this;
@@ -8165,8 +8171,8 @@ private static final long serialVersionUID = 0L;
     private long memberHandlingTimeInOperation_ ;
     /**
      * <pre>
-     * Total member handling duration during operation time.
-     * +kubebuilder:example=100000
+     * Operation-time version of "상담원 최종 응대 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 member_handling_time_in_operation = 59 [json_name = "memberHandlingTimeInOperation"];</code>
@@ -8178,8 +8184,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total member handling duration during operation time.
-     * +kubebuilder:example=100000
+     * Operation-time version of "상담원 최종 응대 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 member_handling_time_in_operation = 59 [json_name = "memberHandlingTimeInOperation"];</code>
@@ -8187,22 +8193,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMemberHandlingTimeInOperation(long value) {
-      
+
       memberHandlingTimeInOperation_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Total member handling duration during operation time.
-     * +kubebuilder:example=100000
+     * Operation-time version of "상담원 최종 응대 시간".
+     * +kubebuilder:example=1814
      * </pre>
      *
      * <code>int64 member_handling_time_in_operation = 59 [json_name = "memberHandlingTimeInOperation"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMemberHandlingTimeInOperation() {
-      
+
       memberHandlingTimeInOperation_ = 0L;
       onChanged();
       return this;
@@ -8211,7 +8217,7 @@ private static final long serialVersionUID = 0L;
     private boolean workflowTriggered_ ;
     /**
      * <pre>
-     * Whether workflow handling was triggered.
+     * Whether workflow handling was triggered for this chat.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8224,7 +8230,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether workflow handling was triggered.
+     * Whether workflow handling was triggered for this chat.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8233,14 +8239,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWorkflowTriggered(boolean value) {
-      
+
       workflowTriggered_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether workflow handling was triggered.
+     * Whether workflow handling was triggered for this chat.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8248,7 +8254,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWorkflowTriggered() {
-      
+
       workflowTriggered_ = false;
       onChanged();
       return this;
@@ -8257,7 +8263,7 @@ private static final long serialVersionUID = 0L;
     private boolean alfTriggered_ ;
     /**
      * <pre>
-     * Whether ALF handling was triggered.
+     * Whether ALF was involved in this chat.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8270,7 +8276,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether ALF handling was triggered.
+     * Whether ALF was involved in this chat.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8279,14 +8285,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAlfTriggered(boolean value) {
-      
+
       alfTriggered_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether ALF handling was triggered.
+     * Whether ALF was involved in this chat.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8294,7 +8300,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlfTriggered() {
-      
+
       alfTriggered_ = false;
       onChanged();
       return this;
@@ -8303,7 +8309,7 @@ private static final long serialVersionUID = 0L;
     private boolean everOpened_ ;
     /**
      * <pre>
-     * Whether the chat was ever opened.
+     * Whether this chat was ever opened.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8316,7 +8322,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the chat was ever opened.
+     * Whether this chat was ever opened.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8325,14 +8331,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEverOpened(boolean value) {
-      
+
       everOpened_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether the chat was ever opened.
+     * Whether this chat was ever opened.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8340,7 +8346,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEverOpened() {
-      
+
       everOpened_ = false;
       onChanged();
       return this;
@@ -8349,7 +8355,7 @@ private static final long serialVersionUID = 0L;
     private boolean reopened_ ;
     /**
      * <pre>
-     * Whether the chat was reopened.
+     * Whether this chat was reopened.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8362,7 +8368,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the chat was reopened.
+     * Whether this chat was reopened.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8371,14 +8377,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReopened(boolean value) {
-      
+
       reopened_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether the chat was reopened.
+     * Whether this chat was reopened.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8386,7 +8392,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReopened() {
-      
+
       reopened_ = false;
       onChanged();
       return this;
@@ -8395,7 +8401,7 @@ private static final long serialVersionUID = 0L;
     private boolean reassigned_ ;
     /**
      * <pre>
-     * Whether the chat was reassigned.
+     * Whether this chat was reassigned.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8408,7 +8414,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the chat was reassigned.
+     * Whether this chat was reassigned.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8417,14 +8423,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReassigned(boolean value) {
-      
+
       reassigned_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether the chat was reassigned.
+     * Whether this chat was reassigned.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8432,7 +8438,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReassigned() {
-      
+
       reassigned_ = false;
       onChanged();
       return this;
@@ -8441,7 +8447,7 @@ private static final long serialVersionUID = 0L;
     private boolean managedInOperationTime_ ;
     /**
      * <pre>
-     * Whether the chat became managed during operation time.
+     * Whether managed_at fell within operation time.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8454,7 +8460,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the chat became managed during operation time.
+     * Whether managed_at fell within operation time.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8463,14 +8469,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setManagedInOperationTime(boolean value) {
-      
+
       managedInOperationTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether the chat became managed during operation time.
+     * Whether managed_at fell within operation time.
      * +kubebuilder:example=true
      * </pre>
      *
@@ -8478,7 +8484,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearManagedInOperationTime() {
-      
+
       managedInOperationTime_ = false;
       onChanged();
       return this;
@@ -8490,7 +8496,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -8502,7 +8508,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -8518,7 +8524,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -8539,7 +8545,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -8558,7 +8564,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -8581,7 +8587,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -8600,20 +8606,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstWorkflowStartedAtBuilder() {
-      
+
       onChanged();
       return getFirstWorkflowStartedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -8629,13 +8635,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-03-11T11:26:55.673Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstWorkflowStartedAtFieldBuilder() {
       if (firstWorkflowStartedAtBuilder_ == null) {
         firstWorkflowStartedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8654,7 +8660,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -8666,7 +8672,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -8682,7 +8688,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -8703,7 +8709,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -8722,7 +8728,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -8745,7 +8751,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -8764,20 +8770,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstWorkflowEndedAtBuilder() {
-      
+
       onChanged();
       return getFirstWorkflowEndedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -8793,13 +8799,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when workflow handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-03-11T11:27:11.566Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstWorkflowEndedAtFieldBuilder() {
       if (firstWorkflowEndedAtBuilder_ == null) {
         firstWorkflowEndedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8818,7 +8824,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -8830,7 +8836,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -8846,7 +8852,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -8867,7 +8873,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -8886,7 +8892,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -8909,7 +8915,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -8928,20 +8934,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstAlfStartedAtBuilder() {
-      
+
       onChanged();
       return getFirstAlfStartedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -8957,13 +8963,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first started.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:07.603Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstAlfStartedAtFieldBuilder() {
       if (firstAlfStartedAtBuilder_ == null) {
         firstAlfStartedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8982,7 +8988,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -8994,7 +9000,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -9010,7 +9016,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -9031,7 +9037,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -9050,7 +9056,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -9073,7 +9079,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -9092,20 +9098,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstAlfEndedAtBuilder() {
-      
+
       onChanged();
       return getFirstAlfEndedAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -9121,13 +9127,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when ALF handling first ended.
-     * +kubebuilder:example="2024-03-29T03:25:30Z"
+     * +kubebuilder:example="2026-01-28T00:45:52.994Z"
      * </pre>
      *
      * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstAlfEndedAtFieldBuilder() {
       if (firstAlfEndedAtBuilder_ == null) {
         firstAlfEndedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -9144,7 +9150,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total workflow handling duration.
-     * +kubebuilder:example=60000
+     * +kubebuilder:example=15893
      * </pre>
      *
      * <code>int64 workflow_handling_time = 70 [json_name = "workflowHandlingTime"];</code>
@@ -9157,7 +9163,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total workflow handling duration.
-     * +kubebuilder:example=60000
+     * +kubebuilder:example=15893
      * </pre>
      *
      * <code>int64 workflow_handling_time = 70 [json_name = "workflowHandlingTime"];</code>
@@ -9165,7 +9171,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWorkflowHandlingTime(long value) {
-      
+
       workflowHandlingTime_ = value;
       onChanged();
       return this;
@@ -9173,14 +9179,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Total workflow handling duration.
-     * +kubebuilder:example=60000
+     * +kubebuilder:example=15893
      * </pre>
      *
      * <code>int64 workflow_handling_time = 70 [json_name = "workflowHandlingTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearWorkflowHandlingTime() {
-      
+
       workflowHandlingTime_ = 0L;
       onChanged();
       return this;
@@ -9189,8 +9195,8 @@ private static final long serialVersionUID = 0L;
     private long alfHandlingTime_ ;
     /**
      * <pre>
-     * Total ALF handling duration.
-     * +kubebuilder:example=60000
+     * "ALF 응대 시간" metric.
+     * +kubebuilder:example=45391
      * </pre>
      *
      * <code>int64 alf_handling_time = 71 [json_name = "alfHandlingTime"];</code>
@@ -9202,8 +9208,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total ALF handling duration.
-     * +kubebuilder:example=60000
+     * "ALF 응대 시간" metric.
+     * +kubebuilder:example=45391
      * </pre>
      *
      * <code>int64 alf_handling_time = 71 [json_name = "alfHandlingTime"];</code>
@@ -9211,22 +9217,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAlfHandlingTime(long value) {
-      
+
       alfHandlingTime_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Total ALF handling duration.
-     * +kubebuilder:example=60000
+     * "ALF 응대 시간" metric.
+     * +kubebuilder:example=45391
      * </pre>
      *
      * <code>int64 alf_handling_time = 71 [json_name = "alfHandlingTime"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAlfHandlingTime() {
-      
+
       alfHandlingTime_ = 0L;
       onChanged();
       return this;
@@ -9235,8 +9241,8 @@ private static final long serialVersionUID = 0L;
     private float alfCxScore_ ;
     /**
      * <pre>
-     * ALF customer experience score.
-     * +kubebuilder:example=4.5
+     * ALF CX Score metric.
+     * +kubebuilder:example=1.4
      * </pre>
      *
      * <code>float alf_cx_score = 72 [json_name = "alfCxScore"];</code>
@@ -9248,8 +9254,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ALF customer experience score.
-     * +kubebuilder:example=4.5
+     * ALF CX Score metric.
+     * +kubebuilder:example=1.4
      * </pre>
      *
      * <code>float alf_cx_score = 72 [json_name = "alfCxScore"];</code>
@@ -9257,22 +9263,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAlfCxScore(float value) {
-      
+
       alfCxScore_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * ALF customer experience score.
-     * +kubebuilder:example=4.5
+     * ALF CX Score metric.
+     * +kubebuilder:example=1.4
      * </pre>
      *
      * <code>float alf_cx_score = 72 [json_name = "alfCxScore"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAlfCxScore() {
-      
+
       alfCxScore_ = 0F;
       onChanged();
       return this;
@@ -9281,8 +9287,8 @@ private static final long serialVersionUID = 0L;
     private float cxScore_ ;
     /**
      * <pre>
-     * Customer experience score.
-     * +kubebuilder:example=4.2
+     * Customer experience score recorded for this chat.
+     * +kubebuilder:example=1.4
      * </pre>
      *
      * <code>float cx_score = 73 [json_name = "cxScore"];</code>
@@ -9294,8 +9300,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Customer experience score.
-     * +kubebuilder:example=4.2
+     * Customer experience score recorded for this chat.
+     * +kubebuilder:example=1.4
      * </pre>
      *
      * <code>float cx_score = 73 [json_name = "cxScore"];</code>
@@ -9303,22 +9309,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCxScore(float value) {
-      
+
       cxScore_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Customer experience score.
-     * +kubebuilder:example=4.2
+     * Customer experience score recorded for this chat.
+     * +kubebuilder:example=1.4
      * </pre>
      *
      * <code>float cx_score = 73 [json_name = "cxScore"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCxScore() {
-      
+
       cxScore_ = 0F;
       onChanged();
       return this;
@@ -9337,7 +9343,7 @@ private static final long serialVersionUID = 0L;
 
 
     /* Generated by protoc-gen-java-set-or-clear */
-    
+
     /**
      * @param value The direction to set.
      * @return This builder for chaining.
@@ -9348,7 +9354,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setDirection(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9360,7 +9366,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setDirection(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_queue_out_at to set.
      * @return This builder for chaining.
@@ -9371,7 +9377,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueOutAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9383,7 +9389,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueOutAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_active_at to set.
      * @return This builder for chaining.
@@ -9394,7 +9400,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstActiveAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9406,7 +9412,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstActiveAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_opened_at to set.
      * @return This builder for chaining.
@@ -9417,7 +9423,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstOpenedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9429,7 +9435,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstOpenedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_queue_in_at to set.
      * @return This builder for chaining.
@@ -9440,7 +9446,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueInAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9452,7 +9458,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueInAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_missed_at to set.
      * @return This builder for chaining.
@@ -9463,7 +9469,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstMissedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9475,7 +9481,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstMissedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_closed_at to set.
      * @return This builder for chaining.
@@ -9486,7 +9492,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstClosedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9498,7 +9504,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstClosedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The assignee_id_at_first_close to set.
      * @return This builder for chaining.
@@ -9509,7 +9515,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAssigneeIdAtFirstClose(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9521,7 +9527,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAssigneeIdAtFirstClose(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The reopen_count to set.
      * @return This builder for chaining.
@@ -9532,7 +9538,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReopenCount(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9544,7 +9550,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReopenCount(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_assignee_id_after_active to set.
      * @return This builder for chaining.
@@ -9555,7 +9561,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAssigneeIdAfterActive(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9567,7 +9573,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAssigneeIdAfterActive(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_assigned_at to set.
      * @return This builder for chaining.
@@ -9578,7 +9584,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAssignedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9590,7 +9596,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAssignedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_assignee_id to set.
      * @return This builder for chaining.
@@ -9601,7 +9607,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAssigneeId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9613,7 +9619,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAssigneeId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The reassignment_count to set.
      * @return This builder for chaining.
@@ -9624,7 +9630,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReassignmentCount(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9636,7 +9642,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReassignmentCount(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_asked_at to set.
      * @return This builder for chaining.
@@ -9647,7 +9653,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAskedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9659,7 +9665,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAskedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The csat_count to set.
      * @return This builder for chaining.
@@ -9670,7 +9676,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setCsatCount(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9682,7 +9688,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setCsatCount(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The managed_at to set.
      * @return This builder for chaining.
@@ -9693,7 +9699,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setManagedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9705,7 +9711,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setManagedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The snooze_count to set.
      * @return This builder for chaining.
@@ -9716,7 +9722,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setSnoozeCount(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9728,7 +9734,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setSnoozeCount(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The total_snoozed_time to set.
      * @return This builder for chaining.
@@ -9739,7 +9745,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalSnoozedTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9751,7 +9757,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalSnoozedTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The total_closed_time to set.
      * @return This builder for chaining.
@@ -9762,7 +9768,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalClosedTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9774,7 +9780,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalClosedTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_answered_at to set.
      * @return This builder for chaining.
@@ -9785,7 +9791,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAnsweredAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9797,7 +9803,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAnsweredAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The total_reply_time to set.
      * @return This builder for chaining.
@@ -9808,7 +9814,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalReplyTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9820,7 +9826,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalReplyTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The reply_count to set.
      * @return This builder for chaining.
@@ -9831,7 +9837,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReplyCount(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9843,7 +9849,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReplyCount(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The reply_count_in_operation to set.
      * @return This builder for chaining.
@@ -9854,7 +9860,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReplyCountInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9866,7 +9872,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReplyCountInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The total_reply_time_in_operation to set.
      * @return This builder for chaining.
@@ -9877,7 +9883,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalReplyTimeInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9889,7 +9895,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTotalReplyTimeInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_replied_at_after_active to set.
      * @return This builder for chaining.
@@ -9900,7 +9906,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstRepliedAtAfterActive(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9912,7 +9918,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstRepliedAtAfterActive(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The operation_total_snoozed_time to set.
      * @return This builder for chaining.
@@ -9923,7 +9929,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setOperationTotalSnoozedTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9935,7 +9941,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setOperationTotalSnoozedTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The operation_total_closed_time to set.
      * @return This builder for chaining.
@@ -9946,7 +9952,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setOperationTotalClosedTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9958,7 +9964,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setOperationTotalClosedTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_first_assignment to set.
      * @return This builder for chaining.
@@ -9969,7 +9975,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAssignment(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -9981,7 +9987,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAssignment(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_first_assignment_in_operation to set.
      * @return This builder for chaining.
@@ -9992,7 +9998,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAssignmentInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10004,7 +10010,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAssignmentInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_first_answer to set.
      * @return This builder for chaining.
@@ -10015,7 +10021,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAnswer(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10027,7 +10033,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAnswer(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_first_answer_in_operation to set.
      * @return This builder for chaining.
@@ -10038,7 +10044,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAnswerInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10050,7 +10056,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstAnswerInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_ask_to_first_answer to set.
      * @return This builder for chaining.
@@ -10061,7 +10067,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstAnswer(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10073,7 +10079,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstAnswer(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_ask_to_first_answer_in_operation to set.
      * @return This builder for chaining.
@@ -10084,7 +10090,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstAnswerInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10096,7 +10102,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstAnswerInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_assignment_to_first_answer to set.
      * @return This builder for chaining.
@@ -10107,7 +10113,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstAnswer(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10119,7 +10125,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstAnswer(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_assignment_to_first_answer_in_operation to set.
      * @return This builder for chaining.
@@ -10130,7 +10136,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstAnswerInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10142,7 +10148,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstAnswerInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_active_to_first_answer to set.
      * @return This builder for chaining.
@@ -10153,7 +10159,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstAnswer(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10165,7 +10171,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstAnswer(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_active_to_first_answer_in_operation to set.
      * @return This builder for chaining.
@@ -10176,7 +10182,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstAnswerInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10188,7 +10194,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstAnswerInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_open_to_first_answer to set.
      * @return This builder for chaining.
@@ -10199,7 +10205,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstAnswer(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10211,7 +10217,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstAnswer(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_open_to_first_answer_in_operation to set.
      * @return This builder for chaining.
@@ -10222,7 +10228,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstAnswerInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10234,7 +10240,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstAnswerInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_queue_time to set.
      * @return This builder for chaining.
@@ -10245,7 +10251,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10257,7 +10263,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_queue_time_in_operation to set.
      * @return This builder for chaining.
@@ -10268,7 +10274,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueTimeInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10280,7 +10286,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstQueueTimeInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The avg_reply_time to set.
      * @return This builder for chaining.
@@ -10291,7 +10297,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAvgReplyTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10303,7 +10309,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAvgReplyTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The avg_reply_time_in_operation to set.
      * @return This builder for chaining.
@@ -10314,7 +10320,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAvgReplyTimeInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10326,7 +10332,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAvgReplyTimeInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_first_close to set.
      * @return This builder for chaining.
@@ -10337,7 +10343,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstClose(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10349,7 +10355,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstClose(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_first_close_in_operation to set.
      * @return This builder for chaining.
@@ -10360,7 +10366,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstCloseInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10372,7 +10378,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToFirstCloseInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_ask_to_first_close to set.
      * @return This builder for chaining.
@@ -10383,7 +10389,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstClose(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10395,7 +10401,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstClose(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_ask_to_first_close_in_operation to set.
      * @return This builder for chaining.
@@ -10406,7 +10412,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstCloseInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10418,7 +10424,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAskToFirstCloseInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_assignment_to_first_close to set.
      * @return This builder for chaining.
@@ -10429,7 +10435,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstClose(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10441,7 +10447,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstClose(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_assignment_to_first_close_in_operation to set.
      * @return This builder for chaining.
@@ -10452,7 +10458,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstCloseInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10464,7 +10470,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstAssignmentToFirstCloseInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_active_to_first_close to set.
      * @return This builder for chaining.
@@ -10475,7 +10481,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstClose(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10487,7 +10493,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstClose(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_active_to_first_close_in_operation to set.
      * @return This builder for chaining.
@@ -10498,7 +10504,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstCloseInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10510,7 +10516,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstActiveToFirstCloseInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_open_to_first_close to set.
      * @return This builder for chaining.
@@ -10521,7 +10527,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstClose(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10533,7 +10539,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstClose(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_from_first_open_to_first_close_in_operation to set.
      * @return This builder for chaining.
@@ -10544,7 +10550,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstCloseInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10556,7 +10562,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeFromFirstOpenToFirstCloseInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_close to set.
      * @return This builder for chaining.
@@ -10567,7 +10573,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToClose(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10579,7 +10585,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToClose(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The time_to_close_in_operation to set.
      * @return This builder for chaining.
@@ -10590,7 +10596,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToCloseInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10602,7 +10608,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setTimeToCloseInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_member_handling_time to set.
      * @return This builder for chaining.
@@ -10613,7 +10619,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstMemberHandlingTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10625,7 +10631,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstMemberHandlingTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_member_handling_time_in_operation to set.
      * @return This builder for chaining.
@@ -10636,7 +10642,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstMemberHandlingTimeInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10648,7 +10654,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstMemberHandlingTimeInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The member_handling_time to set.
      * @return This builder for chaining.
@@ -10659,7 +10665,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setMemberHandlingTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10671,7 +10677,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setMemberHandlingTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The member_handling_time_in_operation to set.
      * @return This builder for chaining.
@@ -10682,7 +10688,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setMemberHandlingTimeInOperation(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10694,7 +10700,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setMemberHandlingTimeInOperation(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The workflow_triggered to set.
      * @return This builder for chaining.
@@ -10705,7 +10711,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setWorkflowTriggered(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10717,7 +10723,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setWorkflowTriggered(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The alf_triggered to set.
      * @return This builder for chaining.
@@ -10728,7 +10734,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAlfTriggered(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10740,7 +10746,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAlfTriggered(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The ever_opened to set.
      * @return This builder for chaining.
@@ -10751,7 +10757,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setEverOpened(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10763,7 +10769,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setEverOpened(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The reopened to set.
      * @return This builder for chaining.
@@ -10774,7 +10780,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReopened(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10786,7 +10792,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReopened(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The reassigned to set.
      * @return This builder for chaining.
@@ -10797,7 +10803,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReassigned(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10809,7 +10815,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setReassigned(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The managed_in_operation_time to set.
      * @return This builder for chaining.
@@ -10820,7 +10826,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setManagedInOperationTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10832,7 +10838,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setManagedInOperationTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_workflow_started_at to set.
      * @return This builder for chaining.
@@ -10843,7 +10849,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstWorkflowStartedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10855,7 +10861,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstWorkflowStartedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_workflow_ended_at to set.
      * @return This builder for chaining.
@@ -10866,7 +10872,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstWorkflowEndedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10878,7 +10884,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstWorkflowEndedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_alf_started_at to set.
      * @return This builder for chaining.
@@ -10889,7 +10895,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAlfStartedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10901,7 +10907,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAlfStartedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_alf_ended_at to set.
      * @return This builder for chaining.
@@ -10912,7 +10918,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAlfEndedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10924,7 +10930,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setFirstAlfEndedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The workflow_handling_time to set.
      * @return This builder for chaining.
@@ -10935,7 +10941,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setWorkflowHandlingTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10947,7 +10953,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setWorkflowHandlingTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The alf_handling_time to set.
      * @return This builder for chaining.
@@ -10958,7 +10964,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAlfHandlingTime(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10970,7 +10976,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAlfHandlingTime(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The alf_cx_score to set.
      * @return This builder for chaining.
@@ -10981,7 +10987,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAlfCxScore(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -10993,7 +10999,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setAlfCxScore(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The cx_score to set.
      * @return This builder for chaining.
@@ -11004,7 +11010,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setCxScore(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
@@ -11016,7 +11022,7 @@ private static final long serialVersionUID = 0L;
     	else
     		return setCxScore(mapFunc.apply(value));
     }
-    	
+
     // @@protoc_insertion_point(builder_scope:coreapi.model.UserChatStat)
   }
 

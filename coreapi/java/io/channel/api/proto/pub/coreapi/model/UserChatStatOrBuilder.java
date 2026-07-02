@@ -9,7 +9,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Direction of the conversation relative to the channel.
+   * Conversation direction used as a report dimension.
    * </pre>
    *
    * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -18,7 +18,7 @@ public interface UserChatStatOrBuilder extends
   int getDirectionValue();
   /**
    * <pre>
-   * Direction of the conversation relative to the channel.
+   * Conversation direction used as a report dimension.
    * </pre>
    *
    * <code>.coreapi.model.UserChatDirection direction = 1 [json_name = "direction"];</code>
@@ -28,8 +28,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat first left the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -38,8 +38,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstQueueOutAt();
   /**
    * <pre>
-   * Timestamp when the chat first left the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -48,8 +48,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstQueueOutAt();
   /**
    * <pre>
-   * Timestamp when the chat first left the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_out_at = 2 [json_name = "firstQueueOutAt"];</code>
@@ -58,8 +58,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First active timestamp for opened-to-answer and opened-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -68,8 +68,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstActiveAt();
   /**
    * <pre>
-   * Timestamp when the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First active timestamp for opened-to-answer and opened-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -78,8 +78,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstActiveAt();
   /**
    * <pre>
-   * Timestamp when the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First active timestamp for opened-to-answer and opened-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_active_at = 3 [json_name = "firstActiveAt"];</code>
@@ -88,8 +88,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat was first opened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First opened timestamp for request-to-answer and request-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -98,8 +98,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstOpenedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first opened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First opened timestamp for request-to-answer and request-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -108,8 +108,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstOpenedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first opened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First opened timestamp for request-to-answer and request-to-close metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_opened_at = 4 [json_name = "firstOpenedAt"];</code>
@@ -118,8 +118,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat first entered the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -128,8 +128,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstQueueInAt();
   /**
    * <pre>
-   * Timestamp when the chat first entered the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -138,8 +138,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstQueueInAt();
   /**
    * <pre>
-   * Timestamp when the chat first entered the assignment queue.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_queue_in_at = 5 [json_name = "firstQueueInAt"];</code>
@@ -148,8 +148,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat was first missed.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First missed timestamp.
+   * +kubebuilder:example="2026-03-02T06:53:24.543Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -158,8 +158,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstMissedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first missed.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First missed timestamp.
+   * +kubebuilder:example="2026-03-02T06:53:24.543Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -168,8 +168,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstMissedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first missed.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First missed timestamp.
+   * +kubebuilder:example="2026-03-02T06:53:24.543Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_missed_at = 6 [json_name = "firstMissedAt"];</code>
@@ -178,8 +178,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat was first closed.
-   * +kubebuilder:example="2024-03-29T03:28:34Z"
+   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -188,8 +188,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstClosedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first closed.
-   * +kubebuilder:example="2024-03-29T03:28:34Z"
+   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -198,8 +198,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstClosedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first closed.
-   * +kubebuilder:example="2024-03-29T03:28:34Z"
+   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_closed_at = 7 [json_name = "firstClosedAt"];</code>
@@ -209,7 +209,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * ID of the assignee when the chat was first closed.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -219,7 +219,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * ID of the assignee when the chat was first closed.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string assignee_id_at_first_close = 8 [json_name = "assigneeIdAtFirstClose"];</code>
@@ -230,7 +230,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Number of times the chat was reopened.
+   * Number of reopen events recorded for this chat.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -242,7 +242,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * ID of the first assignee after the chat first became active.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -252,7 +252,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * ID of the first assignee after the chat first became active.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id_after_active = 10 [json_name = "firstAssigneeIdAfterActive"];</code>
@@ -263,8 +263,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat was first assigned.
-   * +kubebuilder:example="2024-03-29T03:25:00Z"
+   * First assignment timestamp for assignment-time report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.546Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -273,8 +273,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstAssignedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first assigned.
-   * +kubebuilder:example="2024-03-29T03:25:00Z"
+   * First assignment timestamp for assignment-time report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.546Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -283,8 +283,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstAssignedAt();
   /**
    * <pre>
-   * Timestamp when the chat was first assigned.
-   * +kubebuilder:example="2024-03-29T03:25:00Z"
+   * First assignment timestamp for assignment-time report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.546Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_assigned_at = 11 [json_name = "firstAssignedAt"];</code>
@@ -294,7 +294,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * ID of the first assignee.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -304,7 +304,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * ID of the first assignee.
-   * +kubebuilder:example="9187"
+   * +kubebuilder:example="23919"
    * </pre>
    *
    * <code>string first_assignee_id = 12 [json_name = "firstAssigneeId"];</code>
@@ -315,8 +315,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Number of times the chat was reassigned.
-   * +kubebuilder:example=2
+   * Number of reassignment events used by the "담당자 이관율" metric.
+   * +kubebuilder:example=1
    * </pre>
    *
    * <code>int32 reassignment_count = 13 [json_name = "reassignmentCount"];</code>
@@ -326,8 +326,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the user first asked a question.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First ask timestamp for customer waiting-time metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.780Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -336,8 +336,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstAskedAt();
   /**
    * <pre>
-   * Timestamp when the user first asked a question.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First ask timestamp for customer waiting-time metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.780Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -346,8 +346,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstAskedAt();
   /**
    * <pre>
-   * Timestamp when the user first asked a question.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * First ask timestamp for customer waiting-time metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.780Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_asked_at = 14 [json_name = "firstAskedAt"];</code>
@@ -356,7 +356,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Number of customer satisfaction scores submitted for the chat.
+   * Number of CSAT responses recorded for this chat.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -367,8 +367,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat first became managed.
-   * +kubebuilder:example="2024-03-29T03:24:48Z"
+   * Managed timestamp used as the aggregation time for user-chat report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -377,8 +377,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasManagedAt();
   /**
    * <pre>
-   * Timestamp when the chat first became managed.
-   * +kubebuilder:example="2024-03-29T03:24:48Z"
+   * Managed timestamp used as the aggregation time for user-chat report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -387,8 +387,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getManagedAt();
   /**
    * <pre>
-   * Timestamp when the chat first became managed.
-   * +kubebuilder:example="2024-03-29T03:24:48Z"
+   * Managed timestamp used as the aggregation time for user-chat report metrics.
+   * +kubebuilder:example="2026-06-24T05:43:45.856Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp managed_at = 16 [json_name = "managedAt"];</code>
@@ -397,7 +397,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Number of times the chat was snoozed.
+   * Number of snooze events recorded for this chat.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -408,8 +408,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total time the chat spent snoozed.
-   * +kubebuilder:example=60000
+   * Total snoozed time used by handling-time metrics.
+   * +kubebuilder:example=146488
    * </pre>
    *
    * <code>int64 total_snoozed_time = 18 [json_name = "totalSnoozedTime"];</code>
@@ -419,8 +419,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total time the chat spent closed before reopening.
-   * +kubebuilder:example=120000
+   * Total closed time tracked for final-close metrics.
+   * +kubebuilder:example=121605
    * </pre>
    *
    * <code>int64 total_closed_time = 19 [json_name = "totalClosedTime"];</code>
@@ -430,8 +430,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Timestamp when the chat was first answered.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * First answer timestamp for answer-count and first-answer duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -440,8 +440,8 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstAnsweredAt();
   /**
    * <pre>
-   * Timestamp when the chat was first answered.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * First answer timestamp for answer-count and first-answer duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -450,8 +450,8 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstAnsweredAt();
   /**
    * <pre>
-   * Timestamp when the chat was first answered.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * First answer timestamp for answer-count and first-answer duration metrics.
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_answered_at = 20 [json_name = "firstAnsweredAt"];</code>
@@ -460,8 +460,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Sum of reply durations.
-   * +kubebuilder:example=90000
+   * Total reply time used by the "평균 응답 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 total_reply_time = 21 [json_name = "totalReplyTime"];</code>
@@ -471,8 +471,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Number of replies counted in reply-time statistics.
-   * +kubebuilder:example=3
+   * Reply count used by reply-time metrics.
+   * +kubebuilder:example=1
    * </pre>
    *
    * <code>int32 reply_count = 22 [json_name = "replyCount"];</code>
@@ -482,8 +482,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Number of replies counted during operation time.
-   * +kubebuilder:example=2
+   * Reply count for the operation-time version of reply-time metrics.
+   * +kubebuilder:example=1
    * </pre>
    *
    * <code>int32 reply_count_in_operation = 23 [json_name = "replyCountInOperation"];</code>
@@ -493,8 +493,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Sum of reply durations during operation time.
-   * +kubebuilder:example=80000
+   * Total reply time for the operation-time version of reply-time metrics.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 total_reply_time_in_operation = 24 [json_name = "totalReplyTimeInOperation"];</code>
@@ -505,7 +505,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp of the first reply after the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -515,7 +515,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp of the first reply after the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -525,7 +525,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp of the first reply after the chat first became active.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * +kubebuilder:example="2026-06-24T05:43:46.524Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_replied_at_after_active = 25 [json_name = "firstRepliedAtAfterActive"];</code>
@@ -534,8 +534,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total snoozed time during operation time.
-   * +kubebuilder:example=55000
+   * Total snoozed time for operation-time handling metrics.
+   * +kubebuilder:example=146488
    * </pre>
    *
    * <code>int64 operation_total_snoozed_time = 26 [json_name = "operationTotalSnoozedTime"];</code>
@@ -545,8 +545,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total closed time during operation time.
-   * +kubebuilder:example=110000
+   * Total closed time for operation-time final-close metrics.
+   * +kubebuilder:example=20218908
    * </pre>
    *
    * <code>int64 operation_total_closed_time = 27 [json_name = "operationTotalClosedTime"];</code>
@@ -556,8 +556,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to first assignment.
-   * +kubebuilder:example=12000
+   * "담당자 배정까지의 시간" metric.
+   * +kubebuilder:example=690
    * </pre>
    *
    * <code>int64 time_to_first_assignment = 28 [json_name = "timeToFirstAssignment"];</code>
@@ -567,8 +567,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to first assignment during operation time.
-   * +kubebuilder:example=10000
+   * Operation-time version of "담당자 배정까지의 시간".
+   * +kubebuilder:example=690
    * </pre>
    *
    * <code>int64 time_to_first_assignment_in_operation = 29 [json_name = "timeToFirstAssignmentInOperation"];</code>
@@ -578,8 +578,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to first answer.
-   * +kubebuilder:example=226139
+   * "상담 인입부터 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_to_first_answer = 30 [json_name = "timeToFirstAnswer"];</code>
@@ -589,8 +589,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_to_first_answer_in_operation = 31 [json_name = "timeToFirstAnswerInOperation"];</code>
@@ -600,8 +600,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first ask to first answer.
-   * +kubebuilder:example=226139
+   * "첫 문의 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=744
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_answer = 32 [json_name = "timeFromFirstAskToFirstAnswer"];</code>
@@ -611,8 +611,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first ask to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+   * +kubebuilder:example=744
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_answer_in_operation = 33 [json_name = "timeFromFirstAskToFirstAnswerInOperation"];</code>
@@ -622,8 +622,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first assignment to first answer.
-   * +kubebuilder:example=180000
+   * "담당자 배정 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=0
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_answer = 34 [json_name = "timeFromFirstAssignmentToFirstAnswer"];</code>
@@ -633,8 +633,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first assignment to first answer during operation time.
-   * +kubebuilder:example=50000
+   * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+   * +kubebuilder:example=0
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_answer_in_operation = 35 [json_name = "timeFromFirstAssignmentToFirstAnswerInOperation"];</code>
@@ -644,8 +644,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first active state to first answer.
-   * +kubebuilder:example=226139
+   * "상담이 열린 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_answer = 36 [json_name = "timeFromFirstActiveToFirstAnswer"];</code>
@@ -655,8 +655,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first active state to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_answer_in_operation = 37 [json_name = "timeFromFirstActiveToFirstAnswerInOperation"];</code>
@@ -666,8 +666,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first open to first answer.
-   * +kubebuilder:example=226139
+   * "상담 요청 후 첫 응답까지의 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_answer = 38 [json_name = "timeFromFirstOpenToFirstAnswer"];</code>
@@ -677,8 +677,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first open to first answer during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_answer_in_operation = 39 [json_name = "timeFromFirstOpenToFirstAnswerInOperation"];</code>
@@ -688,8 +688,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration spent in the first queue interval.
-   * +kubebuilder:example=30000
+   * "상담 대기 시간" metric.
+   * +kubebuilder:example=7931
    * </pre>
    *
    * <code>int64 first_queue_time = 40 [json_name = "firstQueueTime"];</code>
@@ -699,8 +699,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration spent in the first queue interval during operation time.
-   * +kubebuilder:example=25000
+   * Operation-time version of "상담 대기 시간".
+   * +kubebuilder:example=7931
    * </pre>
    *
    * <code>int64 first_queue_time_in_operation = 41 [json_name = "firstQueueTimeInOperation"];</code>
@@ -710,8 +710,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Average reply duration.
-   * +kubebuilder:example=45000
+   * "평균 응답 시간" metric.
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
@@ -721,8 +721,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Average reply duration during operation time.
-   * +kubebuilder:example=40000
+   * Operation-time version of "평균 응답 시간".
+   * +kubebuilder:example=668
    * </pre>
    *
    * <code>int64 avg_reply_time_in_operation = 43 [json_name = "avgReplyTimeInOperation"];</code>
@@ -732,8 +732,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to first close.
-   * +kubebuilder:example=226139
+   * "상담 인입부터 종료까지의 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_first_close = 44 [json_name = "timeToFirstClose"];</code>
@@ -743,8 +743,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 인입부터 종료까지의 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_first_close_in_operation = 45 [json_name = "timeToFirstCloseInOperation"];</code>
@@ -754,8 +754,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first ask to first close.
-   * +kubebuilder:example=226139
+   * First ask to first close duration.
+   * +kubebuilder:example=1890
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_close = 46 [json_name = "timeFromFirstAskToFirstClose"];</code>
@@ -765,8 +765,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first ask to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of first ask to first close duration.
+   * +kubebuilder:example=1890
    * </pre>
    *
    * <code>int64 time_from_first_ask_to_first_close_in_operation = 47 [json_name = "timeFromFirstAskToFirstCloseInOperation"];</code>
@@ -776,8 +776,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first assignment to first close.
-   * +kubebuilder:example=180000
+   * First assignment to first close duration.
+   * +kubebuilder:example=1124
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_close = 48 [json_name = "timeFromFirstAssignmentToFirstClose"];</code>
@@ -787,8 +787,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first assignment to first close during operation time.
-   * +kubebuilder:example=50000
+   * Operation-time version of first assignment to first close duration.
+   * +kubebuilder:example=1124
    * </pre>
    *
    * <code>int64 time_from_first_assignment_to_first_close_in_operation = 49 [json_name = "timeFromFirstAssignmentToFirstCloseInOperation"];</code>
@@ -798,8 +798,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first active state to first close.
-   * +kubebuilder:example=226139
+   * Opened to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_close = 50 [json_name = "timeFromFirstActiveToFirstClose"];</code>
@@ -809,8 +809,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first active state to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of opened to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_active_to_first_close_in_operation = 51 [json_name = "timeFromFirstActiveToFirstCloseInOperation"];</code>
@@ -820,8 +820,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first open to first close.
-   * +kubebuilder:example=226139
+   * Request to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_close = 52 [json_name = "timeFromFirstOpenToFirstClose"];</code>
@@ -831,8 +831,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from first open to first close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of request to first close duration.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_from_first_open_to_first_close_in_operation = 53 [json_name = "timeFromFirstOpenToFirstCloseInOperation"];</code>
@@ -842,8 +842,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to close.
-   * +kubebuilder:example=226139
+   * "상담 인입부터 최종 종료까지의 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_close = 54 [json_name = "timeToClose"];</code>
@@ -853,8 +853,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration from management to close during operation time.
-   * +kubebuilder:example=55000
+   * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 time_to_close_in_operation = 55 [json_name = "timeToCloseInOperation"];</code>
@@ -864,8 +864,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration of the first member handling interval.
-   * +kubebuilder:example=180000
+   * "상담원 응대 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 first_member_handling_time = 56 [json_name = "firstMemberHandlingTime"];</code>
@@ -875,8 +875,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Duration of the first member handling interval during operation time.
-   * +kubebuilder:example=50000
+   * Operation-time version of "상담원 응대 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 first_member_handling_time_in_operation = 57 [json_name = "firstMemberHandlingTimeInOperation"];</code>
@@ -886,8 +886,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total member handling duration.
-   * +kubebuilder:example=360000
+   * "상담원 최종 응대 시간" metric.
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 member_handling_time = 58 [json_name = "memberHandlingTime"];</code>
@@ -897,8 +897,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total member handling duration during operation time.
-   * +kubebuilder:example=100000
+   * Operation-time version of "상담원 최종 응대 시간".
+   * +kubebuilder:example=1814
    * </pre>
    *
    * <code>int64 member_handling_time_in_operation = 59 [json_name = "memberHandlingTimeInOperation"];</code>
@@ -908,7 +908,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Whether workflow handling was triggered.
+   * Whether workflow handling was triggered for this chat.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -919,7 +919,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Whether ALF handling was triggered.
+   * Whether ALF was involved in this chat.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -930,7 +930,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Whether the chat was ever opened.
+   * Whether this chat was ever opened.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -941,7 +941,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Whether the chat was reopened.
+   * Whether this chat was reopened.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -952,7 +952,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Whether the chat was reassigned.
+   * Whether this chat was reassigned.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -963,7 +963,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Whether the chat became managed during operation time.
+   * Whether managed_at fell within operation time.
    * +kubebuilder:example=true
    * </pre>
    *
@@ -975,7 +975,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when workflow handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-03-11T11:26:55.673Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -985,7 +985,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when workflow handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-03-11T11:26:55.673Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -995,7 +995,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when workflow handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-03-11T11:26:55.673Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_started_at = 66 [json_name = "firstWorkflowStartedAt"];</code>
@@ -1005,7 +1005,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when workflow handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-03-11T11:27:11.566Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -1015,7 +1015,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when workflow handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-03-11T11:27:11.566Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -1025,7 +1025,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when workflow handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-03-11T11:27:11.566Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_workflow_ended_at = 67 [json_name = "firstWorkflowEndedAt"];</code>
@@ -1035,7 +1035,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when ALF handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:07.603Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -1045,7 +1045,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when ALF handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:07.603Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -1055,7 +1055,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when ALF handling first started.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:07.603Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_started_at = 68 [json_name = "firstAlfStartedAt"];</code>
@@ -1065,7 +1065,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when ALF handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:52.994Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -1075,7 +1075,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when ALF handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:52.994Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -1085,7 +1085,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Timestamp when ALF handling first ended.
-   * +kubebuilder:example="2024-03-29T03:25:30Z"
+   * +kubebuilder:example="2026-01-28T00:45:52.994Z"
    * </pre>
    *
    * <code>.google.protobuf.Timestamp first_alf_ended_at = 69 [json_name = "firstAlfEndedAt"];</code>
@@ -1095,7 +1095,7 @@ public interface UserChatStatOrBuilder extends
   /**
    * <pre>
    * Total workflow handling duration.
-   * +kubebuilder:example=60000
+   * +kubebuilder:example=15893
    * </pre>
    *
    * <code>int64 workflow_handling_time = 70 [json_name = "workflowHandlingTime"];</code>
@@ -1105,8 +1105,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total ALF handling duration.
-   * +kubebuilder:example=60000
+   * "ALF 응대 시간" metric.
+   * +kubebuilder:example=45391
    * </pre>
    *
    * <code>int64 alf_handling_time = 71 [json_name = "alfHandlingTime"];</code>
@@ -1116,8 +1116,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * ALF customer experience score.
-   * +kubebuilder:example=4.5
+   * ALF CX Score metric.
+   * +kubebuilder:example=1.4
    * </pre>
    *
    * <code>float alf_cx_score = 72 [json_name = "alfCxScore"];</code>
@@ -1127,8 +1127,8 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Customer experience score.
-   * +kubebuilder:example=4.2
+   * Customer experience score recorded for this chat.
+   * +kubebuilder:example=1.4
    * </pre>
    *
    * <code>float cx_score = 73 [json_name = "cxScore"];</code>
