@@ -357,6 +357,903 @@ func (UserChatSubtextType) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{4}
 }
 
+// Direction of a user chat relative to the channel.
+type UserChatDirection int32
+
+const (
+	// Unspecified or not set.
+	UserChatDirection_USER_CHAT_DIRECTION_UNSPECIFIED UserChatDirection = 0
+	// Inbound conversation started by a user or external contact.
+	UserChatDirection_USER_CHAT_DIRECTION_INBOUND UserChatDirection = 1
+	// Outbound conversation started by a manager or channel-side actor.
+	UserChatDirection_USER_CHAT_DIRECTION_OUTBOUND UserChatDirection = 2
+	// Shared conversation created from another chat context.
+	UserChatDirection_USER_CHAT_DIRECTION_SHARING UserChatDirection = 3
+)
+
+// Enum value maps for UserChatDirection.
+var (
+	UserChatDirection_name = map[int32]string{
+		0: "USER_CHAT_DIRECTION_UNSPECIFIED",
+		1: "USER_CHAT_DIRECTION_INBOUND",
+		2: "USER_CHAT_DIRECTION_OUTBOUND",
+		3: "USER_CHAT_DIRECTION_SHARING",
+	}
+	UserChatDirection_value = map[string]int32{
+		"USER_CHAT_DIRECTION_UNSPECIFIED": 0,
+		"USER_CHAT_DIRECTION_INBOUND":     1,
+		"USER_CHAT_DIRECTION_OUTBOUND":    2,
+		"USER_CHAT_DIRECTION_SHARING":     3,
+	}
+)
+
+func (x UserChatDirection) Enum() *UserChatDirection {
+	p := new(UserChatDirection)
+	*p = x
+	return p
+}
+
+func (x UserChatDirection) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (UserChatDirection) Descriptor() protoreflect.EnumDescriptor {
+	return file_coreapi_model_user_chat_proto_enumTypes[5].Descriptor()
+}
+
+func (UserChatDirection) Type() protoreflect.EnumType {
+	return &file_coreapi_model_user_chat_proto_enumTypes[5]
+}
+
+func (x UserChatDirection) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use UserChatDirection.Descriptor instead.
+func (UserChatDirection) EnumDescriptor() ([]byte, []int) {
+	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{5}
+}
+
+// Statistics measured for a user chat conversation.
+//
+// Duration fields are measured in milliseconds.
+type UserChatStat struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Direction of the conversation relative to the channel.
+	Direction UserChatDirection `protobuf:"varint,1,opt,name=direction,proto3,enum=coreapi.model.UserChatDirection" json:"direction,omitempty"`
+	// Timestamp when the chat first left the assignment queue.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstQueueOutAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=first_queue_out_at,json=firstQueueOutAt,proto3" json:"first_queue_out_at,omitempty"`
+	// Timestamp when the chat first became active.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstActiveAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=first_active_at,json=firstActiveAt,proto3" json:"first_active_at,omitempty"`
+	// Timestamp when the chat was first opened.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstOpenedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=first_opened_at,json=firstOpenedAt,proto3" json:"first_opened_at,omitempty"`
+	// Timestamp when the chat first entered the assignment queue.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstQueueInAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=first_queue_in_at,json=firstQueueInAt,proto3" json:"first_queue_in_at,omitempty"`
+	// Timestamp when the chat was first missed.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstMissedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=first_missed_at,json=firstMissedAt,proto3" json:"first_missed_at,omitempty"`
+	// Timestamp when the chat was first closed.
+	//
+	// +kubebuilder:example="2024-03-29T03:28:34Z"
+	FirstClosedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=first_closed_at,json=firstClosedAt,proto3" json:"first_closed_at,omitempty"`
+	// ID of the assignee when the chat was first closed.
+	//
+	// +kubebuilder:example="9187"
+	AssigneeIdAtFirstClose string `protobuf:"bytes,8,opt,name=assignee_id_at_first_close,json=assigneeIdAtFirstClose,proto3" json:"assignee_id_at_first_close,omitempty"`
+	// Number of times the chat was reopened.
+	//
+	// +kubebuilder:example=1
+	ReopenCount int32 `protobuf:"varint,9,opt,name=reopen_count,json=reopenCount,proto3" json:"reopen_count,omitempty"`
+	// ID of the first assignee after the chat first became active.
+	//
+	// +kubebuilder:example="9187"
+	FirstAssigneeIdAfterActive string `protobuf:"bytes,10,opt,name=first_assignee_id_after_active,json=firstAssigneeIdAfterActive,proto3" json:"first_assignee_id_after_active,omitempty"`
+	// Timestamp when the chat was first assigned.
+	//
+	// +kubebuilder:example="2024-03-29T03:25:00Z"
+	FirstAssignedAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=first_assigned_at,json=firstAssignedAt,proto3" json:"first_assigned_at,omitempty"`
+	// ID of the first assignee.
+	//
+	// +kubebuilder:example="9187"
+	FirstAssigneeId string `protobuf:"bytes,12,opt,name=first_assignee_id,json=firstAssigneeId,proto3" json:"first_assignee_id,omitempty"`
+	// Number of times the chat was reassigned.
+	//
+	// +kubebuilder:example=2
+	ReassignmentCount int32 `protobuf:"varint,13,opt,name=reassignment_count,json=reassignmentCount,proto3" json:"reassignment_count,omitempty"`
+	// Timestamp when the user first asked a question.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstAskedAt *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=first_asked_at,json=firstAskedAt,proto3" json:"first_asked_at,omitempty"`
+	// Number of customer satisfaction scores submitted for the chat.
+	//
+	// +kubebuilder:example=1
+	CsatCount int32 `protobuf:"varint,15,opt,name=csat_count,json=csatCount,proto3" json:"csat_count,omitempty"`
+	// Timestamp when the chat first became managed.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:48Z"
+	ManagedAt *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=managed_at,json=managedAt,proto3" json:"managed_at,omitempty"`
+	// Number of times the chat was snoozed.
+	//
+	// +kubebuilder:example=1
+	SnoozeCount int32 `protobuf:"varint,17,opt,name=snooze_count,json=snoozeCount,proto3" json:"snooze_count,omitempty"`
+	// Total time the chat spent snoozed.
+	//
+	// +kubebuilder:example=60000
+	TotalSnoozedTime int64 `protobuf:"varint,18,opt,name=total_snoozed_time,json=totalSnoozedTime,proto3" json:"total_snoozed_time,omitempty"`
+	// Total time the chat spent closed before reopening.
+	//
+	// +kubebuilder:example=120000
+	TotalClosedTime int64 `protobuf:"varint,19,opt,name=total_closed_time,json=totalClosedTime,proto3" json:"total_closed_time,omitempty"`
+	// Timestamp when the chat was first answered.
+	//
+	// +kubebuilder:example="2024-03-29T03:28:35Z"
+	FirstAnsweredAt *timestamppb.Timestamp `protobuf:"bytes,20,opt,name=first_answered_at,json=firstAnsweredAt,proto3" json:"first_answered_at,omitempty"`
+	// Sum of reply durations.
+	//
+	// +kubebuilder:example=90000
+	TotalReplyTime int64 `protobuf:"varint,21,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
+	// Number of replies counted in reply-time statistics.
+	//
+	// +kubebuilder:example=3
+	ReplyCount int32 `protobuf:"varint,22,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
+	// Number of replies counted during operation time.
+	//
+	// +kubebuilder:example=2
+	ReplyCountInOperation int32 `protobuf:"varint,23,opt,name=reply_count_in_operation,json=replyCountInOperation,proto3" json:"reply_count_in_operation,omitempty"`
+	// Sum of reply durations during operation time.
+	//
+	// +kubebuilder:example=80000
+	TotalReplyTimeInOperation int64 `protobuf:"varint,24,opt,name=total_reply_time_in_operation,json=totalReplyTimeInOperation,proto3" json:"total_reply_time_in_operation,omitempty"`
+	// Timestamp of the first reply after the chat first became active.
+	//
+	// +kubebuilder:example="2024-03-29T03:28:35Z"
+	FirstRepliedAtAfterActive *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=first_replied_at_after_active,json=firstRepliedAtAfterActive,proto3" json:"first_replied_at_after_active,omitempty"`
+	// Total snoozed time during operation time.
+	//
+	// +kubebuilder:example=55000
+	OperationTotalSnoozedTime int64 `protobuf:"varint,26,opt,name=operation_total_snoozed_time,json=operationTotalSnoozedTime,proto3" json:"operation_total_snoozed_time,omitempty"`
+	// Total closed time during operation time.
+	//
+	// +kubebuilder:example=110000
+	OperationTotalClosedTime int64 `protobuf:"varint,27,opt,name=operation_total_closed_time,json=operationTotalClosedTime,proto3" json:"operation_total_closed_time,omitempty"`
+	// Duration from management to first assignment.
+	//
+	// +kubebuilder:example=12000
+	TimeToFirstAssignment int64 `protobuf:"varint,28,opt,name=time_to_first_assignment,json=timeToFirstAssignment,proto3" json:"time_to_first_assignment,omitempty"`
+	// Duration from management to first assignment during operation time.
+	//
+	// +kubebuilder:example=10000
+	TimeToFirstAssignmentInOperation int64 `protobuf:"varint,29,opt,name=time_to_first_assignment_in_operation,json=timeToFirstAssignmentInOperation,proto3" json:"time_to_first_assignment_in_operation,omitempty"`
+	// Duration from management to first answer.
+	//
+	// +kubebuilder:example=226139
+	TimeToFirstAnswer int64 `protobuf:"varint,30,opt,name=time_to_first_answer,json=timeToFirstAnswer,proto3" json:"time_to_first_answer,omitempty"`
+	// Duration from management to first answer during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeToFirstAnswerInOperation int64 `protobuf:"varint,31,opt,name=time_to_first_answer_in_operation,json=timeToFirstAnswerInOperation,proto3" json:"time_to_first_answer_in_operation,omitempty"`
+	// Duration from first ask to first answer.
+	//
+	// +kubebuilder:example=226139
+	TimeFromFirstAskToFirstAnswer int64 `protobuf:"varint,32,opt,name=time_from_first_ask_to_first_answer,json=timeFromFirstAskToFirstAnswer,proto3" json:"time_from_first_ask_to_first_answer,omitempty"`
+	// Duration from first ask to first answer during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeFromFirstAskToFirstAnswerInOperation int64 `protobuf:"varint,33,opt,name=time_from_first_ask_to_first_answer_in_operation,json=timeFromFirstAskToFirstAnswerInOperation,proto3" json:"time_from_first_ask_to_first_answer_in_operation,omitempty"`
+	// Duration from first assignment to first answer.
+	//
+	// +kubebuilder:example=180000
+	TimeFromFirstAssignmentToFirstAnswer int64 `protobuf:"varint,34,opt,name=time_from_first_assignment_to_first_answer,json=timeFromFirstAssignmentToFirstAnswer,proto3" json:"time_from_first_assignment_to_first_answer,omitempty"`
+	// Duration from first assignment to first answer during operation time.
+	//
+	// +kubebuilder:example=50000
+	TimeFromFirstAssignmentToFirstAnswerInOperation int64 `protobuf:"varint,35,opt,name=time_from_first_assignment_to_first_answer_in_operation,json=timeFromFirstAssignmentToFirstAnswerInOperation,proto3" json:"time_from_first_assignment_to_first_answer_in_operation,omitempty"`
+	// Duration from first active state to first answer.
+	//
+	// +kubebuilder:example=226139
+	TimeFromFirstActiveToFirstAnswer int64 `protobuf:"varint,36,opt,name=time_from_first_active_to_first_answer,json=timeFromFirstActiveToFirstAnswer,proto3" json:"time_from_first_active_to_first_answer,omitempty"`
+	// Duration from first active state to first answer during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeFromFirstActiveToFirstAnswerInOperation int64 `protobuf:"varint,37,opt,name=time_from_first_active_to_first_answer_in_operation,json=timeFromFirstActiveToFirstAnswerInOperation,proto3" json:"time_from_first_active_to_first_answer_in_operation,omitempty"`
+	// Duration from first open to first answer.
+	//
+	// +kubebuilder:example=226139
+	TimeFromFirstOpenToFirstAnswer int64 `protobuf:"varint,38,opt,name=time_from_first_open_to_first_answer,json=timeFromFirstOpenToFirstAnswer,proto3" json:"time_from_first_open_to_first_answer,omitempty"`
+	// Duration from first open to first answer during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeFromFirstOpenToFirstAnswerInOperation int64 `protobuf:"varint,39,opt,name=time_from_first_open_to_first_answer_in_operation,json=timeFromFirstOpenToFirstAnswerInOperation,proto3" json:"time_from_first_open_to_first_answer_in_operation,omitempty"`
+	// Duration spent in the first queue interval.
+	//
+	// +kubebuilder:example=30000
+	FirstQueueTime int64 `protobuf:"varint,40,opt,name=first_queue_time,json=firstQueueTime,proto3" json:"first_queue_time,omitempty"`
+	// Duration spent in the first queue interval during operation time.
+	//
+	// +kubebuilder:example=25000
+	FirstQueueTimeInOperation int64 `protobuf:"varint,41,opt,name=first_queue_time_in_operation,json=firstQueueTimeInOperation,proto3" json:"first_queue_time_in_operation,omitempty"`
+	// Average reply duration.
+	//
+	// +kubebuilder:example=45000
+	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
+	// Average reply duration during operation time.
+	//
+	// +kubebuilder:example=40000
+	AvgReplyTimeInOperation int64 `protobuf:"varint,43,opt,name=avg_reply_time_in_operation,json=avgReplyTimeInOperation,proto3" json:"avg_reply_time_in_operation,omitempty"`
+	// Duration from management to first close.
+	//
+	// +kubebuilder:example=226139
+	TimeToFirstClose int64 `protobuf:"varint,44,opt,name=time_to_first_close,json=timeToFirstClose,proto3" json:"time_to_first_close,omitempty"`
+	// Duration from management to first close during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeToFirstCloseInOperation int64 `protobuf:"varint,45,opt,name=time_to_first_close_in_operation,json=timeToFirstCloseInOperation,proto3" json:"time_to_first_close_in_operation,omitempty"`
+	// Duration from first ask to first close.
+	//
+	// +kubebuilder:example=226139
+	TimeFromFirstAskToFirstClose int64 `protobuf:"varint,46,opt,name=time_from_first_ask_to_first_close,json=timeFromFirstAskToFirstClose,proto3" json:"time_from_first_ask_to_first_close,omitempty"`
+	// Duration from first ask to first close during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeFromFirstAskToFirstCloseInOperation int64 `protobuf:"varint,47,opt,name=time_from_first_ask_to_first_close_in_operation,json=timeFromFirstAskToFirstCloseInOperation,proto3" json:"time_from_first_ask_to_first_close_in_operation,omitempty"`
+	// Duration from first assignment to first close.
+	//
+	// +kubebuilder:example=180000
+	TimeFromFirstAssignmentToFirstClose int64 `protobuf:"varint,48,opt,name=time_from_first_assignment_to_first_close,json=timeFromFirstAssignmentToFirstClose,proto3" json:"time_from_first_assignment_to_first_close,omitempty"`
+	// Duration from first assignment to first close during operation time.
+	//
+	// +kubebuilder:example=50000
+	TimeFromFirstAssignmentToFirstCloseInOperation int64 `protobuf:"varint,49,opt,name=time_from_first_assignment_to_first_close_in_operation,json=timeFromFirstAssignmentToFirstCloseInOperation,proto3" json:"time_from_first_assignment_to_first_close_in_operation,omitempty"`
+	// Duration from first active state to first close.
+	//
+	// +kubebuilder:example=226139
+	TimeFromFirstActiveToFirstClose int64 `protobuf:"varint,50,opt,name=time_from_first_active_to_first_close,json=timeFromFirstActiveToFirstClose,proto3" json:"time_from_first_active_to_first_close,omitempty"`
+	// Duration from first active state to first close during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeFromFirstActiveToFirstCloseInOperation int64 `protobuf:"varint,51,opt,name=time_from_first_active_to_first_close_in_operation,json=timeFromFirstActiveToFirstCloseInOperation,proto3" json:"time_from_first_active_to_first_close_in_operation,omitempty"`
+	// Duration from first open to first close.
+	//
+	// +kubebuilder:example=226139
+	TimeFromFirstOpenToFirstClose int64 `protobuf:"varint,52,opt,name=time_from_first_open_to_first_close,json=timeFromFirstOpenToFirstClose,proto3" json:"time_from_first_open_to_first_close,omitempty"`
+	// Duration from first open to first close during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeFromFirstOpenToFirstCloseInOperation int64 `protobuf:"varint,53,opt,name=time_from_first_open_to_first_close_in_operation,json=timeFromFirstOpenToFirstCloseInOperation,proto3" json:"time_from_first_open_to_first_close_in_operation,omitempty"`
+	// Duration from management to close.
+	//
+	// +kubebuilder:example=226139
+	TimeToClose int64 `protobuf:"varint,54,opt,name=time_to_close,json=timeToClose,proto3" json:"time_to_close,omitempty"`
+	// Duration from management to close during operation time.
+	//
+	// +kubebuilder:example=55000
+	TimeToCloseInOperation int64 `protobuf:"varint,55,opt,name=time_to_close_in_operation,json=timeToCloseInOperation,proto3" json:"time_to_close_in_operation,omitempty"`
+	// Duration of the first member handling interval.
+	//
+	// +kubebuilder:example=180000
+	FirstMemberHandlingTime int64 `protobuf:"varint,56,opt,name=first_member_handling_time,json=firstMemberHandlingTime,proto3" json:"first_member_handling_time,omitempty"`
+	// Duration of the first member handling interval during operation time.
+	//
+	// +kubebuilder:example=50000
+	FirstMemberHandlingTimeInOperation int64 `protobuf:"varint,57,opt,name=first_member_handling_time_in_operation,json=firstMemberHandlingTimeInOperation,proto3" json:"first_member_handling_time_in_operation,omitempty"`
+	// Total member handling duration.
+	//
+	// +kubebuilder:example=360000
+	MemberHandlingTime int64 `protobuf:"varint,58,opt,name=member_handling_time,json=memberHandlingTime,proto3" json:"member_handling_time,omitempty"`
+	// Total member handling duration during operation time.
+	//
+	// +kubebuilder:example=100000
+	MemberHandlingTimeInOperation int64 `protobuf:"varint,59,opt,name=member_handling_time_in_operation,json=memberHandlingTimeInOperation,proto3" json:"member_handling_time_in_operation,omitempty"`
+	// Whether workflow handling was triggered.
+	//
+	// +kubebuilder:example=true
+	WorkflowTriggered bool `protobuf:"varint,60,opt,name=workflow_triggered,json=workflowTriggered,proto3" json:"workflow_triggered,omitempty"`
+	// Whether ALF handling was triggered.
+	//
+	// +kubebuilder:example=true
+	AlfTriggered bool `protobuf:"varint,61,opt,name=alf_triggered,json=alfTriggered,proto3" json:"alf_triggered,omitempty"`
+	// Whether the chat was ever opened.
+	//
+	// +kubebuilder:example=true
+	EverOpened bool `protobuf:"varint,62,opt,name=ever_opened,json=everOpened,proto3" json:"ever_opened,omitempty"`
+	// Whether the chat was reopened.
+	//
+	// +kubebuilder:example=true
+	Reopened bool `protobuf:"varint,63,opt,name=reopened,proto3" json:"reopened,omitempty"`
+	// Whether the chat was reassigned.
+	//
+	// +kubebuilder:example=true
+	Reassigned bool `protobuf:"varint,64,opt,name=reassigned,proto3" json:"reassigned,omitempty"`
+	// Whether the chat became managed during operation time.
+	//
+	// +kubebuilder:example=true
+	ManagedInOperationTime bool `protobuf:"varint,65,opt,name=managed_in_operation_time,json=managedInOperationTime,proto3" json:"managed_in_operation_time,omitempty"`
+	// Timestamp when workflow handling first started.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstWorkflowStartedAt *timestamppb.Timestamp `protobuf:"bytes,66,opt,name=first_workflow_started_at,json=firstWorkflowStartedAt,proto3" json:"first_workflow_started_at,omitempty"`
+	// Timestamp when workflow handling first ended.
+	//
+	// +kubebuilder:example="2024-03-29T03:25:30Z"
+	FirstWorkflowEndedAt *timestamppb.Timestamp `protobuf:"bytes,67,opt,name=first_workflow_ended_at,json=firstWorkflowEndedAt,proto3" json:"first_workflow_ended_at,omitempty"`
+	// Timestamp when ALF handling first started.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	FirstAlfStartedAt *timestamppb.Timestamp `protobuf:"bytes,68,opt,name=first_alf_started_at,json=firstAlfStartedAt,proto3" json:"first_alf_started_at,omitempty"`
+	// Timestamp when ALF handling first ended.
+	//
+	// +kubebuilder:example="2024-03-29T03:25:30Z"
+	FirstAlfEndedAt *timestamppb.Timestamp `protobuf:"bytes,69,opt,name=first_alf_ended_at,json=firstAlfEndedAt,proto3" json:"first_alf_ended_at,omitempty"`
+	// Total workflow handling duration.
+	//
+	// +kubebuilder:example=60000
+	WorkflowHandlingTime int64 `protobuf:"varint,70,opt,name=workflow_handling_time,json=workflowHandlingTime,proto3" json:"workflow_handling_time,omitempty"`
+	// Total ALF handling duration.
+	//
+	// +kubebuilder:example=60000
+	AlfHandlingTime int64 `protobuf:"varint,71,opt,name=alf_handling_time,json=alfHandlingTime,proto3" json:"alf_handling_time,omitempty"`
+	// ALF customer experience score.
+	//
+	// +kubebuilder:example=4.5
+	AlfCxScore float32 `protobuf:"fixed32,72,opt,name=alf_cx_score,json=alfCxScore,proto3" json:"alf_cx_score,omitempty"`
+	// Customer experience score.
+	//
+	// +kubebuilder:example=4.2
+	CxScore       float32 `protobuf:"fixed32,73,opt,name=cx_score,json=cxScore,proto3" json:"cx_score,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserChatStat) Reset() {
+	*x = UserChatStat{}
+	mi := &file_coreapi_model_user_chat_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserChatStat) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserChatStat) ProtoMessage() {}
+
+func (x *UserChatStat) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_model_user_chat_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserChatStat.ProtoReflect.Descriptor instead.
+func (*UserChatStat) Descriptor() ([]byte, []int) {
+	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *UserChatStat) GetDirection() UserChatDirection {
+	if x != nil {
+		return x.Direction
+	}
+	return UserChatDirection_USER_CHAT_DIRECTION_UNSPECIFIED
+}
+
+func (x *UserChatStat) GetFirstQueueOutAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstQueueOutAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstActiveAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstActiveAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstOpenedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstOpenedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstQueueInAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstQueueInAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstMissedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstMissedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstClosedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstClosedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetAssigneeIdAtFirstClose() string {
+	if x != nil {
+		return x.AssigneeIdAtFirstClose
+	}
+	return ""
+}
+
+func (x *UserChatStat) GetReopenCount() int32 {
+	if x != nil {
+		return x.ReopenCount
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstAssigneeIdAfterActive() string {
+	if x != nil {
+		return x.FirstAssigneeIdAfterActive
+	}
+	return ""
+}
+
+func (x *UserChatStat) GetFirstAssignedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstAssignedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstAssigneeId() string {
+	if x != nil {
+		return x.FirstAssigneeId
+	}
+	return ""
+}
+
+func (x *UserChatStat) GetReassignmentCount() int32 {
+	if x != nil {
+		return x.ReassignmentCount
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstAskedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstAskedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetCsatCount() int32 {
+	if x != nil {
+		return x.CsatCount
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetManagedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ManagedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetSnoozeCount() int32 {
+	if x != nil {
+		return x.SnoozeCount
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTotalSnoozedTime() int64 {
+	if x != nil {
+		return x.TotalSnoozedTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTotalClosedTime() int64 {
+	if x != nil {
+		return x.TotalClosedTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstAnsweredAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstAnsweredAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetTotalReplyTime() int64 {
+	if x != nil {
+		return x.TotalReplyTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetReplyCount() int32 {
+	if x != nil {
+		return x.ReplyCount
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetReplyCountInOperation() int32 {
+	if x != nil {
+		return x.ReplyCountInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTotalReplyTimeInOperation() int64 {
+	if x != nil {
+		return x.TotalReplyTimeInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstRepliedAtAfterActive() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstRepliedAtAfterActive
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetOperationTotalSnoozedTime() int64 {
+	if x != nil {
+		return x.OperationTotalSnoozedTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetOperationTotalClosedTime() int64 {
+	if x != nil {
+		return x.OperationTotalClosedTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToFirstAssignment() int64 {
+	if x != nil {
+		return x.TimeToFirstAssignment
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToFirstAssignmentInOperation() int64 {
+	if x != nil {
+		return x.TimeToFirstAssignmentInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToFirstAnswer() int64 {
+	if x != nil {
+		return x.TimeToFirstAnswer
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToFirstAnswerInOperation() int64 {
+	if x != nil {
+		return x.TimeToFirstAnswerInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAskToFirstAnswer() int64 {
+	if x != nil {
+		return x.TimeFromFirstAskToFirstAnswer
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAskToFirstAnswerInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstAskToFirstAnswerInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAssignmentToFirstAnswer() int64 {
+	if x != nil {
+		return x.TimeFromFirstAssignmentToFirstAnswer
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAssignmentToFirstAnswerInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstAssignmentToFirstAnswerInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstActiveToFirstAnswer() int64 {
+	if x != nil {
+		return x.TimeFromFirstActiveToFirstAnswer
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstActiveToFirstAnswerInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstActiveToFirstAnswerInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstOpenToFirstAnswer() int64 {
+	if x != nil {
+		return x.TimeFromFirstOpenToFirstAnswer
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstOpenToFirstAnswerInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstOpenToFirstAnswerInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstQueueTime() int64 {
+	if x != nil {
+		return x.FirstQueueTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstQueueTimeInOperation() int64 {
+	if x != nil {
+		return x.FirstQueueTimeInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetAvgReplyTime() int64 {
+	if x != nil {
+		return x.AvgReplyTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetAvgReplyTimeInOperation() int64 {
+	if x != nil {
+		return x.AvgReplyTimeInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToFirstClose() int64 {
+	if x != nil {
+		return x.TimeToFirstClose
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToFirstCloseInOperation() int64 {
+	if x != nil {
+		return x.TimeToFirstCloseInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAskToFirstClose() int64 {
+	if x != nil {
+		return x.TimeFromFirstAskToFirstClose
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAskToFirstCloseInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstAskToFirstCloseInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAssignmentToFirstClose() int64 {
+	if x != nil {
+		return x.TimeFromFirstAssignmentToFirstClose
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstAssignmentToFirstCloseInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstAssignmentToFirstCloseInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstActiveToFirstClose() int64 {
+	if x != nil {
+		return x.TimeFromFirstActiveToFirstClose
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstActiveToFirstCloseInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstActiveToFirstCloseInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstOpenToFirstClose() int64 {
+	if x != nil {
+		return x.TimeFromFirstOpenToFirstClose
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeFromFirstOpenToFirstCloseInOperation() int64 {
+	if x != nil {
+		return x.TimeFromFirstOpenToFirstCloseInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToClose() int64 {
+	if x != nil {
+		return x.TimeToClose
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetTimeToCloseInOperation() int64 {
+	if x != nil {
+		return x.TimeToCloseInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstMemberHandlingTime() int64 {
+	if x != nil {
+		return x.FirstMemberHandlingTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetFirstMemberHandlingTimeInOperation() int64 {
+	if x != nil {
+		return x.FirstMemberHandlingTimeInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetMemberHandlingTime() int64 {
+	if x != nil {
+		return x.MemberHandlingTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetMemberHandlingTimeInOperation() int64 {
+	if x != nil {
+		return x.MemberHandlingTimeInOperation
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetWorkflowTriggered() bool {
+	if x != nil {
+		return x.WorkflowTriggered
+	}
+	return false
+}
+
+func (x *UserChatStat) GetAlfTriggered() bool {
+	if x != nil {
+		return x.AlfTriggered
+	}
+	return false
+}
+
+func (x *UserChatStat) GetEverOpened() bool {
+	if x != nil {
+		return x.EverOpened
+	}
+	return false
+}
+
+func (x *UserChatStat) GetReopened() bool {
+	if x != nil {
+		return x.Reopened
+	}
+	return false
+}
+
+func (x *UserChatStat) GetReassigned() bool {
+	if x != nil {
+		return x.Reassigned
+	}
+	return false
+}
+
+func (x *UserChatStat) GetManagedInOperationTime() bool {
+	if x != nil {
+		return x.ManagedInOperationTime
+	}
+	return false
+}
+
+func (x *UserChatStat) GetFirstWorkflowStartedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstWorkflowStartedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstWorkflowEndedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstWorkflowEndedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstAlfStartedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstAlfStartedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetFirstAlfEndedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.FirstAlfEndedAt
+	}
+	return nil
+}
+
+func (x *UserChatStat) GetWorkflowHandlingTime() int64 {
+	if x != nil {
+		return x.WorkflowHandlingTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetAlfHandlingTime() int64 {
+	if x != nil {
+		return x.AlfHandlingTime
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetAlfCxScore() float32 {
+	if x != nil {
+		return x.AlfCxScore
+	}
+	return 0
+}
+
+func (x *UserChatStat) GetCxScore() float32 {
+	if x != nil {
+		return x.CxScore
+	}
+	return 0
+}
+
 // UserChat represents a conversation between a user and managers.
 type UserChat struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -512,103 +1409,32 @@ type UserChat struct {
 	//
 	// +kubebuilder:example="660650aa809e83b7e028"
 	UserLastMessageId string `protobuf:"bytes,36,opt,name=user_last_message_id,json=userLastMessageId,proto3" json:"user_last_message_id,omitempty"`
-	// ID of the first manager assigned after the chat was opened.
-	// Used for tracking initial response ownership.
-	//
-	// +kubebuilder:example="9187"
-	FirstAssigneeIdAfterOpen string `protobuf:"bytes,37,opt,name=first_assignee_id_after_open,json=firstAssigneeIdAfterOpen,proto3" json:"first_assignee_id_after_open,omitempty"`
-	// Timestamp of the first-ever manager reply in this chat,
-	// across all open/close cycles.
-	//
-	// +kubebuilder:example="2024-03-29T03:28:35Z"
-	FirstRepliedAt *timestamppb.Timestamp `protobuf:"bytes,38,opt,name=first_replied_at,json=firstRepliedAt,proto3" json:"first_replied_at,omitempty"`
-	// Timestamp of the first manager reply after the most recent open.
-	// Reset each time the chat is reopened.
-	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
-	FirstRepliedAtAfterOpen *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=first_replied_at_after_open,json=firstRepliedAtAfterOpen,proto3" json:"first_replied_at_after_open,omitempty"`
-	// Whether the chat was resolved by a single assignee without being
-	// transferred to another manager.
-	//
-	// +kubebuilder:example="true"
-	OneStop bool `protobuf:"varint,40,opt,name=one_stop,json=oneStop,proto3" json:"one_stop,omitempty"`
-	// Duration from chat open to the first manager reply (in milliseconds).
-	//
-	// +kubebuilder:example="226139"
-	WaitingTime int64 `protobuf:"varint,41,opt,name=waiting_time,json=waitingTime,proto3" json:"waiting_time,omitempty"`
-	// Average time between a user's question and the manager's reply
-	// (in milliseconds).
-	//
-	// +kubebuilder:example="45000"
-	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
-	// Sum of all individual reply durations across manager responses
-	// (in milliseconds).
-	//
-	// +kubebuilder:example="90000"
-	TotalReplyTime int64 `protobuf:"varint,43,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
-	// Total number of manager replies in this chat.
-	//
-	// +kubebuilder:example="3"
-	ReplyCount int32 `protobuf:"varint,44,opt,name=reply_count,json=replyCount,proto3" json:"reply_count,omitempty"`
-	// Total duration from the first open to close (in milliseconds).
-	//
-	// +kubebuilder:example="226139"
-	ResolutionTime int64 `protobuf:"varint,45,opt,name=resolution_time,json=resolutionTime,proto3" json:"resolution_time,omitempty"`
-	// Duration from open to the first manager reply, counting only
-	// operating hours (in milliseconds).
-	//
-	// +kubebuilder:example="55000"
-	OperationWaitingTime int64 `protobuf:"varint,46,opt,name=operation_waiting_time,json=operationWaitingTime,proto3" json:"operation_waiting_time,omitempty"`
-	// Average reply time counting only operating hours (in milliseconds).
-	//
-	// +kubebuilder:example="40000"
-	OperationAvgReplyTime int64 `protobuf:"varint,47,opt,name=operation_avg_reply_time,json=operationAvgReplyTime,proto3" json:"operation_avg_reply_time,omitempty"`
-	// Sum of all reply durations counting only operating hours
-	// (in milliseconds).
-	//
-	// +kubebuilder:example="80000"
-	OperationTotalReplyTime int64 `protobuf:"varint,48,opt,name=operation_total_reply_time,json=operationTotalReplyTime,proto3" json:"operation_total_reply_time,omitempty"`
-	// Total number of manager replies during operating hours.
-	//
-	// +kubebuilder:example="2"
-	OperationReplyCount int32 `protobuf:"varint,49,opt,name=operation_reply_count,json=operationReplyCount,proto3" json:"operation_reply_count,omitempty"`
-	// Total resolution time counting only operating hours (in milliseconds).
-	//
-	// +kubebuilder:example="226139"
-	OperationResolutionTime int64 `protobuf:"varint,50,opt,name=operation_resolution_time,json=operationResolutionTime,proto3" json:"operation_resolution_time,omitempty"`
-	// Timestamp when the user last sent a message that is awaiting
-	// a manager's reply. Cleared when the manager responds.
-	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
-	AskedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=asked_at,json=askedAt,proto3" json:"asked_at,omitempty"`
-	// Timestamp when the user sent the first message in this chat.
-	//
-	// +kubebuilder:example="2024-03-29T03:24:30Z"
-	FirstAskedAt *timestamppb.Timestamp `protobuf:"bytes,52,opt,name=first_asked_at,json=firstAskedAt,proto3" json:"first_asked_at,omitempty"`
+	// Statistics measured for this user chat.
+	Stat *UserChatStat `protobuf:"bytes,37,opt,name=stat,proto3" json:"stat,omitempty"`
 	// Timestamp when the chat was closed.
 	//
 	// +kubebuilder:example="2024-03-29T03:28:34Z"
-	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,53,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
+	ClosedAt *timestamppb.Timestamp `protobuf:"bytes,38,opt,name=closed_at,json=closedAt,proto3" json:"closed_at,omitempty"`
 	// Timestamp when the chat was snoozed.
 	//
 	// +kubebuilder:example="2024-03-29T03:30:00Z"
-	SnoozedAt *timestamppb.Timestamp `protobuf:"bytes,54,opt,name=snoozed_at,json=snoozedAt,proto3" json:"snoozed_at,omitempty"`
+	SnoozedAt *timestamppb.Timestamp `protobuf:"bytes,39,opt,name=snoozed_at,json=snoozedAt,proto3" json:"snoozed_at,omitempty"`
 	// Timestamp when the chat is scheduled to automatically expire and close.
 	//
 	// +kubebuilder:example="2024-04-12T00:00:00Z"
-	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,55,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,40,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	// Specific medium instance within the medium_type.
 	// Usually set for app integrations; empty when the medium has no separate instance.
 	//
 	// +kubebuilder:example="67fceb5a3d6de141ea5a"
-	MediumId      string `protobuf:"bytes,57,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
+	MediumId      string `protobuf:"bytes,41,opt,name=medium_id,json=mediumId,proto3" json:"medium_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UserChat) Reset() {
 	*x = UserChat{}
-	mi := &file_coreapi_model_user_chat_proto_msgTypes[0]
+	mi := &file_coreapi_model_user_chat_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -620,7 +1446,7 @@ func (x *UserChat) String() string {
 func (*UserChat) ProtoMessage() {}
 
 func (x *UserChat) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_model_user_chat_proto_msgTypes[0]
+	mi := &file_coreapi_model_user_chat_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -633,7 +1459,7 @@ func (x *UserChat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserChat.ProtoReflect.Descriptor instead.
 func (*UserChat) Descriptor() ([]byte, []int) {
-	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{0}
+	return file_coreapi_model_user_chat_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *UserChat) GetId() string {
@@ -888,114 +1714,9 @@ func (x *UserChat) GetUserLastMessageId() string {
 	return ""
 }
 
-func (x *UserChat) GetFirstAssigneeIdAfterOpen() string {
+func (x *UserChat) GetStat() *UserChatStat {
 	if x != nil {
-		return x.FirstAssigneeIdAfterOpen
-	}
-	return ""
-}
-
-func (x *UserChat) GetFirstRepliedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.FirstRepliedAt
-	}
-	return nil
-}
-
-func (x *UserChat) GetFirstRepliedAtAfterOpen() *timestamppb.Timestamp {
-	if x != nil {
-		return x.FirstRepliedAtAfterOpen
-	}
-	return nil
-}
-
-func (x *UserChat) GetOneStop() bool {
-	if x != nil {
-		return x.OneStop
-	}
-	return false
-}
-
-func (x *UserChat) GetWaitingTime() int64 {
-	if x != nil {
-		return x.WaitingTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetAvgReplyTime() int64 {
-	if x != nil {
-		return x.AvgReplyTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetTotalReplyTime() int64 {
-	if x != nil {
-		return x.TotalReplyTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetReplyCount() int32 {
-	if x != nil {
-		return x.ReplyCount
-	}
-	return 0
-}
-
-func (x *UserChat) GetResolutionTime() int64 {
-	if x != nil {
-		return x.ResolutionTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetOperationWaitingTime() int64 {
-	if x != nil {
-		return x.OperationWaitingTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetOperationAvgReplyTime() int64 {
-	if x != nil {
-		return x.OperationAvgReplyTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetOperationTotalReplyTime() int64 {
-	if x != nil {
-		return x.OperationTotalReplyTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetOperationReplyCount() int32 {
-	if x != nil {
-		return x.OperationReplyCount
-	}
-	return 0
-}
-
-func (x *UserChat) GetOperationResolutionTime() int64 {
-	if x != nil {
-		return x.OperationResolutionTime
-	}
-	return 0
-}
-
-func (x *UserChat) GetAskedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.AskedAt
-	}
-	return nil
-}
-
-func (x *UserChat) GetFirstAskedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.FirstAskedAt
+		return x.Stat
 	}
 	return nil
 }
@@ -1032,7 +1753,89 @@ var File_coreapi_model_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb2\x16\n" +
+	"\x1dcoreapi/model/user_chat.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x84%\n" +
+	"\fUserChatStat\x12>\n" +
+	"\tdirection\x18\x01 \x01(\x0e2 .coreapi.model.UserChatDirectionR\tdirection\x12G\n" +
+	"\x12first_queue_out_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x0ffirstQueueOutAt\x12B\n" +
+	"\x0ffirst_active_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\rfirstActiveAt\x12B\n" +
+	"\x0ffirst_opened_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rfirstOpenedAt\x12E\n" +
+	"\x11first_queue_in_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x0efirstQueueInAt\x12B\n" +
+	"\x0ffirst_missed_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\rfirstMissedAt\x12B\n" +
+	"\x0ffirst_closed_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\rfirstClosedAt\x12:\n" +
+	"\x1aassignee_id_at_first_close\x18\b \x01(\tR\x16assigneeIdAtFirstClose\x12!\n" +
+	"\freopen_count\x18\t \x01(\x05R\vreopenCount\x12B\n" +
+	"\x1efirst_assignee_id_after_active\x18\n" +
+	" \x01(\tR\x1afirstAssigneeIdAfterActive\x12F\n" +
+	"\x11first_assigned_at\x18\v \x01(\v2\x1a.google.protobuf.TimestampR\x0ffirstAssignedAt\x12*\n" +
+	"\x11first_assignee_id\x18\f \x01(\tR\x0ffirstAssigneeId\x12-\n" +
+	"\x12reassignment_count\x18\r \x01(\x05R\x11reassignmentCount\x12@\n" +
+	"\x0efirst_asked_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\ffirstAskedAt\x12\x1d\n" +
+	"\n" +
+	"csat_count\x18\x0f \x01(\x05R\tcsatCount\x129\n" +
+	"\n" +
+	"managed_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\tmanagedAt\x12!\n" +
+	"\fsnooze_count\x18\x11 \x01(\x05R\vsnoozeCount\x12,\n" +
+	"\x12total_snoozed_time\x18\x12 \x01(\x03R\x10totalSnoozedTime\x12*\n" +
+	"\x11total_closed_time\x18\x13 \x01(\x03R\x0ftotalClosedTime\x12F\n" +
+	"\x11first_answered_at\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampR\x0ffirstAnsweredAt\x12(\n" +
+	"\x10total_reply_time\x18\x15 \x01(\x03R\x0etotalReplyTime\x12\x1f\n" +
+	"\vreply_count\x18\x16 \x01(\x05R\n" +
+	"replyCount\x127\n" +
+	"\x18reply_count_in_operation\x18\x17 \x01(\x05R\x15replyCountInOperation\x12@\n" +
+	"\x1dtotal_reply_time_in_operation\x18\x18 \x01(\x03R\x19totalReplyTimeInOperation\x12\\\n" +
+	"\x1dfirst_replied_at_after_active\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampR\x19firstRepliedAtAfterActive\x12?\n" +
+	"\x1coperation_total_snoozed_time\x18\x1a \x01(\x03R\x19operationTotalSnoozedTime\x12=\n" +
+	"\x1boperation_total_closed_time\x18\x1b \x01(\x03R\x18operationTotalClosedTime\x127\n" +
+	"\x18time_to_first_assignment\x18\x1c \x01(\x03R\x15timeToFirstAssignment\x12O\n" +
+	"%time_to_first_assignment_in_operation\x18\x1d \x01(\x03R timeToFirstAssignmentInOperation\x12/\n" +
+	"\x14time_to_first_answer\x18\x1e \x01(\x03R\x11timeToFirstAnswer\x12G\n" +
+	"!time_to_first_answer_in_operation\x18\x1f \x01(\x03R\x1ctimeToFirstAnswerInOperation\x12J\n" +
+	"#time_from_first_ask_to_first_answer\x18  \x01(\x03R\x1dtimeFromFirstAskToFirstAnswer\x12b\n" +
+	"0time_from_first_ask_to_first_answer_in_operation\x18! \x01(\x03R(timeFromFirstAskToFirstAnswerInOperation\x12X\n" +
+	"*time_from_first_assignment_to_first_answer\x18\" \x01(\x03R$timeFromFirstAssignmentToFirstAnswer\x12p\n" +
+	"7time_from_first_assignment_to_first_answer_in_operation\x18# \x01(\x03R/timeFromFirstAssignmentToFirstAnswerInOperation\x12P\n" +
+	"&time_from_first_active_to_first_answer\x18$ \x01(\x03R timeFromFirstActiveToFirstAnswer\x12h\n" +
+	"3time_from_first_active_to_first_answer_in_operation\x18% \x01(\x03R+timeFromFirstActiveToFirstAnswerInOperation\x12L\n" +
+	"$time_from_first_open_to_first_answer\x18& \x01(\x03R\x1etimeFromFirstOpenToFirstAnswer\x12d\n" +
+	"1time_from_first_open_to_first_answer_in_operation\x18' \x01(\x03R)timeFromFirstOpenToFirstAnswerInOperation\x12(\n" +
+	"\x10first_queue_time\x18( \x01(\x03R\x0efirstQueueTime\x12@\n" +
+	"\x1dfirst_queue_time_in_operation\x18) \x01(\x03R\x19firstQueueTimeInOperation\x12$\n" +
+	"\x0eavg_reply_time\x18* \x01(\x03R\favgReplyTime\x12<\n" +
+	"\x1bavg_reply_time_in_operation\x18+ \x01(\x03R\x17avgReplyTimeInOperation\x12-\n" +
+	"\x13time_to_first_close\x18, \x01(\x03R\x10timeToFirstClose\x12E\n" +
+	" time_to_first_close_in_operation\x18- \x01(\x03R\x1btimeToFirstCloseInOperation\x12H\n" +
+	"\"time_from_first_ask_to_first_close\x18. \x01(\x03R\x1ctimeFromFirstAskToFirstClose\x12`\n" +
+	"/time_from_first_ask_to_first_close_in_operation\x18/ \x01(\x03R'timeFromFirstAskToFirstCloseInOperation\x12V\n" +
+	")time_from_first_assignment_to_first_close\x180 \x01(\x03R#timeFromFirstAssignmentToFirstClose\x12n\n" +
+	"6time_from_first_assignment_to_first_close_in_operation\x181 \x01(\x03R.timeFromFirstAssignmentToFirstCloseInOperation\x12N\n" +
+	"%time_from_first_active_to_first_close\x182 \x01(\x03R\x1ftimeFromFirstActiveToFirstClose\x12f\n" +
+	"2time_from_first_active_to_first_close_in_operation\x183 \x01(\x03R*timeFromFirstActiveToFirstCloseInOperation\x12J\n" +
+	"#time_from_first_open_to_first_close\x184 \x01(\x03R\x1dtimeFromFirstOpenToFirstClose\x12b\n" +
+	"0time_from_first_open_to_first_close_in_operation\x185 \x01(\x03R(timeFromFirstOpenToFirstCloseInOperation\x12\"\n" +
+	"\rtime_to_close\x186 \x01(\x03R\vtimeToClose\x12:\n" +
+	"\x1atime_to_close_in_operation\x187 \x01(\x03R\x16timeToCloseInOperation\x12;\n" +
+	"\x1afirst_member_handling_time\x188 \x01(\x03R\x17firstMemberHandlingTime\x12S\n" +
+	"'first_member_handling_time_in_operation\x189 \x01(\x03R\"firstMemberHandlingTimeInOperation\x120\n" +
+	"\x14member_handling_time\x18: \x01(\x03R\x12memberHandlingTime\x12H\n" +
+	"!member_handling_time_in_operation\x18; \x01(\x03R\x1dmemberHandlingTimeInOperation\x12-\n" +
+	"\x12workflow_triggered\x18< \x01(\bR\x11workflowTriggered\x12#\n" +
+	"\ralf_triggered\x18= \x01(\bR\falfTriggered\x12\x1f\n" +
+	"\vever_opened\x18> \x01(\bR\n" +
+	"everOpened\x12\x1a\n" +
+	"\breopened\x18? \x01(\bR\breopened\x12\x1e\n" +
+	"\n" +
+	"reassigned\x18@ \x01(\bR\n" +
+	"reassigned\x129\n" +
+	"\x19managed_in_operation_time\x18A \x01(\bR\x16managedInOperationTime\x12U\n" +
+	"\x19first_workflow_started_at\x18B \x01(\v2\x1a.google.protobuf.TimestampR\x16firstWorkflowStartedAt\x12Q\n" +
+	"\x17first_workflow_ended_at\x18C \x01(\v2\x1a.google.protobuf.TimestampR\x14firstWorkflowEndedAt\x12K\n" +
+	"\x14first_alf_started_at\x18D \x01(\v2\x1a.google.protobuf.TimestampR\x11firstAlfStartedAt\x12G\n" +
+	"\x12first_alf_ended_at\x18E \x01(\v2\x1a.google.protobuf.TimestampR\x0ffirstAlfEndedAt\x124\n" +
+	"\x16workflow_handling_time\x18F \x01(\x03R\x14workflowHandlingTime\x12*\n" +
+	"\x11alf_handling_time\x18G \x01(\x03R\x0falfHandlingTime\x12 \n" +
+	"\falf_cx_score\x18H \x01(\x02R\n" +
+	"alfCxScore\x12\x19\n" +
+	"\bcx_score\x18I \x01(\x02R\acxScore\"\x96\x10\n" +
 	"\bUserChat\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
 	"\n" +
@@ -1079,30 +1882,14 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\x10front_updated_at\x18! \x01(\v2\x1a.google.protobuf.TimestampR\x0efrontUpdatedAt\x12&\n" +
 	"\x0fdesk_message_id\x18\" \x01(\tR\rdeskMessageId\x12B\n" +
 	"\x0fdesk_updated_at\x18# \x01(\v2\x1a.google.protobuf.TimestampR\rdeskUpdatedAt\x12/\n" +
-	"\x14user_last_message_id\x18$ \x01(\tR\x11userLastMessageId\x12>\n" +
-	"\x1cfirst_assignee_id_after_open\x18% \x01(\tR\x18firstAssigneeIdAfterOpen\x12D\n" +
-	"\x10first_replied_at\x18& \x01(\v2\x1a.google.protobuf.TimestampR\x0efirstRepliedAt\x12X\n" +
-	"\x1bfirst_replied_at_after_open\x18' \x01(\v2\x1a.google.protobuf.TimestampR\x17firstRepliedAtAfterOpen\x12\x19\n" +
-	"\bone_stop\x18( \x01(\bR\aoneStop\x12!\n" +
-	"\fwaiting_time\x18) \x01(\x03R\vwaitingTime\x12$\n" +
-	"\x0eavg_reply_time\x18* \x01(\x03R\favgReplyTime\x12(\n" +
-	"\x10total_reply_time\x18+ \x01(\x03R\x0etotalReplyTime\x12\x1f\n" +
-	"\vreply_count\x18, \x01(\x05R\n" +
-	"replyCount\x12'\n" +
-	"\x0fresolution_time\x18- \x01(\x03R\x0eresolutionTime\x124\n" +
-	"\x16operation_waiting_time\x18. \x01(\x03R\x14operationWaitingTime\x127\n" +
-	"\x18operation_avg_reply_time\x18/ \x01(\x03R\x15operationAvgReplyTime\x12;\n" +
-	"\x1aoperation_total_reply_time\x180 \x01(\x03R\x17operationTotalReplyTime\x122\n" +
-	"\x15operation_reply_count\x181 \x01(\x05R\x13operationReplyCount\x12:\n" +
-	"\x19operation_resolution_time\x182 \x01(\x03R\x17operationResolutionTime\x125\n" +
-	"\basked_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\aaskedAt\x12@\n" +
-	"\x0efirst_asked_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\ffirstAskedAt\x127\n" +
-	"\tclosed_at\x185 \x01(\v2\x1a.google.protobuf.TimestampR\bclosedAt\x129\n" +
+	"\x14user_last_message_id\x18$ \x01(\tR\x11userLastMessageId\x12/\n" +
+	"\x04stat\x18% \x01(\v2\x1b.coreapi.model.UserChatStatR\x04stat\x127\n" +
+	"\tclosed_at\x18& \x01(\v2\x1a.google.protobuf.TimestampR\bclosedAt\x129\n" +
 	"\n" +
-	"snoozed_at\x186 \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
+	"snoozed_at\x18' \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
 	"\n" +
-	"expires_at\x187 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x1b\n" +
-	"\tmedium_id\x189 \x01(\tR\bmediumIdJ\x04\b8\x109R\aversion*\xbe\x01\n" +
+	"expires_at\x18( \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x1b\n" +
+	"\tmedium_id\x18) \x01(\tR\bmediumIdJ\x04\b8\x109R\aversion*\xbe\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_CLOSED\x10\x01\x12\x1a\n" +
@@ -1140,7 +1927,12 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"\x13UserChatSubtextType\x12&\n" +
 	"\"USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED\x10\x00\x12&\n" +
 	"\"USER_CHAT_SUBTEXT_TYPE_DESCRIPTION\x10\x01\x12#\n" +
-	"\x1fUSER_CHAT_SUBTEXT_TYPE_INCOMING\x10\x02Bb\n" +
+	"\x1fUSER_CHAT_SUBTEXT_TYPE_INCOMING\x10\x02*\x9c\x01\n" +
+	"\x11UserChatDirection\x12#\n" +
+	"\x1fUSER_CHAT_DIRECTION_UNSPECIFIED\x10\x00\x12\x1f\n" +
+	"\x1bUSER_CHAT_DIRECTION_INBOUND\x10\x01\x12 \n" +
+	"\x1cUSER_CHAT_DIRECTION_OUTBOUND\x10\x02\x12\x1f\n" +
+	"\x1bUSER_CHAT_DIRECTION_SHARING\x10\x03Bb\n" +
 	"&io.channel.api.proto.pub.coreapi.modelP\x01Z6github.com/channel-io/ch-proto-public/coreapi/go/modelb\x06proto3"
 
 var (
@@ -1155,49 +1947,64 @@ func file_coreapi_model_user_chat_proto_rawDescGZIP() []byte {
 	return file_coreapi_model_user_chat_proto_rawDescData
 }
 
-var file_coreapi_model_user_chat_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_coreapi_model_user_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_coreapi_model_user_chat_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
+var file_coreapi_model_user_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_coreapi_model_user_chat_proto_goTypes = []any{
 	(UserChatState)(0),            // 0: coreapi.model.UserChatState
 	(MissedReason)(0),             // 1: coreapi.model.MissedReason
 	(AutoAssignPriority)(0),       // 2: coreapi.model.AutoAssignPriority
 	(UserChatGoalState)(0),        // 3: coreapi.model.UserChatGoalState
 	(UserChatSubtextType)(0),      // 4: coreapi.model.UserChatSubtextType
-	(*UserChat)(nil),              // 5: coreapi.model.UserChat
-	(*structpb.Struct)(nil),       // 6: google.protobuf.Struct
-	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
+	(UserChatDirection)(0),        // 5: coreapi.model.UserChatDirection
+	(*UserChatStat)(nil),          // 6: coreapi.model.UserChatStat
+	(*UserChat)(nil),              // 7: coreapi.model.UserChat
+	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
+	(*structpb.Struct)(nil),       // 9: google.protobuf.Struct
 }
 var file_coreapi_model_user_chat_proto_depIdxs = []int32{
-	0,  // 0: coreapi.model.UserChat.state:type_name -> coreapi.model.UserChatState
-	1,  // 1: coreapi.model.UserChat.missed_reason:type_name -> coreapi.model.MissedReason
-	2,  // 2: coreapi.model.UserChat.priority:type_name -> coreapi.model.AutoAssignPriority
-	4,  // 3: coreapi.model.UserChat.subtext_type:type_name -> coreapi.model.UserChatSubtextType
-	6,  // 4: coreapi.model.UserChat.handling:type_name -> google.protobuf.Struct
-	6,  // 5: coreapi.model.UserChat.source:type_name -> google.protobuf.Struct
-	6,  // 6: coreapi.model.UserChat.profile:type_name -> google.protobuf.Struct
-	6,  // 7: coreapi.model.UserChat.goal_event_query:type_name -> google.protobuf.Struct
-	7,  // 8: coreapi.model.UserChat.goal_checked_at:type_name -> google.protobuf.Timestamp
-	3,  // 9: coreapi.model.UserChat.goal_state:type_name -> coreapi.model.UserChatGoalState
-	7,  // 10: coreapi.model.UserChat.first_opened_at:type_name -> google.protobuf.Timestamp
-	7,  // 11: coreapi.model.UserChat.opened_at:type_name -> google.protobuf.Timestamp
-	7,  // 12: coreapi.model.UserChat.first_queued_at:type_name -> google.protobuf.Timestamp
-	7,  // 13: coreapi.model.UserChat.queued_at:type_name -> google.protobuf.Timestamp
-	7,  // 14: coreapi.model.UserChat.created_at:type_name -> google.protobuf.Timestamp
-	7,  // 15: coreapi.model.UserChat.updated_at:type_name -> google.protobuf.Timestamp
-	7,  // 16: coreapi.model.UserChat.front_updated_at:type_name -> google.protobuf.Timestamp
-	7,  // 17: coreapi.model.UserChat.desk_updated_at:type_name -> google.protobuf.Timestamp
-	7,  // 18: coreapi.model.UserChat.first_replied_at:type_name -> google.protobuf.Timestamp
-	7,  // 19: coreapi.model.UserChat.first_replied_at_after_open:type_name -> google.protobuf.Timestamp
-	7,  // 20: coreapi.model.UserChat.asked_at:type_name -> google.protobuf.Timestamp
-	7,  // 21: coreapi.model.UserChat.first_asked_at:type_name -> google.protobuf.Timestamp
-	7,  // 22: coreapi.model.UserChat.closed_at:type_name -> google.protobuf.Timestamp
-	7,  // 23: coreapi.model.UserChat.snoozed_at:type_name -> google.protobuf.Timestamp
-	7,  // 24: coreapi.model.UserChat.expires_at:type_name -> google.protobuf.Timestamp
-	25, // [25:25] is the sub-list for method output_type
-	25, // [25:25] is the sub-list for method input_type
-	25, // [25:25] is the sub-list for extension type_name
-	25, // [25:25] is the sub-list for extension extendee
-	0,  // [0:25] is the sub-list for field type_name
+	5,  // 0: coreapi.model.UserChatStat.direction:type_name -> coreapi.model.UserChatDirection
+	8,  // 1: coreapi.model.UserChatStat.first_queue_out_at:type_name -> google.protobuf.Timestamp
+	8,  // 2: coreapi.model.UserChatStat.first_active_at:type_name -> google.protobuf.Timestamp
+	8,  // 3: coreapi.model.UserChatStat.first_opened_at:type_name -> google.protobuf.Timestamp
+	8,  // 4: coreapi.model.UserChatStat.first_queue_in_at:type_name -> google.protobuf.Timestamp
+	8,  // 5: coreapi.model.UserChatStat.first_missed_at:type_name -> google.protobuf.Timestamp
+	8,  // 6: coreapi.model.UserChatStat.first_closed_at:type_name -> google.protobuf.Timestamp
+	8,  // 7: coreapi.model.UserChatStat.first_assigned_at:type_name -> google.protobuf.Timestamp
+	8,  // 8: coreapi.model.UserChatStat.first_asked_at:type_name -> google.protobuf.Timestamp
+	8,  // 9: coreapi.model.UserChatStat.managed_at:type_name -> google.protobuf.Timestamp
+	8,  // 10: coreapi.model.UserChatStat.first_answered_at:type_name -> google.protobuf.Timestamp
+	8,  // 11: coreapi.model.UserChatStat.first_replied_at_after_active:type_name -> google.protobuf.Timestamp
+	8,  // 12: coreapi.model.UserChatStat.first_workflow_started_at:type_name -> google.protobuf.Timestamp
+	8,  // 13: coreapi.model.UserChatStat.first_workflow_ended_at:type_name -> google.protobuf.Timestamp
+	8,  // 14: coreapi.model.UserChatStat.first_alf_started_at:type_name -> google.protobuf.Timestamp
+	8,  // 15: coreapi.model.UserChatStat.first_alf_ended_at:type_name -> google.protobuf.Timestamp
+	0,  // 16: coreapi.model.UserChat.state:type_name -> coreapi.model.UserChatState
+	1,  // 17: coreapi.model.UserChat.missed_reason:type_name -> coreapi.model.MissedReason
+	2,  // 18: coreapi.model.UserChat.priority:type_name -> coreapi.model.AutoAssignPriority
+	4,  // 19: coreapi.model.UserChat.subtext_type:type_name -> coreapi.model.UserChatSubtextType
+	9,  // 20: coreapi.model.UserChat.handling:type_name -> google.protobuf.Struct
+	9,  // 21: coreapi.model.UserChat.source:type_name -> google.protobuf.Struct
+	9,  // 22: coreapi.model.UserChat.profile:type_name -> google.protobuf.Struct
+	9,  // 23: coreapi.model.UserChat.goal_event_query:type_name -> google.protobuf.Struct
+	8,  // 24: coreapi.model.UserChat.goal_checked_at:type_name -> google.protobuf.Timestamp
+	3,  // 25: coreapi.model.UserChat.goal_state:type_name -> coreapi.model.UserChatGoalState
+	8,  // 26: coreapi.model.UserChat.first_opened_at:type_name -> google.protobuf.Timestamp
+	8,  // 27: coreapi.model.UserChat.opened_at:type_name -> google.protobuf.Timestamp
+	8,  // 28: coreapi.model.UserChat.first_queued_at:type_name -> google.protobuf.Timestamp
+	8,  // 29: coreapi.model.UserChat.queued_at:type_name -> google.protobuf.Timestamp
+	8,  // 30: coreapi.model.UserChat.created_at:type_name -> google.protobuf.Timestamp
+	8,  // 31: coreapi.model.UserChat.updated_at:type_name -> google.protobuf.Timestamp
+	8,  // 32: coreapi.model.UserChat.front_updated_at:type_name -> google.protobuf.Timestamp
+	8,  // 33: coreapi.model.UserChat.desk_updated_at:type_name -> google.protobuf.Timestamp
+	6,  // 34: coreapi.model.UserChat.stat:type_name -> coreapi.model.UserChatStat
+	8,  // 35: coreapi.model.UserChat.closed_at:type_name -> google.protobuf.Timestamp
+	8,  // 36: coreapi.model.UserChat.snoozed_at:type_name -> google.protobuf.Timestamp
+	8,  // 37: coreapi.model.UserChat.expires_at:type_name -> google.protobuf.Timestamp
+	38, // [38:38] is the sub-list for method output_type
+	38, // [38:38] is the sub-list for method input_type
+	38, // [38:38] is the sub-list for extension type_name
+	38, // [38:38] is the sub-list for extension extendee
+	0,  // [0:38] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_user_chat_proto_init() }
@@ -1210,8 +2017,8 @@ func file_coreapi_model_user_chat_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_model_user_chat_proto_rawDesc), len(file_coreapi_model_user_chat_proto_rawDesc)),
-			NumEnums:      5,
-			NumMessages:   1,
+			NumEnums:      6,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
