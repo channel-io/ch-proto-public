@@ -110,7 +110,7 @@ enum UserChatDirection {
 //
 // These fields align with user-chat report metric labels.
 // For detailed and current metric definitions, see:
-// https://docs.channel.io/help/ko/articles/%EB%A6%AC%ED%8F%AC%ED%8A%B8-%EC%A7%80%ED%91%9C--%ED%95%84%ED%84%B0-e99e1425
+// https://docs.channel.io/help/en/articles/Report-Metrics--Filters-e99e1425
 //
 // Duration fields are in milliseconds.
 message UserChatStat {
