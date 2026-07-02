@@ -28,7 +28,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * First queue exit timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
@@ -38,7 +38,7 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstQueueOutAt();
   /**
    * <pre>
-   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * First queue exit timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
@@ -48,7 +48,7 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstQueueOutAt();
   /**
    * <pre>
-   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * First queue exit timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
@@ -118,7 +118,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * First queue entry timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
@@ -128,7 +128,7 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstQueueInAt();
   /**
    * <pre>
-   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * First queue entry timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
@@ -138,7 +138,7 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstQueueInAt();
   /**
    * <pre>
-   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * First queue entry timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
@@ -178,7 +178,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * First close timestamp for closed-chat count and close-duration metrics.
    * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
@@ -188,7 +188,7 @@ public interface UserChatStatOrBuilder extends
   boolean hasFirstClosedAt();
   /**
    * <pre>
-   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * First close timestamp for closed-chat count and close-duration metrics.
    * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
@@ -198,7 +198,7 @@ public interface UserChatStatOrBuilder extends
   com.google.protobuf.Timestamp getFirstClosedAt();
   /**
    * <pre>
-   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * First close timestamp for closed-chat count and close-duration metrics.
    * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
@@ -315,7 +315,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Number of reassignment events used by the "담당자 이관율" metric.
+   * Number of reassignment events used by transfer-rate metrics.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -460,7 +460,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Total reply time used by the "평균 응답 시간" metric.
+   * Total reply time used by average reply time metrics.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -556,7 +556,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "담당자 배정까지의 시간" metric.
+   * Time to first assignment metric.
    * +kubebuilder:example=690
    * </pre>
    *
@@ -567,7 +567,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "담당자 배정까지의 시간".
+   * Operation-time version of time to first assignment.
    * +kubebuilder:example=690
    * </pre>
    *
@@ -578,7 +578,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담 인입부터 첫 응답까지의 시간" metric.
+   * Time from chat intake to first answer metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -589,7 +589,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+   * Operation-time version of time from chat intake to first answer.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -600,7 +600,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "첫 문의 후 첫 응답까지의 시간" metric.
+   * Time from first ask to first answer metric.
    * +kubebuilder:example=744
    * </pre>
    *
@@ -611,7 +611,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+   * Operation-time version of time from first ask to first answer.
    * +kubebuilder:example=744
    * </pre>
    *
@@ -622,7 +622,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "담당자 배정 후 첫 응답까지의 시간" metric.
+   * Time from first assignment to first answer metric.
    * +kubebuilder:example=0
    * </pre>
    *
@@ -633,7 +633,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+   * Operation-time version of time from first assignment to first answer.
    * +kubebuilder:example=0
    * </pre>
    *
@@ -644,7 +644,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담이 열린 후 첫 응답까지의 시간" metric.
+   * Time from first active state to first answer metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -655,7 +655,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+   * Operation-time version of time from first active state to first answer.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -666,7 +666,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담 요청 후 첫 응답까지의 시간" metric.
+   * Time from first open to first answer metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -677,7 +677,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+   * Operation-time version of time from first open to first answer.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -688,7 +688,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담 대기 시간" metric.
+   * Queue wait time metric.
    * +kubebuilder:example=7931
    * </pre>
    *
@@ -699,7 +699,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담 대기 시간".
+   * Operation-time version of queue wait time.
    * +kubebuilder:example=7931
    * </pre>
    *
@@ -710,7 +710,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "평균 응답 시간" metric.
+   * Average reply time metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -721,7 +721,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "평균 응답 시간".
+   * Operation-time version of average reply time.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -732,7 +732,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담 인입부터 종료까지의 시간" metric.
+   * Time from chat intake to first close metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -743,7 +743,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담 인입부터 종료까지의 시간".
+   * Operation-time version of time from chat intake to first close.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -842,7 +842,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담 인입부터 최종 종료까지의 시간" metric.
+   * Time from chat intake to final close metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -853,7 +853,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+   * Operation-time version of time from chat intake to final close.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -864,7 +864,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담원 응대 시간" metric.
+   * First member handling time metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -875,7 +875,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담원 응대 시간".
+   * Operation-time version of first member handling time.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -886,7 +886,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "상담원 최종 응대 시간" metric.
+   * Member handling time metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -897,7 +897,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * Operation-time version of "상담원 최종 응대 시간".
+   * Operation-time version of member handling time.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1105,7 +1105,7 @@ public interface UserChatStatOrBuilder extends
 
   /**
    * <pre>
-   * "ALF 응대 시간" metric.
+   * ALF handling time metric.
    * +kubebuilder:example=45391
    * </pre>
    *

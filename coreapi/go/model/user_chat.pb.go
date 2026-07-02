@@ -425,7 +425,7 @@ type UserChatStat struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Conversation direction used as a report dimension.
 	Direction UserChatDirection `protobuf:"varint,1,opt,name=direction,proto3,enum=coreapi.model.UserChatDirection" json:"direction,omitempty"`
-	// First queue exit timestamp for the "상담 대기 시간" metric.
+	// First queue exit timestamp for the queue wait time report metric.
 	//
 	// +kubebuilder:example="2026-06-15T04:40:17.435Z"
 	FirstQueueOutAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=first_queue_out_at,json=firstQueueOutAt,proto3" json:"first_queue_out_at,omitempty"`
@@ -437,7 +437,7 @@ type UserChatStat struct {
 	//
 	// +kubebuilder:example="2026-06-24T05:43:45.856Z"
 	FirstOpenedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=first_opened_at,json=firstOpenedAt,proto3" json:"first_opened_at,omitempty"`
-	// First queue entry timestamp for the "상담 대기 시간" metric.
+	// First queue entry timestamp for the queue wait time report metric.
 	//
 	// +kubebuilder:example="2026-06-15T04:40:09.504Z"
 	FirstQueueInAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=first_queue_in_at,json=firstQueueInAt,proto3" json:"first_queue_in_at,omitempty"`
@@ -445,7 +445,7 @@ type UserChatStat struct {
 	//
 	// +kubebuilder:example="2026-03-02T06:53:24.543Z"
 	FirstMissedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=first_missed_at,json=firstMissedAt,proto3" json:"first_missed_at,omitempty"`
-	// First close timestamp for the "종료된 상담 수" and close-duration metrics.
+	// First close timestamp for closed-chat count and close-duration metrics.
 	//
 	// +kubebuilder:example="2026-06-24T05:43:47.670Z"
 	FirstClosedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=first_closed_at,json=firstClosedAt,proto3" json:"first_closed_at,omitempty"`
@@ -469,7 +469,7 @@ type UserChatStat struct {
 	//
 	// +kubebuilder:example="23919"
 	FirstAssigneeId string `protobuf:"bytes,12,opt,name=first_assignee_id,json=firstAssigneeId,proto3" json:"first_assignee_id,omitempty"`
-	// Number of reassignment events used by the "담당자 이관율" metric.
+	// Number of reassignment events used by transfer-rate metrics.
 	//
 	// +kubebuilder:example=1
 	ReassignmentCount int32 `protobuf:"varint,13,opt,name=reassignment_count,json=reassignmentCount,proto3" json:"reassignment_count,omitempty"`
@@ -501,7 +501,7 @@ type UserChatStat struct {
 	//
 	// +kubebuilder:example="2026-06-24T05:43:46.524Z"
 	FirstAnsweredAt *timestamppb.Timestamp `protobuf:"bytes,20,opt,name=first_answered_at,json=firstAnsweredAt,proto3" json:"first_answered_at,omitempty"`
-	// Total reply time used by the "평균 응답 시간" metric.
+	// Total reply time used by average reply time metrics.
 	//
 	// +kubebuilder:example=668
 	TotalReplyTime int64 `protobuf:"varint,21,opt,name=total_reply_time,json=totalReplyTime,proto3" json:"total_reply_time,omitempty"`
@@ -529,75 +529,75 @@ type UserChatStat struct {
 	//
 	// +kubebuilder:example=20218908
 	OperationTotalClosedTime int64 `protobuf:"varint,27,opt,name=operation_total_closed_time,json=operationTotalClosedTime,proto3" json:"operation_total_closed_time,omitempty"`
-	// "담당자 배정까지의 시간" metric.
+	// Time to first assignment metric.
 	//
 	// +kubebuilder:example=690
 	TimeToFirstAssignment int64 `protobuf:"varint,28,opt,name=time_to_first_assignment,json=timeToFirstAssignment,proto3" json:"time_to_first_assignment,omitempty"`
-	// Operation-time version of "담당자 배정까지의 시간".
+	// Operation-time version of time to first assignment.
 	//
 	// +kubebuilder:example=690
 	TimeToFirstAssignmentInOperation int64 `protobuf:"varint,29,opt,name=time_to_first_assignment_in_operation,json=timeToFirstAssignmentInOperation,proto3" json:"time_to_first_assignment_in_operation,omitempty"`
-	// "상담 인입부터 첫 응답까지의 시간" metric.
+	// Time from chat intake to first answer metric.
 	//
 	// +kubebuilder:example=668
 	TimeToFirstAnswer int64 `protobuf:"varint,30,opt,name=time_to_first_answer,json=timeToFirstAnswer,proto3" json:"time_to_first_answer,omitempty"`
-	// Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+	// Operation-time version of time from chat intake to first answer.
 	//
 	// +kubebuilder:example=668
 	TimeToFirstAnswerInOperation int64 `protobuf:"varint,31,opt,name=time_to_first_answer_in_operation,json=timeToFirstAnswerInOperation,proto3" json:"time_to_first_answer_in_operation,omitempty"`
-	// "첫 문의 후 첫 응답까지의 시간" metric.
+	// Time from first ask to first answer metric.
 	//
 	// +kubebuilder:example=744
 	TimeFromFirstAskToFirstAnswer int64 `protobuf:"varint,32,opt,name=time_from_first_ask_to_first_answer,json=timeFromFirstAskToFirstAnswer,proto3" json:"time_from_first_ask_to_first_answer,omitempty"`
-	// Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+	// Operation-time version of time from first ask to first answer.
 	//
 	// +kubebuilder:example=744
 	TimeFromFirstAskToFirstAnswerInOperation int64 `protobuf:"varint,33,opt,name=time_from_first_ask_to_first_answer_in_operation,json=timeFromFirstAskToFirstAnswerInOperation,proto3" json:"time_from_first_ask_to_first_answer_in_operation,omitempty"`
-	// "담당자 배정 후 첫 응답까지의 시간" metric.
+	// Time from first assignment to first answer metric.
 	//
 	// +kubebuilder:example=0
 	TimeFromFirstAssignmentToFirstAnswer int64 `protobuf:"varint,34,opt,name=time_from_first_assignment_to_first_answer,json=timeFromFirstAssignmentToFirstAnswer,proto3" json:"time_from_first_assignment_to_first_answer,omitempty"`
-	// Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+	// Operation-time version of time from first assignment to first answer.
 	//
 	// +kubebuilder:example=0
 	TimeFromFirstAssignmentToFirstAnswerInOperation int64 `protobuf:"varint,35,opt,name=time_from_first_assignment_to_first_answer_in_operation,json=timeFromFirstAssignmentToFirstAnswerInOperation,proto3" json:"time_from_first_assignment_to_first_answer_in_operation,omitempty"`
-	// "상담이 열린 후 첫 응답까지의 시간" metric.
+	// Time from first active state to first answer metric.
 	//
 	// +kubebuilder:example=668
 	TimeFromFirstActiveToFirstAnswer int64 `protobuf:"varint,36,opt,name=time_from_first_active_to_first_answer,json=timeFromFirstActiveToFirstAnswer,proto3" json:"time_from_first_active_to_first_answer,omitempty"`
-	// Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+	// Operation-time version of time from first active state to first answer.
 	//
 	// +kubebuilder:example=668
 	TimeFromFirstActiveToFirstAnswerInOperation int64 `protobuf:"varint,37,opt,name=time_from_first_active_to_first_answer_in_operation,json=timeFromFirstActiveToFirstAnswerInOperation,proto3" json:"time_from_first_active_to_first_answer_in_operation,omitempty"`
-	// "상담 요청 후 첫 응답까지의 시간" metric.
+	// Time from first open to first answer metric.
 	//
 	// +kubebuilder:example=668
 	TimeFromFirstOpenToFirstAnswer int64 `protobuf:"varint,38,opt,name=time_from_first_open_to_first_answer,json=timeFromFirstOpenToFirstAnswer,proto3" json:"time_from_first_open_to_first_answer,omitempty"`
-	// Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+	// Operation-time version of time from first open to first answer.
 	//
 	// +kubebuilder:example=668
 	TimeFromFirstOpenToFirstAnswerInOperation int64 `protobuf:"varint,39,opt,name=time_from_first_open_to_first_answer_in_operation,json=timeFromFirstOpenToFirstAnswerInOperation,proto3" json:"time_from_first_open_to_first_answer_in_operation,omitempty"`
-	// "상담 대기 시간" metric.
+	// Queue wait time metric.
 	//
 	// +kubebuilder:example=7931
 	FirstQueueTime int64 `protobuf:"varint,40,opt,name=first_queue_time,json=firstQueueTime,proto3" json:"first_queue_time,omitempty"`
-	// Operation-time version of "상담 대기 시간".
+	// Operation-time version of queue wait time.
 	//
 	// +kubebuilder:example=7931
 	FirstQueueTimeInOperation int64 `protobuf:"varint,41,opt,name=first_queue_time_in_operation,json=firstQueueTimeInOperation,proto3" json:"first_queue_time_in_operation,omitempty"`
-	// "평균 응답 시간" metric.
+	// Average reply time metric.
 	//
 	// +kubebuilder:example=668
 	AvgReplyTime int64 `protobuf:"varint,42,opt,name=avg_reply_time,json=avgReplyTime,proto3" json:"avg_reply_time,omitempty"`
-	// Operation-time version of "평균 응답 시간".
+	// Operation-time version of average reply time.
 	//
 	// +kubebuilder:example=668
 	AvgReplyTimeInOperation int64 `protobuf:"varint,43,opt,name=avg_reply_time_in_operation,json=avgReplyTimeInOperation,proto3" json:"avg_reply_time_in_operation,omitempty"`
-	// "상담 인입부터 종료까지의 시간" metric.
+	// Time from chat intake to first close metric.
 	//
 	// +kubebuilder:example=1814
 	TimeToFirstClose int64 `protobuf:"varint,44,opt,name=time_to_first_close,json=timeToFirstClose,proto3" json:"time_to_first_close,omitempty"`
-	// Operation-time version of "상담 인입부터 종료까지의 시간".
+	// Operation-time version of time from chat intake to first close.
 	//
 	// +kubebuilder:example=1814
 	TimeToFirstCloseInOperation int64 `protobuf:"varint,45,opt,name=time_to_first_close_in_operation,json=timeToFirstCloseInOperation,proto3" json:"time_to_first_close_in_operation,omitempty"`
@@ -633,27 +633,27 @@ type UserChatStat struct {
 	//
 	// +kubebuilder:example=1814
 	TimeFromFirstOpenToFirstCloseInOperation int64 `protobuf:"varint,53,opt,name=time_from_first_open_to_first_close_in_operation,json=timeFromFirstOpenToFirstCloseInOperation,proto3" json:"time_from_first_open_to_first_close_in_operation,omitempty"`
-	// "상담 인입부터 최종 종료까지의 시간" metric.
+	// Time from chat intake to final close metric.
 	//
 	// +kubebuilder:example=1814
 	TimeToClose int64 `protobuf:"varint,54,opt,name=time_to_close,json=timeToClose,proto3" json:"time_to_close,omitempty"`
-	// Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+	// Operation-time version of time from chat intake to final close.
 	//
 	// +kubebuilder:example=1814
 	TimeToCloseInOperation int64 `protobuf:"varint,55,opt,name=time_to_close_in_operation,json=timeToCloseInOperation,proto3" json:"time_to_close_in_operation,omitempty"`
-	// "상담원 응대 시간" metric.
+	// First member handling time metric.
 	//
 	// +kubebuilder:example=1814
 	FirstMemberHandlingTime int64 `protobuf:"varint,56,opt,name=first_member_handling_time,json=firstMemberHandlingTime,proto3" json:"first_member_handling_time,omitempty"`
-	// Operation-time version of "상담원 응대 시간".
+	// Operation-time version of first member handling time.
 	//
 	// +kubebuilder:example=1814
 	FirstMemberHandlingTimeInOperation int64 `protobuf:"varint,57,opt,name=first_member_handling_time_in_operation,json=firstMemberHandlingTimeInOperation,proto3" json:"first_member_handling_time_in_operation,omitempty"`
-	// "상담원 최종 응대 시간" metric.
+	// Member handling time metric.
 	//
 	// +kubebuilder:example=1814
 	MemberHandlingTime int64 `protobuf:"varint,58,opt,name=member_handling_time,json=memberHandlingTime,proto3" json:"member_handling_time,omitempty"`
-	// Operation-time version of "상담원 최종 응대 시간".
+	// Operation-time version of member handling time.
 	//
 	// +kubebuilder:example=1814
 	MemberHandlingTimeInOperation int64 `protobuf:"varint,59,opt,name=member_handling_time_in_operation,json=memberHandlingTimeInOperation,proto3" json:"member_handling_time_in_operation,omitempty"`
@@ -701,7 +701,7 @@ type UserChatStat struct {
 	//
 	// +kubebuilder:example=15893
 	WorkflowHandlingTime int64 `protobuf:"varint,70,opt,name=workflow_handling_time,json=workflowHandlingTime,proto3" json:"workflow_handling_time,omitempty"`
-	// "ALF 응대 시간" metric.
+	// ALF handling time metric.
 	//
 	// +kubebuilder:example=45391
 	AlfHandlingTime int64 `protobuf:"varint,71,opt,name=alf_handling_time,json=alfHandlingTime,proto3" json:"alf_handling_time,omitempty"`

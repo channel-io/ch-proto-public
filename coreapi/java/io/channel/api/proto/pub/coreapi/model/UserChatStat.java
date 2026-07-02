@@ -612,7 +612,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstQueueOutAt_;
   /**
    * <pre>
-   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * First queue exit timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
@@ -625,7 +625,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * First queue exit timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
@@ -638,7 +638,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * First queue exit timestamp for the "상담 대기 시간" metric.
+   * First queue exit timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:17.435Z"
    * </pre>
    *
@@ -735,7 +735,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstQueueInAt_;
   /**
    * <pre>
-   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * First queue entry timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
@@ -748,7 +748,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * First queue entry timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
@@ -761,7 +761,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * First queue entry timestamp for the "상담 대기 시간" metric.
+   * First queue entry timestamp for the queue wait time report metric.
    * +kubebuilder:example="2026-06-15T04:40:09.504Z"
    * </pre>
    *
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp firstClosedAt_;
   /**
    * <pre>
-   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * First close timestamp for closed-chat count and close-duration metrics.
    * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
@@ -830,7 +830,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * First close timestamp for closed-chat count and close-duration metrics.
    * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
@@ -843,7 +843,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+   * First close timestamp for closed-chat count and close-duration metrics.
    * +kubebuilder:example="2026-06-24T05:43:47.670Z"
    * </pre>
    *
@@ -1059,7 +1059,7 @@ private static final long serialVersionUID = 0L;
   private int reassignmentCount_;
   /**
    * <pre>
-   * Number of reassignment events used by the "담당자 이관율" metric.
+   * Number of reassignment events used by transfer-rate metrics.
    * +kubebuilder:example=1
    * </pre>
    *
@@ -1262,7 +1262,7 @@ private static final long serialVersionUID = 0L;
   private long totalReplyTime_;
   /**
    * <pre>
-   * Total reply time used by the "평균 응답 시간" metric.
+   * Total reply time used by average reply time metrics.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1399,7 +1399,7 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAssignment_;
   /**
    * <pre>
-   * "담당자 배정까지의 시간" metric.
+   * Time to first assignment metric.
    * +kubebuilder:example=690
    * </pre>
    *
@@ -1415,7 +1415,7 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAssignmentInOperation_;
   /**
    * <pre>
-   * Operation-time version of "담당자 배정까지의 시간".
+   * Operation-time version of time to first assignment.
    * +kubebuilder:example=690
    * </pre>
    *
@@ -1431,7 +1431,7 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAnswer_;
   /**
    * <pre>
-   * "상담 인입부터 첫 응답까지의 시간" metric.
+   * Time from chat intake to first answer metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1447,7 +1447,7 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+   * Operation-time version of time from chat intake to first answer.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1463,7 +1463,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAskToFirstAnswer_;
   /**
    * <pre>
-   * "첫 문의 후 첫 응답까지의 시간" metric.
+   * Time from first ask to first answer metric.
    * +kubebuilder:example=744
    * </pre>
    *
@@ -1479,7 +1479,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAskToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+   * Operation-time version of time from first ask to first answer.
    * +kubebuilder:example=744
    * </pre>
    *
@@ -1495,7 +1495,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAssignmentToFirstAnswer_;
   /**
    * <pre>
-   * "담당자 배정 후 첫 응답까지의 시간" metric.
+   * Time from first assignment to first answer metric.
    * +kubebuilder:example=0
    * </pre>
    *
@@ -1511,7 +1511,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstAssignmentToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+   * Operation-time version of time from first assignment to first answer.
    * +kubebuilder:example=0
    * </pre>
    *
@@ -1527,7 +1527,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstActiveToFirstAnswer_;
   /**
    * <pre>
-   * "상담이 열린 후 첫 응답까지의 시간" metric.
+   * Time from first active state to first answer metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1543,7 +1543,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstActiveToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+   * Operation-time version of time from first active state to first answer.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1559,7 +1559,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstOpenToFirstAnswer_;
   /**
    * <pre>
-   * "상담 요청 후 첫 응답까지의 시간" metric.
+   * Time from first open to first answer metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1575,7 +1575,7 @@ private static final long serialVersionUID = 0L;
   private long timeFromFirstOpenToFirstAnswerInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+   * Operation-time version of time from first open to first answer.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1591,7 +1591,7 @@ private static final long serialVersionUID = 0L;
   private long firstQueueTime_;
   /**
    * <pre>
-   * "상담 대기 시간" metric.
+   * Queue wait time metric.
    * +kubebuilder:example=7931
    * </pre>
    *
@@ -1607,7 +1607,7 @@ private static final long serialVersionUID = 0L;
   private long firstQueueTimeInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담 대기 시간".
+   * Operation-time version of queue wait time.
    * +kubebuilder:example=7931
    * </pre>
    *
@@ -1623,7 +1623,7 @@ private static final long serialVersionUID = 0L;
   private long avgReplyTime_;
   /**
    * <pre>
-   * "평균 응답 시간" metric.
+   * Average reply time metric.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1639,7 +1639,7 @@ private static final long serialVersionUID = 0L;
   private long avgReplyTimeInOperation_;
   /**
    * <pre>
-   * Operation-time version of "평균 응답 시간".
+   * Operation-time version of average reply time.
    * +kubebuilder:example=668
    * </pre>
    *
@@ -1655,7 +1655,7 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstClose_;
   /**
    * <pre>
-   * "상담 인입부터 종료까지의 시간" metric.
+   * Time from chat intake to first close metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1671,7 +1671,7 @@ private static final long serialVersionUID = 0L;
   private long timeToFirstCloseInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담 인입부터 종료까지의 시간".
+   * Operation-time version of time from chat intake to first close.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1815,7 +1815,7 @@ private static final long serialVersionUID = 0L;
   private long timeToClose_;
   /**
    * <pre>
-   * "상담 인입부터 최종 종료까지의 시간" metric.
+   * Time from chat intake to final close metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1831,7 +1831,7 @@ private static final long serialVersionUID = 0L;
   private long timeToCloseInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+   * Operation-time version of time from chat intake to final close.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1847,7 +1847,7 @@ private static final long serialVersionUID = 0L;
   private long firstMemberHandlingTime_;
   /**
    * <pre>
-   * "상담원 응대 시간" metric.
+   * First member handling time metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1863,7 +1863,7 @@ private static final long serialVersionUID = 0L;
   private long firstMemberHandlingTimeInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담원 응대 시간".
+   * Operation-time version of first member handling time.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1879,7 +1879,7 @@ private static final long serialVersionUID = 0L;
   private long memberHandlingTime_;
   /**
    * <pre>
-   * "상담원 최종 응대 시간" metric.
+   * Member handling time metric.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -1895,7 +1895,7 @@ private static final long serialVersionUID = 0L;
   private long memberHandlingTimeInOperation_;
   /**
    * <pre>
-   * Operation-time version of "상담원 최종 응대 시간".
+   * Operation-time version of member handling time.
    * +kubebuilder:example=1814
    * </pre>
    *
@@ -2187,7 +2187,7 @@ private static final long serialVersionUID = 0L;
   private long alfHandlingTime_;
   /**
    * <pre>
-   * "ALF 응대 시간" metric.
+   * ALF handling time metric.
    * +kubebuilder:example=45391
    * </pre>
    *
@@ -4088,7 +4088,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstQueueOutAtBuilder_;
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4100,7 +4100,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4116,7 +4116,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4137,7 +4137,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4156,7 +4156,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4179,7 +4179,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4198,7 +4198,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4211,7 +4211,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4227,7 +4227,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue exit timestamp for the "상담 대기 시간" metric.
+     * First queue exit timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:17.435Z"
      * </pre>
      *
@@ -4580,7 +4580,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstQueueInAtBuilder_;
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4592,7 +4592,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4608,7 +4608,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4629,7 +4629,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4648,7 +4648,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4671,7 +4671,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4690,7 +4690,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4703,7 +4703,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4719,7 +4719,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First queue entry timestamp for the "상담 대기 시간" metric.
+     * First queue entry timestamp for the queue wait time report metric.
      * +kubebuilder:example="2026-06-15T04:40:09.504Z"
      * </pre>
      *
@@ -4908,7 +4908,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstClosedAtBuilder_;
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -4920,7 +4920,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -4936,7 +4936,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -4957,7 +4957,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -4976,7 +4976,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -4999,7 +4999,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -5018,7 +5018,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -5031,7 +5031,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -5047,7 +5047,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * First close timestamp for the "종료된 상담 수" and close-duration metrics.
+     * First close timestamp for closed-chat count and close-duration metrics.
      * +kubebuilder:example="2026-06-24T05:43:47.670Z"
      * </pre>
      *
@@ -5583,7 +5583,7 @@ private static final long serialVersionUID = 0L;
     private int reassignmentCount_ ;
     /**
      * <pre>
-     * Number of reassignment events used by the "담당자 이관율" metric.
+     * Number of reassignment events used by transfer-rate metrics.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5596,7 +5596,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of reassignment events used by the "담당자 이관율" metric.
+     * Number of reassignment events used by transfer-rate metrics.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -5612,7 +5612,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of reassignment events used by the "담당자 이관율" metric.
+     * Number of reassignment events used by transfer-rate metrics.
      * +kubebuilder:example=1
      * </pre>
      *
@@ -6305,7 +6305,7 @@ private static final long serialVersionUID = 0L;
     private long totalReplyTime_ ;
     /**
      * <pre>
-     * Total reply time used by the "평균 응답 시간" metric.
+     * Total reply time used by average reply time metrics.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6318,7 +6318,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total reply time used by the "평균 응답 시간" metric.
+     * Total reply time used by average reply time metrics.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6334,7 +6334,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Total reply time used by the "평균 응답 시간" metric.
+     * Total reply time used by average reply time metrics.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6745,7 +6745,7 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAssignment_ ;
     /**
      * <pre>
-     * "담당자 배정까지의 시간" metric.
+     * Time to first assignment metric.
      * +kubebuilder:example=690
      * </pre>
      *
@@ -6758,7 +6758,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "담당자 배정까지의 시간" metric.
+     * Time to first assignment metric.
      * +kubebuilder:example=690
      * </pre>
      *
@@ -6774,7 +6774,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "담당자 배정까지의 시간" metric.
+     * Time to first assignment metric.
      * +kubebuilder:example=690
      * </pre>
      *
@@ -6791,7 +6791,7 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAssignmentInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "담당자 배정까지의 시간".
+     * Operation-time version of time to first assignment.
      * +kubebuilder:example=690
      * </pre>
      *
@@ -6804,7 +6804,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "담당자 배정까지의 시간".
+     * Operation-time version of time to first assignment.
      * +kubebuilder:example=690
      * </pre>
      *
@@ -6820,7 +6820,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "담당자 배정까지의 시간".
+     * Operation-time version of time to first assignment.
      * +kubebuilder:example=690
      * </pre>
      *
@@ -6837,7 +6837,7 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAnswer_ ;
     /**
      * <pre>
-     * "상담 인입부터 첫 응답까지의 시간" metric.
+     * Time from chat intake to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6850,7 +6850,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 인입부터 첫 응답까지의 시간" metric.
+     * Time from chat intake to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6866,7 +6866,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 인입부터 첫 응답까지의 시간" metric.
+     * Time from chat intake to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6883,7 +6883,7 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+     * Operation-time version of time from chat intake to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6896,7 +6896,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+     * Operation-time version of time from chat intake to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6912,7 +6912,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 첫 응답까지의 시간".
+     * Operation-time version of time from chat intake to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -6929,7 +6929,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAskToFirstAnswer_ ;
     /**
      * <pre>
-     * "첫 문의 후 첫 응답까지의 시간" metric.
+     * Time from first ask to first answer metric.
      * +kubebuilder:example=744
      * </pre>
      *
@@ -6942,7 +6942,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "첫 문의 후 첫 응답까지의 시간" metric.
+     * Time from first ask to first answer metric.
      * +kubebuilder:example=744
      * </pre>
      *
@@ -6958,7 +6958,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "첫 문의 후 첫 응답까지의 시간" metric.
+     * Time from first ask to first answer metric.
      * +kubebuilder:example=744
      * </pre>
      *
@@ -6975,7 +6975,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAskToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+     * Operation-time version of time from first ask to first answer.
      * +kubebuilder:example=744
      * </pre>
      *
@@ -6988,7 +6988,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+     * Operation-time version of time from first ask to first answer.
      * +kubebuilder:example=744
      * </pre>
      *
@@ -7004,7 +7004,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "첫 문의 후 첫 응답까지의 시간".
+     * Operation-time version of time from first ask to first answer.
      * +kubebuilder:example=744
      * </pre>
      *
@@ -7021,7 +7021,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAssignmentToFirstAnswer_ ;
     /**
      * <pre>
-     * "담당자 배정 후 첫 응답까지의 시간" metric.
+     * Time from first assignment to first answer metric.
      * +kubebuilder:example=0
      * </pre>
      *
@@ -7034,7 +7034,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "담당자 배정 후 첫 응답까지의 시간" metric.
+     * Time from first assignment to first answer metric.
      * +kubebuilder:example=0
      * </pre>
      *
@@ -7050,7 +7050,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "담당자 배정 후 첫 응답까지의 시간" metric.
+     * Time from first assignment to first answer metric.
      * +kubebuilder:example=0
      * </pre>
      *
@@ -7067,7 +7067,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstAssignmentToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+     * Operation-time version of time from first assignment to first answer.
      * +kubebuilder:example=0
      * </pre>
      *
@@ -7080,7 +7080,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+     * Operation-time version of time from first assignment to first answer.
      * +kubebuilder:example=0
      * </pre>
      *
@@ -7096,7 +7096,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "담당자 배정 후 첫 응답까지의 시간".
+     * Operation-time version of time from first assignment to first answer.
      * +kubebuilder:example=0
      * </pre>
      *
@@ -7113,7 +7113,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstActiveToFirstAnswer_ ;
     /**
      * <pre>
-     * "상담이 열린 후 첫 응답까지의 시간" metric.
+     * Time from first active state to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7126,7 +7126,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담이 열린 후 첫 응답까지의 시간" metric.
+     * Time from first active state to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7142,7 +7142,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담이 열린 후 첫 응답까지의 시간" metric.
+     * Time from first active state to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7159,7 +7159,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstActiveToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+     * Operation-time version of time from first active state to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7172,7 +7172,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+     * Operation-time version of time from first active state to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7188,7 +7188,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담이 열린 후 첫 응답까지의 시간".
+     * Operation-time version of time from first active state to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7205,7 +7205,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstOpenToFirstAnswer_ ;
     /**
      * <pre>
-     * "상담 요청 후 첫 응답까지의 시간" metric.
+     * Time from first open to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7218,7 +7218,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 요청 후 첫 응답까지의 시간" metric.
+     * Time from first open to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7234,7 +7234,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 요청 후 첫 응답까지의 시간" metric.
+     * Time from first open to first answer metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7251,7 +7251,7 @@ private static final long serialVersionUID = 0L;
     private long timeFromFirstOpenToFirstAnswerInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+     * Operation-time version of time from first open to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7264,7 +7264,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+     * Operation-time version of time from first open to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7280,7 +7280,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 요청 후 첫 응답까지의 시간".
+     * Operation-time version of time from first open to first answer.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7297,7 +7297,7 @@ private static final long serialVersionUID = 0L;
     private long firstQueueTime_ ;
     /**
      * <pre>
-     * "상담 대기 시간" metric.
+     * Queue wait time metric.
      * +kubebuilder:example=7931
      * </pre>
      *
@@ -7310,7 +7310,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 대기 시간" metric.
+     * Queue wait time metric.
      * +kubebuilder:example=7931
      * </pre>
      *
@@ -7326,7 +7326,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 대기 시간" metric.
+     * Queue wait time metric.
      * +kubebuilder:example=7931
      * </pre>
      *
@@ -7343,7 +7343,7 @@ private static final long serialVersionUID = 0L;
     private long firstQueueTimeInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담 대기 시간".
+     * Operation-time version of queue wait time.
      * +kubebuilder:example=7931
      * </pre>
      *
@@ -7356,7 +7356,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 대기 시간".
+     * Operation-time version of queue wait time.
      * +kubebuilder:example=7931
      * </pre>
      *
@@ -7372,7 +7372,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 대기 시간".
+     * Operation-time version of queue wait time.
      * +kubebuilder:example=7931
      * </pre>
      *
@@ -7389,7 +7389,7 @@ private static final long serialVersionUID = 0L;
     private long avgReplyTime_ ;
     /**
      * <pre>
-     * "평균 응답 시간" metric.
+     * Average reply time metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7402,7 +7402,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "평균 응답 시간" metric.
+     * Average reply time metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7418,7 +7418,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "평균 응답 시간" metric.
+     * Average reply time metric.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7435,7 +7435,7 @@ private static final long serialVersionUID = 0L;
     private long avgReplyTimeInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "평균 응답 시간".
+     * Operation-time version of average reply time.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7448,7 +7448,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "평균 응답 시간".
+     * Operation-time version of average reply time.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7464,7 +7464,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "평균 응답 시간".
+     * Operation-time version of average reply time.
      * +kubebuilder:example=668
      * </pre>
      *
@@ -7481,7 +7481,7 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstClose_ ;
     /**
      * <pre>
-     * "상담 인입부터 종료까지의 시간" metric.
+     * Time from chat intake to first close metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7494,7 +7494,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 인입부터 종료까지의 시간" metric.
+     * Time from chat intake to first close metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7510,7 +7510,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 인입부터 종료까지의 시간" metric.
+     * Time from chat intake to first close metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7527,7 +7527,7 @@ private static final long serialVersionUID = 0L;
     private long timeToFirstCloseInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 종료까지의 시간".
+     * Operation-time version of time from chat intake to first close.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7540,7 +7540,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 종료까지의 시간".
+     * Operation-time version of time from chat intake to first close.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7556,7 +7556,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 종료까지의 시간".
+     * Operation-time version of time from chat intake to first close.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7941,7 +7941,7 @@ private static final long serialVersionUID = 0L;
     private long timeToClose_ ;
     /**
      * <pre>
-     * "상담 인입부터 최종 종료까지의 시간" metric.
+     * Time from chat intake to final close metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7954,7 +7954,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 인입부터 최종 종료까지의 시간" metric.
+     * Time from chat intake to final close metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7970,7 +7970,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담 인입부터 최종 종료까지의 시간" metric.
+     * Time from chat intake to final close metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -7987,7 +7987,7 @@ private static final long serialVersionUID = 0L;
     private long timeToCloseInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+     * Operation-time version of time from chat intake to final close.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8000,7 +8000,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+     * Operation-time version of time from chat intake to final close.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8016,7 +8016,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담 인입부터 최종 종료까지의 시간".
+     * Operation-time version of time from chat intake to final close.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8033,7 +8033,7 @@ private static final long serialVersionUID = 0L;
     private long firstMemberHandlingTime_ ;
     /**
      * <pre>
-     * "상담원 응대 시간" metric.
+     * First member handling time metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8046,7 +8046,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담원 응대 시간" metric.
+     * First member handling time metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8062,7 +8062,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담원 응대 시간" metric.
+     * First member handling time metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8079,7 +8079,7 @@ private static final long serialVersionUID = 0L;
     private long firstMemberHandlingTimeInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담원 응대 시간".
+     * Operation-time version of first member handling time.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8092,7 +8092,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담원 응대 시간".
+     * Operation-time version of first member handling time.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8108,7 +8108,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담원 응대 시간".
+     * Operation-time version of first member handling time.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8125,7 +8125,7 @@ private static final long serialVersionUID = 0L;
     private long memberHandlingTime_ ;
     /**
      * <pre>
-     * "상담원 최종 응대 시간" metric.
+     * Member handling time metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8138,7 +8138,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담원 최종 응대 시간" metric.
+     * Member handling time metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8154,7 +8154,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "상담원 최종 응대 시간" metric.
+     * Member handling time metric.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8171,7 +8171,7 @@ private static final long serialVersionUID = 0L;
     private long memberHandlingTimeInOperation_ ;
     /**
      * <pre>
-     * Operation-time version of "상담원 최종 응대 시간".
+     * Operation-time version of member handling time.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8184,7 +8184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담원 최종 응대 시간".
+     * Operation-time version of member handling time.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -8200,7 +8200,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operation-time version of "상담원 최종 응대 시간".
+     * Operation-time version of member handling time.
      * +kubebuilder:example=1814
      * </pre>
      *
@@ -9195,7 +9195,7 @@ private static final long serialVersionUID = 0L;
     private long alfHandlingTime_ ;
     /**
      * <pre>
-     * "ALF 응대 시간" metric.
+     * ALF handling time metric.
      * +kubebuilder:example=45391
      * </pre>
      *
@@ -9208,7 +9208,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "ALF 응대 시간" metric.
+     * ALF handling time metric.
      * +kubebuilder:example=45391
      * </pre>
      *
@@ -9224,7 +9224,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "ALF 응대 시간" metric.
+     * ALF handling time metric.
      * +kubebuilder:example=45391
      * </pre>
      *

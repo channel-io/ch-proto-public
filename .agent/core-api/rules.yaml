@@ -128,6 +128,9 @@ field_numbering:
     rule: Removing or renaming fields is breaking. Run buf breaking and call out intentional breaks.
 
 comments:
+  language:
+    rule: Public proto comments must be written in English.
+    localized_labels: Link to localized product documentation instead of embedding localized labels in comments.
   public_observable_behavior_only: true
   avoid:
     - internal storage details
