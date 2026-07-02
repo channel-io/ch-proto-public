@@ -968,282 +968,30 @@ public interface UserChatOrBuilder extends
 
   /**
    * <pre>
-   * ID of the first manager assigned after the chat was opened.
-   * Used for tracking initial response ownership.
-   * +kubebuilder:example="9187"
+   * Statistics measured for this user chat.
    * </pre>
    *
-   * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-   * @return The firstAssigneeIdAfterOpen.
+   * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
+   * @return Whether the stat field is set.
    */
-  java.lang.String getFirstAssigneeIdAfterOpen();
+  boolean hasStat();
   /**
    * <pre>
-   * ID of the first manager assigned after the chat was opened.
-   * Used for tracking initial response ownership.
-   * +kubebuilder:example="9187"
+   * Statistics measured for this user chat.
    * </pre>
    *
-   * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-   * @return The bytes for firstAssigneeIdAfterOpen.
+   * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
+   * @return The stat.
    */
-  com.google.protobuf.ByteString
-      getFirstAssigneeIdAfterOpenBytes();
-
+  io.channel.api.proto.pub.coreapi.model.UserChatStat getStat();
   /**
    * <pre>
-   * Timestamp of the first-ever manager reply in this chat,
-   * across all open/close cycles.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
+   * Statistics measured for this user chat.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-   * @return Whether the firstRepliedAt field is set.
+   * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
    */
-  boolean hasFirstRepliedAt();
-  /**
-   * <pre>
-   * Timestamp of the first-ever manager reply in this chat,
-   * across all open/close cycles.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-   * @return The firstRepliedAt.
-   */
-  com.google.protobuf.Timestamp getFirstRepliedAt();
-  /**
-   * <pre>
-   * Timestamp of the first-ever manager reply in this chat,
-   * across all open/close cycles.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getFirstRepliedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Timestamp of the first manager reply after the most recent open.
-   * Reset each time the chat is reopened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-   * @return Whether the firstRepliedAtAfterOpen field is set.
-   */
-  boolean hasFirstRepliedAtAfterOpen();
-  /**
-   * <pre>
-   * Timestamp of the first manager reply after the most recent open.
-   * Reset each time the chat is reopened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-   * @return The firstRepliedAtAfterOpen.
-   */
-  com.google.protobuf.Timestamp getFirstRepliedAtAfterOpen();
-  /**
-   * <pre>
-   * Timestamp of the first manager reply after the most recent open.
-   * Reset each time the chat is reopened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getFirstRepliedAtAfterOpenOrBuilder();
-
-  /**
-   * <pre>
-   * Whether the chat was resolved by a single assignee without being
-   * transferred to another manager.
-   * +kubebuilder:example="true"
-   * </pre>
-   *
-   * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
-   * @return The oneStop.
-   */
-  boolean getOneStop();
-
-  /**
-   * <pre>
-   * Duration from chat open to the first manager reply (in milliseconds).
-   * +kubebuilder:example="226139"
-   * </pre>
-   *
-   * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
-   * @return The waitingTime.
-   */
-  long getWaitingTime();
-
-  /**
-   * <pre>
-   * Average time between a user's question and the manager's reply
-   * (in milliseconds).
-   * +kubebuilder:example="45000"
-   * </pre>
-   *
-   * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
-   * @return The avgReplyTime.
-   */
-  long getAvgReplyTime();
-
-  /**
-   * <pre>
-   * Sum of all individual reply durations across manager responses
-   * (in milliseconds).
-   * +kubebuilder:example="90000"
-   * </pre>
-   *
-   * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
-   * @return The totalReplyTime.
-   */
-  long getTotalReplyTime();
-
-  /**
-   * <pre>
-   * Total number of manager replies in this chat.
-   * +kubebuilder:example="3"
-   * </pre>
-   *
-   * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
-   * @return The replyCount.
-   */
-  int getReplyCount();
-
-  /**
-   * <pre>
-   * Total duration from the first open to close (in milliseconds).
-   * +kubebuilder:example="226139"
-   * </pre>
-   *
-   * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
-   * @return The resolutionTime.
-   */
-  long getResolutionTime();
-
-  /**
-   * <pre>
-   * Duration from open to the first manager reply, counting only
-   * operating hours (in milliseconds).
-   * +kubebuilder:example="55000"
-   * </pre>
-   *
-   * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
-   * @return The operationWaitingTime.
-   */
-  long getOperationWaitingTime();
-
-  /**
-   * <pre>
-   * Average reply time counting only operating hours (in milliseconds).
-   * +kubebuilder:example="40000"
-   * </pre>
-   *
-   * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
-   * @return The operationAvgReplyTime.
-   */
-  long getOperationAvgReplyTime();
-
-  /**
-   * <pre>
-   * Sum of all reply durations counting only operating hours
-   * (in milliseconds).
-   * +kubebuilder:example="80000"
-   * </pre>
-   *
-   * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
-   * @return The operationTotalReplyTime.
-   */
-  long getOperationTotalReplyTime();
-
-  /**
-   * <pre>
-   * Total number of manager replies during operating hours.
-   * +kubebuilder:example="2"
-   * </pre>
-   *
-   * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
-   * @return The operationReplyCount.
-   */
-  int getOperationReplyCount();
-
-  /**
-   * <pre>
-   * Total resolution time counting only operating hours (in milliseconds).
-   * +kubebuilder:example="226139"
-   * </pre>
-   *
-   * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
-   * @return The operationResolutionTime.
-   */
-  long getOperationResolutionTime();
-
-  /**
-   * <pre>
-   * Timestamp when the user last sent a message that is awaiting
-   * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-   * @return Whether the askedAt field is set.
-   */
-  boolean hasAskedAt();
-  /**
-   * <pre>
-   * Timestamp when the user last sent a message that is awaiting
-   * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-   * @return The askedAt.
-   */
-  com.google.protobuf.Timestamp getAskedAt();
-  /**
-   * <pre>
-   * Timestamp when the user last sent a message that is awaiting
-   * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getAskedAtOrBuilder();
-
-  /**
-   * <pre>
-   * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-   * @return Whether the firstAskedAt field is set.
-   */
-  boolean hasFirstAskedAt();
-  /**
-   * <pre>
-   * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-   * @return The firstAskedAt.
-   */
-  com.google.protobuf.Timestamp getFirstAskedAt();
-  /**
-   * <pre>
-   * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getFirstAskedAtOrBuilder();
+  io.channel.api.proto.pub.coreapi.model.UserChatStatOrBuilder getStatOrBuilder();
 
   /**
    * <pre>
@@ -1251,7 +999,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-03-29T03:28:34Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+   * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
    * @return Whether the closedAt field is set.
    */
   boolean hasClosedAt();
@@ -1261,7 +1009,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-03-29T03:28:34Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+   * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
    * @return The closedAt.
    */
   com.google.protobuf.Timestamp getClosedAt();
@@ -1271,7 +1019,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-03-29T03:28:34Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+   * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getClosedAtOrBuilder();
 
@@ -1281,7 +1029,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+   * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
    * @return Whether the snoozedAt field is set.
    */
   boolean hasSnoozedAt();
@@ -1291,7 +1039,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+   * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
    * @return The snoozedAt.
    */
   com.google.protobuf.Timestamp getSnoozedAt();
@@ -1301,7 +1049,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+   * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getSnoozedAtOrBuilder();
 
@@ -1311,7 +1059,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-04-12T00:00:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+   * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
    * @return Whether the expiresAt field is set.
    */
   boolean hasExpiresAt();
@@ -1321,7 +1069,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-04-12T00:00:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+   * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
    * @return The expiresAt.
    */
   com.google.protobuf.Timestamp getExpiresAt();
@@ -1331,7 +1079,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="2024-04-12T00:00:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+   * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
 
@@ -1342,7 +1090,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="67fceb5a3d6de141ea5a"
    * </pre>
    *
-   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
    * @return The mediumId.
    */
   java.lang.String getMediumId();
@@ -1353,7 +1101,7 @@ public interface UserChatOrBuilder extends
    * +kubebuilder:example="67fceb5a3d6de141ea5a"
    * </pre>
    *
-   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
    * @return The bytes for mediumId.
    */
   com.google.protobuf.ByteString
