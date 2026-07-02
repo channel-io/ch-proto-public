@@ -189,3 +189,31 @@ func UserChatSubtextTypeForString(value string) UserChatSubtextType {
 		return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED
 	}
 }
+
+// GetString returns the canonical string for UserChatDirection.
+func (x UserChatDirection) GetString() string {
+	switch x {
+	case UserChatDirection_USER_CHAT_DIRECTION_INBOUND:
+		return "inbound"
+	case UserChatDirection_USER_CHAT_DIRECTION_OUTBOUND:
+		return "outbound"
+	case UserChatDirection_USER_CHAT_DIRECTION_SHARING:
+		return "sharing"
+	default:
+		return ""
+	}
+}
+
+// UserChatDirectionForString returns the UserChatDirection enum for the given canonical string.
+func UserChatDirectionForString(value string) UserChatDirection {
+	switch value {
+	case "inbound":
+		return UserChatDirection_USER_CHAT_DIRECTION_INBOUND
+	case "outbound":
+		return UserChatDirection_USER_CHAT_DIRECTION_OUTBOUND
+	case "sharing":
+		return UserChatDirection_USER_CHAT_DIRECTION_SHARING
+	default:
+		return UserChatDirection_USER_CHAT_DIRECTION_UNSPECIFIED
+	}
+}

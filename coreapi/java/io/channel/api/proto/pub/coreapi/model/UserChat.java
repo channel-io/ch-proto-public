@@ -42,7 +42,6 @@ private static final long serialVersionUID = 0L;
     frontMessageId_ = "";
     deskMessageId_ = "";
     userLastMessageId_ = "";
-    firstAssigneeIdAfterOpen_ = "";
     mediumId_ = "";
   }
 
@@ -390,119 +389,19 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 298: {
-            java.lang.String s = input.readStringRequireUtf8();
+            io.channel.api.proto.pub.coreapi.model.UserChatStat.Builder subBuilder = null;
+            if (stat_ != null) {
+              subBuilder = stat_.toBuilder();
+            }
+            stat_ = input.readMessage(io.channel.api.proto.pub.coreapi.model.UserChatStat.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(stat_);
+              stat_ = subBuilder.buildPartial();
+            }
 
-            firstAssigneeIdAfterOpen_ = s;
             break;
           }
           case 306: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (firstRepliedAt_ != null) {
-              subBuilder = firstRepliedAt_.toBuilder();
-            }
-            firstRepliedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(firstRepliedAt_);
-              firstRepliedAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 314: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (firstRepliedAtAfterOpen_ != null) {
-              subBuilder = firstRepliedAtAfterOpen_.toBuilder();
-            }
-            firstRepliedAtAfterOpen_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(firstRepliedAtAfterOpen_);
-              firstRepliedAtAfterOpen_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 320: {
-
-            oneStop_ = input.readBool();
-            break;
-          }
-          case 328: {
-
-            waitingTime_ = input.readInt64();
-            break;
-          }
-          case 336: {
-
-            avgReplyTime_ = input.readInt64();
-            break;
-          }
-          case 344: {
-
-            totalReplyTime_ = input.readInt64();
-            break;
-          }
-          case 352: {
-
-            replyCount_ = input.readInt32();
-            break;
-          }
-          case 360: {
-
-            resolutionTime_ = input.readInt64();
-            break;
-          }
-          case 368: {
-
-            operationWaitingTime_ = input.readInt64();
-            break;
-          }
-          case 376: {
-
-            operationAvgReplyTime_ = input.readInt64();
-            break;
-          }
-          case 384: {
-
-            operationTotalReplyTime_ = input.readInt64();
-            break;
-          }
-          case 392: {
-
-            operationReplyCount_ = input.readInt32();
-            break;
-          }
-          case 400: {
-
-            operationResolutionTime_ = input.readInt64();
-            break;
-          }
-          case 410: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (askedAt_ != null) {
-              subBuilder = askedAt_.toBuilder();
-            }
-            askedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(askedAt_);
-              askedAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 418: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (firstAskedAt_ != null) {
-              subBuilder = firstAskedAt_.toBuilder();
-            }
-            firstAskedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(firstAskedAt_);
-              firstAskedAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 426: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (closedAt_ != null) {
               subBuilder = closedAt_.toBuilder();
@@ -515,7 +414,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 434: {
+          case 314: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (snoozedAt_ != null) {
               subBuilder = snoozedAt_.toBuilder();
@@ -528,7 +427,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 442: {
+          case 322: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (expiresAt_ != null) {
               subBuilder = expiresAt_.toBuilder();
@@ -541,7 +440,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 458: {
+          case 330: {
             java.lang.String s = input.readStringRequireUtf8();
 
             mediumId_ = s;
@@ -603,7 +502,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       id_ = s;
@@ -625,7 +524,7 @@ private static final long serialVersionUID = 0L;
       getIdBytes() {
     java.lang.Object ref = id_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       id_ = b;
@@ -653,7 +552,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       channelId_ = s;
@@ -675,7 +574,7 @@ private static final long serialVersionUID = 0L;
       getChannelIdBytes() {
     java.lang.Object ref = channelId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       channelId_ = b;
@@ -702,7 +601,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       mediumType_ = s;
@@ -723,7 +622,7 @@ private static final long serialVersionUID = 0L;
       getMediumTypeBytes() {
     java.lang.Object ref = mediumType_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       mediumType_ = b;
@@ -750,7 +649,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       liveMeetId_ = s;
@@ -771,7 +670,7 @@ private static final long serialVersionUID = 0L;
       getLiveMeetIdBytes() {
     java.lang.Object ref = liveMeetId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       liveMeetId_ = b;
@@ -903,7 +802,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       userId_ = s;
@@ -924,7 +823,7 @@ private static final long serialVersionUID = 0L;
       getUserIdBytes() {
     java.lang.Object ref = userId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       userId_ = b;
@@ -952,7 +851,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       xerId_ = s;
@@ -974,7 +873,7 @@ private static final long serialVersionUID = 0L;
       getXerIdBytes() {
     java.lang.Object ref = xerId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       xerId_ = b;
@@ -1001,7 +900,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       name_ = s;
@@ -1022,7 +921,7 @@ private static final long serialVersionUID = 0L;
       getNameBytes() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       name_ = b;
@@ -1049,7 +948,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       title_ = s;
@@ -1070,7 +969,7 @@ private static final long serialVersionUID = 0L;
       getTitleBytes() {
     java.lang.Object ref = title_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       title_ = b;
@@ -1098,7 +997,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       description_ = s;
@@ -1120,7 +1019,7 @@ private static final long serialVersionUID = 0L;
       getDescriptionBytes() {
     java.lang.Object ref = description_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       description_ = b;
@@ -1321,7 +1220,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       assigneeId_ = s;
@@ -1342,7 +1241,7 @@ private static final long serialVersionUID = 0L;
       getAssigneeIdBytes() {
     java.lang.Object ref = assigneeId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       assigneeId_ = b;
@@ -1369,7 +1268,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       teamId_ = s;
@@ -1390,7 +1289,7 @@ private static final long serialVersionUID = 0L;
       getTeamIdBytes() {
     java.lang.Object ref = teamId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       teamId_ = b;
@@ -1521,7 +1420,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       goalEventName_ = s;
@@ -1542,7 +1441,7 @@ private static final long serialVersionUID = 0L;
       getGoalEventNameBytes() {
     java.lang.Object ref = goalEventName_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       goalEventName_ = b;
@@ -1933,7 +1832,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       frontMessageId_ = s;
@@ -1954,7 +1853,7 @@ private static final long serialVersionUID = 0L;
       getFrontMessageIdBytes() {
     java.lang.Object ref = frontMessageId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       frontMessageId_ = b;
@@ -2022,7 +1921,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       deskMessageId_ = s;
@@ -2043,7 +1942,7 @@ private static final long serialVersionUID = 0L;
       getDeskMessageIdBytes() {
     java.lang.Object ref = deskMessageId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       deskMessageId_ = b;
@@ -2111,7 +2010,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       userLastMessageId_ = s;
@@ -2132,7 +2031,7 @@ private static final long serialVersionUID = 0L;
       getUserLastMessageIdBytes() {
     java.lang.Object ref = userLastMessageId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       userLastMessageId_ = b;
@@ -2142,411 +2041,45 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int FIRST_ASSIGNEE_ID_AFTER_OPEN_FIELD_NUMBER = 37;
-  private volatile java.lang.Object firstAssigneeIdAfterOpen_;
+  public static final int STAT_FIELD_NUMBER = 37;
+  private io.channel.api.proto.pub.coreapi.model.UserChatStat stat_;
   /**
    * <pre>
-   * ID of the first manager assigned after the chat was opened.
-   * Used for tracking initial response ownership.
-   * +kubebuilder:example="9187"
+   * Statistics measured for this user chat.
    * </pre>
    *
-   * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-   * @return The firstAssigneeIdAfterOpen.
+   * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
+   * @return Whether the stat field is set.
    */
   @java.lang.Override
-  public java.lang.String getFirstAssigneeIdAfterOpen() {
-    java.lang.Object ref = firstAssigneeIdAfterOpen_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      firstAssigneeIdAfterOpen_ = s;
-      return s;
-    }
+  public boolean hasStat() {
+    return stat_ != null;
   }
   /**
    * <pre>
-   * ID of the first manager assigned after the chat was opened.
-   * Used for tracking initial response ownership.
-   * +kubebuilder:example="9187"
+   * Statistics measured for this user chat.
    * </pre>
    *
-   * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-   * @return The bytes for firstAssigneeIdAfterOpen.
+   * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
+   * @return The stat.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getFirstAssigneeIdAfterOpenBytes() {
-    java.lang.Object ref = firstAssigneeIdAfterOpen_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      firstAssigneeIdAfterOpen_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public io.channel.api.proto.pub.coreapi.model.UserChatStat getStat() {
+    return stat_ == null ? io.channel.api.proto.pub.coreapi.model.UserChatStat.getDefaultInstance() : stat_;
+  }
+  /**
+   * <pre>
+   * Statistics measured for this user chat.
+   * </pre>
+   *
+   * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
+   */
+  @java.lang.Override
+  public io.channel.api.proto.pub.coreapi.model.UserChatStatOrBuilder getStatOrBuilder() {
+    return getStat();
   }
 
-  public static final int FIRST_REPLIED_AT_FIELD_NUMBER = 38;
-  private com.google.protobuf.Timestamp firstRepliedAt_;
-  /**
-   * <pre>
-   * Timestamp of the first-ever manager reply in this chat,
-   * across all open/close cycles.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-   * @return Whether the firstRepliedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasFirstRepliedAt() {
-    return firstRepliedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp of the first-ever manager reply in this chat,
-   * across all open/close cycles.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-   * @return The firstRepliedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getFirstRepliedAt() {
-    return firstRepliedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp of the first-ever manager reply in this chat,
-   * across all open/close cycles.
-   * +kubebuilder:example="2024-03-29T03:28:35Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getFirstRepliedAtOrBuilder() {
-    return getFirstRepliedAt();
-  }
-
-  public static final int FIRST_REPLIED_AT_AFTER_OPEN_FIELD_NUMBER = 39;
-  private com.google.protobuf.Timestamp firstRepliedAtAfterOpen_;
-  /**
-   * <pre>
-   * Timestamp of the first manager reply after the most recent open.
-   * Reset each time the chat is reopened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-   * @return Whether the firstRepliedAtAfterOpen field is set.
-   */
-  @java.lang.Override
-  public boolean hasFirstRepliedAtAfterOpen() {
-    return firstRepliedAtAfterOpen_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp of the first manager reply after the most recent open.
-   * Reset each time the chat is reopened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-   * @return The firstRepliedAtAfterOpen.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getFirstRepliedAtAfterOpen() {
-    return firstRepliedAtAfterOpen_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAtAfterOpen_;
-  }
-  /**
-   * <pre>
-   * Timestamp of the first manager reply after the most recent open.
-   * Reset each time the chat is reopened.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getFirstRepliedAtAfterOpenOrBuilder() {
-    return getFirstRepliedAtAfterOpen();
-  }
-
-  public static final int ONE_STOP_FIELD_NUMBER = 40;
-  private boolean oneStop_;
-  /**
-   * <pre>
-   * Whether the chat was resolved by a single assignee without being
-   * transferred to another manager.
-   * +kubebuilder:example="true"
-   * </pre>
-   *
-   * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
-   * @return The oneStop.
-   */
-  @java.lang.Override
-  public boolean getOneStop() {
-    return oneStop_;
-  }
-
-  public static final int WAITING_TIME_FIELD_NUMBER = 41;
-  private long waitingTime_;
-  /**
-   * <pre>
-   * Duration from chat open to the first manager reply (in milliseconds).
-   * +kubebuilder:example="226139"
-   * </pre>
-   *
-   * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
-   * @return The waitingTime.
-   */
-  @java.lang.Override
-  public long getWaitingTime() {
-    return waitingTime_;
-  }
-
-  public static final int AVG_REPLY_TIME_FIELD_NUMBER = 42;
-  private long avgReplyTime_;
-  /**
-   * <pre>
-   * Average time between a user's question and the manager's reply
-   * (in milliseconds).
-   * +kubebuilder:example="45000"
-   * </pre>
-   *
-   * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
-   * @return The avgReplyTime.
-   */
-  @java.lang.Override
-  public long getAvgReplyTime() {
-    return avgReplyTime_;
-  }
-
-  public static final int TOTAL_REPLY_TIME_FIELD_NUMBER = 43;
-  private long totalReplyTime_;
-  /**
-   * <pre>
-   * Sum of all individual reply durations across manager responses
-   * (in milliseconds).
-   * +kubebuilder:example="90000"
-   * </pre>
-   *
-   * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
-   * @return The totalReplyTime.
-   */
-  @java.lang.Override
-  public long getTotalReplyTime() {
-    return totalReplyTime_;
-  }
-
-  public static final int REPLY_COUNT_FIELD_NUMBER = 44;
-  private int replyCount_;
-  /**
-   * <pre>
-   * Total number of manager replies in this chat.
-   * +kubebuilder:example="3"
-   * </pre>
-   *
-   * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
-   * @return The replyCount.
-   */
-  @java.lang.Override
-  public int getReplyCount() {
-    return replyCount_;
-  }
-
-  public static final int RESOLUTION_TIME_FIELD_NUMBER = 45;
-  private long resolutionTime_;
-  /**
-   * <pre>
-   * Total duration from the first open to close (in milliseconds).
-   * +kubebuilder:example="226139"
-   * </pre>
-   *
-   * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
-   * @return The resolutionTime.
-   */
-  @java.lang.Override
-  public long getResolutionTime() {
-    return resolutionTime_;
-  }
-
-  public static final int OPERATION_WAITING_TIME_FIELD_NUMBER = 46;
-  private long operationWaitingTime_;
-  /**
-   * <pre>
-   * Duration from open to the first manager reply, counting only
-   * operating hours (in milliseconds).
-   * +kubebuilder:example="55000"
-   * </pre>
-   *
-   * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
-   * @return The operationWaitingTime.
-   */
-  @java.lang.Override
-  public long getOperationWaitingTime() {
-    return operationWaitingTime_;
-  }
-
-  public static final int OPERATION_AVG_REPLY_TIME_FIELD_NUMBER = 47;
-  private long operationAvgReplyTime_;
-  /**
-   * <pre>
-   * Average reply time counting only operating hours (in milliseconds).
-   * +kubebuilder:example="40000"
-   * </pre>
-   *
-   * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
-   * @return The operationAvgReplyTime.
-   */
-  @java.lang.Override
-  public long getOperationAvgReplyTime() {
-    return operationAvgReplyTime_;
-  }
-
-  public static final int OPERATION_TOTAL_REPLY_TIME_FIELD_NUMBER = 48;
-  private long operationTotalReplyTime_;
-  /**
-   * <pre>
-   * Sum of all reply durations counting only operating hours
-   * (in milliseconds).
-   * +kubebuilder:example="80000"
-   * </pre>
-   *
-   * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
-   * @return The operationTotalReplyTime.
-   */
-  @java.lang.Override
-  public long getOperationTotalReplyTime() {
-    return operationTotalReplyTime_;
-  }
-
-  public static final int OPERATION_REPLY_COUNT_FIELD_NUMBER = 49;
-  private int operationReplyCount_;
-  /**
-   * <pre>
-   * Total number of manager replies during operating hours.
-   * +kubebuilder:example="2"
-   * </pre>
-   *
-   * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
-   * @return The operationReplyCount.
-   */
-  @java.lang.Override
-  public int getOperationReplyCount() {
-    return operationReplyCount_;
-  }
-
-  public static final int OPERATION_RESOLUTION_TIME_FIELD_NUMBER = 50;
-  private long operationResolutionTime_;
-  /**
-   * <pre>
-   * Total resolution time counting only operating hours (in milliseconds).
-   * +kubebuilder:example="226139"
-   * </pre>
-   *
-   * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
-   * @return The operationResolutionTime.
-   */
-  @java.lang.Override
-  public long getOperationResolutionTime() {
-    return operationResolutionTime_;
-  }
-
-  public static final int ASKED_AT_FIELD_NUMBER = 51;
-  private com.google.protobuf.Timestamp askedAt_;
-  /**
-   * <pre>
-   * Timestamp when the user last sent a message that is awaiting
-   * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-   * @return Whether the askedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasAskedAt() {
-    return askedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the user last sent a message that is awaiting
-   * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-   * @return The askedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getAskedAt() {
-    return askedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : askedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the user last sent a message that is awaiting
-   * a manager's reply. Cleared when the manager responds.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getAskedAtOrBuilder() {
-    return getAskedAt();
-  }
-
-  public static final int FIRST_ASKED_AT_FIELD_NUMBER = 52;
-  private com.google.protobuf.Timestamp firstAskedAt_;
-  /**
-   * <pre>
-   * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-   * @return Whether the firstAskedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasFirstAskedAt() {
-    return firstAskedAt_ != null;
-  }
-  /**
-   * <pre>
-   * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-   * @return The firstAskedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getFirstAskedAt() {
-    return firstAskedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstAskedAt_;
-  }
-  /**
-   * <pre>
-   * Timestamp when the user sent the first message in this chat.
-   * +kubebuilder:example="2024-03-29T03:24:30Z"
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getFirstAskedAtOrBuilder() {
-    return getFirstAskedAt();
-  }
-
-  public static final int CLOSED_AT_FIELD_NUMBER = 53;
+  public static final int CLOSED_AT_FIELD_NUMBER = 38;
   private com.google.protobuf.Timestamp closedAt_;
   /**
    * <pre>
@@ -2554,7 +2087,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-03-29T03:28:34Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+   * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
    * @return Whether the closedAt field is set.
    */
   @java.lang.Override
@@ -2567,7 +2100,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-03-29T03:28:34Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+   * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
    * @return The closedAt.
    */
   @java.lang.Override
@@ -2580,14 +2113,14 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-03-29T03:28:34Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+   * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getClosedAtOrBuilder() {
     return getClosedAt();
   }
 
-  public static final int SNOOZED_AT_FIELD_NUMBER = 54;
+  public static final int SNOOZED_AT_FIELD_NUMBER = 39;
   private com.google.protobuf.Timestamp snoozedAt_;
   /**
    * <pre>
@@ -2595,7 +2128,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+   * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
    * @return Whether the snoozedAt field is set.
    */
   @java.lang.Override
@@ -2608,7 +2141,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+   * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
    * @return The snoozedAt.
    */
   @java.lang.Override
@@ -2621,14 +2154,14 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-03-29T03:30:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+   * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getSnoozedAtOrBuilder() {
     return getSnoozedAt();
   }
 
-  public static final int EXPIRES_AT_FIELD_NUMBER = 55;
+  public static final int EXPIRES_AT_FIELD_NUMBER = 40;
   private com.google.protobuf.Timestamp expiresAt_;
   /**
    * <pre>
@@ -2636,7 +2169,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-04-12T00:00:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+   * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
    * @return Whether the expiresAt field is set.
    */
   @java.lang.Override
@@ -2649,7 +2182,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-04-12T00:00:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+   * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
    * @return The expiresAt.
    */
   @java.lang.Override
@@ -2662,14 +2195,14 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="2024-04-12T00:00:00Z"
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+   * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
     return getExpiresAt();
   }
 
-  public static final int MEDIUM_ID_FIELD_NUMBER = 57;
+  public static final int MEDIUM_ID_FIELD_NUMBER = 41;
   private volatile java.lang.Object mediumId_;
   /**
    * <pre>
@@ -2678,7 +2211,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="67fceb5a3d6de141ea5a"
    * </pre>
    *
-   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
    * @return The mediumId.
    */
   @java.lang.Override
@@ -2687,7 +2220,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       mediumId_ = s;
@@ -2701,7 +2234,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:example="67fceb5a3d6de141ea5a"
    * </pre>
    *
-   * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+   * <code>string medium_id = 41 [json_name = "mediumId"];</code>
    * @return The bytes for mediumId.
    */
   @java.lang.Override
@@ -2709,7 +2242,7 @@ private static final long serialVersionUID = 0L;
       getMediumIdBytes() {
     java.lang.Object ref = mediumId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       mediumId_ = b;
@@ -2841,65 +2374,20 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userLastMessageId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 36, userLastMessageId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstAssigneeIdAfterOpen_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 37, firstAssigneeIdAfterOpen_);
-    }
-    if (firstRepliedAt_ != null) {
-      output.writeMessage(38, getFirstRepliedAt());
-    }
-    if (firstRepliedAtAfterOpen_ != null) {
-      output.writeMessage(39, getFirstRepliedAtAfterOpen());
-    }
-    if (oneStop_ != false) {
-      output.writeBool(40, oneStop_);
-    }
-    if (waitingTime_ != 0L) {
-      output.writeInt64(41, waitingTime_);
-    }
-    if (avgReplyTime_ != 0L) {
-      output.writeInt64(42, avgReplyTime_);
-    }
-    if (totalReplyTime_ != 0L) {
-      output.writeInt64(43, totalReplyTime_);
-    }
-    if (replyCount_ != 0) {
-      output.writeInt32(44, replyCount_);
-    }
-    if (resolutionTime_ != 0L) {
-      output.writeInt64(45, resolutionTime_);
-    }
-    if (operationWaitingTime_ != 0L) {
-      output.writeInt64(46, operationWaitingTime_);
-    }
-    if (operationAvgReplyTime_ != 0L) {
-      output.writeInt64(47, operationAvgReplyTime_);
-    }
-    if (operationTotalReplyTime_ != 0L) {
-      output.writeInt64(48, operationTotalReplyTime_);
-    }
-    if (operationReplyCount_ != 0) {
-      output.writeInt32(49, operationReplyCount_);
-    }
-    if (operationResolutionTime_ != 0L) {
-      output.writeInt64(50, operationResolutionTime_);
-    }
-    if (askedAt_ != null) {
-      output.writeMessage(51, getAskedAt());
-    }
-    if (firstAskedAt_ != null) {
-      output.writeMessage(52, getFirstAskedAt());
+    if (stat_ != null) {
+      output.writeMessage(37, getStat());
     }
     if (closedAt_ != null) {
-      output.writeMessage(53, getClosedAt());
+      output.writeMessage(38, getClosedAt());
     }
     if (snoozedAt_ != null) {
-      output.writeMessage(54, getSnoozedAt());
+      output.writeMessage(39, getSnoozedAt());
     }
     if (expiresAt_ != null) {
-      output.writeMessage(55, getExpiresAt());
+      output.writeMessage(40, getExpiresAt());
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 57, mediumId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 41, mediumId_);
     }
     unknownFields.writeTo(output);
   }
@@ -3047,83 +2535,24 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userLastMessageId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(36, userLastMessageId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstAssigneeIdAfterOpen_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(37, firstAssigneeIdAfterOpen_);
-    }
-    if (firstRepliedAt_ != null) {
+    if (stat_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(38, getFirstRepliedAt());
-    }
-    if (firstRepliedAtAfterOpen_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(39, getFirstRepliedAtAfterOpen());
-    }
-    if (oneStop_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(40, oneStop_);
-    }
-    if (waitingTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(41, waitingTime_);
-    }
-    if (avgReplyTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(42, avgReplyTime_);
-    }
-    if (totalReplyTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(43, totalReplyTime_);
-    }
-    if (replyCount_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(44, replyCount_);
-    }
-    if (resolutionTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(45, resolutionTime_);
-    }
-    if (operationWaitingTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(46, operationWaitingTime_);
-    }
-    if (operationAvgReplyTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(47, operationAvgReplyTime_);
-    }
-    if (operationTotalReplyTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(48, operationTotalReplyTime_);
-    }
-    if (operationReplyCount_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(49, operationReplyCount_);
-    }
-    if (operationResolutionTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(50, operationResolutionTime_);
-    }
-    if (askedAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(51, getAskedAt());
-    }
-    if (firstAskedAt_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(52, getFirstAskedAt());
+        .computeMessageSize(37, getStat());
     }
     if (closedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(53, getClosedAt());
+        .computeMessageSize(38, getClosedAt());
     }
     if (snoozedAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(54, getSnoozedAt());
+        .computeMessageSize(39, getSnoozedAt());
     }
     if (expiresAt_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(55, getExpiresAt());
+        .computeMessageSize(40, getExpiresAt());
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediumId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(57, mediumId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(41, mediumId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -3246,49 +2675,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!getUserLastMessageId()
         .equals(other.getUserLastMessageId())) return false;
-    if (!getFirstAssigneeIdAfterOpen()
-        .equals(other.getFirstAssigneeIdAfterOpen())) return false;
-    if (hasFirstRepliedAt() != other.hasFirstRepliedAt()) return false;
-    if (hasFirstRepliedAt()) {
-      if (!getFirstRepliedAt()
-          .equals(other.getFirstRepliedAt())) return false;
-    }
-    if (hasFirstRepliedAtAfterOpen() != other.hasFirstRepliedAtAfterOpen()) return false;
-    if (hasFirstRepliedAtAfterOpen()) {
-      if (!getFirstRepliedAtAfterOpen()
-          .equals(other.getFirstRepliedAtAfterOpen())) return false;
-    }
-    if (getOneStop()
-        != other.getOneStop()) return false;
-    if (getWaitingTime()
-        != other.getWaitingTime()) return false;
-    if (getAvgReplyTime()
-        != other.getAvgReplyTime()) return false;
-    if (getTotalReplyTime()
-        != other.getTotalReplyTime()) return false;
-    if (getReplyCount()
-        != other.getReplyCount()) return false;
-    if (getResolutionTime()
-        != other.getResolutionTime()) return false;
-    if (getOperationWaitingTime()
-        != other.getOperationWaitingTime()) return false;
-    if (getOperationAvgReplyTime()
-        != other.getOperationAvgReplyTime()) return false;
-    if (getOperationTotalReplyTime()
-        != other.getOperationTotalReplyTime()) return false;
-    if (getOperationReplyCount()
-        != other.getOperationReplyCount()) return false;
-    if (getOperationResolutionTime()
-        != other.getOperationResolutionTime()) return false;
-    if (hasAskedAt() != other.hasAskedAt()) return false;
-    if (hasAskedAt()) {
-      if (!getAskedAt()
-          .equals(other.getAskedAt())) return false;
-    }
-    if (hasFirstAskedAt() != other.hasFirstAskedAt()) return false;
-    if (hasFirstAskedAt()) {
-      if (!getFirstAskedAt()
-          .equals(other.getFirstAskedAt())) return false;
+    if (hasStat() != other.hasStat()) return false;
+    if (hasStat()) {
+      if (!getStat()
+          .equals(other.getStat())) return false;
     }
     if (hasClosedAt() != other.hasClosedAt()) return false;
     if (hasClosedAt()) {
@@ -3421,54 +2811,9 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + USER_LAST_MESSAGE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserLastMessageId().hashCode();
-    hash = (37 * hash) + FIRST_ASSIGNEE_ID_AFTER_OPEN_FIELD_NUMBER;
-    hash = (53 * hash) + getFirstAssigneeIdAfterOpen().hashCode();
-    if (hasFirstRepliedAt()) {
-      hash = (37 * hash) + FIRST_REPLIED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstRepliedAt().hashCode();
-    }
-    if (hasFirstRepliedAtAfterOpen()) {
-      hash = (37 * hash) + FIRST_REPLIED_AT_AFTER_OPEN_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstRepliedAtAfterOpen().hashCode();
-    }
-    hash = (37 * hash) + ONE_STOP_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getOneStop());
-    hash = (37 * hash) + WAITING_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getWaitingTime());
-    hash = (37 * hash) + AVG_REPLY_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getAvgReplyTime());
-    hash = (37 * hash) + TOTAL_REPLY_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getTotalReplyTime());
-    hash = (37 * hash) + REPLY_COUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getReplyCount();
-    hash = (37 * hash) + RESOLUTION_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getResolutionTime());
-    hash = (37 * hash) + OPERATION_WAITING_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOperationWaitingTime());
-    hash = (37 * hash) + OPERATION_AVG_REPLY_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOperationAvgReplyTime());
-    hash = (37 * hash) + OPERATION_TOTAL_REPLY_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOperationTotalReplyTime());
-    hash = (37 * hash) + OPERATION_REPLY_COUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getOperationReplyCount();
-    hash = (37 * hash) + OPERATION_RESOLUTION_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOperationResolutionTime());
-    if (hasAskedAt()) {
-      hash = (37 * hash) + ASKED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getAskedAt().hashCode();
-    }
-    if (hasFirstAskedAt()) {
-      hash = (37 * hash) + FIRST_ASKED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstAskedAt().hashCode();
+    if (hasStat()) {
+      hash = (37 * hash) + STAT_FIELD_NUMBER;
+      hash = (53 * hash) + getStat().hashCode();
     }
     if (hasClosedAt()) {
       hash = (37 * hash) + CLOSED_AT_FIELD_NUMBER;
@@ -3745,53 +3090,11 @@ private static final long serialVersionUID = 0L;
       }
       userLastMessageId_ = "";
 
-      firstAssigneeIdAfterOpen_ = "";
-
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAt_ = null;
+      if (statBuilder_ == null) {
+        stat_ = null;
       } else {
-        firstRepliedAt_ = null;
-        firstRepliedAtBuilder_ = null;
-      }
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        firstRepliedAtAfterOpen_ = null;
-      } else {
-        firstRepliedAtAfterOpen_ = null;
-        firstRepliedAtAfterOpenBuilder_ = null;
-      }
-      oneStop_ = false;
-
-      waitingTime_ = 0L;
-
-      avgReplyTime_ = 0L;
-
-      totalReplyTime_ = 0L;
-
-      replyCount_ = 0;
-
-      resolutionTime_ = 0L;
-
-      operationWaitingTime_ = 0L;
-
-      operationAvgReplyTime_ = 0L;
-
-      operationTotalReplyTime_ = 0L;
-
-      operationReplyCount_ = 0;
-
-      operationResolutionTime_ = 0L;
-
-      if (askedAtBuilder_ == null) {
-        askedAt_ = null;
-      } else {
-        askedAt_ = null;
-        askedAtBuilder_ = null;
-      }
-      if (firstAskedAtBuilder_ == null) {
-        firstAskedAt_ = null;
-      } else {
-        firstAskedAt_ = null;
-        firstAskedAtBuilder_ = null;
+        stat_ = null;
+        statBuilder_ = null;
       }
       if (closedAtBuilder_ == null) {
         closedAt_ = null;
@@ -3936,37 +3239,10 @@ private static final long serialVersionUID = 0L;
         result.deskUpdatedAt_ = deskUpdatedAtBuilder_.build();
       }
       result.userLastMessageId_ = userLastMessageId_;
-      result.firstAssigneeIdAfterOpen_ = firstAssigneeIdAfterOpen_;
-      if (firstRepliedAtBuilder_ == null) {
-        result.firstRepliedAt_ = firstRepliedAt_;
+      if (statBuilder_ == null) {
+        result.stat_ = stat_;
       } else {
-        result.firstRepliedAt_ = firstRepliedAtBuilder_.build();
-      }
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        result.firstRepliedAtAfterOpen_ = firstRepliedAtAfterOpen_;
-      } else {
-        result.firstRepliedAtAfterOpen_ = firstRepliedAtAfterOpenBuilder_.build();
-      }
-      result.oneStop_ = oneStop_;
-      result.waitingTime_ = waitingTime_;
-      result.avgReplyTime_ = avgReplyTime_;
-      result.totalReplyTime_ = totalReplyTime_;
-      result.replyCount_ = replyCount_;
-      result.resolutionTime_ = resolutionTime_;
-      result.operationWaitingTime_ = operationWaitingTime_;
-      result.operationAvgReplyTime_ = operationAvgReplyTime_;
-      result.operationTotalReplyTime_ = operationTotalReplyTime_;
-      result.operationReplyCount_ = operationReplyCount_;
-      result.operationResolutionTime_ = operationResolutionTime_;
-      if (askedAtBuilder_ == null) {
-        result.askedAt_ = askedAt_;
-      } else {
-        result.askedAt_ = askedAtBuilder_.build();
-      }
-      if (firstAskedAtBuilder_ == null) {
-        result.firstAskedAt_ = firstAskedAt_;
-      } else {
-        result.firstAskedAt_ = firstAskedAtBuilder_.build();
+        result.stat_ = statBuilder_.build();
       }
       if (closedAtBuilder_ == null) {
         result.closedAt_ = closedAt_;
@@ -4169,54 +3445,8 @@ private static final long serialVersionUID = 0L;
         userLastMessageId_ = other.userLastMessageId_;
         onChanged();
       }
-      if (!other.getFirstAssigneeIdAfterOpen().isEmpty()) {
-        firstAssigneeIdAfterOpen_ = other.firstAssigneeIdAfterOpen_;
-        onChanged();
-      }
-      if (other.hasFirstRepliedAt()) {
-        mergeFirstRepliedAt(other.getFirstRepliedAt());
-      }
-      if (other.hasFirstRepliedAtAfterOpen()) {
-        mergeFirstRepliedAtAfterOpen(other.getFirstRepliedAtAfterOpen());
-      }
-      if (other.getOneStop() != false) {
-        setOneStop(other.getOneStop());
-      }
-      if (other.getWaitingTime() != 0L) {
-        setWaitingTime(other.getWaitingTime());
-      }
-      if (other.getAvgReplyTime() != 0L) {
-        setAvgReplyTime(other.getAvgReplyTime());
-      }
-      if (other.getTotalReplyTime() != 0L) {
-        setTotalReplyTime(other.getTotalReplyTime());
-      }
-      if (other.getReplyCount() != 0) {
-        setReplyCount(other.getReplyCount());
-      }
-      if (other.getResolutionTime() != 0L) {
-        setResolutionTime(other.getResolutionTime());
-      }
-      if (other.getOperationWaitingTime() != 0L) {
-        setOperationWaitingTime(other.getOperationWaitingTime());
-      }
-      if (other.getOperationAvgReplyTime() != 0L) {
-        setOperationAvgReplyTime(other.getOperationAvgReplyTime());
-      }
-      if (other.getOperationTotalReplyTime() != 0L) {
-        setOperationTotalReplyTime(other.getOperationTotalReplyTime());
-      }
-      if (other.getOperationReplyCount() != 0) {
-        setOperationReplyCount(other.getOperationReplyCount());
-      }
-      if (other.getOperationResolutionTime() != 0L) {
-        setOperationResolutionTime(other.getOperationResolutionTime());
-      }
-      if (other.hasAskedAt()) {
-        mergeAskedAt(other.getAskedAt());
-      }
-      if (other.hasFirstAskedAt()) {
-        mergeFirstAskedAt(other.getFirstAskedAt());
+      if (other.hasStat()) {
+        mergeStat(other.getStat());
       }
       if (other.hasClosedAt()) {
         mergeClosedAt(other.getClosedAt());
@@ -4298,7 +3528,7 @@ private static final long serialVersionUID = 0L;
         getIdBytes() {
       java.lang.Object ref = id_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         id_ = b;
@@ -4323,7 +3553,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       id_ = value;
       onChanged();
       return this;
@@ -4339,7 +3569,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
+
       id_ = getDefaultInstance().getId();
       onChanged();
       return this;
@@ -4361,7 +3591,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       id_ = value;
       onChanged();
       return this;
@@ -4404,7 +3634,7 @@ private static final long serialVersionUID = 0L;
         getChannelIdBytes() {
       java.lang.Object ref = channelId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         channelId_ = b;
@@ -4429,7 +3659,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       channelId_ = value;
       onChanged();
       return this;
@@ -4445,7 +3675,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearChannelId() {
-      
+
       channelId_ = getDefaultInstance().getChannelId();
       onChanged();
       return this;
@@ -4467,7 +3697,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       channelId_ = value;
       onChanged();
       return this;
@@ -4508,7 +3738,7 @@ private static final long serialVersionUID = 0L;
         getMediumTypeBytes() {
       java.lang.Object ref = mediumType_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         mediumType_ = b;
@@ -4532,7 +3762,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       mediumType_ = value;
       onChanged();
       return this;
@@ -4547,7 +3777,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMediumType() {
-      
+
       mediumType_ = getDefaultInstance().getMediumType();
       onChanged();
       return this;
@@ -4568,7 +3798,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       mediumType_ = value;
       onChanged();
       return this;
@@ -4609,7 +3839,7 @@ private static final long serialVersionUID = 0L;
         getLiveMeetIdBytes() {
       java.lang.Object ref = liveMeetId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         liveMeetId_ = b;
@@ -4633,7 +3863,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       liveMeetId_ = value;
       onChanged();
       return this;
@@ -4648,7 +3878,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLiveMeetId() {
-      
+
       liveMeetId_ = getDefaultInstance().getLiveMeetId();
       onChanged();
       return this;
@@ -4669,7 +3899,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       liveMeetId_ = value;
       onChanged();
       return this;
@@ -4699,7 +3929,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
+
       state_ = value;
       onChanged();
       return this;
@@ -4733,7 +3963,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -4748,7 +3978,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+
       state_ = 0;
       onChanged();
       return this;
@@ -4778,7 +4008,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMissedReasonValue(int value) {
-      
+
       missedReason_ = value;
       onChanged();
       return this;
@@ -4812,7 +4042,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+
       missedReason_ = value.getNumber();
       onChanged();
       return this;
@@ -4827,7 +4057,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMissedReason() {
-      
+
       missedReason_ = 0;
       onChanged();
       return this;
@@ -4862,7 +4092,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setManaged(boolean value) {
-      
+
       managed_ = value;
       onChanged();
       return this;
@@ -4879,7 +4109,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearManaged() {
-      
+
       managed_ = false;
       onChanged();
       return this;
@@ -4909,7 +4139,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPriorityValue(int value) {
-      
+
       priority_ = value;
       onChanged();
       return this;
@@ -4943,7 +4173,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+
       priority_ = value.getNumber();
       onChanged();
       return this;
@@ -4958,7 +4188,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPriority() {
-      
+
       priority_ = 0;
       onChanged();
       return this;
@@ -4999,7 +4229,7 @@ private static final long serialVersionUID = 0L;
         getUserIdBytes() {
       java.lang.Object ref = userId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         userId_ = b;
@@ -5023,7 +4253,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       userId_ = value;
       onChanged();
       return this;
@@ -5038,7 +4268,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
-      
+
       userId_ = getDefaultInstance().getUserId();
       onChanged();
       return this;
@@ -5059,7 +4289,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       userId_ = value;
       onChanged();
       return this;
@@ -5102,7 +4332,7 @@ private static final long serialVersionUID = 0L;
         getXerIdBytes() {
       java.lang.Object ref = xerId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         xerId_ = b;
@@ -5127,7 +4357,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       xerId_ = value;
       onChanged();
       return this;
@@ -5143,7 +4373,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearXerId() {
-      
+
       xerId_ = getDefaultInstance().getXerId();
       onChanged();
       return this;
@@ -5165,7 +4395,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       xerId_ = value;
       onChanged();
       return this;
@@ -5206,7 +4436,7 @@ private static final long serialVersionUID = 0L;
         getNameBytes() {
       java.lang.Object ref = name_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
@@ -5230,7 +4460,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       name_ = value;
       onChanged();
       return this;
@@ -5245,7 +4475,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
+
       name_ = getDefaultInstance().getName();
       onChanged();
       return this;
@@ -5266,7 +4496,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       name_ = value;
       onChanged();
       return this;
@@ -5307,7 +4537,7 @@ private static final long serialVersionUID = 0L;
         getTitleBytes() {
       java.lang.Object ref = title_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         title_ = b;
@@ -5331,7 +4561,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       title_ = value;
       onChanged();
       return this;
@@ -5346,7 +4576,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
+
       title_ = getDefaultInstance().getTitle();
       onChanged();
       return this;
@@ -5367,7 +4597,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       title_ = value;
       onChanged();
       return this;
@@ -5410,7 +4640,7 @@ private static final long serialVersionUID = 0L;
         getDescriptionBytes() {
       java.lang.Object ref = description_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         description_ = b;
@@ -5435,7 +4665,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       description_ = value;
       onChanged();
       return this;
@@ -5451,7 +4681,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
+
       description_ = getDefaultInstance().getDescription();
       onChanged();
       return this;
@@ -5473,7 +4703,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       description_ = value;
       onChanged();
       return this;
@@ -5501,7 +4731,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSubtextTypeValue(int value) {
-      
+
       subtextType_ = value;
       onChanged();
       return this;
@@ -5533,7 +4763,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+
       subtextType_ = value.getNumber();
       onChanged();
       return this;
@@ -5547,7 +4777,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubtextType() {
-      
+
       subtextType_ = 0;
       onChanged();
       return this;
@@ -5682,7 +4912,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
      */
     public com.google.protobuf.Struct.Builder getHandlingBuilder() {
-      
+
       onChanged();
       return getHandlingFieldBuilder().getBuilder();
     }
@@ -5713,7 +4943,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct handling = 15 [json_name = "handling"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         getHandlingFieldBuilder() {
       if (handlingBuilder_ == null) {
         handlingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -5855,7 +5085,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
      */
     public com.google.protobuf.Struct.Builder getSourceBuilder() {
-      
+
       onChanged();
       return getSourceFieldBuilder().getBuilder();
     }
@@ -5886,7 +5116,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct source = 16 [json_name = "source"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         getSourceFieldBuilder() {
       if (sourceBuilder_ == null) {
         sourceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -6098,7 +5328,7 @@ private static final long serialVersionUID = 0L;
         getAssigneeIdBytes() {
       java.lang.Object ref = assigneeId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         assigneeId_ = b;
@@ -6122,7 +5352,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       assigneeId_ = value;
       onChanged();
       return this;
@@ -6137,7 +5367,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAssigneeId() {
-      
+
       assigneeId_ = getDefaultInstance().getAssigneeId();
       onChanged();
       return this;
@@ -6158,7 +5388,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       assigneeId_ = value;
       onChanged();
       return this;
@@ -6199,7 +5429,7 @@ private static final long serialVersionUID = 0L;
         getTeamIdBytes() {
       java.lang.Object ref = teamId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         teamId_ = b;
@@ -6223,7 +5453,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       teamId_ = value;
       onChanged();
       return this;
@@ -6238,7 +5468,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTeamId() {
-      
+
       teamId_ = getDefaultInstance().getTeamId();
       onChanged();
       return this;
@@ -6259,7 +5489,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       teamId_ = value;
       onChanged();
       return this;
@@ -6560,7 +5790,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
      */
     public com.google.protobuf.Struct.Builder getProfileBuilder() {
-      
+
       onChanged();
       return getProfileFieldBuilder().getBuilder();
     }
@@ -6589,7 +5819,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct profile = 21 [json_name = "profile"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         getProfileFieldBuilder() {
       if (profileBuilder_ == null) {
         profileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -6637,7 +5867,7 @@ private static final long serialVersionUID = 0L;
         getGoalEventNameBytes() {
       java.lang.Object ref = goalEventName_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         goalEventName_ = b;
@@ -6661,7 +5891,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       goalEventName_ = value;
       onChanged();
       return this;
@@ -6676,7 +5906,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoalEventName() {
-      
+
       goalEventName_ = getDefaultInstance().getGoalEventName();
       onChanged();
       return this;
@@ -6697,7 +5927,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       goalEventName_ = value;
       onChanged();
       return this;
@@ -6825,7 +6055,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
      */
     public com.google.protobuf.Struct.Builder getGoalEventQueryBuilder() {
-      
+
       onChanged();
       return getGoalEventQueryFieldBuilder().getBuilder();
     }
@@ -6854,7 +6084,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct goal_event_query = 23 [json_name = "goalEventQuery"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         getGoalEventQueryFieldBuilder() {
       if (goalEventQueryBuilder_ == null) {
         goalEventQueryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -6989,7 +6219,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getGoalCheckedAtBuilder() {
-      
+
       onChanged();
       return getGoalCheckedAtFieldBuilder().getBuilder();
     }
@@ -7018,7 +6248,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp goal_checked_at = 24 [json_name = "goalCheckedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getGoalCheckedAtFieldBuilder() {
       if (goalCheckedAtBuilder_ == null) {
         goalCheckedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7053,7 +6283,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGoalStateValue(int value) {
-      
+
       goalState_ = value;
       onChanged();
       return this;
@@ -7085,7 +6315,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+
       goalState_ = value.getNumber();
       onChanged();
       return this;
@@ -7099,7 +6329,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoalState() {
-      
+
       goalState_ = 0;
       onChanged();
       return this;
@@ -7227,7 +6457,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstOpenedAtBuilder() {
-      
+
       onChanged();
       return getFirstOpenedAtFieldBuilder().getBuilder();
     }
@@ -7256,7 +6486,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp first_opened_at = 26 [json_name = "firstOpenedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstOpenedAtFieldBuilder() {
       if (firstOpenedAtBuilder_ == null) {
         firstOpenedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7398,7 +6628,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getOpenedAtBuilder() {
-      
+
       onChanged();
       return getOpenedAtFieldBuilder().getBuilder();
     }
@@ -7429,7 +6659,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp opened_at = 27 [json_name = "openedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getOpenedAtFieldBuilder() {
       if (openedAtBuilder_ == null) {
         openedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7564,7 +6794,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstQueuedAtBuilder() {
-      
+
       onChanged();
       return getFirstQueuedAtFieldBuilder().getBuilder();
     }
@@ -7593,7 +6823,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp first_queued_at = 28 [json_name = "firstQueuedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFirstQueuedAtFieldBuilder() {
       if (firstQueuedAtBuilder_ == null) {
         firstQueuedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7728,7 +6958,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getQueuedAtBuilder() {
-      
+
       onChanged();
       return getQueuedAtFieldBuilder().getBuilder();
     }
@@ -7757,7 +6987,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp queued_at = 29 [json_name = "queuedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getQueuedAtFieldBuilder() {
       if (queuedAtBuilder_ == null) {
         queuedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -7899,7 +7129,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
-      
+
       onChanged();
       return getCreatedAtFieldBuilder().getBuilder();
     }
@@ -7930,7 +7160,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp created_at = 30 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getCreatedAtFieldBuilder() {
       if (createdAtBuilder_ == null) {
         createdAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8072,7 +7302,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
-      
+
       onChanged();
       return getUpdatedAtFieldBuilder().getBuilder();
     }
@@ -8103,7 +7333,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp updated_at = 31 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getUpdatedAtFieldBuilder() {
       if (updatedAtBuilder_ == null) {
         updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8151,7 +7381,7 @@ private static final long serialVersionUID = 0L;
         getFrontMessageIdBytes() {
       java.lang.Object ref = frontMessageId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         frontMessageId_ = b;
@@ -8175,7 +7405,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       frontMessageId_ = value;
       onChanged();
       return this;
@@ -8190,7 +7420,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFrontMessageId() {
-      
+
       frontMessageId_ = getDefaultInstance().getFrontMessageId();
       onChanged();
       return this;
@@ -8211,7 +7441,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       frontMessageId_ = value;
       onChanged();
       return this;
@@ -8339,7 +7569,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFrontUpdatedAtBuilder() {
-      
+
       onChanged();
       return getFrontUpdatedAtFieldBuilder().getBuilder();
     }
@@ -8368,7 +7598,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp front_updated_at = 33 [json_name = "frontUpdatedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getFrontUpdatedAtFieldBuilder() {
       if (frontUpdatedAtBuilder_ == null) {
         frontUpdatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8416,7 +7646,7 @@ private static final long serialVersionUID = 0L;
         getDeskMessageIdBytes() {
       java.lang.Object ref = deskMessageId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         deskMessageId_ = b;
@@ -8440,7 +7670,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       deskMessageId_ = value;
       onChanged();
       return this;
@@ -8455,7 +7685,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeskMessageId() {
-      
+
       deskMessageId_ = getDefaultInstance().getDeskMessageId();
       onChanged();
       return this;
@@ -8476,7 +7706,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       deskMessageId_ = value;
       onChanged();
       return this;
@@ -8604,7 +7834,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getDeskUpdatedAtBuilder() {
-      
+
       onChanged();
       return getDeskUpdatedAtFieldBuilder().getBuilder();
     }
@@ -8633,7 +7863,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp desk_updated_at = 35 [json_name = "deskUpdatedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getDeskUpdatedAtFieldBuilder() {
       if (deskUpdatedAtBuilder_ == null) {
         deskUpdatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -8681,7 +7911,7 @@ private static final long serialVersionUID = 0L;
         getUserLastMessageIdBytes() {
       java.lang.Object ref = userLastMessageId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         userLastMessageId_ = b;
@@ -8705,7 +7935,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       userLastMessageId_ = value;
       onChanged();
       return this;
@@ -8720,7 +7950,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserLastMessageId() {
-      
+
       userLastMessageId_ = getDefaultInstance().getUserLastMessageId();
       onChanged();
       return this;
@@ -8741,1320 +7971,165 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       userLastMessageId_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object firstAssigneeIdAfterOpen_ = "";
-    /**
-     * <pre>
-     * ID of the first manager assigned after the chat was opened.
-     * Used for tracking initial response ownership.
-     * +kubebuilder:example="9187"
-     * </pre>
-     *
-     * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-     * @return The firstAssigneeIdAfterOpen.
-     */
-    public java.lang.String getFirstAssigneeIdAfterOpen() {
-      java.lang.Object ref = firstAssigneeIdAfterOpen_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        firstAssigneeIdAfterOpen_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * ID of the first manager assigned after the chat was opened.
-     * Used for tracking initial response ownership.
-     * +kubebuilder:example="9187"
-     * </pre>
-     *
-     * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-     * @return The bytes for firstAssigneeIdAfterOpen.
-     */
-    public com.google.protobuf.ByteString
-        getFirstAssigneeIdAfterOpenBytes() {
-      java.lang.Object ref = firstAssigneeIdAfterOpen_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        firstAssigneeIdAfterOpen_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * ID of the first manager assigned after the chat was opened.
-     * Used for tracking initial response ownership.
-     * +kubebuilder:example="9187"
-     * </pre>
-     *
-     * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-     * @param value The firstAssigneeIdAfterOpen to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFirstAssigneeIdAfterOpen(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      firstAssigneeIdAfterOpen_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * ID of the first manager assigned after the chat was opened.
-     * Used for tracking initial response ownership.
-     * +kubebuilder:example="9187"
-     * </pre>
-     *
-     * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFirstAssigneeIdAfterOpen() {
-      
-      firstAssigneeIdAfterOpen_ = getDefaultInstance().getFirstAssigneeIdAfterOpen();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * ID of the first manager assigned after the chat was opened.
-     * Used for tracking initial response ownership.
-     * +kubebuilder:example="9187"
-     * </pre>
-     *
-     * <code>string first_assignee_id_after_open = 37 [json_name = "firstAssigneeIdAfterOpen"];</code>
-     * @param value The bytes for firstAssigneeIdAfterOpen to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFirstAssigneeIdAfterOpenBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      firstAssigneeIdAfterOpen_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Timestamp firstRepliedAt_;
+    private io.channel.api.proto.pub.coreapi.model.UserChatStat stat_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstRepliedAtBuilder_;
+        io.channel.api.proto.pub.coreapi.model.UserChatStat, io.channel.api.proto.pub.coreapi.model.UserChatStat.Builder, io.channel.api.proto.pub.coreapi.model.UserChatStatOrBuilder> statBuilder_;
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-     * @return Whether the firstRepliedAt field is set.
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
+     * @return Whether the stat field is set.
      */
-    public boolean hasFirstRepliedAt() {
-      return firstRepliedAtBuilder_ != null || firstRepliedAt_ != null;
+    public boolean hasStat() {
+      return statBuilder_ != null || stat_ != null;
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
-     * @return The firstRepliedAt.
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
+     * @return The stat.
      */
-    public com.google.protobuf.Timestamp getFirstRepliedAt() {
-      if (firstRepliedAtBuilder_ == null) {
-        return firstRepliedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAt_;
+    public io.channel.api.proto.pub.coreapi.model.UserChatStat getStat() {
+      if (statBuilder_ == null) {
+        return stat_ == null ? io.channel.api.proto.pub.coreapi.model.UserChatStat.getDefaultInstance() : stat_;
       } else {
-        return firstRepliedAtBuilder_.getMessage();
+        return statBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
      */
-    public Builder setFirstRepliedAt(com.google.protobuf.Timestamp value) {
-      if (firstRepliedAtBuilder_ == null) {
+    public Builder setStat(io.channel.api.proto.pub.coreapi.model.UserChatStat value) {
+      if (statBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        firstRepliedAt_ = value;
+        stat_ = value;
         onChanged();
       } else {
-        firstRepliedAtBuilder_.setMessage(value);
+        statBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
      */
-    public Builder setFirstRepliedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAt_ = builderForValue.build();
+    public Builder setStat(
+        io.channel.api.proto.pub.coreapi.model.UserChatStat.Builder builderForValue) {
+      if (statBuilder_ == null) {
+        stat_ = builderForValue.build();
         onChanged();
       } else {
-        firstRepliedAtBuilder_.setMessage(builderForValue.build());
+        statBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
      */
-    public Builder mergeFirstRepliedAt(com.google.protobuf.Timestamp value) {
-      if (firstRepliedAtBuilder_ == null) {
-        if (firstRepliedAt_ != null) {
-          firstRepliedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(firstRepliedAt_).mergeFrom(value).buildPartial();
+    public Builder mergeStat(io.channel.api.proto.pub.coreapi.model.UserChatStat value) {
+      if (statBuilder_ == null) {
+        if (stat_ != null) {
+          stat_ =
+            io.channel.api.proto.pub.coreapi.model.UserChatStat.newBuilder(stat_).mergeFrom(value).buildPartial();
         } else {
-          firstRepliedAt_ = value;
+          stat_ = value;
         }
         onChanged();
       } else {
-        firstRepliedAtBuilder_.mergeFrom(value);
+        statBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
      */
-    public Builder clearFirstRepliedAt() {
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAt_ = null;
+    public Builder clearStat() {
+      if (statBuilder_ == null) {
+        stat_ = null;
         onChanged();
       } else {
-        firstRepliedAt_ = null;
-        firstRepliedAtBuilder_ = null;
+        stat_ = null;
+        statBuilder_ = null;
       }
 
       return this;
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
      */
-    public com.google.protobuf.Timestamp.Builder getFirstRepliedAtBuilder() {
-      
+    public io.channel.api.proto.pub.coreapi.model.UserChatStat.Builder getStatBuilder() {
+
       onChanged();
-      return getFirstRepliedAtFieldBuilder().getBuilder();
+      return getStatFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
      */
-    public com.google.protobuf.TimestampOrBuilder getFirstRepliedAtOrBuilder() {
-      if (firstRepliedAtBuilder_ != null) {
-        return firstRepliedAtBuilder_.getMessageOrBuilder();
+    public io.channel.api.proto.pub.coreapi.model.UserChatStatOrBuilder getStatOrBuilder() {
+      if (statBuilder_ != null) {
+        return statBuilder_.getMessageOrBuilder();
       } else {
-        return firstRepliedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAt_;
+        return stat_ == null ?
+            io.channel.api.proto.pub.coreapi.model.UserChatStat.getDefaultInstance() : stat_;
       }
     }
     /**
      * <pre>
-     * Timestamp of the first-ever manager reply in this chat,
-     * across all open/close cycles.
-     * +kubebuilder:example="2024-03-29T03:28:35Z"
+     * Statistics measured for this user chat.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp first_replied_at = 38 [json_name = "firstRepliedAt"];</code>
+     * <code>.coreapi.model.UserChatStat stat = 37 [json_name = "stat"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getFirstRepliedAtFieldBuilder() {
-      if (firstRepliedAtBuilder_ == null) {
-        firstRepliedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getFirstRepliedAt(),
+        io.channel.api.proto.pub.coreapi.model.UserChatStat, io.channel.api.proto.pub.coreapi.model.UserChatStat.Builder, io.channel.api.proto.pub.coreapi.model.UserChatStatOrBuilder>
+        getStatFieldBuilder() {
+      if (statBuilder_ == null) {
+        statBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.channel.api.proto.pub.coreapi.model.UserChatStat, io.channel.api.proto.pub.coreapi.model.UserChatStat.Builder, io.channel.api.proto.pub.coreapi.model.UserChatStatOrBuilder>(
+                getStat(),
                 getParentForChildren(),
                 isClean());
-        firstRepliedAt_ = null;
+        stat_ = null;
       }
-      return firstRepliedAtBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp firstRepliedAtAfterOpen_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstRepliedAtAfterOpenBuilder_;
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     * @return Whether the firstRepliedAtAfterOpen field is set.
-     */
-    public boolean hasFirstRepliedAtAfterOpen() {
-      return firstRepliedAtAfterOpenBuilder_ != null || firstRepliedAtAfterOpen_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     * @return The firstRepliedAtAfterOpen.
-     */
-    public com.google.protobuf.Timestamp getFirstRepliedAtAfterOpen() {
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        return firstRepliedAtAfterOpen_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAtAfterOpen_;
-      } else {
-        return firstRepliedAtAfterOpenBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     */
-    public Builder setFirstRepliedAtAfterOpen(com.google.protobuf.Timestamp value) {
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        firstRepliedAtAfterOpen_ = value;
-        onChanged();
-      } else {
-        firstRepliedAtAfterOpenBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     */
-    public Builder setFirstRepliedAtAfterOpen(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        firstRepliedAtAfterOpen_ = builderForValue.build();
-        onChanged();
-      } else {
-        firstRepliedAtAfterOpenBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     */
-    public Builder mergeFirstRepliedAtAfterOpen(com.google.protobuf.Timestamp value) {
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        if (firstRepliedAtAfterOpen_ != null) {
-          firstRepliedAtAfterOpen_ =
-            com.google.protobuf.Timestamp.newBuilder(firstRepliedAtAfterOpen_).mergeFrom(value).buildPartial();
-        } else {
-          firstRepliedAtAfterOpen_ = value;
-        }
-        onChanged();
-      } else {
-        firstRepliedAtAfterOpenBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     */
-    public Builder clearFirstRepliedAtAfterOpen() {
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        firstRepliedAtAfterOpen_ = null;
-        onChanged();
-      } else {
-        firstRepliedAtAfterOpen_ = null;
-        firstRepliedAtAfterOpenBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getFirstRepliedAtAfterOpenBuilder() {
-      
-      onChanged();
-      return getFirstRepliedAtAfterOpenFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getFirstRepliedAtAfterOpenOrBuilder() {
-      if (firstRepliedAtAfterOpenBuilder_ != null) {
-        return firstRepliedAtAfterOpenBuilder_.getMessageOrBuilder();
-      } else {
-        return firstRepliedAtAfterOpen_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : firstRepliedAtAfterOpen_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp of the first manager reply after the most recent open.
-     * Reset each time the chat is reopened.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_replied_at_after_open = 39 [json_name = "firstRepliedAtAfterOpen"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getFirstRepliedAtAfterOpenFieldBuilder() {
-      if (firstRepliedAtAfterOpenBuilder_ == null) {
-        firstRepliedAtAfterOpenBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getFirstRepliedAtAfterOpen(),
-                getParentForChildren(),
-                isClean());
-        firstRepliedAtAfterOpen_ = null;
-      }
-      return firstRepliedAtAfterOpenBuilder_;
-    }
-
-    private boolean oneStop_ ;
-    /**
-     * <pre>
-     * Whether the chat was resolved by a single assignee without being
-     * transferred to another manager.
-     * +kubebuilder:example="true"
-     * </pre>
-     *
-     * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
-     * @return The oneStop.
-     */
-    @java.lang.Override
-    public boolean getOneStop() {
-      return oneStop_;
-    }
-    /**
-     * <pre>
-     * Whether the chat was resolved by a single assignee without being
-     * transferred to another manager.
-     * +kubebuilder:example="true"
-     * </pre>
-     *
-     * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
-     * @param value The oneStop to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOneStop(boolean value) {
-      
-      oneStop_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Whether the chat was resolved by a single assignee without being
-     * transferred to another manager.
-     * +kubebuilder:example="true"
-     * </pre>
-     *
-     * <code>bool one_stop = 40 [json_name = "oneStop"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOneStop() {
-      
-      oneStop_ = false;
-      onChanged();
-      return this;
-    }
-
-    private long waitingTime_ ;
-    /**
-     * <pre>
-     * Duration from chat open to the first manager reply (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
-     * @return The waitingTime.
-     */
-    @java.lang.Override
-    public long getWaitingTime() {
-      return waitingTime_;
-    }
-    /**
-     * <pre>
-     * Duration from chat open to the first manager reply (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
-     * @param value The waitingTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setWaitingTime(long value) {
-      
-      waitingTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Duration from chat open to the first manager reply (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 waiting_time = 41 [json_name = "waitingTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearWaitingTime() {
-      
-      waitingTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long avgReplyTime_ ;
-    /**
-     * <pre>
-     * Average time between a user's question and the manager's reply
-     * (in milliseconds).
-     * +kubebuilder:example="45000"
-     * </pre>
-     *
-     * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
-     * @return The avgReplyTime.
-     */
-    @java.lang.Override
-    public long getAvgReplyTime() {
-      return avgReplyTime_;
-    }
-    /**
-     * <pre>
-     * Average time between a user's question and the manager's reply
-     * (in milliseconds).
-     * +kubebuilder:example="45000"
-     * </pre>
-     *
-     * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
-     * @param value The avgReplyTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAvgReplyTime(long value) {
-      
-      avgReplyTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Average time between a user's question and the manager's reply
-     * (in milliseconds).
-     * +kubebuilder:example="45000"
-     * </pre>
-     *
-     * <code>int64 avg_reply_time = 42 [json_name = "avgReplyTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAvgReplyTime() {
-      
-      avgReplyTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long totalReplyTime_ ;
-    /**
-     * <pre>
-     * Sum of all individual reply durations across manager responses
-     * (in milliseconds).
-     * +kubebuilder:example="90000"
-     * </pre>
-     *
-     * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
-     * @return The totalReplyTime.
-     */
-    @java.lang.Override
-    public long getTotalReplyTime() {
-      return totalReplyTime_;
-    }
-    /**
-     * <pre>
-     * Sum of all individual reply durations across manager responses
-     * (in milliseconds).
-     * +kubebuilder:example="90000"
-     * </pre>
-     *
-     * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
-     * @param value The totalReplyTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTotalReplyTime(long value) {
-      
-      totalReplyTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Sum of all individual reply durations across manager responses
-     * (in milliseconds).
-     * +kubebuilder:example="90000"
-     * </pre>
-     *
-     * <code>int64 total_reply_time = 43 [json_name = "totalReplyTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTotalReplyTime() {
-      
-      totalReplyTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private int replyCount_ ;
-    /**
-     * <pre>
-     * Total number of manager replies in this chat.
-     * +kubebuilder:example="3"
-     * </pre>
-     *
-     * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
-     * @return The replyCount.
-     */
-    @java.lang.Override
-    public int getReplyCount() {
-      return replyCount_;
-    }
-    /**
-     * <pre>
-     * Total number of manager replies in this chat.
-     * +kubebuilder:example="3"
-     * </pre>
-     *
-     * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
-     * @param value The replyCount to set.
-     * @return This builder for chaining.
-     */
-    public Builder setReplyCount(int value) {
-      
-      replyCount_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Total number of manager replies in this chat.
-     * +kubebuilder:example="3"
-     * </pre>
-     *
-     * <code>int32 reply_count = 44 [json_name = "replyCount"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearReplyCount() {
-      
-      replyCount_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private long resolutionTime_ ;
-    /**
-     * <pre>
-     * Total duration from the first open to close (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
-     * @return The resolutionTime.
-     */
-    @java.lang.Override
-    public long getResolutionTime() {
-      return resolutionTime_;
-    }
-    /**
-     * <pre>
-     * Total duration from the first open to close (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
-     * @param value The resolutionTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setResolutionTime(long value) {
-      
-      resolutionTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Total duration from the first open to close (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 resolution_time = 45 [json_name = "resolutionTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearResolutionTime() {
-      
-      resolutionTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long operationWaitingTime_ ;
-    /**
-     * <pre>
-     * Duration from open to the first manager reply, counting only
-     * operating hours (in milliseconds).
-     * +kubebuilder:example="55000"
-     * </pre>
-     *
-     * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
-     * @return The operationWaitingTime.
-     */
-    @java.lang.Override
-    public long getOperationWaitingTime() {
-      return operationWaitingTime_;
-    }
-    /**
-     * <pre>
-     * Duration from open to the first manager reply, counting only
-     * operating hours (in milliseconds).
-     * +kubebuilder:example="55000"
-     * </pre>
-     *
-     * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
-     * @param value The operationWaitingTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperationWaitingTime(long value) {
-      
-      operationWaitingTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Duration from open to the first manager reply, counting only
-     * operating hours (in milliseconds).
-     * +kubebuilder:example="55000"
-     * </pre>
-     *
-     * <code>int64 operation_waiting_time = 46 [json_name = "operationWaitingTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperationWaitingTime() {
-      
-      operationWaitingTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long operationAvgReplyTime_ ;
-    /**
-     * <pre>
-     * Average reply time counting only operating hours (in milliseconds).
-     * +kubebuilder:example="40000"
-     * </pre>
-     *
-     * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
-     * @return The operationAvgReplyTime.
-     */
-    @java.lang.Override
-    public long getOperationAvgReplyTime() {
-      return operationAvgReplyTime_;
-    }
-    /**
-     * <pre>
-     * Average reply time counting only operating hours (in milliseconds).
-     * +kubebuilder:example="40000"
-     * </pre>
-     *
-     * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
-     * @param value The operationAvgReplyTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperationAvgReplyTime(long value) {
-      
-      operationAvgReplyTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Average reply time counting only operating hours (in milliseconds).
-     * +kubebuilder:example="40000"
-     * </pre>
-     *
-     * <code>int64 operation_avg_reply_time = 47 [json_name = "operationAvgReplyTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperationAvgReplyTime() {
-      
-      operationAvgReplyTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long operationTotalReplyTime_ ;
-    /**
-     * <pre>
-     * Sum of all reply durations counting only operating hours
-     * (in milliseconds).
-     * +kubebuilder:example="80000"
-     * </pre>
-     *
-     * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
-     * @return The operationTotalReplyTime.
-     */
-    @java.lang.Override
-    public long getOperationTotalReplyTime() {
-      return operationTotalReplyTime_;
-    }
-    /**
-     * <pre>
-     * Sum of all reply durations counting only operating hours
-     * (in milliseconds).
-     * +kubebuilder:example="80000"
-     * </pre>
-     *
-     * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
-     * @param value The operationTotalReplyTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperationTotalReplyTime(long value) {
-      
-      operationTotalReplyTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Sum of all reply durations counting only operating hours
-     * (in milliseconds).
-     * +kubebuilder:example="80000"
-     * </pre>
-     *
-     * <code>int64 operation_total_reply_time = 48 [json_name = "operationTotalReplyTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperationTotalReplyTime() {
-      
-      operationTotalReplyTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private int operationReplyCount_ ;
-    /**
-     * <pre>
-     * Total number of manager replies during operating hours.
-     * +kubebuilder:example="2"
-     * </pre>
-     *
-     * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
-     * @return The operationReplyCount.
-     */
-    @java.lang.Override
-    public int getOperationReplyCount() {
-      return operationReplyCount_;
-    }
-    /**
-     * <pre>
-     * Total number of manager replies during operating hours.
-     * +kubebuilder:example="2"
-     * </pre>
-     *
-     * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
-     * @param value The operationReplyCount to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperationReplyCount(int value) {
-      
-      operationReplyCount_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Total number of manager replies during operating hours.
-     * +kubebuilder:example="2"
-     * </pre>
-     *
-     * <code>int32 operation_reply_count = 49 [json_name = "operationReplyCount"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperationReplyCount() {
-      
-      operationReplyCount_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private long operationResolutionTime_ ;
-    /**
-     * <pre>
-     * Total resolution time counting only operating hours (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
-     * @return The operationResolutionTime.
-     */
-    @java.lang.Override
-    public long getOperationResolutionTime() {
-      return operationResolutionTime_;
-    }
-    /**
-     * <pre>
-     * Total resolution time counting only operating hours (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
-     * @param value The operationResolutionTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperationResolutionTime(long value) {
-      
-      operationResolutionTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Total resolution time counting only operating hours (in milliseconds).
-     * +kubebuilder:example="226139"
-     * </pre>
-     *
-     * <code>int64 operation_resolution_time = 50 [json_name = "operationResolutionTime"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperationResolutionTime() {
-      
-      operationResolutionTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.Timestamp askedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> askedAtBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     * @return Whether the askedAt field is set.
-     */
-    public boolean hasAskedAt() {
-      return askedAtBuilder_ != null || askedAt_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     * @return The askedAt.
-     */
-    public com.google.protobuf.Timestamp getAskedAt() {
-      if (askedAtBuilder_ == null) {
-        return askedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : askedAt_;
-      } else {
-        return askedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     */
-    public Builder setAskedAt(com.google.protobuf.Timestamp value) {
-      if (askedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        askedAt_ = value;
-        onChanged();
-      } else {
-        askedAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     */
-    public Builder setAskedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (askedAtBuilder_ == null) {
-        askedAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        askedAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     */
-    public Builder mergeAskedAt(com.google.protobuf.Timestamp value) {
-      if (askedAtBuilder_ == null) {
-        if (askedAt_ != null) {
-          askedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(askedAt_).mergeFrom(value).buildPartial();
-        } else {
-          askedAt_ = value;
-        }
-        onChanged();
-      } else {
-        askedAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     */
-    public Builder clearAskedAt() {
-      if (askedAtBuilder_ == null) {
-        askedAt_ = null;
-        onChanged();
-      } else {
-        askedAt_ = null;
-        askedAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getAskedAtBuilder() {
-      
-      onChanged();
-      return getAskedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getAskedAtOrBuilder() {
-      if (askedAtBuilder_ != null) {
-        return askedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return askedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : askedAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the user last sent a message that is awaiting
-     * a manager's reply. Cleared when the manager responds.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp asked_at = 51 [json_name = "askedAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getAskedAtFieldBuilder() {
-      if (askedAtBuilder_ == null) {
-        askedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getAskedAt(),
-                getParentForChildren(),
-                isClean());
-        askedAt_ = null;
-      }
-      return askedAtBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp firstAskedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> firstAskedAtBuilder_;
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     * @return Whether the firstAskedAt field is set.
-     */
-    public boolean hasFirstAskedAt() {
-      return firstAskedAtBuilder_ != null || firstAskedAt_ != null;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     * @return The firstAskedAt.
-     */
-    public com.google.protobuf.Timestamp getFirstAskedAt() {
-      if (firstAskedAtBuilder_ == null) {
-        return firstAskedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstAskedAt_;
-      } else {
-        return firstAskedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     */
-    public Builder setFirstAskedAt(com.google.protobuf.Timestamp value) {
-      if (firstAskedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        firstAskedAt_ = value;
-        onChanged();
-      } else {
-        firstAskedAtBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     */
-    public Builder setFirstAskedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (firstAskedAtBuilder_ == null) {
-        firstAskedAt_ = builderForValue.build();
-        onChanged();
-      } else {
-        firstAskedAtBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     */
-    public Builder mergeFirstAskedAt(com.google.protobuf.Timestamp value) {
-      if (firstAskedAtBuilder_ == null) {
-        if (firstAskedAt_ != null) {
-          firstAskedAt_ =
-            com.google.protobuf.Timestamp.newBuilder(firstAskedAt_).mergeFrom(value).buildPartial();
-        } else {
-          firstAskedAt_ = value;
-        }
-        onChanged();
-      } else {
-        firstAskedAtBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     */
-    public Builder clearFirstAskedAt() {
-      if (firstAskedAtBuilder_ == null) {
-        firstAskedAt_ = null;
-        onChanged();
-      } else {
-        firstAskedAt_ = null;
-        firstAskedAtBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getFirstAskedAtBuilder() {
-      
-      onChanged();
-      return getFirstAskedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getFirstAskedAtOrBuilder() {
-      if (firstAskedAtBuilder_ != null) {
-        return firstAskedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return firstAskedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : firstAskedAt_;
-      }
-    }
-    /**
-     * <pre>
-     * Timestamp when the user sent the first message in this chat.
-     * +kubebuilder:example="2024-03-29T03:24:30Z"
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp first_asked_at = 52 [json_name = "firstAskedAt"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getFirstAskedAtFieldBuilder() {
-      if (firstAskedAtBuilder_ == null) {
-        firstAskedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getFirstAskedAt(),
-                getParentForChildren(),
-                isClean());
-        firstAskedAt_ = null;
-      }
-      return firstAskedAtBuilder_;
+      return statBuilder_;
     }
 
     private com.google.protobuf.Timestamp closedAt_;
@@ -10066,7 +8141,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      * @return Whether the closedAt field is set.
      */
     public boolean hasClosedAt() {
@@ -10078,7 +8153,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      * @return The closedAt.
      */
     public com.google.protobuf.Timestamp getClosedAt() {
@@ -10094,7 +8169,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      */
     public Builder setClosedAt(com.google.protobuf.Timestamp value) {
       if (closedAtBuilder_ == null) {
@@ -10115,7 +8190,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      */
     public Builder setClosedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -10134,7 +8209,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      */
     public Builder mergeClosedAt(com.google.protobuf.Timestamp value) {
       if (closedAtBuilder_ == null) {
@@ -10157,7 +8232,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      */
     public Builder clearClosedAt() {
       if (closedAtBuilder_ == null) {
@@ -10176,10 +8251,10 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getClosedAtBuilder() {
-      
+
       onChanged();
       return getClosedAtFieldBuilder().getBuilder();
     }
@@ -10189,7 +8264,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getClosedAtOrBuilder() {
       if (closedAtBuilder_ != null) {
@@ -10205,10 +8280,10 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:28:34Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp closed_at = 53 [json_name = "closedAt"];</code>
+     * <code>.google.protobuf.Timestamp closed_at = 38 [json_name = "closedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getClosedAtFieldBuilder() {
       if (closedAtBuilder_ == null) {
         closedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -10230,7 +8305,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      * @return Whether the snoozedAt field is set.
      */
     public boolean hasSnoozedAt() {
@@ -10242,7 +8317,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      * @return The snoozedAt.
      */
     public com.google.protobuf.Timestamp getSnoozedAt() {
@@ -10258,7 +8333,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      */
     public Builder setSnoozedAt(com.google.protobuf.Timestamp value) {
       if (snoozedAtBuilder_ == null) {
@@ -10279,7 +8354,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      */
     public Builder setSnoozedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -10298,7 +8373,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      */
     public Builder mergeSnoozedAt(com.google.protobuf.Timestamp value) {
       if (snoozedAtBuilder_ == null) {
@@ -10321,7 +8396,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      */
     public Builder clearSnoozedAt() {
       if (snoozedAtBuilder_ == null) {
@@ -10340,10 +8415,10 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getSnoozedAtBuilder() {
-      
+
       onChanged();
       return getSnoozedAtFieldBuilder().getBuilder();
     }
@@ -10353,7 +8428,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getSnoozedAtOrBuilder() {
       if (snoozedAtBuilder_ != null) {
@@ -10369,10 +8444,10 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-03-29T03:30:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp snoozed_at = 54 [json_name = "snoozedAt"];</code>
+     * <code>.google.protobuf.Timestamp snoozed_at = 39 [json_name = "snoozedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getSnoozedAtFieldBuilder() {
       if (snoozedAtBuilder_ == null) {
         snoozedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -10394,7 +8469,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      * @return Whether the expiresAt field is set.
      */
     public boolean hasExpiresAt() {
@@ -10406,7 +8481,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      * @return The expiresAt.
      */
     public com.google.protobuf.Timestamp getExpiresAt() {
@@ -10422,7 +8497,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      */
     public Builder setExpiresAt(com.google.protobuf.Timestamp value) {
       if (expiresAtBuilder_ == null) {
@@ -10443,7 +8518,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      */
     public Builder setExpiresAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -10462,7 +8537,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      */
     public Builder mergeExpiresAt(com.google.protobuf.Timestamp value) {
       if (expiresAtBuilder_ == null) {
@@ -10485,7 +8560,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      */
     public Builder clearExpiresAt() {
       if (expiresAtBuilder_ == null) {
@@ -10504,10 +8579,10 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpiresAtBuilder() {
-      
+
       onChanged();
       return getExpiresAtFieldBuilder().getBuilder();
     }
@@ -10517,7 +8592,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
       if (expiresAtBuilder_ != null) {
@@ -10533,10 +8608,10 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="2024-04-12T00:00:00Z"
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 55 [json_name = "expiresAt"];</code>
+     * <code>.google.protobuf.Timestamp expires_at = 40 [json_name = "expiresAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>
         getExpiresAtFieldBuilder() {
       if (expiresAtBuilder_ == null) {
         expiresAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -10557,7 +8632,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
-     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
      * @return The mediumId.
      */
     public java.lang.String getMediumId() {
@@ -10579,14 +8654,14 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
-     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
      * @return The bytes for mediumId.
      */
     public com.google.protobuf.ByteString
         getMediumIdBytes() {
       java.lang.Object ref = mediumId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         mediumId_ = b;
@@ -10602,7 +8677,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
-     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
      * @param value The mediumId to set.
      * @return This builder for chaining.
      */
@@ -10611,7 +8686,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       mediumId_ = value;
       onChanged();
       return this;
@@ -10623,11 +8698,11 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
-     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMediumId() {
-      
+
       mediumId_ = getDefaultInstance().getMediumId();
       onChanged();
       return this;
@@ -10639,7 +8714,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:example="67fceb5a3d6de141ea5a"
      * </pre>
      *
-     * <code>string medium_id = 57 [json_name = "mediumId"];</code>
+     * <code>string medium_id = 41 [json_name = "mediumId"];</code>
      * @param value The bytes for mediumId to set.
      * @return This builder for chaining.
      */
@@ -10649,7 +8724,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       mediumId_ = value;
       onChanged();
       return this;
@@ -10668,1299 +8743,954 @@ private static final long serialVersionUID = 0L;
 
 
     /* Generated by protoc-gen-java-set-or-clear */
-    
+
     /**
      * @param value The id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearId(java.lang.String value) {
-    	if (value == null)
-    		return clearId();
-    	else
-    		return setId(value);
+	if (value == null)
+		return clearId();
+	else
+		return setId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearId();
-    	else
-    		return setId(mapFunc.apply(value));
+	if (value == null)
+		return clearId();
+	else
+		return setId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The channel_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearChannelId(java.lang.String value) {
-    	if (value == null)
-    		return clearChannelId();
-    	else
-    		return setChannelId(value);
+	if (value == null)
+		return clearChannelId();
+	else
+		return setChannelId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearChannelId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearChannelId();
-    	else
-    		return setChannelId(mapFunc.apply(value));
+	if (value == null)
+		return clearChannelId();
+	else
+		return setChannelId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The medium_type to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearMediumType(java.lang.String value) {
-    	if (value == null)
-    		return clearMediumType();
-    	else
-    		return setMediumType(value);
+	if (value == null)
+		return clearMediumType();
+	else
+		return setMediumType(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearMediumType(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearMediumType();
-    	else
-    		return setMediumType(mapFunc.apply(value));
+	if (value == null)
+		return clearMediumType();
+	else
+		return setMediumType(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The live_meet_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearLiveMeetId(java.lang.String value) {
-    	if (value == null)
-    		return clearLiveMeetId();
-    	else
-    		return setLiveMeetId(value);
+	if (value == null)
+		return clearLiveMeetId();
+	else
+		return setLiveMeetId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearLiveMeetId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearLiveMeetId();
-    	else
-    		return setLiveMeetId(mapFunc.apply(value));
+	if (value == null)
+		return clearLiveMeetId();
+	else
+		return setLiveMeetId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The state to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearState(io.channel.api.proto.pub.coreapi.model.UserChatState value) {
-    	if (value == null)
-    		return clearState();
-    	else
-    		return setState(value);
+	if (value == null)
+		return clearState();
+	else
+		return setState(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.UserChatState> mapFunc) {
-    	if (value == null)
-    		return clearState();
-    	else
-    		return setState(mapFunc.apply(value));
+	if (value == null)
+		return clearState();
+	else
+		return setState(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The missed_reason to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearMissedReason(io.channel.api.proto.pub.coreapi.model.MissedReason value) {
-    	if (value == null)
-    		return clearMissedReason();
-    	else
-    		return setMissedReason(value);
+	if (value == null)
+		return clearMissedReason();
+	else
+		return setMissedReason(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearMissedReason(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MissedReason> mapFunc) {
-    	if (value == null)
-    		return clearMissedReason();
-    	else
-    		return setMissedReason(mapFunc.apply(value));
+	if (value == null)
+		return clearMissedReason();
+	else
+		return setMissedReason(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The managed to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearManaged(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearManaged();
-    	else
-    		return setManaged(value);
+	if (value == null)
+		return clearManaged();
+	else
+		return setManaged(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearManaged(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearManaged();
-    	else
-    		return setManaged(mapFunc.apply(value));
+	if (value == null)
+		return clearManaged();
+	else
+		return setManaged(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The priority to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearPriority(io.channel.api.proto.pub.coreapi.model.AutoAssignPriority value) {
-    	if (value == null)
-    		return clearPriority();
-    	else
-    		return setPriority(value);
+	if (value == null)
+		return clearPriority();
+	else
+		return setPriority(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearPriority(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.AutoAssignPriority> mapFunc) {
-    	if (value == null)
-    		return clearPriority();
-    	else
-    		return setPriority(mapFunc.apply(value));
+	if (value == null)
+		return clearPriority();
+	else
+		return setPriority(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The user_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearUserId(java.lang.String value) {
-    	if (value == null)
-    		return clearUserId();
-    	else
-    		return setUserId(value);
+	if (value == null)
+		return clearUserId();
+	else
+		return setUserId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearUserId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearUserId();
-    	else
-    		return setUserId(mapFunc.apply(value));
+	if (value == null)
+		return clearUserId();
+	else
+		return setUserId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The xer_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearXerId(java.lang.String value) {
-    	if (value == null)
-    		return clearXerId();
-    	else
-    		return setXerId(value);
+	if (value == null)
+		return clearXerId();
+	else
+		return setXerId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearXerId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearXerId();
-    	else
-    		return setXerId(mapFunc.apply(value));
+	if (value == null)
+		return clearXerId();
+	else
+		return setXerId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The name to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearName(java.lang.String value) {
-    	if (value == null)
-    		return clearName();
-    	else
-    		return setName(value);
+	if (value == null)
+		return clearName();
+	else
+		return setName(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearName();
-    	else
-    		return setName(mapFunc.apply(value));
+	if (value == null)
+		return clearName();
+	else
+		return setName(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The title to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearTitle(java.lang.String value) {
-    	if (value == null)
-    		return clearTitle();
-    	else
-    		return setTitle(value);
+	if (value == null)
+		return clearTitle();
+	else
+		return setTitle(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearTitle(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearTitle();
-    	else
-    		return setTitle(mapFunc.apply(value));
+	if (value == null)
+		return clearTitle();
+	else
+		return setTitle(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The description to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearDescription(java.lang.String value) {
-    	if (value == null)
-    		return clearDescription();
-    	else
-    		return setDescription(value);
+	if (value == null)
+		return clearDescription();
+	else
+		return setDescription(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearDescription(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearDescription();
-    	else
-    		return setDescription(mapFunc.apply(value));
+	if (value == null)
+		return clearDescription();
+	else
+		return setDescription(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The subtext_type to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearSubtextType(io.channel.api.proto.pub.coreapi.model.UserChatSubtextType value) {
-    	if (value == null)
-    		return clearSubtextType();
-    	else
-    		return setSubtextType(value);
+	if (value == null)
+		return clearSubtextType();
+	else
+		return setSubtextType(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearSubtextType(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.UserChatSubtextType> mapFunc) {
-    	if (value == null)
-    		return clearSubtextType();
-    	else
-    		return setSubtextType(mapFunc.apply(value));
+	if (value == null)
+		return clearSubtextType();
+	else
+		return setSubtextType(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The handling to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearHandling(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearHandling();
-    	else
-    		return setHandling(value);
+	if (value == null)
+		return clearHandling();
+	else
+		return setHandling(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearHandling(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearHandling();
-    	else
-    		return setHandling(mapFunc.apply(value));
+	if (value == null)
+		return clearHandling();
+	else
+		return setHandling(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The source to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearSource(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearSource();
-    	else
-    		return setSource(value);
+	if (value == null)
+		return clearSource();
+	else
+		return setSource(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearSource(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearSource();
-    	else
-    		return setSource(mapFunc.apply(value));
+	if (value == null)
+		return clearSource();
+	else
+		return setSource(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param values The manager_ids to add.
      * @return This builder for chaining.
      */
     public Builder addAllOrClearManagerIds(java.lang.Iterable<java.lang.String> values) {
-    	if (values == null)
-    		return clearManagerIds();
-    	else
-    		return addAllManagerIds(values);
+	if (values == null)
+		return clearManagerIds();
+	else
+		return addAllManagerIds(values);
     }
-    	
+
     /**
      * @param values The values to map.
      * @param mapFunc The function to map the values into each proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapAllOrClearManagerIds(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (values == null)
-    		return clearManagerIds();
-    	else {
-    		values.forEach(value -> addManagerIds(mapFunc.apply(value)));
-    		return this;
-    	}
+	if (values == null)
+		return clearManagerIds();
+	else {
+		values.forEach(value -> addManagerIds(mapFunc.apply(value)));
+		return this;
+	}
     }
-    	
+
     /**
      * @param value The assignee_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearAssigneeId(java.lang.String value) {
-    	if (value == null)
-    		return clearAssigneeId();
-    	else
-    		return setAssigneeId(value);
+	if (value == null)
+		return clearAssigneeId();
+	else
+		return setAssigneeId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearAssigneeId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearAssigneeId();
-    	else
-    		return setAssigneeId(mapFunc.apply(value));
+	if (value == null)
+		return clearAssigneeId();
+	else
+		return setAssigneeId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The team_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearTeamId(java.lang.String value) {
-    	if (value == null)
-    		return clearTeamId();
-    	else
-    		return setTeamId(value);
+	if (value == null)
+		return clearTeamId();
+	else
+		return setTeamId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearTeamId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearTeamId();
-    	else
-    		return setTeamId(mapFunc.apply(value));
+	if (value == null)
+		return clearTeamId();
+	else
+		return setTeamId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param values The tags to add.
      * @return This builder for chaining.
      */
     public Builder addAllOrClearTags(java.lang.Iterable<java.lang.String> values) {
-    	if (values == null)
-    		return clearTags();
-    	else
-    		return addAllTags(values);
+	if (values == null)
+		return clearTags();
+	else
+		return addAllTags(values);
     }
-    	
+
     /**
      * @param values The values to map.
      * @param mapFunc The function to map the values into each proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapAllOrClearTags(java.lang.Iterable<T> values, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (values == null)
-    		return clearTags();
-    	else {
-    		values.forEach(value -> addTags(mapFunc.apply(value)));
-    		return this;
-    	}
+	if (values == null)
+		return clearTags();
+	else {
+		values.forEach(value -> addTags(mapFunc.apply(value)));
+		return this;
+	}
     }
-    	
+
     /**
      * @param value The profile to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearProfile(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearProfile();
-    	else
-    		return setProfile(value);
+	if (value == null)
+		return clearProfile();
+	else
+		return setProfile(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearProfile(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearProfile();
-    	else
-    		return setProfile(mapFunc.apply(value));
+	if (value == null)
+		return clearProfile();
+	else
+		return setProfile(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The goal_event_name to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearGoalEventName(java.lang.String value) {
-    	if (value == null)
-    		return clearGoalEventName();
-    	else
-    		return setGoalEventName(value);
+	if (value == null)
+		return clearGoalEventName();
+	else
+		return setGoalEventName(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearGoalEventName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearGoalEventName();
-    	else
-    		return setGoalEventName(mapFunc.apply(value));
+	if (value == null)
+		return clearGoalEventName();
+	else
+		return setGoalEventName(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The goal_event_query to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearGoalEventQuery(com.google.protobuf.Struct value) {
-    	if (value == null)
-    		return clearGoalEventQuery();
-    	else
-    		return setGoalEventQuery(value);
+	if (value == null)
+		return clearGoalEventQuery();
+	else
+		return setGoalEventQuery(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearGoalEventQuery(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
-    	if (value == null)
-    		return clearGoalEventQuery();
-    	else
-    		return setGoalEventQuery(mapFunc.apply(value));
+	if (value == null)
+		return clearGoalEventQuery();
+	else
+		return setGoalEventQuery(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The goal_checked_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearGoalCheckedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearGoalCheckedAt();
-    	else
-    		return setGoalCheckedAt(value);
+	if (value == null)
+		return clearGoalCheckedAt();
+	else
+		return setGoalCheckedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearGoalCheckedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearGoalCheckedAt();
-    	else
-    		return setGoalCheckedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearGoalCheckedAt();
+	else
+		return setGoalCheckedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The goal_state to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearGoalState(io.channel.api.proto.pub.coreapi.model.UserChatGoalState value) {
-    	if (value == null)
-    		return clearGoalState();
-    	else
-    		return setGoalState(value);
+	if (value == null)
+		return clearGoalState();
+	else
+		return setGoalState(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearGoalState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.UserChatGoalState> mapFunc) {
-    	if (value == null)
-    		return clearGoalState();
-    	else
-    		return setGoalState(mapFunc.apply(value));
+	if (value == null)
+		return clearGoalState();
+	else
+		return setGoalState(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_opened_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearFirstOpenedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFirstOpenedAt();
-    	else
-    		return setFirstOpenedAt(value);
+	if (value == null)
+		return clearFirstOpenedAt();
+	else
+		return setFirstOpenedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearFirstOpenedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFirstOpenedAt();
-    	else
-    		return setFirstOpenedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearFirstOpenedAt();
+	else
+		return setFirstOpenedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The opened_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearOpenedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearOpenedAt();
-    	else
-    		return setOpenedAt(value);
+	if (value == null)
+		return clearOpenedAt();
+	else
+		return setOpenedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearOpenedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearOpenedAt();
-    	else
-    		return setOpenedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearOpenedAt();
+	else
+		return setOpenedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The first_queued_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearFirstQueuedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFirstQueuedAt();
-    	else
-    		return setFirstQueuedAt(value);
+	if (value == null)
+		return clearFirstQueuedAt();
+	else
+		return setFirstQueuedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearFirstQueuedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFirstQueuedAt();
-    	else
-    		return setFirstQueuedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearFirstQueuedAt();
+	else
+		return setFirstQueuedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The queued_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearQueuedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearQueuedAt();
-    	else
-    		return setQueuedAt(value);
+	if (value == null)
+		return clearQueuedAt();
+	else
+		return setQueuedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearQueuedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearQueuedAt();
-    	else
-    		return setQueuedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearQueuedAt();
+	else
+		return setQueuedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The created_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearCreatedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearCreatedAt();
-    	else
-    		return setCreatedAt(value);
+	if (value == null)
+		return clearCreatedAt();
+	else
+		return setCreatedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearCreatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearCreatedAt();
-    	else
-    		return setCreatedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearCreatedAt();
+	else
+		return setCreatedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The updated_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearUpdatedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearUpdatedAt();
-    	else
-    		return setUpdatedAt(value);
+	if (value == null)
+		return clearUpdatedAt();
+	else
+		return setUpdatedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearUpdatedAt();
-    	else
-    		return setUpdatedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearUpdatedAt();
+	else
+		return setUpdatedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The front_message_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearFrontMessageId(java.lang.String value) {
-    	if (value == null)
-    		return clearFrontMessageId();
-    	else
-    		return setFrontMessageId(value);
+	if (value == null)
+		return clearFrontMessageId();
+	else
+		return setFrontMessageId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearFrontMessageId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearFrontMessageId();
-    	else
-    		return setFrontMessageId(mapFunc.apply(value));
+	if (value == null)
+		return clearFrontMessageId();
+	else
+		return setFrontMessageId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The front_updated_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearFrontUpdatedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFrontUpdatedAt();
-    	else
-    		return setFrontUpdatedAt(value);
+	if (value == null)
+		return clearFrontUpdatedAt();
+	else
+		return setFrontUpdatedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearFrontUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFrontUpdatedAt();
-    	else
-    		return setFrontUpdatedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearFrontUpdatedAt();
+	else
+		return setFrontUpdatedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The desk_message_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearDeskMessageId(java.lang.String value) {
-    	if (value == null)
-    		return clearDeskMessageId();
-    	else
-    		return setDeskMessageId(value);
+	if (value == null)
+		return clearDeskMessageId();
+	else
+		return setDeskMessageId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearDeskMessageId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearDeskMessageId();
-    	else
-    		return setDeskMessageId(mapFunc.apply(value));
+	if (value == null)
+		return clearDeskMessageId();
+	else
+		return setDeskMessageId(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The desk_updated_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearDeskUpdatedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearDeskUpdatedAt();
-    	else
-    		return setDeskUpdatedAt(value);
+	if (value == null)
+		return clearDeskUpdatedAt();
+	else
+		return setDeskUpdatedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearDeskUpdatedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearDeskUpdatedAt();
-    	else
-    		return setDeskUpdatedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearDeskUpdatedAt();
+	else
+		return setDeskUpdatedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The user_last_message_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearUserLastMessageId(java.lang.String value) {
-    	if (value == null)
-    		return clearUserLastMessageId();
-    	else
-    		return setUserLastMessageId(value);
+	if (value == null)
+		return clearUserLastMessageId();
+	else
+		return setUserLastMessageId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearUserLastMessageId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearUserLastMessageId();
-    	else
-    		return setUserLastMessageId(mapFunc.apply(value));
+	if (value == null)
+		return clearUserLastMessageId();
+	else
+		return setUserLastMessageId(mapFunc.apply(value));
     }
-    	
+
     /**
-     * @param value The first_assignee_id_after_open to set.
+     * @param value The stat to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearFirstAssigneeIdAfterOpen(java.lang.String value) {
-    	if (value == null)
-    		return clearFirstAssigneeIdAfterOpen();
-    	else
-    		return setFirstAssigneeIdAfterOpen(value);
+    public Builder setOrClearStat(io.channel.api.proto.pub.coreapi.model.UserChatStat value) {
+	if (value == null)
+		return clearStat();
+	else
+		return setStat(value);
     }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearFirstAssigneeIdAfterOpen(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearFirstAssigneeIdAfterOpen();
-    	else
-    		return setFirstAssigneeIdAfterOpen(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The first_replied_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearFirstRepliedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFirstRepliedAt();
-    	else
-    		return setFirstRepliedAt(value);
-    }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearFirstRepliedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFirstRepliedAt();
-    	else
-    		return setFirstRepliedAt(mapFunc.apply(value));
+    public <T> Builder mapOrClearStat(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.UserChatStat> mapFunc) {
+	if (value == null)
+		return clearStat();
+	else
+		return setStat(mapFunc.apply(value));
     }
-    	
-    /**
-     * @param value The first_replied_at_after_open to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearFirstRepliedAtAfterOpen(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFirstRepliedAtAfterOpen();
-    	else
-    		return setFirstRepliedAtAfterOpen(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearFirstRepliedAtAfterOpen(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFirstRepliedAtAfterOpen();
-    	else
-    		return setFirstRepliedAtAfterOpen(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The one_stop to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOneStop(java.lang.Boolean value) {
-    	if (value == null)
-    		return clearOneStop();
-    	else
-    		return setOneStop(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOneStop(T value, java.util.function.Function<T, java.lang.Boolean> mapFunc) {
-    	if (value == null)
-    		return clearOneStop();
-    	else
-    		return setOneStop(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The waiting_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearWaitingTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearWaitingTime();
-    	else
-    		return setWaitingTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearWaitingTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearWaitingTime();
-    	else
-    		return setWaitingTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The avg_reply_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearAvgReplyTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearAvgReplyTime();
-    	else
-    		return setAvgReplyTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearAvgReplyTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearAvgReplyTime();
-    	else
-    		return setAvgReplyTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The total_reply_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearTotalReplyTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearTotalReplyTime();
-    	else
-    		return setTotalReplyTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearTotalReplyTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearTotalReplyTime();
-    	else
-    		return setTotalReplyTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The reply_count to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearReplyCount(java.lang.Integer value) {
-    	if (value == null)
-    		return clearReplyCount();
-    	else
-    		return setReplyCount(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearReplyCount(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
-    	if (value == null)
-    		return clearReplyCount();
-    	else
-    		return setReplyCount(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The resolution_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearResolutionTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearResolutionTime();
-    	else
-    		return setResolutionTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearResolutionTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearResolutionTime();
-    	else
-    		return setResolutionTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operation_waiting_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperationWaitingTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearOperationWaitingTime();
-    	else
-    		return setOperationWaitingTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperationWaitingTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearOperationWaitingTime();
-    	else
-    		return setOperationWaitingTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operation_avg_reply_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperationAvgReplyTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearOperationAvgReplyTime();
-    	else
-    		return setOperationAvgReplyTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperationAvgReplyTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearOperationAvgReplyTime();
-    	else
-    		return setOperationAvgReplyTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operation_total_reply_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperationTotalReplyTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearOperationTotalReplyTime();
-    	else
-    		return setOperationTotalReplyTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperationTotalReplyTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearOperationTotalReplyTime();
-    	else
-    		return setOperationTotalReplyTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operation_reply_count to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperationReplyCount(java.lang.Integer value) {
-    	if (value == null)
-    		return clearOperationReplyCount();
-    	else
-    		return setOperationReplyCount(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperationReplyCount(T value, java.util.function.Function<T, java.lang.Integer> mapFunc) {
-    	if (value == null)
-    		return clearOperationReplyCount();
-    	else
-    		return setOperationReplyCount(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The operation_resolution_time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOperationResolutionTime(java.lang.Long value) {
-    	if (value == null)
-    		return clearOperationResolutionTime();
-    	else
-    		return setOperationResolutionTime(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOperationResolutionTime(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
-    	if (value == null)
-    		return clearOperationResolutionTime();
-    	else
-    		return setOperationResolutionTime(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The asked_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearAskedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearAskedAt();
-    	else
-    		return setAskedAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearAskedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearAskedAt();
-    	else
-    		return setAskedAt(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The first_asked_at to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearFirstAskedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearFirstAskedAt();
-    	else
-    		return setFirstAskedAt(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearFirstAskedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearFirstAskedAt();
-    	else
-    		return setFirstAskedAt(mapFunc.apply(value));
-    }
-    	
+
     /**
      * @param value The closed_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearClosedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearClosedAt();
-    	else
-    		return setClosedAt(value);
+	if (value == null)
+		return clearClosedAt();
+	else
+		return setClosedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearClosedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearClosedAt();
-    	else
-    		return setClosedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearClosedAt();
+	else
+		return setClosedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The snoozed_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearSnoozedAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearSnoozedAt();
-    	else
-    		return setSnoozedAt(value);
+	if (value == null)
+		return clearSnoozedAt();
+	else
+		return setSnoozedAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearSnoozedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearSnoozedAt();
-    	else
-    		return setSnoozedAt(mapFunc.apply(value));
+	if (value == null)
+		return clearSnoozedAt();
+	else
+		return setSnoozedAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The expires_at to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearExpiresAt(com.google.protobuf.Timestamp value) {
-    	if (value == null)
-    		return clearExpiresAt();
-    	else
-    		return setExpiresAt(value);
+	if (value == null)
+		return clearExpiresAt();
+	else
+		return setExpiresAt(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearExpiresAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
-    	if (value == null)
-    		return clearExpiresAt();
-    	else
-    		return setExpiresAt(mapFunc.apply(value));
+	if (value == null)
+		return clearExpiresAt();
+	else
+		return setExpiresAt(mapFunc.apply(value));
     }
-    	
+
     /**
      * @param value The medium_id to set.
      * @return This builder for chaining.
      */
     public Builder setOrClearMediumId(java.lang.String value) {
-    	if (value == null)
-    		return clearMediumId();
-    	else
-    		return setMediumId(value);
+	if (value == null)
+		return clearMediumId();
+	else
+		return setMediumId(value);
     }
-    	
+
     /**
      * @param value The value to map.
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
     public <T> Builder mapOrClearMediumId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearMediumId();
-    	else
-    		return setMediumId(mapFunc.apply(value));
+	if (value == null)
+		return clearMediumId();
+	else
+		return setMediumId(mapFunc.apply(value));
     }
-    	
+
     // @@protoc_insertion_point(builder_scope:coreapi.model.UserChat)
   }
 
