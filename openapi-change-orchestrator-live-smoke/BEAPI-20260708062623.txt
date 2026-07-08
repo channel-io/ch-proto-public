@@ -1,0 +1,4 @@
+OpenAPI Change Orchestrator live smoke test.
+repo: ch-proto-public
+changeId: BEAPI-20260708062623
+This draft PR validates MCP wiring only. Close after verification.
