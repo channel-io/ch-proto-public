@@ -2038,15 +2038,15 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xdc\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xdf\x02\n" +
 	"\x1cCreateUserChatMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
 	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\x12?\n" +
-	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
-	"\bbot_name\x18\x04 \x01(\tBo\xbaHl\xba\x01Y\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1d\n" +
+	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8d\x01\n" +
+	"\bbot_name\x18\x04 \x01(\tBr\xbaHo\xba\x01Y\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x112\x0f^$|^[^@#$%:/]+$R\abotName\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x05 \x01(\tR\trequestId\"O\n" +
 	"\x1bCreateUserChatMessageResult\x120\n" +

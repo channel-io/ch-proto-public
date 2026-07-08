@@ -1897,26 +1897,26 @@ const file_coreapi_service_group_proto_rawDesc = "" +
 	"\x04icon\x18\x03 \x01(\tB_\xbaH\\\xba\x01Y\n" +
 	"\x0estring.pattern\x12!value must not contain whitespace\x1a$this == '' || this.matches('^\\\\S+$')R\x04icon\x12u\n" +
 	"\vdescription\x18\x04 \x01(\tBS\xbaHP\xba\x01M\n" +
-	"\rstring.maxLen\x12)value must be no more than 200 characters\x1a\x11size(this) <= 200R\vdescription\"\xc8\x03\n" +
+	"\rstring.maxLen\x12)value must be no more than 200 characters\x1a\x11size(this) <= 200R\vdescription\"\xcb\x03\n" +
 	"\x11PatchGroupRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
-	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12\x8a\x01\n" +
-	"\bbot_name\x18\x03 \x01(\tBo\xbaHl\xba\x01Y\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12;\n" +
+	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12\x8d\x01\n" +
+	"\bbot_name\x18\x03 \x01(\tBr\xbaHo\xba\x01Y\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x112\x0f^$|^[^@#$%:/]+$R\abotName\x12;\n" +
 	"\x04body\x18\x04 \x01(\v2\x1f.coreapi.service.PatchGroupBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12\x9e\x01\n" +
 	"\vupdate_mask\x18\x05 \x01(\v2\x1a.google.protobuf.FieldMaskBa\xbaH^\xba\x01X\n" +
 	"\x14field_mask.non_empty\x12*update_mask must contain at least one path\x1a\x14size(this.paths) > 0\xc8\x01\x01R\n" +
 	"updateMask\">\n" +
 	"\x10PatchGroupResult\x12*\n" +
-	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05group\"\xd2\x03\n" +
+	"\x05group\x18\x01 \x01(\v2\x14.coreapi.model.GroupR\x05group\"\xd5\x03\n" +
 	"\x17PatchGroupByNameRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
 	"\n" +
-	"group_name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tgroupName\x12\x8a\x01\n" +
-	"\bbot_name\x18\x03 \x01(\tBo\xbaHl\xba\x01Y\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12;\n" +
+	"group_name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tgroupName\x12\x8d\x01\n" +
+	"\bbot_name\x18\x03 \x01(\tBr\xbaHo\xba\x01Y\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x112\x0f^$|^[^@#$%:/]+$R\abotName\x12;\n" +
 	"\x04body\x18\x04 \x01(\v2\x1f.coreapi.service.PatchGroupBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12\x9e\x01\n" +
 	"\vupdate_mask\x18\x05 \x01(\v2\x1a.google.protobuf.FieldMaskBa\xbaH^\xba\x01X\n" +
 	"\x14field_mask.non_empty\x12*update_mask must contain at least one path\x1a\x14size(this.paths) > 0\xc8\x01\x01R\n" +
@@ -1942,14 +1942,14 @@ const file_coreapi_service_group_proto_rawDesc = "" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xd2\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xd5\x02\n" +
 	"\x19CreateGroupMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
 	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12?\n" +
-	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8a\x01\n" +
-	"\bbot_name\x18\x04 \x01(\tBo\xbaHl\xba\x01Y\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1d\n" +
+	"\acontent\x18\x03 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x8d\x01\n" +
+	"\bbot_name\x18\x04 \x01(\tBr\xbaHo\xba\x01Y\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x1ethis == '' || size(this) <= 30r\x112\x0f^$|^[^@#$%:/]+$R\abotName\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x05 \x01(\tR\trequestId\"L\n" +
 	"\x18CreateGroupMessageResult\x120\n" +
@@ -1992,16 +1992,16 @@ const file_coreapi_service_group_proto_rawDesc = "" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x8e\x03\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\x91\x03\n" +
 	"\x1fCreateGroupThreadMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12!\n" +
 	"\bgroup_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupId\x12%\n" +
 	"\n" +
 	"message_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\x12?\n" +
-	"\acontent\x18\x04 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12|\n" +
-	"\bbot_name\x18\x05 \x01(\tBa\xbaH^\xba\x01K\n" +
-	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30r\x0e2\f^[^@#$%:/]+$R\abotName\x12\x1c\n" +
+	"\acontent\x18\x04 \x01(\v2\x1d.coreapi.model.MessageContentB\x06\xbaH\x03\xc8\x01\x01R\acontent\x12\x7f\n" +
+	"\bbot_name\x18\x05 \x01(\tBd\xbaHa\xba\x01K\n" +
+	"\rstring.maxLen\x12(value must be no more than 30 characters\x1a\x10size(this) <= 30r\x112\x0f^$|^[^@#$%:/]+$R\abotName\x12\x1c\n" +
 	"\tbroadcast\x18\x06 \x01(\bR\tbroadcast\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\a \x01(\tR\trequestId\"R\n" +

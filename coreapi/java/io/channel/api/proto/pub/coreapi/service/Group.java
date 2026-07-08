@@ -208,103 +208,103 @@ public final class Group {
       "is.matches(\'^\\\\S+$\')R\004icon\022u\n\013descriptio" +
       "n\030\004 \001(\tBS\272HP\272\001M\n\rstring.maxLen\022)value mu" +
       "st be no more than 200 characters\032\021size(" +
-      "this) <= 200R\013description\"\310\003\n\021PatchGroup" +
+      "this) <= 200R\013description\"\313\003\n\021PatchGroup" +
       "Request\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tcha" +
       "nnelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupI" +
-      "d\022\212\001\n\010bot_name\030\003 \001(\tBo\272Hl\272\001Y\n\rstring.max" +
+      "d\022\215\001\n\010bot_name\030\003 \001(\tBr\272Ho\272\001Y\n\rstring.max" +
       "Len\022(value must be no more than 30 chara" +
-      "cters\032\036this == \'\' || size(this) <= 30r\0162" +
-      "\014^[^@#$%:/]+$R\007botName\022;\n\004body\030\004 \001(\0132\037.c" +
-      "oreapi.service.PatchGroupBodyB\006\272H\003\310\001\001R\004b" +
-      "ody\022\236\001\n\013update_mask\030\005 \001(\0132\032.google.proto" +
-      "buf.FieldMaskBa\272H^\272\001X\n\024field_mask.non_em" +
-      "pty\022*update_mask must contain at least o" +
-      "ne path\032\024size(this.paths) > 0\310\001\001R\nupdate" +
-      "Mask\">\n\020PatchGroupResult\022*\n\005group\030\001 \001(\0132" +
-      "\024.coreapi.model.GroupR\005group\"\322\003\n\027PatchGr" +
-      "oupByNameRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H" +
-      "\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\tgroupName\022\212\001\n\010bot_name\030\003 \001(\tBo\272Hl\272\001" +
-      "Y\n\rstring.maxLen\022(value must be no more " +
-      "than 30 characters\032\036this == \'\' || size(t" +
-      "his) <= 30r\0162\014^[^@#$%:/]+$R\007botName\022;\n\004b" +
-      "ody\030\004 \001(\0132\037.coreapi.service.PatchGroupBo" +
-      "dyB\006\272H\003\310\001\001R\004body\022\236\001\n\013update_mask\030\005 \001(\0132\032" +
-      ".google.protobuf.FieldMaskBa\272H^\272\001X\n\024fiel" +
-      "d_mask.non_empty\022*update_mask must conta" +
-      "in at least one path\032\024size(this.paths) >" +
-      " 0\310\001\001R\nupdateMask\"D\n\026PatchGroupByNameRes" +
-      "ult\022*\n\005group\030\001 \001(\0132\024.coreapi.model.Group" +
-      "R\005group\"f\n\032SearchGroupSessionsRequest\022%\n" +
-      "\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010" +
-      "group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\"\\\n\031Searc" +
-      "hGroupSessionsResult\022?\n\rchat_sessions\030\001 " +
-      "\003(\0132\032.coreapi.model.ChatSessionR\014chatSes" +
-      "sions\"\257\002\n\032SearchGroupMessagesRequest\022%\n\n" +
-      "channel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010g" +
-      "roup_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\0228\n\nsort_o" +
-      "rder\030\003 \001(\0162\031.coreapi.common.SortOrderR\ts" +
-      "ortOrder\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limi" +
-      "t\030\005 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit mu" +
-      "st be between 1 and 500\032\'this == 0 || (t" +
-      "his >= 1 && this <= 500)R\005limit\"\213\001\n\031Sear" +
-      "chGroupMessagesResult\0222\n\010messages\030\001 \003(\0132" +
-      "\026.coreapi.model.MessageR\010messages\022\037\n\013nex" +
-      "t_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003" +
-      " \001(\010R\007hasNext\"\322\002\n\031CreateGroupMessageRequ" +
+      "cters\032\036this == \'\' || size(this) <= 30r\0212" +
+      "\017^$|^[^@#$%:/]+$R\007botName\022;\n\004body\030\004 \001(\0132" +
+      "\037.coreapi.service.PatchGroupBodyB\006\272H\003\310\001\001" +
+      "R\004body\022\236\001\n\013update_mask\030\005 \001(\0132\032.google.pr" +
+      "otobuf.FieldMaskBa\272H^\272\001X\n\024field_mask.non" +
+      "_empty\022*update_mask must contain at leas" +
+      "t one path\032\024size(this.paths) > 0\310\001\001R\nupd" +
+      "ateMask\">\n\020PatchGroupResult\022*\n\005group\030\001 \001" +
+      "(\0132\024.coreapi.model.GroupR\005group\"\325\003\n\027Patc" +
+      "hGroupByNameRequest\022%\n\nchannel_id\030\001 \001(\tB" +
+      "\006\272H\003\310\001\001R\tchannelId\022%\n\ngroup_name\030\002 \001(\tB\006" +
+      "\272H\003\310\001\001R\tgroupName\022\215\001\n\010bot_name\030\003 \001(\tBr\272H" +
+      "o\272\001Y\n\rstring.maxLen\022(value must be no mo" +
+      "re than 30 characters\032\036this == \'\' || siz" +
+      "e(this) <= 30r\0212\017^$|^[^@#$%:/]+$R\007botNam" +
+      "e\022;\n\004body\030\004 \001(\0132\037.coreapi.service.PatchG" +
+      "roupBodyB\006\272H\003\310\001\001R\004body\022\236\001\n\013update_mask\030\005" +
+      " \001(\0132\032.google.protobuf.FieldMaskBa\272H^\272\001X" +
+      "\n\024field_mask.non_empty\022*update_mask must" +
+      " contain at least one path\032\024size(this.pa" +
+      "ths) > 0\310\001\001R\nupdateMask\"D\n\026PatchGroupByN" +
+      "ameResult\022*\n\005group\030\001 \001(\0132\024.coreapi.model" +
+      ".GroupR\005group\"f\n\032SearchGroupSessionsRequ" +
       "est\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannel" +
-      "Id\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022?\n" +
-      "\007content\030\003 \001(\0132\035.coreapi.model.MessageCo" +
-      "ntentB\006\272H\003\310\001\001R\007content\022\212\001\n\010bot_name\030\004 \001(" +
-      "\tBo\272Hl\272\001Y\n\rstring.maxLen\022(value must be " +
-      "no more than 30 characters\032\036this == \'\' |" +
-      "| size(this) <= 30r\0162\014^[^@#$%:/]+$R\007botN" +
-      "ame\022\035\n\nrequest_id\030\005 \001(\tR\trequestId\"L\n\030Cr" +
-      "eateGroupMessageResult\0220\n\007message\030\001 \001(\0132" +
-      "\026.coreapi.model.MessageR\007message\"|\n\026GetG" +
-      "roupFileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006" +
-      "\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\007groupId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key\")" +
-      "\n\025GetGroupFileUrlResult\022\020\n\003url\030\001 \001(\tR\003ur" +
-      "l\"\210\001\n\025GetGroupThreadRequest\022%\n\nchannel_i" +
+      "Id\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\"\\\n" +
+      "\031SearchGroupSessionsResult\022?\n\rchat_sessi" +
+      "ons\030\001 \003(\0132\032.coreapi.model.ChatSessionR\014c" +
+      "hatSessions\"\257\002\n\032SearchGroupMessagesReque" +
+      "st\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
+      "d\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\0228\n\n" +
+      "sort_order\030\003 \001(\0162\031.coreapi.common.SortOr" +
+      "derR\tsortOrder\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u" +
+      "\n\005limit\030\005 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037li" +
+      "mit must be between 1 and 500\032\'this == 0" +
+      " || (this >= 1 && this <= 500)R\005limit\"\213\001" +
+      "\n\031SearchGroupMessagesResult\0222\n\010messages\030" +
+      "\001 \003(\0132\026.coreapi.model.MessageR\010messages\022" +
+      "\037\n\013next_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_" +
+      "next\030\003 \001(\010R\007hasNext\"\325\002\n\031CreateGroupMessa" +
+      "geRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tc" +
+      "hannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007grou" +
+      "pId\022?\n\007content\030\003 \001(\0132\035.coreapi.model.Mes" +
+      "sageContentB\006\272H\003\310\001\001R\007content\022\215\001\n\010bot_nam" +
+      "e\030\004 \001(\tBr\272Ho\272\001Y\n\rstring.maxLen\022(value mu" +
+      "st be no more than 30 characters\032\036this =" +
+      "= \'\' || size(this) <= 30r\0212\017^$|^[^@#$%:/" +
+      "]+$R\007botName\022\035\n\nrequest_id\030\005 \001(\tR\treques" +
+      "tId\"L\n\030CreateGroupMessageResult\0220\n\007messa" +
+      "ge\030\001 \001(\0132\026.coreapi.model.MessageR\007messag" +
+      "e\"|\n\026GetGroupFileUrlRequest\022%\n\nchannel_i" +
       "d\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002" +
-      " \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003 \001(" +
-      "\tB\006\272H\003\310\001\001R\tmessageId\"H\n\024GetGroupThreadRe" +
-      "sult\0220\n\007message\030\001 \001(\0132\026.coreapi.model.Me" +
-      "ssageR\007message\"\213\001\n\030CreateGroupThreadRequ" +
-      "est\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannel" +
-      "Id\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n" +
-      "\nmessage_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\"K\n\027" +
-      "CreateGroupThreadResult\0220\n\007message\030\001 \001(\013" +
-      "2\026.coreapi.model.MessageR\007message\"\334\002\n Se" +
-      "archGroupThreadMessagesRequest\022%\n\nchanne" +
-      "l_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010group_i" +
-      "d\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmessage_id\030\003" +
-      " \001(\tB\006\272H\003\310\001\001R\tmessageId\0228\n\nsort_order\030\004 " +
-      "\001(\0162\031.coreapi.common.SortOrderR\tsortOrde" +
-      "r\022\026\n\006cursor\030\005 \001(\tR\006cursor\022u\n\005limit\030\006 \001(\005" +
-      "B_\272H\\\272\001Y\n\rint32.between\022\037limit must be b" +
-      "etween 1 and 500\032\'this == 0 || (this >= " +
-      "1 && this <= 500)R\005limit\"\221\001\n\037SearchGroup" +
-      "ThreadMessagesResult\0222\n\010messages\030\001 \003(\0132\026" +
-      ".coreapi.model.MessageR\010messages\022\037\n\013next" +
-      "_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 " +
-      "\001(\010R\007hasNext\"\216\003\n\037CreateGroupThreadMessag" +
-      "eRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tch" +
-      "annelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007group" +
-      "Id\022%\n\nmessage_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageI" +
-      "d\022?\n\007content\030\004 \001(\0132\035.coreapi.model.Messa" +
-      "geContentB\006\272H\003\310\001\001R\007content\022|\n\010bot_name\030\005" +
-      " \001(\tBa\272H^\272\001K\n\rstring.maxLen\022(value must " +
-      "be no more than 30 characters\032\020size(this" +
-      ") <= 30r\0162\014^[^@#$%:/]+$R\007botName\022\034\n\tbroa" +
-      "dcast\030\006 \001(\010R\tbroadcast\022\035\n\nrequest_id\030\007 \001" +
-      "(\tR\trequestId\"R\n\036CreateGroupThreadMessag" +
-      "eResult\0220\n\007message\030\001 \001(\0132\026.coreapi.model" +
-      ".MessageR\007messageBf\n(io.channel.api.prot" +
-      "o.pub.coreapi.serviceP\001Z8github.com/chan" +
-      "nel-io/ch-proto-public/coreapi/go/servic" +
-      "eb\006proto3"
+      " \001(\tB\006\272H\003\310\001\001R\007groupId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310" +
+      "\001\001R\003key\")\n\025GetGroupFileUrlResult\022\020\n\003url\030" +
+      "\001 \001(\tR\003url\"\210\001\n\025GetGroupThreadRequest\022%\n\n" +
+      "channel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!\n\010g" +
+      "roup_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmessag" +
+      "e_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\"H\n\024GetGrou" +
+      "pThreadResult\0220\n\007message\030\001 \001(\0132\026.coreapi" +
+      ".model.MessageR\007message\"\213\001\n\030CreateGroupT" +
+      "hreadRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001" +
+      "R\tchannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007g" +
+      "roupId\022%\n\nmessage_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmess" +
+      "ageId\"K\n\027CreateGroupThreadResult\0220\n\007mess" +
+      "age\030\001 \001(\0132\026.coreapi.model.MessageR\007messa" +
+      "ge\"\334\002\n SearchGroupThreadMessagesRequest\022" +
+      "%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022!" +
+      "\n\010group_id\030\002 \001(\tB\006\272H\003\310\001\001R\007groupId\022%\n\nmes" +
+      "sage_id\030\003 \001(\tB\006\272H\003\310\001\001R\tmessageId\0228\n\nsort" +
+      "_order\030\004 \001(\0162\031.coreapi.common.SortOrderR" +
+      "\tsortOrder\022\026\n\006cursor\030\005 \001(\tR\006cursor\022u\n\005li" +
+      "mit\030\006 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit " +
+      "must be between 1 and 500\032\'this == 0 || " +
+      "(this >= 1 && this <= 500)R\005limit\"\221\001\n\037Se" +
+      "archGroupThreadMessagesResult\0222\n\010message" +
+      "s\030\001 \003(\0132\026.coreapi.model.MessageR\010message" +
+      "s\022\037\n\013next_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010ha" +
+      "s_next\030\003 \001(\010R\007hasNext\"\221\003\n\037CreateGroupThr" +
+      "eadMessageRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272" +
+      "H\003\310\001\001R\tchannelId\022!\n\010group_id\030\002 \001(\tB\006\272H\003\310" +
+      "\001\001R\007groupId\022%\n\nmessage_id\030\003 \001(\tB\006\272H\003\310\001\001R" +
+      "\tmessageId\022?\n\007content\030\004 \001(\0132\035.coreapi.mo" +
+      "del.MessageContentB\006\272H\003\310\001\001R\007content\022\177\n\010b" +
+      "ot_name\030\005 \001(\tBd\272Ha\272\001K\n\rstring.maxLen\022(va" +
+      "lue must be no more than 30 characters\032\020" +
+      "size(this) <= 30r\0212\017^$|^[^@#$%:/]+$R\007bot" +
+      "Name\022\034\n\tbroadcast\030\006 \001(\010R\tbroadcast\022\035\n\nre" +
+      "quest_id\030\007 \001(\tR\trequestId\"R\n\036CreateGroup" +
+      "ThreadMessageResult\0220\n\007message\030\001 \001(\0132\026.c" +
+      "oreapi.model.MessageR\007messageBf\n(io.chan" +
+      "nel.api.proto.pub.coreapi.serviceP\001Z8git" +
+      "hub.com/channel-io/ch-proto-public/corea" +
+      "pi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

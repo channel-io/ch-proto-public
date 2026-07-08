@@ -20,6 +20,7 @@ generate:
 lint:
 	buf lint
 	./scripts/lint-model-validate.sh
+	python3 scripts/validate-nullable-scalar-validation.py
 
 clean:
 	go mod tidy

@@ -112,6 +112,10 @@ validation_rules:
   no_proto_validation_keywords:
     - optional
     - required
+  nullable_plain_scalar:
+    rule: Plain proto3 scalar fields marked Nullable must treat the scalar zero value as absent in buf.validate constraints.
+    string_zero_value: Empty string must pass validation for nullable string fields; use ignore_empty, an explicit CEL empty guard, or an empty-matching regex.
+    reason: Generated proto3 accessors cannot distinguish absent scalar fields from zero values without presence-aware field types.
   cel_used_for:
     - string length
     - numeric ranges

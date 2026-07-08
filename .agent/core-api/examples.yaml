@@ -71,6 +71,18 @@ patterns:
     search:
       command: rg -n "kubebuilder:validation|kubebuilder:example|buf.validate" coreapi/model coreapi/common
 
+  - id: nullable_plain_scalar_validation
+    description: Nullable plain scalar validation accepts proto3 zero values as absent.
+    references:
+      - file: coreapi/service/group.proto
+        symbols: [PatchGroupRequest, CreateGroupMessageRequest]
+      - file: coreapi/service/user_chat.proto
+        symbols: [CreateUserChatMessageRequest]
+      - file: coreapi/service/announcement.proto
+        symbols: [AnnounceToAllRequest]
+    search:
+      command: rg -n -C 4 "kubebuilder:validation:Nullable|this == ''|\\^\\$\\|" coreapi/service coreapi/model coreapi/common
+
 anti_patterns:
   - id: dependent_service_split
     bad: Creating coreapi/service/chat_message.proto or coreapi/service/chat_session.proto.

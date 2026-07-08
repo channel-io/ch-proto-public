@@ -195,7 +195,7 @@ message PatchGroupRequest {
       message: "value must be no more than 30 characters"
       expression: "this == '' || size(this) <= 30"
     },
-    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/]+$"
   ];
 
   // Patch body. Only fields listed in update_mask are applied.
@@ -245,7 +245,7 @@ message PatchGroupByNameRequest {
       message: "value must be no more than 30 characters"
       expression: "this == '' || size(this) <= 30"
     },
-    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/]+$"
   ];
 
   // Patch body. Only fields listed in update_mask are applied.
@@ -364,7 +364,7 @@ message CreateGroupMessageRequest {
       message: "value must be no more than 30 characters"
       expression: "this == '' || size(this) <= 30"
     },
-    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/]+$"
   ];
 
   // Client-generated request identifier for idempotency.
@@ -510,7 +510,7 @@ message CreateGroupThreadMessageRequest {
       message: "value must be no more than 30 characters"
       expression: "size(this) <= 30"
     },
-    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/]+$"
   ];
 
   // Whether to also post this message to the main chat stream.
