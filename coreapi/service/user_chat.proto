@@ -444,7 +444,7 @@ message CreateUserChatMessageRequest {
       message: "value must be no more than 30 characters"
       expression: "this == '' || size(this) <= 30"
     },
-    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/]+$"
   ];
 
   // +kubebuilder:validation:Nullable

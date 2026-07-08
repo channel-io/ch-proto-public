@@ -19,7 +19,7 @@ gates:
       success: Exits 0 and updates generated Go and Java output from proto sources.
     - id: lint
       command: make lint
-      success: Exits 0, including buf lint and model validation/example policy checks.
+      success: Exits 0, including buf lint, model validation/example policy checks, and nullable scalar validation checks.
 
   breaking_sensitive:
     - id: buf_breaking_main
@@ -52,6 +52,9 @@ gates:
     - id: agent_core_api_drift
       command: python3 scripts/check-agent-core-api-drift.py
       success: Agent package references and adapters are synchronized with the repo.
+    - id: nullable_scalar_validation
+      command: python3 scripts/validate-nullable-scalar-validation.py
+      success: Nullable plain scalar fields with validation constraints accept proto3 zero values as absent.
     - id: diff_check
       command: git diff --check
       success: No whitespace errors.

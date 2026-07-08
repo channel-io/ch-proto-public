@@ -24,6 +24,7 @@ YAML_FILES: Final = (
     AGENT_DIR / "tools.yaml",
 )
 ADAPTERS: Final = (ROOT / "AGENTS.md", ROOT / "CLAUDE.md")
+NULLABLE_SCALAR_VALIDATOR: Final = "validate-nullable-scalar-validation.py"
 FORBIDDEN_ADAPTER_TERMS: Final = (
     "buf.validate",
     "FieldMask",
@@ -61,6 +62,7 @@ def collect_violations() -> list[str]:
     violations.extend(check_required_files())
     violations.extend(check_examples())
     violations.extend(check_adapters())
+    violations.extend(check_nullable_scalar_validator_wiring())
     violations.extend(check_forbidden_surfaces())
     return violations
 
@@ -142,6 +144,35 @@ def check_adapters() -> list[str]:
             if term in content:
                 message = f"must not copy Core API rule term {term}"
                 violations.append(format_violation(path, message))
+    return violations
+
+
+def check_nullable_scalar_validator_wiring() -> list[str]:
+    violations: list[str] = []
+    script_wiring_paths = (
+        ROOT / "Makefile",
+        AGENT_DIR / "checks.yaml",
+        AGENT_DIR / "tools.yaml",
+    )
+    pattern_doc_paths = (
+        AGENT_DIR / "rules.yaml",
+        AGENT_DIR / "examples.yaml",
+        ROOT / "scripts" / NULLABLE_SCALAR_VALIDATOR,
+    )
+    for path in script_wiring_paths:
+        if not path.is_file():
+            violations.append(format_violation(path, "nullable scalar validator wiring file is missing"))
+            continue
+        content = path.read_text(encoding="utf-8")
+        if NULLABLE_SCALAR_VALIDATOR not in content:
+            violations.append(format_violation(path, "must reference nullable scalar validator"))
+    for path in pattern_doc_paths:
+        if not path.is_file():
+            violations.append(format_violation(path, "nullable scalar pattern file is missing"))
+            continue
+        content = path.read_text(encoding="utf-8")
+        if "nullable_plain_scalar" not in content:
+            violations.append(format_violation(path, "must document nullable plain scalar validation"))
     return violations
 
 

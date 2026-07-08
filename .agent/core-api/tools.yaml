@@ -18,7 +18,7 @@ tools:
 
   make_lint:
     command: make lint
-    purpose: Run buf lint and model marker/validation/example policy checks.
+    purpose: Run buf lint, model marker/validation/example policy checks, and nullable scalar validation checks.
 
   buf_format:
     command: buf format --diff --exit-code
@@ -39,6 +39,10 @@ tools:
   validate_example_output:
     command: python3 scripts/validate-example-output.py --strict .openapi-out
     purpose: Enforce generated OpenAPI YAML example coverage.
+
+  validate_nullable_scalar_validation:
+    command: python3 scripts/validate-nullable-scalar-validation.py
+    purpose: Ensure nullable plain scalar validators accept proto3 zero values as absent.
 
   agent_core_api_drift:
     command: python3 scripts/check-agent-core-api-drift.py

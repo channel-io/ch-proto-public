@@ -314,26 +314,26 @@ public final class UserChat {
       "0)R\005limit\"\216\001\n\034SearchUserChatMessagesResu" +
       "lt\0222\n\010messages\030\001 \003(\0132\026.coreapi.model.Mes" +
       "sageR\010messages\022\037\n\013next_cursor\030\002 \001(\tR\nnex" +
-      "tCursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\"\334\002\n\034C" +
+      "tCursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\"\337\002\n\034C" +
       "reateUserChatMessageRequest\022%\n\nchannel_i" +
       "d\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_" +
       "id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022?\n\007content\030" +
       "\003 \001(\0132\035.coreapi.model.MessageContentB\006\272H" +
-      "\003\310\001\001R\007content\022\212\001\n\010bot_name\030\004 \001(\tBo\272Hl\272\001Y" +
+      "\003\310\001\001R\007content\022\215\001\n\010bot_name\030\004 \001(\tBr\272Ho\272\001Y" +
       "\n\rstring.maxLen\022(value must be no more t" +
       "han 30 characters\032\036this == \'\' || size(th" +
-      "is) <= 30r\0162\014^[^@#$%:/]+$R\007botName\022\035\n\nre" +
-      "quest_id\030\005 \001(\tR\trequestId\"O\n\033CreateUserC" +
-      "hatMessageResult\0220\n\007message\030\001 \001(\0132\026.core" +
-      "api.model.MessageR\007message\"\206\001\n\031GetUserCh" +
-      "atFileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H" +
-      "\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272" +
-      "H\003\310\001\001R\nuserChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003" +
-      "key\",\n\030GetUserChatFileUrlResult\022\020\n\003url\030\001" +
-      " \001(\tR\003urlBf\n(io.channel.api.proto.pub.co" +
-      "reapi.serviceP\001Z8github.com/channel-io/c" +
-      "h-proto-public/coreapi/go/serviceb\006proto" +
-      "3"
+      "is) <= 30r\0212\017^$|^[^@#$%:/]+$R\007botName\022\035\n" +
+      "\nrequest_id\030\005 \001(\tR\trequestId\"O\n\033CreateUs" +
+      "erChatMessageResult\0220\n\007message\030\001 \001(\0132\026.c" +
+      "oreapi.model.MessageR\007message\"\206\001\n\031GetUse" +
+      "rChatFileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB" +
+      "\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\t" +
+      "B\006\272H\003\310\001\001R\nuserChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001" +
+      "\001R\003key\",\n\030GetUserChatFileUrlResult\022\020\n\003ur" +
+      "l\030\001 \001(\tR\003urlBf\n(io.channel.api.proto.pub" +
+      ".coreapi.serviceP\001Z8github.com/channel-i" +
+      "o/ch-proto-public/coreapi/go/serviceb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
