@@ -24,3 +24,7 @@ plugins:
   - local: protoc-gen-go-canonical-enum-namings
     out: .
     opt: module=github.com/channel-io/ch-proto-public
+  - local: protoc-gen-go-coreapi-json-names
+    out: .
+    strategy: all
+    opt: module=github.com/channel-io/ch-proto-public
