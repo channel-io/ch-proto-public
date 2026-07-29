@@ -11,6 +11,7 @@ import "coreapi/model/message_content.proto";
 import "coreapi/model/user_chat.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/struct.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -159,7 +160,7 @@ message CreateUserChatResult {
 //   - a field listed in update_mask is applied (null = clear, value = set)
 //   - a field absent from update_mask is not modified
 //
-// Only the description field can currently be patched.
+// The description, tags, and profile fields can be patched.
 message PatchUserChatRequest {
   // User chat ID to update.
   string user_chat_id = 1 [(buf.validate.field).required = true];
@@ -191,6 +192,22 @@ message PatchUserChatRequest {
       message: "value must be no more than 1000 characters"
       expression: "this == '' || size(this) <= 1000"
     }];
+
+    // User chat classification tags to replace the current set.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:MaxItems=8
+    repeated string tags = 2 [(buf.validate.field).cel = {
+      id: "repeated.maxItems"
+      message: "value must contain no more than 8 items"
+      expression: "size(this) <= 8"
+    }];
+
+    // Custom key-value profile data for the chat.
+    // Keys are always strings; values may be any JSON type.
+    //
+    // +kubebuilder:validation:Nullable
+    google.protobuf.Struct profile = 3;
   }
 }
 
