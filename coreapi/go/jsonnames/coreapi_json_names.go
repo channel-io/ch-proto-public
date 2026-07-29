@@ -1365,6 +1365,8 @@ var coreAPIFieldNames = map[string]map[string]fieldName{
 	},
 	"coreapi.service.PatchUserChatRequest.PatchUserChatBody": {
 		"description": {jsonName: "description"},
+		"tags":        {jsonName: "tags"},
+		"profile":     {jsonName: "profile"},
 	},
 	"coreapi.service.PatchUserChatResult": {
 		"user_chat": {jsonName: "userChat", messageFullName: "coreapi.model.UserChat"},

@@ -14,6 +14,7 @@ import (
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
+	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -585,7 +586,7 @@ func (x *CreateUserChatResult) GetUserChat() *model.UserChat {
 //   - a field listed in update_mask is applied (null = clear, value = set)
 //   - a field absent from update_mask is not modified
 //
-// Only the description field can currently be patched.
+// The description, tags, and profile fields can be patched.
 type PatchUserChatRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// User chat ID to update.
@@ -1846,7 +1847,17 @@ type PatchUserChatRequest_PatchUserChatBody struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=1000
-	Description   string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	// User chat classification tags to replace the current set.
+	//
+	// +kubebuilder:validation:Nullable
+	// +kubebuilder:validation:MaxItems=8
+	Tags []string `protobuf:"bytes,2,rep,name=tags,proto3" json:"tags,omitempty"`
+	// Custom key-value profile data for the chat.
+	// Keys are always strings; values may be any JSON type.
+	//
+	// +kubebuilder:validation:Nullable
+	Profile       *structpb.Struct `protobuf:"bytes,3,opt,name=profile,proto3" json:"profile,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1888,11 +1899,25 @@ func (x *PatchUserChatRequest_PatchUserChatBody) GetDescription() string {
 	return ""
 }
 
+func (x *PatchUserChatRequest_PatchUserChatBody) GetTags() []string {
+	if x != nil {
+		return x.Tags
+	}
+	return nil
+}
+
+func (x *PatchUserChatRequest_PatchUserChatBody) GetProfile() *structpb.Struct {
+	if x != nil {
+		return x.Profile
+	}
+	return nil
+}
+
 var File_coreapi_service_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\"\xbc\x02\n" +
+	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xbc\x02\n" +
 	"\x16SearchUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x122\n" +
@@ -1939,7 +1964,7 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1f\n" +
 	"\auser_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\"L\n" +
 	"\x14CreateUserChatResult\x124\n" +
-	"\tuser_chat\x18\x01 \x01(\v2\x17.coreapi.model.UserChatR\buserChat\"\xfb\x03\n" +
+	"\tuser_chat\x18\x01 \x01(\v2\x17.coreapi.model.UserChatR\buserChat\"\x97\x05\n" +
 	"\x14PatchUserChatRequest\x12(\n" +
 	"\fuser_chat_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\x12%\n" +
@@ -1948,10 +1973,13 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\x04body\x18\x03 \x01(\v27.coreapi.service.PatchUserChatRequest.PatchUserChatBodyB\x06\xbaH\x03\xc8\x01\x01R\x04body\x12\x9e\x01\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskBa\xbaH^\xba\x01X\n" +
 	"\x14field_mask.non_empty\x12*update_mask must contain at least one path\x1a\x14size(this.paths) > 0\xc8\x01\x01R\n" +
-	"updateMask\x1a\x9b\x01\n" +
+	"updateMask\x1a\xb7\x02\n" +
 	"\x11PatchUserChatBody\x12\x85\x01\n" +
 	"\vdescription\x18\x01 \x01(\tBc\xbaH`\xba\x01]\n" +
-	"\rstring.maxLen\x12*value must be no more than 1000 characters\x1a this == '' || size(this) <= 1000R\vdescription\"K\n" +
+	"\rstring.maxLen\x12*value must be no more than 1000 characters\x1a this == '' || size(this) <= 1000R\vdescription\x12g\n" +
+	"\x04tags\x18\x02 \x03(\tBS\xbaHP\xba\x01M\n" +
+	"\x11repeated.maxItems\x12'value must contain no more than 8 items\x1a\x0fsize(this) <= 8R\x04tags\x121\n" +
+	"\aprofile\x18\x03 \x01(\v2\x17.google.protobuf.StructR\aprofile\"K\n" +
 	"\x13PatchUserChatResult\x124\n" +
 	"\tuser_chat\x18\x01 \x01(\v2\x17.coreapi.model.UserChatR\buserChat\"h\n" +
 	"\x15DeleteUserChatRequest\x12(\n" +
@@ -2115,6 +2143,7 @@ var file_coreapi_service_user_chat_proto_goTypes = []any{
 	(*durationpb.Duration)(nil),                    // 37: google.protobuf.Duration
 	(*model.Message)(nil),                          // 38: coreapi.model.Message
 	(*model.MessageContent)(nil),                   // 39: coreapi.model.MessageContent
+	(*structpb.Struct)(nil),                        // 40: google.protobuf.Struct
 }
 var file_coreapi_service_user_chat_proto_depIdxs = []int32{
 	31, // 0: coreapi.service.SearchUserChatsRequest.state:type_name -> coreapi.model.UserChatState
@@ -2140,11 +2169,12 @@ var file_coreapi_service_user_chat_proto_depIdxs = []int32{
 	38, // 20: coreapi.service.SearchUserChatMessagesResult.messages:type_name -> coreapi.model.Message
 	39, // 21: coreapi.service.CreateUserChatMessageRequest.content:type_name -> coreapi.model.MessageContent
 	38, // 22: coreapi.service.CreateUserChatMessageResult.message:type_name -> coreapi.model.Message
-	23, // [23:23] is the sub-list for method output_type
-	23, // [23:23] is the sub-list for method input_type
-	23, // [23:23] is the sub-list for extension type_name
-	23, // [23:23] is the sub-list for extension extendee
-	0,  // [0:23] is the sub-list for field type_name
+	40, // 23: coreapi.service.PatchUserChatRequest.PatchUserChatBody.profile:type_name -> google.protobuf.Struct
+	24, // [24:24] is the sub-list for method output_type
+	24, // [24:24] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_chat_proto_init() }
