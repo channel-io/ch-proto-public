@@ -578,15 +578,11 @@ func (x *CreateUserChatResult) GetUserChat() *model.UserChat {
 	return nil
 }
 
-// Updates a user chat.
-//
 // Patches a user chat.
 //
 // PATCH semantics per RFC 7396 / AIP-134/161:
 //   - a field listed in update_mask is applied (null = clear, value = set)
 //   - a field absent from update_mask is not modified
-//
-// The description, tags, and profile fields can be patched.
 type PatchUserChatRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// User chat ID to update.
