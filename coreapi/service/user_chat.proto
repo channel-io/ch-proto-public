@@ -152,15 +152,11 @@ message CreateUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 
-// Updates a user chat.
-//
 // Patches a user chat.
 //
 // PATCH semantics per RFC 7396 / AIP-134/161:
 //   - a field listed in update_mask is applied (null = clear, value = set)
 //   - a field absent from update_mask is not modified
-//
-// The description, tags, and profile fields can be patched.
 message PatchUserChatRequest {
   // User chat ID to update.
   string user_chat_id = 1 [(buf.validate.field).required = true];
