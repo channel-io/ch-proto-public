@@ -65,7 +65,9 @@ message AnnounceRequest {
   repeated string manager_ids = 4 [
     (buf.validate.field).repeated = {
       min_items: 1
-      items: {string: {min_len: 1}}
+      items: {
+        string: {min_len: 1}
+      }
     },
     (buf.validate.field).required = true
   ];
