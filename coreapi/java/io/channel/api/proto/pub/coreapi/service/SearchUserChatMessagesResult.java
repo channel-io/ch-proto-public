@@ -30,6 +30,9 @@ private static final long serialVersionUID = 0L;
   private SearchUserChatMessagesResult() {
     messages_ = java.util.Collections.emptyList();
     nextCursor_ = "";
+    from_ = "";
+    to_ = "";
+    timeZone_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -149,6 +152,151 @@ private static final long serialVersionUID = 0L;
     return hasNext_;
   }
 
+  public static final int FROM_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object from_ = "";
+  /**
+   * <pre>
+   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string from = 4 [json_name = "from"];</code>
+   * @return The from.
+   */
+  @java.lang.Override
+  public java.lang.String getFrom() {
+    java.lang.Object ref = from_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      from_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string from = 4 [json_name = "from"];</code>
+   * @return The bytes for from.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFromBytes() {
+    java.lang.Object ref = from_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      from_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TO_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object to_ = "";
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string to = 5 [json_name = "to"];</code>
+   * @return The to.
+   */
+  @java.lang.Override
+  public java.lang.String getTo() {
+    java.lang.Object ref = to_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      to_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string to = 5 [json_name = "to"];</code>
+   * @return The bytes for to.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getToBytes() {
+    java.lang.Object ref = to_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      to_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TIME_ZONE_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object timeZone_ = "";
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+   * @return The timeZone.
+   */
+  @java.lang.Override
+  public java.lang.String getTimeZone() {
+    java.lang.Object ref = timeZone_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      timeZone_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+   * @return The bytes for timeZone.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTimeZoneBytes() {
+    java.lang.Object ref = timeZone_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      timeZone_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -172,6 +320,15 @@ private static final long serialVersionUID = 0L;
     if (hasNext_ != false) {
       output.writeBool(3, hasNext_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(from_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 4, from_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(to_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 5, to_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timeZone_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 6, timeZone_);
+    }
     getUnknownFields().writeTo(output);
   }
   private int computeSerializedSize_0() {
@@ -191,6 +348,15 @@ private static final long serialVersionUID = 0L;
     if (hasNext_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, hasNext_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(from_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(4, from_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(to_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, to_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timeZone_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(6, timeZone_);
     }
     return size;
   }
@@ -222,6 +388,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getNextCursor())) return false;
     if (getHasNext()
         != other.getHasNext()) return false;
+    if (!getFrom()
+        .equals(other.getFrom())) return false;
+    if (!getTo()
+        .equals(other.getTo())) return false;
+    if (!getTimeZone()
+        .equals(other.getTimeZone())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -242,6 +414,12 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + HAS_NEXT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHasNext());
+    hash = (37 * hash) + FROM_FIELD_NUMBER;
+    hash = (53 * hash) + getFrom().hashCode();
+    hash = (37 * hash) + TO_FIELD_NUMBER;
+    hash = (53 * hash) + getTo().hashCode();
+    hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
+    hash = (53 * hash) + getTimeZone().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -382,6 +560,9 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000001);
       nextCursor_ = "";
       hasNext_ = false;
+      from_ = "";
+      to_ = "";
+      timeZone_ = "";
       return this;
     }
 
@@ -434,6 +615,15 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.hasNext_ = hasNext_;
       }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.from_ = from_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.to_ = to_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.timeZone_ = timeZone_;
+      }
     }
 
     @java.lang.Override
@@ -481,6 +671,21 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getHasNext() != false) {
         setHasNext(other.getHasNext());
+      }
+      if (!other.getFrom().isEmpty()) {
+        from_ = other.from_;
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      if (!other.getTo().isEmpty()) {
+        to_ = other.to_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      if (!other.getTimeZone().isEmpty()) {
+        timeZone_ = other.timeZone_;
+        bitField0_ |= 0x00000020;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -531,6 +736,21 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 24
+            case 34: {
+              from_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              to_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              timeZone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -912,6 +1132,292 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object from_ = "";
+    /**
+     * <pre>
+     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string from = 4 [json_name = "from"];</code>
+     * @return The from.
+     */
+    public java.lang.String getFrom() {
+      java.lang.Object ref = from_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        from_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string from = 4 [json_name = "from"];</code>
+     * @return The bytes for from.
+     */
+    public com.google.protobuf.ByteString
+        getFromBytes() {
+      java.lang.Object ref = from_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        from_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string from = 4 [json_name = "from"];</code>
+     * @param value The from to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFrom(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      from_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string from = 4 [json_name = "from"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFrom() {
+      from_ = getDefaultInstance().getFrom();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string from = 4 [json_name = "from"];</code>
+     * @param value The bytes for from to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFromBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      from_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object to_ = "";
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string to = 5 [json_name = "to"];</code>
+     * @return The to.
+     */
+    public java.lang.String getTo() {
+      java.lang.Object ref = to_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        to_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string to = 5 [json_name = "to"];</code>
+     * @return The bytes for to.
+     */
+    public com.google.protobuf.ByteString
+        getToBytes() {
+      java.lang.Object ref = to_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        to_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string to = 5 [json_name = "to"];</code>
+     * @param value The to to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTo(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      to_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string to = 5 [json_name = "to"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTo() {
+      to_ = getDefaultInstance().getTo();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string to = 5 [json_name = "to"];</code>
+     * @param value The bytes for to to set.
+     * @return This builder for chaining.
+     */
+    public Builder setToBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      to_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object timeZone_ = "";
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+     * @return The timeZone.
+     */
+    public java.lang.String getTimeZone() {
+      java.lang.Object ref = timeZone_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timeZone_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+     * @return The bytes for timeZone.
+     */
+    public com.google.protobuf.ByteString
+        getTimeZoneBytes() {
+      java.lang.Object ref = timeZone_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeZone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+     * @param value The timeZone to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTimeZone(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      timeZone_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTimeZone() {
+      timeZone_ = getDefaultInstance().getTimeZone();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+     * @param value The bytes for timeZone to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTimeZoneBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      timeZone_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
     /* Generated by protoc-gen-java-set-or-clear */
     
     /**
@@ -983,6 +1489,75 @@ private static final long serialVersionUID = 0L;
     		return clearHasNext();
     	else
     		return setHasNext(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The from to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearFrom(java.lang.String value) {
+    	if (value == null)
+    		return clearFrom();
+    	else
+    		return setFrom(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearFrom(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearFrom();
+    	else
+    		return setFrom(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The to to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearTo(java.lang.String value) {
+    	if (value == null)
+    		return clearTo();
+    	else
+    		return setTo(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearTo(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearTo();
+    	else
+    		return setTo(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The time_zone to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearTimeZone(java.lang.String value) {
+    	if (value == null)
+    		return clearTimeZone();
+    	else
+    		return setTimeZone(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearTimeZone(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearTimeZone();
+    	else
+    		return setTimeZone(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.SearchUserChatMessagesResult)

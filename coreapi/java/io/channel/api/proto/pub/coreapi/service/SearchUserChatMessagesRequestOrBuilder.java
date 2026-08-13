@@ -62,4 +62,84 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
    * @return The limit.
    */
   int getLimit();
+
+  /**
+   * <pre>
+   * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
+   * format (seconds precision, no offset). Must be provided together with `to`.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string from = 6 [json_name = "from"];</code>
+   * @return The from.
+   */
+  java.lang.String getFrom();
+  /**
+   * <pre>
+   * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
+   * format (seconds precision, no offset). Must be provided together with `to`.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string from = 6 [json_name = "from"];</code>
+   * @return The bytes for from.
+   */
+  com.google.protobuf.ByteString
+      getFromBytes();
+
+  /**
+   * <pre>
+   * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
+   * format (seconds precision, no offset). Must be provided together with `from`.
+   * The range may not exceed 30 days.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string to = 7 [json_name = "to"];</code>
+   * @return The to.
+   */
+  java.lang.String getTo();
+  /**
+   * <pre>
+   * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
+   * format (seconds precision, no offset). Must be provided together with `from`.
+   * The range may not exceed 30 days.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string to = 7 [json_name = "to"];</code>
+   * @return The bytes for to.
+   */
+  com.google.protobuf.ByteString
+      getToBytes();
+
+  /**
+   * <pre>
+   * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
+   * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string time_zone = 8 [json_name = "timeZone"];</code>
+   * @return The timeZone.
+   */
+  java.lang.String getTimeZone();
+  /**
+   * <pre>
+   * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
+   * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string time_zone = 8 [json_name = "timeZone"];</code>
+   * @return The bytes for timeZone.
+   */
+  com.google.protobuf.ByteString
+      getTimeZoneBytes();
 }

@@ -59,4 +59,68 @@ public interface SearchUserChatMessagesResultOrBuilder extends
    * @return The hasNext.
    */
   boolean getHasNext();
+
+  /**
+   * <pre>
+   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string from = 4 [json_name = "from"];</code>
+   * @return The from.
+   */
+  java.lang.String getFrom();
+  /**
+   * <pre>
+   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string from = 4 [json_name = "from"];</code>
+   * @return The bytes for from.
+   */
+  com.google.protobuf.ByteString
+      getFromBytes();
+
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string to = 5 [json_name = "to"];</code>
+   * @return The to.
+   */
+  java.lang.String getTo();
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string to = 5 [json_name = "to"];</code>
+   * @return The bytes for to.
+   */
+  com.google.protobuf.ByteString
+      getToBytes();
+
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+   * @return The timeZone.
+   */
+  java.lang.String getTimeZone();
+  /**
+   * <pre>
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>string time_zone = 6 [json_name = "timeZone"];</code>
+   * @return The bytes for timeZone.
+   */
+  com.google.protobuf.ByteString
+      getTimeZoneBytes();
 }
