@@ -458,14 +458,21 @@ message SearchUserChatMessagesResult {
 
   bool has_next = 3;
 
-  // Echoes the applied creation time range and time zone. Empty when no range was requested.
+  // Echoes the applied inclusive start of the message creation time range.
+  // Empty when no range was requested.
   //
   // +kubebuilder:validation:Nullable
   string from = 4;
 
+  // Echoes the applied exclusive end of the message creation time range.
+  // Empty when no range was requested.
+  //
   // +kubebuilder:validation:Nullable
   string to = 5;
 
+  // Echoes the IANA time zone id that `from` and `to` are interpreted in.
+  // Empty when no range was requested.
+  //
   // +kubebuilder:validation:Nullable
   string time_zone = 6;
 }

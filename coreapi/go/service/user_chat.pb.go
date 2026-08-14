@@ -1588,12 +1588,19 @@ type SearchUserChatMessagesResult struct {
 	// +kubebuilder:validation:Nullable
 	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
 	HasNext    bool   `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
-	// Echoes the applied creation time range and time zone. Empty when no range was requested.
+	// Echoes the applied inclusive start of the message creation time range.
+	// Empty when no range was requested.
 	//
 	// +kubebuilder:validation:Nullable
 	From string `protobuf:"bytes,4,opt,name=from,proto3" json:"from,omitempty"`
+	// Echoes the applied exclusive end of the message creation time range.
+	// Empty when no range was requested.
+	//
 	// +kubebuilder:validation:Nullable
 	To string `protobuf:"bytes,5,opt,name=to,proto3" json:"to,omitempty"`
+	// Echoes the IANA time zone id that `from` and `to` are interpreted in.
+	// Empty when no range was requested.
+	//
 	// +kubebuilder:validation:Nullable
 	TimeZone      string `protobuf:"bytes,6,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
 	unknownFields protoimpl.UnknownFields

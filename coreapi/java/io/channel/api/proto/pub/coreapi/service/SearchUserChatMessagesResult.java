@@ -157,7 +157,8 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object from_ = "";
   /**
    * <pre>
-   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   * Echoes the applied inclusive start of the message creation time range.
+   * Empty when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -180,7 +181,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   * Echoes the applied inclusive start of the message creation time range.
+   * Empty when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -208,6 +210,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object to_ = "";
   /**
    * <pre>
+   * Echoes the applied exclusive end of the message creation time range.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -229,6 +234,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
+   * Echoes the applied exclusive end of the message creation time range.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -255,6 +263,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object timeZone_ = "";
   /**
    * <pre>
+   * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -276,6 +287,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
+   * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -1135,7 +1149,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object from_ = "";
     /**
      * <pre>
-     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     * Echoes the applied inclusive start of the message creation time range.
+     * Empty when no range was requested.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1157,7 +1172,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     * Echoes the applied inclusive start of the message creation time range.
+     * Empty when no range was requested.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1180,7 +1196,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     * Echoes the applied inclusive start of the message creation time range.
+     * Empty when no range was requested.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1199,7 +1216,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     * Echoes the applied inclusive start of the message creation time range.
+     * Empty when no range was requested.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1215,7 +1233,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Echoes the applied creation time range and time zone. Empty when no range was requested.
+     * Echoes the applied inclusive start of the message creation time range.
+     * Empty when no range was requested.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1237,6 +1256,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object to_ = "";
     /**
      * <pre>
+     * Echoes the applied exclusive end of the message creation time range.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1257,6 +1279,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the applied exclusive end of the message creation time range.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1278,6 +1303,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the applied exclusive end of the message creation time range.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1295,6 +1323,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the applied exclusive end of the message creation time range.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1309,6 +1340,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the applied exclusive end of the message creation time range.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1329,6 +1363,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object timeZone_ = "";
     /**
      * <pre>
+     * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1349,6 +1386,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1370,6 +1410,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1387,6 +1430,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
@@ -1401,6 +1447,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+     * Empty when no range was requested.
+     *
      * +kubebuilder:validation:Nullable
      * </pre>
      *

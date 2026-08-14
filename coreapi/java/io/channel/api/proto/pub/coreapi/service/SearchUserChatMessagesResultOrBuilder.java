@@ -62,7 +62,8 @@ public interface SearchUserChatMessagesResultOrBuilder extends
 
   /**
    * <pre>
-   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   * Echoes the applied inclusive start of the message creation time range.
+   * Empty when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -73,7 +74,8 @@ public interface SearchUserChatMessagesResultOrBuilder extends
   java.lang.String getFrom();
   /**
    * <pre>
-   * Echoes the applied creation time range and time zone. Empty when no range was requested.
+   * Echoes the applied inclusive start of the message creation time range.
+   * Empty when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -86,6 +88,9 @@ public interface SearchUserChatMessagesResultOrBuilder extends
 
   /**
    * <pre>
+   * Echoes the applied exclusive end of the message creation time range.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -95,6 +100,9 @@ public interface SearchUserChatMessagesResultOrBuilder extends
   java.lang.String getTo();
   /**
    * <pre>
+   * Echoes the applied exclusive end of the message creation time range.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -106,6 +114,9 @@ public interface SearchUserChatMessagesResultOrBuilder extends
 
   /**
    * <pre>
+   * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
@@ -115,6 +126,9 @@ public interface SearchUserChatMessagesResultOrBuilder extends
   java.lang.String getTimeZone();
   /**
    * <pre>
+   * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+   * Empty when no range was requested.
+   *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
