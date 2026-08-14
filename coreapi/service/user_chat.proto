@@ -429,6 +429,25 @@ message SearchUserChatMessagesRequest {
     message: "limit must be between 1 and 500"
     expression: "this == 0 || (this >= 1 && this <= 500)"
   }];
+
+  // Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
+  // format (seconds precision, no offset). Must be provided together with `to`.
+  //
+  // +kubebuilder:validation:Nullable
+  string from = 6;
+
+  // Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
+  // format (seconds precision, no offset). Must be provided together with `from`.
+  // The range may not exceed 30 days.
+  //
+  // +kubebuilder:validation:Nullable
+  string to = 7;
+
+  // IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
+  // Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+  //
+  // +kubebuilder:validation:Nullable
+  string time_zone = 8;
 }
 
 message SearchUserChatMessagesResult {
@@ -438,6 +457,24 @@ message SearchUserChatMessagesResult {
   string next_cursor = 2;
 
   bool has_next = 3;
+
+  // Echoes the applied inclusive start of the message creation time range.
+  // Empty when no range was requested.
+  //
+  // +kubebuilder:validation:Nullable
+  string from = 4;
+
+  // Echoes the applied exclusive end of the message creation time range.
+  // Empty when no range was requested.
+  //
+  // +kubebuilder:validation:Nullable
+  string to = 5;
+
+  // Echoes the IANA time zone id that `from` and `to` are interpreted in.
+  // Empty when no range was requested.
+  //
+  // +kubebuilder:validation:Nullable
+  string time_zone = 6;
 }
 
 // Sends a new message to a user chat.

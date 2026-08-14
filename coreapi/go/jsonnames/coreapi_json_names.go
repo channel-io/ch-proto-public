@@ -1578,11 +1578,17 @@ var coreAPIFieldNames = map[string]map[string]fieldName{
 		"sort_order":   {jsonName: "sortOrder"},
 		"cursor":       {jsonName: "cursor"},
 		"limit":        {jsonName: "limit"},
+		"from":         {jsonName: "from"},
+		"to":           {jsonName: "to"},
+		"time_zone":    {jsonName: "timeZone"},
 	},
 	"coreapi.service.SearchUserChatMessagesResult": {
 		"messages":    {jsonName: "messages", messageFullName: "coreapi.model.Message"},
 		"next_cursor": {jsonName: "nextCursor"},
 		"has_next":    {jsonName: "hasNext"},
+		"from":        {jsonName: "from"},
+		"to":          {jsonName: "to"},
+		"time_zone":   {jsonName: "timeZone"},
 	},
 	"coreapi.service.SearchUserChatSessionsRequest": {
 		"channel_id":   {jsonName: "channelId"},
