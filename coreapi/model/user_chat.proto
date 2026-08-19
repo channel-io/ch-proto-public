@@ -24,6 +24,8 @@ enum UserChatState {
   USER_CHAT_STATE_QUEUED = 4;
   // The chat has been created but no message has been sent yet.
   USER_CHAT_STATE_INITIAL = 5;
+  // The chat has been marked as missed.
+  USER_CHAT_STATE_MISSED = 6;
 }
 
 // Reason why an inbound call or chat was missed.

@@ -63,6 +63,14 @@ public enum UserChatState
    * <code>USER_CHAT_STATE_INITIAL = 5;</code>
    */
   USER_CHAT_STATE_INITIAL(5),
+  /**
+   * <pre>
+   * The chat has been marked as missed.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_MISSED = 6;</code>
+   */
+  USER_CHAT_STATE_MISSED(6),
   UNRECOGNIZED(-1),
   ;
 
@@ -123,6 +131,14 @@ public enum UserChatState
    * <code>USER_CHAT_STATE_INITIAL = 5;</code>
    */
   public static final int USER_CHAT_STATE_INITIAL_VALUE = 5;
+  /**
+   * <pre>
+   * The chat has been marked as missed.
+   * </pre>
+   *
+   * <code>USER_CHAT_STATE_MISSED = 6;</code>
+   */
+  public static final int USER_CHAT_STATE_MISSED_VALUE = 6;
 
 
   public final int getNumber() {
@@ -155,6 +171,7 @@ public enum UserChatState
       case 3: return USER_CHAT_STATE_SNOOZED;
       case 4: return USER_CHAT_STATE_QUEUED;
       case 5: return USER_CHAT_STATE_INITIAL;
+      case 6: return USER_CHAT_STATE_MISSED;
       default: return null;
     }
   }
@@ -218,6 +235,7 @@ public enum UserChatState
   	switch (value) {
       case "closed": return USER_CHAT_STATE_CLOSED;
       case "initial": return USER_CHAT_STATE_INITIAL;
+      case "missed": return USER_CHAT_STATE_MISSED;
       case "opened": return USER_CHAT_STATE_OPENED;
       case "queued": return USER_CHAT_STATE_QUEUED;
       case "snoozed": return USER_CHAT_STATE_SNOOZED;
@@ -232,6 +250,7 @@ public enum UserChatState
   	switch (this) {
       case USER_CHAT_STATE_CLOSED: return "closed";
       case USER_CHAT_STATE_INITIAL: return "initial";
+      case USER_CHAT_STATE_MISSED: return "missed";
       case USER_CHAT_STATE_OPENED: return "opened";
       case USER_CHAT_STATE_QUEUED: return "queued";
       case USER_CHAT_STATE_SNOOZED: return "snoozed";

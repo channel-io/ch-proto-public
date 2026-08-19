@@ -9,6 +9,8 @@ func (x UserChatState) GetString() string {
 		return "closed"
 	case UserChatState_USER_CHAT_STATE_INITIAL:
 		return "initial"
+	case UserChatState_USER_CHAT_STATE_MISSED:
+		return "missed"
 	case UserChatState_USER_CHAT_STATE_OPENED:
 		return "opened"
 	case UserChatState_USER_CHAT_STATE_QUEUED:
@@ -27,6 +29,8 @@ func UserChatStateForString(value string) UserChatState {
 		return UserChatState_USER_CHAT_STATE_CLOSED
 	case "initial":
 		return UserChatState_USER_CHAT_STATE_INITIAL
+	case "missed":
+		return UserChatState_USER_CHAT_STATE_MISSED
 	case "opened":
 		return UserChatState_USER_CHAT_STATE_OPENED
 	case "queued":

@@ -35,7 +35,8 @@ const (
 // as the cursor parameter to retrieve the next page.
 // If the cursor parameter is left empty, the list starts from the beginning.
 //
-// Retrieved user chats can be filtered by state (opened, snoozed, closed).
+// Retrieved user chats can be filtered by state
+// (closed, opened, snoozed, queued, initial, missed).
 // Defaults to opened if state is not specified.
 type SearchUserChatsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
