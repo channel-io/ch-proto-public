@@ -40,6 +40,8 @@ const (
 	UserChatState_USER_CHAT_STATE_QUEUED UserChatState = 4
 	// The chat has been created but no message has been sent yet.
 	UserChatState_USER_CHAT_STATE_INITIAL UserChatState = 5
+	// The chat has been marked as missed.
+	UserChatState_USER_CHAT_STATE_MISSED UserChatState = 6
 )
 
 // Enum value maps for UserChatState.
@@ -51,6 +53,7 @@ var (
 		3: "USER_CHAT_STATE_SNOOZED",
 		4: "USER_CHAT_STATE_QUEUED",
 		5: "USER_CHAT_STATE_INITIAL",
+		6: "USER_CHAT_STATE_MISSED",
 	}
 	UserChatState_value = map[string]int32{
 		"USER_CHAT_STATE_UNSPECIFIED": 0,
@@ -59,6 +62,7 @@ var (
 		"USER_CHAT_STATE_SNOOZED":     3,
 		"USER_CHAT_STATE_QUEUED":      4,
 		"USER_CHAT_STATE_INITIAL":     5,
+		"USER_CHAT_STATE_MISSED":      6,
 	}
 )
 
@@ -1893,14 +1897,15 @@ const file_coreapi_model_user_chat_proto_rawDesc = "" +
 	"snoozed_at\x18' \x01(\v2\x1a.google.protobuf.TimestampR\tsnoozedAt\x129\n" +
 	"\n" +
 	"expires_at\x18( \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x1b\n" +
-	"\tmedium_id\x18) \x01(\tR\bmediumIdJ\x04\b8\x109R\aversion*\xbe\x01\n" +
+	"\tmedium_id\x18) \x01(\tR\bmediumIdJ\x04\b8\x109R\aversion*\xda\x01\n" +
 	"\rUserChatState\x12\x1f\n" +
 	"\x1bUSER_CHAT_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_CLOSED\x10\x01\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_OPENED\x10\x02\x12\x1b\n" +
 	"\x17USER_CHAT_STATE_SNOOZED\x10\x03\x12\x1a\n" +
 	"\x16USER_CHAT_STATE_QUEUED\x10\x04\x12\x1b\n" +
-	"\x17USER_CHAT_STATE_INITIAL\x10\x05*\xea\x03\n" +
+	"\x17USER_CHAT_STATE_INITIAL\x10\x05\x12\x1a\n" +
+	"\x16USER_CHAT_STATE_MISSED\x10\x06*\xea\x03\n" +
 	"\fMissedReason\x12\x1d\n" +
 	"\x19MISSED_REASON_UNSPECIFIED\x10\x00\x12\"\n" +
 	"\x1eMISSED_REASON_NOT_IN_OPERATION\x10\x01\x12\x1b\n" +
