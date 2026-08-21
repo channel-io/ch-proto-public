@@ -36,9 +36,7 @@ private static final long serialVersionUID = 0L;
     userChatId_ = "";
     sortOrder_ = 0;
     cursor_ = "";
-    from_ = "";
-    to_ = "";
-    timeZone_ = "";
+    originalTimeZone_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -59,6 +57,7 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.service.SearchUserChatMessagesRequest.class, io.channel.api.proto.pub.coreapi.service.SearchUserChatMessagesRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int CHANNEL_ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object channelId_ = "";
@@ -206,160 +205,143 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FROM_FIELD_NUMBER = 6;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object from_ = "";
+  private com.google.protobuf.Timestamp from_;
   /**
    * <pre>
-   * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `to`.
+   * Inclusive start of the message creation time range. Must be provided together with `to`.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * @return Whether the from field is set.
+   */
+  @java.lang.Override
+  public boolean hasFrom() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Inclusive start of the message creation time range. Must be provided together with `to`.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
    * @return The from.
    */
   @java.lang.Override
-  public java.lang.String getFrom() {
-    java.lang.Object ref = from_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      from_ = s;
-      return s;
-    }
+  public com.google.protobuf.Timestamp getFrom() {
+    return from_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : from_;
   }
   /**
    * <pre>
-   * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `to`.
+   * Inclusive start of the message creation time range. Must be provided together with `to`.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string from = 6 [json_name = "from"];</code>
-   * @return The bytes for from.
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getFromBytes() {
-    java.lang.Object ref = from_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      from_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.TimestampOrBuilder getFromOrBuilder() {
+    return from_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : from_;
   }
 
   public static final int TO_FIELD_NUMBER = 7;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object to_ = "";
+  private com.google.protobuf.Timestamp to_;
   /**
    * <pre>
-   * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `from`.
+   * Exclusive end of the message creation time range. Must be provided together with `from`.
    * The range may not exceed 30 days.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * @return Whether the to field is set.
+   */
+  @java.lang.Override
+  public boolean hasTo() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * Exclusive end of the message creation time range. Must be provided together with `from`.
+   * The range may not exceed 30 days.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
    * @return The to.
    */
   @java.lang.Override
-  public java.lang.String getTo() {
-    java.lang.Object ref = to_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      to_ = s;
-      return s;
-    }
+  public com.google.protobuf.Timestamp getTo() {
+    return to_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : to_;
   }
   /**
    * <pre>
-   * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `from`.
+   * Exclusive end of the message creation time range. Must be provided together with `from`.
    * The range may not exceed 30 days.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string to = 7 [json_name = "to"];</code>
-   * @return The bytes for to.
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getToBytes() {
-    java.lang.Object ref = to_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      to_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.TimestampOrBuilder getToOrBuilder() {
+    return to_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : to_;
   }
 
-  public static final int TIME_ZONE_FIELD_NUMBER = 8;
+  public static final int ORIGINAL_TIME_ZONE_FIELD_NUMBER = 8;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object timeZone_ = "";
+  private volatile java.lang.Object originalTimeZone_ = "";
   /**
    * <pre>
-   * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-   * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+   * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+   * they were converted to absolute timestamps. This field does not affect their interpretation.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-   * @return The timeZone.
+   * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+   * @return The originalTimeZone.
    */
   @java.lang.Override
-  public java.lang.String getTimeZone() {
-    java.lang.Object ref = timeZone_;
+  public java.lang.String getOriginalTimeZone() {
+    java.lang.Object ref = originalTimeZone_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      timeZone_ = s;
+      originalTimeZone_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-   * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+   * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+   * they were converted to absolute timestamps. This field does not affect their interpretation.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-   * @return The bytes for timeZone.
+   * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+   * @return The bytes for originalTimeZone.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getTimeZoneBytes() {
-    java.lang.Object ref = timeZone_;
+      getOriginalTimeZoneBytes() {
+    java.lang.Object ref = originalTimeZone_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      timeZone_ = b;
+      originalTimeZone_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -395,14 +377,14 @@ private static final long serialVersionUID = 0L;
     if (limit_ != 0) {
       output.writeInt32(5, limit_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(from_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 6, from_);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(6, getFrom());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(to_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 7, to_);
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeMessage(7, getTo());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timeZone_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 8, timeZone_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(originalTimeZone_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 8, originalTimeZone_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -425,14 +407,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, limit_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(from_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(6, from_);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getFrom());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(to_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(7, to_);
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getTo());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timeZone_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, timeZone_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(originalTimeZone_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, originalTimeZone_);
     }
     return size;
   }
@@ -467,12 +451,18 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCursor())) return false;
     if (getLimit()
         != other.getLimit()) return false;
-    if (!getFrom()
-        .equals(other.getFrom())) return false;
-    if (!getTo()
-        .equals(other.getTo())) return false;
-    if (!getTimeZone()
-        .equals(other.getTimeZone())) return false;
+    if (hasFrom() != other.hasFrom()) return false;
+    if (hasFrom()) {
+      if (!getFrom()
+          .equals(other.getFrom())) return false;
+    }
+    if (hasTo() != other.hasTo()) return false;
+    if (hasTo()) {
+      if (!getTo()
+          .equals(other.getTo())) return false;
+    }
+    if (!getOriginalTimeZone()
+        .equals(other.getOriginalTimeZone())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -494,12 +484,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCursor().hashCode();
     hash = (37 * hash) + LIMIT_FIELD_NUMBER;
     hash = (53 * hash) + getLimit();
-    hash = (37 * hash) + FROM_FIELD_NUMBER;
-    hash = (53 * hash) + getFrom().hashCode();
-    hash = (37 * hash) + TO_FIELD_NUMBER;
-    hash = (53 * hash) + getTo().hashCode();
-    hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
-    hash = (53 * hash) + getTimeZone().hashCode();
+    if (hasFrom()) {
+      hash = (37 * hash) + FROM_FIELD_NUMBER;
+      hash = (53 * hash) + getFrom().hashCode();
+    }
+    if (hasTo()) {
+      hash = (37 * hash) + TO_FIELD_NUMBER;
+      hash = (53 * hash) + getTo().hashCode();
+    }
+    hash = (37 * hash) + ORIGINAL_TIME_ZONE_FIELD_NUMBER;
+    hash = (53 * hash) + getOriginalTimeZone().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -623,13 +617,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.channel.api.proto.pub.coreapi.service.SearchUserChatMessagesRequest.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        internalGetFromFieldBuilder();
+        internalGetToFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -640,9 +641,17 @@ private static final long serialVersionUID = 0L;
       sortOrder_ = 0;
       cursor_ = "";
       limit_ = 0;
-      from_ = "";
-      to_ = "";
-      timeZone_ = "";
+      from_ = null;
+      if (fromBuilder_ != null) {
+        fromBuilder_.dispose();
+        fromBuilder_ = null;
+      }
+      to_ = null;
+      if (toBuilder_ != null) {
+        toBuilder_.dispose();
+        toBuilder_ = null;
+      }
+      originalTimeZone_ = "";
       return this;
     }
 
@@ -691,15 +700,23 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.limit_ = limit_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.from_ = from_;
+        result.from_ = fromBuilder_ == null
+            ? from_
+            : fromBuilder_.build();
+        to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.to_ = to_;
+        result.to_ = toBuilder_ == null
+            ? to_
+            : toBuilder_.build();
+        to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.timeZone_ = timeZone_;
+        result.originalTimeZone_ = originalTimeZone_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -735,18 +752,14 @@ private static final long serialVersionUID = 0L;
       if (other.getLimit() != 0) {
         setLimit(other.getLimit());
       }
-      if (!other.getFrom().isEmpty()) {
-        from_ = other.from_;
-        bitField0_ |= 0x00000020;
-        onChanged();
+      if (other.hasFrom()) {
+        mergeFrom(other.getFrom());
       }
-      if (!other.getTo().isEmpty()) {
-        to_ = other.to_;
-        bitField0_ |= 0x00000040;
-        onChanged();
+      if (other.hasTo()) {
+        mergeTo(other.getTo());
       }
-      if (!other.getTimeZone().isEmpty()) {
-        timeZone_ = other.timeZone_;
+      if (!other.getOriginalTimeZone().isEmpty()) {
+        originalTimeZone_ = other.originalTimeZone_;
         bitField0_ |= 0x00000080;
         onChanged();
       }
@@ -802,17 +815,21 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 40
             case 50: {
-              from_ = input.readStringRequireUtf8();
+              input.readMessage(
+                  internalGetFromFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000020;
               break;
             } // case 50
             case 58: {
-              to_ = input.readStringRequireUtf8();
+              input.readMessage(
+                  internalGetToFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000040;
               break;
             } // case 58
             case 66: {
-              timeZone_ = input.readStringRequireUtf8();
+              originalTimeZone_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000080;
               break;
             } // case 66
@@ -1133,244 +1150,384 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object from_ = "";
+    private com.google.protobuf.Timestamp from_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> fromBuilder_;
     /**
      * <pre>
-     * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `to`.
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * @return Whether the from field is set.
+     */
+    public boolean hasFrom() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
      * @return The from.
      */
-    public java.lang.String getFrom() {
-      java.lang.Object ref = from_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        from_ = s;
-        return s;
+    public com.google.protobuf.Timestamp getFrom() {
+      if (fromBuilder_ == null) {
+        return from_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : from_;
       } else {
-        return (java.lang.String) ref;
+        return fromBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `to`.
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string from = 6 [json_name = "from"];</code>
-     * @return The bytes for from.
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
      */
-    public com.google.protobuf.ByteString
-        getFromBytes() {
-      java.lang.Object ref = from_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        from_ = b;
-        return b;
+    public Builder setFrom(com.google.protobuf.Timestamp value) {
+      if (fromBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        from_ = value;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        fromBuilder_.setMessage(value);
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
     }
     /**
      * <pre>
-     * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `to`.
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string from = 6 [json_name = "from"];</code>
-     * @param value The from to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
      */
     public Builder setFrom(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      from_ = value;
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (fromBuilder_ == null) {
+        from_ = builderForValue.build();
+      } else {
+        fromBuilder_.setMessage(builderForValue.build());
+      }
       bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `to`.
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string from = 6 [json_name = "from"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     */
+    public Builder mergeFrom(com.google.protobuf.Timestamp value) {
+      if (fromBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0) &&
+          from_ != null &&
+          from_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getFromBuilder().mergeFrom(value);
+        } else {
+          from_ = value;
+        }
+      } else {
+        fromBuilder_.mergeFrom(value);
+      }
+      if (from_ != null) {
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
      */
     public Builder clearFrom() {
-      from_ = getDefaultInstance().getFrom();
       bitField0_ = (bitField0_ & ~0x00000020);
+      from_ = null;
+      if (fromBuilder_ != null) {
+        fromBuilder_.dispose();
+        fromBuilder_ = null;
+      }
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `to`.
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string from = 6 [json_name = "from"];</code>
-     * @param value The bytes for from to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
      */
-    public Builder setFromBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      from_ = value;
+    public com.google.protobuf.Timestamp.Builder getFromBuilder() {
       bitField0_ |= 0x00000020;
       onChanged();
-      return this;
+      return internalGetFromFieldBuilder().getBuilder();
     }
-
-    private java.lang.Object to_ = "";
     /**
      * <pre>
-     * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `from`.
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getFromOrBuilder() {
+      if (fromBuilder_ != null) {
+        return fromBuilder_.getMessageOrBuilder();
+      } else {
+        return from_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : from_;
+      }
+    }
+    /**
+     * <pre>
+     * Inclusive start of the message creation time range. Must be provided together with `to`.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        internalGetFromFieldBuilder() {
+      if (fromBuilder_ == null) {
+        fromBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getFrom(),
+                getParentForChildren(),
+                isClean());
+        from_ = null;
+      }
+      return fromBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp to_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> toBuilder_;
+    /**
+     * <pre>
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
      * The range may not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * @return Whether the to field is set.
+     */
+    public boolean hasTo() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
+     * The range may not exceed 30 days.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
      * @return The to.
      */
-    public java.lang.String getTo() {
-      java.lang.Object ref = to_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        to_ = s;
-        return s;
+    public com.google.protobuf.Timestamp getTo() {
+      if (toBuilder_ == null) {
+        return to_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : to_;
       } else {
-        return (java.lang.String) ref;
+        return toBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `from`.
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
      * The range may not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string to = 7 [json_name = "to"];</code>
-     * @return The bytes for to.
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
      */
-    public com.google.protobuf.ByteString
-        getToBytes() {
-      java.lang.Object ref = to_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        to_ = b;
-        return b;
+    public Builder setTo(com.google.protobuf.Timestamp value) {
+      if (toBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        to_ = value;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        toBuilder_.setMessage(value);
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
     }
     /**
      * <pre>
-     * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `from`.
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
      * The range may not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string to = 7 [json_name = "to"];</code>
-     * @param value The to to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
      */
     public Builder setTo(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      to_ = value;
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (toBuilder_ == null) {
+        to_ = builderForValue.build();
+      } else {
+        toBuilder_.setMessage(builderForValue.build());
+      }
       bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `from`.
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
      * The range may not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string to = 7 [json_name = "to"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     */
+    public Builder mergeTo(com.google.protobuf.Timestamp value) {
+      if (toBuilder_ == null) {
+        if (((bitField0_ & 0x00000040) != 0) &&
+          to_ != null &&
+          to_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getToBuilder().mergeFrom(value);
+        } else {
+          to_ = value;
+        }
+      } else {
+        toBuilder_.mergeFrom(value);
+      }
+      if (to_ != null) {
+        bitField0_ |= 0x00000040;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
+     * The range may not exceed 30 days.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
      */
     public Builder clearTo() {
-      to_ = getDefaultInstance().getTo();
       bitField0_ = (bitField0_ & ~0x00000040);
+      to_ = null;
+      if (toBuilder_ != null) {
+        toBuilder_.dispose();
+        toBuilder_ = null;
+      }
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-     * format (seconds precision, no offset). Must be provided together with `from`.
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
      * The range may not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string to = 7 [json_name = "to"];</code>
-     * @param value The bytes for to to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
      */
-    public Builder setToBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      to_ = value;
+    public com.google.protobuf.Timestamp.Builder getToBuilder() {
       bitField0_ |= 0x00000040;
       onChanged();
-      return this;
+      return internalGetToFieldBuilder().getBuilder();
     }
-
-    private java.lang.Object timeZone_ = "";
     /**
      * <pre>
-     * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-     * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
+     * The range may not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-     * @return The timeZone.
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
      */
-    public java.lang.String getTimeZone() {
-      java.lang.Object ref = timeZone_;
+    public com.google.protobuf.TimestampOrBuilder getToOrBuilder() {
+      if (toBuilder_ != null) {
+        return toBuilder_.getMessageOrBuilder();
+      } else {
+        return to_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : to_;
+      }
+    }
+    /**
+     * <pre>
+     * Exclusive end of the message creation time range. Must be provided together with `from`.
+     * The range may not exceed 30 days.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        internalGetToFieldBuilder() {
+      if (toBuilder_ == null) {
+        toBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getTo(),
+                getParentForChildren(),
+                isClean());
+        to_ = null;
+      }
+      return toBuilder_;
+    }
+
+    private java.lang.Object originalTimeZone_ = "";
+    /**
+     * <pre>
+     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+     * they were converted to absolute timestamps. This field does not affect their interpretation.
+     *
+     * +kubebuilder:validation:Nullable
+     * </pre>
+     *
+     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+     * @return The originalTimeZone.
+     */
+    public java.lang.String getOriginalTimeZone() {
+      java.lang.Object ref = originalTimeZone_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        timeZone_ = s;
+        originalTimeZone_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1378,23 +1535,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-     * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+     * they were converted to absolute timestamps. This field does not affect their interpretation.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-     * @return The bytes for timeZone.
+     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+     * @return The bytes for originalTimeZone.
      */
     public com.google.protobuf.ByteString
-        getTimeZoneBytes() {
-      java.lang.Object ref = timeZone_;
+        getOriginalTimeZoneBytes() {
+      java.lang.Object ref = originalTimeZone_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        timeZone_ = b;
+        originalTimeZone_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1402,58 +1559,58 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-     * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+     * they were converted to absolute timestamps. This field does not affect their interpretation.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-     * @param value The timeZone to set.
+     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+     * @param value The originalTimeZone to set.
      * @return This builder for chaining.
      */
-    public Builder setTimeZone(
+    public Builder setOriginalTimeZone(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      timeZone_ = value;
+      originalTimeZone_ = value;
       bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-     * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+     * they were converted to absolute timestamps. This field does not affect their interpretation.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string time_zone = 8 [json_name = "timeZone"];</code>
+     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearTimeZone() {
-      timeZone_ = getDefaultInstance().getTimeZone();
+    public Builder clearOriginalTimeZone() {
+      originalTimeZone_ = getDefaultInstance().getOriginalTimeZone();
       bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-     * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+     * they were converted to absolute timestamps. This field does not affect their interpretation.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-     * @param value The bytes for timeZone to set.
+     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+     * @param value The bytes for originalTimeZone to set.
      * @return This builder for chaining.
      */
-    public Builder setTimeZoneBytes(
+    public Builder setOriginalTimeZoneBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      timeZone_ = value;
+      originalTimeZone_ = value;
       bitField0_ |= 0x00000080;
       onChanged();
       return this;
@@ -1580,7 +1737,7 @@ private static final long serialVersionUID = 0L;
      * @param value The from to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearFrom(java.lang.String value) {
+    public Builder setOrClearFrom(com.google.protobuf.Timestamp value) {
     	if (value == null)
     		return clearFrom();
     	else
@@ -1592,7 +1749,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearFrom(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearFrom(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
     	if (value == null)
     		return clearFrom();
     	else
@@ -1603,7 +1760,7 @@ private static final long serialVersionUID = 0L;
      * @param value The to to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearTo(java.lang.String value) {
+    public Builder setOrClearTo(com.google.protobuf.Timestamp value) {
     	if (value == null)
     		return clearTo();
     	else
@@ -1615,7 +1772,7 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearTo(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearTo(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
     	if (value == null)
     		return clearTo();
     	else
@@ -1623,14 +1780,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The time_zone to set.
+     * @param value The original_time_zone to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearTimeZone(java.lang.String value) {
+    public Builder setOrClearOriginalTimeZone(java.lang.String value) {
     	if (value == null)
-    		return clearTimeZone();
+    		return clearOriginalTimeZone();
     	else
-    		return setTimeZone(value);
+    		return setOriginalTimeZone(value);
     }
     	
     /**
@@ -1638,11 +1795,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearTimeZone(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    public <T> Builder mapOrClearOriginalTimeZone(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
     	if (value == null)
-    		return clearTimeZone();
+    		return clearOriginalTimeZone();
     	else
-    		return setTimeZone(mapFunc.apply(value));
+    		return setOriginalTimeZone(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.SearchUserChatMessagesRequest)

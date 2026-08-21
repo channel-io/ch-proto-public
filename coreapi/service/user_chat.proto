@@ -12,6 +12,7 @@ import "coreapi/model/user_chat.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -431,24 +432,22 @@ message SearchUserChatMessagesRequest {
     expression: "this == 0 || (this >= 1 && this <= 500)"
   }];
 
-  // Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-  // format (seconds precision, no offset). Must be provided together with `to`.
+  // Inclusive start of the message creation time range. Must be provided together with `to`.
   //
   // +kubebuilder:validation:Nullable
-  string from = 6;
+  google.protobuf.Timestamp from = 6;
 
-  // Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-  // format (seconds precision, no offset). Must be provided together with `from`.
+  // Exclusive end of the message creation time range. Must be provided together with `from`.
   // The range may not exceed 30 days.
   //
   // +kubebuilder:validation:Nullable
-  string to = 7;
+  google.protobuf.Timestamp to = 7;
 
-  // IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-  // Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+  // Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+  // they were converted to absolute timestamps. This field does not affect their interpretation.
   //
   // +kubebuilder:validation:Nullable
-  string time_zone = 8;
+  string original_time_zone = 8;
 }
 
 message SearchUserChatMessagesResult {
@@ -460,22 +459,22 @@ message SearchUserChatMessagesResult {
   bool has_next = 3;
 
   // Echoes the applied inclusive start of the message creation time range.
-  // Empty when no range was requested.
+  // Unset when no range was requested.
   //
   // +kubebuilder:validation:Nullable
-  string from = 4;
+  google.protobuf.Timestamp from = 4;
 
   // Echoes the applied exclusive end of the message creation time range.
-  // Empty when no range was requested.
+  // Unset when no range was requested.
   //
   // +kubebuilder:validation:Nullable
-  string to = 5;
+  google.protobuf.Timestamp to = 5;
 
-  // Echoes the IANA time zone id that `from` and `to` are interpreted in.
+  // Echoes the original IANA time zone id associated with `from` and `to`.
   // Empty when no range was requested.
   //
   // +kubebuilder:validation:Nullable
-  string time_zone = 6;
+  string original_time_zone = 6;
 }
 
 // Sends a new message to a user chat.

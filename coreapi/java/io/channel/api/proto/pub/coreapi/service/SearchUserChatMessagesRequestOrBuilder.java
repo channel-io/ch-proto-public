@@ -65,81 +65,96 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `to`.
+   * Inclusive start of the message creation time range. Must be provided together with `to`.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * @return Whether the from field is set.
+   */
+  boolean hasFrom();
+  /**
+   * <pre>
+   * Inclusive start of the message creation time range. Must be provided together with `to`.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
    * @return The from.
    */
-  java.lang.String getFrom();
+  com.google.protobuf.Timestamp getFrom();
   /**
    * <pre>
-   * Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `to`.
+   * Inclusive start of the message creation time range. Must be provided together with `to`.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string from = 6 [json_name = "from"];</code>
-   * @return The bytes for from.
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
    */
-  com.google.protobuf.ByteString
-      getFromBytes();
+  com.google.protobuf.TimestampOrBuilder getFromOrBuilder();
 
   /**
    * <pre>
-   * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `from`.
+   * Exclusive end of the message creation time range. Must be provided together with `from`.
    * The range may not exceed 30 days.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * @return Whether the to field is set.
+   */
+  boolean hasTo();
+  /**
+   * <pre>
+   * Exclusive end of the message creation time range. Must be provided together with `from`.
+   * The range may not exceed 30 days.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
    * @return The to.
    */
-  java.lang.String getTo();
+  com.google.protobuf.Timestamp getTo();
   /**
    * <pre>
-   * Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-   * format (seconds precision, no offset). Must be provided together with `from`.
+   * Exclusive end of the message creation time range. Must be provided together with `from`.
    * The range may not exceed 30 days.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string to = 7 [json_name = "to"];</code>
-   * @return The bytes for to.
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
    */
-  com.google.protobuf.ByteString
-      getToBytes();
+  com.google.protobuf.TimestampOrBuilder getToOrBuilder();
 
   /**
    * <pre>
-   * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-   * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+   * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+   * they were converted to absolute timestamps. This field does not affect their interpretation.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-   * @return The timeZone.
+   * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+   * @return The originalTimeZone.
    */
-  java.lang.String getTimeZone();
+  java.lang.String getOriginalTimeZone();
   /**
    * <pre>
-   * IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-   * Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+   * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+   * they were converted to absolute timestamps. This field does not affect their interpretation.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 8 [json_name = "timeZone"];</code>
-   * @return The bytes for timeZone.
+   * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
+   * @return The bytes for originalTimeZone.
    */
   com.google.protobuf.ByteString
-      getTimeZoneBytes();
+      getOriginalTimeZoneBytes();
 }

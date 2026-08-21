@@ -63,78 +63,98 @@ public interface SearchUserChatMessagesResultOrBuilder extends
   /**
    * <pre>
    * Echoes the applied inclusive start of the message creation time range.
-   * Empty when no range was requested.
+   * Unset when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string from = 4 [json_name = "from"];</code>
-   * @return The from.
+   * <code>.google.protobuf.Timestamp from = 4 [json_name = "from"];</code>
+   * @return Whether the from field is set.
    */
-  java.lang.String getFrom();
+  boolean hasFrom();
   /**
    * <pre>
    * Echoes the applied inclusive start of the message creation time range.
-   * Empty when no range was requested.
+   * Unset when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string from = 4 [json_name = "from"];</code>
-   * @return The bytes for from.
+   * <code>.google.protobuf.Timestamp from = 4 [json_name = "from"];</code>
+   * @return The from.
    */
-  com.google.protobuf.ByteString
-      getFromBytes();
+  com.google.protobuf.Timestamp getFrom();
+  /**
+   * <pre>
+   * Echoes the applied inclusive start of the message creation time range.
+   * Unset when no range was requested.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp from = 4 [json_name = "from"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getFromOrBuilder();
 
   /**
    * <pre>
    * Echoes the applied exclusive end of the message creation time range.
-   * Empty when no range was requested.
+   * Unset when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string to = 5 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 5 [json_name = "to"];</code>
+   * @return Whether the to field is set.
+   */
+  boolean hasTo();
+  /**
+   * <pre>
+   * Echoes the applied exclusive end of the message creation time range.
+   * Unset when no range was requested.
+   *
+   * +kubebuilder:validation:Nullable
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp to = 5 [json_name = "to"];</code>
    * @return The to.
    */
-  java.lang.String getTo();
+  com.google.protobuf.Timestamp getTo();
   /**
    * <pre>
    * Echoes the applied exclusive end of the message creation time range.
-   * Empty when no range was requested.
+   * Unset when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string to = 5 [json_name = "to"];</code>
-   * @return The bytes for to.
+   * <code>.google.protobuf.Timestamp to = 5 [json_name = "to"];</code>
    */
-  com.google.protobuf.ByteString
-      getToBytes();
+  com.google.protobuf.TimestampOrBuilder getToOrBuilder();
 
   /**
    * <pre>
-   * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+   * Echoes the original IANA time zone id associated with `from` and `to`.
    * Empty when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 6 [json_name = "timeZone"];</code>
-   * @return The timeZone.
+   * <code>string original_time_zone = 6 [json_name = "originalTimeZone"];</code>
+   * @return The originalTimeZone.
    */
-  java.lang.String getTimeZone();
+  java.lang.String getOriginalTimeZone();
   /**
    * <pre>
-   * Echoes the IANA time zone id that `from` and `to` are interpreted in.
+   * Echoes the original IANA time zone id associated with `from` and `to`.
    * Empty when no range was requested.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>string time_zone = 6 [json_name = "timeZone"];</code>
-   * @return The bytes for timeZone.
+   * <code>string original_time_zone = 6 [json_name = "originalTimeZone"];</code>
+   * @return The bytes for originalTimeZone.
    */
   com.google.protobuf.ByteString
-      getTimeZoneBytes();
+      getOriginalTimeZoneBytes();
 }
