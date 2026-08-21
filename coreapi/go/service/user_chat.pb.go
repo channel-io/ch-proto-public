@@ -15,6 +15,7 @@ import (
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	structpb "google.golang.org/protobuf/types/known/structpb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -1477,24 +1478,22 @@ type SearchUserChatMessagesRequest struct {
 	SortOrder  common.SortOrder       `protobuf:"varint,3,opt,name=sort_order,json=sortOrder,proto3,enum=coreapi.common.SortOrder" json:"sort_order,omitempty"`
 	Cursor     string                 `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	Limit      int32                  `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
-	// Inclusive start of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-	// format (seconds precision, no offset). Must be provided together with `to`.
+	// Inclusive start of the message creation time range. Must be provided together with `to`.
 	//
 	// +kubebuilder:validation:Nullable
-	From string `protobuf:"bytes,6,opt,name=from,proto3" json:"from,omitempty"`
-	// Exclusive end of the message creation time range, in "yyyy-MM-ddTHH:mm:ss" local date-time
-	// format (seconds precision, no offset). Must be provided together with `from`.
-	// The range may not exceed 30 days.
+	From *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=from,proto3" json:"from,omitempty"`
+	// Exclusive end of the message creation time range. Must be provided together with `from`.
+	// The range must be less than 30 days.
 	//
 	// +kubebuilder:validation:Nullable
-	To string `protobuf:"bytes,7,opt,name=to,proto3" json:"to,omitempty"`
-	// IANA time zone id (e.g. "Asia/Seoul") that `from` and `to` are interpreted in.
-	// Defaults to "UTC". UTC offsets such as "+09:00" are not accepted.
+	To *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=to,proto3" json:"to,omitempty"`
+	// Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
+	// they were converted to absolute timestamps. This field does not affect their interpretation.
 	//
 	// +kubebuilder:validation:Nullable
-	TimeZone      string `protobuf:"bytes,8,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	OriginalTimeZone string `protobuf:"bytes,8,opt,name=original_time_zone,json=originalTimeZone,proto3" json:"original_time_zone,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *SearchUserChatMessagesRequest) Reset() {
@@ -1562,23 +1561,23 @@ func (x *SearchUserChatMessagesRequest) GetLimit() int32 {
 	return 0
 }
 
-func (x *SearchUserChatMessagesRequest) GetFrom() string {
+func (x *SearchUserChatMessagesRequest) GetFrom() *timestamppb.Timestamp {
 	if x != nil {
 		return x.From
 	}
-	return ""
+	return nil
 }
 
-func (x *SearchUserChatMessagesRequest) GetTo() string {
+func (x *SearchUserChatMessagesRequest) GetTo() *timestamppb.Timestamp {
 	if x != nil {
 		return x.To
 	}
-	return ""
+	return nil
 }
 
-func (x *SearchUserChatMessagesRequest) GetTimeZone() string {
+func (x *SearchUserChatMessagesRequest) GetOriginalTimeZone() string {
 	if x != nil {
-		return x.TimeZone
+		return x.OriginalTimeZone
 	}
 	return ""
 }
@@ -1590,22 +1589,22 @@ type SearchUserChatMessagesResult struct {
 	NextCursor string `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
 	HasNext    bool   `protobuf:"varint,3,opt,name=has_next,json=hasNext,proto3" json:"has_next,omitempty"`
 	// Echoes the applied inclusive start of the message creation time range.
-	// Empty when no range was requested.
+	// Unset when no range was requested.
 	//
 	// +kubebuilder:validation:Nullable
-	From string `protobuf:"bytes,4,opt,name=from,proto3" json:"from,omitempty"`
+	From *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=from,proto3" json:"from,omitempty"`
 	// Echoes the applied exclusive end of the message creation time range.
+	// Unset when no range was requested.
+	//
+	// +kubebuilder:validation:Nullable
+	To *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=to,proto3" json:"to,omitempty"`
+	// Echoes the original IANA time zone id associated with `from` and `to`.
 	// Empty when no range was requested.
 	//
 	// +kubebuilder:validation:Nullable
-	To string `protobuf:"bytes,5,opt,name=to,proto3" json:"to,omitempty"`
-	// Echoes the IANA time zone id that `from` and `to` are interpreted in.
-	// Empty when no range was requested.
-	//
-	// +kubebuilder:validation:Nullable
-	TimeZone      string `protobuf:"bytes,6,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	OriginalTimeZone string `protobuf:"bytes,6,opt,name=original_time_zone,json=originalTimeZone,proto3" json:"original_time_zone,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *SearchUserChatMessagesResult) Reset() {
@@ -1659,23 +1658,23 @@ func (x *SearchUserChatMessagesResult) GetHasNext() bool {
 	return false
 }
 
-func (x *SearchUserChatMessagesResult) GetFrom() string {
+func (x *SearchUserChatMessagesResult) GetFrom() *timestamppb.Timestamp {
 	if x != nil {
 		return x.From
 	}
-	return ""
+	return nil
 }
 
-func (x *SearchUserChatMessagesResult) GetTo() string {
+func (x *SearchUserChatMessagesResult) GetTo() *timestamppb.Timestamp {
 	if x != nil {
 		return x.To
 	}
-	return ""
+	return nil
 }
 
-func (x *SearchUserChatMessagesResult) GetTimeZone() string {
+func (x *SearchUserChatMessagesResult) GetOriginalTimeZone() string {
 	if x != nil {
-		return x.TimeZone
+		return x.OriginalTimeZone
 	}
 	return ""
 }
@@ -1987,7 +1986,7 @@ var File_coreapi_service_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xbc\x02\n" +
+	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbc\x02\n" +
 	"\x16SearchUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x122\n" +
@@ -2121,7 +2120,7 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\"_\n" +
 	"\x1cSearchUserChatSessionsResult\x12?\n" +
-	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xfa\x02\n" +
+	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xe1\x05\n" +
 	"\x1dSearchUserChatMessagesRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
@@ -2131,18 +2130,19 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"sort_order\x18\x03 \x01(\x0e2\x19.coreapi.common.SortOrderR\tsortOrder\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12\x12\n" +
-	"\x04from\x18\x06 \x01(\tR\x04from\x12\x0e\n" +
-	"\x02to\x18\a \x01(\tR\x02to\x12\x1b\n" +
-	"\ttime_zone\x18\b \x01(\tR\btimeZone\"\xcf\x01\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12.\n" +
+	"\x04from\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04from\x12*\n" +
+	"\x02to\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x02to\x12,\n" +
+	"\x12original_time_zone\x18\b \x01(\tR\x10originalTimeZone:\x9b\x02\xbaH\x97\x02\x1a\x94\x02\n" +
+	"1search_user_chat_messages.range_less_than_30_days\x127the range between from and to must be less than 30 days\x1a\xa5\x01(!has(this.from) && !has(this.to)) || (has(this.from) && has(this.to) && ((this.to - this.from) >= duration('0s')) && ((this.to - this.from) < duration('2592000s')))\"\x98\x02\n" +
 	"\x1cSearchUserChatMessagesResult\x122\n" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\x12\x12\n" +
-	"\x04from\x18\x04 \x01(\tR\x04from\x12\x0e\n" +
-	"\x02to\x18\x05 \x01(\tR\x02to\x12\x1b\n" +
-	"\ttime_zone\x18\x06 \x01(\tR\btimeZone\"\xdf\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\x12.\n" +
+	"\x04from\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x04from\x12*\n" +
+	"\x02to\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x02to\x12,\n" +
+	"\x12original_time_zone\x18\x06 \x01(\tR\x10originalTimeZone\"\xdf\x02\n" +
 	"\x1cCreateUserChatMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
@@ -2217,9 +2217,10 @@ var file_coreapi_service_user_chat_proto_goTypes = []any{
 	(*model.ChatSession)(nil),                      // 35: coreapi.model.ChatSession
 	(*fieldmaskpb.FieldMask)(nil),                  // 36: google.protobuf.FieldMask
 	(*durationpb.Duration)(nil),                    // 37: google.protobuf.Duration
-	(*model.Message)(nil),                          // 38: coreapi.model.Message
-	(*model.MessageContent)(nil),                   // 39: coreapi.model.MessageContent
-	(*structpb.Struct)(nil),                        // 40: google.protobuf.Struct
+	(*timestamppb.Timestamp)(nil),                  // 38: google.protobuf.Timestamp
+	(*model.Message)(nil),                          // 39: coreapi.model.Message
+	(*model.MessageContent)(nil),                   // 40: coreapi.model.MessageContent
+	(*structpb.Struct)(nil),                        // 41: google.protobuf.Struct
 }
 var file_coreapi_service_user_chat_proto_depIdxs = []int32{
 	31, // 0: coreapi.service.SearchUserChatsRequest.state:type_name -> coreapi.model.UserChatState
@@ -2242,15 +2243,19 @@ var file_coreapi_service_user_chat_proto_depIdxs = []int32{
 	33, // 17: coreapi.service.AssignManagerToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
 	35, // 18: coreapi.service.SearchUserChatSessionsResult.chat_sessions:type_name -> coreapi.model.ChatSession
 	32, // 19: coreapi.service.SearchUserChatMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
-	38, // 20: coreapi.service.SearchUserChatMessagesResult.messages:type_name -> coreapi.model.Message
-	39, // 21: coreapi.service.CreateUserChatMessageRequest.content:type_name -> coreapi.model.MessageContent
-	38, // 22: coreapi.service.CreateUserChatMessageResult.message:type_name -> coreapi.model.Message
-	40, // 23: coreapi.service.PatchUserChatRequest.PatchUserChatBody.profile:type_name -> google.protobuf.Struct
-	24, // [24:24] is the sub-list for method output_type
-	24, // [24:24] is the sub-list for method input_type
-	24, // [24:24] is the sub-list for extension type_name
-	24, // [24:24] is the sub-list for extension extendee
-	0,  // [0:24] is the sub-list for field type_name
+	38, // 20: coreapi.service.SearchUserChatMessagesRequest.from:type_name -> google.protobuf.Timestamp
+	38, // 21: coreapi.service.SearchUserChatMessagesRequest.to:type_name -> google.protobuf.Timestamp
+	39, // 22: coreapi.service.SearchUserChatMessagesResult.messages:type_name -> coreapi.model.Message
+	38, // 23: coreapi.service.SearchUserChatMessagesResult.from:type_name -> google.protobuf.Timestamp
+	38, // 24: coreapi.service.SearchUserChatMessagesResult.to:type_name -> google.protobuf.Timestamp
+	40, // 25: coreapi.service.CreateUserChatMessageRequest.content:type_name -> coreapi.model.MessageContent
+	39, // 26: coreapi.service.CreateUserChatMessageResult.message:type_name -> coreapi.model.Message
+	41, // 27: coreapi.service.PatchUserChatRequest.PatchUserChatBody.profile:type_name -> google.protobuf.Struct
+	28, // [28:28] is the sub-list for method output_type
+	28, // [28:28] is the sub-list for method input_type
+	28, // [28:28] is the sub-list for extension type_name
+	28, // [28:28] is the sub-list for extension extendee
+	0,  // [0:28] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_chat_proto_init() }
