@@ -2120,7 +2120,7 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\"_\n" +
 	"\x1cSearchUserChatSessionsResult\x12?\n" +
-	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\x89\x05\n" +
+	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xc8\x05\n" +
 	"\x1dSearchUserChatMessagesRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
@@ -2133,8 +2133,8 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12.\n" +
 	"\x04from\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04from\x12*\n" +
 	"\x02to\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x02to\x12,\n" +
-	"\x12original_time_zone\x18\b \x01(\tR\x10originalTimeZone:\xc3\x01\xbaH\xbf\x01\x1a\xbc\x01\n" +
-	"1search_user_chat_messages.range_less_than_30_days\x127the range between from and to must be less than 30 days\x1aN!has(this.from) || !has(this.to) || this.to - this.from < duration('2592000s')\"\x98\x02\n" +
+	"\x12original_time_zone\x18\b \x01(\tR\x10originalTimeZone:\x82\x02\xbaH\xfe\x01\x1a\xfb\x01\n" +
+	"1search_user_chat_messages.range_less_than_30_days\x127the range between from and to must be less than 30 days\x1a\x8c\x01has(this.from) == has(this.to) && (!has(this.from) || (this.to - this.from >= duration('0s') && this.to - this.from < duration('2592000s')))\"\x98\x02\n" +
 	"\x1cSearchUserChatMessagesResult\x122\n" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +

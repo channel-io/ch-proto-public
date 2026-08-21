@@ -423,7 +423,7 @@ message SearchUserChatMessagesRequest {
   option (buf.validate.message).cel = {
     id: "search_user_chat_messages.range_less_than_30_days"
     message: "the range between from and to must be less than 30 days"
-    expression: "!has(this.from) || !has(this.to) || this.to - this.from < duration('2592000s')"
+    expression: "has(this.from) == has(this.to) && (!has(this.from) || (this.to - this.from >= duration('0s') && this.to - this.from < duration('2592000s')))"
   };
 
   string channel_id = 1 [(buf.validate.field).required = true];
