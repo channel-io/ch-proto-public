@@ -421,9 +421,19 @@ message SearchUserChatSessionsResult {
 // Retrieves a list of messages in a user chat.
 message SearchUserChatMessagesRequest {
   option (buf.validate.message).cel = {
+    id: "search_user_chat_messages.range_required_together"
+    message: "from and to must be provided together"
+    expression: "has(this.from) == has(this.to)"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chat_messages.range_order"
+    message: "to must be later than from"
+    expression: "!has(this.from) || !has(this.to) || ((this.to - this.from) > duration('0s'))"
+  };
+  option (buf.validate.message).cel = {
     id: "search_user_chat_messages.range_not_exceed_30_days"
     message: "the range between from and to must not exceed 30 days"
-    expression: "(!has(this.from) && !has(this.to)) || (has(this.from) && has(this.to) && ((this.to - this.from) > duration('0s')) && ((this.to - this.from) <= duration('2592000s')))"
+    expression: "!has(this.from) || !has(this.to) || ((this.to - this.from) <= duration('2592000s'))"
   };
 
   string channel_id = 1 [(buf.validate.field).required = true];

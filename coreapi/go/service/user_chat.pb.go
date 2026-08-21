@@ -2120,7 +2120,7 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\"_\n" +
 	"\x1cSearchUserChatSessionsResult\x12?\n" +
-	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xe0\x05\n" +
+	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\x9d\a\n" +
 	"\x1dSearchUserChatMessagesRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
@@ -2133,8 +2133,10 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12.\n" +
 	"\x04from\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04from\x12*\n" +
 	"\x02to\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x02to\x12,\n" +
-	"\x12original_time_zone\x18\b \x01(\tR\x10originalTimeZone:\x9a\x02\xbaH\x96\x02\x1a\x93\x02\n" +
-	"2search_user_chat_messages.range_not_exceed_30_days\x125the range between from and to must not exceed 30 days\x1a\xa5\x01(!has(this.from) && !has(this.to)) || (has(this.from) && has(this.to) && ((this.to - this.from) > duration('0s')) && ((this.to - this.from) <= duration('2592000s')))\"\x98\x02\n" +
+	"\x12original_time_zone\x18\b \x01(\tR\x10originalTimeZone:\xd7\x03\xbaH\xd3\x03\x1az\n" +
+	"1search_user_chat_messages.range_required_together\x12%from and to must be provided together\x1a\x1ehas(this.from) == has(this.to)\x1a\x91\x01\n" +
+	"%search_user_chat_messages.range_order\x12\x1ato must be later than from\x1aL!has(this.from) || !has(this.to) || ((this.to - this.from) > duration('0s'))\x1a\xc0\x01\n" +
+	"2search_user_chat_messages.range_not_exceed_30_days\x125the range between from and to must not exceed 30 days\x1aS!has(this.from) || !has(this.to) || ((this.to - this.from) <= duration('2592000s'))\"\x98\x02\n" +
 	"\x1cSearchUserChatMessagesResult\x122\n" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
