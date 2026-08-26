@@ -421,9 +421,19 @@ message SearchUserChatSessionsResult {
 // Retrieves a list of messages in a user chat.
 message SearchUserChatMessagesRequest {
   option (buf.validate.message).cel = {
-    id: "search_user_chat_messages.range_less_than_30_days"
-    message: "the range between from and to must be less than 30 days"
-    expression: "(!has(this.from) && !has(this.to)) || (has(this.from) && has(this.to) && ((this.to - this.from) >= duration('0s')) && ((this.to - this.from) < duration('2592000s')))"
+    id: "search_user_chat_messages.range_required_together"
+    message: "from and to must be provided together"
+    expression: "has(this.from) == has(this.to)"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chat_messages.range_order"
+    message: "to must be later than from"
+    expression: "has(this.from) && has(this.to) ? ((this.to - this.from) > duration('0s')) : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chat_messages.range_not_exceed_30_days"
+    message: "the range between from and to must not exceed 30 days"
+    expression: "has(this.from) && has(this.to) ? ((this.to - this.from) <= duration('2592000s')) : true"
   };
 
   string channel_id = 1 [(buf.validate.field).required = true];
@@ -444,7 +454,7 @@ message SearchUserChatMessagesRequest {
   google.protobuf.Timestamp from = 6;
 
   // Exclusive end of the message creation time range. Must be provided together with `from`.
-  // The range must be less than 30 days.
+  // The range must not exceed 30 days.
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp to = 7;

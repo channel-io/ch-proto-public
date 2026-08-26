@@ -253,7 +253,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Exclusive end of the message creation time range. Must be provided together with `from`.
-   * The range must be less than 30 days.
+   * The range must not exceed 30 days.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -268,7 +268,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Exclusive end of the message creation time range. Must be provided together with `from`.
-   * The range must be less than 30 days.
+   * The range must not exceed 30 days.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -283,7 +283,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Exclusive end of the message creation time range. Must be provided together with `from`.
-   * The range must be less than 30 days.
+   * The range must not exceed 30 days.
    *
    * +kubebuilder:validation:Nullable
    * </pre>
@@ -1331,7 +1331,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1345,7 +1345,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1363,7 +1363,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1386,7 +1386,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1407,7 +1407,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1435,7 +1435,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1455,7 +1455,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1470,7 +1470,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
@@ -1488,7 +1488,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Exclusive end of the message creation time range. Must be provided together with `from`.
-     * The range must be less than 30 days.
+     * The range must not exceed 30 days.
      *
      * +kubebuilder:validation:Nullable
      * </pre>
