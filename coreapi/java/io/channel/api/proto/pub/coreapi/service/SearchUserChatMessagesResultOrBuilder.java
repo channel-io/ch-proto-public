@@ -131,30 +131,4 @@ public interface SearchUserChatMessagesResultOrBuilder extends
    * <code>.google.protobuf.Timestamp to = 5 [json_name = "to"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getToOrBuilder();
-
-  /**
-   * <pre>
-   * Echoes the original IANA time zone id associated with `from` and `to`.
-   * Empty when no range was requested.
-   *
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string original_time_zone = 6 [json_name = "originalTimeZone"];</code>
-   * @return The originalTimeZone.
-   */
-  java.lang.String getOriginalTimeZone();
-  /**
-   * <pre>
-   * Echoes the original IANA time zone id associated with `from` and `to`.
-   * Empty when no range was requested.
-   *
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string original_time_zone = 6 [json_name = "originalTimeZone"];</code>
-   * @return The bytes for originalTimeZone.
-   */
-  com.google.protobuf.ByteString
-      getOriginalTimeZoneBytes();
 }
