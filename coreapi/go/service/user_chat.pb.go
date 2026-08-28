@@ -1486,14 +1486,9 @@ type SearchUserChatMessagesRequest struct {
 	// The range must not exceed 30 days.
 	//
 	// +kubebuilder:validation:Nullable
-	To *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=to,proto3" json:"to,omitempty"`
-	// Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-	// they were converted to absolute timestamps. This field does not affect their interpretation.
-	//
-	// +kubebuilder:validation:Nullable
-	OriginalTimeZone string `protobuf:"bytes,8,opt,name=original_time_zone,json=originalTimeZone,proto3" json:"original_time_zone,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	To            *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=to,proto3" json:"to,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *SearchUserChatMessagesRequest) Reset() {
@@ -1575,13 +1570,6 @@ func (x *SearchUserChatMessagesRequest) GetTo() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *SearchUserChatMessagesRequest) GetOriginalTimeZone() string {
-	if x != nil {
-		return x.OriginalTimeZone
-	}
-	return ""
-}
-
 type SearchUserChatMessagesResult struct {
 	state    protoimpl.MessageState `protogen:"open.v1"`
 	Messages []*model.Message       `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
@@ -1597,14 +1585,9 @@ type SearchUserChatMessagesResult struct {
 	// Unset when no range was requested.
 	//
 	// +kubebuilder:validation:Nullable
-	To *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=to,proto3" json:"to,omitempty"`
-	// Echoes the original IANA time zone id associated with `from` and `to`.
-	// Empty when no range was requested.
-	//
-	// +kubebuilder:validation:Nullable
-	OriginalTimeZone string `protobuf:"bytes,6,opt,name=original_time_zone,json=originalTimeZone,proto3" json:"original_time_zone,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	To            *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=to,proto3" json:"to,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *SearchUserChatMessagesResult) Reset() {
@@ -1670,13 +1653,6 @@ func (x *SearchUserChatMessagesResult) GetTo() *timestamppb.Timestamp {
 		return x.To
 	}
 	return nil
-}
-
-func (x *SearchUserChatMessagesResult) GetOriginalTimeZone() string {
-	if x != nil {
-		return x.OriginalTimeZone
-	}
-	return ""
 }
 
 // Sends a new message to a user chat.
@@ -2120,7 +2096,7 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\"_\n" +
 	"\x1cSearchUserChatSessionsResult\x12?\n" +
-	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xa5\a\n" +
+	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xf7\x06\n" +
 	"\x1dSearchUserChatMessagesRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
@@ -2132,19 +2108,17 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12.\n" +
 	"\x04from\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04from\x12*\n" +
-	"\x02to\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x02to\x12,\n" +
-	"\x12original_time_zone\x18\b \x01(\tR\x10originalTimeZone:\xdf\x03\xbaH\xdb\x03\x1az\n" +
+	"\x02to\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x02to:\xdf\x03\xbaH\xdb\x03\x1az\n" +
 	"1search_user_chat_messages.range_required_together\x12%from and to must be provided together\x1a\x1ehas(this.from) == has(this.to)\x1a\x95\x01\n" +
 	"%search_user_chat_messages.range_order\x12\x1ato must be later than from\x1aPhas(this.from) && has(this.to) ? ((this.to - this.from) > duration('0s')) : true\x1a\xc4\x01\n" +
-	"2search_user_chat_messages.range_not_exceed_30_days\x125the range between from and to must not exceed 30 days\x1aWhas(this.from) && has(this.to) ? ((this.to - this.from) <= duration('2592000s')) : true\"\x98\x02\n" +
+	"2search_user_chat_messages.range_not_exceed_30_days\x125the range between from and to must not exceed 30 days\x1aWhas(this.from) && has(this.to) ? ((this.to - this.from) <= duration('2592000s')) : true\"\xea\x01\n" +
 	"\x1cSearchUserChatMessagesResult\x122\n" +
 	"\bmessages\x18\x01 \x03(\v2\x16.coreapi.model.MessageR\bmessages\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
 	"\bhas_next\x18\x03 \x01(\bR\ahasNext\x12.\n" +
 	"\x04from\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x04from\x12*\n" +
-	"\x02to\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x02to\x12,\n" +
-	"\x12original_time_zone\x18\x06 \x01(\tR\x10originalTimeZone\"\xdf\x02\n" +
+	"\x02to\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x02to\"\xdf\x02\n" +
 	"\x1cCreateUserChatMessageRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +

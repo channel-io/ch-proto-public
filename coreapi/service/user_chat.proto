@@ -458,12 +458,6 @@ message SearchUserChatMessagesRequest {
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp to = 7;
-
-  // Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-  // they were converted to absolute timestamps. This field does not affect their interpretation.
-  //
-  // +kubebuilder:validation:Nullable
-  string original_time_zone = 8;
 }
 
 message SearchUserChatMessagesResult {
@@ -485,12 +479,6 @@ message SearchUserChatMessagesResult {
   //
   // +kubebuilder:validation:Nullable
   google.protobuf.Timestamp to = 5;
-
-  // Echoes the original IANA time zone id associated with `from` and `to`.
-  // Empty when no range was requested.
-  //
-  // +kubebuilder:validation:Nullable
-  string original_time_zone = 6;
 }
 
 // Sends a new message to a user chat.

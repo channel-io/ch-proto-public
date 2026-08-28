@@ -36,7 +36,6 @@ private static final long serialVersionUID = 0L;
     userChatId_ = "";
     sortOrder_ = 0;
     cursor_ = "";
-    originalTimeZone_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -295,59 +294,6 @@ private static final long serialVersionUID = 0L;
     return to_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : to_;
   }
 
-  public static final int ORIGINAL_TIME_ZONE_FIELD_NUMBER = 8;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object originalTimeZone_ = "";
-  /**
-   * <pre>
-   * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-   * they were converted to absolute timestamps. This field does not affect their interpretation.
-   *
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
-   * @return The originalTimeZone.
-   */
-  @java.lang.Override
-  public java.lang.String getOriginalTimeZone() {
-    java.lang.Object ref = originalTimeZone_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      originalTimeZone_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-   * they were converted to absolute timestamps. This field does not affect their interpretation.
-   *
-   * +kubebuilder:validation:Nullable
-   * </pre>
-   *
-   * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
-   * @return The bytes for originalTimeZone.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getOriginalTimeZoneBytes() {
-    java.lang.Object ref = originalTimeZone_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      originalTimeZone_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -383,9 +329,6 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(7, getTo());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(originalTimeZone_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 8, originalTimeZone_);
-    }
     getUnknownFields().writeTo(output);
   }
   private int computeSerializedSize_0() {
@@ -414,9 +357,6 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getTo());
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(originalTimeZone_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, originalTimeZone_);
     }
     return size;
   }
@@ -461,8 +401,6 @@ private static final long serialVersionUID = 0L;
       if (!getTo()
           .equals(other.getTo())) return false;
     }
-    if (!getOriginalTimeZone()
-        .equals(other.getOriginalTimeZone())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -492,8 +430,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TO_FIELD_NUMBER;
       hash = (53 * hash) + getTo().hashCode();
     }
-    hash = (37 * hash) + ORIGINAL_TIME_ZONE_FIELD_NUMBER;
-    hash = (53 * hash) + getOriginalTimeZone().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -651,7 +587,6 @@ private static final long serialVersionUID = 0L;
         toBuilder_.dispose();
         toBuilder_ = null;
       }
-      originalTimeZone_ = "";
       return this;
     }
 
@@ -713,9 +648,6 @@ private static final long serialVersionUID = 0L;
             : toBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.originalTimeZone_ = originalTimeZone_;
-      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -757,11 +689,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasTo()) {
         mergeTo(other.getTo());
-      }
-      if (!other.getOriginalTimeZone().isEmpty()) {
-        originalTimeZone_ = other.originalTimeZone_;
-        bitField0_ |= 0x00000080;
-        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -828,11 +755,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000040;
               break;
             } // case 58
-            case 66: {
-              originalTimeZone_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000080;
-              break;
-            } // case 66
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1509,113 +1431,6 @@ private static final long serialVersionUID = 0L;
       return toBuilder_;
     }
 
-    private java.lang.Object originalTimeZone_ = "";
-    /**
-     * <pre>
-     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-     * they were converted to absolute timestamps. This field does not affect their interpretation.
-     *
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
-     * @return The originalTimeZone.
-     */
-    public java.lang.String getOriginalTimeZone() {
-      java.lang.Object ref = originalTimeZone_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        originalTimeZone_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-     * they were converted to absolute timestamps. This field does not affect their interpretation.
-     *
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
-     * @return The bytes for originalTimeZone.
-     */
-    public com.google.protobuf.ByteString
-        getOriginalTimeZoneBytes() {
-      java.lang.Object ref = originalTimeZone_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        originalTimeZone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-     * they were converted to absolute timestamps. This field does not affect their interpretation.
-     *
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
-     * @param value The originalTimeZone to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOriginalTimeZone(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      originalTimeZone_ = value;
-      bitField0_ |= 0x00000080;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-     * they were converted to absolute timestamps. This field does not affect their interpretation.
-     *
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOriginalTimeZone() {
-      originalTimeZone_ = getDefaultInstance().getOriginalTimeZone();
-      bitField0_ = (bitField0_ & ~0x00000080);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
-     * they were converted to absolute timestamps. This field does not affect their interpretation.
-     *
-     * +kubebuilder:validation:Nullable
-     * </pre>
-     *
-     * <code>string original_time_zone = 8 [json_name = "originalTimeZone"];</code>
-     * @param value The bytes for originalTimeZone to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOriginalTimeZoneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      originalTimeZone_ = value;
-      bitField0_ |= 0x00000080;
-      onChanged();
-      return this;
-    }
-
     /* Generated by protoc-gen-java-set-or-clear */
     
     /**
@@ -1777,29 +1592,6 @@ private static final long serialVersionUID = 0L;
     		return clearTo();
     	else
     		return setTo(mapFunc.apply(value));
-    }
-    	
-    /**
-     * @param value The original_time_zone to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrClearOriginalTimeZone(java.lang.String value) {
-    	if (value == null)
-    		return clearOriginalTimeZone();
-    	else
-    		return setOriginalTimeZone(value);
-    }
-    	
-    /**
-     * @param value The value to map.
-     * @param mapFunc The function to map the value into the proto message.
-     * @return This builder for chaining.
-     */
-    public <T> Builder mapOrClearOriginalTimeZone(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
-    	if (value == null)
-    		return clearOriginalTimeZone();
-    	else
-    		return setOriginalTimeZone(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.SearchUserChatMessagesRequest)
