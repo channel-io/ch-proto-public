@@ -70,7 +70,7 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
    * @return Whether the from field is set.
    */
   boolean hasFrom();
@@ -81,7 +81,7 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
    * @return The from.
    */
   com.google.protobuf.Timestamp getFrom();
@@ -92,7 +92,7 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getFromOrBuilder();
 
@@ -104,7 +104,7 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
    * @return Whether the to field is set.
    */
   boolean hasTo();
@@ -116,7 +116,7 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
    * @return The to.
    */
   com.google.protobuf.Timestamp getTo();
@@ -128,7 +128,7 @@ public interface SearchUserChatMessagesRequestOrBuilder extends
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
    */
   com.google.protobuf.TimestampOrBuilder getToOrBuilder();
 

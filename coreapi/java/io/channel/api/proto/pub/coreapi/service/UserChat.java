@@ -320,7 +320,7 @@ public final class UserChat extends com.google.protobuf.GeneratedFile {
       "\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003" +
       "\310\001\001R\nuserChatId\"_\n\034SearchUserChatSession" +
       "sResult\022?\n\rchat_sessions\030\001 \003(\0132\032.coreapi" +
-      ".model.ChatSessionR\014chatSessions\"\245\007\n\035Sea" +
+      ".model.ChatSessionR\014chatSessions\"\371\t\n\035Sea" +
       "rchUserChatMessagesRequest\022%\n\nchannel_id" +
       "\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_i" +
       "d\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\0228\n\nsort_orde" +
@@ -328,48 +328,57 @@ public final class UserChat extends com.google.protobuf.GeneratedFile {
       "Order\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005" +
       " \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit must " +
       "be between 1 and 500\032\'this == 0 || (this" +
-      " >= 1 && this <= 500)R\005limit\022.\n\004from\030\006 \001" +
-      "(\0132\032.google.protobuf.TimestampR\004from\022*\n\002" +
-      "to\030\007 \001(\0132\032.google.protobuf.TimestampR\002to" +
-      "\022,\n\022original_time_zone\030\010 \001(\tR\020originalTi" +
-      "meZone:\337\003\272H\333\003\032z\n1search_user_chat_messag" +
-      "es.range_required_together\022%from and to " +
-      "must be provided together\032\036has(this.from" +
-      ") == has(this.to)\032\225\001\n%search_user_chat_m" +
-      "essages.range_order\022\032to must be later th" +
-      "an from\032Phas(this.from) && has(this.to) " +
-      "? ((this.to - this.from) > duration(\'0s\'" +
-      ")) : true\032\304\001\n2search_user_chat_messages." +
-      "range_not_exceed_30_days\0225the range betw" +
-      "een from and to must not exceed 30 days\032" +
-      "Whas(this.from) && has(this.to) ? ((this" +
-      ".to - this.from) <= duration(\'2592000s\')" +
-      ") : true\"\230\002\n\034SearchUserChatMessagesResul" +
-      "t\0222\n\010messages\030\001 \003(\0132\026.coreapi.model.Mess" +
-      "ageR\010messages\022\037\n\013next_cursor\030\002 \001(\tR\nnext" +
-      "Cursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\022.\n\004fro" +
-      "m\030\004 \001(\0132\032.google.protobuf.TimestampR\004fro" +
-      "m\022*\n\002to\030\005 \001(\0132\032.google.protobuf.Timestam" +
-      "pR\002to\022,\n\022original_time_zone\030\006 \001(\tR\020origi" +
-      "nalTimeZone\"\337\002\n\034CreateUserChatMessageReq" +
-      "uest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchanne" +
-      "lId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserC" +
-      "hatId\022?\n\007content\030\003 \001(\0132\035.coreapi.model.M" +
-      "essageContentB\006\272H\003\310\001\001R\007content\022\215\001\n\010bot_n" +
-      "ame\030\004 \001(\tBr\272Hor\0212\017^$|^[^@#$%:/]+$\272\001Y\n\rst" +
-      "ring.maxLen\022(value must be no more than " +
-      "30 characters\032\036this == \'\' || size(this) " +
-      "<= 30R\007botName\022\035\n\nrequest_id\030\005 \001(\tR\trequ" +
-      "estId\"O\n\033CreateUserChatMessageResult\0220\n\007" +
-      "message\030\001 \001(\0132\026.coreapi.model.MessageR\007m" +
-      "essage\"\206\001\n\031GetUserChatFileUrlRequest\022%\n\n" +
-      "channel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014u" +
-      "ser_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022\030\n" +
-      "\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key\",\n\030GetUserChatFi" +
-      "leUrlResult\022\020\n\003url\030\001 \001(\tR\003urlBf\n(io.chan" +
-      "nel.api.proto.pub.coreapi.serviceP\001Z8git" +
-      "hub.com/channel-io/ch-proto-public/corea" +
-      "pi/go/serviceb\006proto3"
+      " >= 1 && this <= 500)R\005limit\022\330\001\n\004from\030\006 " +
+      "\001(\0132\032.google.protobuf.TimestampB\247\001\272H\243\001\272\001" +
+      "\237\001\n\037timestamp.millisecond_precision\022,fro" +
+      "m must not have sub-millisecond precisio" +
+      "n\032Nthis == timestamp(int(this)) + durati" +
+      "on(string(this.getMilliseconds()) + \'ms\'" +
+      ")R\004from\022\322\001\n\002to\030\007 \001(\0132\032.google.protobuf.T" +
+      "imestampB\245\001\272H\241\001\272\001\235\001\n\037timestamp.milliseco" +
+      "nd_precision\022*to must not have sub-milli" +
+      "second precision\032Nthis == timestamp(int(" +
+      "this)) + duration(string(this.getMillise" +
+      "conds()) + \'ms\')R\002to\022,\n\022original_time_zo" +
+      "ne\030\010 \001(\tR\020originalTimeZone:\337\003\272H\333\003\032z\n1sea" +
+      "rch_user_chat_messages.range_required_to" +
+      "gether\022%from and to must be provided tog" +
+      "ether\032\036has(this.from) == has(this.to)\032\225\001" +
+      "\n%search_user_chat_messages.range_order\022" +
+      "\032to must be later than from\032Phas(this.fr" +
+      "om) && has(this.to) ? ((this.to - this.f" +
+      "rom) > duration(\'0s\')) : true\032\304\001\n2search" +
+      "_user_chat_messages.range_not_exceed_30_" +
+      "days\0225the range between from and to must" +
+      " not exceed 30 days\032Whas(this.from) && h" +
+      "as(this.to) ? ((this.to - this.from) <= " +
+      "duration(\'2592000s\')) : true\"\230\002\n\034SearchU" +
+      "serChatMessagesResult\0222\n\010messages\030\001 \003(\0132" +
+      "\026.coreapi.model.MessageR\010messages\022\037\n\013nex" +
+      "t_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003" +
+      " \001(\010R\007hasNext\022.\n\004from\030\004 \001(\0132\032.google.pro" +
+      "tobuf.TimestampR\004from\022*\n\002to\030\005 \001(\0132\032.goog" +
+      "le.protobuf.TimestampR\002to\022,\n\022original_ti" +
+      "me_zone\030\006 \001(\tR\020originalTimeZone\"\337\002\n\034Crea" +
+      "teUserChatMessageRequest\022%\n\nchannel_id\030\001" +
+      " \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030" +
+      "\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022?\n\007content\030\003 \001" +
+      "(\0132\035.coreapi.model.MessageContentB\006\272H\003\310\001" +
+      "\001R\007content\022\215\001\n\010bot_name\030\004 \001(\tBr\272Hor\0212\017^$" +
+      "|^[^@#$%:/]+$\272\001Y\n\rstring.maxLen\022(value m" +
+      "ust be no more than 30 characters\032\036this " +
+      "== \'\' || size(this) <= 30R\007botName\022\035\n\nre" +
+      "quest_id\030\005 \001(\tR\trequestId\"O\n\033CreateUserC" +
+      "hatMessageResult\0220\n\007message\030\001 \001(\0132\026.core" +
+      "api.model.MessageR\007message\"\206\001\n\031GetUserCh" +
+      "atFileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H" +
+      "\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272" +
+      "H\003\310\001\001R\nuserChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003" +
+      "key\",\n\030GetUserChatFileUrlResult\022\020\n\003url\030\001" +
+      " \001(\tR\003urlBf\n(io.channel.api.proto.pub.co" +
+      "reapi.serviceP\001Z8github.com/channel-io/c" +
+      "h-proto-public/coreapi/go/serviceb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

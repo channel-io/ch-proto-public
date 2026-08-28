@@ -2120,7 +2120,7 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\fuser_chat_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"userChatId\"_\n" +
 	"\x1cSearchUserChatSessionsResult\x12?\n" +
-	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xa5\a\n" +
+	"\rchat_sessions\x18\x01 \x03(\v2\x1a.coreapi.model.ChatSessionR\fchatSessions\"\xf9\t\n" +
 	"\x1dSearchUserChatMessagesRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12(\n" +
@@ -2130,9 +2130,11 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"sort_order\x18\x03 \x01(\x0e2\x19.coreapi.common.SortOrderR\tsortOrder\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12.\n" +
-	"\x04from\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04from\x12*\n" +
-	"\x02to\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x02to\x12,\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12\xd8\x01\n" +
+	"\x04from\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\xa7\x01\xbaH\xa3\x01\xba\x01\x9f\x01\n" +
+	"\x1ftimestamp.millisecond_precision\x12,from must not have sub-millisecond precision\x1aNthis == timestamp(int(this)) + duration(string(this.getMilliseconds()) + 'ms')R\x04from\x12\xd2\x01\n" +
+	"\x02to\x18\a \x01(\v2\x1a.google.protobuf.TimestampB\xa5\x01\xbaH\xa1\x01\xba\x01\x9d\x01\n" +
+	"\x1ftimestamp.millisecond_precision\x12*to must not have sub-millisecond precision\x1aNthis == timestamp(int(this)) + duration(string(this.getMilliseconds()) + 'ms')R\x02to\x12,\n" +
 	"\x12original_time_zone\x18\b \x01(\tR\x10originalTimeZone:\xdf\x03\xbaH\xdb\x03\x1az\n" +
 	"1search_user_chat_messages.range_required_together\x12%from and to must be provided together\x1a\x1ehas(this.from) == has(this.to)\x1a\x95\x01\n" +
 	"%search_user_chat_messages.range_order\x12\x1ato must be later than from\x1aPhas(this.from) && has(this.to) ? ((this.to - this.from) > duration('0s')) : true\x1a\xc4\x01\n" +

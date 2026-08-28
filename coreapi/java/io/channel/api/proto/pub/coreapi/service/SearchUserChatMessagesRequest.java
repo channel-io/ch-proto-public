@@ -213,7 +213,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
    * @return Whether the from field is set.
    */
   @java.lang.Override
@@ -227,7 +227,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
    * @return The from.
    */
   @java.lang.Override
@@ -241,7 +241,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+   * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getFromOrBuilder() {
@@ -258,7 +258,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
    * @return Whether the to field is set.
    */
   @java.lang.Override
@@ -273,7 +273,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
    * @return The to.
    */
   @java.lang.Override
@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Nullable
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+   * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getToOrBuilder() {
@@ -1160,7 +1160,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      * @return Whether the from field is set.
      */
     public boolean hasFrom() {
@@ -1173,7 +1173,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      * @return The from.
      */
     public com.google.protobuf.Timestamp getFrom() {
@@ -1190,7 +1190,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      */
     public Builder setFrom(com.google.protobuf.Timestamp value) {
       if (fromBuilder_ == null) {
@@ -1212,7 +1212,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      */
     public Builder setFrom(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1232,7 +1232,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeFrom(com.google.protobuf.Timestamp value) {
       if (fromBuilder_ == null) {
@@ -1259,7 +1259,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearFrom() {
       bitField0_ = (bitField0_ & ~0x00000020);
@@ -1278,7 +1278,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getFromBuilder() {
       bitField0_ |= 0x00000020;
@@ -1292,7 +1292,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getFromOrBuilder() {
       if (fromBuilder_ != null) {
@@ -1309,7 +1309,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from"];</code>
+     * <code>.google.protobuf.Timestamp from = 6 [json_name = "from", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1336,7 +1336,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      * @return Whether the to field is set.
      */
     public boolean hasTo() {
@@ -1350,7 +1350,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      * @return The to.
      */
     public com.google.protobuf.Timestamp getTo() {
@@ -1368,7 +1368,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      */
     public Builder setTo(com.google.protobuf.Timestamp value) {
       if (toBuilder_ == null) {
@@ -1391,7 +1391,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      */
     public Builder setTo(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1412,7 +1412,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeTo(com.google.protobuf.Timestamp value) {
       if (toBuilder_ == null) {
@@ -1440,7 +1440,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearTo() {
       bitField0_ = (bitField0_ & ~0x00000040);
@@ -1460,7 +1460,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getToBuilder() {
       bitField0_ |= 0x00000040;
@@ -1475,7 +1475,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getToOrBuilder() {
       if (toBuilder_ != null) {
@@ -1493,7 +1493,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Nullable
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to"];</code>
+     * <code>.google.protobuf.Timestamp to = 7 [json_name = "to", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

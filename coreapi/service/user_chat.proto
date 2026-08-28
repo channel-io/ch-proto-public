@@ -451,13 +451,21 @@ message SearchUserChatMessagesRequest {
   // Inclusive start of the message creation time range. Must be provided together with `to`.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp from = 6;
+  google.protobuf.Timestamp from = 6 [(buf.validate.field).cel = {
+    id: "timestamp.millisecond_precision"
+    message: "from must not have sub-millisecond precision"
+    expression: "this == timestamp(int(this)) + duration(string(this.getMilliseconds()) + 'ms')"
+  }];
 
   // Exclusive end of the message creation time range. Must be provided together with `from`.
   // The range must not exceed 30 days.
   //
   // +kubebuilder:validation:Nullable
-  google.protobuf.Timestamp to = 7;
+  google.protobuf.Timestamp to = 7 [(buf.validate.field).cel = {
+    id: "timestamp.millisecond_precision"
+    message: "to must not have sub-millisecond precision"
+    expression: "this == timestamp(int(this)) + duration(string(this.getMilliseconds()) + 'ms')"
+  }];
 
   // Original IANA time zone id (e.g. "Asia/Seoul") associated with `from` and `to` before
   // they were converted to absolute timestamps. This field does not affect their interpretation.
