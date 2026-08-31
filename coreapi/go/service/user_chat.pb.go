@@ -51,9 +51,17 @@ type SearchUserChatsRequest struct {
 	// Opaque pagination cursor from a previous response.
 	Cursor string `protobuf:"bytes,4,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	// Maximum number of results to return. Defaults to 25 if unset.
-	Limit         int32 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	Limit int32 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
+	// Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+	From *int64 `protobuf:"varint,6,opt,name=from,proto3,oneof" json:"from,omitempty"`
+	// Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+	// The range must not exceed 30 days.
+	To *int64 `protobuf:"varint,7,opt,name=to,proto3,oneof" json:"to,omitempty"`
+	// Name of the date-time field used for range filtering.
+	// May be omitted or set to `deskUpdatedAt` or `managedAt`.
+	DateTimeFieldName string `protobuf:"bytes,8,opt,name=date_time_field_name,json=dateTimeFieldName,proto3" json:"date_time_field_name,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *SearchUserChatsRequest) Reset() {
@@ -119,6 +127,27 @@ func (x *SearchUserChatsRequest) GetLimit() int32 {
 		return x.Limit
 	}
 	return 0
+}
+
+func (x *SearchUserChatsRequest) GetFrom() int64 {
+	if x != nil && x.From != nil {
+		return *x.From
+	}
+	return 0
+}
+
+func (x *SearchUserChatsRequest) GetTo() int64 {
+	if x != nil && x.To != nil {
+		return *x.To
+	}
+	return 0
+}
+
+func (x *SearchUserChatsRequest) GetDateTimeFieldName() string {
+	if x != nil {
+		return x.DateTimeFieldName
+	}
+	return ""
 }
 
 // Response for managed user chat list retrieval.
@@ -1962,7 +1991,7 @@ var File_coreapi_service_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbc\x02\n" +
+	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf3\a\n" +
 	"\x16SearchUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x122\n" +
@@ -1971,7 +2000,16 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"sort_order\x18\x03 \x01(\x0e2\x19.coreapi.common.SortOrderR\tsortOrder\x12\x16\n" +
 	"\x06cursor\x18\x04 \x01(\tR\x06cursor\x12u\n" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
-	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\"\x8b\x01\n" +
+	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12\x17\n" +
+	"\x04from\x18\x06 \x01(\x03H\x00R\x04from\x88\x01\x01\x12\x13\n" +
+	"\x02to\x18\a \x01(\x03H\x01R\x02to\x88\x01\x01\x12\xd1\x01\n" +
+	"\x14date_time_field_name\x18\b \x01(\tB\x9f\x01\xbaH\x9b\x01\xba\x01\x97\x01\n" +
+	"&search_user_chats.date_time_field_name\x127date_time_field_name must be deskUpdatedAt or managedAt\x1a4this == '' || this in ['deskUpdatedAt', 'managedAt']R\x11dateTimeFieldName:\xa2\x03\xbaH\x9e\x03\x1ar\n" +
+	")search_user_chats.range_required_together\x12%from and to must be provided together\x1a\x1ehas(this.from) == has(this.to)\x1aw\n" +
+	"\x1dsearch_user_chats.range_order\x12\x19from must be less than to\x1a;has(this.from) && has(this.to) ? this.from < this.to : true\x1a\xae\x01\n" +
+	"*search_user_chats.range_not_exceed_30_days\x125the range between from and to must not exceed 30 days\x1aIhas(this.from) && has(this.to) ? this.to - this.from <= 2592000000 : trueB\a\n" +
+	"\x05_fromB\x05\n" +
+	"\x03_to\"\x8b\x01\n" +
 	"\x15SearchUserChatsResult\x126\n" +
 	"\n" +
 	"user_chats\x18\x01 \x03(\v2\x17.coreapi.model.UserChatR\tuserChats\x12\x1f\n" +
@@ -2239,6 +2277,7 @@ func file_coreapi_service_user_chat_proto_init() {
 	if File_coreapi_service_user_chat_proto != nil {
 		return
 	}
+	file_coreapi_service_user_chat_proto_msgTypes[0].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

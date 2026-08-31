@@ -46,6 +46,7 @@ private static final long serialVersionUID = 0L;
     state_ = 0;
     sortOrder_ = 0;
     cursor_ = "";
+    dateTimeFieldName_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -66,6 +67,7 @@ private static final long serialVersionUID = 0L;
             io.channel.api.proto.pub.coreapi.service.SearchUserChatsRequest.class, io.channel.api.proto.pub.coreapi.service.SearchUserChatsRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int CHANNEL_ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object channelId_ = "";
@@ -229,6 +231,111 @@ private static final long serialVersionUID = 0L;
     return limit_;
   }
 
+  public static final int FROM_FIELD_NUMBER = 6;
+  private long from_ = 0L;
+  /**
+   * <pre>
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * </pre>
+   *
+   * <code>optional int64 from = 6 [json_name = "from"];</code>
+   * @return Whether the from field is set.
+   */
+  @java.lang.Override
+  public boolean hasFrom() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * </pre>
+   *
+   * <code>optional int64 from = 6 [json_name = "from"];</code>
+   * @return The from.
+   */
+  @java.lang.Override
+  public long getFrom() {
+    return from_;
+  }
+
+  public static final int TO_FIELD_NUMBER = 7;
+  private long to_ = 0L;
+  /**
+   * <pre>
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * The range must not exceed 30 days.
+   * </pre>
+   *
+   * <code>optional int64 to = 7 [json_name = "to"];</code>
+   * @return Whether the to field is set.
+   */
+  @java.lang.Override
+  public boolean hasTo() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * The range must not exceed 30 days.
+   * </pre>
+   *
+   * <code>optional int64 to = 7 [json_name = "to"];</code>
+   * @return The to.
+   */
+  @java.lang.Override
+  public long getTo() {
+    return to_;
+  }
+
+  public static final int DATE_TIME_FIELD_NAME_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dateTimeFieldName_ = "";
+  /**
+   * <pre>
+   * Name of the date-time field used for range filtering.
+   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * </pre>
+   *
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * @return The dateTimeFieldName.
+   */
+  @java.lang.Override
+  public java.lang.String getDateTimeFieldName() {
+    java.lang.Object ref = dateTimeFieldName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      dateTimeFieldName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Name of the date-time field used for range filtering.
+   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * </pre>
+   *
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for dateTimeFieldName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDateTimeFieldNameBytes() {
+    java.lang.Object ref = dateTimeFieldName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      dateTimeFieldName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -258,6 +365,15 @@ private static final long serialVersionUID = 0L;
     if (limit_ != 0) {
       output.writeInt32(5, limit_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeInt64(6, from_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeInt64(7, to_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(dateTimeFieldName_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 8, dateTimeFieldName_);
+    }
     getUnknownFields().writeTo(output);
   }
   private int computeSerializedSize_0() {
@@ -279,6 +395,17 @@ private static final long serialVersionUID = 0L;
     if (limit_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, limit_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, from_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(7, to_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(dateTimeFieldName_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, dateTimeFieldName_);
     }
     return size;
   }
@@ -312,6 +439,18 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCursor())) return false;
     if (getLimit()
         != other.getLimit()) return false;
+    if (hasFrom() != other.hasFrom()) return false;
+    if (hasFrom()) {
+      if (getFrom()
+          != other.getFrom()) return false;
+    }
+    if (hasTo() != other.hasTo()) return false;
+    if (hasTo()) {
+      if (getTo()
+          != other.getTo()) return false;
+    }
+    if (!getDateTimeFieldName()
+        .equals(other.getDateTimeFieldName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -333,6 +472,18 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCursor().hashCode();
     hash = (37 * hash) + LIMIT_FIELD_NUMBER;
     hash = (53 * hash) + getLimit();
+    if (hasFrom()) {
+      hash = (37 * hash) + FROM_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFrom());
+    }
+    if (hasTo()) {
+      hash = (37 * hash) + TO_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTo());
+    }
+    hash = (37 * hash) + DATE_TIME_FIELD_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getDateTimeFieldName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -483,6 +634,9 @@ private static final long serialVersionUID = 0L;
       sortOrder_ = 0;
       cursor_ = "";
       limit_ = 0;
+      from_ = 0L;
+      to_ = 0L;
+      dateTimeFieldName_ = "";
       return this;
     }
 
@@ -531,6 +685,19 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.limit_ = limit_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.from_ = from_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.to_ = to_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.dateTimeFieldName_ = dateTimeFieldName_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -563,6 +730,17 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getLimit() != 0) {
         setLimit(other.getLimit());
+      }
+      if (other.hasFrom()) {
+        setFrom(other.getFrom());
+      }
+      if (other.hasTo()) {
+        setTo(other.getTo());
+      }
+      if (!other.getDateTimeFieldName().isEmpty()) {
+        dateTimeFieldName_ = other.dateTimeFieldName_;
+        bitField0_ |= 0x00000080;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -615,6 +793,21 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 40
+            case 48: {
+              from_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              to_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              dateTimeFieldName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1009,6 +1202,219 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long from_ ;
+    /**
+     * <pre>
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * </pre>
+     *
+     * <code>optional int64 from = 6 [json_name = "from"];</code>
+     * @return Whether the from field is set.
+     */
+    @java.lang.Override
+    public boolean hasFrom() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * </pre>
+     *
+     * <code>optional int64 from = 6 [json_name = "from"];</code>
+     * @return The from.
+     */
+    @java.lang.Override
+    public long getFrom() {
+      return from_;
+    }
+    /**
+     * <pre>
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * </pre>
+     *
+     * <code>optional int64 from = 6 [json_name = "from"];</code>
+     * @param value The from to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFrom(long value) {
+
+      from_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * </pre>
+     *
+     * <code>optional int64 from = 6 [json_name = "from"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFrom() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      from_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long to_ ;
+    /**
+     * <pre>
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * The range must not exceed 30 days.
+     * </pre>
+     *
+     * <code>optional int64 to = 7 [json_name = "to"];</code>
+     * @return Whether the to field is set.
+     */
+    @java.lang.Override
+    public boolean hasTo() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * The range must not exceed 30 days.
+     * </pre>
+     *
+     * <code>optional int64 to = 7 [json_name = "to"];</code>
+     * @return The to.
+     */
+    @java.lang.Override
+    public long getTo() {
+      return to_;
+    }
+    /**
+     * <pre>
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * The range must not exceed 30 days.
+     * </pre>
+     *
+     * <code>optional int64 to = 7 [json_name = "to"];</code>
+     * @param value The to to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTo(long value) {
+
+      to_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * The range must not exceed 30 days.
+     * </pre>
+     *
+     * <code>optional int64 to = 7 [json_name = "to"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTo() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      to_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object dateTimeFieldName_ = "";
+    /**
+     * <pre>
+     * Name of the date-time field used for range filtering.
+     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * </pre>
+     *
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * @return The dateTimeFieldName.
+     */
+    public java.lang.String getDateTimeFieldName() {
+      java.lang.Object ref = dateTimeFieldName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dateTimeFieldName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Name of the date-time field used for range filtering.
+     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * </pre>
+     *
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for dateTimeFieldName.
+     */
+    public com.google.protobuf.ByteString
+        getDateTimeFieldNameBytes() {
+      java.lang.Object ref = dateTimeFieldName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dateTimeFieldName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Name of the date-time field used for range filtering.
+     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * </pre>
+     *
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * @param value The dateTimeFieldName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDateTimeFieldName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      dateTimeFieldName_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Name of the date-time field used for range filtering.
+     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * </pre>
+     *
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDateTimeFieldName() {
+      dateTimeFieldName_ = getDefaultInstance().getDateTimeFieldName();
+      bitField0_ = (bitField0_ & ~0x00000080);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Name of the date-time field used for range filtering.
+     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * </pre>
+     *
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for dateTimeFieldName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDateTimeFieldNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      dateTimeFieldName_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+
     /* Generated by protoc-gen-java-set-or-clear */
     
     /**
@@ -1124,6 +1530,75 @@ private static final long serialVersionUID = 0L;
     		return clearLimit();
     	else
     		return setLimit(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The from to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearFrom(java.lang.Long value) {
+    	if (value == null)
+    		return clearFrom();
+    	else
+    		return setFrom(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearFrom(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
+    	if (value == null)
+    		return clearFrom();
+    	else
+    		return setFrom(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The to to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearTo(java.lang.Long value) {
+    	if (value == null)
+    		return clearTo();
+    	else
+    		return setTo(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearTo(T value, java.util.function.Function<T, java.lang.Long> mapFunc) {
+    	if (value == null)
+    		return clearTo();
+    	else
+    		return setTo(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The date_time_field_name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearDateTimeFieldName(java.lang.String value) {
+    	if (value == null)
+    		return clearDateTimeFieldName();
+    	else
+    		return setDateTimeFieldName(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearDateTimeFieldName(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearDateTimeFieldName();
+    	else
+    		return setDateTimeFieldName(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.service.SearchUserChatsRequest)

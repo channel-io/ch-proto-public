@@ -99,4 +99,66 @@ public interface SearchUserChatsRequestOrBuilder extends
    * @return The limit.
    */
   int getLimit();
+
+  /**
+   * <pre>
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * </pre>
+   *
+   * <code>optional int64 from = 6 [json_name = "from"];</code>
+   * @return Whether the from field is set.
+   */
+  boolean hasFrom();
+  /**
+   * <pre>
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * </pre>
+   *
+   * <code>optional int64 from = 6 [json_name = "from"];</code>
+   * @return The from.
+   */
+  long getFrom();
+
+  /**
+   * <pre>
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * The range must not exceed 30 days.
+   * </pre>
+   *
+   * <code>optional int64 to = 7 [json_name = "to"];</code>
+   * @return Whether the to field is set.
+   */
+  boolean hasTo();
+  /**
+   * <pre>
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * The range must not exceed 30 days.
+   * </pre>
+   *
+   * <code>optional int64 to = 7 [json_name = "to"];</code>
+   * @return The to.
+   */
+  long getTo();
+
+  /**
+   * <pre>
+   * Name of the date-time field used for range filtering.
+   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * </pre>
+   *
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * @return The dateTimeFieldName.
+   */
+  java.lang.String getDateTimeFieldName();
+  /**
+   * <pre>
+   * Name of the date-time field used for range filtering.
+   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * </pre>
+   *
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for dateTimeFieldName.
+   */
+  com.google.protobuf.ByteString
+      getDateTimeFieldNameBytes();
 }
