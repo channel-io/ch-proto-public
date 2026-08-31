@@ -313,6 +313,8 @@ func (x *AggregateUserChatsRequest) GetAggregation() *common.Aggregation {
 type AggregateUserChatsResult struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Aggregated values keyed by the observed value of group_by.
+	//
+	// +kubebuilder:example={"opened":"10","closed":"5"}
 	Result        map[string]string `protobuf:"bytes,1,rep,name=result,proto3" json:"result,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

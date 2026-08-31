@@ -93,6 +93,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Aggregated values keyed by the observed value of group_by.
+   *
+   * +kubebuilder:example={"opened":"10","closed":"5"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -114,6 +116,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Aggregated values keyed by the observed value of group_by.
+   *
+   * +kubebuilder:example={"opened":"10","closed":"5"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -125,6 +129,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Aggregated values keyed by the observed value of group_by.
+   *
+   * +kubebuilder:example={"opened":"10","closed":"5"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -143,6 +149,8 @@ java.lang.String defaultValue) {
   /**
    * <pre>
    * Aggregated values keyed by the observed value of group_by.
+   *
+   * +kubebuilder:example={"opened":"10","closed":"5"}
    * </pre>
    *
    * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -527,6 +535,8 @@ java.lang.String defaultValue) {
     /**
      * <pre>
      * Aggregated values keyed by the observed value of group_by.
+     *
+     * +kubebuilder:example={"opened":"10","closed":"5"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -548,6 +558,8 @@ java.lang.String defaultValue) {
     /**
      * <pre>
      * Aggregated values keyed by the observed value of group_by.
+     *
+     * +kubebuilder:example={"opened":"10","closed":"5"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -559,6 +571,8 @@ java.lang.String defaultValue) {
     /**
      * <pre>
      * Aggregated values keyed by the observed value of group_by.
+     *
+     * +kubebuilder:example={"opened":"10","closed":"5"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -577,6 +591,8 @@ java.lang.String defaultValue) {
     /**
      * <pre>
      * Aggregated values keyed by the observed value of group_by.
+     *
+     * +kubebuilder:example={"opened":"10","closed":"5"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -601,6 +617,8 @@ java.lang.String defaultValue) {
     /**
      * <pre>
      * Aggregated values keyed by the observed value of group_by.
+     *
+     * +kubebuilder:example={"opened":"10","closed":"5"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -624,6 +642,8 @@ java.lang.String defaultValue) {
     /**
      * <pre>
      * Aggregated values keyed by the observed value of group_by.
+     *
+     * +kubebuilder:example={"opened":"10","closed":"5"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>
@@ -641,6 +661,8 @@ java.lang.String defaultValue) {
     /**
      * <pre>
      * Aggregated values keyed by the observed value of group_by.
+     *
+     * +kubebuilder:example={"opened":"10","closed":"5"}
      * </pre>
      *
      * <code>map&lt;string, string&gt; result = 1 [json_name = "result"];</code>

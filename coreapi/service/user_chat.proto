@@ -131,6 +131,8 @@ message AggregateUserChatsRequest {
 // Response for user chat aggregation.
 message AggregateUserChatsResult {
   // Aggregated values keyed by the observed value of group_by.
+  //
+  // +kubebuilder:example={"opened":"10","closed":"5"}
   map<string, string> result = 1;
 }
 
