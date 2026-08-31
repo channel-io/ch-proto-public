@@ -293,10 +293,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * date-time fields can be supported without changing this contract.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
    * @return The dateTimeFieldName.
    */
   @java.lang.Override
@@ -315,10 +316,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * date-time fields can be supported without changing this contract.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
    * @return The bytes for dateTimeFieldName.
    */
   @java.lang.Override
@@ -1322,10 +1324,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * date-time fields can be supported without changing this contract.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
      * @return The dateTimeFieldName.
      */
     public java.lang.String getDateTimeFieldName() {
@@ -1343,10 +1346,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * date-time fields can be supported without changing this contract.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
      * @return The bytes for dateTimeFieldName.
      */
     public com.google.protobuf.ByteString
@@ -1365,10 +1369,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * date-time fields can be supported without changing this contract.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
      * @param value The dateTimeFieldName to set.
      * @return This builder for chaining.
      */
@@ -1383,10 +1388,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * date-time fields can be supported without changing this contract.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDateTimeFieldName() {
@@ -1398,10 +1404,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * date-time fields can be supported without changing this contract.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
      * @param value The bytes for dateTimeFieldName to set.
      * @return This builder for chaining.
      */

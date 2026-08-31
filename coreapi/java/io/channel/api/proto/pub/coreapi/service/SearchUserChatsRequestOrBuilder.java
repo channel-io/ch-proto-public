@@ -143,20 +143,22 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * date-time fields can be supported without changing this contract.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
    * @return The dateTimeFieldName.
    */
   java.lang.String getDateTimeFieldName();
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted or set to `deskUpdatedAt` or `managedAt`.
+   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * date-time fields can be supported without changing this contract.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
    * @return The bytes for dateTimeFieldName.
    */
   com.google.protobuf.ByteString

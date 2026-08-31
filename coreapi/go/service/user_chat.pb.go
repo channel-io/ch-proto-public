@@ -58,7 +58,8 @@ type SearchUserChatsRequest struct {
 	// The range must not exceed 30 days.
 	To *int64 `protobuf:"varint,7,opt,name=to,proto3,oneof" json:"to,omitempty"`
 	// Name of the date-time field used for range filtering.
-	// May be omitted or set to `deskUpdatedAt` or `managedAt`.
+	// May be omitted. Values are intentionally not restricted at the proto layer so additional
+	// date-time fields can be supported without changing this contract.
 	DateTimeFieldName string `protobuf:"bytes,8,opt,name=date_time_field_name,json=dateTimeFieldName,proto3" json:"date_time_field_name,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
@@ -1991,7 +1992,7 @@ var File_coreapi_service_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf3\a\n" +
+	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd0\x06\n" +
 	"\x16SearchUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x122\n" +
@@ -2002,9 +2003,8 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\x05limit\x18\x05 \x01(\x05B_\xbaH\\\xba\x01Y\n" +
 	"\rint32.between\x12\x1flimit must be between 1 and 500\x1a'this == 0 || (this >= 1 && this <= 500)R\x05limit\x12\x17\n" +
 	"\x04from\x18\x06 \x01(\x03H\x00R\x04from\x88\x01\x01\x12\x13\n" +
-	"\x02to\x18\a \x01(\x03H\x01R\x02to\x88\x01\x01\x12\xd1\x01\n" +
-	"\x14date_time_field_name\x18\b \x01(\tB\x9f\x01\xbaH\x9b\x01\xba\x01\x97\x01\n" +
-	"&search_user_chats.date_time_field_name\x127date_time_field_name must be deskUpdatedAt or managedAt\x1a4this == '' || this in ['deskUpdatedAt', 'managedAt']R\x11dateTimeFieldName:\xa2\x03\xbaH\x9e\x03\x1ar\n" +
+	"\x02to\x18\a \x01(\x03H\x01R\x02to\x88\x01\x01\x12/\n" +
+	"\x14date_time_field_name\x18\b \x01(\tR\x11dateTimeFieldName:\xa2\x03\xbaH\x9e\x03\x1ar\n" +
 	")search_user_chats.range_required_together\x12%from and to must be provided together\x1a\x1ehas(this.from) == has(this.to)\x1aw\n" +
 	"\x1dsearch_user_chats.range_order\x12\x19from must be less than to\x1a;has(this.from) && has(this.to) ? this.from < this.to : true\x1a\xae\x01\n" +
 	"*search_user_chats.range_not_exceed_30_days\x125the range between from and to must not exceed 30 days\x1aIhas(this.from) && has(this.to) ? this.to - this.from <= 2592000000 : trueB\a\n" +
