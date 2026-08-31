@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package coreapi.common;
+
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.common";
+
+// Aggregation performed for each query group.
+message Aggregation {
+  option (buf.validate.message).cel = {
+    id: "aggregation.target_field_name_required"
+    message: "target_field_name is required for max, min, and avg actions"
+    expression: "this.action in ['max', 'min', 'avg'] ? this.target_field_name != '' : true"
+  };
+
+  // Aggregation action. Must be one of cnt, max, min, or avg.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Enum={"cnt","max","min","avg"}
+  // +kubebuilder:example="max"
+  string action = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregation.action"
+      message: "action must be one of cnt, max, min, or avg"
+      expression: "this in ['cnt', 'max', 'min', 'avg']"
+    }
+  ];
+
+  // Field on which to perform the aggregation.
+  // Required for max, min, and avg. Omit for cnt.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:example="managedAt"
+  string target_field_name = 2;
+}

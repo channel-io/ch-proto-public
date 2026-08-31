@@ -217,6 +217,144 @@ func (x *SearchUserChatsResult) GetHasNext() bool {
 	return false
 }
 
+// Aggregates user chats by a specified field.
+type AggregateUserChatsRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID to aggregate user chats in.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// Date-time range to apply before aggregation.
+	// The range must not exceed 60 days.
+	//
+	// +kubebuilder:validation:Nullable
+	DateTimeRange *common.DateTimeRange `protobuf:"bytes,2,opt,name=date_time_range,json=dateTimeRange,proto3" json:"date_time_range,omitempty"`
+	// Additional conditions to apply before aggregation.
+	// The Core API validates the expression structure and supported values.
+	//
+	// +kubebuilder:validation:Nullable
+	Filter *common.Expression `protobuf:"bytes,3,opt,name=filter,proto3" json:"filter,omitempty"`
+	// Field whose values define the result groups.
+	//
+	// +kubebuilder:validation:Required
+	GroupBy string `protobuf:"bytes,4,opt,name=group_by,json=groupBy,proto3" json:"group_by,omitempty"`
+	// Aggregation to perform for each group.
+	//
+	// +kubebuilder:validation:Required
+	Aggregation   *common.Aggregation `protobuf:"bytes,5,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AggregateUserChatsRequest) Reset() {
+	*x = AggregateUserChatsRequest{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AggregateUserChatsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AggregateUserChatsRequest) ProtoMessage() {}
+
+func (x *AggregateUserChatsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AggregateUserChatsRequest.ProtoReflect.Descriptor instead.
+func (*AggregateUserChatsRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AggregateUserChatsRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *AggregateUserChatsRequest) GetDateTimeRange() *common.DateTimeRange {
+	if x != nil {
+		return x.DateTimeRange
+	}
+	return nil
+}
+
+func (x *AggregateUserChatsRequest) GetFilter() *common.Expression {
+	if x != nil {
+		return x.Filter
+	}
+	return nil
+}
+
+func (x *AggregateUserChatsRequest) GetGroupBy() string {
+	if x != nil {
+		return x.GroupBy
+	}
+	return ""
+}
+
+func (x *AggregateUserChatsRequest) GetAggregation() *common.Aggregation {
+	if x != nil {
+		return x.Aggregation
+	}
+	return nil
+}
+
+// Response for user chat aggregation.
+type AggregateUserChatsResult struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Aggregated values keyed by the observed value of group_by.
+	Result        map[string]string `protobuf:"bytes,1,rep,name=result,proto3" json:"result,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AggregateUserChatsResult) Reset() {
+	*x = AggregateUserChatsResult{}
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AggregateUserChatsResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AggregateUserChatsResult) ProtoMessage() {}
+
+func (x *AggregateUserChatsResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AggregateUserChatsResult.ProtoReflect.Descriptor instead.
+func (*AggregateUserChatsResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AggregateUserChatsResult) GetResult() map[string]string {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
 // Retrieves a list of user chats for a specific user.
 //
 // The number of user chats retrieved is restricted by the limit parameter,
@@ -242,7 +380,7 @@ type SearchUserChatsForUserRequest struct {
 
 func (x *SearchUserChatsForUserRequest) Reset() {
 	*x = SearchUserChatsForUserRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[2]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -254,7 +392,7 @@ func (x *SearchUserChatsForUserRequest) String() string {
 func (*SearchUserChatsForUserRequest) ProtoMessage() {}
 
 func (x *SearchUserChatsForUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[2]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -267,7 +405,7 @@ func (x *SearchUserChatsForUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchUserChatsForUserRequest.ProtoReflect.Descriptor instead.
 func (*SearchUserChatsForUserRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{2}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *SearchUserChatsForUserRequest) GetChannelId() string {
@@ -321,7 +459,7 @@ type SearchUserChatsForUserResult struct {
 
 func (x *SearchUserChatsForUserResult) Reset() {
 	*x = SearchUserChatsForUserResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[3]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -333,7 +471,7 @@ func (x *SearchUserChatsForUserResult) String() string {
 func (*SearchUserChatsForUserResult) ProtoMessage() {}
 
 func (x *SearchUserChatsForUserResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[3]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -346,7 +484,7 @@ func (x *SearchUserChatsForUserResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchUserChatsForUserResult.ProtoReflect.Descriptor instead.
 func (*SearchUserChatsForUserResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{3}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *SearchUserChatsForUserResult) GetUserChats() []*model.UserChat {
@@ -387,7 +525,7 @@ type GetUserChatRequest struct {
 
 func (x *GetUserChatRequest) Reset() {
 	*x = GetUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[4]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -399,7 +537,7 @@ func (x *GetUserChatRequest) String() string {
 func (*GetUserChatRequest) ProtoMessage() {}
 
 func (x *GetUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[4]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -412,7 +550,7 @@ func (x *GetUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserChatRequest.ProtoReflect.Descriptor instead.
 func (*GetUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{4}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetUserChatRequest) GetUserChatId() string {
@@ -459,7 +597,7 @@ type GetUserChatResult struct {
 
 func (x *GetUserChatResult) Reset() {
 	*x = GetUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[5]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -471,7 +609,7 @@ func (x *GetUserChatResult) String() string {
 func (*GetUserChatResult) ProtoMessage() {}
 
 func (x *GetUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[5]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -484,7 +622,7 @@ func (x *GetUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserChatResult.ProtoReflect.Descriptor instead.
 func (*GetUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{5}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetUserChatResult) GetUserChat() *model.UserChat {
@@ -523,7 +661,7 @@ type CreateUserChatRequest struct {
 
 func (x *CreateUserChatRequest) Reset() {
 	*x = CreateUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[6]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -535,7 +673,7 @@ func (x *CreateUserChatRequest) String() string {
 func (*CreateUserChatRequest) ProtoMessage() {}
 
 func (x *CreateUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[6]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -548,7 +686,7 @@ func (x *CreateUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserChatRequest.ProtoReflect.Descriptor instead.
 func (*CreateUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{6}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateUserChatRequest) GetChannelId() string {
@@ -575,7 +713,7 @@ type CreateUserChatResult struct {
 
 func (x *CreateUserChatResult) Reset() {
 	*x = CreateUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[7]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -587,7 +725,7 @@ func (x *CreateUserChatResult) String() string {
 func (*CreateUserChatResult) ProtoMessage() {}
 
 func (x *CreateUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[7]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -600,7 +738,7 @@ func (x *CreateUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserChatResult.ProtoReflect.Descriptor instead.
 func (*CreateUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{7}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CreateUserChatResult) GetUserChat() *model.UserChat {
@@ -632,7 +770,7 @@ type PatchUserChatRequest struct {
 
 func (x *PatchUserChatRequest) Reset() {
 	*x = PatchUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[8]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -644,7 +782,7 @@ func (x *PatchUserChatRequest) String() string {
 func (*PatchUserChatRequest) ProtoMessage() {}
 
 func (x *PatchUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[8]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -657,7 +795,7 @@ func (x *PatchUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PatchUserChatRequest.ProtoReflect.Descriptor instead.
 func (*PatchUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{8}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *PatchUserChatRequest) GetUserChatId() string {
@@ -698,7 +836,7 @@ type PatchUserChatResult struct {
 
 func (x *PatchUserChatResult) Reset() {
 	*x = PatchUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[9]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -710,7 +848,7 @@ func (x *PatchUserChatResult) String() string {
 func (*PatchUserChatResult) ProtoMessage() {}
 
 func (x *PatchUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[9]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -723,7 +861,7 @@ func (x *PatchUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PatchUserChatResult.ProtoReflect.Descriptor instead.
 func (*PatchUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{9}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *PatchUserChatResult) GetUserChat() *model.UserChat {
@@ -748,7 +886,7 @@ type DeleteUserChatRequest struct {
 
 func (x *DeleteUserChatRequest) Reset() {
 	*x = DeleteUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[10]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -760,7 +898,7 @@ func (x *DeleteUserChatRequest) String() string {
 func (*DeleteUserChatRequest) ProtoMessage() {}
 
 func (x *DeleteUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[10]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -773,7 +911,7 @@ func (x *DeleteUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserChatRequest.ProtoReflect.Descriptor instead.
 func (*DeleteUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{10}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *DeleteUserChatRequest) GetUserChatId() string {
@@ -799,7 +937,7 @@ type DeleteUserChatResult struct {
 
 func (x *DeleteUserChatResult) Reset() {
 	*x = DeleteUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[11]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -811,7 +949,7 @@ func (x *DeleteUserChatResult) String() string {
 func (*DeleteUserChatResult) ProtoMessage() {}
 
 func (x *DeleteUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[11]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -824,7 +962,7 @@ func (x *DeleteUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserChatResult.ProtoReflect.Descriptor instead.
 func (*DeleteUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{11}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{13}
 }
 
 // Opens a user chat.
@@ -847,7 +985,7 @@ type OpenUserChatRequest struct {
 
 func (x *OpenUserChatRequest) Reset() {
 	*x = OpenUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[12]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -859,7 +997,7 @@ func (x *OpenUserChatRequest) String() string {
 func (*OpenUserChatRequest) ProtoMessage() {}
 
 func (x *OpenUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[12]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -872,7 +1010,7 @@ func (x *OpenUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenUserChatRequest.ProtoReflect.Descriptor instead.
 func (*OpenUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{12}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *OpenUserChatRequest) GetUserChatId() string {
@@ -905,7 +1043,7 @@ type OpenUserChatResult struct {
 
 func (x *OpenUserChatResult) Reset() {
 	*x = OpenUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[13]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -917,7 +1055,7 @@ func (x *OpenUserChatResult) String() string {
 func (*OpenUserChatResult) ProtoMessage() {}
 
 func (x *OpenUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[13]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -930,7 +1068,7 @@ func (x *OpenUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenUserChatResult.ProtoReflect.Descriptor instead.
 func (*OpenUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{13}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *OpenUserChatResult) GetUserChat() *model.UserChat {
@@ -956,7 +1094,7 @@ type CloseUserChatRequest struct {
 
 func (x *CloseUserChatRequest) Reset() {
 	*x = CloseUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[14]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -968,7 +1106,7 @@ func (x *CloseUserChatRequest) String() string {
 func (*CloseUserChatRequest) ProtoMessage() {}
 
 func (x *CloseUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[14]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -981,7 +1119,7 @@ func (x *CloseUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseUserChatRequest.ProtoReflect.Descriptor instead.
 func (*CloseUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{14}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CloseUserChatRequest) GetUserChatId() string {
@@ -1014,7 +1152,7 @@ type CloseUserChatResult struct {
 
 func (x *CloseUserChatResult) Reset() {
 	*x = CloseUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[15]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1026,7 +1164,7 @@ func (x *CloseUserChatResult) String() string {
 func (*CloseUserChatResult) ProtoMessage() {}
 
 func (x *CloseUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[15]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1039,7 +1177,7 @@ func (x *CloseUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseUserChatResult.ProtoReflect.Descriptor instead.
 func (*CloseUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{15}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CloseUserChatResult) GetUserChat() *model.UserChat {
@@ -1067,7 +1205,7 @@ type SnoozeUserChatRequest struct {
 
 func (x *SnoozeUserChatRequest) Reset() {
 	*x = SnoozeUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[16]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1079,7 +1217,7 @@ func (x *SnoozeUserChatRequest) String() string {
 func (*SnoozeUserChatRequest) ProtoMessage() {}
 
 func (x *SnoozeUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[16]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1092,7 +1230,7 @@ func (x *SnoozeUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SnoozeUserChatRequest.ProtoReflect.Descriptor instead.
 func (*SnoozeUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{16}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SnoozeUserChatRequest) GetUserChatId() string {
@@ -1132,7 +1270,7 @@ type SnoozeUserChatResult struct {
 
 func (x *SnoozeUserChatResult) Reset() {
 	*x = SnoozeUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[17]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1144,7 +1282,7 @@ func (x *SnoozeUserChatResult) String() string {
 func (*SnoozeUserChatResult) ProtoMessage() {}
 
 func (x *SnoozeUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[17]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1157,7 +1295,7 @@ func (x *SnoozeUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SnoozeUserChatResult.ProtoReflect.Descriptor instead.
 func (*SnoozeUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{17}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *SnoozeUserChatResult) GetUserChat() *model.UserChat {
@@ -1186,7 +1324,7 @@ type InviteManagersToUserChatRequest struct {
 
 func (x *InviteManagersToUserChatRequest) Reset() {
 	*x = InviteManagersToUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[18]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1198,7 +1336,7 @@ func (x *InviteManagersToUserChatRequest) String() string {
 func (*InviteManagersToUserChatRequest) ProtoMessage() {}
 
 func (x *InviteManagersToUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[18]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1211,7 +1349,7 @@ func (x *InviteManagersToUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InviteManagersToUserChatRequest.ProtoReflect.Descriptor instead.
 func (*InviteManagersToUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{18}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *InviteManagersToUserChatRequest) GetUserChatId() string {
@@ -1251,7 +1389,7 @@ type InviteManagersToUserChatResult struct {
 
 func (x *InviteManagersToUserChatResult) Reset() {
 	*x = InviteManagersToUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[19]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1263,7 +1401,7 @@ func (x *InviteManagersToUserChatResult) String() string {
 func (*InviteManagersToUserChatResult) ProtoMessage() {}
 
 func (x *InviteManagersToUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[19]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1276,7 +1414,7 @@ func (x *InviteManagersToUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InviteManagersToUserChatResult.ProtoReflect.Descriptor instead.
 func (*InviteManagersToUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{19}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *InviteManagersToUserChatResult) GetUserChat() *model.UserChat {
@@ -1303,7 +1441,7 @@ type AssignManagerToUserChatRequest struct {
 
 func (x *AssignManagerToUserChatRequest) Reset() {
 	*x = AssignManagerToUserChatRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[20]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1315,7 +1453,7 @@ func (x *AssignManagerToUserChatRequest) String() string {
 func (*AssignManagerToUserChatRequest) ProtoMessage() {}
 
 func (x *AssignManagerToUserChatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[20]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1328,7 +1466,7 @@ func (x *AssignManagerToUserChatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AssignManagerToUserChatRequest.ProtoReflect.Descriptor instead.
 func (*AssignManagerToUserChatRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{20}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *AssignManagerToUserChatRequest) GetUserChatId() string {
@@ -1368,7 +1506,7 @@ type AssignManagerToUserChatResult struct {
 
 func (x *AssignManagerToUserChatResult) Reset() {
 	*x = AssignManagerToUserChatResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[21]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1380,7 +1518,7 @@ func (x *AssignManagerToUserChatResult) String() string {
 func (*AssignManagerToUserChatResult) ProtoMessage() {}
 
 func (x *AssignManagerToUserChatResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[21]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1393,7 +1531,7 @@ func (x *AssignManagerToUserChatResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AssignManagerToUserChatResult.ProtoReflect.Descriptor instead.
 func (*AssignManagerToUserChatResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{21}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *AssignManagerToUserChatResult) GetUserChat() *model.UserChat {
@@ -1414,7 +1552,7 @@ type SearchUserChatSessionsRequest struct {
 
 func (x *SearchUserChatSessionsRequest) Reset() {
 	*x = SearchUserChatSessionsRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[22]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1426,7 +1564,7 @@ func (x *SearchUserChatSessionsRequest) String() string {
 func (*SearchUserChatSessionsRequest) ProtoMessage() {}
 
 func (x *SearchUserChatSessionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[22]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1439,7 +1577,7 @@ func (x *SearchUserChatSessionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchUserChatSessionsRequest.ProtoReflect.Descriptor instead.
 func (*SearchUserChatSessionsRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{22}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *SearchUserChatSessionsRequest) GetChannelId() string {
@@ -1465,7 +1603,7 @@ type SearchUserChatSessionsResult struct {
 
 func (x *SearchUserChatSessionsResult) Reset() {
 	*x = SearchUserChatSessionsResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[23]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1477,7 +1615,7 @@ func (x *SearchUserChatSessionsResult) String() string {
 func (*SearchUserChatSessionsResult) ProtoMessage() {}
 
 func (x *SearchUserChatSessionsResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[23]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1490,7 +1628,7 @@ func (x *SearchUserChatSessionsResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchUserChatSessionsResult.ProtoReflect.Descriptor instead.
 func (*SearchUserChatSessionsResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{23}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *SearchUserChatSessionsResult) GetChatSessions() []*model.ChatSession {
@@ -1523,7 +1661,7 @@ type SearchUserChatMessagesRequest struct {
 
 func (x *SearchUserChatMessagesRequest) Reset() {
 	*x = SearchUserChatMessagesRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[24]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1535,7 +1673,7 @@ func (x *SearchUserChatMessagesRequest) String() string {
 func (*SearchUserChatMessagesRequest) ProtoMessage() {}
 
 func (x *SearchUserChatMessagesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[24]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1548,7 +1686,7 @@ func (x *SearchUserChatMessagesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchUserChatMessagesRequest.ProtoReflect.Descriptor instead.
 func (*SearchUserChatMessagesRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{24}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *SearchUserChatMessagesRequest) GetChannelId() string {
@@ -1622,7 +1760,7 @@ type SearchUserChatMessagesResult struct {
 
 func (x *SearchUserChatMessagesResult) Reset() {
 	*x = SearchUserChatMessagesResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[25]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1634,7 +1772,7 @@ func (x *SearchUserChatMessagesResult) String() string {
 func (*SearchUserChatMessagesResult) ProtoMessage() {}
 
 func (x *SearchUserChatMessagesResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[25]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1647,7 +1785,7 @@ func (x *SearchUserChatMessagesResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchUserChatMessagesResult.ProtoReflect.Descriptor instead.
 func (*SearchUserChatMessagesResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{25}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *SearchUserChatMessagesResult) GetMessages() []*model.Message {
@@ -1704,7 +1842,7 @@ type CreateUserChatMessageRequest struct {
 
 func (x *CreateUserChatMessageRequest) Reset() {
 	*x = CreateUserChatMessageRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[26]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1716,7 +1854,7 @@ func (x *CreateUserChatMessageRequest) String() string {
 func (*CreateUserChatMessageRequest) ProtoMessage() {}
 
 func (x *CreateUserChatMessageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[26]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1729,7 +1867,7 @@ func (x *CreateUserChatMessageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserChatMessageRequest.ProtoReflect.Descriptor instead.
 func (*CreateUserChatMessageRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{26}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CreateUserChatMessageRequest) GetChannelId() string {
@@ -1776,7 +1914,7 @@ type CreateUserChatMessageResult struct {
 
 func (x *CreateUserChatMessageResult) Reset() {
 	*x = CreateUserChatMessageResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[27]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1788,7 +1926,7 @@ func (x *CreateUserChatMessageResult) String() string {
 func (*CreateUserChatMessageResult) ProtoMessage() {}
 
 func (x *CreateUserChatMessageResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[27]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1801,7 +1939,7 @@ func (x *CreateUserChatMessageResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserChatMessageResult.ProtoReflect.Descriptor instead.
 func (*CreateUserChatMessageResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{27}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CreateUserChatMessageResult) GetMessage() *model.Message {
@@ -1823,7 +1961,7 @@ type GetUserChatFileUrlRequest struct {
 
 func (x *GetUserChatFileUrlRequest) Reset() {
 	*x = GetUserChatFileUrlRequest{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[28]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1835,7 +1973,7 @@ func (x *GetUserChatFileUrlRequest) String() string {
 func (*GetUserChatFileUrlRequest) ProtoMessage() {}
 
 func (x *GetUserChatFileUrlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[28]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1848,7 +1986,7 @@ func (x *GetUserChatFileUrlRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserChatFileUrlRequest.ProtoReflect.Descriptor instead.
 func (*GetUserChatFileUrlRequest) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{28}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetUserChatFileUrlRequest) GetChannelId() string {
@@ -1881,7 +2019,7 @@ type GetUserChatFileUrlResult struct {
 
 func (x *GetUserChatFileUrlResult) Reset() {
 	*x = GetUserChatFileUrlResult{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[29]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1893,7 +2031,7 @@ func (x *GetUserChatFileUrlResult) String() string {
 func (*GetUserChatFileUrlResult) ProtoMessage() {}
 
 func (x *GetUserChatFileUrlResult) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[29]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1906,7 +2044,7 @@ func (x *GetUserChatFileUrlResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserChatFileUrlResult.ProtoReflect.Descriptor instead.
 func (*GetUserChatFileUrlResult) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{29}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetUserChatFileUrlResult) GetUrl() string {
@@ -1939,7 +2077,7 @@ type PatchUserChatRequest_PatchUserChatBody struct {
 
 func (x *PatchUserChatRequest_PatchUserChatBody) Reset() {
 	*x = PatchUserChatRequest_PatchUserChatBody{}
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[30]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1951,7 +2089,7 @@ func (x *PatchUserChatRequest_PatchUserChatBody) String() string {
 func (*PatchUserChatRequest_PatchUserChatBody) ProtoMessage() {}
 
 func (x *PatchUserChatRequest_PatchUserChatBody) ProtoReflect() protoreflect.Message {
-	mi := &file_coreapi_service_user_chat_proto_msgTypes[30]
+	mi := &file_coreapi_service_user_chat_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1964,7 +2102,7 @@ func (x *PatchUserChatRequest_PatchUserChatBody) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use PatchUserChatRequest_PatchUserChatBody.ProtoReflect.Descriptor instead.
 func (*PatchUserChatRequest_PatchUserChatBody) Descriptor() ([]byte, []int) {
-	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{8, 0}
+	return file_coreapi_service_user_chat_proto_rawDescGZIP(), []int{10, 0}
 }
 
 func (x *PatchUserChatRequest_PatchUserChatBody) GetDescription() string {
@@ -1992,7 +2130,7 @@ var File_coreapi_service_user_chat_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd0\x06\n" +
+	"\x1fcoreapi/service/user_chat.proto\x12\x0fcoreapi.service\x1a\x1bbuf/validate/validate.proto\x1a coreapi/common/aggregation.proto\x1a$coreapi/common/date_time_range.proto\x1a\x1fcoreapi/common/expression.proto\x1a\x1fcoreapi/common/sort_order.proto\x1a!coreapi/model/chat_bookmark.proto\x1a coreapi/model/chat_session.proto\x1a\x1bcoreapi/model/message.proto\x1a#coreapi/model/message_content.proto\x1a\x1dcoreapi/model/user_chat.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd0\x06\n" +
 	"\x16SearchUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x122\n" +
@@ -2015,7 +2153,19 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"user_chats\x18\x01 \x03(\v2\x17.coreapi.model.UserChatR\tuserChats\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xb0\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xa7\x02\n" +
+	"\x19AggregateUserChatsRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12E\n" +
+	"\x0fdate_time_range\x18\x02 \x01(\v2\x1d.coreapi.common.DateTimeRangeR\rdateTimeRange\x122\n" +
+	"\x06filter\x18\x03 \x01(\v2\x1a.coreapi.common.ExpressionR\x06filter\x12!\n" +
+	"\bgroup_by\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupBy\x12E\n" +
+	"\vaggregation\x18\x05 \x01(\v2\x1b.coreapi.common.AggregationB\x06\xbaH\x03\xc8\x01\x01R\vaggregation\"\xa4\x01\n" +
+	"\x18AggregateUserChatsResult\x12M\n" +
+	"\x06result\x18\x01 \x03(\v25.coreapi.service.AggregateUserChatsResult.ResultEntryR\x06result\x1a9\n" +
+	"\vResultEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xb0\x02\n" +
 	"\x1dSearchUserChatsForUserRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\x1f\n" +
@@ -2191,85 +2341,95 @@ func file_coreapi_service_user_chat_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_user_chat_proto_rawDescData
 }
 
-var file_coreapi_service_user_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 31)
+var file_coreapi_service_user_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 34)
 var file_coreapi_service_user_chat_proto_goTypes = []any{
 	(*SearchUserChatsRequest)(nil),                 // 0: coreapi.service.SearchUserChatsRequest
 	(*SearchUserChatsResult)(nil),                  // 1: coreapi.service.SearchUserChatsResult
-	(*SearchUserChatsForUserRequest)(nil),          // 2: coreapi.service.SearchUserChatsForUserRequest
-	(*SearchUserChatsForUserResult)(nil),           // 3: coreapi.service.SearchUserChatsForUserResult
-	(*GetUserChatRequest)(nil),                     // 4: coreapi.service.GetUserChatRequest
-	(*GetUserChatResult)(nil),                      // 5: coreapi.service.GetUserChatResult
-	(*CreateUserChatRequest)(nil),                  // 6: coreapi.service.CreateUserChatRequest
-	(*CreateUserChatResult)(nil),                   // 7: coreapi.service.CreateUserChatResult
-	(*PatchUserChatRequest)(nil),                   // 8: coreapi.service.PatchUserChatRequest
-	(*PatchUserChatResult)(nil),                    // 9: coreapi.service.PatchUserChatResult
-	(*DeleteUserChatRequest)(nil),                  // 10: coreapi.service.DeleteUserChatRequest
-	(*DeleteUserChatResult)(nil),                   // 11: coreapi.service.DeleteUserChatResult
-	(*OpenUserChatRequest)(nil),                    // 12: coreapi.service.OpenUserChatRequest
-	(*OpenUserChatResult)(nil),                     // 13: coreapi.service.OpenUserChatResult
-	(*CloseUserChatRequest)(nil),                   // 14: coreapi.service.CloseUserChatRequest
-	(*CloseUserChatResult)(nil),                    // 15: coreapi.service.CloseUserChatResult
-	(*SnoozeUserChatRequest)(nil),                  // 16: coreapi.service.SnoozeUserChatRequest
-	(*SnoozeUserChatResult)(nil),                   // 17: coreapi.service.SnoozeUserChatResult
-	(*InviteManagersToUserChatRequest)(nil),        // 18: coreapi.service.InviteManagersToUserChatRequest
-	(*InviteManagersToUserChatResult)(nil),         // 19: coreapi.service.InviteManagersToUserChatResult
-	(*AssignManagerToUserChatRequest)(nil),         // 20: coreapi.service.AssignManagerToUserChatRequest
-	(*AssignManagerToUserChatResult)(nil),          // 21: coreapi.service.AssignManagerToUserChatResult
-	(*SearchUserChatSessionsRequest)(nil),          // 22: coreapi.service.SearchUserChatSessionsRequest
-	(*SearchUserChatSessionsResult)(nil),           // 23: coreapi.service.SearchUserChatSessionsResult
-	(*SearchUserChatMessagesRequest)(nil),          // 24: coreapi.service.SearchUserChatMessagesRequest
-	(*SearchUserChatMessagesResult)(nil),           // 25: coreapi.service.SearchUserChatMessagesResult
-	(*CreateUserChatMessageRequest)(nil),           // 26: coreapi.service.CreateUserChatMessageRequest
-	(*CreateUserChatMessageResult)(nil),            // 27: coreapi.service.CreateUserChatMessageResult
-	(*GetUserChatFileUrlRequest)(nil),              // 28: coreapi.service.GetUserChatFileUrlRequest
-	(*GetUserChatFileUrlResult)(nil),               // 29: coreapi.service.GetUserChatFileUrlResult
-	(*PatchUserChatRequest_PatchUserChatBody)(nil), // 30: coreapi.service.PatchUserChatRequest.PatchUserChatBody
-	(model.UserChatState)(0),                       // 31: coreapi.model.UserChatState
-	(common.SortOrder)(0),                          // 32: coreapi.common.SortOrder
-	(*model.UserChat)(nil),                         // 33: coreapi.model.UserChat
-	(*model.ChatBookmark)(nil),                     // 34: coreapi.model.ChatBookmark
-	(*model.ChatSession)(nil),                      // 35: coreapi.model.ChatSession
-	(*fieldmaskpb.FieldMask)(nil),                  // 36: google.protobuf.FieldMask
-	(*durationpb.Duration)(nil),                    // 37: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),                  // 38: google.protobuf.Timestamp
-	(*model.Message)(nil),                          // 39: coreapi.model.Message
-	(*model.MessageContent)(nil),                   // 40: coreapi.model.MessageContent
-	(*structpb.Struct)(nil),                        // 41: google.protobuf.Struct
+	(*AggregateUserChatsRequest)(nil),              // 2: coreapi.service.AggregateUserChatsRequest
+	(*AggregateUserChatsResult)(nil),               // 3: coreapi.service.AggregateUserChatsResult
+	(*SearchUserChatsForUserRequest)(nil),          // 4: coreapi.service.SearchUserChatsForUserRequest
+	(*SearchUserChatsForUserResult)(nil),           // 5: coreapi.service.SearchUserChatsForUserResult
+	(*GetUserChatRequest)(nil),                     // 6: coreapi.service.GetUserChatRequest
+	(*GetUserChatResult)(nil),                      // 7: coreapi.service.GetUserChatResult
+	(*CreateUserChatRequest)(nil),                  // 8: coreapi.service.CreateUserChatRequest
+	(*CreateUserChatResult)(nil),                   // 9: coreapi.service.CreateUserChatResult
+	(*PatchUserChatRequest)(nil),                   // 10: coreapi.service.PatchUserChatRequest
+	(*PatchUserChatResult)(nil),                    // 11: coreapi.service.PatchUserChatResult
+	(*DeleteUserChatRequest)(nil),                  // 12: coreapi.service.DeleteUserChatRequest
+	(*DeleteUserChatResult)(nil),                   // 13: coreapi.service.DeleteUserChatResult
+	(*OpenUserChatRequest)(nil),                    // 14: coreapi.service.OpenUserChatRequest
+	(*OpenUserChatResult)(nil),                     // 15: coreapi.service.OpenUserChatResult
+	(*CloseUserChatRequest)(nil),                   // 16: coreapi.service.CloseUserChatRequest
+	(*CloseUserChatResult)(nil),                    // 17: coreapi.service.CloseUserChatResult
+	(*SnoozeUserChatRequest)(nil),                  // 18: coreapi.service.SnoozeUserChatRequest
+	(*SnoozeUserChatResult)(nil),                   // 19: coreapi.service.SnoozeUserChatResult
+	(*InviteManagersToUserChatRequest)(nil),        // 20: coreapi.service.InviteManagersToUserChatRequest
+	(*InviteManagersToUserChatResult)(nil),         // 21: coreapi.service.InviteManagersToUserChatResult
+	(*AssignManagerToUserChatRequest)(nil),         // 22: coreapi.service.AssignManagerToUserChatRequest
+	(*AssignManagerToUserChatResult)(nil),          // 23: coreapi.service.AssignManagerToUserChatResult
+	(*SearchUserChatSessionsRequest)(nil),          // 24: coreapi.service.SearchUserChatSessionsRequest
+	(*SearchUserChatSessionsResult)(nil),           // 25: coreapi.service.SearchUserChatSessionsResult
+	(*SearchUserChatMessagesRequest)(nil),          // 26: coreapi.service.SearchUserChatMessagesRequest
+	(*SearchUserChatMessagesResult)(nil),           // 27: coreapi.service.SearchUserChatMessagesResult
+	(*CreateUserChatMessageRequest)(nil),           // 28: coreapi.service.CreateUserChatMessageRequest
+	(*CreateUserChatMessageResult)(nil),            // 29: coreapi.service.CreateUserChatMessageResult
+	(*GetUserChatFileUrlRequest)(nil),              // 30: coreapi.service.GetUserChatFileUrlRequest
+	(*GetUserChatFileUrlResult)(nil),               // 31: coreapi.service.GetUserChatFileUrlResult
+	nil,                                            // 32: coreapi.service.AggregateUserChatsResult.ResultEntry
+	(*PatchUserChatRequest_PatchUserChatBody)(nil), // 33: coreapi.service.PatchUserChatRequest.PatchUserChatBody
+	(model.UserChatState)(0),                       // 34: coreapi.model.UserChatState
+	(common.SortOrder)(0),                          // 35: coreapi.common.SortOrder
+	(*model.UserChat)(nil),                         // 36: coreapi.model.UserChat
+	(*common.DateTimeRange)(nil),                   // 37: coreapi.common.DateTimeRange
+	(*common.Expression)(nil),                      // 38: coreapi.common.Expression
+	(*common.Aggregation)(nil),                     // 39: coreapi.common.Aggregation
+	(*model.ChatBookmark)(nil),                     // 40: coreapi.model.ChatBookmark
+	(*model.ChatSession)(nil),                      // 41: coreapi.model.ChatSession
+	(*fieldmaskpb.FieldMask)(nil),                  // 42: google.protobuf.FieldMask
+	(*durationpb.Duration)(nil),                    // 43: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil),                  // 44: google.protobuf.Timestamp
+	(*model.Message)(nil),                          // 45: coreapi.model.Message
+	(*model.MessageContent)(nil),                   // 46: coreapi.model.MessageContent
+	(*structpb.Struct)(nil),                        // 47: google.protobuf.Struct
 }
 var file_coreapi_service_user_chat_proto_depIdxs = []int32{
-	31, // 0: coreapi.service.SearchUserChatsRequest.state:type_name -> coreapi.model.UserChatState
-	32, // 1: coreapi.service.SearchUserChatsRequest.sort_order:type_name -> coreapi.common.SortOrder
-	33, // 2: coreapi.service.SearchUserChatsResult.user_chats:type_name -> coreapi.model.UserChat
-	32, // 3: coreapi.service.SearchUserChatsForUserRequest.sort_order:type_name -> coreapi.common.SortOrder
-	33, // 4: coreapi.service.SearchUserChatsForUserResult.user_chats:type_name -> coreapi.model.UserChat
-	33, // 5: coreapi.service.GetUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	34, // 6: coreapi.service.GetUserChatResult.bookmark:type_name -> coreapi.model.ChatBookmark
-	35, // 7: coreapi.service.GetUserChatResult.sessions:type_name -> coreapi.model.ChatSession
-	33, // 8: coreapi.service.CreateUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	30, // 9: coreapi.service.PatchUserChatRequest.body:type_name -> coreapi.service.PatchUserChatRequest.PatchUserChatBody
-	36, // 10: coreapi.service.PatchUserChatRequest.update_mask:type_name -> google.protobuf.FieldMask
-	33, // 11: coreapi.service.PatchUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	33, // 12: coreapi.service.OpenUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	33, // 13: coreapi.service.CloseUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	37, // 14: coreapi.service.SnoozeUserChatRequest.duration:type_name -> google.protobuf.Duration
-	33, // 15: coreapi.service.SnoozeUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	33, // 16: coreapi.service.InviteManagersToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	33, // 17: coreapi.service.AssignManagerToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
-	35, // 18: coreapi.service.SearchUserChatSessionsResult.chat_sessions:type_name -> coreapi.model.ChatSession
-	32, // 19: coreapi.service.SearchUserChatMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
-	38, // 20: coreapi.service.SearchUserChatMessagesRequest.from:type_name -> google.protobuf.Timestamp
-	38, // 21: coreapi.service.SearchUserChatMessagesRequest.to:type_name -> google.protobuf.Timestamp
-	39, // 22: coreapi.service.SearchUserChatMessagesResult.messages:type_name -> coreapi.model.Message
-	38, // 23: coreapi.service.SearchUserChatMessagesResult.from:type_name -> google.protobuf.Timestamp
-	38, // 24: coreapi.service.SearchUserChatMessagesResult.to:type_name -> google.protobuf.Timestamp
-	40, // 25: coreapi.service.CreateUserChatMessageRequest.content:type_name -> coreapi.model.MessageContent
-	39, // 26: coreapi.service.CreateUserChatMessageResult.message:type_name -> coreapi.model.Message
-	41, // 27: coreapi.service.PatchUserChatRequest.PatchUserChatBody.profile:type_name -> google.protobuf.Struct
-	28, // [28:28] is the sub-list for method output_type
-	28, // [28:28] is the sub-list for method input_type
-	28, // [28:28] is the sub-list for extension type_name
-	28, // [28:28] is the sub-list for extension extendee
-	0,  // [0:28] is the sub-list for field type_name
+	34, // 0: coreapi.service.SearchUserChatsRequest.state:type_name -> coreapi.model.UserChatState
+	35, // 1: coreapi.service.SearchUserChatsRequest.sort_order:type_name -> coreapi.common.SortOrder
+	36, // 2: coreapi.service.SearchUserChatsResult.user_chats:type_name -> coreapi.model.UserChat
+	37, // 3: coreapi.service.AggregateUserChatsRequest.date_time_range:type_name -> coreapi.common.DateTimeRange
+	38, // 4: coreapi.service.AggregateUserChatsRequest.filter:type_name -> coreapi.common.Expression
+	39, // 5: coreapi.service.AggregateUserChatsRequest.aggregation:type_name -> coreapi.common.Aggregation
+	32, // 6: coreapi.service.AggregateUserChatsResult.result:type_name -> coreapi.service.AggregateUserChatsResult.ResultEntry
+	35, // 7: coreapi.service.SearchUserChatsForUserRequest.sort_order:type_name -> coreapi.common.SortOrder
+	36, // 8: coreapi.service.SearchUserChatsForUserResult.user_chats:type_name -> coreapi.model.UserChat
+	36, // 9: coreapi.service.GetUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	40, // 10: coreapi.service.GetUserChatResult.bookmark:type_name -> coreapi.model.ChatBookmark
+	41, // 11: coreapi.service.GetUserChatResult.sessions:type_name -> coreapi.model.ChatSession
+	36, // 12: coreapi.service.CreateUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	33, // 13: coreapi.service.PatchUserChatRequest.body:type_name -> coreapi.service.PatchUserChatRequest.PatchUserChatBody
+	42, // 14: coreapi.service.PatchUserChatRequest.update_mask:type_name -> google.protobuf.FieldMask
+	36, // 15: coreapi.service.PatchUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	36, // 16: coreapi.service.OpenUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	36, // 17: coreapi.service.CloseUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	43, // 18: coreapi.service.SnoozeUserChatRequest.duration:type_name -> google.protobuf.Duration
+	36, // 19: coreapi.service.SnoozeUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	36, // 20: coreapi.service.InviteManagersToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	36, // 21: coreapi.service.AssignManagerToUserChatResult.user_chat:type_name -> coreapi.model.UserChat
+	41, // 22: coreapi.service.SearchUserChatSessionsResult.chat_sessions:type_name -> coreapi.model.ChatSession
+	35, // 23: coreapi.service.SearchUserChatMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
+	44, // 24: coreapi.service.SearchUserChatMessagesRequest.from:type_name -> google.protobuf.Timestamp
+	44, // 25: coreapi.service.SearchUserChatMessagesRequest.to:type_name -> google.protobuf.Timestamp
+	45, // 26: coreapi.service.SearchUserChatMessagesResult.messages:type_name -> coreapi.model.Message
+	44, // 27: coreapi.service.SearchUserChatMessagesResult.from:type_name -> google.protobuf.Timestamp
+	44, // 28: coreapi.service.SearchUserChatMessagesResult.to:type_name -> google.protobuf.Timestamp
+	46, // 29: coreapi.service.CreateUserChatMessageRequest.content:type_name -> coreapi.model.MessageContent
+	45, // 30: coreapi.service.CreateUserChatMessageResult.message:type_name -> coreapi.model.Message
+	47, // 31: coreapi.service.PatchUserChatRequest.PatchUserChatBody.profile:type_name -> google.protobuf.Struct
+	32, // [32:32] is the sub-list for method output_type
+	32, // [32:32] is the sub-list for method input_type
+	32, // [32:32] is the sub-list for extension type_name
+	32, // [32:32] is the sub-list for extension extendee
+	0,  // [0:32] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_service_user_chat_proto_init() }
@@ -2284,7 +2444,7 @@ func file_coreapi_service_user_chat_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_user_chat_proto_rawDesc), len(file_coreapi_service_user_chat_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   31,
+			NumMessages:   34,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
