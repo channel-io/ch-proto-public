@@ -34,6 +34,22 @@ option java_package = "io.channel.api.proto.pub.coreapi.service";
 // (closed, opened, snoozed, queued, initial, missed).
 // Defaults to opened if state is not specified.
 message SearchUserChatsRequest {
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.range_required_together"
+    message: "from and to must be provided together"
+    expression: "has(this.from) == has(this.to)"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.range_order"
+    message: "from must be less than to"
+    expression: "has(this.from) && has(this.to) ? this.from < this.to : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.range_not_exceed_30_days"
+    message: "the range between from and to must not exceed 30 days"
+    expression: "has(this.from) && has(this.to) ? this.to - this.from <= 2592000000 : true"
+  };
+
   // Channel ID to search user chats in.
   string channel_id = 1 [(buf.validate.field).required = true];
 
@@ -53,6 +69,18 @@ message SearchUserChatsRequest {
     message: "limit must be between 1 and 500"
     expression: "this == 0 || (this >= 1 && this <= 500)"
   }];
+
+  // Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+  optional int64 from = 6;
+
+  // Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+  // The range must not exceed 30 days.
+  optional int64 to = 7;
+
+  // Name of the date-time field used for range filtering.
+  // May be omitted. Values are intentionally not restricted at the proto layer so additional
+  // date-time fields can be supported without changing this contract.
+  string date_time_field_name = 8;
 }
 
 // Response for managed user chat list retrieval.
