@@ -107,7 +107,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Date-time range to apply before aggregation.
-   * Only "managedAt" is supported as the date-time field.
+   * Currently, only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
    * +kubebuilder:validation:Required
@@ -123,7 +123,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Date-time range to apply before aggregation.
-   * Only "managedAt" is supported as the date-time field.
+   * Currently, only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
    * +kubebuilder:validation:Required
@@ -139,7 +139,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Date-time range to apply before aggregation.
-   * Only "managedAt" is supported as the date-time field.
+   * Currently, only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
    * +kubebuilder:validation:Required
@@ -157,6 +157,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Additional conditions to apply before aggregation.
+   * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
    * The Core API validates the expression structure and supported values.
    *
    * +kubebuilder:validation:Nullable
@@ -172,6 +173,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Additional conditions to apply before aggregation.
+   * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
    * The Core API validates the expression structure and supported values.
    *
    * +kubebuilder:validation:Nullable
@@ -187,6 +189,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Additional conditions to apply before aggregation.
+   * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
    * The Core API validates the expression structure and supported values.
    *
    * +kubebuilder:validation:Nullable
@@ -204,7 +207,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object groupBy_ = "";
   /**
    * <pre>
-   * Field whose values define the result groups.
+   * Field whose values define the result groups. Currently, only "state" is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -227,7 +230,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Field whose values define the result groups.
+   * Field whose values define the result groups. Currently, only "state" is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -254,7 +257,7 @@ private static final long serialVersionUID = 0L;
   private io.channel.api.proto.pub.coreapi.common.Aggregation aggregation_;
   /**
    * <pre>
-   * Aggregation to perform for each group.
+   * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -268,7 +271,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Aggregation to perform for each group.
+   * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -282,7 +285,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Aggregation to perform for each group.
+   * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -839,7 +842,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -854,7 +857,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -873,7 +876,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -897,7 +900,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -919,7 +922,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -948,7 +951,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -969,7 +972,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -985,7 +988,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -1004,7 +1007,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
-     * Only "managedAt" is supported as the date-time field.
+     * Currently, only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
      * +kubebuilder:validation:Required
@@ -1032,6 +1035,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1046,6 +1050,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1064,6 +1069,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1087,6 +1093,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1108,6 +1115,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1136,6 +1144,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1156,6 +1165,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1171,6 +1181,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1189,6 +1200,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Additional conditions to apply before aggregation.
+     * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
      * The Core API validates the expression structure and supported values.
      *
      * +kubebuilder:validation:Nullable
@@ -1213,7 +1225,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object groupBy_ = "";
     /**
      * <pre>
-     * Field whose values define the result groups.
+     * Field whose values define the result groups. Currently, only "state" is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1235,7 +1247,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Field whose values define the result groups.
+     * Field whose values define the result groups. Currently, only "state" is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1258,7 +1270,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Field whose values define the result groups.
+     * Field whose values define the result groups. Currently, only "state" is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1277,7 +1289,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Field whose values define the result groups.
+     * Field whose values define the result groups. Currently, only "state" is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1293,7 +1305,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Field whose values define the result groups.
+     * Field whose values define the result groups. Currently, only "state" is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1317,7 +1329,7 @@ private static final long serialVersionUID = 0L;
         io.channel.api.proto.pub.coreapi.common.Aggregation, io.channel.api.proto.pub.coreapi.common.Aggregation.Builder, io.channel.api.proto.pub.coreapi.common.AggregationOrBuilder> aggregationBuilder_;
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1330,7 +1342,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1347,7 +1359,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1369,7 +1381,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1389,7 +1401,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1416,7 +1428,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1435,7 +1447,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1449,7 +1461,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>
@@ -1466,7 +1478,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Aggregation to perform for each group.
+     * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
      *
      * +kubebuilder:validation:Required
      * </pre>

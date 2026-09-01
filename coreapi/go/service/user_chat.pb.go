@@ -223,21 +223,22 @@ type AggregateUserChatsRequest struct {
 	// Channel ID to aggregate user chats in.
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Date-time range to apply before aggregation.
-	// Only "managedAt" is supported as the date-time field.
+	// Currently, only "managedAt" is supported as the date-time field.
 	// The range must not exceed 60 days.
 	//
 	// +kubebuilder:validation:Required
 	DateTimeRange *common.DateTimeRange `protobuf:"bytes,2,opt,name=date_time_range,json=dateTimeRange,proto3" json:"date_time_range,omitempty"`
 	// Additional conditions to apply before aggregation.
+	// Currently, only "id" (string) and "tags" (list) are supported as filter fields.
 	// The Core API validates the expression structure and supported values.
 	//
 	// +kubebuilder:validation:Nullable
 	Filter *common.Expression `protobuf:"bytes,3,opt,name=filter,proto3" json:"filter,omitempty"`
-	// Field whose values define the result groups.
+	// Field whose values define the result groups. Currently, only "state" is supported.
 	//
 	// +kubebuilder:validation:Required
 	GroupBy string `protobuf:"bytes,4,opt,name=group_by,json=groupBy,proto3" json:"group_by,omitempty"`
-	// Aggregation to perform for each group.
+	// Aggregation to perform for each group. Currently, only the "cnt" action is supported.
 	//
 	// +kubebuilder:validation:Required
 	Aggregation   *common.Aggregation `protobuf:"bytes,5,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
@@ -2156,15 +2157,17 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"user_chats\x18\x01 \x03(\v2\x17.coreapi.model.UserChatR\tuserChats\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xb4\x03\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xe2\x04\n" +
 	"\x19AggregateUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xd1\x01\n" +
 	"\x0fdate_time_range\x18\x02 \x01(\v2\x1d.coreapi.common.DateTimeRangeB\x89\x01\xbaH\x85\x01\xba\x01\x7f\n" +
 	"/aggregate_user_chats.date_time_range_field_name\x12,date_time_range.field_name must be managedAt\x1a\x1ethis.field_name == 'managedAt'\xc8\x01\x01R\rdateTimeRange\x122\n" +
-	"\x06filter\x18\x03 \x01(\v2\x1a.coreapi.common.ExpressionR\x06filter\x12!\n" +
-	"\bgroup_by\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupBy\x12E\n" +
-	"\vaggregation\x18\x05 \x01(\v2\x1b.coreapi.common.AggregationB\x06\xbaH\x03\xc8\x01\x01R\vaggregation\"\xa4\x01\n" +
+	"\x06filter\x18\x03 \x01(\v2\x1a.coreapi.common.ExpressionR\x06filter\x12l\n" +
+	"\bgroup_by\x18\x04 \x01(\tBQ\xbaHN\xba\x01H\n" +
+	"\x1daggregate_user_chats.group_by\x12\x16group_by must be state\x1a\x0fthis == 'state'\xc8\x01\x01R\agroupBy\x12\xa7\x01\n" +
+	"\vaggregation\x18\x05 \x01(\v2\x1b.coreapi.common.AggregationBh\xbaHe\xba\x01_\n" +
+	"'aggregate_user_chats.aggregation_action\x12\x1eaggregation.action must be cnt\x1a\x14this.action == 'cnt'\xc8\x01\x01R\vaggregation\"\xa4\x01\n" +
 	"\x18AggregateUserChatsResult\x12M\n" +
 	"\x06result\x18\x01 \x03(\v25.coreapi.service.AggregateUserChatsResult.ResultEntryR\x06result\x1a9\n" +
 	"\vResultEntry\x12\x10\n" +
