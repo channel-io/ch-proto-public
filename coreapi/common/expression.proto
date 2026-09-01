@@ -36,8 +36,8 @@ message Expression {
   };
   option (buf.validate.message).cel = {
     id: "expression.type_supported"
-    message: "type must be one of boolean, date, datetime, list, listOfNumber, number, or string"
-    expression: "this.type != '' ? this.type in ['boolean', 'date', 'datetime', 'list', 'listOfNumber', 'number', 'string'] : true"
+    message: "type must be one of boolean, date, datetime, list, number, or string"
+    expression: "this.type != '' ? this.type in ['boolean', 'date', 'datetime', 'list', 'number', 'string'] : true"
   };
   option (buf.validate.message).cel = {
     id: "expression.boolean_operator_supported"
@@ -47,22 +47,17 @@ message Expression {
   option (buf.validate.message).cel = {
     id: "expression.date_operator_supported"
     message: "operator must be supported for date type"
-    expression: "this.type == 'date' ? this.operator in ['$exist', '$nexist', '$eq', '$gt', '$lt', '$eqAgo', '$gtAgo', '$ltAgo'] : true"
+    expression: "this.type == 'date' ? this.operator in ['$exist', '$nexist', '$eq', '$gt', '$lt'] : true"
   };
   option (buf.validate.message).cel = {
     id: "expression.datetime_operator_supported"
     message: "operator must be supported for datetime type"
-    expression: "this.type == 'datetime' ? this.operator in ['$exist', '$nexist', '$gt', '$lt', '$gtAgo', '$ltAgo'] : true"
+    expression: "this.type == 'datetime' ? this.operator in ['$exist', '$nexist', '$gt', '$lt'] : true"
   };
   option (buf.validate.message).cel = {
     id: "expression.list_operator_supported"
     message: "operator must be supported for list type"
-    expression: "this.type == 'list' ? this.operator in ['$containsAny', '$ncontainsAny', '$containsAll', '$ncontainsAll', '$exist', '$nexist', '$regexAny', '$setEqual', '$nSetEqual', '$anyContainsSubstring', '$nAnyContainsSubstring', '$allContainsSubstring', '$nAllContainsSubstring', '$anyStartWith', '$nAnyStartWith', '$allStartWith', '$nAllStartWith'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.list_of_number_operator_supported"
-    message: "operator must be supported for listOfNumber type"
-    expression: "this.type == 'listOfNumber' ? this.operator in ['$exist', '$nexist', '$containsAny', '$ncontainsAny', '$setEqual', '$nSetEqual', '$anyGte', '$anyLte', '$allGte', '$allLte'] : true"
+    expression: "this.type == 'list' ? this.operator in ['$containsAny', '$containsAll', '$exist', '$nexist'] : true"
   };
   option (buf.validate.message).cel = {
     id: "expression.number_operator_supported"
@@ -72,7 +67,7 @@ message Expression {
   option (buf.validate.message).cel = {
     id: "expression.string_operator_supported"
     message: "operator must be supported for string type"
-    expression: "this.type == 'string' ? this.operator in ['$eq', '$ne', '$in', '$nin', '$exist', '$nexist', '$startWith', '$nStartWith', '$regex'] : true"
+    expression: "this.type == 'string' ? this.operator in ['$eq', '$ne', '$in', '$nin', '$exist', '$nexist', '$startWith', '$nStartWith'] : true"
   };
   option (buf.validate.message).cel = {
     id: "expression.values_empty_for_existence_operator"
@@ -82,7 +77,7 @@ message Expression {
   option (buf.validate.message).cel = {
     id: "expression.values_required"
     message: "values must contain at least one element for the operator"
-    expression: "this.operator in ['$eq', '$ne', '$in', '$nin', '$startWith', '$nStartWith', '$regex', '$gt', '$gte', '$lt', '$lte', '$eqAgo', '$gtAgo', '$ltAgo', '$containsAny', '$ncontainsAny', '$containsAll', '$ncontainsAll', '$regexAny', '$setEqual', '$nSetEqual', '$anyContainsSubstring', '$nAnyContainsSubstring', '$allContainsSubstring', '$nAllContainsSubstring', '$anyStartWith', '$nAnyStartWith', '$allStartWith', '$nAllStartWith', '$anyGte', '$anyLte', '$allGte', '$allLte'] ? size(this.values) > 0 : true"
+    expression: "this.operator in ['$eq', '$ne', '$in', '$nin', '$startWith', '$nStartWith', '$gt', '$gte', '$lt', '$lte', '$containsAny', '$containsAll'] ? size(this.values) > 0 : true"
   };
 
   // Field to which the condition applies.
@@ -90,18 +85,26 @@ message Expression {
   // +kubebuilder:example="state"
   string key = 1;
 
-  // Type used to interpret the condition values.
+  // Type used to interpret the condition values. Supported types are boolean,
+  // date, datetime, list, number, and string.
   //
   // +kubebuilder:example="string"
   string type = 2;
 
-  // Operator to apply to the condition values.
+  // Operator to apply to the condition values. For string conditions, $in and
+  // $nin perform substring matching.
   //
   // +kubebuilder:example="$eq"
   string operator = 3;
 
-  // Values used by the condition. The operation handling the expression
-  // parses each value according to type.
+  // Values used by the condition. Values must be empty for $exist and $nexist,
+  // and otherwise contain at least one element. Value formats by type are:
+  // - boolean: "true" or "false".
+  // - date: "yyyy-mm-dd".
+  // - datetime: an RFC 3339 timestamp.
+  // - number: a JSON number represented as a string.
+  // - string: strings interpreted by the selected operator.
+  // - list: list of strings
   //
   // +kubebuilder:example=["opened","closed"]
   repeated string values = 4;
