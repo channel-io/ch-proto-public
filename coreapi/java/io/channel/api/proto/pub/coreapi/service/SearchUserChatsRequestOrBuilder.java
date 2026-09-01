@@ -33,8 +33,10 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-   * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -44,8 +46,10 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-   * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>

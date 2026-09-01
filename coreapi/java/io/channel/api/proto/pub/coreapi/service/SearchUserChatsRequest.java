@@ -12,14 +12,17 @@ package io.channel.api.proto.pub.coreapi.service;
  * The number of user chats retrieved is restricted by the limit parameter,
  * and is capped to values in the closed interval [1, 500].
  * When dateTimeFieldName is managedAt, the maximum limit is 100.
+ *
  * Pagination is cursor-based. Pass the nextCursor value from the previous response
  * as the cursor parameter to retrieve the next page.
  * If the cursor parameter is left empty, the list starts from the beginning.
  *
  * Retrieved user chats can be filtered by state
  * (closed, opened, snoozed, queued, initial, missed).
- * Defaults to opened if state is not specified, except when dateTimeFieldName is managedAt.
- * If dateTimeFieldName is managedAt and state is not specified, no state filter is applied.
+ * Defaults to opened if state is not specified,
+ * except when dateTimeFieldName is managedAt.
+ * If dateTimeFieldName is managedAt and state is not specified,
+ * no state filter is applied.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.SearchUserChatsRequest}
@@ -122,8 +125,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-   * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -135,8 +140,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-   * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -595,14 +602,17 @@ private static final long serialVersionUID = 0L;
    * The number of user chats retrieved is restricted by the limit parameter,
    * and is capped to values in the closed interval [1, 500].
    * When dateTimeFieldName is managedAt, the maximum limit is 100.
+   *
    * Pagination is cursor-based. Pass the nextCursor value from the previous response
    * as the cursor parameter to retrieve the next page.
    * If the cursor parameter is left empty, the list starts from the beginning.
    *
    * Retrieved user chats can be filtered by state
    * (closed, opened, snoozed, queued, initial, missed).
-   * Defaults to opened if state is not specified, except when dateTimeFieldName is managedAt.
-   * If dateTimeFieldName is managedAt and state is not specified, no state filter is applied.
+   * Defaults to opened if state is not specified,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is not specified,
+   * no state filter is applied.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.SearchUserChatsRequest}
@@ -930,8 +940,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -943,8 +955,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -960,8 +974,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -975,8 +991,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -994,8 +1012,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>

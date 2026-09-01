@@ -33,21 +33,26 @@ const (
 // The number of user chats retrieved is restricted by the limit parameter,
 // and is capped to values in the closed interval [1, 500].
 // When dateTimeFieldName is managedAt, the maximum limit is 100.
+//
 // Pagination is cursor-based. Pass the nextCursor value from the previous response
 // as the cursor parameter to retrieve the next page.
 // If the cursor parameter is left empty, the list starts from the beginning.
 //
 // Retrieved user chats can be filtered by state
 // (closed, opened, snoozed, queued, initial, missed).
-// Defaults to opened if state is not specified, except when dateTimeFieldName is managedAt.
-// If dateTimeFieldName is managedAt and state is not specified, no state filter is applied.
+// Defaults to opened if state is not specified,
+// except when dateTimeFieldName is managedAt.
+// If dateTimeFieldName is managedAt and state is not specified,
+// no state filter is applied.
 type SearchUserChatsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Channel ID to search user chats in.
 	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// Filter by user chat state.
-	// Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
-	// If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
+	// Defaults to OPENED if unset,
+	// except when dateTimeFieldName is managedAt.
+	// If dateTimeFieldName is managedAt and state is unset,
+	// no state filter is applied.
 	State model.UserChatState `protobuf:"varint,2,opt,name=state,proto3,enum=coreapi.model.UserChatState" json:"state,omitempty"`
 	// Sort order for results. Defaults to descending if unset.
 	SortOrder common.SortOrder `protobuf:"varint,3,opt,name=sort_order,json=sortOrder,proto3,enum=coreapi.common.SortOrder" json:"sort_order,omitempty"`
