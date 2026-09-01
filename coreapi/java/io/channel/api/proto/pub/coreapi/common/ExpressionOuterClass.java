@@ -41,18 +41,39 @@ public final class ExpressionOuterClass extends com.google.protobuf.GeneratedFil
   static {
     java.lang.String[] descriptorData = {
       "\n\037coreapi/common/expression.proto\022\016corea" +
-      "pi.common\"\300\001\n\nExpression\022\020\n\003key\030\001 \001(\tR\003k" +
-      "ey\022\022\n\004type\030\002 \001(\tR\004type\022\032\n\010operator\030\003 \001(\t" +
-      "R\010operator\022\026\n\006values\030\004 \003(\tR\006values\022,\n\003an" +
-      "d\030\005 \003(\0132\032.coreapi.common.ExpressionR\003and" +
-      "\022*\n\002or\030\006 \003(\0132\032.coreapi.common.Expression" +
-      "R\002orBd\n\'io.channel.api.proto.pub.coreapi" +
-      ".commonP\001Z7github.com/channel-io/ch-prot" +
-      "o-public/coreapi/go/commonb\006proto3"
+      "pi.common\032\033buf/validate/validate.proto\"\306" +
+      "\007\n\nExpression\022\020\n\003key\030\001 \001(\tR\003key\022\022\n\004type\030" +
+      "\002 \001(\tR\004type\022\032\n\010operator\030\003 \001(\tR\010operator\022" +
+      "\026\n\006values\030\004 \003(\tR\006values\022,\n\003and\030\005 \003(\0132\032.c" +
+      "oreapi.common.ExpressionR\003and\022*\n\002or\030\006 \003(" +
+      "\0132\032.coreapi.common.ExpressionR\002or:\203\006\272H\377\005" +
+      "\032\204\001\n\030expression.node_required\022-one of \'a" +
+      "nd\', \'or\', or \'key\' must be provided\0329si" +
+      "ze(this.and) > 0 || size(this.or) > 0 ||" +
+      " this.key != \'\'\032\315\001\n\030expression.and_exclu" +
+      "sive\022*and must not be combined with othe" +
+      "r fields\032\204\001size(this.and) > 0 ? this.key" +
+      " == \'\' && this.type == \'\' && this.operat" +
+      "or == \'\' && size(this.values) == 0 && si" +
+      "ze(this.or) == 0 : true\032\313\001\n\027expression.o" +
+      "r_exclusive\022)or must not be combined wit" +
+      "h other fields\032\204\001size(this.or) > 0 ? thi" +
+      "s.key == \'\' && this.type == \'\' && this.o" +
+      "perator == \'\' && size(this.values) == 0 " +
+      "&& size(this.and) == 0 : true\032\327\001\n$expres" +
+      "sion.condition_fields_together\0221key, typ" +
+      "e, and operator must be provided togethe" +
+      "r\032|(this.key != \'\' || this.type != \'\' ||" +
+      " this.operator != \'\') ? this.key != \'\' &" +
+      "& this.type != \'\' && this.operator != \'\'" +
+      " : trueBd\n\'io.channel.api.proto.pub.core" +
+      "api.commonP\001Z7github.com/channel-io/ch-p" +
+      "roto-public/coreapi/go/commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          build.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_coreapi_common_Expression_descriptor =
       getDescriptor().getMessageType(0);
@@ -61,6 +82,12 @@ public final class ExpressionOuterClass extends com.google.protobuf.GeneratedFil
         internal_static_coreapi_common_Expression_descriptor,
         new java.lang.String[] { "Key", "Type", "Operator", "Values", "And", "Or", });
     descriptor.resolveAllFeaturesImmutable();
+    build.buf.validate.ValidateProto.getDescriptor();
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(build.buf.validate.ValidateProto.message);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package coreapi.common;
 
+import "buf/validate/validate.proto";
+
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.common";
@@ -12,6 +14,27 @@ option java_package = "io.channel.api.proto.pub.coreapi.common";
 // condition, an AND expression, or an OR expression, as well as the supported
 // fields, types, operators, and values.
 message Expression {
+  option (buf.validate.message).cel = {
+    id: "expression.node_required"
+    message: "one of 'and', 'or', or 'key' must be provided"
+    expression: "size(this.and) > 0 || size(this.or) > 0 || this.key != ''"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.and_exclusive"
+    message: "and must not be combined with other fields"
+    expression: "size(this.and) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.or) == 0 : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.or_exclusive"
+    message: "or must not be combined with other fields"
+    expression: "size(this.or) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.and) == 0 : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.condition_fields_together"
+    message: "key, type, and operator must be provided together"
+    expression: "(this.key != '' || this.type != '' || this.operator != '') ? this.key != '' && this.type != '' && this.operator != '' : true"
+  };
+
   // Field to which the condition applies.
   //
   // +kubebuilder:example="state"

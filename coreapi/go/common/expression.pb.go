@@ -7,6 +7,7 @@
 package common
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -129,7 +130,7 @@ var File_coreapi_common_expression_proto protoreflect.FileDescriptor
 
 const file_coreapi_common_expression_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/common/expression.proto\x12\x0ecoreapi.common\"\xc0\x01\n" +
+	"\x1fcoreapi/common/expression.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\xc6\a\n" +
 	"\n" +
 	"Expression\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x12\n" +
@@ -137,7 +138,11 @@ const file_coreapi_common_expression_proto_rawDesc = "" +
 	"\boperator\x18\x03 \x01(\tR\boperator\x12\x16\n" +
 	"\x06values\x18\x04 \x03(\tR\x06values\x12,\n" +
 	"\x03and\x18\x05 \x03(\v2\x1a.coreapi.common.ExpressionR\x03and\x12*\n" +
-	"\x02or\x18\x06 \x03(\v2\x1a.coreapi.common.ExpressionR\x02orBd\n" +
+	"\x02or\x18\x06 \x03(\v2\x1a.coreapi.common.ExpressionR\x02or:\x83\x06\xbaH\xff\x05\x1a\x84\x01\n" +
+	"\x18expression.node_required\x12-one of 'and', 'or', or 'key' must be provided\x1a9size(this.and) > 0 || size(this.or) > 0 || this.key != ''\x1a\xcd\x01\n" +
+	"\x18expression.and_exclusive\x12*and must not be combined with other fields\x1a\x84\x01size(this.and) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.or) == 0 : true\x1a\xcb\x01\n" +
+	"\x17expression.or_exclusive\x12)or must not be combined with other fields\x1a\x84\x01size(this.or) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.and) == 0 : true\x1a\xd7\x01\n" +
+	"$expression.condition_fields_together\x121key, type, and operator must be provided together\x1a|(this.key != '' || this.type != '' || this.operator != '') ? this.key != '' && this.type != '' && this.operator != '' : trueBd\n" +
 	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (
