@@ -36,7 +36,8 @@ option java_package = "io.channel.api.proto.pub.coreapi.service";
 //
 // Retrieved user chats can be filtered by state
 // (closed, opened, snoozed, queued, initial, missed).
-// Defaults to opened if state is not specified.
+// Defaults to opened if state is not specified, except when dateTimeFieldName is managedAt.
+// If dateTimeFieldName is managedAt and state is not specified, no state filter is applied.
 message SearchUserChatsRequest {
   option (buf.validate.message).cel = {
     id: "search_user_chats.range_required_together"
@@ -63,7 +64,8 @@ message SearchUserChatsRequest {
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Filter by user chat state.
-  // Defaults to OPENED if unset.
+  // Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+  // If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
   coreapi.model.UserChatState state = 2;
 
   // Sort order for results. Defaults to descending if unset.

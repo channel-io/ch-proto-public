@@ -18,7 +18,8 @@ package io.channel.api.proto.pub.coreapi.service;
  *
  * Retrieved user chats can be filtered by state
  * (closed, opened, snoozed, queued, initial, missed).
- * Defaults to opened if state is not specified.
+ * Defaults to opened if state is not specified, except when dateTimeFieldName is managedAt.
+ * If dateTimeFieldName is managedAt and state is not specified, no state filter is applied.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.SearchUserChatsRequest}
@@ -121,7 +122,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset.
+   * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -133,7 +135,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset.
+   * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -598,7 +601,8 @@ private static final long serialVersionUID = 0L;
    *
    * Retrieved user chats can be filtered by state
    * (closed, opened, snoozed, queued, initial, missed).
-   * Defaults to opened if state is not specified.
+   * Defaults to opened if state is not specified, except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is not specified, no state filter is applied.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.SearchUserChatsRequest}
@@ -926,7 +930,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -938,7 +943,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -954,7 +960,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -968,7 +975,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -986,7 +994,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset, except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset, no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
