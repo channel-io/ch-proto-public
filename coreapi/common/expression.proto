@@ -34,6 +34,56 @@ message Expression {
     message: "key, type, and operator must be provided together"
     expression: "(this.key != '' || this.type != '' || this.operator != '') ? this.key != '' && this.type != '' && this.operator != '' : true"
   };
+  option (buf.validate.message).cel = {
+    id: "expression.type_supported"
+    message: "type must be one of boolean, date, datetime, list, listOfNumber, number, or string"
+    expression: "this.type != '' ? this.type in ['boolean', 'date', 'datetime', 'list', 'listOfNumber', 'number', 'string'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.boolean_operator_supported"
+    message: "operator must be supported for boolean type"
+    expression: "this.type == 'boolean' ? this.operator in ['$eq', '$ne'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.date_operator_supported"
+    message: "operator must be supported for date type"
+    expression: "this.type == 'date' ? this.operator in ['$exist', '$nexist', '$eq', '$gt', '$lt', '$eqAgo', '$gtAgo', '$ltAgo'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.datetime_operator_supported"
+    message: "operator must be supported for datetime type"
+    expression: "this.type == 'datetime' ? this.operator in ['$exist', '$nexist', '$gt', '$lt', '$gtAgo', '$ltAgo'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.list_operator_supported"
+    message: "operator must be supported for list type"
+    expression: "this.type == 'list' ? this.operator in ['$containsAny', '$ncontainsAny', '$containsAll', '$ncontainsAll', '$exist', '$nexist', '$regexAny', '$setEqual', '$nSetEqual', '$anyContainsSubstring', '$nAnyContainsSubstring', '$allContainsSubstring', '$nAllContainsSubstring', '$anyStartWith', '$nAnyStartWith', '$allStartWith', '$nAllStartWith'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.list_of_number_operator_supported"
+    message: "operator must be supported for listOfNumber type"
+    expression: "this.type == 'listOfNumber' ? this.operator in ['$exist', '$nexist', '$containsAny', '$ncontainsAny', '$setEqual', '$nSetEqual', '$anyGte', '$anyLte', '$allGte', '$allLte'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.number_operator_supported"
+    message: "operator must be supported for number type"
+    expression: "this.type == 'number' ? this.operator in ['$exist', '$nexist', '$eq', '$ne', '$gt', '$gte', '$lt', '$lte'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.string_operator_supported"
+    message: "operator must be supported for string type"
+    expression: "this.type == 'string' ? this.operator in ['$eq', '$ne', '$in', '$nin', '$exist', '$nexist', '$startWith', '$nStartWith', '$regex'] : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.values_empty_for_existence_operator"
+    message: "values must be empty for $exist and $nexist operators"
+    expression: "this.operator in ['$exist', '$nexist'] ? size(this.values) == 0 : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "expression.values_required"
+    message: "values must contain at least one element for the operator"
+    expression: "this.operator in ['$eq', '$ne', '$in', '$nin', '$startWith', '$nStartWith', '$regex', '$gt', '$gte', '$lt', '$lte', '$eqAgo', '$gtAgo', '$ltAgo', '$containsAny', '$ncontainsAny', '$containsAll', '$ncontainsAll', '$regexAny', '$setEqual', '$nSetEqual', '$anyContainsSubstring', '$nAnyContainsSubstring', '$allContainsSubstring', '$nAllContainsSubstring', '$anyStartWith', '$nAnyStartWith', '$allStartWith', '$nAllStartWith', '$anyGte', '$anyLte', '$allGte', '$allLte'] ? size(this.values) > 0 : true"
+  };
 
   // Field to which the condition applies.
   //
@@ -47,7 +97,7 @@ message Expression {
 
   // Operator to apply to the condition values.
   //
-  // +kubebuilder:example="eq"
+  // +kubebuilder:example="$eq"
   string operator = 3;
 
   // Values used by the condition. The operation handling the expression

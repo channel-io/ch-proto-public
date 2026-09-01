@@ -172,7 +172,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Operator to apply to the condition values.
    *
-   * +kubebuilder:example="eq"
+   * +kubebuilder:example="$eq"
    * </pre>
    *
    * <code>string operator = 3 [json_name = "operator"];</code>
@@ -195,7 +195,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Operator to apply to the condition values.
    *
-   * +kubebuilder:example="eq"
+   * +kubebuilder:example="$eq"
    * </pre>
    *
    * <code>string operator = 3 [json_name = "operator"];</code>
@@ -1154,7 +1154,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Operator to apply to the condition values.
      *
-     * +kubebuilder:example="eq"
+     * +kubebuilder:example="$eq"
      * </pre>
      *
      * <code>string operator = 3 [json_name = "operator"];</code>
@@ -1176,7 +1176,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Operator to apply to the condition values.
      *
-     * +kubebuilder:example="eq"
+     * +kubebuilder:example="$eq"
      * </pre>
      *
      * <code>string operator = 3 [json_name = "operator"];</code>
@@ -1199,7 +1199,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Operator to apply to the condition values.
      *
-     * +kubebuilder:example="eq"
+     * +kubebuilder:example="$eq"
      * </pre>
      *
      * <code>string operator = 3 [json_name = "operator"];</code>
@@ -1218,7 +1218,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Operator to apply to the condition values.
      *
-     * +kubebuilder:example="eq"
+     * +kubebuilder:example="$eq"
      * </pre>
      *
      * <code>string operator = 3 [json_name = "operator"];</code>
@@ -1234,7 +1234,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Operator to apply to the condition values.
      *
-     * +kubebuilder:example="eq"
+     * +kubebuilder:example="$eq"
      * </pre>
      *
      * <code>string operator = 3 [json_name = "operator"];</code>

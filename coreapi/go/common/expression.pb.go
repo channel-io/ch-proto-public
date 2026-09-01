@@ -39,7 +39,7 @@ type Expression struct {
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
 	// Operator to apply to the condition values.
 	//
-	// +kubebuilder:example="eq"
+	// +kubebuilder:example="$eq"
 	Operator string `protobuf:"bytes,3,opt,name=operator,proto3" json:"operator,omitempty"`
 	// Values used by the condition. The operation handling the expression
 	// parses each value according to type.
@@ -130,7 +130,7 @@ var File_coreapi_common_expression_proto protoreflect.FileDescriptor
 
 const file_coreapi_common_expression_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/common/expression.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\xc6\a\n" +
+	"\x1fcoreapi/common/expression.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\xc0\x1c\n" +
 	"\n" +
 	"Expression\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x12\n" +
@@ -138,11 +138,21 @@ const file_coreapi_common_expression_proto_rawDesc = "" +
 	"\boperator\x18\x03 \x01(\tR\boperator\x12\x16\n" +
 	"\x06values\x18\x04 \x03(\tR\x06values\x12,\n" +
 	"\x03and\x18\x05 \x03(\v2\x1a.coreapi.common.ExpressionR\x03and\x12*\n" +
-	"\x02or\x18\x06 \x03(\v2\x1a.coreapi.common.ExpressionR\x02or:\x83\x06\xbaH\xff\x05\x1a\x84\x01\n" +
+	"\x02or\x18\x06 \x03(\v2\x1a.coreapi.common.ExpressionR\x02or:\xfd\x1a\xbaH\xf9\x1a\x1a\x84\x01\n" +
 	"\x18expression.node_required\x12-one of 'and', 'or', or 'key' must be provided\x1a9size(this.and) > 0 || size(this.or) > 0 || this.key != ''\x1a\xcd\x01\n" +
 	"\x18expression.and_exclusive\x12*and must not be combined with other fields\x1a\x84\x01size(this.and) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.or) == 0 : true\x1a\xcb\x01\n" +
 	"\x17expression.or_exclusive\x12)or must not be combined with other fields\x1a\x84\x01size(this.or) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.and) == 0 : true\x1a\xd7\x01\n" +
-	"$expression.condition_fields_together\x121key, type, and operator must be provided together\x1a|(this.key != '' || this.type != '' || this.operator != '') ? this.key != '' && this.type != '' && this.operator != '' : trueBd\n" +
+	"$expression.condition_fields_together\x121key, type, and operator must be provided together\x1a|(this.key != '' || this.type != '' || this.operator != '') ? this.key != '' && this.type != '' && this.operator != '' : true\x1a\xe2\x01\n" +
+	"\x19expression.type_supported\x12Rtype must be one of boolean, date, datetime, list, listOfNumber, number, or string\x1aqthis.type != '' ? this.type in ['boolean', 'date', 'datetime', 'list', 'listOfNumber', 'number', 'string'] : true\x1a\x95\x01\n" +
+	"%expression.boolean_operator_supported\x12+operator must be supported for boolean type\x1a?this.type == 'boolean' ? this.operator in ['$eq', '$ne'] : true\x1a\xc6\x01\n" +
+	"\"expression.date_operator_supported\x12(operator must be supported for date type\x1avthis.type == 'date' ? this.operator in ['$exist', '$nexist', '$eq', '$gt', '$lt', '$eqAgo', '$gtAgo', '$ltAgo'] : true\x1a\xc1\x01\n" +
+	"&expression.datetime_operator_supported\x12,operator must be supported for datetime type\x1aithis.type == 'datetime' ? this.operator in ['$exist', '$nexist', '$gt', '$lt', '$gtAgo', '$ltAgo'] : true\x1a\xaa\x03\n" +
+	"\"expression.list_operator_supported\x12(operator must be supported for list type\x1a\xd9\x02this.type == 'list' ? this.operator in ['$containsAny', '$ncontainsAny', '$containsAll', '$ncontainsAll', '$exist', '$nexist', '$regexAny', '$setEqual', '$nSetEqual', '$anyContainsSubstring', '$nAnyContainsSubstring', '$allContainsSubstring', '$nAllContainsSubstring', '$anyStartWith', '$nAnyStartWith', '$allStartWith', '$nAllStartWith'] : true\x1a\x96\x02\n" +
+	",expression.list_of_number_operator_supported\x120operator must be supported for listOfNumber type\x1a\xb3\x01this.type == 'listOfNumber' ? this.operator in ['$exist', '$nexist', '$containsAny', '$ncontainsAny', '$setEqual', '$nSetEqual', '$anyGte', '$anyLte', '$allGte', '$allLte'] : true\x1a\xc5\x01\n" +
+	"$expression.number_operator_supported\x12*operator must be supported for number type\x1aqthis.type == 'number' ? this.operator in ['$exist', '$nexist', '$eq', '$ne', '$gt', '$gte', '$lt', '$lte'] : true\x1a\xde\x01\n" +
+	"$expression.string_operator_supported\x12*operator must be supported for string type\x1a\x89\x01this.type == 'string' ? this.operator in ['$eq', '$ne', '$in', '$nin', '$exist', '$nexist', '$startWith', '$nStartWith', '$regex'] : true\x1a\xaf\x01\n" +
+	".expression.values_empty_for_existence_operator\x125values must be empty for $exist and $nexist operators\x1aFthis.operator in ['$exist', '$nexist'] ? size(this.values) == 0 : true\x1a\xcc\x04\n" +
+	"\x1aexpression.values_required\x129values must contain at least one element for the operator\x1a\xf2\x03this.operator in ['$eq', '$ne', '$in', '$nin', '$startWith', '$nStartWith', '$regex', '$gt', '$gte', '$lt', '$lte', '$eqAgo', '$gtAgo', '$ltAgo', '$containsAny', '$ncontainsAny', '$containsAll', '$ncontainsAll', '$regexAny', '$setEqual', '$nSetEqual', '$anyContainsSubstring', '$nAnyContainsSubstring', '$allContainsSubstring', '$nAllContainsSubstring', '$anyStartWith', '$nAnyStartWith', '$allStartWith', '$nAllStartWith', '$anyGte', '$anyLte', '$allGte', '$allLte'] ? size(this.values) > 0 : trueBd\n" +
 	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (

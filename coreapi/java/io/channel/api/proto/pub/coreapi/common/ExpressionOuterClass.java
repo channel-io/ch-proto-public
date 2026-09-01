@@ -41,12 +41,12 @@ public final class ExpressionOuterClass extends com.google.protobuf.GeneratedFil
   static {
     java.lang.String[] descriptorData = {
       "\n\037coreapi/common/expression.proto\022\016corea" +
-      "pi.common\032\033buf/validate/validate.proto\"\306" +
-      "\007\n\nExpression\022\020\n\003key\030\001 \001(\tR\003key\022\022\n\004type\030" +
+      "pi.common\032\033buf/validate/validate.proto\"\300" +
+      "\034\n\nExpression\022\020\n\003key\030\001 \001(\tR\003key\022\022\n\004type\030" +
       "\002 \001(\tR\004type\022\032\n\010operator\030\003 \001(\tR\010operator\022" +
       "\026\n\006values\030\004 \003(\tR\006values\022,\n\003and\030\005 \003(\0132\032.c" +
       "oreapi.common.ExpressionR\003and\022*\n\002or\030\006 \003(" +
-      "\0132\032.coreapi.common.ExpressionR\002or:\203\006\272H\377\005" +
+      "\0132\032.coreapi.common.ExpressionR\002or:\375\032\272H\371\032" +
       "\032\204\001\n\030expression.node_required\022-one of \'a" +
       "nd\', \'or\', or \'key\' must be provided\0329si" +
       "ze(this.and) > 0 || size(this.or) > 0 ||" +
@@ -66,9 +66,76 @@ public final class ExpressionOuterClass extends com.google.protobuf.GeneratedFil
       "r\032|(this.key != \'\' || this.type != \'\' ||" +
       " this.operator != \'\') ? this.key != \'\' &" +
       "& this.type != \'\' && this.operator != \'\'" +
-      " : trueBd\n\'io.channel.api.proto.pub.core" +
-      "api.commonP\001Z7github.com/channel-io/ch-p" +
-      "roto-public/coreapi/go/commonb\006proto3"
+      " : true\032\342\001\n\031expression.type_supported\022Rt" +
+      "ype must be one of boolean, date, dateti" +
+      "me, list, listOfNumber, number, or strin" +
+      "g\032qthis.type != \'\' ? this.type in [\'bool" +
+      "ean\', \'date\', \'datetime\', \'list\', \'listO" +
+      "fNumber\', \'number\', \'string\'] : true\032\225\001\n" +
+      "%expression.boolean_operator_supported\022+" +
+      "operator must be supported for boolean t" +
+      "ype\032?this.type == \'boolean\' ? this.opera" +
+      "tor in [\'$eq\', \'$ne\'] : true\032\306\001\n\"express" +
+      "ion.date_operator_supported\022(operator mu" +
+      "st be supported for date type\032vthis.type" +
+      " == \'date\' ? this.operator in [\'$exist\'," +
+      " \'$nexist\', \'$eq\', \'$gt\', \'$lt\', \'$eqAgo" +
+      "\', \'$gtAgo\', \'$ltAgo\'] : true\032\301\001\n&expres" +
+      "sion.datetime_operator_supported\022,operat" +
+      "or must be supported for datetime type\032i" +
+      "this.type == \'datetime\' ? this.operator " +
+      "in [\'$exist\', \'$nexist\', \'$gt\', \'$lt\', \'" +
+      "$gtAgo\', \'$ltAgo\'] : true\032\252\003\n\"expression" +
+      ".list_operator_supported\022(operator must " +
+      "be supported for list type\032\331\002this.type =" +
+      "= \'list\' ? this.operator in [\'$containsA" +
+      "ny\', \'$ncontainsAny\', \'$containsAll\', \'$" +
+      "ncontainsAll\', \'$exist\', \'$nexist\', \'$re" +
+      "gexAny\', \'$setEqual\', \'$nSetEqual\', \'$an" +
+      "yContainsSubstring\', \'$nAnyContainsSubst" +
+      "ring\', \'$allContainsSubstring\', \'$nAllCo" +
+      "ntainsSubstring\', \'$anyStartWith\', \'$nAn" +
+      "yStartWith\', \'$allStartWith\', \'$nAllStar" +
+      "tWith\'] : true\032\226\002\n,expression.list_of_nu" +
+      "mber_operator_supported\0220operator must b" +
+      "e supported for listOfNumber type\032\263\001this" +
+      ".type == \'listOfNumber\' ? this.operator " +
+      "in [\'$exist\', \'$nexist\', \'$containsAny\'," +
+      " \'$ncontainsAny\', \'$setEqual\', \'$nSetEqu" +
+      "al\', \'$anyGte\', \'$anyLte\', \'$allGte\', \'$" +
+      "allLte\'] : true\032\305\001\n$expression.number_op" +
+      "erator_supported\022*operator must be suppo" +
+      "rted for number type\032qthis.type == \'numb" +
+      "er\' ? this.operator in [\'$exist\', \'$nexi" +
+      "st\', \'$eq\', \'$ne\', \'$gt\', \'$gte\', \'$lt\'," +
+      " \'$lte\'] : true\032\336\001\n$expression.string_op" +
+      "erator_supported\022*operator must be suppo" +
+      "rted for string type\032\211\001this.type == \'str" +
+      "ing\' ? this.operator in [\'$eq\', \'$ne\', \'" +
+      "$in\', \'$nin\', \'$exist\', \'$nexist\', \'$sta" +
+      "rtWith\', \'$nStartWith\', \'$regex\'] : true" +
+      "\032\257\001\n.expression.values_empty_for_existen" +
+      "ce_operator\0225values must be empty for $e" +
+      "xist and $nexist operators\032Fthis.operato" +
+      "r in [\'$exist\', \'$nexist\'] ? size(this.v" +
+      "alues) == 0 : true\032\314\004\n\032expression.values" +
+      "_required\0229values must contain at least " +
+      "one element for the operator\032\362\003this.oper" +
+      "ator in [\'$eq\', \'$ne\', \'$in\', \'$nin\', \'$" +
+      "startWith\', \'$nStartWith\', \'$regex\', \'$g" +
+      "t\', \'$gte\', \'$lt\', \'$lte\', \'$eqAgo\', \'$g" +
+      "tAgo\', \'$ltAgo\', \'$containsAny\', \'$ncont" +
+      "ainsAny\', \'$containsAll\', \'$ncontainsAll" +
+      "\', \'$regexAny\', \'$setEqual\', \'$nSetEqual" +
+      "\', \'$anyContainsSubstring\', \'$nAnyContai" +
+      "nsSubstring\', \'$allContainsSubstring\', \'" +
+      "$nAllContainsSubstring\', \'$anyStartWith\'" +
+      ", \'$nAnyStartWith\', \'$allStartWith\', \'$n" +
+      "AllStartWith\', \'$anyGte\', \'$anyLte\', \'$a" +
+      "llGte\', \'$allLte\'] ? size(this.values) >" +
+      " 0 : trueBd\n\'io.channel.api.proto.pub.co" +
+      "reapi.commonP\001Z7github.com/channel-io/ch" +
+      "-proto-public/coreapi/go/commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
