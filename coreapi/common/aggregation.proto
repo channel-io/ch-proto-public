@@ -15,6 +15,11 @@ message Aggregation {
     message: "target_field_name is required for max, min, and avg actions"
     expression: "this.action in ['max', 'min', 'avg'] ? this.target_field_name != '' : true"
   };
+  option (buf.validate.message).cel = {
+    id: "aggregation.target_field_name_forbidden"
+    message: "target_field_name must be empty for cnt action"
+    expression: "this.action == 'cnt' ? this.target_field_name == '' : true"
+  };
 
   // Aggregation action. Must be one of cnt, max, min, or avg.
   //

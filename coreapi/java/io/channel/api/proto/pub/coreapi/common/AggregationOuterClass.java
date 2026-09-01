@@ -42,19 +42,23 @@ public final class AggregationOuterClass extends com.google.protobuf.GeneratedFi
     java.lang.String[] descriptorData = {
       "\n coreapi/common/aggregation.proto\022\016core" +
       "api.common\032\033buf/validate/validate.proto\"" +
-      "\377\002\n\013Aggregation\022\210\001\n\006action\030\001 \001(\tBp\272Hm\272\001g" +
+      "\227\004\n\013Aggregation\022\210\001\n\006action\030\001 \001(\tBp\272Hm\272\001g" +
       "\n\022aggregation.action\022+action must be one" +
       " of cnt, max, min, or avg\032$this in [\'cnt" +
       "\', \'max\', \'min\', \'avg\']\310\001\001R\006action\022*\n\021ta" +
-      "rget_field_name\030\002 \001(\tR\017targetFieldName:\270" +
-      "\001\272H\264\001\032\261\001\n&aggregation.target_field_name_" +
+      "rget_field_name\030\002 \001(\tR\017targetFieldName:\320" +
+      "\002\272H\314\002\032\261\001\n&aggregation.target_field_name_" +
       "required\022;target_field_name is required " +
       "for max, min, and avg actions\032Jthis.acti" +
       "on in [\'max\', \'min\', \'avg\'] ? this.targe" +
-      "t_field_name != \'\' : trueBd\n\'io.channel." +
-      "api.proto.pub.coreapi.commonP\001Z7github.c" +
-      "om/channel-io/ch-proto-public/coreapi/go" +
-      "/commonb\006proto3"
+      "t_field_name != \'\' : true\032\225\001\n\'aggregatio" +
+      "n.target_field_name_forbidden\022.target_fi" +
+      "eld_name must be empty for cnt action\032:t" +
+      "his.action == \'cnt\' ? this.target_field_" +
+      "name == \'\' : trueBd\n\'io.channel.api.prot" +
+      "o.pub.coreapi.commonP\001Z7github.com/chann" +
+      "el-io/ch-proto-public/coreapi/go/commonb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

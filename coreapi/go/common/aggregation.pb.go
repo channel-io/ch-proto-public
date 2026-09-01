@@ -89,12 +89,13 @@ var File_coreapi_common_aggregation_proto protoreflect.FileDescriptor
 
 const file_coreapi_common_aggregation_proto_rawDesc = "" +
 	"\n" +
-	" coreapi/common/aggregation.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\xff\x02\n" +
+	" coreapi/common/aggregation.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\x97\x04\n" +
 	"\vAggregation\x12\x88\x01\n" +
 	"\x06action\x18\x01 \x01(\tBp\xbaHm\xba\x01g\n" +
 	"\x12aggregation.action\x12+action must be one of cnt, max, min, or avg\x1a$this in ['cnt', 'max', 'min', 'avg']\xc8\x01\x01R\x06action\x12*\n" +
-	"\x11target_field_name\x18\x02 \x01(\tR\x0ftargetFieldName:\xb8\x01\xbaH\xb4\x01\x1a\xb1\x01\n" +
-	"&aggregation.target_field_name_required\x12;target_field_name is required for max, min, and avg actions\x1aJthis.action in ['max', 'min', 'avg'] ? this.target_field_name != '' : trueBd\n" +
+	"\x11target_field_name\x18\x02 \x01(\tR\x0ftargetFieldName:\xd0\x02\xbaH\xcc\x02\x1a\xb1\x01\n" +
+	"&aggregation.target_field_name_required\x12;target_field_name is required for max, min, and avg actions\x1aJthis.action in ['max', 'min', 'avg'] ? this.target_field_name != '' : true\x1a\x95\x01\n" +
+	"'aggregation.target_field_name_forbidden\x12.target_field_name must be empty for cnt action\x1a:this.action == 'cnt' ? this.target_field_name == '' : trueBd\n" +
 	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (
