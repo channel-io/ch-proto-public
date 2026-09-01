@@ -30,14 +30,16 @@ type DateTimeRange struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="managedAt"
 	FieldName string `protobuf:"bytes,1,opt,name=field_name,json=fieldName,proto3" json:"field_name,omitempty"`
-	// Inclusive start of the range, in Unix milliseconds.
+	// Inclusive start of the range, in positive Unix milliseconds.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:Minimum=1
 	// +kubebuilder:example=1704067200000
 	From int64 `protobuf:"varint,2,opt,name=from,proto3" json:"from,omitempty"`
-	// Exclusive end of the range, in Unix milliseconds.
+	// Exclusive end of the range, in positive Unix milliseconds.
 	//
 	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:Minimum=1
 	// +kubebuilder:example=1706745600000
 	To            int64 `protobuf:"varint,3,opt,name=to,proto3" json:"to,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -99,14 +101,16 @@ var File_coreapi_common_date_time_range_proto protoreflect.FileDescriptor
 
 const file_coreapi_common_date_time_range_proto_rawDesc = "" +
 	"\n" +
-	"$coreapi/common/date_time_range.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\xb1\x02\n" +
+	"$coreapi/common/date_time_range.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\xc6\x03\n" +
 	"\rDateTimeRange\x12%\n" +
 	"\n" +
-	"field_name\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tfieldName\x12\x1a\n" +
-	"\x04from\x18\x02 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\x04from\x12\x16\n" +
-	"\x02to\x18\x03 \x01(\x03B\x06\xbaH\x03\xc8\x01\x01R\x02to:\xc4\x01\xbaH\xc0\x01\x1aH\n" +
-	"\x15date_time_range.order\x12\x1ato must be later than from\x1a\x13this.to > this.from\x1at\n" +
-	"\"date_time_range.not_exceed_60_days\x12+the date-time range must not exceed 60 days\x1a!this.to - this.from <= 5184000000Bd\n" +
+	"field_name\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tfieldName\x12M\n" +
+	"\x04from\x18\x02 \x01(\x03B9\xbaH6\xba\x010\n" +
+	"\x06int.gt\x12\x1cvalue must be greater than 0\x1a\bthis > 0\xc8\x01\x01R\x04from\x12I\n" +
+	"\x02to\x18\x03 \x01(\x03B9\xbaH6\xba\x010\n" +
+	"\x06int.gt\x12\x1cvalue must be greater than 0\x1a\bthis > 0\xc8\x01\x01R\x02to:\xf3\x01\xbaH\xef\x01\x1aH\n" +
+	"\x15date_time_range.order\x12\x1ato must be later than from\x1a\x13this.to > this.from\x1a\xa2\x01\n" +
+	"\"date_time_range.not_exceed_60_days\x12+the date-time range must not exceed 60 days\x1aOthis.from > 0 && this.to > this.from ? this.to - this.from <= 5184000000 : trueBd\n" +
 	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (

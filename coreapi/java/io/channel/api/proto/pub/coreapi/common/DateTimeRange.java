@@ -110,9 +110,10 @@ private static final long serialVersionUID = 0L;
   private long from_ = 0L;
   /**
    * <pre>
-   * Inclusive start of the range, in Unix milliseconds.
+   * Inclusive start of the range, in positive Unix milliseconds.
    *
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Minimum=1
    * +kubebuilder:example=1704067200000
    * </pre>
    *
@@ -128,9 +129,10 @@ private static final long serialVersionUID = 0L;
   private long to_ = 0L;
   /**
    * <pre>
-   * Exclusive end of the range, in Unix milliseconds.
+   * Exclusive end of the range, in positive Unix milliseconds.
    *
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Minimum=1
    * +kubebuilder:example=1706745600000
    * </pre>
    *
@@ -602,9 +604,10 @@ private static final long serialVersionUID = 0L;
     private long from_ ;
     /**
      * <pre>
-     * Inclusive start of the range, in Unix milliseconds.
+     * Inclusive start of the range, in positive Unix milliseconds.
      *
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Minimum=1
      * +kubebuilder:example=1704067200000
      * </pre>
      *
@@ -617,9 +620,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the range, in Unix milliseconds.
+     * Inclusive start of the range, in positive Unix milliseconds.
      *
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Minimum=1
      * +kubebuilder:example=1704067200000
      * </pre>
      *
@@ -636,9 +640,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the range, in Unix milliseconds.
+     * Inclusive start of the range, in positive Unix milliseconds.
      *
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Minimum=1
      * +kubebuilder:example=1704067200000
      * </pre>
      *
@@ -655,9 +660,10 @@ private static final long serialVersionUID = 0L;
     private long to_ ;
     /**
      * <pre>
-     * Exclusive end of the range, in Unix milliseconds.
+     * Exclusive end of the range, in positive Unix milliseconds.
      *
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Minimum=1
      * +kubebuilder:example=1706745600000
      * </pre>
      *
@@ -670,9 +676,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the range, in Unix milliseconds.
+     * Exclusive end of the range, in positive Unix milliseconds.
      *
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Minimum=1
      * +kubebuilder:example=1706745600000
      * </pre>
      *
@@ -689,9 +696,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the range, in Unix milliseconds.
+     * Exclusive end of the range, in positive Unix milliseconds.
      *
      * +kubebuilder:validation:Required
+     * +kubebuilder:validation:Minimum=1
      * +kubebuilder:example=1706745600000
      * </pre>
      *

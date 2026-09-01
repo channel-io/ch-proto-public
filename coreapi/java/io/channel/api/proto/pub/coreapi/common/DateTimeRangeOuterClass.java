@@ -42,17 +42,21 @@ public final class DateTimeRangeOuterClass extends com.google.protobuf.Generated
     java.lang.String[] descriptorData = {
       "\n$coreapi/common/date_time_range.proto\022\016" +
       "coreapi.common\032\033buf/validate/validate.pr" +
-      "oto\"\261\002\n\rDateTimeRange\022%\n\nfield_name\030\001 \001(" +
-      "\tB\006\272H\003\310\001\001R\tfieldName\022\032\n\004from\030\002 \001(\003B\006\272H\003\310" +
-      "\001\001R\004from\022\026\n\002to\030\003 \001(\003B\006\272H\003\310\001\001R\002to:\304\001\272H\300\001\032" +
-      "H\n\025date_time_range.order\022\032to must be lat" +
-      "er than from\032\023this.to > this.from\032t\n\"dat" +
-      "e_time_range.not_exceed_60_days\022+the dat" +
-      "e-time range must not exceed 60 days\032!th" +
-      "is.to - this.from <= 5184000000Bd\n\'io.ch" +
-      "annel.api.proto.pub.coreapi.commonP\001Z7gi" +
-      "thub.com/channel-io/ch-proto-public/core" +
-      "api/go/commonb\006proto3"
+      "oto\"\306\003\n\rDateTimeRange\022%\n\nfield_name\030\001 \001(" +
+      "\tB\006\272H\003\310\001\001R\tfieldName\022M\n\004from\030\002 \001(\003B9\272H6\272" +
+      "\0010\n\006int.gt\022\034value must be greater than 0" +
+      "\032\010this > 0\310\001\001R\004from\022I\n\002to\030\003 \001(\003B9\272H6\272\0010\n" +
+      "\006int.gt\022\034value must be greater than 0\032\010t" +
+      "his > 0\310\001\001R\002to:\363\001\272H\357\001\032H\n\025date_time_range" +
+      ".order\022\032to must be later than from\032\023this" +
+      ".to > this.from\032\242\001\n\"date_time_range.not_" +
+      "exceed_60_days\022+the date-time range must" +
+      " not exceed 60 days\032Othis.from > 0 && th" +
+      "is.to > this.from ? this.to - this.from " +
+      "<= 5184000000 : trueBd\n\'io.channel.api.p" +
+      "roto.pub.coreapi.commonP\001Z7github.com/ch" +
+      "annel-io/ch-proto-public/coreapi/go/comm" +
+      "onb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -38,9 +38,10 @@ public interface DateTimeRangeOrBuilder extends
 
   /**
    * <pre>
-   * Inclusive start of the range, in Unix milliseconds.
+   * Inclusive start of the range, in positive Unix milliseconds.
    *
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Minimum=1
    * +kubebuilder:example=1704067200000
    * </pre>
    *
@@ -51,9 +52,10 @@ public interface DateTimeRangeOrBuilder extends
 
   /**
    * <pre>
-   * Exclusive end of the range, in Unix milliseconds.
+   * Exclusive end of the range, in positive Unix milliseconds.
    *
    * +kubebuilder:validation:Required
+   * +kubebuilder:validation:Minimum=1
    * +kubebuilder:example=1706745600000
    * </pre>
    *
