@@ -106,10 +106,11 @@ message AggregateUserChatsRequest {
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Date-time range to apply before aggregation.
+  // Only "managedAt" is supported as the date-time field.
   // The range must not exceed 60 days.
   //
-  // +kubebuilder:validation:Nullable
-  coreapi.common.DateTimeRange date_time_range = 2;
+  // +kubebuilder:validation:Required
+  coreapi.common.DateTimeRange date_time_range = 2 [(buf.validate.field).required = true];
 
   // Additional conditions to apply before aggregation.
   // The Core API validates the expression structure and supported values.

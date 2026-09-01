@@ -33,36 +33,39 @@ public interface AggregateUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    * @return Whether the dateTimeRange field is set.
    */
   boolean hasDateTimeRange();
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    * @return The dateTimeRange.
    */
   io.channel.api.proto.pub.coreapi.common.DateTimeRange getDateTimeRange();
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    */
   io.channel.api.proto.pub.coreapi.common.DateTimeRangeOrBuilder getDateTimeRangeOrBuilder();
 

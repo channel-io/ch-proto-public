@@ -107,12 +107,13 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    * @return Whether the dateTimeRange field is set.
    */
   @java.lang.Override
@@ -122,12 +123,13 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    * @return The dateTimeRange.
    */
   @java.lang.Override
@@ -137,12 +139,13 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    */
   @java.lang.Override
   public io.channel.api.proto.pub.coreapi.common.DateTimeRangeOrBuilder getDateTimeRangeOrBuilder() {
@@ -836,12 +839,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      * @return Whether the dateTimeRange field is set.
      */
     public boolean hasDateTimeRange() {
@@ -850,12 +854,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      * @return The dateTimeRange.
      */
     public io.channel.api.proto.pub.coreapi.common.DateTimeRange getDateTimeRange() {
@@ -868,12 +873,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      */
     public Builder setDateTimeRange(io.channel.api.proto.pub.coreapi.common.DateTimeRange value) {
       if (dateTimeRangeBuilder_ == null) {
@@ -891,12 +897,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      */
     public Builder setDateTimeRange(
         io.channel.api.proto.pub.coreapi.common.DateTimeRange.Builder builderForValue) {
@@ -912,12 +919,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      */
     public Builder mergeDateTimeRange(io.channel.api.proto.pub.coreapi.common.DateTimeRange value) {
       if (dateTimeRangeBuilder_ == null) {
@@ -940,12 +948,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearDateTimeRange() {
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -960,12 +969,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      */
     public io.channel.api.proto.pub.coreapi.common.DateTimeRange.Builder getDateTimeRangeBuilder() {
       bitField0_ |= 0x00000002;
@@ -975,12 +985,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      */
     public io.channel.api.proto.pub.coreapi.common.DateTimeRangeOrBuilder getDateTimeRangeOrBuilder() {
       if (dateTimeRangeBuilder_ != null) {
@@ -993,12 +1004,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Date-time range to apply before aggregation.
+     * Only "managedAt" is supported as the date-time field.
      * The range must not exceed 60 days.
      *
-     * +kubebuilder:validation:Nullable
+     * +kubebuilder:validation:Required
      * </pre>
      *
-     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+     * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         io.channel.api.proto.pub.coreapi.common.DateTimeRange, io.channel.api.proto.pub.coreapi.common.DateTimeRange.Builder, io.channel.api.proto.pub.coreapi.common.DateTimeRangeOrBuilder> 
