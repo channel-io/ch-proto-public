@@ -110,7 +110,14 @@ message AggregateUserChatsRequest {
   // The range must not exceed 60 days.
   //
   // +kubebuilder:validation:Required
-  coreapi.common.DateTimeRange date_time_range = 2 [(buf.validate.field).required = true];
+  coreapi.common.DateTimeRange date_time_range = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregate_user_chats.date_time_range_field_name"
+      message: "date_time_range.field_name must be managedAt"
+      expression: "this.field_name == 'managedAt'"
+    }
+  ];
 
   // Additional conditions to apply before aggregation.
   // The Core API validates the expression structure and supported values.

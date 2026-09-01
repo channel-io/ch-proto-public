@@ -2156,11 +2156,12 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"user_chats\x18\x01 \x03(\v2\x17.coreapi.model.UserChatR\tuserChats\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xaf\x02\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xb4\x03\n" +
 	"\x19AggregateUserChatsRequest\x12%\n" +
 	"\n" +
-	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12M\n" +
-	"\x0fdate_time_range\x18\x02 \x01(\v2\x1d.coreapi.common.DateTimeRangeB\x06\xbaH\x03\xc8\x01\x01R\rdateTimeRange\x122\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xd1\x01\n" +
+	"\x0fdate_time_range\x18\x02 \x01(\v2\x1d.coreapi.common.DateTimeRangeB\x89\x01\xbaH\x85\x01\xba\x01\x7f\n" +
+	"/aggregate_user_chats.date_time_range_field_name\x12,date_time_range.field_name must be managedAt\x1a\x1ethis.field_name == 'managedAt'\xc8\x01\x01R\rdateTimeRange\x122\n" +
 	"\x06filter\x18\x03 \x01(\v2\x1a.coreapi.common.ExpressionR\x06filter\x12!\n" +
 	"\bgroup_by\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\agroupBy\x12E\n" +
 	"\vaggregation\x18\x05 \x01(\v2\x1b.coreapi.common.AggregationB\x06\xbaH\x03\xc8\x01\x01R\vaggregation\"\xa4\x01\n" +

@@ -242,174 +242,178 @@ public final class UserChat extends com.google.protobuf.GeneratedFile {
       "_to\"\213\001\n\025SearchUserChatsResult\0226\n\nuser_ch" +
       "ats\030\001 \003(\0132\027.coreapi.model.UserChatR\tuser" +
       "Chats\022\037\n\013next_cursor\030\002 \001(\tR\nnextCursor\022\031" +
-      "\n\010has_next\030\003 \001(\010R\007hasNext\"\257\002\n\031AggregateU" +
+      "\n\010has_next\030\003 \001(\010R\007hasNext\"\264\003\n\031AggregateU" +
       "serChatsRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003" +
-      "\310\001\001R\tchannelId\022M\n\017date_time_range\030\002 \001(\0132" +
-      "\035.coreapi.common.DateTimeRangeB\006\272H\003\310\001\001R\r" +
-      "dateTimeRange\0222\n\006filter\030\003 \001(\0132\032.coreapi." +
-      "common.ExpressionR\006filter\022!\n\010group_by\030\004 " +
-      "\001(\tB\006\272H\003\310\001\001R\007groupBy\022E\n\013aggregation\030\005 \001(" +
-      "\0132\033.coreapi.common.AggregationB\006\272H\003\310\001\001R\013" +
-      "aggregation\"\244\001\n\030AggregateUserChatsResult" +
-      "\022M\n\006result\030\001 \003(\01325.coreapi.service.Aggre" +
-      "gateUserChatsResult.ResultEntryR\006result\032" +
-      "9\n\013ResultEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005valu" +
-      "e\030\002 \001(\tR\005value:\0028\001\"\260\002\n\035SearchUserChatsFo" +
-      "rUserRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001" +
-      "R\tchannelId\022\037\n\007user_id\030\002 \001(\tB\006\272H\003\310\001\001R\006us" +
-      "erId\0228\n\nsort_order\030\003 \001(\0162\031.coreapi.commo" +
-      "n.SortOrderR\tsortOrder\022\026\n\006cursor\030\004 \001(\tR\006" +
-      "cursor\022u\n\005limit\030\005 \001(\005B_\272H\\\272\001Y\n\rint32.bet" +
-      "ween\022\037limit must be between 1 and 500\032\'t" +
-      "his == 0 || (this >= 1 && this <= 500)R\005" +
-      "limit\"\222\001\n\034SearchUserChatsForUserResult\0226" +
-      "\n\nuser_chats\030\001 \003(\0132\027.coreapi.model.UserC" +
-      "hatR\tuserChats\022\037\n\013next_cursor\030\002 \001(\tR\nnex" +
-      "tCursor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\"\273\001\n\022G" +
-      "etUserChatRequest\022(\n\014user_chat_id\030\001 \001(\tB" +
-      "\006\272H\003\310\001\001R\nuserChatId\022%\n\nchannel_id\030\002 \001(\tB" +
-      "\006\272H\003\310\001\001R\tchannelId\022)\n\020include_bookmark\030\003" +
-      " \001(\010R\017includeBookmark\022)\n\020include_session" +
-      "s\030\004 \001(\010R\017includeSessions\"\272\001\n\021GetUserChat" +
-      "Result\0224\n\tuser_chat\030\001 \001(\0132\027.coreapi.mode" +
-      "l.UserChatR\010userChat\0227\n\010bookmark\030\002 \001(\0132\033" +
-      ".coreapi.model.ChatBookmarkR\010bookmark\0226\n" +
-      "\010sessions\030\003 \003(\0132\032.coreapi.model.ChatSess" +
-      "ionR\010sessions\"_\n\025CreateUserChatRequest\022%" +
-      "\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\037\n" +
-      "\007user_id\030\002 \001(\tB\006\272H\003\310\001\001R\006userId\"L\n\024Create" +
-      "UserChatResult\0224\n\tuser_chat\030\001 \001(\0132\027.core" +
-      "api.model.UserChatR\010userChat\"\227\005\n\024PatchUs" +
-      "erChatRequest\022(\n\014user_chat_id\030\001 \001(\tB\006\272H\003" +
-      "\310\001\001R\nuserChatId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\tchannelId\022S\n\004body\030\003 \001(\01327.coreapi.s" +
-      "ervice.PatchUserChatRequest.PatchUserCha" +
-      "tBodyB\006\272H\003\310\001\001R\004body\022\236\001\n\013update_mask\030\004 \001(" +
-      "\0132\032.google.protobuf.FieldMaskBa\272H^\272\001X\n\024f" +
-      "ield_mask.non_empty\022*update_mask must co" +
-      "ntain at least one path\032\024size(this.paths" +
-      ") > 0\310\001\001R\nupdateMask\032\267\002\n\021PatchUserChatBo" +
-      "dy\022\205\001\n\013description\030\001 \001(\tBc\272H`\272\001]\n\rstring" +
-      ".maxLen\022*value must be no more than 1000" +
-      " characters\032 this == \'\' || size(this) <=" +
-      " 1000R\013description\022g\n\004tags\030\002 \003(\tBS\272HP\272\001M" +
-      "\n\021repeated.maxItems\022\'value must contain " +
-      "no more than 8 items\032\017size(this) <= 8R\004t" +
-      "ags\0221\n\007profile\030\003 \001(\0132\027.google.protobuf.S" +
-      "tructR\007profile\"K\n\023PatchUserChatResult\0224\n" +
-      "\tuser_chat\030\001 \001(\0132\027.coreapi.model.UserCha" +
-      "tR\010userChat\"h\n\025DeleteUserChatRequest\022(\n\014" +
-      "user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022%" +
-      "\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\"\026\n" +
-      "\024DeleteUserChatResult\"\261\002\n\023OpenUserChatRe" +
-      "quest\022(\n\014user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001R\nuse" +
-      "rChatId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tcha" +
-      "nnelId\022\310\001\n\010bot_name\030\003 \001(\tB\254\001\272H\250\001r\0162\014^[^@" +
-      "#$%:/]+$\272\001D\n\rstring.minLen\022\"value must b" +
-      "e at least 1 character\032\017size(this) >= 1\272" +
-      "\001K\n\rstring.maxLen\022(value must be no more" +
-      " than 30 characters\032\020size(this) <= 30\310\001\001" +
-      "R\007botName\"J\n\022OpenUserChatResult\0224\n\tuser_" +
-      "chat\030\001 \001(\0132\027.coreapi.model.UserChatR\010use" +
-      "rChat\"\262\002\n\024CloseUserChatRequest\022(\n\014user_c" +
+      "\310\001\001R\tchannelId\022\321\001\n\017date_time_range\030\002 \001(\013" +
+      "2\035.coreapi.common.DateTimeRangeB\211\001\272H\205\001\272\001" +
+      "\177\n/aggregate_user_chats.date_time_range_" +
+      "field_name\022,date_time_range.field_name m" +
+      "ust be managedAt\032\036this.field_name == \'ma" +
+      "nagedAt\'\310\001\001R\rdateTimeRange\0222\n\006filter\030\003 \001" +
+      "(\0132\032.coreapi.common.ExpressionR\006filter\022!" +
+      "\n\010group_by\030\004 \001(\tB\006\272H\003\310\001\001R\007groupBy\022E\n\013agg" +
+      "regation\030\005 \001(\0132\033.coreapi.common.Aggregat" +
+      "ionB\006\272H\003\310\001\001R\013aggregation\"\244\001\n\030AggregateUs" +
+      "erChatsResult\022M\n\006result\030\001 \003(\01325.coreapi." +
+      "service.AggregateUserChatsResult.ResultE" +
+      "ntryR\006result\0329\n\013ResultEntry\022\020\n\003key\030\001 \001(\t" +
+      "R\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"\260\002\n\035Sear" +
+      "chUserChatsForUserRequest\022%\n\nchannel_id\030" +
+      "\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\037\n\007user_id\030\002 \001(" +
+      "\tB\006\272H\003\310\001\001R\006userId\0228\n\nsort_order\030\003 \001(\0162\031." +
+      "coreapi.common.SortOrderR\tsortOrder\022\026\n\006c" +
+      "ursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001(\005B_\272H\\\272" +
+      "\001Y\n\rint32.between\022\037limit must be between" +
+      " 1 and 500\032\'this == 0 || (this >= 1 && t" +
+      "his <= 500)R\005limit\"\222\001\n\034SearchUserChatsFo" +
+      "rUserResult\0226\n\nuser_chats\030\001 \003(\0132\027.coreap" +
+      "i.model.UserChatR\tuserChats\022\037\n\013next_curs" +
+      "or\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(\010R\007" +
+      "hasNext\"\273\001\n\022GetUserChatRequest\022(\n\014user_c" +
+      "hat_id\030\001 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022%\n\nchan" +
+      "nel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022)\n\020inclu" +
+      "de_bookmark\030\003 \001(\010R\017includeBookmark\022)\n\020in" +
+      "clude_sessions\030\004 \001(\010R\017includeSessions\"\272\001" +
+      "\n\021GetUserChatResult\0224\n\tuser_chat\030\001 \001(\0132\027" +
+      ".coreapi.model.UserChatR\010userChat\0227\n\010boo" +
+      "kmark\030\002 \001(\0132\033.coreapi.model.ChatBookmark" +
+      "R\010bookmark\0226\n\010sessions\030\003 \003(\0132\032.coreapi.m" +
+      "odel.ChatSessionR\010sessions\"_\n\025CreateUser" +
+      "ChatRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R" +
+      "\tchannelId\022\037\n\007user_id\030\002 \001(\tB\006\272H\003\310\001\001R\006use" +
+      "rId\"L\n\024CreateUserChatResult\0224\n\tuser_chat" +
+      "\030\001 \001(\0132\027.coreapi.model.UserChatR\010userCha" +
+      "t\"\227\005\n\024PatchUserChatRequest\022(\n\014user_chat_" +
+      "id\030\001 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022%\n\nchannel_" +
+      "id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022S\n\004body\030\003 \001(" +
+      "\01327.coreapi.service.PatchUserChatRequest" +
+      ".PatchUserChatBodyB\006\272H\003\310\001\001R\004body\022\236\001\n\013upd" +
+      "ate_mask\030\004 \001(\0132\032.google.protobuf.FieldMa" +
+      "skBa\272H^\272\001X\n\024field_mask.non_empty\022*update" +
+      "_mask must contain at least one path\032\024si" +
+      "ze(this.paths) > 0\310\001\001R\nupdateMask\032\267\002\n\021Pa" +
+      "tchUserChatBody\022\205\001\n\013description\030\001 \001(\tBc\272" +
+      "H`\272\001]\n\rstring.maxLen\022*value must be no m" +
+      "ore than 1000 characters\032 this == \'\' || " +
+      "size(this) <= 1000R\013description\022g\n\004tags\030" +
+      "\002 \003(\tBS\272HP\272\001M\n\021repeated.maxItems\022\'value " +
+      "must contain no more than 8 items\032\017size(" +
+      "this) <= 8R\004tags\0221\n\007profile\030\003 \001(\0132\027.goog" +
+      "le.protobuf.StructR\007profile\"K\n\023PatchUser" +
+      "ChatResult\0224\n\tuser_chat\030\001 \001(\0132\027.coreapi." +
+      "model.UserChatR\010userChat\"h\n\025DeleteUserCh" +
+      "atRequest\022(\n\014user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001R" +
+      "\nuserChatId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R" +
+      "\tchannelId\"\026\n\024DeleteUserChatResult\"\261\002\n\023O" +
+      "penUserChatRequest\022(\n\014user_chat_id\030\001 \001(\t" +
+      "B\006\272H\003\310\001\001R\nuserChatId\022%\n\nchannel_id\030\002 \001(\t" +
+      "B\006\272H\003\310\001\001R\tchannelId\022\310\001\n\010bot_name\030\003 \001(\tB\254" +
+      "\001\272H\250\001r\0162\014^[^@#$%:/]+$\272\001D\n\rstring.minLen\022" +
+      "\"value must be at least 1 character\032\017siz" +
+      "e(this) >= 1\272\001K\n\rstring.maxLen\022(value mu" +
+      "st be no more than 30 characters\032\020size(t" +
+      "his) <= 30\310\001\001R\007botName\"J\n\022OpenUserChatRe" +
+      "sult\0224\n\tuser_chat\030\001 \001(\0132\027.coreapi.model." +
+      "UserChatR\010userChat\"\262\002\n\024CloseUserChatRequ" +
+      "est\022(\n\014user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001R\nuserC" +
+      "hatId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchann" +
+      "elId\022\310\001\n\010bot_name\030\003 \001(\tB\254\001\272H\250\001r\0162\014^[^@#$" +
+      "%:/]+$\272\001D\n\rstring.minLen\022\"value must be " +
+      "at least 1 character\032\017size(this) >= 1\272\001K" +
+      "\n\rstring.maxLen\022(value must be no more t" +
+      "han 30 characters\032\020size(this) <= 30\310\001\001R\007" +
+      "botName\"K\n\023CloseUserChatResult\0224\n\tuser_c" +
+      "hat\030\001 \001(\0132\027.coreapi.model.UserChatR\010user" +
+      "Chat\"\301\003\n\025SnoozeUserChatRequest\022(\n\014user_c" +
       "hat_id\030\001 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022%\n\nchan" +
       "nel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\310\001\n\010bot_" +
       "name\030\003 \001(\tB\254\001\272H\250\001r\0162\014^[^@#$%:/]+$\272\001D\n\rst" +
       "ring.minLen\022\"value must be at least 1 ch" +
       "aracter\032\017size(this) >= 1\272\001K\n\rstring.maxL" +
       "en\022(value must be no more than 30 charac" +
-      "ters\032\020size(this) <= 30\310\001\001R\007botName\"K\n\023Cl" +
-      "oseUserChatResult\0224\n\tuser_chat\030\001 \001(\0132\027.c" +
-      "oreapi.model.UserChatR\010userChat\"\301\003\n\025Snoo" +
-      "zeUserChatRequest\022(\n\014user_chat_id\030\001 \001(\tB" +
-      "\006\272H\003\310\001\001R\nuserChatId\022%\n\nchannel_id\030\002 \001(\tB" +
-      "\006\272H\003\310\001\001R\tchannelId\022\310\001\n\010bot_name\030\003 \001(\tB\254\001" +
-      "\272H\250\001r\0162\014^[^@#$%:/]+$\272\001D\n\rstring.minLen\022\"" +
-      "value must be at least 1 character\032\017size" +
-      "(this) >= 1\272\001K\n\rstring.maxLen\022(value mus" +
-      "t be no more than 30 characters\032\020size(th" +
-      "is) <= 30\310\001\001R\007botName\022\213\001\n\010duration\030\004 \001(\013" +
-      "2\031.google.protobuf.DurationBT\272HQ\272\001K\n\014dur" +
-      "ation.gte\022\"duration must be at least 1 m" +
-      "inute\032\027this >= duration(\'60s\')\310\001\001R\010durat" +
-      "ion\"L\n\024SnoozeUserChatResult\0224\n\tuser_chat" +
-      "\030\001 \001(\0132\027.coreapi.model.UserChatR\010userCha" +
-      "t\"\262\003\n\037InviteManagersToUserChatRequest\022(\n" +
-      "\014user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022" +
-      "%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannelId\022\310" +
-      "\001\n\010bot_name\030\003 \001(\tB\254\001\272H\250\001r\0162\014^[^@#$%:/]+$" +
-      "\272\001D\n\rstring.minLen\022\"value must be at lea" +
-      "st 1 character\032\017size(this) >= 1\272\001K\n\rstri" +
-      "ng.maxLen\022(value must be no more than 30" +
-      " characters\032\020size(this) <= 30\310\001\001R\007botNam" +
-      "e\022s\n\013manager_ids\030\004 \003(\tBR\272HO\272\001I\n\021repeated" +
-      ".minItems\022#at least one manager ID is re" +
-      "quired\032\017size(this) >= 1\310\001\001R\nmanagerIds\"V" +
-      "\n\036InviteManagersToUserChatResult\0224\n\tuser" +
-      "_chat\030\001 \001(\0132\027.coreapi.model.UserChatR\010us" +
-      "erChat\"\343\002\n\036AssignManagerToUserChatReques" +
-      "t\022(\n\014user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001R\nuserCha" +
-      "tId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\tchannel" +
-      "Id\022\310\001\n\010bot_name\030\003 \001(\tB\254\001\272H\250\001r\0162\014^[^@#$%:" +
-      "/]+$\272\001D\n\rstring.minLen\022\"value must be at" +
-      " least 1 character\032\017size(this) >= 1\272\001K\n\r" +
-      "string.maxLen\022(value must be no more tha" +
-      "n 30 characters\032\020size(this) <= 30\310\001\001R\007bo" +
-      "tName\022%\n\nmanager_id\030\004 \001(\tB\006\272H\003\310\001\001R\tmanag" +
-      "erId\"U\n\035AssignManagerToUserChatResult\0224\n" +
-      "\tuser_chat\030\001 \001(\0132\027.coreapi.model.UserCha" +
-      "tR\010userChat\"p\n\035SearchUserChatSessionsReq" +
-      "uest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchanne" +
-      "lId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserC" +
-      "hatId\"_\n\034SearchUserChatSessionsResult\022?\n" +
-      "\rchat_sessions\030\001 \003(\0132\032.coreapi.model.Cha" +
-      "tSessionR\014chatSessions\"\367\006\n\035SearchUserCha" +
-      "tMessagesRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H" +
-      "\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272" +
-      "H\003\310\001\001R\nuserChatId\0228\n\nsort_order\030\003 \001(\0162\031." +
-      "coreapi.common.SortOrderR\tsortOrder\022\026\n\006c" +
-      "ursor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001(\005B_\272H\\\272" +
-      "\001Y\n\rint32.between\022\037limit must be between" +
-      " 1 and 500\032\'this == 0 || (this >= 1 && t" +
-      "his <= 500)R\005limit\022.\n\004from\030\006 \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\004from\022*\n\002to\030\007 \001(\0132\032" +
-      ".google.protobuf.TimestampR\002to:\337\003\272H\333\003\032z\n" +
-      "1search_user_chat_messages.range_require" +
-      "d_together\022%from and to must be provided" +
-      " together\032\036has(this.from) == has(this.to" +
-      ")\032\225\001\n%search_user_chat_messages.range_or" +
-      "der\022\032to must be later than from\032Phas(thi" +
-      "s.from) && has(this.to) ? ((this.to - th" +
-      "is.from) > duration(\'0s\')) : true\032\304\001\n2se" +
-      "arch_user_chat_messages.range_not_exceed" +
-      "_30_days\0225the range between from and to " +
-      "must not exceed 30 days\032Whas(this.from) " +
-      "&& has(this.to) ? ((this.to - this.from)" +
-      " <= duration(\'2592000s\')) : true\"\352\001\n\034Sea" +
-      "rchUserChatMessagesResult\0222\n\010messages\030\001 " +
-      "\003(\0132\026.coreapi.model.MessageR\010messages\022\037\n" +
-      "\013next_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_ne" +
-      "xt\030\003 \001(\010R\007hasNext\022.\n\004from\030\004 \001(\0132\032.google" +
-      ".protobuf.TimestampR\004from\022*\n\002to\030\005 \001(\0132\032." +
-      "google.protobuf.TimestampR\002to\"\337\002\n\034Create" +
-      "UserChatMessageRequest\022%\n\nchannel_id\030\001 \001" +
-      "(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 " +
-      "\001(\tB\006\272H\003\310\001\001R\nuserChatId\022?\n\007content\030\003 \001(\013" +
-      "2\035.coreapi.model.MessageContentB\006\272H\003\310\001\001R" +
-      "\007content\022\215\001\n\010bot_name\030\004 \001(\tBr\272Hor\0212\017^$|^" +
-      "[^@#$%:/]+$\272\001Y\n\rstring.maxLen\022(value mus" +
-      "t be no more than 30 characters\032\036this ==" +
-      " \'\' || size(this) <= 30R\007botName\022\035\n\nrequ" +
-      "est_id\030\005 \001(\tR\trequestId\"O\n\033CreateUserCha" +
-      "tMessageResult\0220\n\007message\030\001 \001(\0132\026.coreap" +
-      "i.model.MessageR\007message\"\206\001\n\031GetUserChat" +
-      "FileUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310" +
-      "\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\nuserChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003ke" +
-      "y\",\n\030GetUserChatFileUrlResult\022\020\n\003url\030\001 \001" +
-      "(\tR\003urlBf\n(io.channel.api.proto.pub.core" +
-      "api.serviceP\001Z8github.com/channel-io/ch-" +
-      "proto-public/coreapi/go/serviceb\006proto3"
+      "ters\032\020size(this) <= 30\310\001\001R\007botName\022\213\001\n\010d" +
+      "uration\030\004 \001(\0132\031.google.protobuf.Duration" +
+      "BT\272HQ\272\001K\n\014duration.gte\022\"duration must be" +
+      " at least 1 minute\032\027this >= duration(\'60" +
+      "s\')\310\001\001R\010duration\"L\n\024SnoozeUserChatResult" +
+      "\0224\n\tuser_chat\030\001 \001(\0132\027.coreapi.model.User" +
+      "ChatR\010userChat\"\262\003\n\037InviteManagersToUserC" +
+      "hatRequest\022(\n\014user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001" +
+      "R\nuserChatId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001" +
+      "R\tchannelId\022\310\001\n\010bot_name\030\003 \001(\tB\254\001\272H\250\001r\0162" +
+      "\014^[^@#$%:/]+$\272\001D\n\rstring.minLen\022\"value m" +
+      "ust be at least 1 character\032\017size(this) " +
+      ">= 1\272\001K\n\rstring.maxLen\022(value must be no" +
+      " more than 30 characters\032\020size(this) <= " +
+      "30\310\001\001R\007botName\022s\n\013manager_ids\030\004 \003(\tBR\272HO" +
+      "\272\001I\n\021repeated.minItems\022#at least one man" +
+      "ager ID is required\032\017size(this) >= 1\310\001\001R" +
+      "\nmanagerIds\"V\n\036InviteManagersToUserChatR" +
+      "esult\0224\n\tuser_chat\030\001 \001(\0132\027.coreapi.model" +
+      ".UserChatR\010userChat\"\343\002\n\036AssignManagerToU" +
+      "serChatRequest\022(\n\014user_chat_id\030\001 \001(\tB\006\272H" +
+      "\003\310\001\001R\nuserChatId\022%\n\nchannel_id\030\002 \001(\tB\006\272H" +
+      "\003\310\001\001R\tchannelId\022\310\001\n\010bot_name\030\003 \001(\tB\254\001\272H\250" +
+      "\001r\0162\014^[^@#$%:/]+$\272\001D\n\rstring.minLen\022\"val" +
+      "ue must be at least 1 character\032\017size(th" +
+      "is) >= 1\272\001K\n\rstring.maxLen\022(value must b" +
+      "e no more than 30 characters\032\020size(this)" +
+      " <= 30\310\001\001R\007botName\022%\n\nmanager_id\030\004 \001(\tB\006" +
+      "\272H\003\310\001\001R\tmanagerId\"U\n\035AssignManagerToUser" +
+      "ChatResult\0224\n\tuser_chat\030\001 \001(\0132\027.coreapi." +
+      "model.UserChatR\010userChat\"p\n\035SearchUserCh" +
+      "atSessionsRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272" +
+      "H\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006" +
+      "\272H\003\310\001\001R\nuserChatId\"_\n\034SearchUserChatSess" +
+      "ionsResult\022?\n\rchat_sessions\030\001 \003(\0132\032.core" +
+      "api.model.ChatSessionR\014chatSessions\"\367\006\n\035" +
+      "SearchUserChatMessagesRequest\022%\n\nchannel" +
+      "_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_cha" +
+      "t_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\0228\n\nsort_o" +
+      "rder\030\003 \001(\0162\031.coreapi.common.SortOrderR\ts" +
+      "ortOrder\022\026\n\006cursor\030\004 \001(\tR\006cursor\022u\n\005limi" +
+      "t\030\005 \001(\005B_\272H\\\272\001Y\n\rint32.between\022\037limit mu" +
+      "st be between 1 and 500\032\'this == 0 || (t" +
+      "his >= 1 && this <= 500)R\005limit\022.\n\004from\030" +
+      "\006 \001(\0132\032.google.protobuf.TimestampR\004from\022" +
+      "*\n\002to\030\007 \001(\0132\032.google.protobuf.TimestampR" +
+      "\002to:\337\003\272H\333\003\032z\n1search_user_chat_messages." +
+      "range_required_together\022%from and to mus" +
+      "t be provided together\032\036has(this.from) =" +
+      "= has(this.to)\032\225\001\n%search_user_chat_mess" +
+      "ages.range_order\022\032to must be later than " +
+      "from\032Phas(this.from) && has(this.to) ? (" +
+      "(this.to - this.from) > duration(\'0s\')) " +
+      ": true\032\304\001\n2search_user_chat_messages.ran" +
+      "ge_not_exceed_30_days\0225the range between" +
+      " from and to must not exceed 30 days\032Wha" +
+      "s(this.from) && has(this.to) ? ((this.to" +
+      " - this.from) <= duration(\'2592000s\')) :" +
+      " true\"\352\001\n\034SearchUserChatMessagesResult\0222" +
+      "\n\010messages\030\001 \003(\0132\026.coreapi.model.Message" +
+      "R\010messages\022\037\n\013next_cursor\030\002 \001(\tR\nnextCur" +
+      "sor\022\031\n\010has_next\030\003 \001(\010R\007hasNext\022.\n\004from\030\004" +
+      " \001(\0132\032.google.protobuf.TimestampR\004from\022*" +
+      "\n\002to\030\005 \001(\0132\032.google.protobuf.TimestampR\002" +
+      "to\"\337\002\n\034CreateUserChatMessageRequest\022%\n\nc" +
+      "hannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014us" +
+      "er_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022?\n\007" +
+      "content\030\003 \001(\0132\035.coreapi.model.MessageCon" +
+      "tentB\006\272H\003\310\001\001R\007content\022\215\001\n\010bot_name\030\004 \001(\t" +
+      "Br\272Hor\0212\017^$|^[^@#$%:/]+$\272\001Y\n\rstring.maxL" +
+      "en\022(value must be no more than 30 charac" +
+      "ters\032\036this == \'\' || size(this) <= 30R\007bo" +
+      "tName\022\035\n\nrequest_id\030\005 \001(\tR\trequestId\"O\n\033" +
+      "CreateUserChatMessageResult\0220\n\007message\030\001" +
+      " \001(\0132\026.coreapi.model.MessageR\007message\"\206\001" +
+      "\n\031GetUserChatFileUrlRequest\022%\n\nchannel_i" +
+      "d\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_" +
+      "id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\022\030\n\003key\030\003 \001(" +
+      "\tB\006\272H\003\310\001\001R\003key\",\n\030GetUserChatFileUrlResu" +
+      "lt\022\020\n\003url\030\001 \001(\tR\003urlBf\n(io.channel.api.p" +
+      "roto.pub.coreapi.serviceP\001Z8github.com/c" +
+      "hannel-io/ch-proto-public/coreapi/go/ser" +
+      "viceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
