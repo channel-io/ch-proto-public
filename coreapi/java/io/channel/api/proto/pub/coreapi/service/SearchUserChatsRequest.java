@@ -305,11 +305,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-   * date-time fields can be supported without changing this contract.
+   * Defaults to deskUpdatedAt if unset.
+   * Must be either deskUpdatedAt or managedAt when specified.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
    * @return The dateTimeFieldName.
    */
   @java.lang.Override
@@ -328,11 +328,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-   * date-time fields can be supported without changing this contract.
+   * Defaults to deskUpdatedAt if unset.
+   * Must be either deskUpdatedAt or managedAt when specified.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for dateTimeFieldName.
    */
   @java.lang.Override
@@ -1359,11 +1359,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @return The dateTimeFieldName.
      */
     public java.lang.String getDateTimeFieldName() {
@@ -1381,11 +1381,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @return The bytes for dateTimeFieldName.
      */
     public com.google.protobuf.ByteString
@@ -1404,11 +1404,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @param value The dateTimeFieldName to set.
      * @return This builder for chaining.
      */
@@ -1423,11 +1423,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDateTimeFieldName() {
@@ -1439,11 +1439,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for dateTimeFieldName to set.
      * @return This builder for chaining.
      */

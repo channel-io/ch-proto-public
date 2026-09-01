@@ -95,9 +95,13 @@ message SearchUserChatsRequest {
   optional int64 to = 7;
 
   // Name of the date-time field used for range filtering.
-  // Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
-  // date-time fields can be supported without changing this contract.
-  string date_time_field_name = 8;
+  // Defaults to deskUpdatedAt if unset.
+  // Must be either deskUpdatedAt or managedAt when specified.
+  string date_time_field_name = 8 [(buf.validate.field).cel = {
+    id: "search_user_chats.date_time_field_name"
+    message: "dateTimeFieldName must be either deskUpdatedAt or managedAt"
+    expression: "this != '' ? this in ['deskUpdatedAt', 'managedAt'] : true"
+  }];
 }
 
 // Response for managed user chat list retrieval.
