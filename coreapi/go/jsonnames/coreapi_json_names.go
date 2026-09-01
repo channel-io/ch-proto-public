@@ -10,6 +10,15 @@ type fieldName struct {
 }
 
 var coreAPIFieldNames = map[string]map[string]fieldName{
+	"coreapi.common.Aggregation": {
+		"action":            {jsonName: "action"},
+		"target_field_name": {jsonName: "targetFieldName"},
+	},
+	"coreapi.common.DateTimeRange": {
+		"field_name": {jsonName: "fieldName"},
+		"from":       {jsonName: "from"},
+		"to":         {jsonName: "to"},
+	},
 	"coreapi.common.ErrorDetail": {
 		"model":              {jsonName: "model"},
 		"field":              {jsonName: "field"},
@@ -25,6 +34,14 @@ var coreAPIFieldNames = map[string]map[string]fieldName{
 		"operation_error_code": {jsonName: "operationErrorCode"},
 		"message":              {jsonName: "message"},
 		"details":              {jsonName: "details", messageFullName: "coreapi.common.ErrorDetail"},
+	},
+	"coreapi.common.Expression": {
+		"key":      {jsonName: "key"},
+		"type":     {jsonName: "type"},
+		"operator": {jsonName: "operator"},
+		"values":   {jsonName: "values"},
+		"and":      {jsonName: "and", messageFullName: "coreapi.common.Expression"},
+		"or":       {jsonName: "or", messageFullName: "coreapi.common.Expression"},
 	},
 	"coreapi.common.Pagination": {
 		"sort_order": {jsonName: "sortOrder"},
@@ -864,6 +881,20 @@ var coreAPIFieldNames = map[string]map[string]fieldName{
 		"api_version":     {jsonName: "apiVersion"},
 		"last_blocked_at": {jsonName: "lastBlockedAt"},
 		"blocked":         {jsonName: "blocked"},
+	},
+	"coreapi.service.AggregateUserChatsRequest": {
+		"channel_id":      {jsonName: "channelId"},
+		"date_time_range": {jsonName: "dateTimeRange", messageFullName: "coreapi.common.DateTimeRange"},
+		"filter":          {jsonName: "filter", messageFullName: "coreapi.common.Expression"},
+		"group_by":        {jsonName: "groupBy"},
+		"aggregation":     {jsonName: "aggregation", messageFullName: "coreapi.common.Aggregation"},
+	},
+	"coreapi.service.AggregateUserChatsResult": {
+		"result": {jsonName: "result"},
+	},
+	"coreapi.service.AggregateUserChatsResult.ResultEntry": {
+		"key":   {jsonName: "key"},
+		"value": {jsonName: "value"},
 	},
 	"coreapi.service.AnnounceRequest": {
 		"channel_id":  {jsonName: "channelId"},

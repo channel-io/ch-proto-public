@@ -81,6 +81,7 @@ service_rules:
     result: "{Verb}{Resource}Result"
     verbs:
       Search: list or filtered cursor lookup
+      Aggregate: grouped aggregate lookup
       BatchGet: lookup multiple resources by IDs or keys
       Get: single resource lookup
       Create: creation

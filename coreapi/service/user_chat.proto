@@ -3,6 +3,9 @@ syntax = "proto3";
 package coreapi.service;
 
 import "buf/validate/validate.proto";
+import "coreapi/common/aggregation.proto";
+import "coreapi/common/date_time_range.proto";
+import "coreapi/common/expression.proto";
 import "coreapi/common/sort_order.proto";
 import "coreapi/model/chat_bookmark.proto";
 import "coreapi/model/chat_session.proto";
@@ -95,6 +98,42 @@ message SearchUserChatsResult {
 
   // Whether a next page of results exists.
   bool has_next = 3;
+}
+
+// Aggregates user chats by a specified field.
+message AggregateUserChatsRequest {
+  // Channel ID to aggregate user chats in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Date-time range to apply before aggregation.
+  // The range must not exceed 60 days.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.common.DateTimeRange date_time_range = 2;
+
+  // Additional conditions to apply before aggregation.
+  // The Core API validates the expression structure and supported values.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.common.Expression filter = 3;
+
+  // Field whose values define the result groups.
+  //
+  // +kubebuilder:validation:Required
+  string group_by = 4 [(buf.validate.field).required = true];
+
+  // Aggregation to perform for each group.
+  //
+  // +kubebuilder:validation:Required
+  coreapi.common.Aggregation aggregation = 5 [(buf.validate.field).required = true];
+}
+
+// Response for user chat aggregation.
+message AggregateUserChatsResult {
+  // Aggregated values keyed by the observed value of group_by.
+  //
+  // +kubebuilder:example={"opened":"10","closed":"5"}
+  map<string, string> result = 1;
 }
 
 // Retrieves a list of user chats for a specific user.

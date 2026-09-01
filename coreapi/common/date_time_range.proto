@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package coreapi.common;
+
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.common";
+
+// Date-time range for a query. The range must not exceed 60 days.
+message DateTimeRange {
+  option (buf.validate.message).cel = {
+    id: "date_time_range.order"
+    message: "to must be later than from"
+    expression: "this.to > this.from"
+  };
+  option (buf.validate.message).cel = {
+    id: "date_time_range.not_exceed_60_days"
+    message: "the date-time range must not exceed 60 days"
+    expression: "this.from > 0 && this.to > this.from ? this.to - this.from <= 5184000000 : true"
+  };
+
+  // Date-time field to filter by.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:example="managedAt"
+  string field_name = 1 [(buf.validate.field).required = true];
+
+  // Inclusive start of the range, in positive Unix milliseconds.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Minimum=1
+  // +kubebuilder:example=1704067200000
+  int64 from = 2 [
+    (buf.validate.field).cel = {
+      id: "int.gt"
+      message: "value must be greater than 0"
+      expression: "this > 0"
+    },
+    (buf.validate.field).required = true
+  ];
+
+  // Exclusive end of the range, in positive Unix milliseconds.
+  //
+  // +kubebuilder:validation:Required
+  // +kubebuilder:validation:Minimum=1
+  // +kubebuilder:example=1706745600000
+  int64 to = 3 [
+    (buf.validate.field).cel = {
+      id: "int.gt"
+      message: "value must be greater than 0"
+      expression: "this > 0"
+    },
+    (buf.validate.field).required = true
+  ];
+}

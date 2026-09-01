@@ -13,6 +13,14 @@ patterns:
     search:
       command: rg -n "message Search.*Request|next_cursor|has_next" coreapi/service
 
+  - id: aggregate
+    description: Grouped aggregate operation with a query range, optional filter, grouping field, and aggregation action.
+    references:
+      - file: coreapi/service/user_chat.proto
+        symbols: [AggregateUserChatsRequest, AggregateUserChatsResult]
+    search:
+      command: rg -n "message Aggregate.*Request|message Aggregate.*Result" coreapi/service
+
   - id: batch_get
     description: Batch lookup by IDs or keys with repeated field validation.
     references:
