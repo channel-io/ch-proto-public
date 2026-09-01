@@ -29,6 +29,7 @@ option java_package = "io.channel.api.proto.pub.coreapi.service";
 //
 // The number of user chats retrieved is restricted by the limit parameter,
 // and is capped to values in the closed interval [1, 500].
+// When dateTimeFieldName is managedAt, the maximum limit is 100.
 // Pagination is cursor-based. Pass the nextCursor value from the previous response
 // as the cursor parameter to retrieve the next page.
 // If the cursor parameter is left empty, the list starts from the beginning.
@@ -52,6 +53,11 @@ message SearchUserChatsRequest {
     message: "the range between from and to must not exceed 30 days"
     expression: "has(this.from) && has(this.to) ? this.to - this.from <= 2592000000 : true"
   };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.managed_at_limit"
+    message: "limit must not exceed 100 when dateTimeFieldName is managedAt"
+    expression: "this.date_time_field_name == 'managedAt' ? this.limit <= 100 : true"
+  };
 
   // Channel ID to search user chats in.
   string channel_id = 1 [(buf.validate.field).required = true];
@@ -67,6 +73,7 @@ message SearchUserChatsRequest {
   string cursor = 4;
 
   // Maximum number of results to return. Defaults to 25 if unset.
+  // Must not exceed 100 when dateTimeFieldName is managedAt.
   int32 limit = 5 [(buf.validate.field).cel = {
     id: "int32.between"
     message: "limit must be between 1 and 500"
@@ -81,7 +88,7 @@ message SearchUserChatsRequest {
   optional int64 to = 7;
 
   // Name of the date-time field used for range filtering.
-  // May be omitted. Values are intentionally not restricted at the proto layer so additional
+  // Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
   // date-time fields can be supported without changing this contract.
   string date_time_field_name = 8;
 }

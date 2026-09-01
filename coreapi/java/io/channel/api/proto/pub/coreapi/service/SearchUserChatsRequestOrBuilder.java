@@ -93,6 +93,7 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Maximum number of results to return. Defaults to 25 if unset.
+   * Must not exceed 100 when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -143,7 +144,7 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
    * date-time fields can be supported without changing this contract.
    * </pre>
    *
@@ -154,7 +155,7 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
    * date-time fields can be supported without changing this contract.
    * </pre>
    *

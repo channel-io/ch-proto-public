@@ -11,6 +11,7 @@ package io.channel.api.proto.pub.coreapi.service;
  *
  * The number of user chats retrieved is restricted by the limit parameter,
  * and is capped to values in the closed interval [1, 500].
+ * When dateTimeFieldName is managedAt, the maximum limit is 100.
  * Pagination is cursor-based. Pass the nextCursor value from the previous response
  * as the cursor parameter to retrieve the next page.
  * If the cursor parameter is left empty, the list starts from the beginning.
@@ -221,6 +222,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Maximum number of results to return. Defaults to 25 if unset.
+   * Must not exceed 100 when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -293,7 +295,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
    * date-time fields can be supported without changing this contract.
    * </pre>
    *
@@ -316,7 +318,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
+   * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
    * date-time fields can be supported without changing this contract.
    * </pre>
    *
@@ -589,6 +591,7 @@ private static final long serialVersionUID = 0L;
    *
    * The number of user chats retrieved is restricted by the limit parameter,
    * and is capped to values in the closed interval [1, 500].
+   * When dateTimeFieldName is managedAt, the maximum limit is 100.
    * Pagination is cursor-based. Pass the nextCursor value from the previous response
    * as the cursor parameter to retrieve the next page.
    * If the cursor parameter is left empty, the list starts from the beginning.
@@ -1164,6 +1167,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Maximum number of results to return. Defaults to 25 if unset.
+     * Must not exceed 100 when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -1176,6 +1180,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Maximum number of results to return. Defaults to 25 if unset.
+     * Must not exceed 100 when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -1192,6 +1197,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Maximum number of results to return. Defaults to 25 if unset.
+     * Must not exceed 100 when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -1324,7 +1330,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
      * date-time fields can be supported without changing this contract.
      * </pre>
      *
@@ -1346,7 +1352,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
      * date-time fields can be supported without changing this contract.
      * </pre>
      *
@@ -1369,7 +1375,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
      * date-time fields can be supported without changing this contract.
      * </pre>
      *
@@ -1388,7 +1394,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
      * date-time fields can be supported without changing this contract.
      * </pre>
      *
@@ -1404,7 +1410,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
+     * Defaults to deskUpdatedAt if unset. Values are intentionally not restricted at the proto layer so additional
      * date-time fields can be supported without changing this contract.
      * </pre>
      *
