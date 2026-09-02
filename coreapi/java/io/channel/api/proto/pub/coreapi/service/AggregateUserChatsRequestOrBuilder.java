@@ -33,42 +33,46 @@ public interface AggregateUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Currently, only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    * @return Whether the dateTimeRange field is set.
    */
   boolean hasDateTimeRange();
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Currently, only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    * @return The dateTimeRange.
    */
   io.channel.api.proto.pub.coreapi.common.DateTimeRange getDateTimeRange();
   /**
    * <pre>
    * Date-time range to apply before aggregation.
+   * Currently, only "managedAt" is supported as the date-time field.
    * The range must not exceed 60 days.
    *
-   * +kubebuilder:validation:Nullable
+   * +kubebuilder:validation:Required
    * </pre>
    *
-   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange"];</code>
+   * <code>.coreapi.common.DateTimeRange date_time_range = 2 [json_name = "dateTimeRange", (.buf.validate.field) = { ... }</code>
    */
   io.channel.api.proto.pub.coreapi.common.DateTimeRangeOrBuilder getDateTimeRangeOrBuilder();
 
   /**
    * <pre>
    * Additional conditions to apply before aggregation.
+   * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
    * The Core API validates the expression structure and supported values.
    *
    * +kubebuilder:validation:Nullable
@@ -81,6 +85,7 @@ public interface AggregateUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Additional conditions to apply before aggregation.
+   * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
    * The Core API validates the expression structure and supported values.
    *
    * +kubebuilder:validation:Nullable
@@ -93,6 +98,7 @@ public interface AggregateUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Additional conditions to apply before aggregation.
+   * Currently, only "id" (string) and "tags" (list) are supported as filter fields.
    * The Core API validates the expression structure and supported values.
    *
    * +kubebuilder:validation:Nullable
@@ -104,7 +110,7 @@ public interface AggregateUserChatsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Field whose values define the result groups.
+   * Field whose values define the result groups. Currently, only "state" is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -115,7 +121,7 @@ public interface AggregateUserChatsRequestOrBuilder extends
   java.lang.String getGroupBy();
   /**
    * <pre>
-   * Field whose values define the result groups.
+   * Field whose values define the result groups. Currently, only "state" is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -128,7 +134,7 @@ public interface AggregateUserChatsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Aggregation to perform for each group.
+   * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -139,7 +145,7 @@ public interface AggregateUserChatsRequestOrBuilder extends
   boolean hasAggregation();
   /**
    * <pre>
-   * Aggregation to perform for each group.
+   * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>
@@ -150,7 +156,7 @@ public interface AggregateUserChatsRequestOrBuilder extends
   io.channel.api.proto.pub.coreapi.common.Aggregation getAggregation();
   /**
    * <pre>
-   * Aggregation to perform for each group.
+   * Aggregation to perform for each group. Currently, only the "cnt" action is supported.
    *
    * +kubebuilder:validation:Required
    * </pre>

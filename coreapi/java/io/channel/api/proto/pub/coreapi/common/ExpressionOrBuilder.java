@@ -36,7 +36,8 @@ public interface ExpressionOrBuilder extends
 
   /**
    * <pre>
-   * Type used to interpret the condition values.
+   * Type used to interpret the condition values. Supported types are boolean,
+   * date, datetime, list, number, and string.
    *
    * +kubebuilder:example="string"
    * </pre>
@@ -47,7 +48,8 @@ public interface ExpressionOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * Type used to interpret the condition values.
+   * Type used to interpret the condition values. Supported types are boolean,
+   * date, datetime, list, number, and string.
    *
    * +kubebuilder:example="string"
    * </pre>
@@ -60,9 +62,10 @@ public interface ExpressionOrBuilder extends
 
   /**
    * <pre>
-   * Operator to apply to the condition values.
+   * Operator to apply to the condition values. For string conditions, $in and
+   * $nin perform substring matching.
    *
-   * +kubebuilder:example="eq"
+   * +kubebuilder:example="$eq"
    * </pre>
    *
    * <code>string operator = 3 [json_name = "operator"];</code>
@@ -71,9 +74,10 @@ public interface ExpressionOrBuilder extends
   java.lang.String getOperator();
   /**
    * <pre>
-   * Operator to apply to the condition values.
+   * Operator to apply to the condition values. For string conditions, $in and
+   * $nin perform substring matching.
    *
-   * +kubebuilder:example="eq"
+   * +kubebuilder:example="$eq"
    * </pre>
    *
    * <code>string operator = 3 [json_name = "operator"];</code>
@@ -84,8 +88,14 @@ public interface ExpressionOrBuilder extends
 
   /**
    * <pre>
-   * Values used by the condition. The operation handling the expression
-   * parses each value according to type.
+   * Values used by the condition. Values must be empty for $exist and $nexist,
+   * and otherwise contain at least one element. Value formats by type are:
+   * - boolean: "true" or "false".
+   * - date: "yyyy-mm-dd".
+   * - datetime: an RFC 3339 timestamp.
+   * - number: a JSON number represented as a string.
+   * - string: strings interpreted by the selected operator.
+   * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
    * </pre>
@@ -97,8 +107,14 @@ public interface ExpressionOrBuilder extends
       getValuesList();
   /**
    * <pre>
-   * Values used by the condition. The operation handling the expression
-   * parses each value according to type.
+   * Values used by the condition. Values must be empty for $exist and $nexist,
+   * and otherwise contain at least one element. Value formats by type are:
+   * - boolean: "true" or "false".
+   * - date: "yyyy-mm-dd".
+   * - datetime: an RFC 3339 timestamp.
+   * - number: a JSON number represented as a string.
+   * - string: strings interpreted by the selected operator.
+   * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
    * </pre>
@@ -109,8 +125,14 @@ public interface ExpressionOrBuilder extends
   int getValuesCount();
   /**
    * <pre>
-   * Values used by the condition. The operation handling the expression
-   * parses each value according to type.
+   * Values used by the condition. Values must be empty for $exist and $nexist,
+   * and otherwise contain at least one element. Value formats by type are:
+   * - boolean: "true" or "false".
+   * - date: "yyyy-mm-dd".
+   * - datetime: an RFC 3339 timestamp.
+   * - number: a JSON number represented as a string.
+   * - string: strings interpreted by the selected operator.
+   * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
    * </pre>
@@ -122,8 +144,14 @@ public interface ExpressionOrBuilder extends
   java.lang.String getValues(int index);
   /**
    * <pre>
-   * Values used by the condition. The operation handling the expression
-   * parses each value according to type.
+   * Values used by the condition. Values must be empty for $exist and $nexist,
+   * and otherwise contain at least one element. Value formats by type are:
+   * - boolean: "true" or "false".
+   * - date: "yyyy-mm-dd".
+   * - datetime: an RFC 3339 timestamp.
+   * - number: a JSON number represented as a string.
+   * - string: strings interpreted by the selected operator.
+   * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
    * </pre>

@@ -131,26 +131,49 @@ message AggregateUserChatsRequest {
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Date-time range to apply before aggregation.
+  // Currently, only "managedAt" is supported as the date-time field.
   // The range must not exceed 60 days.
   //
-  // +kubebuilder:validation:Nullable
-  coreapi.common.DateTimeRange date_time_range = 2;
+  // +kubebuilder:validation:Required
+  coreapi.common.DateTimeRange date_time_range = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregate_user_chats.date_time_range_field_name"
+      message: "date_time_range.field_name must be managedAt"
+      expression: "this.field_name == 'managedAt'"
+    }
+  ];
 
   // Additional conditions to apply before aggregation.
+  // Currently, only "id" (string) and "tags" (list) are supported as filter fields.
   // The Core API validates the expression structure and supported values.
   //
   // +kubebuilder:validation:Nullable
   coreapi.common.Expression filter = 3;
 
-  // Field whose values define the result groups.
+  // Field whose values define the result groups. Currently, only "state" is supported.
   //
   // +kubebuilder:validation:Required
-  string group_by = 4 [(buf.validate.field).required = true];
+  string group_by = 4 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregate_user_chats.group_by"
+      message: "group_by must be state"
+      expression: "this == 'state'"
+    }
+  ];
 
-  // Aggregation to perform for each group.
+  // Aggregation to perform for each group. Currently, only the "cnt" action is supported.
   //
   // +kubebuilder:validation:Required
-  coreapi.common.Aggregation aggregation = 5 [(buf.validate.field).required = true];
+  coreapi.common.Aggregation aggregation = 5 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregate_user_chats.aggregation_action"
+      message: "aggregation.action must be cnt and target_field_name must be empty"
+      expression: "this.action == 'cnt' && this.target_field_name == ''"
+    }
+  ];
 }
 
 // Response for user chat aggregation.

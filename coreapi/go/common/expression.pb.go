@@ -32,16 +32,24 @@ type Expression struct {
 	//
 	// +kubebuilder:example="state"
 	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
-	// Type used to interpret the condition values.
+	// Type used to interpret the condition values. Supported types are boolean,
+	// date, datetime, list, number, and string.
 	//
 	// +kubebuilder:example="string"
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	// Operator to apply to the condition values.
+	// Operator to apply to the condition values. For string conditions, $in and
+	// $nin perform substring matching.
 	//
-	// +kubebuilder:example="eq"
+	// +kubebuilder:example="$eq"
 	Operator string `protobuf:"bytes,3,opt,name=operator,proto3" json:"operator,omitempty"`
-	// Values used by the condition. The operation handling the expression
-	// parses each value according to type.
+	// Values used by the condition. Values must be empty for $exist and $nexist,
+	// and otherwise contain at least one element. Value formats by type are:
+	// - boolean: "true" or "false".
+	// - date: "yyyy-mm-dd".
+	// - datetime: an RFC 3339 timestamp.
+	// - number: a JSON number represented as a string.
+	// - string: strings interpreted by the selected operator.
+	// - list: list of strings
 	//
 	// +kubebuilder:example=["opened","closed"]
 	Values []string `protobuf:"bytes,4,rep,name=values,proto3" json:"values,omitempty"`
