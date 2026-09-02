@@ -2172,7 +2172,7 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"user_chats\x18\x01 \x03(\v2\x17.coreapi.model.UserChatR\tuserChats\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
 	"nextCursor\x12\x19\n" +
-	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xe2\x04\n" +
+	"\bhas_next\x18\x03 \x01(\bR\ahasNext\"\xa9\x05\n" +
 	"\x19AggregateUserChatsRequest\x12%\n" +
 	"\n" +
 	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12\xd1\x01\n" +
@@ -2180,9 +2180,9 @@ const file_coreapi_service_user_chat_proto_rawDesc = "" +
 	"/aggregate_user_chats.date_time_range_field_name\x12,date_time_range.field_name must be managedAt\x1a\x1ethis.field_name == 'managedAt'\xc8\x01\x01R\rdateTimeRange\x122\n" +
 	"\x06filter\x18\x03 \x01(\v2\x1a.coreapi.common.ExpressionR\x06filter\x12l\n" +
 	"\bgroup_by\x18\x04 \x01(\tBQ\xbaHN\xba\x01H\n" +
-	"\x1daggregate_user_chats.group_by\x12\x16group_by must be state\x1a\x0fthis == 'state'\xc8\x01\x01R\agroupBy\x12\xa7\x01\n" +
-	"\vaggregation\x18\x05 \x01(\v2\x1b.coreapi.common.AggregationBh\xbaHe\xba\x01_\n" +
-	"'aggregate_user_chats.aggregation_action\x12\x1eaggregation.action must be cnt\x1a\x14this.action == 'cnt'\xc8\x01\x01R\vaggregation\"\xa4\x01\n" +
+	"\x1daggregate_user_chats.group_by\x12\x16group_by must be state\x1a\x0fthis == 'state'\xc8\x01\x01R\agroupBy\x12\xee\x01\n" +
+	"\vaggregation\x18\x05 \x01(\v2\x1b.coreapi.common.AggregationB\xae\x01\xbaH\xaa\x01\xba\x01\xa3\x01\n" +
+	"'aggregate_user_chats.aggregation_action\x12Baggregation.action must be cnt and target_field_name must be empty\x1a4this.action == 'cnt' && this.target_field_name == ''\xc8\x01\x01R\vaggregation\"\xa4\x01\n" +
 	"\x18AggregateUserChatsResult\x12M\n" +
 	"\x06result\x18\x01 \x03(\v25.coreapi.service.AggregateUserChatsResult.ResultEntryR\x06result\x1a9\n" +
 	"\vResultEntry\x12\x10\n" +
