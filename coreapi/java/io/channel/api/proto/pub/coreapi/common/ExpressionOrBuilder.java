@@ -36,8 +36,9 @@ public interface ExpressionOrBuilder extends
 
   /**
    * <pre>
-   * Type used to interpret the condition values. Supported types are boolean,
-   * date, datetime, list, number, and string.
+   * Type used to interpret the condition values.
+   * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+   * `string`.
    *
    * +kubebuilder:example="string"
    * </pre>
@@ -48,8 +49,9 @@ public interface ExpressionOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * Type used to interpret the condition values. Supported types are boolean,
-   * date, datetime, list, number, and string.
+   * Type used to interpret the condition values.
+   * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+   * `string`.
    *
    * +kubebuilder:example="string"
    * </pre>
@@ -62,8 +64,15 @@ public interface ExpressionOrBuilder extends
 
   /**
    * <pre>
-   * Operator to apply to the condition values. For string conditions, $in and
-   * $nin perform substring matching.
+   * Operator to apply to the condition values.
+   * Supported operators by `type` are:
+   * - `boolean`: `$eq`, `$ne`
+   * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+   * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+   * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+   * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+   * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+   * `$nStartWith`
    *
    * +kubebuilder:example="$eq"
    * </pre>
@@ -74,8 +83,15 @@ public interface ExpressionOrBuilder extends
   java.lang.String getOperator();
   /**
    * <pre>
-   * Operator to apply to the condition values. For string conditions, $in and
-   * $nin perform substring matching.
+   * Operator to apply to the condition values.
+   * Supported operators by `type` are:
+   * - `boolean`: `$eq`, `$ne`
+   * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+   * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+   * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+   * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+   * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+   * `$nStartWith`
    *
    * +kubebuilder:example="$eq"
    * </pre>
@@ -88,13 +104,15 @@ public interface ExpressionOrBuilder extends
 
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -107,13 +125,15 @@ public interface ExpressionOrBuilder extends
       getValuesList();
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -125,13 +145,15 @@ public interface ExpressionOrBuilder extends
   int getValuesCount();
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -144,13 +166,15 @@ public interface ExpressionOrBuilder extends
   java.lang.String getValues(int index);
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -166,6 +190,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -175,6 +200,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -183,6 +209,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -191,6 +218,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -200,6 +228,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -210,6 +239,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -219,6 +249,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -227,6 +258,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -235,6 +267,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -244,6 +277,7 @@ public interface ExpressionOrBuilder extends
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>

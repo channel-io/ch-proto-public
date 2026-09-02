@@ -7,11 +7,12 @@ package io.channel.api.proto.pub.coreapi.common;
 
 /**
  * <pre>
- * Query expression shared across Core API operations.
+ * Query expression
  *
- * The operation handling the expression validates whether a node is a
- * condition, an AND expression, or an OR expression, as well as the supported
- * fields, types, operators, and values.
+ * When `and` is used, all other fields must be omitted.
+ * The same applies when `or` is used.
+ * When neither `and` nor `or` is used, `key`, `operator`, and `type` must be
+ * provided.
  * </pre>
  *
  * Protobuf type {@code coreapi.common.Expression}
@@ -119,8 +120,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object type_ = "";
   /**
    * <pre>
-   * Type used to interpret the condition values. Supported types are boolean,
-   * date, datetime, list, number, and string.
+   * Type used to interpret the condition values.
+   * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+   * `string`.
    *
    * +kubebuilder:example="string"
    * </pre>
@@ -143,8 +145,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Type used to interpret the condition values. Supported types are boolean,
-   * date, datetime, list, number, and string.
+   * Type used to interpret the condition values.
+   * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+   * `string`.
    *
    * +kubebuilder:example="string"
    * </pre>
@@ -172,8 +175,15 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object operator_ = "";
   /**
    * <pre>
-   * Operator to apply to the condition values. For string conditions, $in and
-   * $nin perform substring matching.
+   * Operator to apply to the condition values.
+   * Supported operators by `type` are:
+   * - `boolean`: `$eq`, `$ne`
+   * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+   * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+   * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+   * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+   * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+   * `$nStartWith`
    *
    * +kubebuilder:example="$eq"
    * </pre>
@@ -196,8 +206,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Operator to apply to the condition values. For string conditions, $in and
-   * $nin perform substring matching.
+   * Operator to apply to the condition values.
+   * Supported operators by `type` are:
+   * - `boolean`: `$eq`, `$ne`
+   * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+   * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+   * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+   * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+   * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+   * `$nStartWith`
    *
    * +kubebuilder:example="$eq"
    * </pre>
@@ -226,13 +243,15 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.LazyStringArrayList.emptyList();
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -247,13 +266,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -267,13 +288,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -288,13 +311,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Values used by the condition. Values must be empty for $exist and $nexist,
-   * and otherwise contain at least one element. Value formats by type are:
-   * - boolean: "true" or "false".
-   * - date: "yyyy-mm-dd".
-   * - datetime: an RFC 3339 timestamp.
-   * - number: a JSON number represented as a string.
-   * - string: strings interpreted by the selected operator.
+   * Values used by the condition.
+   * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+   * operators require at least one value.
+   * Value formats by `type` are:
+   * - boolean: "true" or "false"
+   * - date: "yyyy-mm-dd"
+   * - datetime: RFC3339 timestamp
+   * - number: a JSON number represented as a string
+   * - string: string
    * - list: list of strings
    *
    * +kubebuilder:example=["opened","closed"]
@@ -315,6 +340,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -326,6 +352,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -338,6 +365,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -349,6 +377,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -360,6 +389,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions that must all match.
+   * If `and` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -376,6 +406,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -387,6 +418,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -399,6 +431,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -410,6 +443,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -421,6 +455,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Expressions where at least one must match.
+   * If `or` is provided, all other fields must be omitted.
    * </pre>
    *
    * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -666,11 +701,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Query expression shared across Core API operations.
+   * Query expression
    *
-   * The operation handling the expression validates whether a node is a
-   * condition, an AND expression, or an OR expression, as well as the supported
-   * fields, types, operators, and values.
+   * When `and` is used, all other fields must be omitted.
+   * The same applies when `or` is used.
+   * When neither `and` nor `or` is used, `key`, `operator`, and `type` must be
+   * provided.
    * </pre>
    *
    * Protobuf type {@code coreapi.common.Expression}
@@ -1078,8 +1114,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * Type used to interpret the condition values. Supported types are boolean,
-     * date, datetime, list, number, and string.
+     * Type used to interpret the condition values.
+     * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+     * `string`.
      *
      * +kubebuilder:example="string"
      * </pre>
@@ -1101,8 +1138,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type used to interpret the condition values. Supported types are boolean,
-     * date, datetime, list, number, and string.
+     * Type used to interpret the condition values.
+     * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+     * `string`.
      *
      * +kubebuilder:example="string"
      * </pre>
@@ -1125,8 +1163,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type used to interpret the condition values. Supported types are boolean,
-     * date, datetime, list, number, and string.
+     * Type used to interpret the condition values.
+     * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+     * `string`.
      *
      * +kubebuilder:example="string"
      * </pre>
@@ -1145,8 +1184,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type used to interpret the condition values. Supported types are boolean,
-     * date, datetime, list, number, and string.
+     * Type used to interpret the condition values.
+     * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+     * `string`.
      *
      * +kubebuilder:example="string"
      * </pre>
@@ -1162,8 +1202,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Type used to interpret the condition values. Supported types are boolean,
-     * date, datetime, list, number, and string.
+     * Type used to interpret the condition values.
+     * Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+     * `string`.
      *
      * +kubebuilder:example="string"
      * </pre>
@@ -1185,8 +1226,15 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object operator_ = "";
     /**
      * <pre>
-     * Operator to apply to the condition values. For string conditions, $in and
-     * $nin perform substring matching.
+     * Operator to apply to the condition values.
+     * Supported operators by `type` are:
+     * - `boolean`: `$eq`, `$ne`
+     * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+     * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+     * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+     * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+     * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+     * `$nStartWith`
      *
      * +kubebuilder:example="$eq"
      * </pre>
@@ -1208,8 +1256,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator to apply to the condition values. For string conditions, $in and
-     * $nin perform substring matching.
+     * Operator to apply to the condition values.
+     * Supported operators by `type` are:
+     * - `boolean`: `$eq`, `$ne`
+     * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+     * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+     * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+     * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+     * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+     * `$nStartWith`
      *
      * +kubebuilder:example="$eq"
      * </pre>
@@ -1232,8 +1287,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator to apply to the condition values. For string conditions, $in and
-     * $nin perform substring matching.
+     * Operator to apply to the condition values.
+     * Supported operators by `type` are:
+     * - `boolean`: `$eq`, `$ne`
+     * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+     * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+     * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+     * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+     * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+     * `$nStartWith`
      *
      * +kubebuilder:example="$eq"
      * </pre>
@@ -1252,8 +1314,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator to apply to the condition values. For string conditions, $in and
-     * $nin perform substring matching.
+     * Operator to apply to the condition values.
+     * Supported operators by `type` are:
+     * - `boolean`: `$eq`, `$ne`
+     * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+     * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+     * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+     * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+     * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+     * `$nStartWith`
      *
      * +kubebuilder:example="$eq"
      * </pre>
@@ -1269,8 +1338,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Operator to apply to the condition values. For string conditions, $in and
-     * $nin perform substring matching.
+     * Operator to apply to the condition values.
+     * Supported operators by `type` are:
+     * - `boolean`: `$eq`, `$ne`
+     * - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+     * - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+     * - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+     * - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+     * - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+     * `$nStartWith`
      *
      * +kubebuilder:example="$eq"
      * </pre>
@@ -1299,13 +1375,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1321,13 +1399,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1341,13 +1421,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1362,13 +1444,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1384,13 +1468,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1412,13 +1498,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1439,13 +1527,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1466,13 +1556,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1490,13 +1582,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Values used by the condition. Values must be empty for $exist and $nexist,
-     * and otherwise contain at least one element. Value formats by type are:
-     * - boolean: "true" or "false".
-     * - date: "yyyy-mm-dd".
-     * - datetime: an RFC 3339 timestamp.
-     * - number: a JSON number represented as a string.
-     * - string: strings interpreted by the selected operator.
+     * Values used by the condition.
+     * Values must be empty if `operator` is `$exist` or `$nexist`; all other
+     * operators require at least one value.
+     * Value formats by `type` are:
+     * - boolean: "true" or "false"
+     * - date: "yyyy-mm-dd"
+     * - datetime: RFC3339 timestamp
+     * - number: a JSON number represented as a string
+     * - string: string
      * - list: list of strings
      *
      * +kubebuilder:example=["opened","closed"]
@@ -1532,6 +1626,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1546,6 +1641,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1560,6 +1656,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1574,6 +1671,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1595,6 +1693,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1613,6 +1712,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1633,6 +1733,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1654,6 +1755,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1672,6 +1774,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1690,6 +1793,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1709,6 +1813,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1726,6 +1831,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1743,6 +1849,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1754,6 +1861,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1768,6 +1876,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1783,6 +1892,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1794,6 +1904,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1806,6 +1917,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions that must all match.
+     * If `and` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression and = 5 [json_name = "and"];</code>
@@ -1844,6 +1956,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1858,6 +1971,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1872,6 +1986,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1886,6 +2001,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1907,6 +2023,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1925,6 +2042,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1945,6 +2063,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1966,6 +2085,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -1984,6 +2104,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2002,6 +2123,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2021,6 +2143,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2038,6 +2161,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2055,6 +2179,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2066,6 +2191,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2080,6 +2206,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2095,6 +2222,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2106,6 +2234,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
@@ -2118,6 +2247,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Expressions where at least one must match.
+     * If `or` is provided, all other fields must be omitted.
      * </pre>
      *
      * <code>repeated .coreapi.common.Expression or = 6 [json_name = "or"];</code>
