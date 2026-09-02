@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package coreapi.common;
 
-import "buf/validate/validate.proto";
-
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
 option java_multiple_files = true;
 option java_package = "io.channel.api.proto.pub.coreapi.common";
@@ -14,72 +12,6 @@ option java_package = "io.channel.api.proto.pub.coreapi.common";
 // condition, an AND expression, or an OR expression, as well as the supported
 // fields, types, operators, and values.
 message Expression {
-  option (buf.validate.message).cel = {
-    id: "expression.node_required"
-    message: "one of 'and', 'or', or 'key' must be provided"
-    expression: "size(this.and) > 0 || size(this.or) > 0 || this.key != ''"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.and_exclusive"
-    message: "and must not be combined with other fields"
-    expression: "size(this.and) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.or) == 0 : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.or_exclusive"
-    message: "or must not be combined with other fields"
-    expression: "size(this.or) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.and) == 0 : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.condition_fields_together"
-    message: "key, type, and operator must be provided together"
-    expression: "(this.key != '' || this.type != '' || this.operator != '') ? this.key != '' && this.type != '' && this.operator != '' : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.type_supported"
-    message: "type must be one of boolean, date, datetime, list, number, or string"
-    expression: "this.type != '' ? this.type in ['boolean', 'date', 'datetime', 'list', 'number', 'string'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.boolean_operator_supported"
-    message: "operator must be supported for boolean type"
-    expression: "this.type == 'boolean' ? this.operator in ['$eq', '$ne'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.date_operator_supported"
-    message: "operator must be supported for date type"
-    expression: "this.type == 'date' ? this.operator in ['$exist', '$nexist', '$eq', '$gt', '$lt'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.datetime_operator_supported"
-    message: "operator must be supported for datetime type"
-    expression: "this.type == 'datetime' ? this.operator in ['$exist', '$nexist', '$gt', '$lt'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.list_operator_supported"
-    message: "operator must be supported for list type"
-    expression: "this.type == 'list' ? this.operator in ['$containsAny', '$containsAll', '$exist', '$nexist'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.number_operator_supported"
-    message: "operator must be supported for number type"
-    expression: "this.type == 'number' ? this.operator in ['$exist', '$nexist', '$eq', '$ne', '$gt', '$gte', '$lt', '$lte'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.string_operator_supported"
-    message: "operator must be supported for string type"
-    expression: "this.type == 'string' ? this.operator in ['$eq', '$ne', '$in', '$nin', '$exist', '$nexist', '$startWith', '$nStartWith'] : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.values_empty_for_existence_operator"
-    message: "values must be empty for $exist and $nexist operators"
-    expression: "this.operator in ['$exist', '$nexist'] ? size(this.values) == 0 : true"
-  };
-  option (buf.validate.message).cel = {
-    id: "expression.values_required"
-    message: "values must contain at least one element for the operator"
-    expression: "this.operator in ['$eq', '$ne', '$in', '$nin', '$startWith', '$nStartWith', '$gt', '$gte', '$lt', '$lte', '$containsAny', '$containsAll'] ? size(this.values) > 0 : true"
-  };
-
   // Field to which the condition applies.
   //
   // +kubebuilder:example="state"

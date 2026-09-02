@@ -7,7 +7,6 @@
 package common
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -138,7 +137,7 @@ var File_coreapi_common_expression_proto protoreflect.FileDescriptor
 
 const file_coreapi_common_expression_proto_rawDesc = "" +
 	"\n" +
-	"\x1fcoreapi/common/expression.proto\x12\x0ecoreapi.common\x1a\x1bbuf/validate/validate.proto\"\x8b\x15\n" +
+	"\x1fcoreapi/common/expression.proto\x12\x0ecoreapi.common\"\xc0\x01\n" +
 	"\n" +
 	"Expression\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x12\n" +
@@ -146,20 +145,7 @@ const file_coreapi_common_expression_proto_rawDesc = "" +
 	"\boperator\x18\x03 \x01(\tR\boperator\x12\x16\n" +
 	"\x06values\x18\x04 \x03(\tR\x06values\x12,\n" +
 	"\x03and\x18\x05 \x03(\v2\x1a.coreapi.common.ExpressionR\x03and\x12*\n" +
-	"\x02or\x18\x06 \x03(\v2\x1a.coreapi.common.ExpressionR\x02or:\xc8\x13\xbaH\xc4\x13\x1a\x84\x01\n" +
-	"\x18expression.node_required\x12-one of 'and', 'or', or 'key' must be provided\x1a9size(this.and) > 0 || size(this.or) > 0 || this.key != ''\x1a\xcd\x01\n" +
-	"\x18expression.and_exclusive\x12*and must not be combined with other fields\x1a\x84\x01size(this.and) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.or) == 0 : true\x1a\xcb\x01\n" +
-	"\x17expression.or_exclusive\x12)or must not be combined with other fields\x1a\x84\x01size(this.or) > 0 ? this.key == '' && this.type == '' && this.operator == '' && size(this.values) == 0 && size(this.and) == 0 : true\x1a\xd7\x01\n" +
-	"$expression.condition_fields_together\x121key, type, and operator must be provided together\x1a|(this.key != '' || this.type != '' || this.operator != '') ? this.key != '' && this.type != '' && this.operator != '' : true\x1a\xc4\x01\n" +
-	"\x19expression.type_supported\x12Dtype must be one of boolean, date, datetime, list, number, or string\x1aathis.type != '' ? this.type in ['boolean', 'date', 'datetime', 'list', 'number', 'string'] : true\x1a\x95\x01\n" +
-	"%expression.boolean_operator_supported\x12+operator must be supported for boolean type\x1a?this.type == 'boolean' ? this.operator in ['$eq', '$ne'] : true\x1a\xa8\x01\n" +
-	"\"expression.date_operator_supported\x12(operator must be supported for date type\x1aXthis.type == 'date' ? this.operator in ['$exist', '$nexist', '$eq', '$gt', '$lt'] : true\x1a\xad\x01\n" +
-	"&expression.datetime_operator_supported\x12,operator must be supported for datetime type\x1aUthis.type == 'datetime' ? this.operator in ['$exist', '$nexist', '$gt', '$lt'] : true\x1a\xb3\x01\n" +
-	"\"expression.list_operator_supported\x12(operator must be supported for list type\x1acthis.type == 'list' ? this.operator in ['$containsAny', '$containsAll', '$exist', '$nexist'] : true\x1a\xc5\x01\n" +
-	"$expression.number_operator_supported\x12*operator must be supported for number type\x1aqthis.type == 'number' ? this.operator in ['$exist', '$nexist', '$eq', '$ne', '$gt', '$gte', '$lt', '$lte'] : true\x1a\xd3\x01\n" +
-	"$expression.string_operator_supported\x12*operator must be supported for string type\x1a\x7fthis.type == 'string' ? this.operator in ['$eq', '$ne', '$in', '$nin', '$exist', '$nexist', '$startWith', '$nStartWith'] : true\x1a\xaf\x01\n" +
-	".expression.values_empty_for_existence_operator\x125values must be empty for $exist and $nexist operators\x1aFthis.operator in ['$exist', '$nexist'] ? size(this.values) == 0 : true\x1a\x82\x02\n" +
-	"\x1aexpression.values_required\x129values must contain at least one element for the operator\x1a\xa8\x01this.operator in ['$eq', '$ne', '$in', '$nin', '$startWith', '$nStartWith', '$gt', '$gte', '$lt', '$lte', '$containsAny', '$containsAll'] ? size(this.values) > 0 : trueBd\n" +
+	"\x02or\x18\x06 \x03(\v2\x1a.coreapi.common.ExpressionR\x02orBd\n" +
 	"'io.channel.api.proto.pub.coreapi.commonP\x01Z7github.com/channel-io/ch-proto-public/coreapi/go/commonb\x06proto3"
 
 var (
