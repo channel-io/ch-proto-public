@@ -21,41 +21,54 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Query expression shared across Core API operations.
+// Query expression
 //
-// The operation handling the expression validates whether a node is a
-// condition, an AND expression, or an OR expression, as well as the supported
-// fields, types, operators, and values.
+// When `and` is used, all other fields must be omitted.
+// The same applies when `or` is used.
+// When neither `and` nor `or` is used, `key`, `operator`, and `type` must be
+// provided.
 type Expression struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Field to which the condition applies.
 	//
 	// +kubebuilder:example="state"
 	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
-	// Type used to interpret the condition values. Supported types are boolean,
-	// date, datetime, list, number, and string.
+	// Type used to interpret the condition values.
+	// Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+	// `string`.
 	//
 	// +kubebuilder:example="string"
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	// Operator to apply to the condition values. For string conditions, $in and
-	// $nin perform substring matching.
+	// Operator to apply to the condition values.
+	// Supported operators by `type` are:
+	//   - `boolean`: `$eq`, `$ne`
+	//   - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+	//   - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+	//   - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+	//   - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+	//   - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+	//     `$nStartWith`
 	//
 	// +kubebuilder:example="$eq"
 	Operator string `protobuf:"bytes,3,opt,name=operator,proto3" json:"operator,omitempty"`
-	// Values used by the condition. Values must be empty for $exist and $nexist,
-	// and otherwise contain at least one element. Value formats by type are:
-	// - boolean: "true" or "false".
-	// - date: "yyyy-mm-dd".
-	// - datetime: an RFC 3339 timestamp.
-	// - number: a JSON number represented as a string.
-	// - string: strings interpreted by the selected operator.
+	// Values used by the condition.
+	// Values must be empty if `operator` is `$exist` or `$nexist`; all other
+	// operators require at least one value.
+	// Value formats by `type` are:
+	// - boolean: "true" or "false"
+	// - date: "yyyy-mm-dd"
+	// - datetime: RFC3339 timestamp
+	// - number: a JSON number represented as a string
+	// - string: string
 	// - list: list of strings
 	//
 	// +kubebuilder:example=["opened","closed"]
 	Values []string `protobuf:"bytes,4,rep,name=values,proto3" json:"values,omitempty"`
 	// Expressions that must all match.
+	// If `and` is provided, all other fields must be omitted.
 	And []*Expression `protobuf:"bytes,5,rep,name=and,proto3" json:"and,omitempty"`
 	// Expressions where at least one must match.
+	// If `or` is provided, all other fields must be omitted.
 	Or            []*Expression `protobuf:"bytes,6,rep,name=or,proto3" json:"or,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
