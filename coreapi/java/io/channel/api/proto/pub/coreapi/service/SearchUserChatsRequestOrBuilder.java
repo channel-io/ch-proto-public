@@ -109,7 +109,8 @@ public interface SearchUserChatsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -118,7 +119,8 @@ public interface SearchUserChatsRequestOrBuilder extends
   boolean hasFrom();
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -128,7 +130,8 @@ public interface SearchUserChatsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *
@@ -138,7 +141,8 @@ public interface SearchUserChatsRequestOrBuilder extends
   boolean hasTo();
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *

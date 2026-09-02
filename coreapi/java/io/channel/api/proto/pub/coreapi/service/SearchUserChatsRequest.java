@@ -247,7 +247,8 @@ private static final long serialVersionUID = 0L;
   private long from_ = 0L;
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -259,7 +260,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -274,7 +276,8 @@ private static final long serialVersionUID = 0L;
   private long to_ = 0L;
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *
@@ -287,7 +290,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *
@@ -1242,7 +1246,8 @@ private static final long serialVersionUID = 0L;
     private long from_ ;
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1254,7 +1259,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1266,7 +1272,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1282,7 +1289,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1298,7 +1306,8 @@ private static final long serialVersionUID = 0L;
     private long to_ ;
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *
@@ -1311,7 +1320,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *
@@ -1324,7 +1334,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *
@@ -1341,7 +1352,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *

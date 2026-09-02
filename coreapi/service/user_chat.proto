@@ -62,6 +62,11 @@ message SearchUserChatsRequest {
     message: "limit must not exceed 100 when dateTimeFieldName is managedAt"
     expression: "this.date_time_field_name == 'managedAt' ? this.limit <= 100 : true"
   };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.managed_at_range_required"
+    message: "from and to must be provided when dateTimeFieldName is managedAt"
+    expression: "this.date_time_field_name == 'managedAt' ? has(this.from) && has(this.to) : true"
+  };
 
   // Channel ID to search user chats in.
   string channel_id = 1 [(buf.validate.field).required = true];
@@ -87,10 +92,12 @@ message SearchUserChatsRequest {
     expression: "this == 0 || (this >= 1 && this <= 500)"
   }];
 
-  // Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+  // Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+  // and is required when dateTimeFieldName is managedAt.
   optional int64 from = 6;
 
-  // Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+  // Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+  // and is required when dateTimeFieldName is managedAt.
   // The range must not exceed 30 days.
   optional int64 to = 7;
 
