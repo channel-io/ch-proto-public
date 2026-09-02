@@ -33,7 +33,10 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -43,7 +46,10 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -93,6 +99,7 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Maximum number of results to return. Defaults to 25 if unset.
+   * Must not exceed 100 when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -102,7 +109,8 @@ public interface SearchUserChatsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -111,7 +119,8 @@ public interface SearchUserChatsRequestOrBuilder extends
   boolean hasFrom();
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -121,7 +130,8 @@ public interface SearchUserChatsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *
@@ -131,7 +141,8 @@ public interface SearchUserChatsRequestOrBuilder extends
   boolean hasTo();
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *
@@ -143,22 +154,22 @@ public interface SearchUserChatsRequestOrBuilder extends
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
-   * date-time fields can be supported without changing this contract.
+   * Defaults to deskUpdatedAt if unset.
+   * Must be either deskUpdatedAt or managedAt when specified.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
    * @return The dateTimeFieldName.
    */
   java.lang.String getDateTimeFieldName();
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
-   * date-time fields can be supported without changing this contract.
+   * Defaults to deskUpdatedAt if unset.
+   * Must be either deskUpdatedAt or managedAt when specified.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for dateTimeFieldName.
    */
   com.google.protobuf.ByteString

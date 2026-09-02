@@ -11,13 +11,18 @@ package io.channel.api.proto.pub.coreapi.service;
  *
  * The number of user chats retrieved is restricted by the limit parameter,
  * and is capped to values in the closed interval [1, 500].
+ * When dateTimeFieldName is managedAt, the maximum limit is 100.
+ *
  * Pagination is cursor-based. Pass the nextCursor value from the previous response
  * as the cursor parameter to retrieve the next page.
  * If the cursor parameter is left empty, the list starts from the beginning.
  *
  * Retrieved user chats can be filtered by state
  * (closed, opened, snoozed, queued, initial, missed).
- * Defaults to opened if state is not specified.
+ * Defaults to opened if state is not specified,
+ * except when dateTimeFieldName is managedAt.
+ * If dateTimeFieldName is managedAt and state is not specified,
+ * no state filter is applied.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.SearchUserChatsRequest}
@@ -120,7 +125,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -132,7 +140,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Filter by user chat state.
-   * Defaults to OPENED if unset.
+   * Defaults to OPENED if unset,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is unset,
+   * no state filter is applied.
    * </pre>
    *
    * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -221,6 +232,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Maximum number of results to return. Defaults to 25 if unset.
+   * Must not exceed 100 when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -235,7 +247,8 @@ private static final long serialVersionUID = 0L;
   private long from_ = 0L;
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -247,7 +260,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+   * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+   * and is required when dateTimeFieldName is managedAt.
    * </pre>
    *
    * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -262,7 +276,8 @@ private static final long serialVersionUID = 0L;
   private long to_ = 0L;
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *
@@ -275,7 +290,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+   * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+   * and is required when dateTimeFieldName is managedAt.
    * The range must not exceed 30 days.
    * </pre>
    *
@@ -293,11 +309,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
-   * date-time fields can be supported without changing this contract.
+   * Defaults to deskUpdatedAt if unset.
+   * Must be either deskUpdatedAt or managedAt when specified.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
    * @return The dateTimeFieldName.
    */
   @java.lang.Override
@@ -316,11 +332,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the date-time field used for range filtering.
-   * May be omitted. Values are intentionally not restricted at the proto layer so additional
-   * date-time fields can be supported without changing this contract.
+   * Defaults to deskUpdatedAt if unset.
+   * Must be either deskUpdatedAt or managedAt when specified.
    * </pre>
    *
-   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+   * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for dateTimeFieldName.
    */
   @java.lang.Override
@@ -589,13 +605,18 @@ private static final long serialVersionUID = 0L;
    *
    * The number of user chats retrieved is restricted by the limit parameter,
    * and is capped to values in the closed interval [1, 500].
+   * When dateTimeFieldName is managedAt, the maximum limit is 100.
+   *
    * Pagination is cursor-based. Pass the nextCursor value from the previous response
    * as the cursor parameter to retrieve the next page.
    * If the cursor parameter is left empty, the list starts from the beginning.
    *
    * Retrieved user chats can be filtered by state
    * (closed, opened, snoozed, queued, initial, missed).
-   * Defaults to opened if state is not specified.
+   * Defaults to opened if state is not specified,
+   * except when dateTimeFieldName is managedAt.
+   * If dateTimeFieldName is managedAt and state is not specified,
+   * no state filter is applied.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.SearchUserChatsRequest}
@@ -923,7 +944,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -935,7 +959,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -951,7 +978,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -965,7 +995,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -983,7 +1016,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Filter by user chat state.
-     * Defaults to OPENED if unset.
+     * Defaults to OPENED if unset,
+     * except when dateTimeFieldName is managedAt.
+     * If dateTimeFieldName is managedAt and state is unset,
+     * no state filter is applied.
      * </pre>
      *
      * <code>.coreapi.model.UserChatState state = 2 [json_name = "state"];</code>
@@ -1164,6 +1200,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Maximum number of results to return. Defaults to 25 if unset.
+     * Must not exceed 100 when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -1176,6 +1213,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Maximum number of results to return. Defaults to 25 if unset.
+     * Must not exceed 100 when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -1192,6 +1230,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Maximum number of results to return. Defaults to 25 if unset.
+     * Must not exceed 100 when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>int32 limit = 5 [json_name = "limit", (.buf.validate.field) = { ... }</code>
@@ -1207,7 +1246,8 @@ private static final long serialVersionUID = 0L;
     private long from_ ;
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1219,7 +1259,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1231,7 +1272,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1247,7 +1289,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`.
+     * Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+     * and is required when dateTimeFieldName is managedAt.
      * </pre>
      *
      * <code>optional int64 from = 6 [json_name = "from"];</code>
@@ -1263,7 +1306,8 @@ private static final long serialVersionUID = 0L;
     private long to_ ;
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *
@@ -1276,7 +1320,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *
@@ -1289,7 +1334,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *
@@ -1306,7 +1352,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`.
+     * Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+     * and is required when dateTimeFieldName is managedAt.
      * The range must not exceed 30 days.
      * </pre>
      *
@@ -1324,11 +1371,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @return The dateTimeFieldName.
      */
     public java.lang.String getDateTimeFieldName() {
@@ -1346,11 +1393,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @return The bytes for dateTimeFieldName.
      */
     public com.google.protobuf.ByteString
@@ -1369,11 +1416,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @param value The dateTimeFieldName to set.
      * @return This builder for chaining.
      */
@@ -1388,11 +1435,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDateTimeFieldName() {
@@ -1404,11 +1451,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the date-time field used for range filtering.
-     * May be omitted. Values are intentionally not restricted at the proto layer so additional
-     * date-time fields can be supported without changing this contract.
+     * Defaults to deskUpdatedAt if unset.
+     * Must be either deskUpdatedAt or managedAt when specified.
      * </pre>
      *
-     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName"];</code>
+     * <code>string date_time_field_name = 8 [json_name = "dateTimeFieldName", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for dateTimeFieldName to set.
      * @return This builder for chaining.
      */
