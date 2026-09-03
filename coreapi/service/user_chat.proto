@@ -3,6 +3,9 @@ syntax = "proto3";
 package coreapi.service;
 
 import "buf/validate/validate.proto";
+import "coreapi/common/aggregation.proto";
+import "coreapi/common/date_time_range.proto";
+import "coreapi/common/expression.proto";
 import "coreapi/common/sort_order.proto";
 import "coreapi/model/chat_bookmark.proto";
 import "coreapi/model/chat_session.proto";
@@ -11,6 +14,8 @@ import "coreapi/model/message_content.proto";
 import "coreapi/model/user_chat.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/service";
 option java_multiple_files = true;
@@ -24,18 +29,53 @@ option java_package = "io.channel.api.proto.pub.coreapi.service";
 //
 // The number of user chats retrieved is restricted by the limit parameter,
 // and is capped to values in the closed interval [1, 500].
+// When dateTimeFieldName is managedAt, the maximum limit is 100.
+//
 // Pagination is cursor-based. Pass the nextCursor value from the previous response
 // as the cursor parameter to retrieve the next page.
 // If the cursor parameter is left empty, the list starts from the beginning.
 //
-// Retrieved user chats can be filtered by state (opened, snoozed, closed).
-// Defaults to opened if state is not specified.
+// Retrieved user chats can be filtered by state
+// (closed, opened, snoozed, queued, initial, missed).
+// Defaults to opened if state is not specified,
+// except when dateTimeFieldName is managedAt.
+// If dateTimeFieldName is managedAt and state is not specified,
+// no state filter is applied.
 message SearchUserChatsRequest {
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.range_required_together"
+    message: "from and to must be provided together"
+    expression: "has(this.from) == has(this.to)"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.range_order"
+    message: "from must be less than to"
+    expression: "has(this.from) && has(this.to) ? this.from < this.to : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.range_not_exceed_30_days"
+    message: "the range between from and to must not exceed 30 days"
+    expression: "has(this.from) && has(this.to) ? this.to - this.from <= 2592000000 : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.managed_at_limit"
+    message: "limit must not exceed 100 when dateTimeFieldName is managedAt"
+    expression: "this.date_time_field_name == 'managedAt' ? this.limit <= 100 : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chats.managed_at_range_required"
+    message: "from and to must be provided when dateTimeFieldName is managedAt"
+    expression: "this.date_time_field_name == 'managedAt' ? has(this.from) && has(this.to) : true"
+  };
+
   // Channel ID to search user chats in.
   string channel_id = 1 [(buf.validate.field).required = true];
 
   // Filter by user chat state.
-  // Defaults to OPENED if unset.
+  // Defaults to OPENED if unset,
+  // except when dateTimeFieldName is managedAt.
+  // If dateTimeFieldName is managedAt and state is unset,
+  // no state filter is applied.
   coreapi.model.UserChatState state = 2;
 
   // Sort order for results. Defaults to descending if unset.
@@ -45,10 +85,29 @@ message SearchUserChatsRequest {
   string cursor = 4;
 
   // Maximum number of results to return. Defaults to 25 if unset.
+  // Must not exceed 100 when dateTimeFieldName is managedAt.
   int32 limit = 5 [(buf.validate.field).cel = {
     id: "int32.between"
     message: "limit must be between 1 and 500"
     expression: "this == 0 || (this >= 1 && this <= 500)"
+  }];
+
+  // Inclusive start of the date-time range, in Unix milliseconds. Must be provided together with `to`,
+  // and is required when dateTimeFieldName is managedAt.
+  optional int64 from = 6;
+
+  // Exclusive end of the date-time range, in Unix milliseconds. Must be provided together with `from`,
+  // and is required when dateTimeFieldName is managedAt.
+  // The range must not exceed 30 days.
+  optional int64 to = 7;
+
+  // Name of the date-time field used for range filtering.
+  // Defaults to deskUpdatedAt if unset.
+  // Must be either deskUpdatedAt or managedAt when specified.
+  string date_time_field_name = 8 [(buf.validate.field).cel = {
+    id: "search_user_chats.date_time_field_name"
+    message: "dateTimeFieldName must be either deskUpdatedAt or managedAt"
+    expression: "this != '' ? this in ['deskUpdatedAt', 'managedAt'] : true"
   }];
 }
 
@@ -64,6 +123,65 @@ message SearchUserChatsResult {
 
   // Whether a next page of results exists.
   bool has_next = 3;
+}
+
+// Aggregates user chats by a specified field.
+message AggregateUserChatsRequest {
+  // Channel ID to aggregate user chats in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // Date-time range to apply before aggregation.
+  // Currently, only "managedAt" is supported as the date-time field.
+  // The range must not exceed 60 days.
+  //
+  // +kubebuilder:validation:Required
+  coreapi.common.DateTimeRange date_time_range = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregate_user_chats.date_time_range_field_name"
+      message: "date_time_range.field_name must be managedAt"
+      expression: "this.field_name == 'managedAt'"
+    }
+  ];
+
+  // Additional conditions to apply before aggregation.
+  // Currently, only "id" (string) and "tags" (list) are supported as filter fields.
+  // The Core API validates the expression structure and supported values.
+  //
+  // +kubebuilder:validation:Nullable
+  coreapi.common.Expression filter = 3;
+
+  // Field whose values define the result groups. Currently, only "state" is supported.
+  //
+  // +kubebuilder:validation:Required
+  string group_by = 4 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregate_user_chats.group_by"
+      message: "group_by must be state"
+      expression: "this == 'state'"
+    }
+  ];
+
+  // Aggregation to perform for each group. Currently, only the "cnt" action is supported.
+  //
+  // +kubebuilder:validation:Required
+  coreapi.common.Aggregation aggregation = 5 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).cel = {
+      id: "aggregate_user_chats.aggregation_action"
+      message: "aggregation.action must be cnt and target_field_name must be empty"
+      expression: "this.action == 'cnt' && this.target_field_name == ''"
+    }
+  ];
+}
+
+// Response for user chat aggregation.
+message AggregateUserChatsResult {
+  // Aggregated values keyed by the observed value of group_by.
+  //
+  // +kubebuilder:example={"opened":"10","closed":"5"}
+  map<string, string> result = 1;
 }
 
 // Retrieves a list of user chats for a specific user.
@@ -151,15 +269,11 @@ message CreateUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 
-// Updates a user chat.
-//
 // Patches a user chat.
 //
 // PATCH semantics per RFC 7396 / AIP-134/161:
 //   - a field listed in update_mask is applied (null = clear, value = set)
 //   - a field absent from update_mask is not modified
-//
-// Only the description field can currently be patched.
 message PatchUserChatRequest {
   // User chat ID to update.
   string user_chat_id = 1 [(buf.validate.field).required = true];
@@ -191,6 +305,22 @@ message PatchUserChatRequest {
       message: "value must be no more than 1000 characters"
       expression: "this == '' || size(this) <= 1000"
     }];
+
+    // User chat classification tags to replace the current set.
+    //
+    // +kubebuilder:validation:Nullable
+    // +kubebuilder:validation:MaxItems=8
+    repeated string tags = 2 [(buf.validate.field).cel = {
+      id: "repeated.maxItems"
+      message: "value must contain no more than 8 items"
+      expression: "size(this) <= 8"
+    }];
+
+    // Custom key-value profile data for the chat.
+    // Keys are always strings; values may be any JSON type.
+    //
+    // +kubebuilder:validation:Nullable
+    google.protobuf.Struct profile = 3;
   }
 }
 
@@ -405,6 +535,22 @@ message SearchUserChatSessionsResult {
 
 // Retrieves a list of messages in a user chat.
 message SearchUserChatMessagesRequest {
+  option (buf.validate.message).cel = {
+    id: "search_user_chat_messages.range_required_together"
+    message: "from and to must be provided together"
+    expression: "has(this.from) == has(this.to)"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chat_messages.range_order"
+    message: "to must be later than from"
+    expression: "has(this.from) && has(this.to) ? ((this.to - this.from) > duration('0s')) : true"
+  };
+  option (buf.validate.message).cel = {
+    id: "search_user_chat_messages.range_not_exceed_30_days"
+    message: "the range between from and to must not exceed 30 days"
+    expression: "has(this.from) && has(this.to) ? ((this.to - this.from) <= duration('2592000s')) : true"
+  };
+
   string channel_id = 1 [(buf.validate.field).required = true];
   string user_chat_id = 2 [(buf.validate.field).required = true];
 
@@ -416,6 +562,17 @@ message SearchUserChatMessagesRequest {
     message: "limit must be between 1 and 500"
     expression: "this == 0 || (this >= 1 && this <= 500)"
   }];
+
+  // Inclusive start of the message creation time range. Must be provided together with `to`.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp from = 6;
+
+  // Exclusive end of the message creation time range. Must be provided together with `from`.
+  // The range must not exceed 30 days.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp to = 7;
 }
 
 message SearchUserChatMessagesResult {
@@ -425,6 +582,18 @@ message SearchUserChatMessagesResult {
   string next_cursor = 2;
 
   bool has_next = 3;
+
+  // Echoes the applied inclusive start of the message creation time range.
+  // Unset when no range was requested.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp from = 4;
+
+  // Echoes the applied exclusive end of the message creation time range.
+  // Unset when no range was requested.
+  //
+  // +kubebuilder:validation:Nullable
+  google.protobuf.Timestamp to = 5;
 }
 
 // Sends a new message to a user chat.
@@ -444,7 +613,7 @@ message CreateUserChatMessageRequest {
       message: "value must be no more than 30 characters"
       expression: "this == '' || size(this) <= 30"
     },
-    (buf.validate.field).string.pattern = "^[^@#$%:/]+$"
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/]+$"
   ];
 
   // +kubebuilder:validation:Nullable

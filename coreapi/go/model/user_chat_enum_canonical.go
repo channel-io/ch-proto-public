@@ -9,6 +9,8 @@ func (x UserChatState) GetString() string {
 		return "closed"
 	case UserChatState_USER_CHAT_STATE_INITIAL:
 		return "initial"
+	case UserChatState_USER_CHAT_STATE_MISSED:
+		return "missed"
 	case UserChatState_USER_CHAT_STATE_OPENED:
 		return "opened"
 	case UserChatState_USER_CHAT_STATE_QUEUED:
@@ -27,6 +29,8 @@ func UserChatStateForString(value string) UserChatState {
 		return UserChatState_USER_CHAT_STATE_CLOSED
 	case "initial":
 		return UserChatState_USER_CHAT_STATE_INITIAL
+	case "missed":
+		return UserChatState_USER_CHAT_STATE_MISSED
 	case "opened":
 		return UserChatState_USER_CHAT_STATE_OPENED
 	case "queued":
@@ -227,5 +231,33 @@ func UserChatSubtextTypeForString(value string) UserChatSubtextType {
 		return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_INCOMING
 	default:
 		return UserChatSubtextType_USER_CHAT_SUBTEXT_TYPE_UNSPECIFIED
+	}
+}
+
+// GetString returns the canonical string for UserChatDirection.
+func (x UserChatDirection) GetString() string {
+	switch x {
+	case UserChatDirection_USER_CHAT_DIRECTION_INBOUND:
+		return "inbound"
+	case UserChatDirection_USER_CHAT_DIRECTION_OUTBOUND:
+		return "outbound"
+	case UserChatDirection_USER_CHAT_DIRECTION_SHARING:
+		return "sharing"
+	default:
+		return ""
+	}
+}
+
+// UserChatDirectionForString returns the UserChatDirection enum for the given canonical string.
+func UserChatDirectionForString(value string) UserChatDirection {
+	switch value {
+	case "inbound":
+		return UserChatDirection_USER_CHAT_DIRECTION_INBOUND
+	case "outbound":
+		return UserChatDirection_USER_CHAT_DIRECTION_OUTBOUND
+	case "sharing":
+		return UserChatDirection_USER_CHAT_DIRECTION_SHARING
+	default:
+		return UserChatDirection_USER_CHAT_DIRECTION_UNSPECIFIED
 	}
 }

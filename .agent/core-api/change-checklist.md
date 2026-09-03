@@ -20,6 +20,7 @@ Use this checklist before and after changing Core API proto contracts.
 - [ ] Add new fields at the next safe number.
 - [ ] Use `buf.validate` for required fields and constraints.
 - [ ] Keep kubebuilder markers synchronized with `buf.validate`.
+- [ ] Write public proto comments in English.
 - [ ] Keep public comments observable to API consumers.
 - [ ] Avoid internal storage, table, and private service details in comments.
 

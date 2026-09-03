@@ -4,7 +4,8 @@
 logs/
 reference/
 
-# build artifacts
-protoc-gen-java-canonical-enum-namings
-protoc-gen-java-set-or-clear
-protoc-gen-go-canonical-enum-namings
+# build artifacts (root-level plugin binaries from `go build`; sources live under tools/)
+/protoc-gen-java-canonical-enum-namings
+/protoc-gen-java-set-or-clear
+/protoc-gen-go-canonical-enum-namings
+/protoc-gen-go-coreapi-json-names

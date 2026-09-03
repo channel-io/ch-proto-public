@@ -13,6 +13,14 @@ patterns:
     search:
       command: rg -n "message Search.*Request|next_cursor|has_next" coreapi/service
 
+  - id: aggregate
+    description: Grouped aggregate operation with a query range, optional filter, grouping field, and aggregation action.
+    references:
+      - file: coreapi/service/user_chat.proto
+        symbols: [AggregateUserChatsRequest, AggregateUserChatsResult]
+    search:
+      command: rg -n "message Aggregate.*Request|message Aggregate.*Result" coreapi/service
+
   - id: batch_get
     description: Batch lookup by IDs or keys with repeated field validation.
     references:
@@ -70,6 +78,18 @@ patterns:
         symbols: [Plugin]
     search:
       command: rg -n "kubebuilder:validation|kubebuilder:example|buf.validate" coreapi/model coreapi/common
+
+  - id: nullable_plain_scalar_validation
+    description: Nullable plain scalar validation accepts proto3 zero values as absent.
+    references:
+      - file: coreapi/service/group.proto
+        symbols: [PatchGroupRequest, CreateGroupMessageRequest]
+      - file: coreapi/service/user_chat.proto
+        symbols: [CreateUserChatMessageRequest]
+      - file: coreapi/service/announcement.proto
+        symbols: [AnnounceToAllRequest]
+    search:
+      command: rg -n -C 4 "kubebuilder:validation:Nullable|this == ''|\\^\\$\\|" coreapi/service coreapi/model coreapi/common
 
 anti_patterns:
   - id: dependent_service_split

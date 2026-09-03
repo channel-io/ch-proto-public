@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package coreapi.common;
+
+option go_package = "github.com/channel-io/ch-proto-public/coreapi/go/common";
+option java_multiple_files = true;
+option java_package = "io.channel.api.proto.pub.coreapi.common";
+
+// Query expression
+//
+// When `and` is used, all other fields must be omitted.
+// The same applies when `or` is used.
+// When neither `and` nor `or` is used, `key`, `operator`, and `type` must be
+// provided.
+message Expression {
+  // Field to which the condition applies.
+  //
+  // +kubebuilder:example="state"
+  string key = 1;
+
+  // Type used to interpret the condition values.
+  // Supported types are `boolean`, `date`, `datetime`, `list`, `number`, and
+  // `string`.
+  //
+  // +kubebuilder:example="string"
+  string type = 2;
+
+  // Operator to apply to the condition values.
+  // Supported operators by `type` are:
+  // - `boolean`: `$eq`, `$ne`
+  // - `date`: `$exist`, `$nexist`, `$eq`, `$gt`, `$lt`
+  // - `datetime`: `$exist`, `$nexist`, `$gt`, `$lt`
+  // - `list`: `$containsAny`, `$containsAll`, `$exist`, `$nexist`
+  // - `number`: `$exist`, `$nexist`, `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`
+  // - `string`: `$eq`, `$ne`, `$in`, `$nin`, `$exist`, `$nexist`, `$startWith`,
+  //   `$nStartWith`
+  //
+  // +kubebuilder:example="$eq"
+  string operator = 3;
+
+  // Values used by the condition.
+  // Values must be empty if `operator` is `$exist` or `$nexist`; all other
+  // operators require at least one value.
+  // Value formats by `type` are:
+  // - boolean: "true" or "false"
+  // - date: "yyyy-mm-dd"
+  // - datetime: RFC3339 timestamp
+  // - number: a JSON number represented as a string
+  // - string: string
+  // - list: list of strings
+  //
+  // +kubebuilder:example=["opened","closed"]
+  repeated string values = 4;
+
+  // Expressions that must all match.
+  // If `and` is provided, all other fields must be omitted.
+  repeated Expression and = 5;
+
+  // Expressions where at least one must match.
+  // If `or` is provided, all other fields must be omitted.
+  repeated Expression or = 6;
+}
