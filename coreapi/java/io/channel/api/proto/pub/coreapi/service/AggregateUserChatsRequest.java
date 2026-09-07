@@ -8,7 +8,7 @@ package io.channel.api.proto.pub.coreapi.service;
 /**
  * <pre>
  * Aggregates user chats by a specified field.
- * The date-time range can start on or after January 1, 2026.
+ * The date-time range can start on or after January 1, 2026, at 00:00 (UTC+00:00).
  * </pre>
  *
  * Protobuf type {@code coreapi.service.AggregateUserChatsRequest}
@@ -519,7 +519,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Aggregates user chats by a specified field.
-   * The date-time range can start on or after January 1, 2026.
+   * The date-time range can start on or after January 1, 2026, at 00:00 (UTC+00:00).
    * </pre>
    *
    * Protobuf type {@code coreapi.service.AggregateUserChatsRequest}
