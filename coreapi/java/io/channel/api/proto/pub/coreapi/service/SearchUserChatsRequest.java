@@ -11,7 +11,8 @@ package io.channel.api.proto.pub.coreapi.service;
  *
  * The number of user chats retrieved is restricted by the limit parameter,
  * and is capped to values in the closed interval [1, 500].
- * When dateTimeFieldName is managedAt, the maximum limit is 100.
+ * When dateTimeFieldName is managedAt, the maximum limit is 100,
+ * and the date-time range can start on or after January 1, 2026.
  *
  * Pagination is cursor-based. Pass the nextCursor value from the previous response
  * as the cursor parameter to retrieve the next page.
@@ -605,7 +606,8 @@ private static final long serialVersionUID = 0L;
    *
    * The number of user chats retrieved is restricted by the limit parameter,
    * and is capped to values in the closed interval [1, 500].
-   * When dateTimeFieldName is managedAt, the maximum limit is 100.
+   * When dateTimeFieldName is managedAt, the maximum limit is 100,
+   * and the date-time range can start on or after January 1, 2026.
    *
    * Pagination is cursor-based. Pass the nextCursor value from the previous response
    * as the cursor parameter to retrieve the next page.
