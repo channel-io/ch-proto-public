@@ -32,7 +32,8 @@ const (
 //
 // The number of user chats retrieved is restricted by the limit parameter,
 // and is capped to values in the closed interval [1, 500].
-// When dateTimeFieldName is managedAt, the maximum limit is 100.
+// When dateTimeFieldName is managedAt, the maximum limit is 100,
+// and the date-time range can start on or after January 1, 2026, at 00:00 (UTC+00:00).
 //
 // Pagination is cursor-based. Pass the nextCursor value from the previous response
 // as the cursor parameter to retrieve the next page.
@@ -229,6 +230,7 @@ func (x *SearchUserChatsResult) GetHasNext() bool {
 }
 
 // Aggregates user chats by a specified field.
+// The date-time range can start on or after January 1, 2026, at 00:00 (UTC+00:00).
 type AggregateUserChatsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Channel ID to aggregate user chats in.
