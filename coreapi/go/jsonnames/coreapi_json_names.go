@@ -427,6 +427,7 @@ var coreAPIFieldNames = map[string]map[string]fieldName{
 		"thread_root":       {jsonName: "threadRoot"},
 		"broadcasted_msg":   {jsonName: "broadcastedMsg"},
 		"removed_by_writer": {jsonName: "removedByWriter"},
+		"removed_at":        {jsonName: "removedAt"},
 	},
 	"coreapi.model.MessageAlf": {
 		"handling_id":          {jsonName: "handlingId"},

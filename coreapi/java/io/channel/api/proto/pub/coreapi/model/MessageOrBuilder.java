@@ -1333,8 +1333,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Whether the message was removed by its original author.
-   * True when the message state is REMOVED and the remover matches the author,
-   * or when no specific remover is recorded.
+   * Reflects whether the removed message is attributed to its author.
    *
    * +kubebuilder:validation:Required
    * +kubebuilder:example="false"
@@ -1344,4 +1343,40 @@ public interface MessageOrBuilder extends
    * @return The removedByWriter.
    */
   boolean getRemovedByWriter();
+
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   * Absent if no removal time is recorded, including older removed messages.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return Whether the removedAt field is set.
+   */
+  boolean hasRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   * Absent if no removal time is recorded, including older removed messages.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return The removedAt.
+   */
+  com.google.protobuf.Timestamp getRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   * Absent if no removal time is recorded, including older removed messages.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder();
 }

@@ -306,12 +306,17 @@ message Message {
   bool broadcasted_msg = 44 [(buf.validate.field).required = true];
 
   // Whether the message was removed by its original author.
-  // True when the message state is REMOVED and the remover matches the author,
-  // or when no specific remover is recorded.
+  // Reflects whether the removed message is attributed to its author.
   //
   // +kubebuilder:validation:Required
   // +kubebuilder:example="false"
   bool removed_by_writer = 45 [(buf.validate.field).required = true];
+
+  // Timestamp when the message was removed.
+  // Absent if no removal time is recorded, including older removed messages.
+  //
+  // +kubebuilder:example="2024-03-29T03:24:30Z"
+  google.protobuf.Timestamp removed_at = 46;
 }
 
 // =====================================================

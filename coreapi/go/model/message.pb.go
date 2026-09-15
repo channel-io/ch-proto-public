@@ -893,14 +893,18 @@ type Message struct {
 	// +kubebuilder:example="false"
 	BroadcastedMsg bool `protobuf:"varint,44,opt,name=broadcasted_msg,json=broadcastedMsg,proto3" json:"broadcasted_msg,omitempty"`
 	// Whether the message was removed by its original author.
-	// True when the message state is REMOVED and the remover matches the author,
-	// or when no specific remover is recorded.
+	// Reflects whether the removed message is attributed to its author.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="false"
 	RemovedByWriter bool `protobuf:"varint,45,opt,name=removed_by_writer,json=removedByWriter,proto3" json:"removed_by_writer,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	// Timestamp when the message was removed.
+	// Absent if no removal time is recorded, including older removed messages.
+	//
+	// +kubebuilder:example="2024-03-29T03:24:30Z"
+	RemovedAt     *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Message) Reset() {
@@ -1232,6 +1236,13 @@ func (x *Message) GetRemovedByWriter() bool {
 		return x.RemovedByWriter
 	}
 	return false
+}
+
+func (x *Message) GetRemovedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.RemovedAt
+	}
+	return nil
 }
 
 // MessageThread represents a threaded reply chain attached to a root message within a chat.
@@ -2357,7 +2368,7 @@ var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf5\x0f\n" +
+	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x10\n" +
 	"\aMessage\x12!\n" +
 	"\bchat_key\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\achatKey\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x19\n" +
@@ -2413,7 +2424,9 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\vthread_root\x18+ \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\n" +
 	"threadRoot\x12/\n" +
 	"\x0fbroadcasted_msg\x18, \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0ebroadcastedMsg\x122\n" +
-	"\x11removed_by_writer\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0fremovedByWriterJ\x04\b\x10\x10\x11R\aversion\"\x9a\x02\n" +
+	"\x11removed_by_writer\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0fremovedByWriter\x129\n" +
+	"\n" +
+	"removed_at\x18. \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAtJ\x04\b\x10\x10\x11R\aversion\"\x9a\x02\n" +
 	"\rMessageThread\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12)\n" +
 	"\vmanager_ids\x18\x02 \x03(\tB\b\xbaH\x05\x92\x01\x02\b\x01R\n" +
@@ -2674,34 +2687,35 @@ var file_coreapi_model_message_proto_depIdxs = []int32{
 	26, // 22: coreapi.model.Message.ivr:type_name -> google.protobuf.Struct
 	26, // 23: coreapi.model.Message.custom_payload:type_name -> google.protobuf.Struct
 	2,  // 24: coreapi.model.Message.writing_type:type_name -> coreapi.model.WritingType
-	22, // 25: coreapi.model.MessageThread.chat_type:type_name -> coreapi.model.ChatType
-	3,  // 26: coreapi.model.MessageLog.action:type_name -> coreapi.model.MessageLog.MessageLogAction
-	22, // 27: coreapi.model.MessageMeet.chat_type:type_name -> coreapi.model.ChatType
-	4,  // 28: coreapi.model.MessageMeet.state:type_name -> coreapi.model.MessageMeet.MeetState
-	5,  // 29: coreapi.model.MessageMeet.mode:type_name -> coreapi.model.MessageMeet.MeetMode
-	24, // 30: coreapi.model.MessageMeet.room_started_at:type_name -> google.protobuf.Timestamp
-	26, // 31: coreapi.model.MessageMeet.call:type_name -> google.protobuf.Struct
-	26, // 32: coreapi.model.MessageMeet.front:type_name -> google.protobuf.Struct
-	26, // 33: coreapi.model.MessageMeet.recording:type_name -> google.protobuf.Struct
-	24, // 34: coreapi.model.MessageMeet.meet_ended_at:type_name -> google.protobuf.Timestamp
-	6,  // 35: coreapi.model.MessageMeet.meet_type:type_name -> coreapi.model.MessageMeet.MeetType
-	26, // 36: coreapi.model.MessageAlf.references:type_name -> google.protobuf.Struct
-	7,  // 37: coreapi.model.MessageEmail.direction:type_name -> coreapi.model.MessageEmail.EmailDirection
-	26, // 38: coreapi.model.MessageEmail.from:type_name -> google.protobuf.Struct
-	26, // 39: coreapi.model.MessageEmail.to:type_name -> google.protobuf.Struct
-	26, // 40: coreapi.model.MessageEmail.cc:type_name -> google.protobuf.Struct
-	26, // 41: coreapi.model.MessageEmail.bcc:type_name -> google.protobuf.Struct
-	26, // 42: coreapi.model.MessageEmail.reply_to:type_name -> google.protobuf.Struct
-	24, // 43: coreapi.model.MessageEmail.created_at:type_name -> google.protobuf.Timestamp
-	28, // 44: coreapi.model.MessageIvr.audio_file:type_name -> coreapi.model.MessageFile
-	8,  // 45: coreapi.model.MessageMarketing.exposure_type:type_name -> coreapi.model.MessageMarketing.ExposureType
-	26, // 46: coreapi.model.MessageCustomPayload.data:type_name -> google.protobuf.Struct
-	21, // 47: coreapi.model.MessageCustomPayload.param_mapper:type_name -> coreapi.model.MessageCustomPayload.ParamMapperEntry
-	48, // [48:48] is the sub-list for method output_type
-	48, // [48:48] is the sub-list for method input_type
-	48, // [48:48] is the sub-list for extension type_name
-	48, // [48:48] is the sub-list for extension extendee
-	0,  // [0:48] is the sub-list for field type_name
+	24, // 25: coreapi.model.Message.removed_at:type_name -> google.protobuf.Timestamp
+	22, // 26: coreapi.model.MessageThread.chat_type:type_name -> coreapi.model.ChatType
+	3,  // 27: coreapi.model.MessageLog.action:type_name -> coreapi.model.MessageLog.MessageLogAction
+	22, // 28: coreapi.model.MessageMeet.chat_type:type_name -> coreapi.model.ChatType
+	4,  // 29: coreapi.model.MessageMeet.state:type_name -> coreapi.model.MessageMeet.MeetState
+	5,  // 30: coreapi.model.MessageMeet.mode:type_name -> coreapi.model.MessageMeet.MeetMode
+	24, // 31: coreapi.model.MessageMeet.room_started_at:type_name -> google.protobuf.Timestamp
+	26, // 32: coreapi.model.MessageMeet.call:type_name -> google.protobuf.Struct
+	26, // 33: coreapi.model.MessageMeet.front:type_name -> google.protobuf.Struct
+	26, // 34: coreapi.model.MessageMeet.recording:type_name -> google.protobuf.Struct
+	24, // 35: coreapi.model.MessageMeet.meet_ended_at:type_name -> google.protobuf.Timestamp
+	6,  // 36: coreapi.model.MessageMeet.meet_type:type_name -> coreapi.model.MessageMeet.MeetType
+	26, // 37: coreapi.model.MessageAlf.references:type_name -> google.protobuf.Struct
+	7,  // 38: coreapi.model.MessageEmail.direction:type_name -> coreapi.model.MessageEmail.EmailDirection
+	26, // 39: coreapi.model.MessageEmail.from:type_name -> google.protobuf.Struct
+	26, // 40: coreapi.model.MessageEmail.to:type_name -> google.protobuf.Struct
+	26, // 41: coreapi.model.MessageEmail.cc:type_name -> google.protobuf.Struct
+	26, // 42: coreapi.model.MessageEmail.bcc:type_name -> google.protobuf.Struct
+	26, // 43: coreapi.model.MessageEmail.reply_to:type_name -> google.protobuf.Struct
+	24, // 44: coreapi.model.MessageEmail.created_at:type_name -> google.protobuf.Timestamp
+	28, // 45: coreapi.model.MessageIvr.audio_file:type_name -> coreapi.model.MessageFile
+	8,  // 46: coreapi.model.MessageMarketing.exposure_type:type_name -> coreapi.model.MessageMarketing.ExposureType
+	26, // 47: coreapi.model.MessageCustomPayload.data:type_name -> google.protobuf.Struct
+	21, // 48: coreapi.model.MessageCustomPayload.param_mapper:type_name -> coreapi.model.MessageCustomPayload.ParamMapperEntry
+	49, // [49:49] is the sub-list for method output_type
+	49, // [49:49] is the sub-list for method input_type
+	49, // [49:49] is the sub-list for extension type_name
+	49, // [49:49] is the sub-list for extension extendee
+	0,  // [0:49] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_message_proto_init() }
