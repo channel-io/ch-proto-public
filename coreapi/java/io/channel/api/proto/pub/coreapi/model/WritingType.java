@@ -151,7 +151,7 @@ public enum WritingType
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor().getEnumType(2);
+    return io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor().getEnumType(3);
   }
 
   private static final WritingType[] VALUES = values();

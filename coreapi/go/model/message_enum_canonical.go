@@ -34,6 +34,34 @@ func MessageStateForString(value string) MessageState {
 	}
 }
 
+// GetString returns the canonical string for ExternalMediumState.
+func (x ExternalMediumState) GetString() string {
+	switch x {
+	case ExternalMediumState_EXTERNAL_MEDIUM_STATE_FAILED:
+		return "failed"
+	case ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCED:
+		return "synced"
+	case ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCING:
+		return "syncing"
+	default:
+		return ""
+	}
+}
+
+// ExternalMediumStateForString returns the ExternalMediumState enum for the given canonical string.
+func ExternalMediumStateForString(value string) ExternalMediumState {
+	switch value {
+	case "failed":
+		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_FAILED
+	case "synced":
+		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCED
+	case "syncing":
+		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCING
+	default:
+		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_UNSPECIFIED
+	}
+}
+
 // GetString returns the canonical string for AlertLevel.
 func (x AlertLevel) GetString() string {
 	switch x {

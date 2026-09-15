@@ -26,6 +26,18 @@ enum MessageState {
   MESSAGE_STATE_REMOVED = 4;
 }
 
+// Synchronization state of a message with an external medium.
+enum ExternalMediumState {
+  // Unspecified or not set.
+  EXTERNAL_MEDIUM_STATE_UNSPECIFIED = 0;
+  // Synchronization is in progress.
+  EXTERNAL_MEDIUM_STATE_SYNCING = 1;
+  // Successfully synchronized.
+  EXTERNAL_MEDIUM_STATE_SYNCED = 2;
+  // Synchronization failed.
+  EXTERNAL_MEDIUM_STATE_FAILED = 3;
+}
+
 // Alert level controlling how the client displays notifications for a message.
 enum AlertLevel {
   // Unspecified or not set.
@@ -234,6 +246,7 @@ message Message {
   google.protobuf.Struct form = 31;
 
   // Current lifecycle state of this message.
+  // Deprecated: retained for backward compatibility.
   //
   MessageState state = 32;
 
@@ -312,6 +325,15 @@ message Message {
   // +kubebuilder:validation:Required
   // +kubebuilder:example="false"
   bool removed_by_writer = 45 [(buf.validate.field).required = true];
+
+  // Timestamp when the message was removed.
+  //
+  // +kubebuilder:example="2024-03-29T03:24:30Z"
+  google.protobuf.Timestamp removed_at = 46;
+
+  // Synchronization state of this message with an external medium.
+  //
+  ExternalMediumState external_medium_state = 47;
 }
 
 // =====================================================

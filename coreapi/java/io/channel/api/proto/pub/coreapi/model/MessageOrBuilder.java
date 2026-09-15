@@ -997,6 +997,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of this message.
+   * Deprecated: retained for backward compatibility.
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -1006,6 +1007,7 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of this message.
+   * Deprecated: retained for backward compatibility.
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
@@ -1344,4 +1346,56 @@ public interface MessageOrBuilder extends
    * @return The removedByWriter.
    */
   boolean getRemovedByWriter();
+
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return Whether the removedAt field is set.
+   */
+  boolean hasRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return The removedAt.
+   */
+  com.google.protobuf.Timestamp getRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Synchronization state of this message with an external medium.
+   * </pre>
+   *
+   * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
+   * @return The enum numeric value on the wire for externalMediumState.
+   */
+  int getExternalMediumStateValue();
+  /**
+   * <pre>
+   * Synchronization state of this message with an external medium.
+   * </pre>
+   *
+   * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
+   * @return The externalMediumState.
+   */
+  io.channel.api.proto.pub.coreapi.model.ExternalMediumState getExternalMediumState();
 }

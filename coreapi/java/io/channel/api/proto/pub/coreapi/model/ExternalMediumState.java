@@ -7,46 +7,46 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Alert level controlling how the client displays notifications for a message.
+ * Synchronization state of a message with an external medium.
  * </pre>
  *
- * Protobuf enum {@code coreapi.model.AlertLevel}
+ * Protobuf enum {@code coreapi.model.ExternalMediumState}
  */
 @com.google.protobuf.Generated
-public enum AlertLevel
+public enum ExternalMediumState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
    * Unspecified or not set.
    * </pre>
    *
-   * <code>ALERT_LEVEL_UNSPECIFIED = 0;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_UNSPECIFIED = 0;</code>
    */
-  ALERT_LEVEL_UNSPECIFIED(0),
+  EXTERNAL_MEDIUM_STATE_UNSPECIFIED(0),
   /**
    * <pre>
-   * Triggers a push notification and visual alert.
+   * Synchronization is in progress.
    * </pre>
    *
-   * <code>ALERT_LEVEL_ALERT = 1;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_SYNCING = 1;</code>
    */
-  ALERT_LEVEL_ALERT(1),
+  EXTERNAL_MEDIUM_STATE_SYNCING(1),
   /**
    * <pre>
-   * Increments the unread badge without a push notification.
+   * Successfully synchronized.
    * </pre>
    *
-   * <code>ALERT_LEVEL_UNREAD = 2;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_SYNCED = 2;</code>
    */
-  ALERT_LEVEL_UNREAD(2),
+  EXTERNAL_MEDIUM_STATE_SYNCED(2),
   /**
    * <pre>
-   * No notification and no badge increment.
+   * Synchronization failed.
    * </pre>
    *
-   * <code>ALERT_LEVEL_NONE = 3;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_FAILED = 3;</code>
    */
-  ALERT_LEVEL_NONE(3),
+  EXTERNAL_MEDIUM_STATE_FAILED(3),
   UNRECOGNIZED(-1),
   ;
 
@@ -57,40 +57,40 @@ public enum AlertLevel
       /* minor= */ 35,
       /* patch= */ 1,
       /* suffix= */ "",
-      "AlertLevel");
+      "ExternalMediumState");
   }
   /**
    * <pre>
    * Unspecified or not set.
    * </pre>
    *
-   * <code>ALERT_LEVEL_UNSPECIFIED = 0;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_UNSPECIFIED = 0;</code>
    */
-  public static final int ALERT_LEVEL_UNSPECIFIED_VALUE = 0;
+  public static final int EXTERNAL_MEDIUM_STATE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * Triggers a push notification and visual alert.
+   * Synchronization is in progress.
    * </pre>
    *
-   * <code>ALERT_LEVEL_ALERT = 1;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_SYNCING = 1;</code>
    */
-  public static final int ALERT_LEVEL_ALERT_VALUE = 1;
+  public static final int EXTERNAL_MEDIUM_STATE_SYNCING_VALUE = 1;
   /**
    * <pre>
-   * Increments the unread badge without a push notification.
+   * Successfully synchronized.
    * </pre>
    *
-   * <code>ALERT_LEVEL_UNREAD = 2;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_SYNCED = 2;</code>
    */
-  public static final int ALERT_LEVEL_UNREAD_VALUE = 2;
+  public static final int EXTERNAL_MEDIUM_STATE_SYNCED_VALUE = 2;
   /**
    * <pre>
-   * No notification and no badge increment.
+   * Synchronization failed.
    * </pre>
    *
-   * <code>ALERT_LEVEL_NONE = 3;</code>
+   * <code>EXTERNAL_MEDIUM_STATE_FAILED = 3;</code>
    */
-  public static final int ALERT_LEVEL_NONE_VALUE = 3;
+  public static final int EXTERNAL_MEDIUM_STATE_FAILED_VALUE = 3;
 
 
   public final int getNumber() {
@@ -107,7 +107,7 @@ public enum AlertLevel
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static AlertLevel valueOf(int value) {
+  public static ExternalMediumState valueOf(int value) {
     return forNumber(value);
   }
 
@@ -115,25 +115,25 @@ public enum AlertLevel
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static AlertLevel forNumber(int value) {
+  public static ExternalMediumState forNumber(int value) {
     switch (value) {
-      case 0: return ALERT_LEVEL_UNSPECIFIED;
-      case 1: return ALERT_LEVEL_ALERT;
-      case 2: return ALERT_LEVEL_UNREAD;
-      case 3: return ALERT_LEVEL_NONE;
+      case 0: return EXTERNAL_MEDIUM_STATE_UNSPECIFIED;
+      case 1: return EXTERNAL_MEDIUM_STATE_SYNCING;
+      case 2: return EXTERNAL_MEDIUM_STATE_SYNCED;
+      case 3: return EXTERNAL_MEDIUM_STATE_FAILED;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<AlertLevel>
+  public static com.google.protobuf.Internal.EnumLiteMap<ExternalMediumState>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      AlertLevel> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<AlertLevel>() {
-          public AlertLevel findValueByNumber(int number) {
-            return AlertLevel.forNumber(number);
+      ExternalMediumState> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<ExternalMediumState>() {
+          public ExternalMediumState findValueByNumber(int number) {
+            return ExternalMediumState.forNumber(number);
           }
         };
 
@@ -151,12 +151,12 @@ public enum AlertLevel
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor().getEnumType(2);
+    return io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor().getEnumType(1);
   }
 
-  private static final AlertLevel[] VALUES = values();
+  private static final ExternalMediumState[] VALUES = values();
 
-  public static AlertLevel valueOf(
+  public static ExternalMediumState valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -170,7 +170,7 @@ public enum AlertLevel
 
   private final int value;
 
-  private AlertLevel(int value) {
+  private ExternalMediumState(int value) {
     this.value = value;
   }
 
@@ -180,12 +180,12 @@ public enum AlertLevel
    * @param value The string value corresponding to the enum entry.
    * @return The enum entry corresponding to the string value.
    */
-  public static AlertLevel forString(String value) {
+  public static ExternalMediumState forString(String value) {
   	switch (value) {
-      case "alert": return ALERT_LEVEL_ALERT;
-      case "none": return ALERT_LEVEL_NONE;
-      case "unread": return ALERT_LEVEL_UNREAD;
-  		default: return ALERT_LEVEL_UNSPECIFIED;
+      case "failed": return EXTERNAL_MEDIUM_STATE_FAILED;
+      case "synced": return EXTERNAL_MEDIUM_STATE_SYNCED;
+      case "syncing": return EXTERNAL_MEDIUM_STATE_SYNCING;
+  		default: return EXTERNAL_MEDIUM_STATE_UNSPECIFIED;
   	}
   }
   				
@@ -194,12 +194,12 @@ public enum AlertLevel
    */
   public final String getString() {
   	switch (this) {
-      case ALERT_LEVEL_ALERT: return "alert";
-      case ALERT_LEVEL_NONE: return "none";
-      case ALERT_LEVEL_UNREAD: return "unread";
+      case EXTERNAL_MEDIUM_STATE_FAILED: return "failed";
+      case EXTERNAL_MEDIUM_STATE_SYNCED: return "synced";
+      case EXTERNAL_MEDIUM_STATE_SYNCING: return "syncing";
   		default: return null;
   	}
   }
   				
-  // @@protoc_insertion_point(enum_scope:coreapi.model.AlertLevel)
+  // @@protoc_insertion_point(enum_scope:coreapi.model.ExternalMediumState)
 }
