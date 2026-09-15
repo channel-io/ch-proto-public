@@ -1621,25 +1621,27 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Current lifecycle state of this message.
-   * Deprecated: retained for backward compatibility.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The enum numeric value on the wire for state.
    */
-  @java.lang.Override public int getStateValue() {
+  @java.lang.Override @java.lang.Deprecated public int getStateValue() {
     return state_;
   }
   /**
    * <pre>
    * Current lifecycle state of this message.
-   * Deprecated: retained for backward compatibility.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The state.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
+  @java.lang.Override @java.lang.Deprecated public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
     io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.forNumber(state_);
     return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
   }
@@ -8938,26 +8940,28 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
-     * Deprecated: retained for backward compatibility.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @return The enum numeric value on the wire for state.
      */
-    @java.lang.Override public int getStateValue() {
+    @java.lang.Override @java.lang.Deprecated public int getStateValue() {
       return state_;
     }
     /**
      * <pre>
      * Current lifecycle state of this message.
-     * Deprecated: retained for backward compatibility.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
-    public Builder setStateValue(int value) {
+    @java.lang.Deprecated public Builder setStateValue(int value) {
       state_ = value;
       bitField0_ |= 0x40000000;
       onChanged();
@@ -8966,29 +8970,31 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
-     * Deprecated: retained for backward compatibility.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @return The state.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
+    @java.lang.Deprecated public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
       io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.forNumber(state_);
       return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * Current lifecycle state of this message.
-     * Deprecated: retained for backward compatibility.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @param value The state to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
      */
-    public Builder setState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
+    @java.lang.Deprecated public Builder setState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
       if (value == null) { throw new NullPointerException(); }
       bitField0_ |= 0x40000000;
       state_ = value.getNumber();
@@ -8998,13 +9004,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Current lifecycle state of this message.
-     * Deprecated: retained for backward compatibility.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @return This builder for chaining.
      */
-    public Builder clearState() {
+    @java.lang.Deprecated public Builder clearState() {
       bitField0_ = (bitField0_ & ~0x40000000);
       state_ = 0;
       onChanged();

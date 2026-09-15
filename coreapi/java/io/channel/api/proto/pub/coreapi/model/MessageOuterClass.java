@@ -105,7 +105,7 @@ public final class MessageOuterClass extends com.google.protobuf.GeneratedFile {
       "pi/model/entity_type.proto\032#coreapi/mode" +
       "l/message_content.proto\032\034google/protobuf" +
       "/struct.proto\032\037google/protobuf/timestamp" +
-      ".proto\"\210\021\n\007Message\022!\n\010chat_key\030\001 \001(\tB\006\272H" +
+      ".proto\"\214\021\n\007Message\022!\n\010chat_key\030\001 \001(\tB\006\272H" +
       "\003\310\001\001R\007chatKey\022\026\n\002id\030\002 \001(\tB\006\272H\003\310\001\001R\002id\022\031\n" +
       "\010main_key\030\003 \001(\tR\007mainKey\022\035\n\nthread_key\030\004" +
       " \001(\tR\tthreadKey\022\031\n\010meet_key\030\005 \001(\tR\007meetK" +
@@ -139,172 +139,172 @@ public final class MessageOuterClass extends com.google.protobuf.GeneratedFile {
       "eReactionR\treactions\022:\n\014alf_progress\030\036 \001" +
       "(\0132\027.google.protobuf.StructR\013alfProgress" +
       "\022+\n\004form\030\037 \001(\0132\027.google.protobuf.StructR" +
-      "\004form\0221\n\005state\030  \001(\0162\033.coreapi.model.Mes" +
-      "sageStateR\005state\0226\n\007options\030! \003(\0162\034.core" +
-      "api.model.MessageOptionR\007options\0225\n\tmark" +
-      "eting\030\" \001(\0132\027.google.protobuf.StructR\tma" +
-      "rketing\0223\n\010workflow\030$ \001(\0132\027.google.proto" +
-      "buf.StructR\010workflow\022:\n\013alert_level\030% \001(" +
-      "\0162\031.coreapi.model.AlertLevelR\nalertLevel" +
-      "\022)\n\003ivr\030& \001(\0132\027.google.protobuf.StructR\003" +
-      "ivr\022>\n\016custom_payload\030\' \001(\0132\027.google.pro" +
-      "tobuf.StructR\rcustomPayload\022=\n\014writing_t" +
-      "ype\030( \001(\0162\032.coreapi.model.WritingTypeR\013w" +
-      "ritingType\022%\n\nthread_msg\030) \001(\010B\006\272H\003\310\001\001R\t" +
-      "threadMsg\022&\n\017root_message_id\030* \001(\tR\rroot" +
-      "MessageId\022\'\n\013thread_root\030+ \001(\010B\006\272H\003\310\001\001R\n" +
-      "threadRoot\022/\n\017broadcasted_msg\030, \001(\010B\006\272H\003" +
-      "\310\001\001R\016broadcastedMsg\0222\n\021removed_by_writer" +
-      "\030- \001(\010B\006\272H\003\310\001\001R\017removedByWriter\0229\n\nremov" +
-      "ed_at\030. \001(\0132\032.google.protobuf.TimestampR" +
-      "\tremovedAt\022V\n\025external_medium_state\030/ \001(" +
-      "\0162\".coreapi.model.ExternalMediumStateR\023e" +
-      "xternalMediumStateJ\004\010\020\020\021R\007version\"\232\002\n\rMe" +
-      "ssageThread\022\016\n\002id\030\001 \001(\tR\002id\022)\n\013manager_i" +
-      "ds\030\002 \003(\tB\010\272H\005\222\001\002\010\001R\nmanagerIds\022.\n\023replie" +
-      "d_manager_ids\030\003 \003(\tR\021repliedManagerIds\022\'" +
-      "\n\013reply_count\030\004 \001(\005B\006\272H\003\310\001\001R\nreplyCount\022" +
-      "4\n\tchat_type\030\005 \001(\0162\027.coreapi.model.ChatT" +
-      "ypeR\010chatType\022\027\n\007chat_id\030\006 \001(\tR\006chatId\022&" +
-      "\n\017root_message_id\030\007 \001(\tR\rrootMessageId\"\307" +
-      "\r\n\nMessageLog\022J\n\006action\030\001 \001(\0162*.coreapi." +
-      "model.MessageLog.MessageLogActionB\006\272H\003\310\001" +
-      "\001R\006action\022\026\n\006values\030\002 \003(\tR\006values\022!\n\014tri" +
-      "gger_type\030\003 \001(\tR\013triggerType\022\035\n\ntrigger_" +
-      "id\030\004 \001(\tR\ttriggerId\"\222\014\n\020MessageLogAction" +
-      "\022\"\n\036MESSAGE_LOG_ACTION_UNSPECIFIED\020\000\022\"\n\036" +
-      "MESSAGE_LOG_ACTION_CHANGE_NAME\020\001\022#\n\037MESS" +
-      "AGE_LOG_ACTION_CHANGE_SCOPE\020\002\022\034\n\030MESSAGE" +
-      "_LOG_ACTION_CLOSE\020\003\022!\n\035MESSAGE_LOG_ACTIO" +
-      "N_AUTO_CLOSE\020\004\022\035\n\031MESSAGE_LOG_ACTION_CRE" +
-      "ATE\020\005\022\035\n\031MESSAGE_LOG_ACTION_INVITE\020\006\022\033\n\027" +
-      "MESSAGE_LOG_ACTION_JOIN\020\007\022\035\n\031MESSAGE_LOG" +
-      "_ACTION_ASSIGN\020\010\022\"\n\036MESSAGE_LOG_ACTION_A" +
-      "UTO_ASSIGN\020\t\022\037\n\033MESSAGE_LOG_ACTION_UNASS" +
-      "IGN\020\n\022\034\n\030MESSAGE_LOG_ACTION_LEAVE\020\013\022\033\n\027M" +
-      "ESSAGE_LOG_ACTION_OPEN\020\014\022 \n\034MESSAGE_LOG_" +
-      "ACTION_AUTO_OPEN\020\r\022\036\n\032MESSAGE_LOG_ACTION" +
-      "_ENQUEUE\020\016\022\033\n\027MESSAGE_LOG_ACTION_MISS\020\017\022" +
-      "\035\n\031MESSAGE_LOG_ACTION_REMOVE\020\020\022\035\n\031MESSAG" +
-      "E_LOG_ACTION_SNOOZE\020\021\022\037\n\033MESSAGE_LOG_ACT" +
-      "ION_ADD_TAGS\020\022\022\"\n\036MESSAGE_LOG_ACTION_REM" +
-      "OVE_TAGS\020\023\022\"\n\036MESSAGE_LOG_ACTION_ASSIGN_" +
-      "TEAM\020\024\022$\n MESSAGE_LOG_ACTION_UNASSIGN_TE" +
-      "AM\020\025\022 \n\034MESSAGE_LOG_ACTION_JOIN_MEET\020\026\022!" +
-      "\n\035MESSAGE_LOG_ACTION_LEAVE_MEET\020\027\022\"\n\036MES" +
-      "SAGE_LOG_ACTION_INVITE_MEET\020\030\022 \n\034MESSAGE" +
-      "_LOG_ACTION_MISS_MEET\020\031\022$\n MESSAGE_LOG_A" +
-      "CTION_CALLBACK_MEET\020\032\022\'\n#MESSAGE_LOG_ACT" +
-      "ION_TRY_CONNECT_CALL\020\033\022&\n\"MESSAGE_LOG_AC" +
-      "TION_PROCESS_BY_MISS\020\034\022%\n!MESSAGE_LOG_AC" +
-      "TION_PROCESS_BRANCH\020\035\022\037\n\033MESSAGE_LOG_ACT" +
-      "ION_SEND_XMS\020\036\022$\n MESSAGE_LOG_ACTION_ADD" +
-      "_USER_TAGS\020\037\022\'\n#MESSAGE_LOG_ACTION_REMOV" +
-      "E_USER_TAGS\020 \022&\n\"MESSAGE_LOG_ACTION_UPDA" +
-      "TE_PRIORITY\020!\022%\n!MESSAGE_LOG_ACTION_STAR" +
-      "T_WORKFLOW\020\"\022#\n\037MESSAGE_LOG_ACTION_END_W" +
-      "ORKFLOW\020#\022)\n%MESSAGE_LOG_ACTION_INTERRUP" +
-      "T_WORKFLOW\020$\0220\n,MESSAGE_LOG_ACTION_INTER" +
-      "RUPT_WORKFLOW_BY_BOT\020%\022(\n$MESSAGE_LOG_AC" +
-      "TION_TRY_OPEN_WITH_ALF\020&\022!\n\035MESSAGE_LOG_" +
-      "ACTION_START_TASK\020\'\022\"\n\036MESSAGE_LOG_ACTIO" +
-      "N_APPLY_RULES\020(\022)\n%MESSAGE_LOG_ACTION_CA" +
-      "NCEL_ALF_BY_USER\020)\022$\n MESSAGE_LOG_ACTION" +
-      "_FALLBACK_CALL\020*\"\240\001\n\017MessageReaction\022l\n\n" +
-      "emoji_name\030\001 \001(\tBM\272HJ\272\001D\n\rstring.minLen\022" +
-      "\"value must be at least 1 character\032\017siz" +
-      "e(this) >= 1\310\001\001R\temojiName\022\037\n\013person_key" +
-      "s\030\002 \003(\tR\npersonKeys\"\242\010\n\013MessageMeet\022\016\n\002i" +
-      "d\030\001 \001(\tR\002id\0224\n\tchat_type\030\002 \001(\0162\027.coreapi" +
-      ".model.ChatTypeR\010chatType\022\035\n\nchannel_id\030" +
-      "\003 \001(\tR\tchannelId\022:\n\005state\030\004 \001(\0162$.coreap" +
-      "i.model.MessageMeet.MeetStateR\005state\0227\n\004" +
-      "mode\030\005 \001(\0162#.coreapi.model.MessageMeet.M" +
-      "eetModeR\004mode\022\'\n\017amassed_persons\030\006 \003(\tR\016" +
-      "amassedPersons\022B\n\017room_started_at\030\007 \001(\0132" +
-      "\032.google.protobuf.TimestampR\rroomStarted" +
-      "At\022+\n\004call\030\010 \001(\0132\027.google.protobuf.Struc" +
-      "tR\004call\022-\n\005front\030\t \001(\0132\027.google.protobuf" +
-      ".StructR\005front\0225\n\trecording\030\n \001(\0132\027.goog" +
-      "le.protobuf.StructR\trecording\022\030\n\007country" +
-      "\030\013 \001(\tR\007country\022>\n\rmeet_ended_at\030\014 \001(\0132\032" +
-      ".google.protobuf.TimestampR\013meetEndedAt\022" +
-      "\037\n\013manager_ids\030\r \003(\tR\nmanagerIds\022@\n\tmeet" +
-      "_type\030\016 \001(\0162#.coreapi.model.MessageMeet." +
-      "MeetTypeR\010meetType\022\027\n\007bot_ids\030\017 \003(\tR\006bot" +
-      "Ids\"\255\001\n\tMeetState\022\032\n\026MEET_STATE_UNSPECIF" +
-      "IED\020\000\022\023\n\017MEET_STATE_LIVE\020\001\022\024\n\020MEET_STATE" +
-      "_ENDED\020\002\022\033\n\027MEET_STATE_TRANSCRIBING\020\003\022\032\n" +
-      "\026MEET_STATE_TRANSCRIBED\020\004\022 \n\034MEET_STATE_" +
-      "TRANSCRIBE_FAILED\020\005\"O\n\010MeetMode\022\031\n\025MEET_" +
-      "MODE_UNSPECIFIED\020\000\022\023\n\017MEET_MODE_AUDIO\020\001\022" +
-      "\023\n\017MEET_MODE_VIDEO\020\002\"b\n\010MeetType\022\031\n\025MEET" +
-      "_TYPE_UNSPECIFIED\020\000\022\023\n\017MEET_TYPE_FRONT\020\001" +
-      "\022\022\n\016MEET_TYPE_CALL\020\002\022\022\n\016MEET_TYPE_TEAM\020\003" +
-      "\"\306\001\n\nMessageAlf\022\037\n\013handling_id\030\001 \001(\tR\nha" +
-      "ndlingId\022$\n\016alf_session_id\030\002 \001(\tR\014alfSes" +
-      "sionId\0227\n\nreferences\030\003 \003(\0132\027.google.prot" +
-      "obuf.StructR\nreferences\0228\n\024mention_alf_a" +
-      "nswered\030\004 \001(\010B\006\272H\003\310\001\001R\022mentionAlfAnswere" +
-      "d\"O\n\022MessageAlfProgress\022\035\n\nplain_text\030\001 " +
-      "\001(\tR\tplainText\022\032\n\004type\030\002 \001(\tB\006\272H\003\310\001\001R\004ty" +
-      "pe\"\374\004\n\014MessageEmail\022\016\n\002id\030\001 \001(\tR\002id\022H\n\td" +
-      "irection\030\002 \001(\0162*.coreapi.model.MessageEm" +
-      "ail.EmailDirectionR\tdirection\022+\n\004from\030\003 " +
-      "\001(\0132\027.google.protobuf.StructR\004from\022\'\n\002to" +
-      "\030\004 \003(\0132\027.google.protobuf.StructR\002to\022\'\n\002c" +
-      "c\030\005 \003(\0132\027.google.protobuf.StructR\002cc\022)\n\003" +
-      "bcc\030\006 \003(\0132\027.google.protobuf.StructR\003bcc\022" +
-      "2\n\010reply_to\030\007 \001(\0132\027.google.protobuf.Stru" +
-      "ctR\007replyTo\022\030\n\007subject\030\010 \001(\tR\007subject\022\037\n" +
-      "\013has_history\030\t \001(\010R\nhasHistory\022-\n\023reply_" +
-      "to_message_id\030\n \001(\tR\020replyToMessageId\022!\n" +
-      "\014received_for\030\013 \001(\tR\013receivedFor\0229\n\ncrea" +
-      "ted_at\030\014 \001(\0132\032.google.protobuf.Timestamp" +
-      "R\tcreatedAt\"l\n\016EmailDirection\022\037\n\033EMAIL_D" +
-      "IRECTION_UNSPECIFIED\020\000\022\033\n\027EMAIL_DIRECTIO" +
-      "N_INBOUND\020\001\022\034\n\030EMAIL_DIRECTION_OUTBOUND\020" +
-      "\002\"f\n\nMessageIvr\0229\n\naudio_file\030\001 \001(\0132\032.co" +
-      "reapi.model.MessageFileR\taudioFile\022\035\n\ndi" +
-      "al_input\030\002 \001(\tR\tdialInput\"\201\003\n\020MessageMar" +
-      "keting\022\022\n\004type\030\001 \001(\tR\004type\022\016\n\002id\030\002 \001(\tR\002" +
-      "id\022 \n\013advertising\030\003 \001(\010R\013advertising\022-\n\023" +
-      "send_to_offline_xms\030\004 \001(\010R\020sendToOffline" +
-      "Xms\0221\n\025send_to_offline_email\030\005 \001(\010R\022send" +
-      "ToOfflineEmail\022Q\n\rexposure_type\030\006 \001(\0162,." +
-      "coreapi.model.MessageMarketing.ExposureT" +
-      "ypeR\014exposureType\022$\n\016image_link_url\030\007 \001(" +
-      "\tR\014imageLinkUrl\"L\n\014ExposureType\022\035\n\031EXPOS" +
-      "URE_TYPE_UNSPECIFIED\020\000\022\035\n\031EXPOSURE_TYPE_" +
-      "FULL_SCREEN\020\001\"\344\001\n\017MessageWorkflow\022\016\n\002id\030" +
-      "\001 \001(\tR\002id\022\037\n\013revision_id\030\002 \001(\tR\nrevision" +
-      "Id\022\035\n\nsection_id\030\003 \001(\tR\tsectionId\022!\n\014act" +
-      "ion_index\030\004 \001(\005R\013actionIndex\022(\n\020submit_b" +
-      "utton_id\030\005 \001(\tR\016submitButtonId\0224\n\022button" +
-      "_bot_message\030\006 \001(\010B\006\272H\003\310\001\001R\020buttonBotMes" +
-      "sage\"\334\001\n\024MessageCustomPayload\022+\n\004data\030\001 " +
-      "\001(\0132\027.google.protobuf.StructR\004data\022W\n\014pa" +
-      "ram_mapper\030\002 \003(\01324.coreapi.model.Message" +
-      "CustomPayload.ParamMapperEntryR\013paramMap" +
-      "per\032>\n\020ParamMapperEntry\022\020\n\003key\030\001 \001(\tR\003ke" +
-      "y\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*\225\001\n\014MessageS" +
-      "tate\022\035\n\031MESSAGE_STATE_UNSPECIFIED\020\000\022\031\n\025M" +
-      "ESSAGE_STATE_SENDING\020\001\022\026\n\022MESSAGE_STATE_" +
-      "SENT\020\002\022\030\n\024MESSAGE_STATE_FAILED\020\003\022\031\n\025MESS" +
-      "AGE_STATE_REMOVED\020\004*\243\001\n\023ExternalMediumSt" +
-      "ate\022%\n!EXTERNAL_MEDIUM_STATE_UNSPECIFIED" +
-      "\020\000\022!\n\035EXTERNAL_MEDIUM_STATE_SYNCING\020\001\022 \n" +
-      "\034EXTERNAL_MEDIUM_STATE_SYNCED\020\002\022 \n\034EXTER" +
-      "NAL_MEDIUM_STATE_FAILED\020\003*n\n\nAlertLevel\022" +
-      "\033\n\027ALERT_LEVEL_UNSPECIFIED\020\000\022\025\n\021ALERT_LE" +
-      "VEL_ALERT\020\001\022\026\n\022ALERT_LEVEL_UNREAD\020\002\022\024\n\020A" +
-      "LERT_LEVEL_NONE\020\003*w\n\013WritingType\022\034\n\030WRIT" +
-      "ING_TYPE_UNSPECIFIED\020\000\022\031\n\025WRITING_TYPE_S" +
-      "TANDARD\020\001\022\027\n\023WRITING_TYPE_CUSTOM\020\002\022\026\n\022WR" +
-      "ITING_TYPE_EMAIL\020\003Bb\n&io.channel.api.pro" +
-      "to.pub.coreapi.modelP\001Z6github.com/chann" +
-      "el-io/ch-proto-public/coreapi/go/modelb\006" +
-      "proto3"
+      "\004form\0225\n\005state\030  \001(\0162\033.coreapi.model.Mes" +
+      "sageStateB\002\030\001R\005state\0226\n\007options\030! \003(\0162\034." +
+      "coreapi.model.MessageOptionR\007options\0225\n\t" +
+      "marketing\030\" \001(\0132\027.google.protobuf.Struct" +
+      "R\tmarketing\0223\n\010workflow\030$ \001(\0132\027.google.p" +
+      "rotobuf.StructR\010workflow\022:\n\013alert_level\030" +
+      "% \001(\0162\031.coreapi.model.AlertLevelR\nalertL" +
+      "evel\022)\n\003ivr\030& \001(\0132\027.google.protobuf.Stru" +
+      "ctR\003ivr\022>\n\016custom_payload\030\' \001(\0132\027.google" +
+      ".protobuf.StructR\rcustomPayload\022=\n\014writi" +
+      "ng_type\030( \001(\0162\032.coreapi.model.WritingTyp" +
+      "eR\013writingType\022%\n\nthread_msg\030) \001(\010B\006\272H\003\310" +
+      "\001\001R\tthreadMsg\022&\n\017root_message_id\030* \001(\tR\r" +
+      "rootMessageId\022\'\n\013thread_root\030+ \001(\010B\006\272H\003\310" +
+      "\001\001R\nthreadRoot\022/\n\017broadcasted_msg\030, \001(\010B" +
+      "\006\272H\003\310\001\001R\016broadcastedMsg\0222\n\021removed_by_wr" +
+      "iter\030- \001(\010B\006\272H\003\310\001\001R\017removedByWriter\0229\n\nr" +
+      "emoved_at\030. \001(\0132\032.google.protobuf.Timest" +
+      "ampR\tremovedAt\022V\n\025external_medium_state\030" +
+      "/ \001(\0162\".coreapi.model.ExternalMediumStat" +
+      "eR\023externalMediumStateJ\004\010\020\020\021R\007version\"\232\002" +
+      "\n\rMessageThread\022\016\n\002id\030\001 \001(\tR\002id\022)\n\013manag" +
+      "er_ids\030\002 \003(\tB\010\272H\005\222\001\002\010\001R\nmanagerIds\022.\n\023re" +
+      "plied_manager_ids\030\003 \003(\tR\021repliedManagerI" +
+      "ds\022\'\n\013reply_count\030\004 \001(\005B\006\272H\003\310\001\001R\nreplyCo" +
+      "unt\0224\n\tchat_type\030\005 \001(\0162\027.coreapi.model.C" +
+      "hatTypeR\010chatType\022\027\n\007chat_id\030\006 \001(\tR\006chat" +
+      "Id\022&\n\017root_message_id\030\007 \001(\tR\rrootMessage" +
+      "Id\"\307\r\n\nMessageLog\022J\n\006action\030\001 \001(\0162*.core" +
+      "api.model.MessageLog.MessageLogActionB\006\272" +
+      "H\003\310\001\001R\006action\022\026\n\006values\030\002 \003(\tR\006values\022!\n" +
+      "\014trigger_type\030\003 \001(\tR\013triggerType\022\035\n\ntrig" +
+      "ger_id\030\004 \001(\tR\ttriggerId\"\222\014\n\020MessageLogAc" +
+      "tion\022\"\n\036MESSAGE_LOG_ACTION_UNSPECIFIED\020\000" +
+      "\022\"\n\036MESSAGE_LOG_ACTION_CHANGE_NAME\020\001\022#\n\037" +
+      "MESSAGE_LOG_ACTION_CHANGE_SCOPE\020\002\022\034\n\030MES" +
+      "SAGE_LOG_ACTION_CLOSE\020\003\022!\n\035MESSAGE_LOG_A" +
+      "CTION_AUTO_CLOSE\020\004\022\035\n\031MESSAGE_LOG_ACTION" +
+      "_CREATE\020\005\022\035\n\031MESSAGE_LOG_ACTION_INVITE\020\006" +
+      "\022\033\n\027MESSAGE_LOG_ACTION_JOIN\020\007\022\035\n\031MESSAGE" +
+      "_LOG_ACTION_ASSIGN\020\010\022\"\n\036MESSAGE_LOG_ACTI" +
+      "ON_AUTO_ASSIGN\020\t\022\037\n\033MESSAGE_LOG_ACTION_U" +
+      "NASSIGN\020\n\022\034\n\030MESSAGE_LOG_ACTION_LEAVE\020\013\022" +
+      "\033\n\027MESSAGE_LOG_ACTION_OPEN\020\014\022 \n\034MESSAGE_" +
+      "LOG_ACTION_AUTO_OPEN\020\r\022\036\n\032MESSAGE_LOG_AC" +
+      "TION_ENQUEUE\020\016\022\033\n\027MESSAGE_LOG_ACTION_MIS" +
+      "S\020\017\022\035\n\031MESSAGE_LOG_ACTION_REMOVE\020\020\022\035\n\031ME" +
+      "SSAGE_LOG_ACTION_SNOOZE\020\021\022\037\n\033MESSAGE_LOG" +
+      "_ACTION_ADD_TAGS\020\022\022\"\n\036MESSAGE_LOG_ACTION" +
+      "_REMOVE_TAGS\020\023\022\"\n\036MESSAGE_LOG_ACTION_ASS" +
+      "IGN_TEAM\020\024\022$\n MESSAGE_LOG_ACTION_UNASSIG" +
+      "N_TEAM\020\025\022 \n\034MESSAGE_LOG_ACTION_JOIN_MEET" +
+      "\020\026\022!\n\035MESSAGE_LOG_ACTION_LEAVE_MEET\020\027\022\"\n" +
+      "\036MESSAGE_LOG_ACTION_INVITE_MEET\020\030\022 \n\034MES" +
+      "SAGE_LOG_ACTION_MISS_MEET\020\031\022$\n MESSAGE_L" +
+      "OG_ACTION_CALLBACK_MEET\020\032\022\'\n#MESSAGE_LOG" +
+      "_ACTION_TRY_CONNECT_CALL\020\033\022&\n\"MESSAGE_LO" +
+      "G_ACTION_PROCESS_BY_MISS\020\034\022%\n!MESSAGE_LO" +
+      "G_ACTION_PROCESS_BRANCH\020\035\022\037\n\033MESSAGE_LOG" +
+      "_ACTION_SEND_XMS\020\036\022$\n MESSAGE_LOG_ACTION" +
+      "_ADD_USER_TAGS\020\037\022\'\n#MESSAGE_LOG_ACTION_R" +
+      "EMOVE_USER_TAGS\020 \022&\n\"MESSAGE_LOG_ACTION_" +
+      "UPDATE_PRIORITY\020!\022%\n!MESSAGE_LOG_ACTION_" +
+      "START_WORKFLOW\020\"\022#\n\037MESSAGE_LOG_ACTION_E" +
+      "ND_WORKFLOW\020#\022)\n%MESSAGE_LOG_ACTION_INTE" +
+      "RRUPT_WORKFLOW\020$\0220\n,MESSAGE_LOG_ACTION_I" +
+      "NTERRUPT_WORKFLOW_BY_BOT\020%\022(\n$MESSAGE_LO" +
+      "G_ACTION_TRY_OPEN_WITH_ALF\020&\022!\n\035MESSAGE_" +
+      "LOG_ACTION_START_TASK\020\'\022\"\n\036MESSAGE_LOG_A" +
+      "CTION_APPLY_RULES\020(\022)\n%MESSAGE_LOG_ACTIO" +
+      "N_CANCEL_ALF_BY_USER\020)\022$\n MESSAGE_LOG_AC" +
+      "TION_FALLBACK_CALL\020*\"\240\001\n\017MessageReaction" +
+      "\022l\n\nemoji_name\030\001 \001(\tBM\272HJ\272\001D\n\rstring.min" +
+      "Len\022\"value must be at least 1 character\032" +
+      "\017size(this) >= 1\310\001\001R\temojiName\022\037\n\013person" +
+      "_keys\030\002 \003(\tR\npersonKeys\"\242\010\n\013MessageMeet\022" +
+      "\016\n\002id\030\001 \001(\tR\002id\0224\n\tchat_type\030\002 \001(\0162\027.cor" +
+      "eapi.model.ChatTypeR\010chatType\022\035\n\nchannel" +
+      "_id\030\003 \001(\tR\tchannelId\022:\n\005state\030\004 \001(\0162$.co" +
+      "reapi.model.MessageMeet.MeetStateR\005state" +
+      "\0227\n\004mode\030\005 \001(\0162#.coreapi.model.MessageMe" +
+      "et.MeetModeR\004mode\022\'\n\017amassed_persons\030\006 \003" +
+      "(\tR\016amassedPersons\022B\n\017room_started_at\030\007 " +
+      "\001(\0132\032.google.protobuf.TimestampR\rroomSta" +
+      "rtedAt\022+\n\004call\030\010 \001(\0132\027.google.protobuf.S" +
+      "tructR\004call\022-\n\005front\030\t \001(\0132\027.google.prot" +
+      "obuf.StructR\005front\0225\n\trecording\030\n \001(\0132\027." +
+      "google.protobuf.StructR\trecording\022\030\n\007cou" +
+      "ntry\030\013 \001(\tR\007country\022>\n\rmeet_ended_at\030\014 \001" +
+      "(\0132\032.google.protobuf.TimestampR\013meetEnde" +
+      "dAt\022\037\n\013manager_ids\030\r \003(\tR\nmanagerIds\022@\n\t" +
+      "meet_type\030\016 \001(\0162#.coreapi.model.MessageM" +
+      "eet.MeetTypeR\010meetType\022\027\n\007bot_ids\030\017 \003(\tR" +
+      "\006botIds\"\255\001\n\tMeetState\022\032\n\026MEET_STATE_UNSP" +
+      "ECIFIED\020\000\022\023\n\017MEET_STATE_LIVE\020\001\022\024\n\020MEET_S" +
+      "TATE_ENDED\020\002\022\033\n\027MEET_STATE_TRANSCRIBING\020" +
+      "\003\022\032\n\026MEET_STATE_TRANSCRIBED\020\004\022 \n\034MEET_ST" +
+      "ATE_TRANSCRIBE_FAILED\020\005\"O\n\010MeetMode\022\031\n\025M" +
+      "EET_MODE_UNSPECIFIED\020\000\022\023\n\017MEET_MODE_AUDI" +
+      "O\020\001\022\023\n\017MEET_MODE_VIDEO\020\002\"b\n\010MeetType\022\031\n\025" +
+      "MEET_TYPE_UNSPECIFIED\020\000\022\023\n\017MEET_TYPE_FRO" +
+      "NT\020\001\022\022\n\016MEET_TYPE_CALL\020\002\022\022\n\016MEET_TYPE_TE" +
+      "AM\020\003\"\306\001\n\nMessageAlf\022\037\n\013handling_id\030\001 \001(\t" +
+      "R\nhandlingId\022$\n\016alf_session_id\030\002 \001(\tR\014al" +
+      "fSessionId\0227\n\nreferences\030\003 \003(\0132\027.google." +
+      "protobuf.StructR\nreferences\0228\n\024mention_a" +
+      "lf_answered\030\004 \001(\010B\006\272H\003\310\001\001R\022mentionAlfAns" +
+      "wered\"O\n\022MessageAlfProgress\022\035\n\nplain_tex" +
+      "t\030\001 \001(\tR\tplainText\022\032\n\004type\030\002 \001(\tB\006\272H\003\310\001\001" +
+      "R\004type\"\374\004\n\014MessageEmail\022\016\n\002id\030\001 \001(\tR\002id\022" +
+      "H\n\tdirection\030\002 \001(\0162*.coreapi.model.Messa" +
+      "geEmail.EmailDirectionR\tdirection\022+\n\004fro" +
+      "m\030\003 \001(\0132\027.google.protobuf.StructR\004from\022\'" +
+      "\n\002to\030\004 \003(\0132\027.google.protobuf.StructR\002to\022" +
+      "\'\n\002cc\030\005 \003(\0132\027.google.protobuf.StructR\002cc" +
+      "\022)\n\003bcc\030\006 \003(\0132\027.google.protobuf.StructR\003" +
+      "bcc\0222\n\010reply_to\030\007 \001(\0132\027.google.protobuf." +
+      "StructR\007replyTo\022\030\n\007subject\030\010 \001(\tR\007subjec" +
+      "t\022\037\n\013has_history\030\t \001(\010R\nhasHistory\022-\n\023re" +
+      "ply_to_message_id\030\n \001(\tR\020replyToMessageI" +
+      "d\022!\n\014received_for\030\013 \001(\tR\013receivedFor\0229\n\n" +
+      "created_at\030\014 \001(\0132\032.google.protobuf.Times" +
+      "tampR\tcreatedAt\"l\n\016EmailDirection\022\037\n\033EMA" +
+      "IL_DIRECTION_UNSPECIFIED\020\000\022\033\n\027EMAIL_DIRE" +
+      "CTION_INBOUND\020\001\022\034\n\030EMAIL_DIRECTION_OUTBO" +
+      "UND\020\002\"f\n\nMessageIvr\0229\n\naudio_file\030\001 \001(\0132" +
+      "\032.coreapi.model.MessageFileR\taudioFile\022\035" +
+      "\n\ndial_input\030\002 \001(\tR\tdialInput\"\201\003\n\020Messag" +
+      "eMarketing\022\022\n\004type\030\001 \001(\tR\004type\022\016\n\002id\030\002 \001" +
+      "(\tR\002id\022 \n\013advertising\030\003 \001(\010R\013advertising" +
+      "\022-\n\023send_to_offline_xms\030\004 \001(\010R\020sendToOff" +
+      "lineXms\0221\n\025send_to_offline_email\030\005 \001(\010R\022" +
+      "sendToOfflineEmail\022Q\n\rexposure_type\030\006 \001(" +
+      "\0162,.coreapi.model.MessageMarketing.Expos" +
+      "ureTypeR\014exposureType\022$\n\016image_link_url\030" +
+      "\007 \001(\tR\014imageLinkUrl\"L\n\014ExposureType\022\035\n\031E" +
+      "XPOSURE_TYPE_UNSPECIFIED\020\000\022\035\n\031EXPOSURE_T" +
+      "YPE_FULL_SCREEN\020\001\"\344\001\n\017MessageWorkflow\022\016\n" +
+      "\002id\030\001 \001(\tR\002id\022\037\n\013revision_id\030\002 \001(\tR\nrevi" +
+      "sionId\022\035\n\nsection_id\030\003 \001(\tR\tsectionId\022!\n" +
+      "\014action_index\030\004 \001(\005R\013actionIndex\022(\n\020subm" +
+      "it_button_id\030\005 \001(\tR\016submitButtonId\0224\n\022bu" +
+      "tton_bot_message\030\006 \001(\010B\006\272H\003\310\001\001R\020buttonBo" +
+      "tMessage\"\334\001\n\024MessageCustomPayload\022+\n\004dat" +
+      "a\030\001 \001(\0132\027.google.protobuf.StructR\004data\022W" +
+      "\n\014param_mapper\030\002 \003(\01324.coreapi.model.Mes" +
+      "sageCustomPayload.ParamMapperEntryR\013para" +
+      "mMapper\032>\n\020ParamMapperEntry\022\020\n\003key\030\001 \001(\t" +
+      "R\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001*\225\001\n\014Mess" +
+      "ageState\022\035\n\031MESSAGE_STATE_UNSPECIFIED\020\000\022" +
+      "\031\n\025MESSAGE_STATE_SENDING\020\001\022\026\n\022MESSAGE_ST" +
+      "ATE_SENT\020\002\022\030\n\024MESSAGE_STATE_FAILED\020\003\022\031\n\025" +
+      "MESSAGE_STATE_REMOVED\020\004*\243\001\n\023ExternalMedi" +
+      "umState\022%\n!EXTERNAL_MEDIUM_STATE_UNSPECI" +
+      "FIED\020\000\022!\n\035EXTERNAL_MEDIUM_STATE_SYNCING\020" +
+      "\001\022 \n\034EXTERNAL_MEDIUM_STATE_SYNCED\020\002\022 \n\034E" +
+      "XTERNAL_MEDIUM_STATE_FAILED\020\003*n\n\nAlertLe" +
+      "vel\022\033\n\027ALERT_LEVEL_UNSPECIFIED\020\000\022\025\n\021ALER" +
+      "T_LEVEL_ALERT\020\001\022\026\n\022ALERT_LEVEL_UNREAD\020\002\022" +
+      "\024\n\020ALERT_LEVEL_NONE\020\003*w\n\013WritingType\022\034\n\030" +
+      "WRITING_TYPE_UNSPECIFIED\020\000\022\031\n\025WRITING_TY" +
+      "PE_STANDARD\020\001\022\027\n\023WRITING_TYPE_CUSTOM\020\002\022\026" +
+      "\n\022WRITING_TYPE_EMAIL\020\003Bb\n&io.channel.api" +
+      ".proto.pub.coreapi.modelP\001Z6github.com/c" +
+      "hannel-io/ch-proto-public/coreapi/go/mod" +
+      "elb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

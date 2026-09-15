@@ -997,23 +997,25 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Current lifecycle state of this message.
-   * Deprecated: retained for backward compatibility.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The enum numeric value on the wire for state.
    */
-  int getStateValue();
+  @java.lang.Deprecated int getStateValue();
   /**
    * <pre>
    * Current lifecycle state of this message.
-   * Deprecated: retained for backward compatibility.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The state.
    */
-  io.channel.api.proto.pub.coreapi.model.MessageState getState();
+  @java.lang.Deprecated io.channel.api.proto.pub.coreapi.model.MessageState getState();
 
   /**
    * <pre>

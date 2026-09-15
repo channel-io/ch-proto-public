@@ -893,7 +893,8 @@ type Message struct {
 	// +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
 	Form *structpb.Struct `protobuf:"bytes,31,opt,name=form,proto3" json:"form,omitempty"`
 	// Current lifecycle state of this message.
-	// Deprecated: retained for backward compatibility.
+	//
+	// Deprecated: Marked as deprecated in coreapi/model/message.proto.
 	State MessageState `protobuf:"varint,32,opt,name=state,proto3,enum=coreapi.model.MessageState" json:"state,omitempty"`
 	// Delivery and visibility options applied to this message.
 	//
@@ -1207,6 +1208,7 @@ func (x *Message) GetForm() *structpb.Struct {
 	return nil
 }
 
+// Deprecated: Marked as deprecated in coreapi/model/message.proto.
 func (x *Message) GetState() MessageState {
 	if x != nil {
 		return x.State
@@ -2435,7 +2437,7 @@ var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x88\x11\n" +
+	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8c\x11\n" +
 	"\aMessage\x12!\n" +
 	"\bchat_key\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\achatKey\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x19\n" +
@@ -2475,8 +2477,8 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\x03log\x18\x1c \x01(\v2\x19.coreapi.model.MessageLogR\x03log\x12<\n" +
 	"\treactions\x18\x1d \x03(\v2\x1e.coreapi.model.MessageReactionR\treactions\x12:\n" +
 	"\falf_progress\x18\x1e \x01(\v2\x17.google.protobuf.StructR\valfProgress\x12+\n" +
-	"\x04form\x18\x1f \x01(\v2\x17.google.protobuf.StructR\x04form\x121\n" +
-	"\x05state\x18  \x01(\x0e2\x1b.coreapi.model.MessageStateR\x05state\x126\n" +
+	"\x04form\x18\x1f \x01(\v2\x17.google.protobuf.StructR\x04form\x125\n" +
+	"\x05state\x18  \x01(\x0e2\x1b.coreapi.model.MessageStateB\x02\x18\x01R\x05state\x126\n" +
 	"\aoptions\x18! \x03(\x0e2\x1c.coreapi.model.MessageOptionR\aoptions\x125\n" +
 	"\tmarketing\x18\" \x01(\v2\x17.google.protobuf.StructR\tmarketing\x123\n" +
 	"\bworkflow\x18$ \x01(\v2\x17.google.protobuf.StructR\bworkflow\x12:\n" +

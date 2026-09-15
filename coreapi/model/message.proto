@@ -246,9 +246,8 @@ message Message {
   google.protobuf.Struct form = 31;
 
   // Current lifecycle state of this message.
-  // Deprecated: retained for backward compatibility.
   //
-  MessageState state = 32;
+  MessageState state = 32 [deprecated = true];
 
   // Delivery and visibility options applied to this message.
   //
