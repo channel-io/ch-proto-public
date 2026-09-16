@@ -85,7 +85,7 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{0}
 }
 
-// Synchronization state of a message with a medium.
+// Message synchronization status with the messaging medium.
 type MediumSyncState int32
 
 const (
@@ -962,7 +962,7 @@ type Message struct {
 	//
 	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
-	// Synchronization state of this message with a medium.
+	// Synchronization status of this message with the messaging medium.
 	MediumSyncState MediumSyncState `protobuf:"varint,47,opt,name=medium_sync_state,json=mediumSyncState,proto3,enum=coreapi.model.MediumSyncState" json:"medium_sync_state,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache

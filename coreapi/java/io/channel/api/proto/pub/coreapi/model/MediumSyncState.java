@@ -7,7 +7,7 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * Synchronization state of a message with a medium.
+ * Message synchronization status with the messaging medium.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.MediumSyncState}
