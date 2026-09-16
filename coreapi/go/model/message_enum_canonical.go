@@ -34,6 +34,34 @@ func MessageStateForString(value string) MessageState {
 	}
 }
 
+// GetString returns the canonical string for MediumSyncState.
+func (x MediumSyncState) GetString() string {
+	switch x {
+	case MediumSyncState_MEDIUM_SYNC_STATE_FAILED:
+		return "failed"
+	case MediumSyncState_MEDIUM_SYNC_STATE_SYNCED:
+		return "synced"
+	case MediumSyncState_MEDIUM_SYNC_STATE_SYNCING:
+		return "syncing"
+	default:
+		return ""
+	}
+}
+
+// MediumSyncStateForString returns the MediumSyncState enum for the given canonical string.
+func MediumSyncStateForString(value string) MediumSyncState {
+	switch value {
+	case "failed":
+		return MediumSyncState_MEDIUM_SYNC_STATE_FAILED
+	case "synced":
+		return MediumSyncState_MEDIUM_SYNC_STATE_SYNCED
+	case "syncing":
+		return MediumSyncState_MEDIUM_SYNC_STATE_SYNCING
+	default:
+		return MediumSyncState_MEDIUM_SYNC_STATE_UNSPECIFIED
+	}
+}
+
 // GetString returns the canonical string for AlertLevel.
 func (x AlertLevel) GetString() string {
 	switch x {

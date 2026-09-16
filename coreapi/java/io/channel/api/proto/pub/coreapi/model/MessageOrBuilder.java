@@ -999,19 +999,23 @@ public interface MessageOrBuilder extends
    * Current lifecycle state of this message.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The enum numeric value on the wire for state.
    */
-  int getStateValue();
+  @java.lang.Deprecated int getStateValue();
   /**
    * <pre>
    * Current lifecycle state of this message.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The state.
    */
-  io.channel.api.proto.pub.coreapi.model.MessageState getState();
+  @java.lang.Deprecated io.channel.api.proto.pub.coreapi.model.MessageState getState();
 
   /**
    * <pre>
@@ -1344,4 +1348,56 @@ public interface MessageOrBuilder extends
    * @return The removedByWriter.
    */
   boolean getRemovedByWriter();
+
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return Whether the removedAt field is set.
+   */
+  boolean hasRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return The removedAt.
+   */
+  com.google.protobuf.Timestamp getRemovedAt();
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Synchronization status of this message with the messaging medium.
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The enum numeric value on the wire for mediumSyncState.
+   */
+  int getMediumSyncStateValue();
+  /**
+   * <pre>
+   * Synchronization status of this message with the messaging medium.
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The mediumSyncState.
+   */
+  io.channel.api.proto.pub.coreapi.model.MediumSyncState getMediumSyncState();
 }

@@ -56,6 +56,7 @@ private static final long serialVersionUID = 0L;
     alertLevel_ = 0;
     writingType_ = 0;
     rootMessageId_ = "";
+    mediumSyncState_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -1622,10 +1623,12 @@ private static final long serialVersionUID = 0L;
    * Current lifecycle state of this message.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The enum numeric value on the wire for state.
    */
-  @java.lang.Override public int getStateValue() {
+  @java.lang.Override @java.lang.Deprecated public int getStateValue() {
     return state_;
   }
   /**
@@ -1633,10 +1636,12 @@ private static final long serialVersionUID = 0L;
    * Current lifecycle state of this message.
    * </pre>
    *
-   * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+   * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+   * @deprecated coreapi.model.Message.state is deprecated.
+   *     See coreapi/model/message.proto;l=249
    * @return The state.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
+  @java.lang.Override @java.lang.Deprecated public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
     io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.forNumber(state_);
     return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
   }
@@ -2108,6 +2113,76 @@ private static final long serialVersionUID = 0L;
     return removedByWriter_;
   }
 
+  public static final int REMOVED_AT_FIELD_NUMBER = 46;
+  private com.google.protobuf.Timestamp removedAt_;
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return Whether the removedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasRemovedAt() {
+    return ((bitField0_ & 0x00008000) != 0);
+  }
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   * @return The removedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getRemovedAt() {
+    return removedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
+  }
+  /**
+   * <pre>
+   * Timestamp when the message was removed.
+   *
+   * +kubebuilder:example="2024-03-29T03:24:30Z"
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder() {
+    return removedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
+  }
+
+  public static final int MEDIUM_SYNC_STATE_FIELD_NUMBER = 47;
+  private int mediumSyncState_ = 0;
+  /**
+   * <pre>
+   * Synchronization status of this message with the messaging medium.
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The enum numeric value on the wire for mediumSyncState.
+   */
+  @java.lang.Override public int getMediumSyncStateValue() {
+    return mediumSyncState_;
+  }
+  /**
+   * <pre>
+   * Synchronization status of this message with the messaging medium.
+   * </pre>
+   *
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The mediumSyncState.
+   */
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MediumSyncState getMediumSyncState() {
+    io.channel.api.proto.pub.coreapi.model.MediumSyncState result = io.channel.api.proto.pub.coreapi.model.MediumSyncState.forNumber(mediumSyncState_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.MediumSyncState.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -2255,6 +2330,12 @@ private static final long serialVersionUID = 0L;
     }
     if (removedByWriter_ != false) {
       output.writeBool(45, removedByWriter_);
+    }
+    if (((bitField0_ & 0x00008000) != 0)) {
+      output.writeMessage(46, getRemovedAt());
+    }
+    if (mediumSyncState_ != io.channel.api.proto.pub.coreapi.model.MediumSyncState.MEDIUM_SYNC_STATE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(47, mediumSyncState_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -2450,6 +2531,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(45, removedByWriter_);
     }
+    if (((bitField0_ & 0x00008000) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(46, getRemovedAt());
+    }
+    if (mediumSyncState_ != io.channel.api.proto.pub.coreapi.model.MediumSyncState.MEDIUM_SYNC_STATE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(47, mediumSyncState_);
+    }
     return size;
   }
   @java.lang.Override
@@ -2600,6 +2689,12 @@ private static final long serialVersionUID = 0L;
         != other.getBroadcastedMsg()) return false;
     if (getRemovedByWriter()
         != other.getRemovedByWriter()) return false;
+    if (hasRemovedAt() != other.hasRemovedAt()) return false;
+    if (hasRemovedAt()) {
+      if (!getRemovedAt()
+          .equals(other.getRemovedAt())) return false;
+    }
+    if (mediumSyncState_ != other.mediumSyncState_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -2741,6 +2836,12 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + REMOVED_BY_WRITER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getRemovedByWriter());
+    if (hasRemovedAt()) {
+      hash = (37 * hash) + REMOVED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getRemovedAt().hashCode();
+    }
+    hash = (37 * hash) + MEDIUM_SYNC_STATE_FIELD_NUMBER;
+    hash = (53 * hash) + mediumSyncState_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2894,6 +2995,7 @@ private static final long serialVersionUID = 0L;
         internalGetWorkflowFieldBuilder();
         internalGetIvrFieldBuilder();
         internalGetCustomPayloadFieldBuilder();
+        internalGetRemovedAtFieldBuilder();
       }
     }
     @java.lang.Override
@@ -3028,6 +3130,12 @@ private static final long serialVersionUID = 0L;
       threadRoot_ = false;
       broadcastedMsg_ = false;
       removedByWriter_ = false;
+      removedAt_ = null;
+      if (removedAtBuilder_ != null) {
+        removedAtBuilder_.dispose();
+        removedAtBuilder_ = null;
+      }
+      mediumSyncState_ = 0;
       return this;
     }
 
@@ -3271,6 +3379,15 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField1_ & 0x00000400) != 0)) {
         result.removedByWriter_ = removedByWriter_;
+      }
+      if (((from_bitField1_ & 0x00000800) != 0)) {
+        result.removedAt_ = removedAtBuilder_ == null
+            ? removedAt_
+            : removedAtBuilder_.build();
+        to_bitField0_ |= 0x00008000;
+      }
+      if (((from_bitField1_ & 0x00001000) != 0)) {
+        result.mediumSyncState_ = mediumSyncState_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -3543,6 +3660,12 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getRemovedByWriter() != false) {
         setRemovedByWriter(other.getRemovedByWriter());
+      }
+      if (other.hasRemovedAt()) {
+        mergeRemovedAt(other.getRemovedAt());
+      }
+      if (other.mediumSyncState_ != 0) {
+        setMediumSyncStateValue(other.getMediumSyncStateValue());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -3858,6 +3981,18 @@ private static final long serialVersionUID = 0L;
               bitField1_ |= 0x00000400;
               break;
             } // case 360
+            case 370: {
+              input.readMessage(
+                  internalGetRemovedAtFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField1_ |= 0x00000800;
+              break;
+            } // case 370
+            case 376: {
+              mediumSyncState_ = input.readEnum();
+              bitField1_ |= 0x00001000;
+              break;
+            } // case 376
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -8807,10 +8942,12 @@ private static final long serialVersionUID = 0L;
      * Current lifecycle state of this message.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @return The enum numeric value on the wire for state.
      */
-    @java.lang.Override public int getStateValue() {
+    @java.lang.Override @java.lang.Deprecated public int getStateValue() {
       return state_;
     }
     /**
@@ -8818,11 +8955,13 @@ private static final long serialVersionUID = 0L;
      * Current lifecycle state of this message.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
-    public Builder setStateValue(int value) {
+    @java.lang.Deprecated public Builder setStateValue(int value) {
       state_ = value;
       bitField0_ |= 0x40000000;
       onChanged();
@@ -8833,11 +8972,13 @@ private static final long serialVersionUID = 0L;
      * Current lifecycle state of this message.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @return The state.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
+    @java.lang.Deprecated public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
       io.channel.api.proto.pub.coreapi.model.MessageState result = io.channel.api.proto.pub.coreapi.model.MessageState.forNumber(state_);
       return result == null ? io.channel.api.proto.pub.coreapi.model.MessageState.UNRECOGNIZED : result;
     }
@@ -8846,12 +8987,14 @@ private static final long serialVersionUID = 0L;
      * Current lifecycle state of this message.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @param value The state to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
      */
-    public Builder setState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
+    @java.lang.Deprecated public Builder setState(io.channel.api.proto.pub.coreapi.model.MessageState value) {
       if (value == null) { throw new NullPointerException(); }
       bitField0_ |= 0x40000000;
       state_ = value.getNumber();
@@ -8863,10 +9006,12 @@ private static final long serialVersionUID = 0L;
      * Current lifecycle state of this message.
      * </pre>
      *
-     * <code>.coreapi.model.MessageState state = 32 [json_name = "state"];</code>
+     * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
+     * @deprecated coreapi.model.Message.state is deprecated.
+     *     See coreapi/model/message.proto;l=249
      * @return This builder for chaining.
      */
-    public Builder clearState() {
+    @java.lang.Deprecated public Builder clearState() {
       bitField0_ = (bitField0_ & ~0x40000000);
       state_ = 0;
       onChanged();
@@ -10317,6 +10462,253 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.Timestamp removedAt_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> removedAtBuilder_;
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     * @return Whether the removedAt field is set.
+     */
+    public boolean hasRemovedAt() {
+      return ((bitField1_ & 0x00000800) != 0);
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     * @return The removedAt.
+     */
+    public com.google.protobuf.Timestamp getRemovedAt() {
+      if (removedAtBuilder_ == null) {
+        return removedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
+      } else {
+        return removedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     */
+    public Builder setRemovedAt(com.google.protobuf.Timestamp value) {
+      if (removedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        removedAt_ = value;
+      } else {
+        removedAtBuilder_.setMessage(value);
+      }
+      bitField1_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     */
+    public Builder setRemovedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (removedAtBuilder_ == null) {
+        removedAt_ = builderForValue.build();
+      } else {
+        removedAtBuilder_.setMessage(builderForValue.build());
+      }
+      bitField1_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     */
+    public Builder mergeRemovedAt(com.google.protobuf.Timestamp value) {
+      if (removedAtBuilder_ == null) {
+        if (((bitField1_ & 0x00000800) != 0) &&
+          removedAt_ != null &&
+          removedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRemovedAtBuilder().mergeFrom(value);
+        } else {
+          removedAt_ = value;
+        }
+      } else {
+        removedAtBuilder_.mergeFrom(value);
+      }
+      if (removedAt_ != null) {
+        bitField1_ |= 0x00000800;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     */
+    public Builder clearRemovedAt() {
+      bitField1_ = (bitField1_ & ~0x00000800);
+      removedAt_ = null;
+      if (removedAtBuilder_ != null) {
+        removedAtBuilder_.dispose();
+        removedAtBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getRemovedAtBuilder() {
+      bitField1_ |= 0x00000800;
+      onChanged();
+      return internalGetRemovedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getRemovedAtOrBuilder() {
+      if (removedAtBuilder_ != null) {
+        return removedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return removedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Timestamp when the message was removed.
+     *
+     * +kubebuilder:example="2024-03-29T03:24:30Z"
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp removed_at = 46 [json_name = "removedAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        internalGetRemovedAtFieldBuilder() {
+      if (removedAtBuilder_ == null) {
+        removedAtBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getRemovedAt(),
+                getParentForChildren(),
+                isClean());
+        removedAt_ = null;
+      }
+      return removedAtBuilder_;
+    }
+
+    private int mediumSyncState_ = 0;
+    /**
+     * <pre>
+     * Synchronization status of this message with the messaging medium.
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @return The enum numeric value on the wire for mediumSyncState.
+     */
+    @java.lang.Override public int getMediumSyncStateValue() {
+      return mediumSyncState_;
+    }
+    /**
+     * <pre>
+     * Synchronization status of this message with the messaging medium.
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @param value The enum numeric value on the wire for mediumSyncState to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumSyncStateValue(int value) {
+      mediumSyncState_ = value;
+      bitField1_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Synchronization status of this message with the messaging medium.
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @return The mediumSyncState.
+     */
+    @java.lang.Override
+    public io.channel.api.proto.pub.coreapi.model.MediumSyncState getMediumSyncState() {
+      io.channel.api.proto.pub.coreapi.model.MediumSyncState result = io.channel.api.proto.pub.coreapi.model.MediumSyncState.forNumber(mediumSyncState_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.MediumSyncState.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Synchronization status of this message with the messaging medium.
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @param value The mediumSyncState to set.
+     * @throws IllegalArgumentException if UNRECOGNIZED is provided.
+     * @return This builder for chaining.
+     */
+    public Builder setMediumSyncState(io.channel.api.proto.pub.coreapi.model.MediumSyncState value) {
+      if (value == null) { throw new NullPointerException(); }
+      bitField1_ |= 0x00001000;
+      mediumSyncState_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Synchronization status of this message with the messaging medium.
+     * </pre>
+     *
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMediumSyncState() {
+      bitField1_ = (bitField1_ & ~0x00001000);
+      mediumSyncState_ = 0;
+      onChanged();
+      return this;
+    }
+
     /* Generated by protoc-gen-java-set-or-clear */
     
     /**
@@ -11316,6 +11708,52 @@ private static final long serialVersionUID = 0L;
     		return clearRemovedByWriter();
     	else
     		return setRemovedByWriter(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The removed_at to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearRemovedAt(com.google.protobuf.Timestamp value) {
+    	if (value == null)
+    		return clearRemovedAt();
+    	else
+    		return setRemovedAt(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearRemovedAt(T value, java.util.function.Function<T, com.google.protobuf.Timestamp> mapFunc) {
+    	if (value == null)
+    		return clearRemovedAt();
+    	else
+    		return setRemovedAt(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The medium_sync_state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearMediumSyncState(io.channel.api.proto.pub.coreapi.model.MediumSyncState value) {
+    	if (value == null)
+    		return clearMediumSyncState();
+    	else
+    		return setMediumSyncState(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearMediumSyncState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MediumSyncState> mapFunc) {
+    	if (value == null)
+    		return clearMediumSyncState();
+    	else
+    		return setMediumSyncState(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Message)
