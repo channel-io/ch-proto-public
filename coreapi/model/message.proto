@@ -26,7 +26,7 @@ enum MessageState {
   MESSAGE_STATE_REMOVED = 4;
 }
 
-// Synchronization state of a message with an external medium.
+// Synchronization state of a message with a medium.
 enum MediumSyncState {
   // Unspecified or not set.
   MEDIUM_SYNC_STATE_UNSPECIFIED = 0;
@@ -330,7 +330,7 @@ message Message {
   // +kubebuilder:example="2024-03-29T03:24:30Z"
   google.protobuf.Timestamp removed_at = 46;
 
-  // Synchronization state of this message with an external medium.
+  // Synchronization state of this message with a medium.
   //
   MediumSyncState medium_sync_state = 47;
 }
