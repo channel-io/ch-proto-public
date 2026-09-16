@@ -1384,7 +1384,7 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Synchronization state of this message with an external medium.
+   * Synchronization state of this message with a medium.
    * </pre>
    *
    * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
@@ -1393,7 +1393,7 @@ public interface MessageOrBuilder extends
   int getMediumSyncStateValue();
   /**
    * <pre>
-   * Synchronization state of this message with an external medium.
+   * Synchronization state of this message with a medium.
    * </pre>
    *
    * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
