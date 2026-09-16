@@ -10,43 +10,43 @@ package io.channel.api.proto.pub.coreapi.model;
  * Synchronization state of a message with an external medium.
  * </pre>
  *
- * Protobuf enum {@code coreapi.model.ExternalMediumState}
+ * Protobuf enum {@code coreapi.model.MediumSyncState}
  */
 @com.google.protobuf.Generated
-public enum ExternalMediumState
+public enum MediumSyncState
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
    * Unspecified or not set.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_UNSPECIFIED = 0;</code>
+   * <code>MEDIUM_SYNC_STATE_UNSPECIFIED = 0;</code>
    */
-  EXTERNAL_MEDIUM_STATE_UNSPECIFIED(0),
+  MEDIUM_SYNC_STATE_UNSPECIFIED(0),
   /**
    * <pre>
    * Synchronization is in progress.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_SYNCING = 1;</code>
+   * <code>MEDIUM_SYNC_STATE_SYNCING = 1;</code>
    */
-  EXTERNAL_MEDIUM_STATE_SYNCING(1),
+  MEDIUM_SYNC_STATE_SYNCING(1),
   /**
    * <pre>
    * Successfully synchronized.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_SYNCED = 2;</code>
+   * <code>MEDIUM_SYNC_STATE_SYNCED = 2;</code>
    */
-  EXTERNAL_MEDIUM_STATE_SYNCED(2),
+  MEDIUM_SYNC_STATE_SYNCED(2),
   /**
    * <pre>
    * Synchronization failed.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_FAILED = 3;</code>
+   * <code>MEDIUM_SYNC_STATE_FAILED = 3;</code>
    */
-  EXTERNAL_MEDIUM_STATE_FAILED(3),
+  MEDIUM_SYNC_STATE_FAILED(3),
   UNRECOGNIZED(-1),
   ;
 
@@ -57,40 +57,40 @@ public enum ExternalMediumState
       /* minor= */ 35,
       /* patch= */ 1,
       /* suffix= */ "",
-      "ExternalMediumState");
+      "MediumSyncState");
   }
   /**
    * <pre>
    * Unspecified or not set.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_UNSPECIFIED = 0;</code>
+   * <code>MEDIUM_SYNC_STATE_UNSPECIFIED = 0;</code>
    */
-  public static final int EXTERNAL_MEDIUM_STATE_UNSPECIFIED_VALUE = 0;
+  public static final int MEDIUM_SYNC_STATE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
    * Synchronization is in progress.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_SYNCING = 1;</code>
+   * <code>MEDIUM_SYNC_STATE_SYNCING = 1;</code>
    */
-  public static final int EXTERNAL_MEDIUM_STATE_SYNCING_VALUE = 1;
+  public static final int MEDIUM_SYNC_STATE_SYNCING_VALUE = 1;
   /**
    * <pre>
    * Successfully synchronized.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_SYNCED = 2;</code>
+   * <code>MEDIUM_SYNC_STATE_SYNCED = 2;</code>
    */
-  public static final int EXTERNAL_MEDIUM_STATE_SYNCED_VALUE = 2;
+  public static final int MEDIUM_SYNC_STATE_SYNCED_VALUE = 2;
   /**
    * <pre>
    * Synchronization failed.
    * </pre>
    *
-   * <code>EXTERNAL_MEDIUM_STATE_FAILED = 3;</code>
+   * <code>MEDIUM_SYNC_STATE_FAILED = 3;</code>
    */
-  public static final int EXTERNAL_MEDIUM_STATE_FAILED_VALUE = 3;
+  public static final int MEDIUM_SYNC_STATE_FAILED_VALUE = 3;
 
 
   public final int getNumber() {
@@ -107,7 +107,7 @@ public enum ExternalMediumState
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static ExternalMediumState valueOf(int value) {
+  public static MediumSyncState valueOf(int value) {
     return forNumber(value);
   }
 
@@ -115,25 +115,25 @@ public enum ExternalMediumState
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static ExternalMediumState forNumber(int value) {
+  public static MediumSyncState forNumber(int value) {
     switch (value) {
-      case 0: return EXTERNAL_MEDIUM_STATE_UNSPECIFIED;
-      case 1: return EXTERNAL_MEDIUM_STATE_SYNCING;
-      case 2: return EXTERNAL_MEDIUM_STATE_SYNCED;
-      case 3: return EXTERNAL_MEDIUM_STATE_FAILED;
+      case 0: return MEDIUM_SYNC_STATE_UNSPECIFIED;
+      case 1: return MEDIUM_SYNC_STATE_SYNCING;
+      case 2: return MEDIUM_SYNC_STATE_SYNCED;
+      case 3: return MEDIUM_SYNC_STATE_FAILED;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<ExternalMediumState>
+  public static com.google.protobuf.Internal.EnumLiteMap<MediumSyncState>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      ExternalMediumState> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<ExternalMediumState>() {
-          public ExternalMediumState findValueByNumber(int number) {
-            return ExternalMediumState.forNumber(number);
+      MediumSyncState> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<MediumSyncState>() {
+          public MediumSyncState findValueByNumber(int number) {
+            return MediumSyncState.forNumber(number);
           }
         };
 
@@ -154,9 +154,9 @@ public enum ExternalMediumState
     return io.channel.api.proto.pub.coreapi.model.MessageOuterClass.getDescriptor().getEnumType(1);
   }
 
-  private static final ExternalMediumState[] VALUES = values();
+  private static final MediumSyncState[] VALUES = values();
 
-  public static ExternalMediumState valueOf(
+  public static MediumSyncState valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -170,7 +170,7 @@ public enum ExternalMediumState
 
   private final int value;
 
-  private ExternalMediumState(int value) {
+  private MediumSyncState(int value) {
     this.value = value;
   }
 
@@ -180,12 +180,12 @@ public enum ExternalMediumState
    * @param value The string value corresponding to the enum entry.
    * @return The enum entry corresponding to the string value.
    */
-  public static ExternalMediumState forString(String value) {
+  public static MediumSyncState forString(String value) {
   	switch (value) {
-      case "failed": return EXTERNAL_MEDIUM_STATE_FAILED;
-      case "synced": return EXTERNAL_MEDIUM_STATE_SYNCED;
-      case "syncing": return EXTERNAL_MEDIUM_STATE_SYNCING;
-  		default: return EXTERNAL_MEDIUM_STATE_UNSPECIFIED;
+      case "failed": return MEDIUM_SYNC_STATE_FAILED;
+      case "synced": return MEDIUM_SYNC_STATE_SYNCED;
+      case "syncing": return MEDIUM_SYNC_STATE_SYNCING;
+  		default: return MEDIUM_SYNC_STATE_UNSPECIFIED;
   	}
   }
   				
@@ -194,12 +194,12 @@ public enum ExternalMediumState
    */
   public final String getString() {
   	switch (this) {
-      case EXTERNAL_MEDIUM_STATE_FAILED: return "failed";
-      case EXTERNAL_MEDIUM_STATE_SYNCED: return "synced";
-      case EXTERNAL_MEDIUM_STATE_SYNCING: return "syncing";
+      case MEDIUM_SYNC_STATE_FAILED: return "failed";
+      case MEDIUM_SYNC_STATE_SYNCED: return "synced";
+      case MEDIUM_SYNC_STATE_SYNCING: return "syncing";
   		default: return null;
   	}
   }
   				
-  // @@protoc_insertion_point(enum_scope:coreapi.model.ExternalMediumState)
+  // @@protoc_insertion_point(enum_scope:coreapi.model.MediumSyncState)
 }

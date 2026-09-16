@@ -34,31 +34,31 @@ func MessageStateForString(value string) MessageState {
 	}
 }
 
-// GetString returns the canonical string for ExternalMediumState.
-func (x ExternalMediumState) GetString() string {
+// GetString returns the canonical string for MediumSyncState.
+func (x MediumSyncState) GetString() string {
 	switch x {
-	case ExternalMediumState_EXTERNAL_MEDIUM_STATE_FAILED:
+	case MediumSyncState_MEDIUM_SYNC_STATE_FAILED:
 		return "failed"
-	case ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCED:
+	case MediumSyncState_MEDIUM_SYNC_STATE_SYNCED:
 		return "synced"
-	case ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCING:
+	case MediumSyncState_MEDIUM_SYNC_STATE_SYNCING:
 		return "syncing"
 	default:
 		return ""
 	}
 }
 
-// ExternalMediumStateForString returns the ExternalMediumState enum for the given canonical string.
-func ExternalMediumStateForString(value string) ExternalMediumState {
+// MediumSyncStateForString returns the MediumSyncState enum for the given canonical string.
+func MediumSyncStateForString(value string) MediumSyncState {
 	switch value {
 	case "failed":
-		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_FAILED
+		return MediumSyncState_MEDIUM_SYNC_STATE_FAILED
 	case "synced":
-		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCED
+		return MediumSyncState_MEDIUM_SYNC_STATE_SYNCED
 	case "syncing":
-		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCING
+		return MediumSyncState_MEDIUM_SYNC_STATE_SYNCING
 	default:
-		return ExternalMediumState_EXTERNAL_MEDIUM_STATE_UNSPECIFIED
+		return MediumSyncState_MEDIUM_SYNC_STATE_UNSPECIFIED
 	}
 }
 

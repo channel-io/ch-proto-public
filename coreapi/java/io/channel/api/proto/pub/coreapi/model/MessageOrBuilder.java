@@ -1387,17 +1387,17 @@ public interface MessageOrBuilder extends
    * Synchronization state of this message with an external medium.
    * </pre>
    *
-   * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-   * @return The enum numeric value on the wire for externalMediumState.
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The enum numeric value on the wire for mediumSyncState.
    */
-  int getExternalMediumStateValue();
+  int getMediumSyncStateValue();
   /**
    * <pre>
    * Synchronization state of this message with an external medium.
    * </pre>
    *
-   * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-   * @return The externalMediumState.
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The mediumSyncState.
    */
-  io.channel.api.proto.pub.coreapi.model.ExternalMediumState getExternalMediumState();
+  io.channel.api.proto.pub.coreapi.model.MediumSyncState getMediumSyncState();
 }

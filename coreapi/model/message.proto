@@ -27,15 +27,15 @@ enum MessageState {
 }
 
 // Synchronization state of a message with an external medium.
-enum ExternalMediumState {
+enum MediumSyncState {
   // Unspecified or not set.
-  EXTERNAL_MEDIUM_STATE_UNSPECIFIED = 0;
+  MEDIUM_SYNC_STATE_UNSPECIFIED = 0;
   // Synchronization is in progress.
-  EXTERNAL_MEDIUM_STATE_SYNCING = 1;
+  MEDIUM_SYNC_STATE_SYNCING = 1;
   // Successfully synchronized.
-  EXTERNAL_MEDIUM_STATE_SYNCED = 2;
+  MEDIUM_SYNC_STATE_SYNCED = 2;
   // Synchronization failed.
-  EXTERNAL_MEDIUM_STATE_FAILED = 3;
+  MEDIUM_SYNC_STATE_FAILED = 3;
 }
 
 // Alert level controlling how the client displays notifications for a message.
@@ -332,7 +332,7 @@ message Message {
 
   // Synchronization state of this message with an external medium.
   //
-  ExternalMediumState external_medium_state = 47;
+  MediumSyncState medium_sync_state = 47;
 }
 
 // =====================================================

@@ -86,59 +86,59 @@ func (MessageState) EnumDescriptor() ([]byte, []int) {
 }
 
 // Synchronization state of a message with an external medium.
-type ExternalMediumState int32
+type MediumSyncState int32
 
 const (
 	// Unspecified or not set.
-	ExternalMediumState_EXTERNAL_MEDIUM_STATE_UNSPECIFIED ExternalMediumState = 0
+	MediumSyncState_MEDIUM_SYNC_STATE_UNSPECIFIED MediumSyncState = 0
 	// Synchronization is in progress.
-	ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCING ExternalMediumState = 1
+	MediumSyncState_MEDIUM_SYNC_STATE_SYNCING MediumSyncState = 1
 	// Successfully synchronized.
-	ExternalMediumState_EXTERNAL_MEDIUM_STATE_SYNCED ExternalMediumState = 2
+	MediumSyncState_MEDIUM_SYNC_STATE_SYNCED MediumSyncState = 2
 	// Synchronization failed.
-	ExternalMediumState_EXTERNAL_MEDIUM_STATE_FAILED ExternalMediumState = 3
+	MediumSyncState_MEDIUM_SYNC_STATE_FAILED MediumSyncState = 3
 )
 
-// Enum value maps for ExternalMediumState.
+// Enum value maps for MediumSyncState.
 var (
-	ExternalMediumState_name = map[int32]string{
-		0: "EXTERNAL_MEDIUM_STATE_UNSPECIFIED",
-		1: "EXTERNAL_MEDIUM_STATE_SYNCING",
-		2: "EXTERNAL_MEDIUM_STATE_SYNCED",
-		3: "EXTERNAL_MEDIUM_STATE_FAILED",
+	MediumSyncState_name = map[int32]string{
+		0: "MEDIUM_SYNC_STATE_UNSPECIFIED",
+		1: "MEDIUM_SYNC_STATE_SYNCING",
+		2: "MEDIUM_SYNC_STATE_SYNCED",
+		3: "MEDIUM_SYNC_STATE_FAILED",
 	}
-	ExternalMediumState_value = map[string]int32{
-		"EXTERNAL_MEDIUM_STATE_UNSPECIFIED": 0,
-		"EXTERNAL_MEDIUM_STATE_SYNCING":     1,
-		"EXTERNAL_MEDIUM_STATE_SYNCED":      2,
-		"EXTERNAL_MEDIUM_STATE_FAILED":      3,
+	MediumSyncState_value = map[string]int32{
+		"MEDIUM_SYNC_STATE_UNSPECIFIED": 0,
+		"MEDIUM_SYNC_STATE_SYNCING":     1,
+		"MEDIUM_SYNC_STATE_SYNCED":      2,
+		"MEDIUM_SYNC_STATE_FAILED":      3,
 	}
 )
 
-func (x ExternalMediumState) Enum() *ExternalMediumState {
-	p := new(ExternalMediumState)
+func (x MediumSyncState) Enum() *MediumSyncState {
+	p := new(MediumSyncState)
 	*p = x
 	return p
 }
 
-func (x ExternalMediumState) String() string {
+func (x MediumSyncState) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (ExternalMediumState) Descriptor() protoreflect.EnumDescriptor {
+func (MediumSyncState) Descriptor() protoreflect.EnumDescriptor {
 	return file_coreapi_model_message_proto_enumTypes[1].Descriptor()
 }
 
-func (ExternalMediumState) Type() protoreflect.EnumType {
+func (MediumSyncState) Type() protoreflect.EnumType {
 	return &file_coreapi_model_message_proto_enumTypes[1]
 }
 
-func (x ExternalMediumState) Number() protoreflect.EnumNumber {
+func (x MediumSyncState) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use ExternalMediumState.Descriptor instead.
-func (ExternalMediumState) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use MediumSyncState.Descriptor instead.
+func (MediumSyncState) EnumDescriptor() ([]byte, []int) {
 	return file_coreapi_model_message_proto_rawDescGZIP(), []int{1}
 }
 
@@ -963,9 +963,9 @@ type Message struct {
 	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
 	// Synchronization state of this message with an external medium.
-	ExternalMediumState ExternalMediumState `protobuf:"varint,47,opt,name=external_medium_state,json=externalMediumState,proto3,enum=coreapi.model.ExternalMediumState" json:"external_medium_state,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	MediumSyncState MediumSyncState `protobuf:"varint,47,opt,name=medium_sync_state,json=mediumSyncState,proto3,enum=coreapi.model.MediumSyncState" json:"medium_sync_state,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *Message) Reset() {
@@ -1307,11 +1307,11 @@ func (x *Message) GetRemovedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Message) GetExternalMediumState() ExternalMediumState {
+func (x *Message) GetMediumSyncState() MediumSyncState {
 	if x != nil {
-		return x.ExternalMediumState
+		return x.MediumSyncState
 	}
-	return ExternalMediumState_EXTERNAL_MEDIUM_STATE_UNSPECIFIED
+	return MediumSyncState_MEDIUM_SYNC_STATE_UNSPECIFIED
 }
 
 // MessageThread represents a threaded reply chain attached to a root message within a chat.
@@ -2437,7 +2437,7 @@ var File_coreapi_model_message_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_message_proto_rawDesc = "" +
 	"\n" +
-	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8c\x11\n" +
+	"\x1bcoreapi/model/message.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1fcoreapi/model/entity_type.proto\x1a#coreapi/model/message_content.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x11\n" +
 	"\aMessage\x12!\n" +
 	"\bchat_key\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\achatKey\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x19\n" +
@@ -2495,8 +2495,8 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\x0fbroadcasted_msg\x18, \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0ebroadcastedMsg\x122\n" +
 	"\x11removed_by_writer\x18- \x01(\bB\x06\xbaH\x03\xc8\x01\x01R\x0fremovedByWriter\x129\n" +
 	"\n" +
-	"removed_at\x18. \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAt\x12V\n" +
-	"\x15external_medium_state\x18/ \x01(\x0e2\".coreapi.model.ExternalMediumStateR\x13externalMediumStateJ\x04\b\x10\x10\x11R\aversion\"\x9a\x02\n" +
+	"removed_at\x18. \x01(\v2\x1a.google.protobuf.TimestampR\tremovedAt\x12J\n" +
+	"\x11medium_sync_state\x18/ \x01(\x0e2\x1e.coreapi.model.MediumSyncStateR\x0fmediumSyncStateJ\x04\b\x10\x10\x11R\aversion\"\x9a\x02\n" +
 	"\rMessageThread\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12)\n" +
 	"\vmanager_ids\x18\x02 \x03(\tB\b\xbaH\x05\x92\x01\x02\b\x01R\n" +
@@ -2670,12 +2670,12 @@ const file_coreapi_model_message_proto_rawDesc = "" +
 	"\x15MESSAGE_STATE_SENDING\x10\x01\x12\x16\n" +
 	"\x12MESSAGE_STATE_SENT\x10\x02\x12\x18\n" +
 	"\x14MESSAGE_STATE_FAILED\x10\x03\x12\x19\n" +
-	"\x15MESSAGE_STATE_REMOVED\x10\x04*\xa3\x01\n" +
-	"\x13ExternalMediumState\x12%\n" +
-	"!EXTERNAL_MEDIUM_STATE_UNSPECIFIED\x10\x00\x12!\n" +
-	"\x1dEXTERNAL_MEDIUM_STATE_SYNCING\x10\x01\x12 \n" +
-	"\x1cEXTERNAL_MEDIUM_STATE_SYNCED\x10\x02\x12 \n" +
-	"\x1cEXTERNAL_MEDIUM_STATE_FAILED\x10\x03*n\n" +
+	"\x15MESSAGE_STATE_REMOVED\x10\x04*\x8f\x01\n" +
+	"\x0fMediumSyncState\x12!\n" +
+	"\x1dMEDIUM_SYNC_STATE_UNSPECIFIED\x10\x00\x12\x1d\n" +
+	"\x19MEDIUM_SYNC_STATE_SYNCING\x10\x01\x12\x1c\n" +
+	"\x18MEDIUM_SYNC_STATE_SYNCED\x10\x02\x12\x1c\n" +
+	"\x18MEDIUM_SYNC_STATE_FAILED\x10\x03*n\n" +
 	"\n" +
 	"AlertLevel\x12\x1b\n" +
 	"\x17ALERT_LEVEL_UNSPECIFIED\x10\x00\x12\x15\n" +
@@ -2705,7 +2705,7 @@ var file_coreapi_model_message_proto_enumTypes = make([]protoimpl.EnumInfo, 10)
 var file_coreapi_model_message_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_coreapi_model_message_proto_goTypes = []any{
 	(MessageState)(0),                  // 0: coreapi.model.MessageState
-	(ExternalMediumState)(0),           // 1: coreapi.model.ExternalMediumState
+	(MediumSyncState)(0),               // 1: coreapi.model.MediumSyncState
 	(AlertLevel)(0),                    // 2: coreapi.model.AlertLevel
 	(WritingType)(0),                   // 3: coreapi.model.WritingType
 	(MessageLog_MessageLogAction)(0),   // 4: coreapi.model.MessageLog.MessageLogAction
@@ -2764,7 +2764,7 @@ var file_coreapi_model_message_proto_depIdxs = []int32{
 	27, // 23: coreapi.model.Message.custom_payload:type_name -> google.protobuf.Struct
 	3,  // 24: coreapi.model.Message.writing_type:type_name -> coreapi.model.WritingType
 	25, // 25: coreapi.model.Message.removed_at:type_name -> google.protobuf.Timestamp
-	1,  // 26: coreapi.model.Message.external_medium_state:type_name -> coreapi.model.ExternalMediumState
+	1,  // 26: coreapi.model.Message.medium_sync_state:type_name -> coreapi.model.MediumSyncState
 	23, // 27: coreapi.model.MessageThread.chat_type:type_name -> coreapi.model.ChatType
 	4,  // 28: coreapi.model.MessageLog.action:type_name -> coreapi.model.MessageLog.MessageLogAction
 	23, // 29: coreapi.model.MessageMeet.chat_type:type_name -> coreapi.model.ChatType

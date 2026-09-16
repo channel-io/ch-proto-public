@@ -56,7 +56,7 @@ private static final long serialVersionUID = 0L;
     alertLevel_ = 0;
     writingType_ = 0;
     rootMessageId_ = "";
-    externalMediumState_ = 0;
+    mediumSyncState_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -2157,30 +2157,30 @@ private static final long serialVersionUID = 0L;
     return removedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : removedAt_;
   }
 
-  public static final int EXTERNAL_MEDIUM_STATE_FIELD_NUMBER = 47;
-  private int externalMediumState_ = 0;
+  public static final int MEDIUM_SYNC_STATE_FIELD_NUMBER = 47;
+  private int mediumSyncState_ = 0;
   /**
    * <pre>
    * Synchronization state of this message with an external medium.
    * </pre>
    *
-   * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-   * @return The enum numeric value on the wire for externalMediumState.
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The enum numeric value on the wire for mediumSyncState.
    */
-  @java.lang.Override public int getExternalMediumStateValue() {
-    return externalMediumState_;
+  @java.lang.Override public int getMediumSyncStateValue() {
+    return mediumSyncState_;
   }
   /**
    * <pre>
    * Synchronization state of this message with an external medium.
    * </pre>
    *
-   * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-   * @return The externalMediumState.
+   * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+   * @return The mediumSyncState.
    */
-  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.ExternalMediumState getExternalMediumState() {
-    io.channel.api.proto.pub.coreapi.model.ExternalMediumState result = io.channel.api.proto.pub.coreapi.model.ExternalMediumState.forNumber(externalMediumState_);
-    return result == null ? io.channel.api.proto.pub.coreapi.model.ExternalMediumState.UNRECOGNIZED : result;
+  @java.lang.Override public io.channel.api.proto.pub.coreapi.model.MediumSyncState getMediumSyncState() {
+    io.channel.api.proto.pub.coreapi.model.MediumSyncState result = io.channel.api.proto.pub.coreapi.model.MediumSyncState.forNumber(mediumSyncState_);
+    return result == null ? io.channel.api.proto.pub.coreapi.model.MediumSyncState.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2334,8 +2334,8 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00008000) != 0)) {
       output.writeMessage(46, getRemovedAt());
     }
-    if (externalMediumState_ != io.channel.api.proto.pub.coreapi.model.ExternalMediumState.EXTERNAL_MEDIUM_STATE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(47, externalMediumState_);
+    if (mediumSyncState_ != io.channel.api.proto.pub.coreapi.model.MediumSyncState.MEDIUM_SYNC_STATE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(47, mediumSyncState_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -2535,9 +2535,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(46, getRemovedAt());
     }
-    if (externalMediumState_ != io.channel.api.proto.pub.coreapi.model.ExternalMediumState.EXTERNAL_MEDIUM_STATE_UNSPECIFIED.getNumber()) {
+    if (mediumSyncState_ != io.channel.api.proto.pub.coreapi.model.MediumSyncState.MEDIUM_SYNC_STATE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(47, externalMediumState_);
+        .computeEnumSize(47, mediumSyncState_);
     }
     return size;
   }
@@ -2694,7 +2694,7 @@ private static final long serialVersionUID = 0L;
       if (!getRemovedAt()
           .equals(other.getRemovedAt())) return false;
     }
-    if (externalMediumState_ != other.externalMediumState_) return false;
+    if (mediumSyncState_ != other.mediumSyncState_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -2840,8 +2840,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REMOVED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getRemovedAt().hashCode();
     }
-    hash = (37 * hash) + EXTERNAL_MEDIUM_STATE_FIELD_NUMBER;
-    hash = (53 * hash) + externalMediumState_;
+    hash = (37 * hash) + MEDIUM_SYNC_STATE_FIELD_NUMBER;
+    hash = (53 * hash) + mediumSyncState_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -3135,7 +3135,7 @@ private static final long serialVersionUID = 0L;
         removedAtBuilder_.dispose();
         removedAtBuilder_ = null;
       }
-      externalMediumState_ = 0;
+      mediumSyncState_ = 0;
       return this;
     }
 
@@ -3387,7 +3387,7 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00008000;
       }
       if (((from_bitField1_ & 0x00001000) != 0)) {
-        result.externalMediumState_ = externalMediumState_;
+        result.mediumSyncState_ = mediumSyncState_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -3664,8 +3664,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasRemovedAt()) {
         mergeRemovedAt(other.getRemovedAt());
       }
-      if (other.externalMediumState_ != 0) {
-        setExternalMediumStateValue(other.getExternalMediumStateValue());
+      if (other.mediumSyncState_ != 0) {
+        setMediumSyncStateValue(other.getMediumSyncStateValue());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -3989,7 +3989,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 370
             case 376: {
-              externalMediumState_ = input.readEnum();
+              mediumSyncState_ = input.readEnum();
               bitField1_ |= 0x00001000;
               break;
             } // case 376
@@ -10637,29 +10637,29 @@ private static final long serialVersionUID = 0L;
       return removedAtBuilder_;
     }
 
-    private int externalMediumState_ = 0;
+    private int mediumSyncState_ = 0;
     /**
      * <pre>
      * Synchronization state of this message with an external medium.
      * </pre>
      *
-     * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-     * @return The enum numeric value on the wire for externalMediumState.
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @return The enum numeric value on the wire for mediumSyncState.
      */
-    @java.lang.Override public int getExternalMediumStateValue() {
-      return externalMediumState_;
+    @java.lang.Override public int getMediumSyncStateValue() {
+      return mediumSyncState_;
     }
     /**
      * <pre>
      * Synchronization state of this message with an external medium.
      * </pre>
      *
-     * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-     * @param value The enum numeric value on the wire for externalMediumState to set.
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @param value The enum numeric value on the wire for mediumSyncState to set.
      * @return This builder for chaining.
      */
-    public Builder setExternalMediumStateValue(int value) {
-      externalMediumState_ = value;
+    public Builder setMediumSyncStateValue(int value) {
+      mediumSyncState_ = value;
       bitField1_ |= 0x00001000;
       onChanged();
       return this;
@@ -10669,28 +10669,28 @@ private static final long serialVersionUID = 0L;
      * Synchronization state of this message with an external medium.
      * </pre>
      *
-     * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-     * @return The externalMediumState.
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @return The mediumSyncState.
      */
     @java.lang.Override
-    public io.channel.api.proto.pub.coreapi.model.ExternalMediumState getExternalMediumState() {
-      io.channel.api.proto.pub.coreapi.model.ExternalMediumState result = io.channel.api.proto.pub.coreapi.model.ExternalMediumState.forNumber(externalMediumState_);
-      return result == null ? io.channel.api.proto.pub.coreapi.model.ExternalMediumState.UNRECOGNIZED : result;
+    public io.channel.api.proto.pub.coreapi.model.MediumSyncState getMediumSyncState() {
+      io.channel.api.proto.pub.coreapi.model.MediumSyncState result = io.channel.api.proto.pub.coreapi.model.MediumSyncState.forNumber(mediumSyncState_);
+      return result == null ? io.channel.api.proto.pub.coreapi.model.MediumSyncState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * Synchronization state of this message with an external medium.
      * </pre>
      *
-     * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
-     * @param value The externalMediumState to set.
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
+     * @param value The mediumSyncState to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
      */
-    public Builder setExternalMediumState(io.channel.api.proto.pub.coreapi.model.ExternalMediumState value) {
+    public Builder setMediumSyncState(io.channel.api.proto.pub.coreapi.model.MediumSyncState value) {
       if (value == null) { throw new NullPointerException(); }
       bitField1_ |= 0x00001000;
-      externalMediumState_ = value.getNumber();
+      mediumSyncState_ = value.getNumber();
       onChanged();
       return this;
     }
@@ -10699,12 +10699,12 @@ private static final long serialVersionUID = 0L;
      * Synchronization state of this message with an external medium.
      * </pre>
      *
-     * <code>.coreapi.model.ExternalMediumState external_medium_state = 47 [json_name = "externalMediumState"];</code>
+     * <code>.coreapi.model.MediumSyncState medium_sync_state = 47 [json_name = "mediumSyncState"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearExternalMediumState() {
+    public Builder clearMediumSyncState() {
       bitField1_ = (bitField1_ & ~0x00001000);
-      externalMediumState_ = 0;
+      mediumSyncState_ = 0;
       onChanged();
       return this;
     }
@@ -11734,14 +11734,14 @@ private static final long serialVersionUID = 0L;
     }
     	
     /**
-     * @param value The external_medium_state to set.
+     * @param value The medium_sync_state to set.
      * @return This builder for chaining.
      */
-    public Builder setOrClearExternalMediumState(io.channel.api.proto.pub.coreapi.model.ExternalMediumState value) {
+    public Builder setOrClearMediumSyncState(io.channel.api.proto.pub.coreapi.model.MediumSyncState value) {
     	if (value == null)
-    		return clearExternalMediumState();
+    		return clearMediumSyncState();
     	else
-    		return setExternalMediumState(value);
+    		return setMediumSyncState(value);
     }
     	
     /**
@@ -11749,11 +11749,11 @@ private static final long serialVersionUID = 0L;
      * @param mapFunc The function to map the value into the proto message.
      * @return This builder for chaining.
      */
-    public <T> Builder mapOrClearExternalMediumState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.ExternalMediumState> mapFunc) {
+    public <T> Builder mapOrClearMediumSyncState(T value, java.util.function.Function<T, io.channel.api.proto.pub.coreapi.model.MediumSyncState> mapFunc) {
     	if (value == null)
-    		return clearExternalMediumState();
+    		return clearMediumSyncState();
     	else
-    		return setExternalMediumState(mapFunc.apply(value));
+    		return setMediumSyncState(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Message)
