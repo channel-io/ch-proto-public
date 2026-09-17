@@ -517,6 +517,35 @@ message AssignManagerToUserChatResult {
   coreapi.model.UserChat user_chat = 1;
 }
 
+// Unassigns the current manager from a user chat.
+// Opened chats may become eligible for automatic assignment again.
+message UnassignManagerFromUserChatRequest {
+  // User chat ID to unassign the manager from.
+  string user_chat_id = 1 [(buf.validate.field).required = true];
+
+  // Channel ID the user chat belongs to.
+  string channel_id = 2 [(buf.validate.field).required = true];
+
+  // Optional name of the bot performing the action.
+  //
+  // +kubebuilder:validation:Nullable
+  // +kubebuilder:validation:MaxLength=30
+  // +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+  string bot_name = 3 [
+    (buf.validate.field).cel = {
+      id: "string.maxLen"
+      message: "value must be no more than 30 characters"
+      expression: "this == '' || size(this) <= 30"
+    },
+    (buf.validate.field).string.pattern = "^$|^[^@#$%:/]+$"
+  ];
+}
+
+// Response for user chat manager unassignment.
+message UnassignManagerFromUserChatResult {
+  coreapi.model.UserChat user_chat = 1;
+}
+
 // ============================================================
 // UserChat Sessions (chat_session 종속)
 // ============================================================

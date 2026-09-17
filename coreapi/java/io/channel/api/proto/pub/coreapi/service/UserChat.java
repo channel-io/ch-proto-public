@@ -157,6 +157,16 @@ public final class UserChat extends com.google.protobuf.GeneratedFile {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_coreapi_service_AssignManagerToUserChatResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_UnassignManagerFromUserChatRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_coreapi_service_UnassignManagerFromUserChatRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_UnassignManagerFromUserChatResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_coreapi_service_UnassignManagerFromUserChatResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -381,58 +391,67 @@ public final class UserChat extends com.google.protobuf.GeneratedFile {
       "ame\022%\n\nmanager_id\030\004 \001(\tB\006\272H\003\310\001\001R\tmanager" +
       "Id\"U\n\035AssignManagerToUserChatResult\0224\n\tu" +
       "ser_chat\030\001 \001(\0132\027.coreapi.model.UserChatR" +
-      "\010userChat\"p\n\035SearchUserChatSessionsReque" +
-      "st\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelI" +
-      "d\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserCha" +
-      "tId\"_\n\034SearchUserChatSessionsResult\022?\n\rc" +
-      "hat_sessions\030\001 \003(\0132\032.coreapi.model.ChatS" +
-      "essionR\014chatSessions\"\367\006\n\035SearchUserChatM" +
-      "essagesRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310" +
-      "\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003" +
-      "\310\001\001R\nuserChatId\0228\n\nsort_order\030\003 \001(\0162\031.co" +
-      "reapi.common.SortOrderR\tsortOrder\022\026\n\006cur" +
-      "sor\030\004 \001(\tR\006cursor\022u\n\005limit\030\005 \001(\005B_\272H\\\272\001Y" +
-      "\n\rint32.between\022\037limit must be between 1" +
-      " and 500\032\'this == 0 || (this >= 1 && thi" +
-      "s <= 500)R\005limit\022.\n\004from\030\006 \001(\0132\032.google." +
-      "protobuf.TimestampR\004from\022*\n\002to\030\007 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\002to:\337\003\272H\333\003\032z\n1s" +
-      "earch_user_chat_messages.range_required_" +
-      "together\022%from and to must be provided t" +
-      "ogether\032\036has(this.from) == has(this.to)\032" +
-      "\225\001\n%search_user_chat_messages.range_orde" +
-      "r\022\032to must be later than from\032Phas(this." +
-      "from) && has(this.to) ? ((this.to - this" +
-      ".from) > duration(\'0s\')) : true\032\304\001\n2sear" +
-      "ch_user_chat_messages.range_not_exceed_3" +
-      "0_days\0225the range between from and to mu" +
-      "st not exceed 30 days\032Whas(this.from) &&" +
-      " has(this.to) ? ((this.to - this.from) <" +
-      "= duration(\'2592000s\')) : true\"\352\001\n\034Searc" +
-      "hUserChatMessagesResult\0222\n\010messages\030\001 \003(" +
-      "\0132\026.coreapi.model.MessageR\010messages\022\037\n\013n" +
-      "ext_cursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next" +
-      "\030\003 \001(\010R\007hasNext\022.\n\004from\030\004 \001(\0132\032.google.p" +
-      "rotobuf.TimestampR\004from\022*\n\002to\030\005 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\002to\"\337\002\n\034CreateUs" +
-      "erChatMessageRequest\022%\n\nchannel_id\030\001 \001(\t" +
-      "B\006\272H\003\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(" +
-      "\tB\006\272H\003\310\001\001R\nuserChatId\022?\n\007content\030\003 \001(\0132\035" +
-      ".coreapi.model.MessageContentB\006\272H\003\310\001\001R\007c" +
-      "ontent\022\215\001\n\010bot_name\030\004 \001(\tBr\272Hor\0212\017^$|^[^" +
-      "@#$%:/]+$\272\001Y\n\rstring.maxLen\022(value must " +
-      "be no more than 30 characters\032\036this == \'" +
-      "\' || size(this) <= 30R\007botName\022\035\n\nreques" +
-      "t_id\030\005 \001(\tR\trequestId\"O\n\033CreateUserChatM" +
-      "essageResult\0220\n\007message\030\001 \001(\0132\026.coreapi." +
-      "model.MessageR\007message\"\206\001\n\031GetUserChatFi" +
-      "leUrlRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001" +
-      "R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001" +
-      "\001R\nuserChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key\"" +
-      ",\n\030GetUserChatFileUrlResult\022\020\n\003url\030\001 \001(\t" +
-      "R\003urlBf\n(io.channel.api.proto.pub.coreap" +
-      "i.serviceP\001Z8github.com/channel-io/ch-pr" +
-      "oto-public/coreapi/go/serviceb\006proto3"
+      "\010userChat\"\205\002\n\"UnassignManagerFromUserCha" +
+      "tRequest\022(\n\014user_chat_id\030\001 \001(\tB\006\272H\003\310\001\001R\n" +
+      "userChatId\022%\n\nchannel_id\030\002 \001(\tB\006\272H\003\310\001\001R\t" +
+      "channelId\022\215\001\n\010bot_name\030\003 \001(\tBr\272Hor\0212\017^$|" +
+      "^[^@#$%:/]+$\272\001Y\n\rstring.maxLen\022(value mu" +
+      "st be no more than 30 characters\032\036this =" +
+      "= \'\' || size(this) <= 30R\007botName\"Y\n!Una" +
+      "ssignManagerFromUserChatResult\0224\n\tuser_c" +
+      "hat\030\001 \001(\0132\027.coreapi.model.UserChatR\010user" +
+      "Chat\"p\n\035SearchUserChatSessionsRequest\022%\n" +
+      "\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022(\n\014" +
+      "user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nuserChatId\"_" +
+      "\n\034SearchUserChatSessionsResult\022?\n\rchat_s" +
+      "essions\030\001 \003(\0132\032.coreapi.model.ChatSessio" +
+      "nR\014chatSessions\"\367\006\n\035SearchUserChatMessag" +
+      "esRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tc" +
+      "hannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\n" +
+      "userChatId\0228\n\nsort_order\030\003 \001(\0162\031.coreapi" +
+      ".common.SortOrderR\tsortOrder\022\026\n\006cursor\030\004" +
+      " \001(\tR\006cursor\022u\n\005limit\030\005 \001(\005B_\272H\\\272\001Y\n\rint" +
+      "32.between\022\037limit must be between 1 and " +
+      "500\032\'this == 0 || (this >= 1 && this <= " +
+      "500)R\005limit\022.\n\004from\030\006 \001(\0132\032.google.proto" +
+      "buf.TimestampR\004from\022*\n\002to\030\007 \001(\0132\032.google" +
+      ".protobuf.TimestampR\002to:\337\003\272H\333\003\032z\n1search" +
+      "_user_chat_messages.range_required_toget" +
+      "her\022%from and to must be provided togeth" +
+      "er\032\036has(this.from) == has(this.to)\032\225\001\n%s" +
+      "earch_user_chat_messages.range_order\022\032to" +
+      " must be later than from\032Phas(this.from)" +
+      " && has(this.to) ? ((this.to - this.from" +
+      ") > duration(\'0s\')) : true\032\304\001\n2search_us" +
+      "er_chat_messages.range_not_exceed_30_day" +
+      "s\0225the range between from and to must no" +
+      "t exceed 30 days\032Whas(this.from) && has(" +
+      "this.to) ? ((this.to - this.from) <= dur" +
+      "ation(\'2592000s\')) : true\"\352\001\n\034SearchUser" +
+      "ChatMessagesResult\0222\n\010messages\030\001 \003(\0132\026.c" +
+      "oreapi.model.MessageR\010messages\022\037\n\013next_c" +
+      "ursor\030\002 \001(\tR\nnextCursor\022\031\n\010has_next\030\003 \001(" +
+      "\010R\007hasNext\022.\n\004from\030\004 \001(\0132\032.google.protob" +
+      "uf.TimestampR\004from\022*\n\002to\030\005 \001(\0132\032.google." +
+      "protobuf.TimestampR\002to\"\337\002\n\034CreateUserCha" +
+      "tMessageRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003" +
+      "\310\001\001R\tchannelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H" +
+      "\003\310\001\001R\nuserChatId\022?\n\007content\030\003 \001(\0132\035.core" +
+      "api.model.MessageContentB\006\272H\003\310\001\001R\007conten" +
+      "t\022\215\001\n\010bot_name\030\004 \001(\tBr\272Hor\0212\017^$|^[^@#$%:" +
+      "/]+$\272\001Y\n\rstring.maxLen\022(value must be no" +
+      " more than 30 characters\032\036this == \'\' || " +
+      "size(this) <= 30R\007botName\022\035\n\nrequest_id\030" +
+      "\005 \001(\tR\trequestId\"O\n\033CreateUserChatMessag" +
+      "eResult\0220\n\007message\030\001 \001(\0132\026.coreapi.model" +
+      ".MessageR\007message\"\206\001\n\031GetUserChatFileUrl" +
+      "Request\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tcha" +
+      "nnelId\022(\n\014user_chat_id\030\002 \001(\tB\006\272H\003\310\001\001R\nus" +
+      "erChatId\022\030\n\003key\030\003 \001(\tB\006\272H\003\310\001\001R\003key\",\n\030Ge" +
+      "tUserChatFileUrlResult\022\020\n\003url\030\001 \001(\tR\003url" +
+      "Bf\n(io.channel.api.proto.pub.coreapi.ser" +
+      "viceP\001Z8github.com/channel-io/ch-proto-p" +
+      "ublic/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -608,50 +627,62 @@ public final class UserChat extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_AssignManagerToUserChatResult_descriptor,
         new java.lang.String[] { "UserChat", });
-    internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor =
+    internal_static_coreapi_service_UnassignManagerFromUserChatRequest_descriptor =
       getDescriptor().getMessageType(24);
+    internal_static_coreapi_service_UnassignManagerFromUserChatRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_coreapi_service_UnassignManagerFromUserChatRequest_descriptor,
+        new java.lang.String[] { "UserChatId", "ChannelId", "BotName", });
+    internal_static_coreapi_service_UnassignManagerFromUserChatResult_descriptor =
+      getDescriptor().getMessageType(25);
+    internal_static_coreapi_service_UnassignManagerFromUserChatResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_coreapi_service_UnassignManagerFromUserChatResult_descriptor,
+        new java.lang.String[] { "UserChat", });
+    internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor =
+      getDescriptor().getMessageType(26);
     internal_static_coreapi_service_SearchUserChatSessionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_SearchUserChatSessionsRequest_descriptor,
         new java.lang.String[] { "ChannelId", "UserChatId", });
     internal_static_coreapi_service_SearchUserChatSessionsResult_descriptor =
-      getDescriptor().getMessageType(25);
+      getDescriptor().getMessageType(27);
     internal_static_coreapi_service_SearchUserChatSessionsResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_SearchUserChatSessionsResult_descriptor,
         new java.lang.String[] { "ChatSessions", });
     internal_static_coreapi_service_SearchUserChatMessagesRequest_descriptor =
-      getDescriptor().getMessageType(26);
+      getDescriptor().getMessageType(28);
     internal_static_coreapi_service_SearchUserChatMessagesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_SearchUserChatMessagesRequest_descriptor,
         new java.lang.String[] { "ChannelId", "UserChatId", "SortOrder", "Cursor", "Limit", "From", "To", });
     internal_static_coreapi_service_SearchUserChatMessagesResult_descriptor =
-      getDescriptor().getMessageType(27);
+      getDescriptor().getMessageType(29);
     internal_static_coreapi_service_SearchUserChatMessagesResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_SearchUserChatMessagesResult_descriptor,
         new java.lang.String[] { "Messages", "NextCursor", "HasNext", "From", "To", });
     internal_static_coreapi_service_CreateUserChatMessageRequest_descriptor =
-      getDescriptor().getMessageType(28);
+      getDescriptor().getMessageType(30);
     internal_static_coreapi_service_CreateUserChatMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_CreateUserChatMessageRequest_descriptor,
         new java.lang.String[] { "ChannelId", "UserChatId", "Content", "BotName", "RequestId", });
     internal_static_coreapi_service_CreateUserChatMessageResult_descriptor =
-      getDescriptor().getMessageType(29);
+      getDescriptor().getMessageType(31);
     internal_static_coreapi_service_CreateUserChatMessageResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_CreateUserChatMessageResult_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_coreapi_service_GetUserChatFileUrlRequest_descriptor =
-      getDescriptor().getMessageType(30);
+      getDescriptor().getMessageType(32);
     internal_static_coreapi_service_GetUserChatFileUrlRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_GetUserChatFileUrlRequest_descriptor,
         new java.lang.String[] { "ChannelId", "UserChatId", "Key", });
     internal_static_coreapi_service_GetUserChatFileUrlResult_descriptor =
-      getDescriptor().getMessageType(31);
+      getDescriptor().getMessageType(33);
     internal_static_coreapi_service_GetUserChatFileUrlResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_GetUserChatFileUrlResult_descriptor,
