@@ -1681,6 +1681,14 @@ var coreAPIFieldNames = map[string]map[string]fieldName{
 	"coreapi.service.TouchUserResult": {
 		"user": {jsonName: "user", messageFullName: "coreapi.model.User"},
 	},
+	"coreapi.service.UnassignManagerFromUserChatRequest": {
+		"user_chat_id": {jsonName: "userChatId"},
+		"channel_id":   {jsonName: "channelId"},
+		"bot_name":     {jsonName: "botName"},
+	},
+	"coreapi.service.UnassignManagerFromUserChatResult": {
+		"user_chat": {jsonName: "userChat", messageFullName: "coreapi.model.UserChat"},
+	},
 	"coreapi.service.UnblockUserRequest": {
 		"user_id":    {jsonName: "userId"},
 		"channel_id": {jsonName: "channelId"},
