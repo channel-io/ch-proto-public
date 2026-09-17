@@ -8,7 +8,6 @@ package io.channel.api.proto.pub.coreapi.service;
 /**
  * <pre>
  * Unassigns the current manager from a user chat.
- * Opened chats may become eligible for automatic assignment again.
  * </pre>
  *
  * Protobuf type {@code coreapi.service.UnassignManagerFromUserChatRequest}
@@ -388,7 +387,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Unassigns the current manager from a user chat.
-   * Opened chats may become eligible for automatic assignment again.
    * </pre>
    *
    * Protobuf type {@code coreapi.service.UnassignManagerFromUserChatRequest}

@@ -518,7 +518,6 @@ message AssignManagerToUserChatResult {
 }
 
 // Unassigns the current manager from a user chat.
-// Opened chats may become eligible for automatic assignment again.
 message UnassignManagerFromUserChatRequest {
   // User chat ID to unassign the manager from.
   string user_chat_id = 1 [(buf.validate.field).required = true];

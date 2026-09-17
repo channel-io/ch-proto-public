@@ -1559,7 +1559,6 @@ func (x *AssignManagerToUserChatResult) GetUserChat() *model.UserChat {
 }
 
 // Unassigns the current manager from a user chat.
-// Opened chats may become eligible for automatic assignment again.
 type UnassignManagerFromUserChatRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// User chat ID to unassign the manager from.
