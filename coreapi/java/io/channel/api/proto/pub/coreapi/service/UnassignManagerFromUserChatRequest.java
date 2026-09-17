@@ -159,7 +159,7 @@ private static final long serialVersionUID = 0L;
    *
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/]+$"
+   * +kubebuilder:validation:Pattern="^$|^[^&#64;#$%:/]+$"
    * </pre>
    *
    * <code>string bot_name = 3 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -184,7 +184,7 @@ private static final long serialVersionUID = 0L;
    *
    * +kubebuilder:validation:Nullable
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/]+$"
+   * +kubebuilder:validation:Pattern="^$|^[^&#64;#$%:/]+$"
    * </pre>
    *
    * <code>string bot_name = 3 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -747,7 +747,7 @@ private static final long serialVersionUID = 0L;
      *
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/]+$"
+     * +kubebuilder:validation:Pattern="^$|^[^&#64;#$%:/]+$"
      * </pre>
      *
      * <code>string bot_name = 3 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -771,7 +771,7 @@ private static final long serialVersionUID = 0L;
      *
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/]+$"
+     * +kubebuilder:validation:Pattern="^$|^[^&#64;#$%:/]+$"
      * </pre>
      *
      * <code>string bot_name = 3 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -796,7 +796,7 @@ private static final long serialVersionUID = 0L;
      *
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/]+$"
+     * +kubebuilder:validation:Pattern="^$|^[^&#64;#$%:/]+$"
      * </pre>
      *
      * <code>string bot_name = 3 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
      *
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/]+$"
+     * +kubebuilder:validation:Pattern="^$|^[^&#64;#$%:/]+$"
      * </pre>
      *
      * <code>string bot_name = 3 [json_name = "botName", (.buf.validate.field) = { ... }</code>
@@ -835,7 +835,7 @@ private static final long serialVersionUID = 0L;
      *
      * +kubebuilder:validation:Nullable
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/]+$"
+     * +kubebuilder:validation:Pattern="^$|^[^&#64;#$%:/]+$"
      * </pre>
      *
      * <code>string bot_name = 3 [json_name = "botName", (.buf.validate.field) = { ... }</code>

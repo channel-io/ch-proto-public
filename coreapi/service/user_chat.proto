@@ -530,7 +530,7 @@ message UnassignManagerFromUserChatRequest {
   //
   // +kubebuilder:validation:Nullable
   // +kubebuilder:validation:MaxLength=30
-  // +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+  // +kubebuilder:validation:Pattern="^$|^[^@#$%:/]+$"
   string bot_name = 3 [
     (buf.validate.field).cel = {
       id: "string.maxLen"

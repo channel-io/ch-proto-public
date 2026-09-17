@@ -1570,7 +1570,7 @@ type UnassignManagerFromUserChatRequest struct {
 	//
 	// +kubebuilder:validation:Nullable
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:validation:Pattern="^[^@#$%:/]+$"
+	// +kubebuilder:validation:Pattern="^$|^[^@#$%:/]+$"
 	BotName       string `protobuf:"bytes,3,opt,name=bot_name,json=botName,proto3" json:"bot_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
