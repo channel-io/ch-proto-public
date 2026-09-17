@@ -952,8 +952,8 @@ type Message struct {
 	// +kubebuilder:example="false"
 	BroadcastedMsg bool `protobuf:"varint,44,opt,name=broadcasted_msg,json=broadcastedMsg,proto3" json:"broadcasted_msg,omitempty"`
 	// Whether the message was removed by its original author.
-	// True when the message state is REMOVED and the remover matches the author,
-	// or when no specific remover is recorded.
+	// True when the message is removed (removed_at is present or the legacy state is REMOVED)
+	// and the remover matches the author or no specific remover is recorded.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:example="false"
