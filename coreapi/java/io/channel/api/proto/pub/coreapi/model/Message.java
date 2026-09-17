@@ -1620,12 +1620,14 @@ private static final long serialVersionUID = 0L;
   private int state_ = 0;
   /**
    * <pre>
-   * Current lifecycle state of this message.
+   * Legacy lifecycle state of this message.
+   * Deprecated: to determine whether the message is removed, check whether
+   * removed_at is present or this state is REMOVED.
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
    * @deprecated coreapi.model.Message.state is deprecated.
-   *     See coreapi/model/message.proto;l=249
+   *     See coreapi/model/message.proto;l=252
    * @return The enum numeric value on the wire for state.
    */
   @java.lang.Override @java.lang.Deprecated public int getStateValue() {
@@ -1633,12 +1635,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Current lifecycle state of this message.
+   * Legacy lifecycle state of this message.
+   * Deprecated: to determine whether the message is removed, check whether
+   * removed_at is present or this state is REMOVED.
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
    * @deprecated coreapi.model.Message.state is deprecated.
-   *     See coreapi/model/message.proto;l=249
+   *     See coreapi/model/message.proto;l=252
    * @return The state.
    */
   @java.lang.Override @java.lang.Deprecated public io.channel.api.proto.pub.coreapi.model.MessageState getState() {
@@ -2118,6 +2122,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the message was removed.
+   * When present, the message is removed regardless of its legacy state.
+   * Legacy removed messages may have no timestamp and instead have state REMOVED,
+   * so an absent timestamp does not necessarily mean the message has not been removed.
    *
    * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
@@ -2132,6 +2139,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the message was removed.
+   * When present, the message is removed regardless of its legacy state.
+   * Legacy removed messages may have no timestamp and instead have state REMOVED,
+   * so an absent timestamp does not necessarily mean the message has not been removed.
    *
    * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
@@ -2146,6 +2156,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Timestamp when the message was removed.
+   * When present, the message is removed regardless of its legacy state.
+   * Legacy removed messages may have no timestamp and instead have state REMOVED,
+   * so an absent timestamp does not necessarily mean the message has not been removed.
    *
    * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
@@ -8939,12 +8952,14 @@ private static final long serialVersionUID = 0L;
     private int state_ = 0;
     /**
      * <pre>
-     * Current lifecycle state of this message.
+     * Legacy lifecycle state of this message.
+     * Deprecated: to determine whether the message is removed, check whether
+     * removed_at is present or this state is REMOVED.
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
      * @deprecated coreapi.model.Message.state is deprecated.
-     *     See coreapi/model/message.proto;l=249
+     *     See coreapi/model/message.proto;l=252
      * @return The enum numeric value on the wire for state.
      */
     @java.lang.Override @java.lang.Deprecated public int getStateValue() {
@@ -8952,12 +8967,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state of this message.
+     * Legacy lifecycle state of this message.
+     * Deprecated: to determine whether the message is removed, check whether
+     * removed_at is present or this state is REMOVED.
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
      * @deprecated coreapi.model.Message.state is deprecated.
-     *     See coreapi/model/message.proto;l=249
+     *     See coreapi/model/message.proto;l=252
      * @param value The enum numeric value on the wire for state to set.
      * @return This builder for chaining.
      */
@@ -8969,12 +8986,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state of this message.
+     * Legacy lifecycle state of this message.
+     * Deprecated: to determine whether the message is removed, check whether
+     * removed_at is present or this state is REMOVED.
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
      * @deprecated coreapi.model.Message.state is deprecated.
-     *     See coreapi/model/message.proto;l=249
+     *     See coreapi/model/message.proto;l=252
      * @return The state.
      */
     @java.lang.Override
@@ -8984,12 +9003,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state of this message.
+     * Legacy lifecycle state of this message.
+     * Deprecated: to determine whether the message is removed, check whether
+     * removed_at is present or this state is REMOVED.
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
      * @deprecated coreapi.model.Message.state is deprecated.
-     *     See coreapi/model/message.proto;l=249
+     *     See coreapi/model/message.proto;l=252
      * @param value The state to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -9003,12 +9024,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Current lifecycle state of this message.
+     * Legacy lifecycle state of this message.
+     * Deprecated: to determine whether the message is removed, check whether
+     * removed_at is present or this state is REMOVED.
      * </pre>
      *
      * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
      * @deprecated coreapi.model.Message.state is deprecated.
-     *     See coreapi/model/message.proto;l=249
+     *     See coreapi/model/message.proto;l=252
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearState() {
@@ -10468,6 +10491,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10481,6 +10507,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10498,6 +10527,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10520,6 +10552,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10540,6 +10575,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10567,6 +10605,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10586,6 +10627,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10600,6 +10644,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>
@@ -10617,6 +10664,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Timestamp when the message was removed.
+     * When present, the message is removed regardless of its legacy state.
+     * Legacy removed messages may have no timestamp and instead have state REMOVED,
+     * so an absent timestamp does not necessarily mean the message has not been removed.
      *
      * +kubebuilder:example="2024-03-29T03:24:30Z"
      * </pre>

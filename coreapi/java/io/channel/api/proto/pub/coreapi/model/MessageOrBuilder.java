@@ -996,23 +996,27 @@ public interface MessageOrBuilder extends
 
   /**
    * <pre>
-   * Current lifecycle state of this message.
+   * Legacy lifecycle state of this message.
+   * Deprecated: to determine whether the message is removed, check whether
+   * removed_at is present or this state is REMOVED.
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
    * @deprecated coreapi.model.Message.state is deprecated.
-   *     See coreapi/model/message.proto;l=249
+   *     See coreapi/model/message.proto;l=252
    * @return The enum numeric value on the wire for state.
    */
   @java.lang.Deprecated int getStateValue();
   /**
    * <pre>
-   * Current lifecycle state of this message.
+   * Legacy lifecycle state of this message.
+   * Deprecated: to determine whether the message is removed, check whether
+   * removed_at is present or this state is REMOVED.
    * </pre>
    *
    * <code>.coreapi.model.MessageState state = 32 [json_name = "state", deprecated = true];</code>
    * @deprecated coreapi.model.Message.state is deprecated.
-   *     See coreapi/model/message.proto;l=249
+   *     See coreapi/model/message.proto;l=252
    * @return The state.
    */
   @java.lang.Deprecated io.channel.api.proto.pub.coreapi.model.MessageState getState();
@@ -1352,6 +1356,9 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Timestamp when the message was removed.
+   * When present, the message is removed regardless of its legacy state.
+   * Legacy removed messages may have no timestamp and instead have state REMOVED,
+   * so an absent timestamp does not necessarily mean the message has not been removed.
    *
    * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
@@ -1363,6 +1370,9 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Timestamp when the message was removed.
+   * When present, the message is removed regardless of its legacy state.
+   * Legacy removed messages may have no timestamp and instead have state REMOVED,
+   * so an absent timestamp does not necessarily mean the message has not been removed.
    *
    * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>
@@ -1374,6 +1384,9 @@ public interface MessageOrBuilder extends
   /**
    * <pre>
    * Timestamp when the message was removed.
+   * When present, the message is removed regardless of its legacy state.
+   * Legacy removed messages may have no timestamp and instead have state REMOVED,
+   * so an absent timestamp does not necessarily mean the message has not been removed.
    *
    * +kubebuilder:example="2024-03-29T03:24:30Z"
    * </pre>

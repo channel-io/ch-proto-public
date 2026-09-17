@@ -7,7 +7,8 @@ package io.channel.api.proto.pub.coreapi.model;
 
 /**
  * <pre>
- * State of a message in its lifecycle.
+ * Legacy lifecycle state of a message.
+ * To determine whether a message is removed, check removed_at as well as this state.
  * </pre>
  *
  * Protobuf enum {@code coreapi.model.MessageState}

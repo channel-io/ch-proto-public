@@ -24,7 +24,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// State of a message in its lifecycle.
+// Legacy lifecycle state of a message.
+// To determine whether a message is removed, check removed_at as well as this state.
 type MessageState int32
 
 const (
@@ -892,7 +893,9 @@ type Message struct {
 	//
 	// +kubebuilder:example={"fields":[{"id":"name","type":"text","label":"Name"}]}
 	Form *structpb.Struct `protobuf:"bytes,31,opt,name=form,proto3" json:"form,omitempty"`
-	// Current lifecycle state of this message.
+	// Legacy lifecycle state of this message.
+	// Deprecated: to determine whether the message is removed, check whether
+	// removed_at is present or this state is REMOVED.
 	//
 	// Deprecated: Marked as deprecated in coreapi/model/message.proto.
 	State MessageState `protobuf:"varint,32,opt,name=state,proto3,enum=coreapi.model.MessageState" json:"state,omitempty"`
@@ -959,6 +962,9 @@ type Message struct {
 	// +kubebuilder:example="false"
 	RemovedByWriter bool `protobuf:"varint,45,opt,name=removed_by_writer,json=removedByWriter,proto3" json:"removed_by_writer,omitempty"`
 	// Timestamp when the message was removed.
+	// When present, the message is removed regardless of its legacy state.
+	// Legacy removed messages may have no timestamp and instead have state REMOVED,
+	// so an absent timestamp does not necessarily mean the message has not been removed.
 	//
 	// +kubebuilder:example="2024-03-29T03:24:30Z"
 	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=removed_at,json=removedAt,proto3" json:"removed_at,omitempty"`
