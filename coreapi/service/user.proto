@@ -279,16 +279,20 @@ message UpsertUserByMemberIdRequest {
   repeated string tags = 5;
 
   // Whether the user is blocked.
-  bool blocked = 6;
+  // When omitted, the current value is preserved.
+  optional bool blocked = 6;
 
   // Whether the user opted out of email notifications.
-  bool unsubscribe_email = 7;
+  // When omitted, the current value is preserved.
+  optional bool unsubscribe_email = 7;
 
   // Whether the user opted out of SMS/text notifications.
-  bool unsubscribe_texting = 8;
+  // When omitted, the current value is preserved.
+  optional bool unsubscribe_texting = 8;
 
   // Whether the user opted out of app push notifications.
-  bool unsubscribe_app_push = 9;
+  // When omitted, the current value is preserved.
+  optional bool unsubscribe_app_push = 9;
 
   // User's preferred language locale.
   string language = 10;

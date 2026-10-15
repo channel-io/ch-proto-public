@@ -157,9 +157,20 @@ public interface UpsertUserByMemberIdRequestOrBuilder extends
   /**
    * <pre>
    * Whether the user is blocked.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool blocked = 6 [json_name = "blocked"];</code>
+   * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
+   * @return Whether the blocked field is set.
+   */
+  boolean hasBlocked();
+  /**
+   * <pre>
+   * Whether the user is blocked.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
    * @return The blocked.
    */
   boolean getBlocked();
@@ -167,9 +178,20 @@ public interface UpsertUserByMemberIdRequestOrBuilder extends
   /**
    * <pre>
    * Whether the user opted out of email notifications.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+   * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+   * @return Whether the unsubscribeEmail field is set.
+   */
+  boolean hasUnsubscribeEmail();
+  /**
+   * <pre>
+   * Whether the user opted out of email notifications.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
    * @return The unsubscribeEmail.
    */
   boolean getUnsubscribeEmail();
@@ -177,9 +199,20 @@ public interface UpsertUserByMemberIdRequestOrBuilder extends
   /**
    * <pre>
    * Whether the user opted out of SMS/text notifications.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+   * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+   * @return Whether the unsubscribeTexting field is set.
+   */
+  boolean hasUnsubscribeTexting();
+  /**
+   * <pre>
+   * Whether the user opted out of SMS/text notifications.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
    * @return The unsubscribeTexting.
    */
   boolean getUnsubscribeTexting();
@@ -187,9 +220,20 @@ public interface UpsertUserByMemberIdRequestOrBuilder extends
   /**
    * <pre>
    * Whether the user opted out of app push notifications.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+   * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+   * @return Whether the unsubscribeAppPush field is set.
+   */
+  boolean hasUnsubscribeAppPush();
+  /**
+   * <pre>
+   * Whether the user opted out of app push notifications.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
    * @return The unsubscribeAppPush.
    */
   boolean getUnsubscribeAppPush();

@@ -296,9 +296,23 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user is blocked.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool blocked = 6 [json_name = "blocked"];</code>
+   * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
+   * @return Whether the blocked field is set.
+   */
+  @java.lang.Override
+  public boolean hasBlocked() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the user is blocked.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
    * @return The blocked.
    */
   @java.lang.Override
@@ -311,9 +325,23 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of email notifications.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+   * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+   * @return Whether the unsubscribeEmail field is set.
+   */
+  @java.lang.Override
+  public boolean hasUnsubscribeEmail() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the user opted out of email notifications.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
    * @return The unsubscribeEmail.
    */
   @java.lang.Override
@@ -326,9 +354,23 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of SMS/text notifications.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+   * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+   * @return Whether the unsubscribeTexting field is set.
+   */
+  @java.lang.Override
+  public boolean hasUnsubscribeTexting() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the user opted out of SMS/text notifications.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
    * @return The unsubscribeTexting.
    */
   @java.lang.Override
@@ -341,9 +383,23 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of app push notifications.
+   * When omitted, the current value is preserved.
    * </pre>
    *
-   * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+   * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+   * @return Whether the unsubscribeAppPush field is set.
+   */
+  @java.lang.Override
+  public boolean hasUnsubscribeAppPush() {
+    return ((bitField0_ & 0x00000020) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the user opted out of app push notifications.
+   * When omitted, the current value is preserved.
+   * </pre>
+   *
+   * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
    * @return The unsubscribeAppPush.
    */
   @java.lang.Override
@@ -427,16 +483,16 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < tags_.size(); i++) {
       com.google.protobuf.GeneratedMessage.writeString(output, 5, tags_.getRaw(i));
     }
-    if (blocked_ != false) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       output.writeBool(6, blocked_);
     }
-    if (unsubscribeEmail_ != false) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       output.writeBool(7, unsubscribeEmail_);
     }
-    if (unsubscribeTexting_ != false) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       output.writeBool(8, unsubscribeTexting_);
     }
-    if (unsubscribeAppPush_ != false) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       output.writeBool(9, unsubscribeAppPush_);
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(language_)) {
@@ -468,19 +524,19 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getTagsList().size();
     }
-    if (blocked_ != false) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, blocked_);
     }
-    if (unsubscribeEmail_ != false) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, unsubscribeEmail_);
     }
-    if (unsubscribeTexting_ != false) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(8, unsubscribeTexting_);
     }
-    if (unsubscribeAppPush_ != false) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(9, unsubscribeAppPush_);
     }
@@ -527,14 +583,26 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTagsList()
         .equals(other.getTagsList())) return false;
-    if (getBlocked()
-        != other.getBlocked()) return false;
-    if (getUnsubscribeEmail()
-        != other.getUnsubscribeEmail()) return false;
-    if (getUnsubscribeTexting()
-        != other.getUnsubscribeTexting()) return false;
-    if (getUnsubscribeAppPush()
-        != other.getUnsubscribeAppPush()) return false;
+    if (hasBlocked() != other.hasBlocked()) return false;
+    if (hasBlocked()) {
+      if (getBlocked()
+          != other.getBlocked()) return false;
+    }
+    if (hasUnsubscribeEmail() != other.hasUnsubscribeEmail()) return false;
+    if (hasUnsubscribeEmail()) {
+      if (getUnsubscribeEmail()
+          != other.getUnsubscribeEmail()) return false;
+    }
+    if (hasUnsubscribeTexting() != other.hasUnsubscribeTexting()) return false;
+    if (hasUnsubscribeTexting()) {
+      if (getUnsubscribeTexting()
+          != other.getUnsubscribeTexting()) return false;
+    }
+    if (hasUnsubscribeAppPush() != other.hasUnsubscribeAppPush()) return false;
+    if (hasUnsubscribeAppPush()) {
+      if (getUnsubscribeAppPush()
+          != other.getUnsubscribeAppPush()) return false;
+    }
     if (!getLanguage()
         .equals(other.getLanguage())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -564,18 +632,26 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
     }
-    hash = (37 * hash) + BLOCKED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getBlocked());
-    hash = (37 * hash) + UNSUBSCRIBE_EMAIL_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUnsubscribeEmail());
-    hash = (37 * hash) + UNSUBSCRIBE_TEXTING_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUnsubscribeTexting());
-    hash = (37 * hash) + UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUnsubscribeAppPush());
+    if (hasBlocked()) {
+      hash = (37 * hash) + BLOCKED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getBlocked());
+    }
+    if (hasUnsubscribeEmail()) {
+      hash = (37 * hash) + UNSUBSCRIBE_EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnsubscribeEmail());
+    }
+    if (hasUnsubscribeTexting()) {
+      hash = (37 * hash) + UNSUBSCRIBE_TEXTING_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnsubscribeTexting());
+    }
+    if (hasUnsubscribeAppPush()) {
+      hash = (37 * hash) + UNSUBSCRIBE_APP_PUSH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnsubscribeAppPush());
+    }
     hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
     hash = (53 * hash) + getLanguage().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -798,15 +874,19 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.blocked_ = blocked_;
+        to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
         result.unsubscribeEmail_ = unsubscribeEmail_;
+        to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
         result.unsubscribeTexting_ = unsubscribeTexting_;
+        to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
         result.unsubscribeAppPush_ = unsubscribeAppPush_;
+        to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
         result.language_ = language_;
@@ -852,16 +932,16 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      if (other.getBlocked() != false) {
+      if (other.hasBlocked()) {
         setBlocked(other.getBlocked());
       }
-      if (other.getUnsubscribeEmail() != false) {
+      if (other.hasUnsubscribeEmail()) {
         setUnsubscribeEmail(other.getUnsubscribeEmail());
       }
-      if (other.getUnsubscribeTexting() != false) {
+      if (other.hasUnsubscribeTexting()) {
         setUnsubscribeTexting(other.getUnsubscribeTexting());
       }
-      if (other.getUnsubscribeAppPush() != false) {
+      if (other.hasUnsubscribeAppPush()) {
         setUnsubscribeAppPush(other.getUnsubscribeAppPush());
       }
       if (!other.getLanguage().isEmpty()) {
@@ -1639,9 +1719,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user is blocked.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool blocked = 6 [json_name = "blocked"];</code>
+     * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
+     * @return Whether the blocked field is set.
+     */
+    @java.lang.Override
+    public boolean hasBlocked() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the user is blocked.
+     * When omitted, the current value is preserved.
+     * </pre>
+     *
+     * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
      * @return The blocked.
      */
     @java.lang.Override
@@ -1651,9 +1745,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user is blocked.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool blocked = 6 [json_name = "blocked"];</code>
+     * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
      * @param value The blocked to set.
      * @return This builder for chaining.
      */
@@ -1667,9 +1762,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user is blocked.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool blocked = 6 [json_name = "blocked"];</code>
+     * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBlocked() {
@@ -1683,9 +1779,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of email notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+     * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+     * @return Whether the unsubscribeEmail field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnsubscribeEmail() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the user opted out of email notifications.
+     * When omitted, the current value is preserved.
+     * </pre>
+     *
+     * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
      * @return The unsubscribeEmail.
      */
     @java.lang.Override
@@ -1695,9 +1805,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of email notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+     * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
      * @param value The unsubscribeEmail to set.
      * @return This builder for chaining.
      */
@@ -1711,9 +1822,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of email notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
+     * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUnsubscribeEmail() {
@@ -1727,9 +1839,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of SMS/text notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+     * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+     * @return Whether the unsubscribeTexting field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnsubscribeTexting() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the user opted out of SMS/text notifications.
+     * When omitted, the current value is preserved.
+     * </pre>
+     *
+     * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
      * @return The unsubscribeTexting.
      */
     @java.lang.Override
@@ -1739,9 +1865,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of SMS/text notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+     * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
      * @param value The unsubscribeTexting to set.
      * @return This builder for chaining.
      */
@@ -1755,9 +1882,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of SMS/text notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
+     * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUnsubscribeTexting() {
@@ -1771,9 +1899,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of app push notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+     * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+     * @return Whether the unsubscribeAppPush field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnsubscribeAppPush() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the user opted out of app push notifications.
+     * When omitted, the current value is preserved.
+     * </pre>
+     *
+     * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
      * @return The unsubscribeAppPush.
      */
     @java.lang.Override
@@ -1783,9 +1925,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of app push notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+     * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
      * @param value The unsubscribeAppPush to set.
      * @return This builder for chaining.
      */
@@ -1799,9 +1942,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of app push notifications.
+     * When omitted, the current value is preserved.
      * </pre>
      *
-     * <code>bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
+     * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUnsubscribeAppPush() {
