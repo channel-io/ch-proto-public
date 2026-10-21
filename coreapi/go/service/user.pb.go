@@ -926,13 +926,21 @@ type UpsertUserByMemberIdRequest struct {
 	// User classification tags to replace the current set.
 	Tags []string `protobuf:"bytes,5,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Whether the user is blocked.
-	Blocked bool `protobuf:"varint,6,opt,name=blocked,proto3" json:"blocked,omitempty"`
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
+	Blocked *bool `protobuf:"varint,6,opt,name=blocked,proto3,oneof" json:"blocked,omitempty"`
 	// Whether the user opted out of email notifications.
-	UnsubscribeEmail bool `protobuf:"varint,7,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3" json:"unsubscribe_email,omitempty"`
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
+	UnsubscribeEmail *bool `protobuf:"varint,7,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3,oneof" json:"unsubscribe_email,omitempty"`
 	// Whether the user opted out of SMS/text notifications.
-	UnsubscribeTexting bool `protobuf:"varint,8,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3" json:"unsubscribe_texting,omitempty"`
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
+	UnsubscribeTexting *bool `protobuf:"varint,8,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3,oneof" json:"unsubscribe_texting,omitempty"`
 	// Whether the user opted out of app push notifications.
-	UnsubscribeAppPush bool `protobuf:"varint,9,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3" json:"unsubscribe_app_push,omitempty"`
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
+	UnsubscribeAppPush *bool `protobuf:"varint,9,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3,oneof" json:"unsubscribe_app_push,omitempty"`
 	// User's preferred language locale.
 	Language      string `protobuf:"bytes,10,opt,name=language,proto3" json:"language,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1005,29 +1013,29 @@ func (x *UpsertUserByMemberIdRequest) GetTags() []string {
 }
 
 func (x *UpsertUserByMemberIdRequest) GetBlocked() bool {
-	if x != nil {
-		return x.Blocked
+	if x != nil && x.Blocked != nil {
+		return *x.Blocked
 	}
 	return false
 }
 
 func (x *UpsertUserByMemberIdRequest) GetUnsubscribeEmail() bool {
-	if x != nil {
-		return x.UnsubscribeEmail
+	if x != nil && x.UnsubscribeEmail != nil {
+		return *x.UnsubscribeEmail
 	}
 	return false
 }
 
 func (x *UpsertUserByMemberIdRequest) GetUnsubscribeTexting() bool {
-	if x != nil {
-		return x.UnsubscribeTexting
+	if x != nil && x.UnsubscribeTexting != nil {
+		return *x.UnsubscribeTexting
 	}
 	return false
 }
 
 func (x *UpsertUserByMemberIdRequest) GetUnsubscribeAppPush() bool {
-	if x != nil {
-		return x.UnsubscribeAppPush
+	if x != nil && x.UnsubscribeAppPush != nil {
+		return *x.UnsubscribeAppPush
 	}
 	return false
 }
@@ -1833,7 +1841,7 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"\x14unsubscribe_app_push\x18\a \x01(\bR\x12unsubscribeAppPush\x12\x1a\n" +
 	"\blanguage\x18\b \x01(\tR\blanguage\":\n" +
 	"\x0fPatchUserResult\x12'\n" +
-	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\x89\x04\n" +
+	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"\xf0\x04\n" +
 	"\x1bUpsertUserByMemberIdRequest\x12z\n" +
 	"\tmember_id\x18\x01 \x01(\tB]\xbaHZ\xba\x01K\n" +
 	"\rstring.maxLen\x12(value must be no more than 64 characters\x1a\x10size(this) <= 64\xc8\x01\x01r\a2\x05^\\S*$R\bmemberId\x12%\n" +
@@ -1841,13 +1849,18 @@ const file_coreapi_service_user_proto_rawDesc = "" +
 	"channel_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x121\n" +
 	"\aprofile\x18\x03 \x01(\v2\x17.google.protobuf.StructR\aprofile\x12:\n" +
 	"\fprofile_once\x18\x04 \x01(\v2\x17.google.protobuf.StructR\vprofileOnce\x12\x12\n" +
-	"\x04tags\x18\x05 \x03(\tR\x04tags\x12\x18\n" +
-	"\ablocked\x18\x06 \x01(\bR\ablocked\x12+\n" +
-	"\x11unsubscribe_email\x18\a \x01(\bR\x10unsubscribeEmail\x12/\n" +
-	"\x13unsubscribe_texting\x18\b \x01(\bR\x12unsubscribeTexting\x120\n" +
-	"\x14unsubscribe_app_push\x18\t \x01(\bR\x12unsubscribeAppPush\x12\x1a\n" +
+	"\x04tags\x18\x05 \x03(\tR\x04tags\x12\x1d\n" +
+	"\ablocked\x18\x06 \x01(\bH\x00R\ablocked\x88\x01\x01\x120\n" +
+	"\x11unsubscribe_email\x18\a \x01(\bH\x01R\x10unsubscribeEmail\x88\x01\x01\x124\n" +
+	"\x13unsubscribe_texting\x18\b \x01(\bH\x02R\x12unsubscribeTexting\x88\x01\x01\x125\n" +
+	"\x14unsubscribe_app_push\x18\t \x01(\bH\x03R\x12unsubscribeAppPush\x88\x01\x01\x12\x1a\n" +
 	"\blanguage\x18\n" +
-	" \x01(\tR\blanguage\"E\n" +
+	" \x01(\tR\blanguageB\n" +
+	"\n" +
+	"\b_blockedB\x14\n" +
+	"\x12_unsubscribe_emailB\x16\n" +
+	"\x14_unsubscribe_textingB\x17\n" +
+	"\x15_unsubscribe_app_push\"E\n" +
 	"\x1aUpsertUserByMemberIdResult\x12'\n" +
 	"\x04user\x18\x01 \x01(\v2\x13.coreapi.model.UserR\x04user\"u\n" +
 	"\x11CreateLeadRequest\x12%\n" +
@@ -1982,6 +1995,7 @@ func file_coreapi_service_user_proto_init() {
 	if File_coreapi_service_user_proto != nil {
 		return
 	}
+	file_coreapi_service_user_proto_msgTypes[16].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
