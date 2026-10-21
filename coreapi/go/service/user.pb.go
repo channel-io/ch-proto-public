@@ -926,16 +926,20 @@ type UpsertUserByMemberIdRequest struct {
 	// User classification tags to replace the current set.
 	Tags []string `protobuf:"bytes,5,rep,name=tags,proto3" json:"tags,omitempty"`
 	// Whether the user is blocked.
-	// When omitted, the current value is preserved.
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
 	Blocked *bool `protobuf:"varint,6,opt,name=blocked,proto3,oneof" json:"blocked,omitempty"`
 	// Whether the user opted out of email notifications.
-	// When omitted, the current value is preserved.
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
 	UnsubscribeEmail *bool `protobuf:"varint,7,opt,name=unsubscribe_email,json=unsubscribeEmail,proto3,oneof" json:"unsubscribe_email,omitempty"`
 	// Whether the user opted out of SMS/text notifications.
-	// When omitted, the current value is preserved.
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
 	UnsubscribeTexting *bool `protobuf:"varint,8,opt,name=unsubscribe_texting,json=unsubscribeTexting,proto3,oneof" json:"unsubscribe_texting,omitempty"`
 	// Whether the user opted out of app push notifications.
-	// When omitted, the current value is preserved.
+	// When omitted, an existing user keeps its current value and a new user
+	// takes the server's default.
 	UnsubscribeAppPush *bool `protobuf:"varint,9,opt,name=unsubscribe_app_push,json=unsubscribeAppPush,proto3,oneof" json:"unsubscribe_app_push,omitempty"`
 	// User's preferred language locale.
 	Language      string `protobuf:"bytes,10,opt,name=language,proto3" json:"language,omitempty"`

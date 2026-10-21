@@ -296,7 +296,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user is blocked.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
@@ -309,7 +310,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user is blocked.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
@@ -325,7 +327,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of email notifications.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
@@ -338,7 +341,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of email notifications.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
@@ -354,7 +358,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of SMS/text notifications.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
@@ -367,7 +372,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of SMS/text notifications.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
@@ -383,7 +389,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of app push notifications.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
@@ -396,7 +403,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Whether the user opted out of app push notifications.
-   * When omitted, the current value is preserved.
+   * When omitted, an existing user keeps its current value and a new user
+   * takes the server's default.
    * </pre>
    *
    * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
@@ -1719,7 +1727,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user is blocked.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
@@ -1732,7 +1741,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user is blocked.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
@@ -1745,7 +1755,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user is blocked.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
@@ -1762,7 +1773,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user is blocked.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool blocked = 6 [json_name = "blocked"];</code>
@@ -1779,7 +1791,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of email notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
@@ -1792,7 +1805,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of email notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
@@ -1805,7 +1819,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of email notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
@@ -1822,7 +1837,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of email notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_email = 7 [json_name = "unsubscribeEmail"];</code>
@@ -1839,7 +1855,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of SMS/text notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
@@ -1852,7 +1869,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of SMS/text notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
@@ -1865,7 +1883,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of SMS/text notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
@@ -1882,7 +1901,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of SMS/text notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_texting = 8 [json_name = "unsubscribeTexting"];</code>
@@ -1899,7 +1919,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of app push notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
@@ -1912,7 +1933,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of app push notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
@@ -1925,7 +1947,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of app push notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
@@ -1942,7 +1965,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Whether the user opted out of app push notifications.
-     * When omitted, the current value is preserved.
+     * When omitted, an existing user keeps its current value and a new user
+     * takes the server's default.
      * </pre>
      *
      * <code>optional bool unsubscribe_app_push = 9 [json_name = "unsubscribeAppPush"];</code>
