@@ -75,4 +75,14 @@ message Event {
   //
   // +kubebuilder:example={"ko":"PageView","en":"PageView"}
   map<string, string> name_i18n_map = 9;
+
+  // Server-authenticated event provenance. Absent for events without recorded provenance.
+  //
+  // +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+  google.protobuf.Struct context = 10;
+
+  // Version of the event property contract. Empty when no version was recorded.
+  //
+  // +kubebuilder:example="v1"
+  string schema_version = 11;
 }

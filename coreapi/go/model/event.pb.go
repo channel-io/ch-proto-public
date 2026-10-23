@@ -67,7 +67,15 @@ type Event struct {
 	// Populated only for system-defined events; custom events return no entries.
 	//
 	// +kubebuilder:example={"ko":"PageView","en":"PageView"}
-	NameI18NMap   map[string]string `protobuf:"bytes,9,rep,name=name_i18n_map,json=nameI18nMap,proto3" json:"name_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	NameI18NMap map[string]string `protobuf:"bytes,9,rep,name=name_i18n_map,json=nameI18nMap,proto3" json:"name_i18n_map,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Server-authenticated event provenance. Absent for events without recorded provenance.
+	//
+	// +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+	Context *structpb.Struct `protobuf:"bytes,10,opt,name=context,proto3" json:"context,omitempty"`
+	// Version of the event property contract. Empty when no version was recorded.
+	//
+	// +kubebuilder:example="v1"
+	SchemaVersion string `protobuf:"bytes,11,opt,name=schema_version,json=schemaVersion,proto3" json:"schema_version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -158,11 +166,25 @@ func (x *Event) GetNameI18NMap() map[string]string {
 	return nil
 }
 
+func (x *Event) GetContext() *structpb.Struct {
+	if x != nil {
+		return x.Context
+	}
+	return nil
+}
+
+func (x *Event) GetSchemaVersion() string {
+	if x != nil {
+		return x.SchemaVersion
+	}
+	return ""
+}
+
 var File_coreapi_model_event_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_event_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x04\n" +
+	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc0\x05\n" +
 	"\x05Event\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
@@ -175,7 +197,10 @@ const file_coreapi_model_event_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x127\n" +
 	"\texpire_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\bexpireAt\x12I\n" +
-	"\rname_i18n_map\x18\t \x03(\v2%.coreapi.model.Event.NameI18nMapEntryR\vnameI18nMap\x1a>\n" +
+	"\rname_i18n_map\x18\t \x03(\v2%.coreapi.model.Event.NameI18nMapEntryR\vnameI18nMap\x121\n" +
+	"\acontext\x18\n" +
+	" \x01(\v2\x17.google.protobuf.StructR\acontext\x12%\n" +
+	"\x0eschema_version\x18\v \x01(\tR\rschemaVersion\x1a>\n" +
 	"\x10NameI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\b\x10\tR\aversionBb\n" +
@@ -205,11 +230,12 @@ var file_coreapi_model_event_proto_depIdxs = []int32{
 	3, // 1: coreapi.model.Event.created_at:type_name -> google.protobuf.Timestamp
 	3, // 2: coreapi.model.Event.expire_at:type_name -> google.protobuf.Timestamp
 	1, // 3: coreapi.model.Event.name_i18n_map:type_name -> coreapi.model.Event.NameI18nMapEntry
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	2, // 4: coreapi.model.Event.context:type_name -> google.protobuf.Struct
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_coreapi_model_event_proto_init() }
