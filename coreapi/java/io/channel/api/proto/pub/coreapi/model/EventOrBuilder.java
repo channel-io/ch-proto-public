@@ -288,4 +288,61 @@ java.lang.String defaultValue);
    */
   java.lang.String getNameI18NMapOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * Server-authenticated event provenance. Absent for events without recorded provenance.
+   *
+   * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+   * @return Whether the context field is set.
+   */
+  boolean hasContext();
+  /**
+   * <pre>
+   * Server-authenticated event provenance. Absent for events without recorded provenance.
+   *
+   * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+   * @return The context.
+   */
+  com.google.protobuf.Struct getContext();
+  /**
+   * <pre>
+   * Server-authenticated event provenance. Absent for events without recorded provenance.
+   *
+   * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+   */
+  com.google.protobuf.StructOrBuilder getContextOrBuilder();
+
+  /**
+   * <pre>
+   * Version of the event property contract. Empty when no version was recorded.
+   *
+   * +kubebuilder:example="v1"
+   * </pre>
+   *
+   * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+   * @return The schemaVersion.
+   */
+  java.lang.String getSchemaVersion();
+  /**
+   * <pre>
+   * Version of the event property contract. Empty when no version was recorded.
+   *
+   * +kubebuilder:example="v1"
+   * </pre>
+   *
+   * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+   * @return The bytes for schemaVersion.
+   */
+  com.google.protobuf.ByteString
+      getSchemaVersionBytes();
 }

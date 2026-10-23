@@ -37,6 +37,7 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     channelId_ = "";
     name_ = "";
+    schemaVersion_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -528,6 +529,101 @@ java.lang.String defaultValue) {
     return map.get(key);
   }
 
+  public static final int CONTEXT_FIELD_NUMBER = 10;
+  private com.google.protobuf.Struct context_;
+  /**
+   * <pre>
+   * Server-authenticated event provenance. Absent for events without recorded provenance.
+   *
+   * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+   * @return Whether the context field is set.
+   */
+  @java.lang.Override
+  public boolean hasContext() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * Server-authenticated event provenance. Absent for events without recorded provenance.
+   *
+   * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+   * @return The context.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getContext() {
+    return context_ == null ? com.google.protobuf.Struct.getDefaultInstance() : context_;
+  }
+  /**
+   * <pre>
+   * Server-authenticated event provenance. Absent for events without recorded provenance.
+   *
+   * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getContextOrBuilder() {
+    return context_ == null ? com.google.protobuf.Struct.getDefaultInstance() : context_;
+  }
+
+  public static final int SCHEMA_VERSION_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object schemaVersion_ = "";
+  /**
+   * <pre>
+   * Version of the event property contract. Empty when no version was recorded.
+   *
+   * +kubebuilder:example="v1"
+   * </pre>
+   *
+   * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+   * @return The schemaVersion.
+   */
+  @java.lang.Override
+  public java.lang.String getSchemaVersion() {
+    java.lang.Object ref = schemaVersion_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      schemaVersion_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Version of the event property contract. Empty when no version was recorded.
+   *
+   * +kubebuilder:example="v1"
+   * </pre>
+   *
+   * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+   * @return The bytes for schemaVersion.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSchemaVersionBytes() {
+    java.lang.Object ref = schemaVersion_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      schemaVersion_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -569,6 +665,12 @@ java.lang.String defaultValue) {
         internalGetNameI18NMap(),
         NameI18NMapDefaultEntryHolder.defaultEntry,
         9);
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeMessage(10, getContext());
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(schemaVersion_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 11, schemaVersion_);
+    }
     getUnknownFields().writeTo(output);
   }
   private int computeSerializedSize_0() {
@@ -606,6 +708,13 @@ java.lang.String defaultValue) {
           .buildPartial();
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, nameI18NMap__);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getContext());
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(schemaVersion_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(11, schemaVersion_);
     }
     return size;
   }
@@ -656,6 +765,13 @@ java.lang.String defaultValue) {
     }
     if (!internalGetNameI18NMap().equals(
         other.internalGetNameI18NMap())) return false;
+    if (hasContext() != other.hasContext()) return false;
+    if (hasContext()) {
+      if (!getContext()
+          .equals(other.getContext())) return false;
+    }
+    if (!getSchemaVersion()
+        .equals(other.getSchemaVersion())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -691,6 +807,12 @@ java.lang.String defaultValue) {
       hash = (37 * hash) + NAME_I18N_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetNameI18NMap().hashCode();
     }
+    if (hasContext()) {
+      hash = (37 * hash) + CONTEXT_FIELD_NUMBER;
+      hash = (53 * hash) + getContext().hashCode();
+    }
+    hash = (37 * hash) + SCHEMA_VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + getSchemaVersion().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -851,6 +973,7 @@ java.lang.String defaultValue) {
         internalGetPropertyFieldBuilder();
         internalGetCreatedAtFieldBuilder();
         internalGetExpireAtFieldBuilder();
+        internalGetContextFieldBuilder();
       }
     }
     @java.lang.Override
@@ -877,6 +1000,12 @@ java.lang.String defaultValue) {
         expireAtBuilder_ = null;
       }
       internalGetMutableNameI18NMap().clear();
+      context_ = null;
+      if (contextBuilder_ != null) {
+        contextBuilder_.dispose();
+        contextBuilder_ = null;
+      }
+      schemaVersion_ = "";
       return this;
     }
 
@@ -945,6 +1074,15 @@ java.lang.String defaultValue) {
         result.nameI18NMap_ = internalGetNameI18NMap();
         result.nameI18NMap_.makeImmutable();
       }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.context_ = contextBuilder_ == null
+            ? context_
+            : contextBuilder_.build();
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.schemaVersion_ = schemaVersion_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -992,6 +1130,14 @@ java.lang.String defaultValue) {
       internalGetMutableNameI18NMap().mergeFrom(
           other.internalGetNameI18NMap());
       bitField0_ |= 0x00000080;
+      if (other.hasContext()) {
+        mergeContext(other.getContext());
+      }
+      if (!other.getSchemaVersion().isEmpty()) {
+        schemaVersion_ = other.schemaVersion_;
+        bitField0_ |= 0x00000200;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1068,6 +1214,18 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00000080;
               break;
             } // case 74
+            case 82: {
+              input.readMessage(
+                  internalGetContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 90: {
+              schemaVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2233,6 +2391,283 @@ java.lang.String defaultValue) {
       return this;
     }
 
+    private com.google.protobuf.Struct context_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> contextBuilder_;
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     * @return Whether the context field is set.
+     */
+    public boolean hasContext() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     * @return The context.
+     */
+    public com.google.protobuf.Struct getContext() {
+      if (contextBuilder_ == null) {
+        return context_ == null ? com.google.protobuf.Struct.getDefaultInstance() : context_;
+      } else {
+        return contextBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     */
+    public Builder setContext(com.google.protobuf.Struct value) {
+      if (contextBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        context_ = value;
+      } else {
+        contextBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     */
+    public Builder setContext(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (contextBuilder_ == null) {
+        context_ = builderForValue.build();
+      } else {
+        contextBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     */
+    public Builder mergeContext(com.google.protobuf.Struct value) {
+      if (contextBuilder_ == null) {
+        if (((bitField0_ & 0x00000100) != 0) &&
+          context_ != null &&
+          context_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getContextBuilder().mergeFrom(value);
+        } else {
+          context_ = value;
+        }
+      } else {
+        contextBuilder_.mergeFrom(value);
+      }
+      if (context_ != null) {
+        bitField0_ |= 0x00000100;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     */
+    public Builder clearContext() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      context_ = null;
+      if (contextBuilder_ != null) {
+        contextBuilder_.dispose();
+        contextBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     */
+    public com.google.protobuf.Struct.Builder getContextBuilder() {
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return internalGetContextFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     */
+    public com.google.protobuf.StructOrBuilder getContextOrBuilder() {
+      if (contextBuilder_ != null) {
+        return contextBuilder_.getMessageOrBuilder();
+      } else {
+        return context_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : context_;
+      }
+    }
+    /**
+     * <pre>
+     * Server-authenticated event provenance. Absent for events without recorded provenance.
+     *
+     * +kubebuilder:example={"source":{"type":"app","appId":"example-app"},"extension":{"name":"commerce","version":"v1"}}
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct context = 10 [json_name = "context"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        internalGetContextFieldBuilder() {
+      if (contextBuilder_ == null) {
+        contextBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getContext(),
+                getParentForChildren(),
+                isClean());
+        context_ = null;
+      }
+      return contextBuilder_;
+    }
+
+    private java.lang.Object schemaVersion_ = "";
+    /**
+     * <pre>
+     * Version of the event property contract. Empty when no version was recorded.
+     *
+     * +kubebuilder:example="v1"
+     * </pre>
+     *
+     * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+     * @return The schemaVersion.
+     */
+    public java.lang.String getSchemaVersion() {
+      java.lang.Object ref = schemaVersion_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        schemaVersion_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Version of the event property contract. Empty when no version was recorded.
+     *
+     * +kubebuilder:example="v1"
+     * </pre>
+     *
+     * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+     * @return The bytes for schemaVersion.
+     */
+    public com.google.protobuf.ByteString
+        getSchemaVersionBytes() {
+      java.lang.Object ref = schemaVersion_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        schemaVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Version of the event property contract. Empty when no version was recorded.
+     *
+     * +kubebuilder:example="v1"
+     * </pre>
+     *
+     * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+     * @param value The schemaVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSchemaVersion(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      schemaVersion_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Version of the event property contract. Empty when no version was recorded.
+     *
+     * +kubebuilder:example="v1"
+     * </pre>
+     *
+     * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSchemaVersion() {
+      schemaVersion_ = getDefaultInstance().getSchemaVersion();
+      bitField0_ = (bitField0_ & ~0x00000200);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Version of the event property contract. Empty when no version was recorded.
+     *
+     * +kubebuilder:example="v1"
+     * </pre>
+     *
+     * <code>string schema_version = 11 [json_name = "schemaVersion"];</code>
+     * @param value The bytes for schemaVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSchemaVersionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      schemaVersion_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+
     /* Generated by protoc-gen-java-set-or-clear */
     
     /**
@@ -2405,6 +2840,52 @@ java.lang.String defaultValue) {
     		return clearNameI18NMap();
     	else
     		return putAllNameI18NMap(map);
+    }
+    	
+    /**
+     * @param value The context to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearContext(com.google.protobuf.Struct value) {
+    	if (value == null)
+    		return clearContext();
+    	else
+    		return setContext(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearContext(T value, java.util.function.Function<T, com.google.protobuf.Struct> mapFunc) {
+    	if (value == null)
+    		return clearContext();
+    	else
+    		return setContext(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The schema_version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearSchemaVersion(java.lang.String value) {
+    	if (value == null)
+    		return clearSchemaVersion();
+    	else
+    		return setSchemaVersion(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearSchemaVersion(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearSchemaVersion();
+    	else
+    		return setSchemaVersion(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Event)
