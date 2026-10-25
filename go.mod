@@ -11,4 +11,7 @@ require (
 	google.golang.org/protobuf v1.36.11
 )
 
-require golang.org/x/text v0.22.0 // indirect
+require (
+	golang.org/x/mod v0.40.0 // indirect
+	golang.org/x/text v0.41.0 // indirect
+)
