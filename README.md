@@ -14,7 +14,7 @@ Start with `.agent/core-api/README.md` before changing `coreapi/service`, `corea
 
 | 도구 | 버전 | 설치 | 용도 |
 |------|------|------|------|
-| [Go](https://go.dev/dl/) | 1.25+ | `brew install go` | 모듈 관리, 내부 플러그인 설치 |
+| [Go](https://go.dev/dl/) | 1.26.10+ | `brew install go` | 모듈 관리, 내부 플러그인 설치 |
 | [Buf CLI](https://buf.build/docs/installation/) | latest | `brew install bufbuild/buf/buf` | proto 코드 생성, lint |
 | [Protocol Buffers Compiler (protoc)](https://github.com/protocolbuffers/protobuf/releases) | v3.19+ | `brew install protobuf` | Java 코드 생성 (buf 내부에서 호출) |
 | [gRPC Java plugin](https://github.com/grpc/grpc-java/tree/master/compiler) | - | 직접 빌드 필요 | Java gRPC 코드 생성 |
