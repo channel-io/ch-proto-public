@@ -81,6 +81,16 @@ public final class Meet extends com.google.protobuf.GeneratedFile {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_coreapi_service_GetMeetRecordingResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_StartOutboundCallViaPhoneRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_coreapi_service_StartOutboundCallViaPhoneRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_coreapi_service_StartOutboundCallViaPhoneResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_coreapi_service_StartOutboundCallViaPhoneResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -128,10 +138,15 @@ public final class Meet extends com.google.protobuf.GeneratedFile {
       "ordingRequest\022%\n\nchannel_id\030\001 \001(\tB\006\272H\003\310\001" +
       "\001R\tchannelId\022%\n\nmessage_id\030\002 \001(\tB\006\272H\003\310\001\001" +
       "R\tmessageId\"?\n\026GetMeetRecordingResult\022%\n" +
-      "\nsigned_url\030\001 \001(\tB\006\272H\003\310\001\001R\tsignedUrlBf\n(" +
-      "io.channel.api.proto.pub.coreapi.service" +
-      "P\001Z8github.com/channel-io/ch-proto-publi" +
-      "c/coreapi/go/serviceb\006proto3"
+      "\nsigned_url\030\001 \001(\tB\006\272H\003\310\001\001R\tsignedUrl\"\256\001\n" +
+      " StartOutboundCallViaPhoneRequest\022%\n\ncha" +
+      "nnel_id\030\001 \001(\tB\006\272H\003\310\001\001R\tchannelId\022%\n\nmana" +
+      "ger_id\030\002 \001(\tB\006\272H\003\310\001\001R\tmanagerId\022\026\n\002to\030\003 " +
+      "\001(\tB\006\272H\003\310\001\001R\002to\022$\n\016call_number_id\030\004 \001(\tR" +
+      "\014callNumberId\"!\n\037StartOutboundCallViaPho" +
+      "neResultBf\n(io.channel.api.proto.pub.cor" +
+      "eapi.serviceP\001Z8github.com/channel-io/ch" +
+      "-proto-public/coreapi/go/serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -207,6 +222,18 @@ public final class Meet extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_coreapi_service_GetMeetRecordingResult_descriptor,
         new java.lang.String[] { "SignedUrl", });
+    internal_static_coreapi_service_StartOutboundCallViaPhoneRequest_descriptor =
+      getDescriptor().getMessageType(10);
+    internal_static_coreapi_service_StartOutboundCallViaPhoneRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_coreapi_service_StartOutboundCallViaPhoneRequest_descriptor,
+        new java.lang.String[] { "ChannelId", "ManagerId", "To", "CallNumberId", });
+    internal_static_coreapi_service_StartOutboundCallViaPhoneResult_descriptor =
+      getDescriptor().getMessageType(11);
+    internal_static_coreapi_service_StartOutboundCallViaPhoneResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_coreapi_service_StartOutboundCallViaPhoneResult_descriptor,
+        new java.lang.String[] { });
     descriptor.resolveAllFeaturesImmutable();
     build.buf.validate.ValidateProto.getDescriptor();
     io.channel.api.proto.pub.coreapi.common.SortOrderOuterClass.getDescriptor();

@@ -149,3 +149,37 @@ message GetMeetRecordingResult {
   // +kubebuilder:validation:Required
   string signed_url = 1 [(buf.validate.field).required = true];
 }
+
+// Rings the desk phones of a manager and dials the callee once the manager picks up.
+//
+// All desk phones connected to the manager ring at the same time. The callee is
+// dialed only after the manager picks up one of them, and the call is assigned to
+// that manager. If no phone is picked up within 120 seconds, the ringing stops and
+// the call is not placed.
+//
+// The manager must have an operator seat and a connected desk phone.
+// Returns an error if the phones cannot ring, for example when they are
+// disconnected or already in a call.
+message StartOutboundCallViaPhoneRequest {
+  // Channel ID to place the call in.
+  string channel_id = 1 [(buf.validate.field).required = true];
+
+  // ID of the manager whose desk phones ring.
+  string manager_id = 2 [(buf.validate.field).required = true];
+
+  // Phone number of the callee.
+  //
+  // Numbers without a country code are interpreted with the country of the request origin.
+  // Use the international format starting with + to avoid ambiguity.
+  string to = 3 [(buf.validate.field).required = true];
+
+  // ID of the channel phone number shown to the callee.
+  //
+  // If empty, the number routed to the manager is used, or the channel default number if none.
+  //
+  // +kubebuilder:validation:Nullable
+  string call_number_id = 4;
+}
+
+// Response for starting an outbound call via desk phone. Empty once the desk phones start ringing.
+message StartOutboundCallViaPhoneResult {}
