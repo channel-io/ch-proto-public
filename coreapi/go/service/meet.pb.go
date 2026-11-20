@@ -640,7 +640,9 @@ func (x *GetMeetRecordingResult) GetSignedUrl() string {
 // the call is not placed.
 //
 // The manager must have an operator seat and a connected desk phone.
-// Returns an error if the phones cannot ring, for example when they are
+// An empty result means at least one desk phone started ringing. Phones that are
+// already in a call are skipped while the others ring. Returns an error without
+// ringing any phone if none of them can ring, for example when all of them are
 // disconnected or already in a call.
 type StartOutboundCallViaPhoneRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -650,8 +652,8 @@ type StartOutboundCallViaPhoneRequest struct {
 	ManagerId string `protobuf:"bytes,2,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
 	// Phone number of the callee.
 	//
-	// Numbers without a country code are interpreted with the country of the request origin.
-	// Use the international format starting with + to avoid ambiguity.
+	// Numbers without a country code are interpreted with the country of the channel phone
+	// number used for the call. Use the international format starting with + to avoid ambiguity.
 	To string `protobuf:"bytes,3,opt,name=to,proto3" json:"to,omitempty"`
 	// ID of the channel phone number shown to the callee.
 	//

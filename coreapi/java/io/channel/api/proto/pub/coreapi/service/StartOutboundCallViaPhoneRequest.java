@@ -15,7 +15,9 @@ package io.channel.api.proto.pub.coreapi.service;
  * the call is not placed.
  *
  * The manager must have an operator seat and a connected desk phone.
- * Returns an error if the phones cannot ring, for example when they are
+ * An empty result means at least one desk phone started ringing. Phones that are
+ * already in a call are skipped while the others ring. Returns an error without
+ * ringing any phone if none of them can ring, for example when all of them are
  * disconnected or already in a call.
  * </pre>
  *
@@ -166,8 +168,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone number of the callee.
    *
-   * Numbers without a country code are interpreted with the country of the request origin.
-   * Use the international format starting with + to avoid ambiguity.
+   * Numbers without a country code are interpreted with the country of the channel phone
+   * number used for the call. Use the international format starting with + to avoid ambiguity.
    * </pre>
    *
    * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
@@ -190,8 +192,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Phone number of the callee.
    *
-   * Numbers without a country code are interpreted with the country of the request origin.
-   * Use the international format starting with + to avoid ambiguity.
+   * Numbers without a country code are interpreted with the country of the channel phone
+   * number used for the call. Use the international format starting with + to avoid ambiguity.
    * </pre>
    *
    * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
@@ -467,7 +469,9 @@ private static final long serialVersionUID = 0L;
    * the call is not placed.
    *
    * The manager must have an operator seat and a connected desk phone.
-   * Returns an error if the phones cannot ring, for example when they are
+   * An empty result means at least one desk phone started ringing. Phones that are
+   * already in a call are skipped while the others ring. Returns an error without
+   * ringing any phone if none of them can ring, for example when all of them are
    * disconnected or already in a call.
    * </pre>
    *
@@ -839,8 +843,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone number of the callee.
      *
-     * Numbers without a country code are interpreted with the country of the request origin.
-     * Use the international format starting with + to avoid ambiguity.
+     * Numbers without a country code are interpreted with the country of the channel phone
+     * number used for the call. Use the international format starting with + to avoid ambiguity.
      * </pre>
      *
      * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
@@ -862,8 +866,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone number of the callee.
      *
-     * Numbers without a country code are interpreted with the country of the request origin.
-     * Use the international format starting with + to avoid ambiguity.
+     * Numbers without a country code are interpreted with the country of the channel phone
+     * number used for the call. Use the international format starting with + to avoid ambiguity.
      * </pre>
      *
      * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
@@ -886,8 +890,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone number of the callee.
      *
-     * Numbers without a country code are interpreted with the country of the request origin.
-     * Use the international format starting with + to avoid ambiguity.
+     * Numbers without a country code are interpreted with the country of the channel phone
+     * number used for the call. Use the international format starting with + to avoid ambiguity.
      * </pre>
      *
      * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
@@ -906,8 +910,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone number of the callee.
      *
-     * Numbers without a country code are interpreted with the country of the request origin.
-     * Use the international format starting with + to avoid ambiguity.
+     * Numbers without a country code are interpreted with the country of the channel phone
+     * number used for the call. Use the international format starting with + to avoid ambiguity.
      * </pre>
      *
      * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
@@ -923,8 +927,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Phone number of the callee.
      *
-     * Numbers without a country code are interpreted with the country of the request origin.
-     * Use the international format starting with + to avoid ambiguity.
+     * Numbers without a country code are interpreted with the country of the channel phone
+     * number used for the call. Use the international format starting with + to avoid ambiguity.
      * </pre>
      *
      * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>

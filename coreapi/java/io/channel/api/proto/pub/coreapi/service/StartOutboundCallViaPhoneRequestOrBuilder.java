@@ -54,8 +54,8 @@ public interface StartOutboundCallViaPhoneRequestOrBuilder extends
    * <pre>
    * Phone number of the callee.
    *
-   * Numbers without a country code are interpreted with the country of the request origin.
-   * Use the international format starting with + to avoid ambiguity.
+   * Numbers without a country code are interpreted with the country of the channel phone
+   * number used for the call. Use the international format starting with + to avoid ambiguity.
    * </pre>
    *
    * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
@@ -66,8 +66,8 @@ public interface StartOutboundCallViaPhoneRequestOrBuilder extends
    * <pre>
    * Phone number of the callee.
    *
-   * Numbers without a country code are interpreted with the country of the request origin.
-   * Use the international format starting with + to avoid ambiguity.
+   * Numbers without a country code are interpreted with the country of the channel phone
+   * number used for the call. Use the international format starting with + to avoid ambiguity.
    * </pre>
    *
    * <code>string to = 3 [json_name = "to", (.buf.validate.field) = { ... }</code>
