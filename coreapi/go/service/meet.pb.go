@@ -632,6 +632,134 @@ func (x *GetMeetRecordingResult) GetSignedUrl() string {
 	return ""
 }
 
+// Rings the desk phones of a manager and dials the callee once the manager picks up.
+//
+// All desk phones connected to the manager ring at the same time. The callee is
+// dialed only after the manager picks up one of them, and the call is assigned to
+// that manager. If no phone is picked up within 120 seconds, the ringing stops and
+// the call is not placed.
+//
+// The manager must have an operator seat and a connected desk phone.
+// An empty result means at least one desk phone started ringing. Phones that are
+// already in a call are skipped while the others ring. Returns an error without
+// ringing any phone if none of them can ring, for example when all of them are
+// disconnected or already in a call.
+type StartOutboundCallViaPhoneRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Channel ID to place the call in.
+	ChannelId string `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// ID of the manager whose desk phones ring.
+	ManagerId string `protobuf:"bytes,2,opt,name=manager_id,json=managerId,proto3" json:"manager_id,omitempty"`
+	// Phone number of the callee.
+	//
+	// Numbers without a country code are interpreted with the country of the channel phone
+	// number used for the call. Use the international format starting with + to avoid ambiguity.
+	To string `protobuf:"bytes,3,opt,name=to,proto3" json:"to,omitempty"`
+	// ID of the channel phone number shown to the callee.
+	//
+	// If empty, the number routed to the manager is used, or the channel default number if none.
+	//
+	// +kubebuilder:validation:Nullable
+	CallNumberId  string `protobuf:"bytes,4,opt,name=call_number_id,json=callNumberId,proto3" json:"call_number_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartOutboundCallViaPhoneRequest) Reset() {
+	*x = StartOutboundCallViaPhoneRequest{}
+	mi := &file_coreapi_service_meet_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartOutboundCallViaPhoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartOutboundCallViaPhoneRequest) ProtoMessage() {}
+
+func (x *StartOutboundCallViaPhoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_meet_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartOutboundCallViaPhoneRequest.ProtoReflect.Descriptor instead.
+func (*StartOutboundCallViaPhoneRequest) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_meet_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *StartOutboundCallViaPhoneRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *StartOutboundCallViaPhoneRequest) GetManagerId() string {
+	if x != nil {
+		return x.ManagerId
+	}
+	return ""
+}
+
+func (x *StartOutboundCallViaPhoneRequest) GetTo() string {
+	if x != nil {
+		return x.To
+	}
+	return ""
+}
+
+func (x *StartOutboundCallViaPhoneRequest) GetCallNumberId() string {
+	if x != nil {
+		return x.CallNumberId
+	}
+	return ""
+}
+
+// Response for starting an outbound call via desk phone. Empty once the desk phones start ringing.
+type StartOutboundCallViaPhoneResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartOutboundCallViaPhoneResult) Reset() {
+	*x = StartOutboundCallViaPhoneResult{}
+	mi := &file_coreapi_service_meet_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartOutboundCallViaPhoneResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartOutboundCallViaPhoneResult) ProtoMessage() {}
+
+func (x *StartOutboundCallViaPhoneResult) ProtoReflect() protoreflect.Message {
+	mi := &file_coreapi_service_meet_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartOutboundCallViaPhoneResult.ProtoReflect.Descriptor instead.
+func (*StartOutboundCallViaPhoneResult) Descriptor() ([]byte, []int) {
+	return file_coreapi_service_meet_proto_rawDescGZIP(), []int{11}
+}
+
 var File_coreapi_service_meet_proto protoreflect.FileDescriptor
 
 const file_coreapi_service_meet_proto_rawDesc = "" +
@@ -683,7 +811,15 @@ const file_coreapi_service_meet_proto_rawDesc = "" +
 	"message_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmessageId\"?\n" +
 	"\x16GetMeetRecordingResult\x12%\n" +
 	"\n" +
-	"signed_url\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tsignedUrlBf\n" +
+	"signed_url\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tsignedUrl\"\xae\x01\n" +
+	" StartOutboundCallViaPhoneRequest\x12%\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tchannelId\x12%\n" +
+	"\n" +
+	"manager_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tmanagerId\x12\x16\n" +
+	"\x02to\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02to\x12$\n" +
+	"\x0ecall_number_id\x18\x04 \x01(\tR\fcallNumberId\"!\n" +
+	"\x1fStartOutboundCallViaPhoneResultBf\n" +
 	"(io.channel.api.proto.pub.coreapi.serviceP\x01Z8github.com/channel-io/ch-proto-public/coreapi/go/serviceb\x06proto3"
 
 var (
@@ -698,33 +834,35 @@ func file_coreapi_service_meet_proto_rawDescGZIP() []byte {
 	return file_coreapi_service_meet_proto_rawDescData
 }
 
-var file_coreapi_service_meet_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_coreapi_service_meet_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_coreapi_service_meet_proto_goTypes = []any{
-	(*SearchCallLogsRequest)(nil),           // 0: coreapi.service.SearchCallLogsRequest
-	(*SearchCallLogsResult)(nil),            // 1: coreapi.service.SearchCallLogsResult
-	(*GetMeetAvailableManagersRequest)(nil), // 2: coreapi.service.GetMeetAvailableManagersRequest
-	(*GetMeetAvailableManagersResult)(nil),  // 3: coreapi.service.GetMeetAvailableManagersResult
-	(*GetCallWrapUpTimeRequest)(nil),        // 4: coreapi.service.GetCallWrapUpTimeRequest
-	(*GetCallWrapUpTimeResult)(nil),         // 5: coreapi.service.GetCallWrapUpTimeResult
-	(*SearchMeetMessagesRequest)(nil),       // 6: coreapi.service.SearchMeetMessagesRequest
-	(*SearchMeetMessagesResult)(nil),        // 7: coreapi.service.SearchMeetMessagesResult
-	(*GetMeetRecordingRequest)(nil),         // 8: coreapi.service.GetMeetRecordingRequest
-	(*GetMeetRecordingResult)(nil),          // 9: coreapi.service.GetMeetRecordingResult
-	nil,                                     // 10: coreapi.service.GetCallWrapUpTimeResult.ManagersEntry
-	(*timestamppb.Timestamp)(nil),           // 11: google.protobuf.Timestamp
-	(*model.CallLog)(nil),                   // 12: coreapi.model.CallLog
-	(common.SortOrder)(0),                   // 13: coreapi.common.SortOrder
-	(*model.MeetMessage)(nil),               // 14: coreapi.model.MeetMessage
+	(*SearchCallLogsRequest)(nil),            // 0: coreapi.service.SearchCallLogsRequest
+	(*SearchCallLogsResult)(nil),             // 1: coreapi.service.SearchCallLogsResult
+	(*GetMeetAvailableManagersRequest)(nil),  // 2: coreapi.service.GetMeetAvailableManagersRequest
+	(*GetMeetAvailableManagersResult)(nil),   // 3: coreapi.service.GetMeetAvailableManagersResult
+	(*GetCallWrapUpTimeRequest)(nil),         // 4: coreapi.service.GetCallWrapUpTimeRequest
+	(*GetCallWrapUpTimeResult)(nil),          // 5: coreapi.service.GetCallWrapUpTimeResult
+	(*SearchMeetMessagesRequest)(nil),        // 6: coreapi.service.SearchMeetMessagesRequest
+	(*SearchMeetMessagesResult)(nil),         // 7: coreapi.service.SearchMeetMessagesResult
+	(*GetMeetRecordingRequest)(nil),          // 8: coreapi.service.GetMeetRecordingRequest
+	(*GetMeetRecordingResult)(nil),           // 9: coreapi.service.GetMeetRecordingResult
+	(*StartOutboundCallViaPhoneRequest)(nil), // 10: coreapi.service.StartOutboundCallViaPhoneRequest
+	(*StartOutboundCallViaPhoneResult)(nil),  // 11: coreapi.service.StartOutboundCallViaPhoneResult
+	nil,                                      // 12: coreapi.service.GetCallWrapUpTimeResult.ManagersEntry
+	(*timestamppb.Timestamp)(nil),            // 13: google.protobuf.Timestamp
+	(*model.CallLog)(nil),                    // 14: coreapi.model.CallLog
+	(common.SortOrder)(0),                    // 15: coreapi.common.SortOrder
+	(*model.MeetMessage)(nil),                // 16: coreapi.model.MeetMessage
 }
 var file_coreapi_service_meet_proto_depIdxs = []int32{
-	11, // 0: coreapi.service.SearchCallLogsRequest.from:type_name -> google.protobuf.Timestamp
-	11, // 1: coreapi.service.SearchCallLogsRequest.to:type_name -> google.protobuf.Timestamp
-	12, // 2: coreapi.service.SearchCallLogsResult.call_logs:type_name -> coreapi.model.CallLog
-	11, // 3: coreapi.service.GetCallWrapUpTimeRequest.from:type_name -> google.protobuf.Timestamp
-	11, // 4: coreapi.service.GetCallWrapUpTimeRequest.to:type_name -> google.protobuf.Timestamp
-	10, // 5: coreapi.service.GetCallWrapUpTimeResult.managers:type_name -> coreapi.service.GetCallWrapUpTimeResult.ManagersEntry
-	13, // 6: coreapi.service.SearchMeetMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
-	14, // 7: coreapi.service.SearchMeetMessagesResult.messages:type_name -> coreapi.model.MeetMessage
+	13, // 0: coreapi.service.SearchCallLogsRequest.from:type_name -> google.protobuf.Timestamp
+	13, // 1: coreapi.service.SearchCallLogsRequest.to:type_name -> google.protobuf.Timestamp
+	14, // 2: coreapi.service.SearchCallLogsResult.call_logs:type_name -> coreapi.model.CallLog
+	13, // 3: coreapi.service.GetCallWrapUpTimeRequest.from:type_name -> google.protobuf.Timestamp
+	13, // 4: coreapi.service.GetCallWrapUpTimeRequest.to:type_name -> google.protobuf.Timestamp
+	12, // 5: coreapi.service.GetCallWrapUpTimeResult.managers:type_name -> coreapi.service.GetCallWrapUpTimeResult.ManagersEntry
+	15, // 6: coreapi.service.SearchMeetMessagesRequest.sort_order:type_name -> coreapi.common.SortOrder
+	16, // 7: coreapi.service.SearchMeetMessagesResult.messages:type_name -> coreapi.model.MeetMessage
 	8,  // [8:8] is the sub-list for method output_type
 	8,  // [8:8] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name
@@ -743,7 +881,7 @@ func file_coreapi_service_meet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_coreapi_service_meet_proto_rawDesc), len(file_coreapi_service_meet_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

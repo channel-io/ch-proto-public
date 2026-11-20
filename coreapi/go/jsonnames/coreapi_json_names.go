@@ -1676,6 +1676,13 @@ var coreAPIFieldNames = map[string]map[string]fieldName{
 	"coreapi.service.SnoozeUserChatResult": {
 		"user_chat": {jsonName: "userChat", messageFullName: "coreapi.model.UserChat"},
 	},
+	"coreapi.service.StartOutboundCallViaPhoneRequest": {
+		"channel_id":     {jsonName: "channelId"},
+		"manager_id":     {jsonName: "managerId"},
+		"to":             {jsonName: "to"},
+		"call_number_id": {jsonName: "callNumberId"},
+	},
+	"coreapi.service.StartOutboundCallViaPhoneResult": {},
 	"coreapi.service.TouchUserRequest": {
 		"user_id":    {jsonName: "userId"},
 		"channel_id": {jsonName: "channelId"},
