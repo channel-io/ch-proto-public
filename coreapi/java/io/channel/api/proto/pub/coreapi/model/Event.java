@@ -38,6 +38,8 @@ private static final long serialVersionUID = 0L;
     channelId_ = "";
     name_ = "";
     schemaVersion_ = "";
+    sessionId_ = "";
+    sessionIdSource_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -624,6 +626,110 @@ java.lang.String defaultValue) {
     }
   }
 
+  public static final int SESSION_ID_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sessionId_ = "";
+  /**
+   * <pre>
+   * Visit associated with this event. Empty when no visit was recorded.
+   *
+   * +kubebuilder:example="session-1"
+   * </pre>
+   *
+   * <code>string session_id = 12 [json_name = "sessionId"];</code>
+   * @return The sessionId.
+   */
+  @java.lang.Override
+  public java.lang.String getSessionId() {
+    java.lang.Object ref = sessionId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      sessionId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Visit associated with this event. Empty when no visit was recorded.
+   *
+   * +kubebuilder:example="session-1"
+   * </pre>
+   *
+   * <code>string session_id = 12 [json_name = "sessionId"];</code>
+   * @return The bytes for sessionId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSessionIdBytes() {
+    java.lang.Object ref = sessionId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      sessionId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SESSION_ID_SOURCE_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sessionIdSource_ = "";
+  /**
+   * <pre>
+   * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+   * Empty when this event has no visit association.
+   *
+   * +kubebuilder:example="NEW_SESSION"
+   * </pre>
+   *
+   * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+   * @return The sessionIdSource.
+   */
+  @java.lang.Override
+  public java.lang.String getSessionIdSource() {
+    java.lang.Object ref = sessionIdSource_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      sessionIdSource_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+   * Empty when this event has no visit association.
+   *
+   * +kubebuilder:example="NEW_SESSION"
+   * </pre>
+   *
+   * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+   * @return The bytes for sessionIdSource.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSessionIdSourceBytes() {
+    java.lang.Object ref = sessionIdSource_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      sessionIdSource_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -671,6 +777,12 @@ java.lang.String defaultValue) {
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(schemaVersion_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 11, schemaVersion_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sessionId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 12, sessionId_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sessionIdSource_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 13, sessionIdSource_);
+    }
     getUnknownFields().writeTo(output);
   }
   private int computeSerializedSize_0() {
@@ -715,6 +827,12 @@ java.lang.String defaultValue) {
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(schemaVersion_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(11, schemaVersion_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sessionId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(12, sessionId_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sessionIdSource_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(13, sessionIdSource_);
     }
     return size;
   }
@@ -772,6 +890,10 @@ java.lang.String defaultValue) {
     }
     if (!getSchemaVersion()
         .equals(other.getSchemaVersion())) return false;
+    if (!getSessionId()
+        .equals(other.getSessionId())) return false;
+    if (!getSessionIdSource()
+        .equals(other.getSessionIdSource())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -813,6 +935,10 @@ java.lang.String defaultValue) {
     }
     hash = (37 * hash) + SCHEMA_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getSchemaVersion().hashCode();
+    hash = (37 * hash) + SESSION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getSessionId().hashCode();
+    hash = (37 * hash) + SESSION_ID_SOURCE_FIELD_NUMBER;
+    hash = (53 * hash) + getSessionIdSource().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1006,6 +1132,8 @@ java.lang.String defaultValue) {
         contextBuilder_ = null;
       }
       schemaVersion_ = "";
+      sessionId_ = "";
+      sessionIdSource_ = "";
       return this;
     }
 
@@ -1083,6 +1211,12 @@ java.lang.String defaultValue) {
       if (((from_bitField0_ & 0x00000200) != 0)) {
         result.schemaVersion_ = schemaVersion_;
       }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.sessionId_ = sessionId_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.sessionIdSource_ = sessionIdSource_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -1136,6 +1270,16 @@ java.lang.String defaultValue) {
       if (!other.getSchemaVersion().isEmpty()) {
         schemaVersion_ = other.schemaVersion_;
         bitField0_ |= 0x00000200;
+        onChanged();
+      }
+      if (!other.getSessionId().isEmpty()) {
+        sessionId_ = other.sessionId_;
+        bitField0_ |= 0x00000400;
+        onChanged();
+      }
+      if (!other.getSessionIdSource().isEmpty()) {
+        sessionIdSource_ = other.sessionIdSource_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1226,6 +1370,16 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00000200;
               break;
             } // case 90
+            case 98: {
+              sessionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            case 106: {
+              sessionIdSource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 106
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2668,6 +2822,215 @@ java.lang.String defaultValue) {
       return this;
     }
 
+    private java.lang.Object sessionId_ = "";
+    /**
+     * <pre>
+     * Visit associated with this event. Empty when no visit was recorded.
+     *
+     * +kubebuilder:example="session-1"
+     * </pre>
+     *
+     * <code>string session_id = 12 [json_name = "sessionId"];</code>
+     * @return The sessionId.
+     */
+    public java.lang.String getSessionId() {
+      java.lang.Object ref = sessionId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sessionId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Visit associated with this event. Empty when no visit was recorded.
+     *
+     * +kubebuilder:example="session-1"
+     * </pre>
+     *
+     * <code>string session_id = 12 [json_name = "sessionId"];</code>
+     * @return The bytes for sessionId.
+     */
+    public com.google.protobuf.ByteString
+        getSessionIdBytes() {
+      java.lang.Object ref = sessionId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sessionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Visit associated with this event. Empty when no visit was recorded.
+     *
+     * +kubebuilder:example="session-1"
+     * </pre>
+     *
+     * <code>string session_id = 12 [json_name = "sessionId"];</code>
+     * @param value The sessionId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSessionId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      sessionId_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Visit associated with this event. Empty when no visit was recorded.
+     *
+     * +kubebuilder:example="session-1"
+     * </pre>
+     *
+     * <code>string session_id = 12 [json_name = "sessionId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSessionId() {
+      sessionId_ = getDefaultInstance().getSessionId();
+      bitField0_ = (bitField0_ & ~0x00000400);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Visit associated with this event. Empty when no visit was recorded.
+     *
+     * +kubebuilder:example="session-1"
+     * </pre>
+     *
+     * <code>string session_id = 12 [json_name = "sessionId"];</code>
+     * @param value The bytes for sessionId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSessionIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      sessionId_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object sessionIdSource_ = "";
+    /**
+     * <pre>
+     * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+     * Empty when this event has no visit association.
+     *
+     * +kubebuilder:example="NEW_SESSION"
+     * </pre>
+     *
+     * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+     * @return The sessionIdSource.
+     */
+    public java.lang.String getSessionIdSource() {
+      java.lang.Object ref = sessionIdSource_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sessionIdSource_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+     * Empty when this event has no visit association.
+     *
+     * +kubebuilder:example="NEW_SESSION"
+     * </pre>
+     *
+     * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+     * @return The bytes for sessionIdSource.
+     */
+    public com.google.protobuf.ByteString
+        getSessionIdSourceBytes() {
+      java.lang.Object ref = sessionIdSource_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sessionIdSource_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+     * Empty when this event has no visit association.
+     *
+     * +kubebuilder:example="NEW_SESSION"
+     * </pre>
+     *
+     * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+     * @param value The sessionIdSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSessionIdSource(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      sessionIdSource_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+     * Empty when this event has no visit association.
+     *
+     * +kubebuilder:example="NEW_SESSION"
+     * </pre>
+     *
+     * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSessionIdSource() {
+      sessionIdSource_ = getDefaultInstance().getSessionIdSource();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+     * Empty when this event has no visit association.
+     *
+     * +kubebuilder:example="NEW_SESSION"
+     * </pre>
+     *
+     * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+     * @param value The bytes for sessionIdSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSessionIdSourceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      sessionIdSource_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
     /* Generated by protoc-gen-java-set-or-clear */
     
     /**
@@ -2886,6 +3249,52 @@ java.lang.String defaultValue) {
     		return clearSchemaVersion();
     	else
     		return setSchemaVersion(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The session_id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearSessionId(java.lang.String value) {
+    	if (value == null)
+    		return clearSessionId();
+    	else
+    		return setSessionId(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearSessionId(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearSessionId();
+    	else
+    		return setSessionId(mapFunc.apply(value));
+    }
+    	
+    /**
+     * @param value The session_id_source to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrClearSessionIdSource(java.lang.String value) {
+    	if (value == null)
+    		return clearSessionIdSource();
+    	else
+    		return setSessionIdSource(value);
+    }
+    	
+    /**
+     * @param value The value to map.
+     * @param mapFunc The function to map the value into the proto message.
+     * @return This builder for chaining.
+     */
+    public <T> Builder mapOrClearSessionIdSource(T value, java.util.function.Function<T, java.lang.String> mapFunc) {
+    	if (value == null)
+    		return clearSessionIdSource();
+    	else
+    		return setSessionIdSource(mapFunc.apply(value));
     }
     	
     // @@protoc_insertion_point(builder_scope:coreapi.model.Event)

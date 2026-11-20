@@ -76,8 +76,17 @@ type Event struct {
 	//
 	// +kubebuilder:example="v1"
 	SchemaVersion string `protobuf:"bytes,11,opt,name=schema_version,json=schemaVersion,proto3" json:"schema_version,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// Visit associated with this event. Empty when no visit was recorded.
+	//
+	// +kubebuilder:example="session-1"
+	SessionId string `protobuf:"bytes,12,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	// How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+	// Empty when this event has no visit association.
+	//
+	// +kubebuilder:example="NEW_SESSION"
+	SessionIdSource string `protobuf:"bytes,13,opt,name=session_id_source,json=sessionIdSource,proto3" json:"session_id_source,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *Event) Reset() {
@@ -180,11 +189,25 @@ func (x *Event) GetSchemaVersion() string {
 	return ""
 }
 
+func (x *Event) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *Event) GetSessionIdSource() string {
+	if x != nil {
+		return x.SessionIdSource
+	}
+	return ""
+}
+
 var File_coreapi_model_event_proto protoreflect.FileDescriptor
 
 const file_coreapi_model_event_proto_rawDesc = "" +
 	"\n" +
-	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc0\x05\n" +
+	"\x19coreapi/model/event.proto\x12\rcoreapi.model\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8b\x06\n" +
 	"\x05Event\x12\x1f\n" +
 	"\auser_id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06userId\x12\x16\n" +
 	"\x02id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12%\n" +
@@ -200,7 +223,10 @@ const file_coreapi_model_event_proto_rawDesc = "" +
 	"\rname_i18n_map\x18\t \x03(\v2%.coreapi.model.Event.NameI18nMapEntryR\vnameI18nMap\x121\n" +
 	"\acontext\x18\n" +
 	" \x01(\v2\x17.google.protobuf.StructR\acontext\x12%\n" +
-	"\x0eschema_version\x18\v \x01(\tR\rschemaVersion\x1a>\n" +
+	"\x0eschema_version\x18\v \x01(\tR\rschemaVersion\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\f \x01(\tR\tsessionId\x12*\n" +
+	"\x11session_id_source\x18\r \x01(\tR\x0fsessionIdSource\x1a>\n" +
 	"\x10NameI18nMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\b\x10\tR\aversionBb\n" +

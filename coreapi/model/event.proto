@@ -85,4 +85,14 @@ message Event {
   //
   // +kubebuilder:example="v1"
   string schema_version = 11;
+  // Visit associated with this event. Empty when no visit was recorded.
+  //
+  // +kubebuilder:example="session-1"
+  string session_id = 12;
+
+  // How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+  // Empty when this event has no visit association.
+  //
+  // +kubebuilder:example="NEW_SESSION"
+  string session_id_source = 13;
 }

@@ -345,4 +345,54 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getSchemaVersionBytes();
+
+  /**
+   * <pre>
+   * Visit associated with this event. Empty when no visit was recorded.
+   *
+   * +kubebuilder:example="session-1"
+   * </pre>
+   *
+   * <code>string session_id = 12 [json_name = "sessionId"];</code>
+   * @return The sessionId.
+   */
+  java.lang.String getSessionId();
+  /**
+   * <pre>
+   * Visit associated with this event. Empty when no visit was recorded.
+   *
+   * +kubebuilder:example="session-1"
+   * </pre>
+   *
+   * <code>string session_id = 12 [json_name = "sessionId"];</code>
+   * @return The bytes for sessionId.
+   */
+  com.google.protobuf.ByteString
+      getSessionIdBytes();
+
+  /**
+   * <pre>
+   * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+   * Empty when this event has no visit association.
+   *
+   * +kubebuilder:example="NEW_SESSION"
+   * </pre>
+   *
+   * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+   * @return The sessionIdSource.
+   */
+  java.lang.String getSessionIdSource();
+  /**
+   * <pre>
+   * How the visit was selected: HINT, LAST_ACTIVE_SESSION, or NEW_SESSION.
+   * Empty when this event has no visit association.
+   *
+   * +kubebuilder:example="NEW_SESSION"
+   * </pre>
+   *
+   * <code>string session_id_source = 13 [json_name = "sessionIdSource"];</code>
+   * @return The bytes for sessionIdSource.
+   */
+  com.google.protobuf.ByteString
+      getSessionIdSourceBytes();
 }
