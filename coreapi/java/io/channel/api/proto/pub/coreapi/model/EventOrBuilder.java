@@ -345,4 +345,28 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getSchemaVersionBytes();
+
+  /**
+   * <pre>
+   * Visit associated with this event. Empty when no visit was recorded.
+   *
+   * +kubebuilder:example="session-1"
+   * </pre>
+   *
+   * <code>string session_id = 12 [json_name = "sessionId"];</code>
+   * @return The sessionId.
+   */
+  java.lang.String getSessionId();
+  /**
+   * <pre>
+   * Visit associated with this event. Empty when no visit was recorded.
+   *
+   * +kubebuilder:example="session-1"
+   * </pre>
+   *
+   * <code>string session_id = 12 [json_name = "sessionId"];</code>
+   * @return The bytes for sessionId.
+   */
+  com.google.protobuf.ByteString
+      getSessionIdBytes();
 }
