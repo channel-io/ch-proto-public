@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * +kubebuilder:example="Channel-bot"
    * </pre>
    *
@@ -94,7 +94,7 @@ private static final long serialVersionUID = 0L;
    * +kubebuilder:validation:Required
    * +kubebuilder:validation:MinLength=1
    * +kubebuilder:validation:MaxLength=30
-   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+   * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
    * +kubebuilder:example="Channel-bot"
    * </pre>
    *
@@ -505,7 +505,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * +kubebuilder:example="Channel-bot"
      * </pre>
      *
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * +kubebuilder:example="Channel-bot"
      * </pre>
      *
@@ -560,7 +560,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * +kubebuilder:example="Channel-bot"
      * </pre>
      *
@@ -584,7 +584,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * +kubebuilder:example="Channel-bot"
      * </pre>
      *
@@ -605,7 +605,7 @@ private static final long serialVersionUID = 0L;
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:MinLength=1
      * +kubebuilder:validation:MaxLength=30
-     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;]+$"
+     * +kubebuilder:validation:Pattern="^[^&#64;#$%:/&#92;&#92;]+$"
      * +kubebuilder:example="Channel-bot"
      * </pre>
      *

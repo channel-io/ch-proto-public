@@ -247,7 +247,7 @@ type Manager struct {
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:MinLength=1
 	// +kubebuilder:validation:MaxLength=30
-	// +kubebuilder:validation:Pattern="^[^@#$%:/\]+$"
+	// +kubebuilder:validation:Pattern="^[^@#$%:/\\]+$"
 	// +kubebuilder:example="John Doe"
 	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Free-text summary displayed on the manager profile.
